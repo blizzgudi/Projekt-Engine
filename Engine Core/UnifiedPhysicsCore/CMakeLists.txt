@@ -10,3 +10,22 @@ enable_testing()
 add_test(NAME physics_core_tests COMMAND upc_tests)
 add_executable(upc_dam_break examples/dam_break.cpp)
 target_link_libraries(upc_dam_break PRIVATE upc)
+
+add_executable(upc_materials_tests tests/materials_tests.cpp)
+target_link_libraries(upc_materials_tests PRIVATE upc)
+add_test(NAME physics_materials_tests COMMAND upc_materials_tests)
+
+add_executable(upc_volume3d_tests tests/volume3d_tests.cpp)
+target_link_libraries(upc_volume3d_tests PRIVATE upc)
+add_test(NAME physics_3d_transport_tests COMMAND upc_volume3d_tests)
+
+add_executable(upc_solid_tests tests/solid_tests.cpp)
+target_link_libraries(upc_solid_tests PRIVATE upc)
+add_test(NAME physics_solid_tests COMMAND upc_solid_tests)
+
+add_executable(upc_mac3d_tests tests/mac3d_tests.cpp)
+target_link_libraries(upc_mac3d_tests PRIVATE upc)
+add_test(NAME physics_mac3d_tests COMMAND upc_mac3d_tests)
+
+add_executable(upc_bench benchmarks/bench.cpp)
+target_link_libraries(upc_bench PRIVATE upc)

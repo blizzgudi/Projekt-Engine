@@ -1,0 +1,17 @@
+{
+  "FileVersion": 3,
+  "Version": 1,
+  "VersionName": "0.1.0",
+  "FriendlyName": "Engine Material Lab",
+  "Description": "Adapter to standalone Unified Physics Core in D:/Projekt Engine. Experimental.",
+  "Category": "Physics",
+  "EnabledByDefault": false,
+  "CanContainContent": false,
+  "Modules": [
+    {
+      "Name": "EngineMaterialLab",
+      "Type": "Runtime",
+      "LoadingPhase": "Default"
+    }
+  ]
+}

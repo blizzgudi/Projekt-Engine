@@ -1,0 +1,16 @@
+{
+  "FileVersion": 3,
+  "EngineAssociation": "5.8",
+  "Category": "Experimente",
+  "Description": "ENGINE TEST STUBE: isoliertes Unreal Engine 5.8 Testlabor",
+  "Plugins": [
+    {
+      "Name": "PythonScriptPlugin",
+      "Enabled": true
+    },
+    {
+      "Name": "EngineMaterialLab",
+      "Enabled": true
+    }
+  ]
+}

@@ -4,15 +4,15 @@ Stand: 2026-10-26. Status bezieht sich auf den realen Code, nicht auf Ambitionen
 
 | Phase | Inhalt | Akzeptanzkriterium | Stand |
 |---|---|---|---|
-| P0 | Repo/Ordnerstruktur, C++17-Build, Material-IDs, 3D-Voxelzustand, Tests | MSVC kompiliert, Tests gruen, Git commit | MSVC-Build, 472 Assertions und lokaler Git-Commit PASS |
-| P1 | Konservativer Basis-Wassersolver als Nachweis | Dammbruch, Druck, stabile Masse, Hindernisse | numerische Basistests PASS; unabhängige Referenzvalidierung OFFEN |
-| P2 | Echte volumetrische 3D-Wassertechnik erforschen und auswaehlen (MAC/FLIP/APIC/MPM) | Vergleich mit Referenzfaellen, Speicherbudget, 3D-Kollision | geplant |
-| P3 | Gekoppelte Material- und Volumenphysik | Wasser sickert in poroesen Boden, Krafteinwirkung, Energiebilanz | geplant |
-| P4 | Thermodynamik und Phasenwechsel | validierte Waerme-/Massenerhaltung; Wasser/Eis/Dampf | geplant |
-| P5 | Festkoerper, Bruch, granulare Stoffe | Belastungs-/Bruchtests und stabile Kontakte | geplant |
-| P6 | Dynamische Materialmischungen und Regeln | Mischung mit Massenbilanz, reproduzierbare Reaktionen | geplant |
-| P7 | Sparse Chunks, LOD, GPU-Prototyp | CPU/GPU-Vergleich, Skalierung, Latenzgrenzen | geplant |
-| P8 | UE5.8-Anbindung ueber genau einen Adapter | Editor-Reload, Runtime-Test, Rendering/E2E | geplant |
+| P0 | Repo/Ordnerstruktur, C++17-Build, Material-IDs, 3D-Voxelzustand, Tests | MSVC kompiliert, Tests gruen, Git commit | MSVC-Build und 5 CTest-Suites PASS, lokaler Git-Commit vorhanden |
+| P1 | Konservativer Basis-Wassersolver als Nachweis | Dammbruch, Druck, stabile Masse, Hindernisse | 2D Dammbruch/Masse/Hindernis PASS; unabhängige Referenzvalidierung offen |
+| P2 | Echte volumetrische 3D-Wassertechnik erforschen und auswaehlen (MAC/FLIP/APIC/MPM) | Vergleich mit Referenzfaellen, Speicherbudget, 3D-Kollision | 3D Volumentransport + separater MAC Druckprojektor tests PASS; gekoppelte 3D-Wasserphysik offen |
+| P3 | Gekoppelte Material- und Volumenphysik | Wasser sickert in poroesen Boden, Krafteinwirkung, Energiebilanz | Lokaler konservativer Wasser-Boden-Transfer getestet; 3D-FSI offen |
+| P4 | Thermodynamik und Phasenwechsel | validierte Waerme-/Massenerhaltung; Wasser/Eis/Dampf | Enthalpiemodell Wasser/Eis/Dampf getestet; Waerme-Kopplung offen |
+| P5 | Festkoerper, Bruch, granulare Stoffe | Belastungs-/Bruchtests und stabile Kontakte | 3D Federkoerper und Bruchgrenze getestet; robuste Kontaktdynamik offen |
+| P6 | Dynamische Materialmischungen und Regeln | Mischung mit Massenbilanz, reproduzierbare Reaktionen | Mengenbilanz und idealisierte Mischung getestet; Chemie offen |
+| P7 | Sparse Chunks, LOD, GPU-Prototyp | CPU/GPU-Vergleich, Skalierung, Latenzgrenzen | Sparse Chunk CPU, CPU-Benchmarks vorhanden; LOD/GPU offen |
+| P8 | UE5.8-Anbindung ueber genau einen Adapter | Editor-Reload, Runtime-Test, Rendering/E2E | UE5.8 BuildPlugin/Modulstart PASS; PIE/Rendering/E2E offen; Headless Quit musste abgebrochen werden |
 
 ## Architekturregeln
 1. D:\\Projekt Engine ist Projektwurzel. Keine neuen Root-Ordner auf D:\\.
@@ -22,3 +22,11 @@ Stand: 2026-10-26. Status bezieht sich auf den realen Code, nicht auf Ambitionen
 5. Tests pruefen Erhaltung, Grenzwerte, Stabilitaet, Referenzfaelle und reale Laufzeit.
 6. Nie aus einem 2D-Wassertest auf korrektes 3D-Wasser, Boden oder AAA-Spielqualitaet schliessen.
 7. GitHub: privates separates Repo \`Projekt-Engine\` bevorzugt; GitHub-Remote erst nach tatsaechlich bestaetigter Erstellung eintragen. Bestehendes AI-Game-Studio-Repo nicht veraendern.
+
+## Aktuelle Beleglage
+- MSVC-CMake Release: 5/5 Tests erfolgreich; erweiterte Material-/Fluid-/Solid-Tests nachträglich ergänzt.
+- Unreal Engine 5.8: RunUAT BuildPlugin Win64 Development + Shipping erfolgreich. Pluginstart im UE-Log nachgewiesen, aber kein visueller Runtime-/Gameplaytest.
+- CPU-Benchmark: `ENGINE TEST STUBE/runs/unified_physics_v0_2_cpu_bench.csv`.
+- Maschinenlesbare Statuspruefung: `Engine Core/UnifiedPhysicsCore/scripts/phase_gate.py`.
+- Externe Grundlagen: Robert Bridson, SIGGRAPH Fluids 2007 (MAC/Projection); UE5.8 Plugin/Module API Dokumentation.
+- Nur P0 gilt vollstaendig als abgeschlossen. Alle anderen Phasen besitzen noch offene Akzeptanzkriterien.

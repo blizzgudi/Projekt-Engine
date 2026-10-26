@@ -21,3 +21,8 @@ ENGINE TEST STUBE/experiments/*/output/
 ENGINE TEST STUBE/runs/
 ENGINE TEST STUBE/benchmarks/
 Thumbs.db
+
+# Isolated UE adapter package output
+ENGINE TEST STUBE/unreal/builds/
+# Regenerated Unreal editor logs and local user files
+ENGINE TEST STUBE/unreal/ENGINE_TEST_STUBE/.vs/
