@@ -1,0 +1,30 @@
+{
+  "_hinweis": "Vorlage fuer den zukuenftigen Engine-Material-Lab-Editor. Diese Datei wird aktuell noch NICHT automatisch vom C++-Core oder Unreal-Plugin geladen.",
+  "schema_version": 1,
+  "materials": [
+    {
+      "material_id": 1,
+      "name": "Wasser",
+      "physics": {"phase": "Liquid", "density_kg_m3": 1000.0, "viscosity_pa_s": 0.001},
+      "appearance": {"base_color_rgb": [0.06, 0.35, 0.82], "opacity": 0.45, "metallic": 0.0, "roughness": 0.08, "emissive_rgb": [0, 0, 0], "emissive_strength": 0}
+    },
+    {
+      "material_id": 2,
+      "name": "Eis",
+      "physics": {"phase": "Solid", "density_kg_m3": 917.0, "viscosity_pa_s": 0.0},
+      "appearance": {"base_color_rgb": [0.64, 0.87, 0.96], "opacity": 0.78, "metallic": 0.0, "roughness": 0.22, "emissive_rgb": [0, 0, 0], "emissive_strength": 0}
+    },
+    {
+      "material_id": 3,
+      "name": "Sand",
+      "physics": {"phase": "Solid", "density_kg_m3": 1600.0, "viscosity_pa_s": 0.0},
+      "appearance": {"base_color_rgb": [0.74, 0.61, 0.38], "opacity": 1.0, "metallic": 0.0, "roughness": 0.94, "emissive_rgb": [0, 0, 0], "emissive_strength": 0}
+    },
+    {
+      "material_id": 4,
+      "name": "Metall",
+      "physics": {"phase": "Solid", "density_kg_m3": 7800.0, "viscosity_pa_s": 0.0},
+      "appearance": {"base_color_rgb": [0.52, 0.56, 0.60], "opacity": 1.0, "metallic": 1.0, "roughness": 0.27, "emissive_rgb": [0, 0, 0], "emissive_strength": 0}
+    }
+  ]
+}
