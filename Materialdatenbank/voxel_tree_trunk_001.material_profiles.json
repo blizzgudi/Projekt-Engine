@@ -1,0 +1,257 @@
+{
+  "schema_version": 1,
+  "profile_id": "voxel_tree_trunk_001",
+  "display_name": "Virtueller Baumstamm 001",
+  "source": "D:/Projekt Engine/ENGINE TEST STUBE/experiments/voxel_tree_trunk_001/trunk_printer.cpp",
+  "source_report": "D:/Projekt Engine/ENGINE TEST STUBE/experiments/voxel_tree_trunk_001/output/report.json",
+  "source_material_export": "D:/Projekt Engine/ENGINE TEST STUBE/experiments/voxel_tree_trunk_001/output/tree_trunk_full.mtl",
+  "species": "UNSPECIFIED; demonstration timber, NOT a named biological species",
+  "evidence_type": "Existing measured voxel counts and assigned densities, existing exported MTL colors; all additional material-mechanics/thermal/moisture numbers are DESIGN PLACEHOLDERS, not validated natural constants",
+  "initial_voxel_grid": {
+    "nx": 72,
+    "ny": 72,
+    "nz": 112,
+    "cell_size_m": 0.012,
+    "height_m": 1.344,
+    "occupied_voxels": 122683,
+    "core_mass_kg": 131.897998079873,
+    "printer": "real upc::MaterialLibrary + upc::VoxelGrid"
+  },
+  "geometry_rules": {
+    "outer_bark_depth_m": 0.028,
+    "cambium_visualized_depth_m": 0.015,
+    "sapwood_depth_m": 0.063,
+    "root_buttresses": 5,
+    "outer_bark_grooves": true,
+    "cambium_thickness_is_biologically_exaggerated": true
+  },
+  "rendering_status": {
+    "native_core_profile_loader_implemented": false,
+    "unreal_material_binding_implemented": false,
+    "existing_export_mtl_colors_present": true,
+    "offline_raster_validation_PASS": true
+  },
+  "caution": "The old 131.898 kg mass comes from already assigned voxel counts and density only; do not recompute it from proposed moisture metadata or replacement density, unless deliberately starting a NEW calibrated test.",
+  "material_profiles": [
+    {
+      "material_id": 1101,
+      "voxel_id": 1,
+      "name": "Kernholz",
+      "name_en": "heartwood",
+      "voxel_count": 34697,
+      "mass_kg_in_existing_trunk": 43.16861952,
+      "physics": {
+        "phase": "Solid",
+        "density_kg_m3": 720,
+        "viscosity_pa_s": 0
+      },
+      "appearance": {
+        "base_color_rgb": [
+          0.490196,
+          0.286275,
+          0.168627
+        ],
+        "base_color_hex": "#7D492B",
+        "opacity": 1,
+        "metallic": 0,
+        "roughness": 0.72,
+        "emissive_rgb": [
+          0,
+          0,
+          0
+        ],
+        "emissive_strength": 0,
+        "fiber_direction_trunk_axis": "Z",
+        "suggestion": "inner core"
+      },
+      "prospective_simulation_NOT_USED_BY_CORE": {
+        "mechanical_orthotropic_design_start_values": {
+          "elastic_modulus_axial_pa": 12000000000,
+          "elastic_modulus_radial_pa": 950000000,
+          "tensile_strength_axial_pa": 90000000,
+          "compressive_strength_axial_pa": 50000000,
+          "shear_strength_axial_pa": 9000000
+        },
+        "thermal_design_start_values": {
+          "conductivity_w_m_k": 0.16,
+          "specific_heat_j_kg_k": 1600,
+          "pyrolysis_onset_guess_celsius": 250
+        },
+        "biological_moisture_descriptive_start_value": {
+          "water_content_pct_of_dry_mass": 35,
+          "changes_physical_mass_in_current_test": false
+        },
+        "function": "Primarily structural, no active water transport"
+      },
+      "accuracy_notes": [
+        "Appearance tuned to the actual test OBJ/MTL export.",
+        "Mechanical, thermal and moisture inputs are provisional and require a species and a calibrated solver."
+      ]
+    },
+    {
+      "material_id": 1102,
+      "voxel_id": 2,
+      "name": "Splintholz",
+      "name_en": "sapwood",
+      "voxel_count": 45621,
+      "mass_kg_in_existing_trunk": 43.3581984,
+      "physics": {
+        "phase": "Solid",
+        "density_kg_m3": 550,
+        "viscosity_pa_s": 0
+      },
+      "appearance": {
+        "base_color_rgb": [
+          0.792157,
+          0.627451,
+          0.407843
+        ],
+        "base_color_hex": "#CAA068",
+        "opacity": 1,
+        "metallic": 0,
+        "roughness": 0.68,
+        "emissive_rgb": [
+          0,
+          0,
+          0
+        ],
+        "emissive_strength": 0,
+        "fiber_direction_trunk_axis": "Z",
+        "suggestion": "living xylem"
+      },
+      "prospective_simulation_NOT_USED_BY_CORE": {
+        "mechanical_orthotropic_design_start_values": {
+          "elastic_modulus_axial_pa": 9000000000,
+          "elastic_modulus_radial_pa": 650000000,
+          "tensile_strength_axial_pa": 65000000,
+          "compressive_strength_axial_pa": 38000000,
+          "shear_strength_axial_pa": 7000000
+        },
+        "thermal_design_start_values": {
+          "conductivity_w_m_k": 0.13,
+          "specific_heat_j_kg_k": 1700,
+          "pyrolysis_onset_guess_celsius": 250
+        },
+        "biological_moisture_descriptive_start_value": {
+          "water_content_pct_of_dry_mass": 85,
+          "changes_physical_mass_in_current_test": false
+        },
+        "function": "Water and mineral transport; structural wood"
+      },
+      "accuracy_notes": [
+        "Appearance tuned to the actual test OBJ/MTL export.",
+        "Mechanical, thermal and moisture inputs are provisional and require a species and a calibrated solver."
+      ]
+    },
+    {
+      "material_id": 1103,
+      "voxel_id": 3,
+      "name": "Wachstumsschicht (Kambium)",
+      "name_en": "cambium",
+      "voxel_count": 13794,
+      "mass_kg_in_existing_trunk": 15.25506048,
+      "physics": {
+        "phase": "Solid",
+        "density_kg_m3": 640,
+        "viscosity_pa_s": 0
+      },
+      "appearance": {
+        "base_color_rgb": [
+          0.92549,
+          0.815686,
+          0.533333
+        ],
+        "base_color_hex": "#ECD088",
+        "opacity": 1,
+        "metallic": 0,
+        "roughness": 0.55,
+        "emissive_rgb": [
+          0,
+          0,
+          0
+        ],
+        "emissive_strength": 0,
+        "fiber_direction_trunk_axis": "Z",
+        "suggestion": "thin growth tissue between wood and inner bark"
+      },
+      "prospective_simulation_NOT_USED_BY_CORE": {
+        "mechanical_orthotropic_design_start_values": {
+          "elastic_modulus_axial_pa": 10000000,
+          "elastic_modulus_radial_pa": 4000000,
+          "tensile_strength_axial_pa": 600000,
+          "compressive_strength_axial_pa": 400000,
+          "shear_strength_axial_pa": 150000
+        },
+        "thermal_design_start_values": {
+          "conductivity_w_m_k": 0.25,
+          "specific_heat_j_kg_k": 2800,
+          "pyrolysis_onset_guess_celsius": 250
+        },
+        "biological_moisture_descriptive_start_value": {
+          "water_content_pct_of_dry_mass": 150,
+          "changes_physical_mass_in_current_test": false
+        },
+        "function": "Cell division to create wood inward and phloem outward; not actually simulated"
+      },
+      "accuracy_notes": [
+        "Appearance tuned to the actual test OBJ/MTL export.",
+        "Mechanical, thermal and moisture inputs are provisional and require a species and a calibrated solver."
+      ]
+    },
+    {
+      "material_id": 1104,
+      "voxel_id": 4,
+      "name": "Rinde",
+      "name_en": "bark",
+      "voxel_count": 28571,
+      "mass_kg_in_existing_trunk": 30.11611968,
+      "physics": {
+        "phase": "Solid",
+        "density_kg_m3": 610,
+        "viscosity_pa_s": 0
+      },
+      "appearance": {
+        "base_color_rgb": [
+          0.254902,
+          0.164706,
+          0.121569
+        ],
+        "base_color_hex": "#412A1F",
+        "opacity": 1,
+        "metallic": 0,
+        "roughness": 0.95,
+        "emissive_rgb": [
+          0,
+          0,
+          0
+        ],
+        "emissive_strength": 0,
+        "fiber_direction_trunk_axis": "Z",
+        "suggestion": "outer protective bark"
+      },
+      "prospective_simulation_NOT_USED_BY_CORE": {
+        "mechanical_orthotropic_design_start_values": {
+          "elastic_modulus_axial_pa": 750000000,
+          "elastic_modulus_radial_pa": 120000000,
+          "tensile_strength_axial_pa": 5000000,
+          "compressive_strength_axial_pa": 8000000,
+          "shear_strength_axial_pa": 1200000
+        },
+        "thermal_design_start_values": {
+          "conductivity_w_m_k": 0.1,
+          "specific_heat_j_kg_k": 1800,
+          "pyrolysis_onset_guess_celsius": 250
+        },
+        "biological_moisture_descriptive_start_value": {
+          "water_content_pct_of_dry_mass": 40,
+          "changes_physical_mass_in_current_test": false
+        },
+        "function": "Outer insulation and protective layer; erosion and aging not yet simulated"
+      },
+      "accuracy_notes": [
+        "Appearance tuned to the actual test OBJ/MTL export.",
+        "Mechanical, thermal and moisture inputs are provisional and require a species and a calibrated solver."
+      ]
+    }
+  ]
+}
