@@ -30,9 +30,17 @@ mit MSVC Release + CTest nachgewiesen.
   benachbarte P4-Festkörperzelle. Synthetic-CPU-MVP, **keine**
   automatischen echten Chemievorhersagen.
 
+- P8: Unreal Engine 5.8 Native-Adapter mit echter 3D-MAC/VOF-
+  Wassersimulation, dynamischem Unreal-InstancedStaticMesh-Rendering,
+  native Game- und Editor-PIE-Sitzungen mit ExitCode=0, zwei echten
+  GPU-SceneCapture-PNGs 960x540 und reproduzierbarem Quellen-/
+  Binär-/Rendering-E2E-Nachweis. Nur P2-Wasser visuell angebunden,
+  P3–P6 UE-Gesamtszenen bleiben zukünftiger Ausbau.
+  Nachweis: docs/P8_UNREAL58_NATIVE_E2E_ABNAHME.md.
+
 ## Noch nicht abgeschlossen
 P7: GPU/LOD und Skalierung.
-P8: Unreal5.8-Gameplay-/Rendering- und End-to-End-Test.
+
 
 ## Referenznachweise
 docs/P1_2D_FLUID_ABNAHME.md
@@ -41,6 +49,7 @@ docs/P3_MATERIAL_VOLUME_ABNAHME.md
 docs/P4_THERMAL_CPU_MVP_ABNAHME.md
 docs/P5_SOLID_GRANULAR_CPU_MVP_ABNAHME.md
 docs/P6_REACTIVE_MATERIALS_CPU_MVP_ABNAHME.md
+docs/P8_UNREAL58_NATIVE_E2E_ABNAHME.md
 docs/PHASENPLAN.md
 
 Wichtige Einschränkung: P4, P5 und P6 sind abgegrenzte CPU-MVPs. Sie sind keine
@@ -57,6 +66,8 @@ keine globale kinetische Energie-Rückkopplung aller Physics-Module.
   scripts/p4_partial_acceptance.py, scripts/p4_acceptance.py,
   scripts/p5_contact_partial.py, scripts/p5_acceptance.py,
   scripts/p5_full_acceptance.py, scripts/p6_acceptance.py ausführen.
+- P8 real Unreal Game+Editor PIE mit ENGINE TEST STUBE/scripts/p8_native_e2e.py
+  game und pie starten, danach scripts/p8_acceptance.py ausführen.
 - Abschließend scripts/phase_gate.py.
 - Maschinenlesbare Nachweise liegen unter:
   D:\Projekt Engine\ENGINE TEST STUBE\runs\

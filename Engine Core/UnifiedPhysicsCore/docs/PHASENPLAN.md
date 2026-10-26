@@ -12,7 +12,7 @@ Stand: 2026-10-26. Status bezieht sich auf den realen Code, nicht auf Ambitionen
 | P5 | Festkoerper, Bruch, granulare Stoffe | Belastungs-/Bruchtests und stabile Kontakte | **PASS (abgegrenzter 3D-CPU-MVP)**: 26-Nachbar-Volumen-Federgitter mit Dehnungsbruch, zwei nachgewiesenen Fragmenten und VoxelGrid-Damage-Writeback; robuste feste Ebenenkontakte, Paar-/Wandkornkollisionen, Schwerkraftstapel; nichtgebundene volumetrische Knotenselbst- und Mehrkörperkontakte inklusive Impuls-/Bruchdissipationsprüfung; Hooke/e²/affine Zug- und Scher-Referenz bei 4³/6³/8³. **Kein** FEM/MPM-Kontinuum, exakt verformte Meshoberflächenkontakte, unabhängige Sandmessdaten oder globale FSI-Energievalidierung (docs/P5_SOLID_GRANULAR_CPU_MVP_ABNAHME.md). |
 | P6 | Dynamische Materialmischungen und Regeln | Mischung mit Massenbilanz, reproduzierbare Reaktionen | **PASS (abgegrenzter 3D-CPU-MVP)**: MaterialLibrary-ID-basierte mehrspeziesige Voxel-Zusammensetzung (mol, Masse, Dichte/Volumen), Element- und Massenbilanzprüfung an jeder Reaktionsdefinition, begrenzte Arrhenius-Reaktionsregeln, chemische-zu-sensible Reaktionswärme, konservative sechsfächige 3D-Fick-Diffusion, dominante Material-ID als VoxelGrid-Proxy und energieerhaltender Kontakt zum P4-Thermal-Solver; quantitative 285/320/380 K Kinetikreferenz und 8³/12³/16³-Diffusionsmessungen. **Keine** automatisch kalibrierte reale Chemie, Multiphase-CFD, universelle Materialreaktion oder globale FSI-Energievalidierung (docs/P6_REACTIVE_MATERIALS_CPU_MVP_ABNAHME.md). |
 | P7 | Sparse Chunks, LOD, GPU-Prototyp | CPU/GPU-Vergleich, Skalierung, Latenzgrenzen | **PARTIAL**: konservative 8³-Sparse-Brick-LOD-Snapshots aus echtem 3D-MAC/VOF-Wasser mit 17×13×9-Randzellen, 64³-Sparse-Memory-Nachweis, 30 Live-MAC-Steps, 32³/48³/64³ CPU-Referenzen; quantitative Teilabnahme unter docs/P7_SPARSE_LOD_PARTIAL.md. GPU-Compute, CPU/GPU-Parität, Streaming- und Latenzgrenzen weiterhin offen. |
-| P8 | UE5.8-Anbindung ueber genau einen Adapter | Editor-Reload, Runtime-Test, Rendering/E2E | UE5.8 BuildPlugin/Modulstart PASS; PIE/Rendering/E2E offen; Headless Quit musste abgebrochen werden |
+| P8 | UE5.8-Anbindung ueber genau einen Adapter | Editor-Reload, Runtime-Test, Rendering/E2E | **PASS (abgegrenzter UE5.8-Native-E2E für P2-3D-MAC-Wasser)**: unabhängiges Runtime-Plugin EngineMaterialLab nutzt reale Standalone-UPC-C++-Header mit unverändertem SHA; Win64-Editor-Development/Game-Development/Game-Shipping-BuildPlugin erfolgreich. Zwei separate echte UnrealEditor-Prozesse: Game und editorinterne PIE-Simulation, beide ExitCode 0 ohne Crash. 12×8×6 3D-MAC-Flüssigkeitsbewegung, konstante 128 kg, Wasserausbreitung außerhalb des ursprünglichen Damms und 280 UE-InstancedStaticMesh-Wasservoxel; echte GPU-SceneCapture-PNG 960×540 in Game UND PIE sowie überprüfte Logs/Pixel/Hashes. P3–P6 noch nicht als UE-Szenen integriert, GPU-/LOD-Milestone P7 bleibt offen (docs/P8_UNREAL58_NATIVE_E2E_ABNAHME.md). |
 
 ## Architekturregeln
 1. D:\\Projekt Engine ist Projektwurzel. Keine neuen Root-Ordner auf D:\\.
@@ -25,11 +25,11 @@ Stand: 2026-10-26. Status bezieht sich auf den realen Code, nicht auf Ambitionen
 
 ## Aktuelle Beleglage
 - MSVC-CMake Release: 5/5 Tests erfolgreich; erweiterte Material-/Fluid-/Solid-Tests nachträglich ergänzt.
-- Unreal Engine 5.8: RunUAT BuildPlugin Win64 Development + Shipping erfolgreich. Pluginstart im UE-Log nachgewiesen, aber kein visueller Runtime-/Gameplaytest.
+- Unreal Engine 5.8: echter RunUAT BuildPlugin Win64 UnrealEditor-Development, UnrealGame-Development und UnrealGame-Shipping PASS; reale Native-Game-/Editor-PIE-E2E samt ExitCode 0, Live-3D-MAC-VOF-Bewegung und gerenderten PNGs durch P8-Abnahmeskript nachgewiesen.
 - CPU-Benchmark: `ENGINE TEST STUBE/runs/unified_physics_v0_2_cpu_bench.csv`.
 - Maschinenlesbare Statuspruefung: `Engine Core/UnifiedPhysicsCore/scripts/phase_gate.py`.
 - Externe Grundlagen: Robert Bridson, SIGGRAPH Fluids 2007 (MAC/Projection); UE5.8 Plugin/Module API Dokumentation.
-- P0 bis P6 gelten innerhalb ihrer abgegrenzten CPU-MVP-Abnahmen als abgeschlossen. P7 und P8 bleiben offen; P2 ist kein vollstaendig validiertes 3D-CFD- oder AAA-Fluidprodukt.
+- P0 bis P6 sowie P8 gelten innerhalb ihrer jeweils abgegrenzten Prototyp-Abnahmen als abgeschlossen. P7 bleibt offen; P2 ist kein vollstaendig validiertes 3D-CFD- oder AAA-Fluidprodukt.
 - P2-Pruefnachweis: ENGINE TEST STUBE/runs/p2_acceptance.json (native quantitative Checks + Hashes), Script: scripts/p2_acceptance.py.
 
 - P1-Pruefnachweis: ENGINE TEST STUBE/runs/p1_acceptance.json, scripts/p1_acceptance.py, analytische Referenzen Ritter/Stoker, native Tests und SHA256-Fingerprints.
@@ -49,3 +49,5 @@ Stand: 2026-10-26. Status bezieht sich auf den realen Code, nicht auf Ambitionen
 - P6-Abnahme: ENGINE TEST STUBE/runs/p6_acceptance.json und scripts/p6_acceptance.py (synthetische, bilanzierte 3D-Reaktionen, numerischer Fick/Arrhenius-Test, P4-Konservierungskontakt). Externe Stoffdatenbank/realchemische Vorhersage weiterhin offen.
 
 - P7-Teilnachweis: ENGINE TEST STUBE/runs/p7_sparse_partial.json; scripts/p7_sparse_partial_acceptance.py. **Kein** GPU- oder Gesamtphasen-PASS.
+
+- P8 Native UE5.8: ENGINE TEST STUBE/runs/p8_acceptance.json, scripts/p8_acceptance.py und ENGINE TEST STUBE/scripts/p8_native_e2e.py. Runtime-PNG+Game/PIE-Protokolle mit SHA256. P3–P6 sind nicht im UE-Renderer der P8-Demonstration enthalten.

@@ -80,6 +80,17 @@ Render-/Test-Adapter. Alle Zustände verwenden SI-Einheiten.
     Kein automatisches realchemisches Modell und keine
     reaktive CFD-/FSI-Aussage.
 
+17. EngineMaterialLab UE5.8 Native Adapter (P8): genau ein
+    Runtime-Modul im isolierten ENGINE-TEST-STUBE-Projekt.
+    Standalone-UPCs core/mac3d/coupled_water3d/fluid3d_module
+    werden als geprüfte C++-Header eingebunden. Im Game/PIE-UWorld
+    spawnt ein UE-Ticker eine 3D-MAC-Dammbruch-Domäne und
+    InstancedStaticMesh-Voxel. Native SceneCapture2D erzeugt ein
+    960x540 PNG, native Game+PIE-Logs und quantitative Fluss-/
+    Massenbelege werden mit Quellen-/DLL-SHA256 abgeglichen.
+    Kein kompletter UE-Adapter für die P3–P6-Multiphysik,
+    kein Cooking/Packaging eines eigenständigen Spiels.
+
 ## Verifikation
 - Release-MSVC-CMake, CTest, P1/P2/P3/P4/P5/P6-Abnahmeskripte.
 - Unabhängige numerische Referenzen: hydrostatischer Druck,
@@ -87,12 +98,12 @@ Render-/Test-Adapter. Alle Zustände verwenden SI-Einheiten.
   Neumann-Fourier-Eigenmode (4 Raster).
 - Energie-/Massenprüfungen im jeweils abgegrenzten Subsystem,
   Phase-Rücktransfers zu MAC und getrennte Porenbilanzen.
-- Quell-Fingerprints nach jedem P1–P6-Abnahmelauf.
+- Quell-Fingerprints nach jedem P1–P6/P8-Abnahmelauf.
 
 ## Grenzen, nicht als gelöst ausgeben
 Globale Energie von MAC-FSI/Turbulenz, 3D-Gas-/Dampfdruck- und
 Expansionsdynamik, kapillar-thermische Pore/Skelett-Kontaktmodelle,
 mehrphasige Mischungsströmungen, kalibrierte Kontinuumsfestkörper,
 rollende Drehmomente und GPU-beschleunigte Partikelkontakte,
-GPU-/LOD-Optimierung und Unreal-Rendering/E2E verbleiben als
-Forschung bzw. P7/P8; P6 bleibt auf synthetische CPU-Chemie begrenzt. Ein begrenzter P5-CPU-MVP ist kein AAA-Release.
+GPU-/LOD-Optimierung (P7) und breites Unreal-Asset-/Multiphysik-Rendering
+bleiben Forschung; der abgegrenzte native 3D-Wasser-E2E ist in P8 abgenommen; P6 bleibt auf synthetische CPU-Chemie begrenzt. Ein begrenzter P5-CPU-MVP ist kein AAA-Release.

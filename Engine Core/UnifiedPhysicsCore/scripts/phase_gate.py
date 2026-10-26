@@ -105,6 +105,45 @@ def p6_full_cpu_evidence() -> dict:
     except (ValueError,KeyError,TypeError,OSError) as exc:
         return {"ok":False,"why":str(exc)}
 
+def p8_native_evidence() -> dict:
+    """Strict native UE5.8 GAME+PIE acceptance, NOT screenshots-only."""
+    path=LAB/"runs"/"p8_acceptance.json"
+    if not path.is_file():return {"ok":False,"why":"P8 native E2E report missing"}
+    try:
+        a=json.loads(path.read_text(encoding="utf-8"))
+        checks=a.get("checks",[])
+        if a.get("phase")!="P8" or a.get("accepted") is not True or len(checks)<20 or not all(x.get("pass") is True for x in checks):
+            raise ValueError("P8 real UE5.8 quantitative gate incomplete")
+        hashes=a.get("sources_sha256",{})
+        if len(hashes)<16:raise ValueError("Missing P8 sources")
+        for f,h in hashes.items():
+            src=PROJECT/f
+            if not src.is_file() or hashlib.sha256(src.read_bytes()).hexdigest()!=h:
+                raise ValueError(f"P8 tested source missing/changed: {f}")
+        project=LAB/"unreal"/"ENGINE_TEST_STUBE"
+        module=project/"Plugins"/"EngineMaterialLab"/"Binaries"/"Win64"/"UnrealEditor-EngineMaterialLab.dll"
+        if not module.is_file() or hashlib.sha256(module.read_bytes()).hexdigest()!=a.get("native_plugin_dll_sha256"):
+            raise ValueError("P8 tested native Unreal DLL missing/changed")
+        for mode in ("game","pie"):
+            path=LAB/"runs"/("p8_"+mode+"_process.json")
+            if not path.is_file():raise ValueError(f"P8 {mode} process report missing")
+            r=json.loads(path.read_text(encoding="utf-8"))
+            if not (r.get("accepted") is True and r.get("process_exit_code")==0 and
+                    r.get("timed_out") is False and all(r.get("checks",{}).values())):
+                raise ValueError(f"P8 {mode} did not pass native clean exit")
+            proof=a.get("process_proof",{}).get(mode,{})
+            image=r.get("image",{}).get("sha256")
+            if image!=proof.get("image_sha256"):
+                raise ValueError(f"P8 {mode} image signature differs")
+            png=project/"Saved"/"EngineMaterialLab"/"P8Native"/(
+                "P8_"+mode.upper()+"_UE58_Native_3DWater.png")
+            log=LAB/"runs"/("p8_"+mode+"_unreal_native.log")
+            if not png.is_file() or hashlib.sha256(png.read_bytes()).hexdigest()!=image or not log.is_file() or hashlib.sha256(log.read_bytes()).hexdigest()!=r.get("native_log_sha256"):
+                raise ValueError(f"P8 {mode} GPU PNG or UE native log mismatch")
+        return {"ok":True,"why":"20 strict checks: UE5.8 BuildPlugin + clean real GAME and PIE, native 3D MAC/VOF rendering+mass+flow, SHA256 proof"}
+    except (ValueError,KeyError,TypeError,OSError) as err:
+        return {"ok":False,"why":str(err)}
+
 def p5_full_cpu_evidence() -> dict:
     path=LAB / "runs" / "p5_full_acceptance.json"
     if not path.is_file():
@@ -305,6 +344,7 @@ def main() -> None:
     p5_full = p5_full_cpu_evidence()
     p6 = p6_full_cpu_evidence()
     p7_partial = p7_sparse_partial_evidence()
+    p8 = p8_native_evidence()
     ue_bin = BUILDS / "Binaries" / "Win64" / "UnrealEditor-EngineMaterialLab.dll"
     log = LOG.read_text(encoding="utf-8",errors="replace") if LOG.exists() else ""
     plugin_built = ue_bin.exists() and ue_bin.stat().st_size>0
@@ -335,9 +375,9 @@ def main() -> None:
              "; generic registered synthetic species, not calibrated real chemistry, not globally coupled multiphase-CFD"},
        "P7":{"status":"PARTIAL","evidence":"P7 sparse 3D render LOD partial: "+p7_partial["why"]+
              "; GPU execution/CPU parity, LOD streaming and latency bounds remain unverified"},
-       "P8":{"status":"PARTIAL" if plugin_built and native_module else "NOT_RUN",
-             "evidence":"UE 5.8 plugin build="+str(plugin_built)+" native module load="+str(native_module)
-             +"; PIE/rendering/native clean exit not verified"},
+       "P8":{"status":"PASS" if tests["ok"] and p8["ok"] else "PARTIAL",
+             "evidence":"Native UE5.8 isolated adapter CPU-MVP: "+p8["why"]+
+             "; real 3D MAC water only, P3-P6 Unreal renderer and P7 GPU/LOD not proven"},
     }
     out={
       "generated_utc":datetime.now(timezone.utc).isoformat(),
