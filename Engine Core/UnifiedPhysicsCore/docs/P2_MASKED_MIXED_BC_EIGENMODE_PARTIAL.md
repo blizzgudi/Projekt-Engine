@@ -53,3 +53,79 @@ Die aktualisierte P1-2D-Basisabnahme ist separat neu auszuführen, sobald die ne
 - Native eigenmode Assertions: **9060**. Eigenständiges Python-Gate: **27/27 Checks PASS**, `partial_accepted=true`, `phase_complete=false`.
 - Vollständige registrierte CTest-Suite: **39/39 PASS** (einschließlich D3D11-GPU-Tests), Exit 0.
 - P1-2D-Referenz nach der CMake-Erweiterung neu gemessen: **33/33 Checks PASS**. Konservatives `phase_gate.py`: **P0/P1 PASS**, **P2–P8 INCOMPLETE**, `ALL_COMPLETE=False`.
+
+
+## Erweiterung: kontinuierliche 3D-PDE-Referenz mit Rasterverfeinerung (26.10.2026)
+
+Der vorherige Beleg prüfte ausschließlich die **diskrete** Eigenmode. Jetzt
+wird zusätzlich eine **kontinuierliche, analytisch bekannte Lösung** der
+dreidimensionalen viskosen Diffusionsgleichung geprüft:
+
+```text
+∂u_y/∂t = ν (∂²u_y/∂x² + ∂²u_y/∂y² + ∂²u_y/∂z²)
+u_y(x,y,z,0) = sin(kx*x) sin(ky*y) sin(kz*z)
+u_y(x,y,z,T) = u_y(x,y,z,0) exp[-ν T (kx²+ky²+kz²)]
+```
+
+Das physikalische x-Intervall ist **1 m** lang. Links gilt feste
+Dirichlet-Ghost-Wand `u=0`, rechts Neumann-Ghost `∂u/∂x=0`,
+in y und z Dirichlet-Außenwände. Die Gitterkoordinaten sind
+`x=(j+1)dx`, `y=j dx`, `z=(j+1)dx`, mit
+`dx=1/(L+0.5)`, `kx=π/((2L+1)dx)`,
+`ky=π/(ny dx)`, `kz=π/((nz+1)dx)`. Dies ist eine
+Manufactured-Solution für den **stationär maskierten 3D-MAC-Diffusionsoperator**,
+nicht für die volle 3D-Navier-Stokes-Gleichung.
+
+Vier Raster `L=5,9,17,33` werden bei `ν=0.01 m²/s`,
+`T=0.04 s`, **32 Zeitschritten** verglichen. Der native Test prüft
+alle y-Faces gegen die separate diskrete Eigenformel und die gemessene
+Maximalabweichung zur **kontinuierlichen** Formel. Er kontrolliert in jedem
+Zeitschritt die diskrete Energie-/Face-Impuls-Summenbilanz. Das Python-Gate
+rekonstruiert unabhängig beide Faktoren und prüft fallende Fehler über
+alle vier Raster.
+
+| Raster (nx×ny×nz) | dx [m] | max. Abweichung zur kontinuierlichen PDE | max. Face-Ledger-Residuum |
+|---|---:|---:|---:|
+| 10×6×5 | 0.18181818 | 1.5326799830905902e-4 | 6.3069341416088776e-14 |
+| 14×10×9 | 0.10526316 | 5.8966339550714508e-5 | 8.5211004918761546e-13 |
+| 22×18×17 | 0.05714286 | 1.8303755349946549e-5 | 1.9930612715768348e-11 |
+| 38×34×33 | 0.02985075 | 4.4248190426143807e-6 | 2.4627544448208027e-10 |
+
+Der Fehler sinkt vom grobsten zum feinsten Raster um etwa den Faktor
+**34.6**. Der Grenzwert für die unskalierte Face-Summenbilanz ist
+`1e-8` (Rundung bei vielen Tausend Faces); dies ist **kein**
+physikalisches Energieerhaltungsversprechen.
+
+Der erweiterte Test erfasst **62.319 native Assertions** und
+`phase_complete=false`. Die quantitative, unabhängige
+Python-Teilabnahme und die vollständige 39-Test-CTest-Suite sind
+zusätzlich erforderlich, bevor `partial_accepted=true` gelten darf.
+
+**Nicht abgenommen:** reale gemessene 3D-CFD-Daten, stresskonsistente
+Wasser-Luft-Grenzspannung, bewegte Körper, bidirektionale
+Festkörper-Impulse, globale Energie-/Impulsbilanz, integrierte GPU-/LOD-
+und Unreal-5.8-Native-E2E-Gesamtphase. **P2 bleibt PARTIAL.**
+
+
+### Abnahmeprotokoll der Erweiterung
+
+- VS BuildTools 18 / MSVC Release: vollständiger CMake-Build Exit **0**.
+- Gesamte native CTest-Suite: **39/39 PASS**, Exit **0**.
+  Protokoll: `ENGINE TEST STUBE/runs/p2_continuum_refinement_ctest_20261026.txt`,
+  UTF-8 SHA-256 `81f0f3125ff40b89bccd28c07e028f8e5acd6ac9c71c9ffe88e88c3fa3413e8f`.
+- Erweitertes natives 3D-MAC-Testprogramm: **62.319 Assertions PASS**,
+  einschließlich vier PDE-Rasterverfeinerungen und 32 Zeitschritten.
+- Unabhängiges Python-Gate: **59/59 quantitative Checks PASS**,
+  `partial_accepted=true`, `phase_complete=false`.
+- Erneuter konservativer Gesamt-Gate-Lauf nach dem GPU-Einzeltest:
+  **P0/P1 PASS**, **P2–P8 PARTIAL**, `ALL_COMPLETE=False`.
+- Der erste Gesamtlauf zeigte einen sporadischen D3D11-P7-`bad allocation`-
+  Fehler. Der unmittelbar darauf einzeln wiederholte reale GPU-Test und die
+  neue vollständige 39er-Suite bestanden. Dies ist **kein Nachweis
+  deterministischer GPU-Stabilität**; Langzeitspeicher-/GPU-Lasttest offen.
+- Das erste MSVC-Build dieser Erweiterung ohne `VsDevCmd.bat` scheiterte
+  an fehlenden C++-Standardheadern; nach Initialisierung der vorhandenen
+  Developer-Umgebung wurde derselbe Quellstand erfolgreich gebaut.
+
+Diese Zahlen beziehen sich nur auf diesen lokalen Lauf und beweisen
+**keinen** Vollphasenabschluss P2 oder P7/P8.

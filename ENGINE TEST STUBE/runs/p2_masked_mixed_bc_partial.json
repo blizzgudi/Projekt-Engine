@@ -4,10 +4,60 @@
   "milestone": "masked_mixed_dirichlet_neumann_eigenmode_partial",
   "partial_accepted": true,
   "phase_complete": false,
-  "generated_utc": "2026-10-26T20:45:46.401678+00:00",
-  "scope": "Stationary 3D MAC y-face diffusion; solid Dirichlet left, air Neumann right, exterior no-slip; three discrete analytic eigenmodes and prescribed wall shear; not physical FSI.",
-  "native_assertions": 9060,
-  "native_stdout": "nx,ny,nz,wet_columns,substeps,alpha,lambda,expected_factor,max_error,energy_ratio,ledger_residual\n8,7,6,3,3,0.1333333333333333,-0.59418679258548512,0.78065777809644621,1.6653345369377348e-16,0.60942656650248073,2.0650148258027912e-14\n10,9,8,5,3,0.1333333333333333,-0.32224356962737155,0.87656143695638999,3.3306690738754696e-16,0.76835995275905178,1.1324274851176597e-14\n12,11,10,7,3,0.1333333333333333,-0.20573290407439915,0.91994358567525691,3.3306690738754696e-16,0.84629620082505064,1.0791367799356522e-13\nPASS: P2 masked mixed-BC eigenmode assertions=9060 phase_complete=false\n",
+  "generated_utc": "2026-10-26T22:17:16.837767+00:00",
+  "scope": "Stationary 3D MAC y-face diffusion; solid Dirichlet left, air Neumann right, exterior no-slip; three discrete analytic eigenmodes plus four grid-refined continuum PDE manufactured modes; not physical FSI.",
+  "continuum_reference": [
+    {
+      "grid": [
+        10,
+        6,
+        5
+      ],
+      "dx_m": 0.18181818181818182,
+      "analytic_continuum_factor": 0.9924074423544911,
+      "discrete_factor": 0.9925622864423461,
+      "absolute_max_error": 0.00015326799830905902,
+      "ledger_residual": 6.306934141608878e-14
+    },
+    {
+      "grid": [
+        14,
+        10,
+        9
+      ],
+      "dx_m": 0.10526315789473684,
+      "analytic_continuum_factor": 0.9919200052500887,
+      "discrete_factor": 0.9919791736798249,
+      "absolute_max_error": 5.896633955071451e-05,
+      "ledger_residual": 8.521100491876155e-13
+    },
+    {
+      "grid": [
+        22,
+        18,
+        17
+      ],
+      "dx_m": 0.05714285714285714,
+      "analytic_continuum_factor": 0.991585514412616,
+      "discrete_factor": 0.9916038366172061,
+      "absolute_max_error": 1.830375534994655e-05,
+      "ledger_residual": 1.9930612715768348e-11
+    },
+    {
+      "grid": [
+        38,
+        34,
+        33
+      ],
+      "dx_m": 0.029850746268656716,
+      "analytic_continuum_factor": 0.9913851964033633,
+      "discrete_factor": 0.9913896224387474,
+      "absolute_max_error": 4.424819042614381e-06,
+      "ledger_residual": 2.462754444820803e-10
+    }
+  ],
+  "native_assertions": 62319,
+  "native_stdout": "nx,ny,nz,wet_columns,substeps,alpha,lambda,expected_factor,max_error,energy_ratio,ledger_residual\n8,7,6,3,3,0.1333333333333333,-0.59418679258548512,0.78065777809644621,1.6653345369377348e-16,0.60942656650248073,2.0650148258027912e-14\n10,9,8,5,3,0.1333333333333333,-0.32224356962737155,0.87656143695638999,3.3306690738754696e-16,0.76835995275905178,1.1324274851176597e-14\n12,11,10,7,3,0.1333333333333333,-0.20573290407439915,0.91994358567525691,3.3306690738754696e-16,0.84629620082505064,1.0791367799356522e-13\ncontinuum_nx,ny,nz,wet_columns,timesteps,dx,continuum_factor,numerical_factor,max_error,ledger_residual\n10,6,5,5,32,0.18181818181818182,0.99240744235449108,0.99256228644234612,0.00015326799830905902,6.3069341416088776e-14\n14,10,9,9,32,0.10526315789473684,0.99192000525008872,0.99197917367982491,5.8966339550714508e-05,8.5211004918761546e-13\n22,18,17,17,32,0.057142857142857141,0.991585514412616,0.99160383661720608,1.8303755349946549e-05,1.9930612715768348e-11\n38,34,33,33,32,0.029850746268656716,0.99138519640336331,0.9913896224387474,4.4248190426143807e-06,2.4627544448208027e-10\nPASS: P2 masked mixed-BC eigenmode assertions=62319 phase_complete=false\n",
   "checks": [
     {
       "name": "grid_0_dimensions",
@@ -192,8 +242,240 @@
     {
       "name": "native_assertions",
       "pass": true,
-      "value": 9060,
-      "limit": 9000
+      "value": 62319,
+      "limit": 60000
+    },
+    {
+      "name": "continuum_0_grid",
+      "pass": true,
+      "value": [
+        10,
+        6,
+        5,
+        5
+      ],
+      "limit": [
+        10,
+        6,
+        5,
+        5
+      ]
+    },
+    {
+      "name": "continuum_0_time",
+      "pass": true,
+      "value": 32,
+      "limit": 32
+    },
+    {
+      "name": "continuum_0_dx",
+      "pass": true,
+      "value": 0.18181818181818182,
+      "limit": 0.18181818181818182
+    },
+    {
+      "name": "continuum_0_analytic_factor",
+      "pass": true,
+      "value": 0.9924074423544911,
+      "limit": 0.9924074423544911
+    },
+    {
+      "name": "continuum_0_discrete_factor",
+      "pass": true,
+      "value": 0.9925622864423461,
+      "limit": 0.9925622864423461
+    },
+    {
+      "name": "continuum_0_actual_error",
+      "pass": true,
+      "value": 0.00015326799830905902,
+      "limit": 0.0001548440878550439
+    },
+    {
+      "name": "continuum_0_ledger",
+      "pass": true,
+      "value": 6.306934141608878e-14,
+      "limit": 1e-08
+    },
+    {
+      "name": "continuum_1_grid",
+      "pass": true,
+      "value": [
+        14,
+        10,
+        9,
+        9
+      ],
+      "limit": [
+        14,
+        10,
+        9,
+        9
+      ]
+    },
+    {
+      "name": "continuum_1_time",
+      "pass": true,
+      "value": 32,
+      "limit": 32
+    },
+    {
+      "name": "continuum_1_dx",
+      "pass": true,
+      "value": 0.10526315789473684,
+      "limit": 0.10526315789473684
+    },
+    {
+      "name": "continuum_1_analytic_factor",
+      "pass": true,
+      "value": 0.9919200052500887,
+      "limit": 0.9919200052500887
+    },
+    {
+      "name": "continuum_1_discrete_factor",
+      "pass": true,
+      "value": 0.9919791736798249,
+      "limit": 0.9919791736798249
+    },
+    {
+      "name": "continuum_1_actual_error",
+      "pass": true,
+      "value": 5.896633955071451e-05,
+      "limit": 5.916842973618941e-05
+    },
+    {
+      "name": "continuum_1_ledger",
+      "pass": true,
+      "value": 8.521100491876155e-13,
+      "limit": 1e-08
+    },
+    {
+      "name": "continuum_1_refinement",
+      "pass": true,
+      "value": 5.896633955071451e-05,
+      "limit": 9.962419890088836e-05
+    },
+    {
+      "name": "continuum_2_grid",
+      "pass": true,
+      "value": [
+        22,
+        18,
+        17,
+        17
+      ],
+      "limit": [
+        22,
+        18,
+        17,
+        17
+      ]
+    },
+    {
+      "name": "continuum_2_time",
+      "pass": true,
+      "value": 32,
+      "limit": 32
+    },
+    {
+      "name": "continuum_2_dx",
+      "pass": true,
+      "value": 0.05714285714285714,
+      "limit": 0.05714285714285714
+    },
+    {
+      "name": "continuum_2_analytic_factor",
+      "pass": true,
+      "value": 0.991585514412616,
+      "limit": 0.991585514412616
+    },
+    {
+      "name": "continuum_2_discrete_factor",
+      "pass": true,
+      "value": 0.9916038366172061,
+      "limit": 0.9916038366172061
+    },
+    {
+      "name": "continuum_2_actual_error",
+      "pass": true,
+      "value": 1.830375534994655e-05,
+      "limit": 1.832220459008216e-05
+    },
+    {
+      "name": "continuum_2_ledger",
+      "pass": true,
+      "value": 1.9930612715768348e-11,
+      "limit": 1e-08
+    },
+    {
+      "name": "continuum_2_refinement",
+      "pass": true,
+      "value": 1.830375534994655e-05,
+      "limit": 3.832812070796443e-05
+    },
+    {
+      "name": "continuum_3_grid",
+      "pass": true,
+      "value": [
+        38,
+        34,
+        33,
+        33
+      ],
+      "limit": [
+        38,
+        34,
+        33,
+        33
+      ]
+    },
+    {
+      "name": "continuum_3_time",
+      "pass": true,
+      "value": 32,
+      "limit": 32
+    },
+    {
+      "name": "continuum_3_dx",
+      "pass": true,
+      "value": 0.029850746268656716,
+      "limit": 0.029850746268656716
+    },
+    {
+      "name": "continuum_3_analytic_factor",
+      "pass": true,
+      "value": 0.9913851964033633,
+      "limit": 0.9913851964033633
+    },
+    {
+      "name": "continuum_3_discrete_factor",
+      "pass": true,
+      "value": 0.9913896224387474,
+      "limit": 0.9913896224387474
+    },
+    {
+      "name": "continuum_3_actual_error",
+      "pass": true,
+      "value": 4.424819042614381e-06,
+      "limit": 4.426035384086369e-06
+    },
+    {
+      "name": "continuum_3_ledger",
+      "pass": true,
+      "value": 2.462754444820803e-10,
+      "limit": 1e-08
+    },
+    {
+      "name": "continuum_3_refinement",
+      "pass": true,
+      "value": 4.424819042614381e-06,
+      "limit": 1.1897440977465257e-05
+    },
+    {
+      "name": "continuum_finest_vs_coarsest",
+      "pass": true,
+      "value": 4.424819042614381e-06,
+      "limit": 7.663399915452951e-06
     },
     {
       "name": "full_ctest_39_of_39",
@@ -205,14 +487,14 @@
   "source_sha256": {
     "include/upc/mac3d.hpp": "9bb4659c5b6e6fd3a512301ae4a3a083fa96b1e67d50363ec8f5634e1038fdc5",
     "include/upc/viscous_mac3d.hpp": "b091da38edc446f962b0c946f7f2f5e5211fff1e69b7c718e1bafea3d01c5181",
-    "tests/viscous_masked_eigenmode3d_tests.cpp": "4eaacd1293fb935798facbce97ca17eed6309bed3be5e04d20c6db9f58761e8c",
+    "tests/viscous_masked_eigenmode3d_tests.cpp": "524288dd1aa306bd0ce1e88b1f6dacd61fad5507ed2113f18ab04ab17d065717",
     "CMakeLists.txt": "887c349a4777bee4effdc67ca620e5d341764fbc0ec2f0363fd1c4451e93aed6",
-    "scripts/p2_masked_mixed_bc_acceptance.py": "eab66802088ab44ef3b131a8a076fe80ac417bc0912cf0781da3e0b44d0bf2a8",
-    "docs/P2_MASKED_MIXED_BC_EIGENMODE_PARTIAL.md": "15579ab369b60c0d48787d1c5f12f69b5e80f06464bc90385e045c3493f5ea13",
+    "scripts/p2_masked_mixed_bc_acceptance.py": "4b14994e42882cd897e0390601ce96e94dc5052568e9e14f93767ed773d192e8",
+    "docs/P2_MASKED_MIXED_BC_EIGENMODE_PARTIAL.md": "aaafbfa5f1fc967adb6fda2fda0ce7b09a8e21d68090c92d7f4294adeb4b9f85",
     "docs/PHASENPLAN.md": "e4a27dff50124a9891f6071cc122a9d94afcb3df5746323657aa48547c4d8df8"
   },
-  "executable_sha256": "2b5b51312780107111679f22a84110e03abe281e3240274beb7af26b0b35d538",
-  "ctest_log_sha256": "e6f32fc18dbe6c8e8fb016108c866b454aa751d0a5b4b360aec2964939b76dd7",
-  "ctest_log_path": "D:\\Projekt Engine\\ENGINE TEST STUBE\\runs\\p2_masked_mixed_bc_ctest_20261026.txt",
-  "limitation": "Independent discrete analytic eigenmode, NOT independent laboratory 3D fluid measurements. No moving body, free-surface stress tensor, two-way impulse, or complete energy budget."
+  "executable_sha256": "6a8566a22d3c66f4384d6303b1aca247a29d3c3fee89a60c14eac8c42a0f9172",
+  "ctest_log_sha256": "81f0f3125ff40b89bccd28c07e028f8e5acd6ac9c71c9ffe88e88c3fa3413e8f",
+  "ctest_log_path": "D:\\Projekt Engine\\ENGINE TEST STUBE\\runs\\p2_continuum_refinement_ctest_20261026.txt",
+  "limitation": "Independent discrete and continuum analytic diffusion eigenmodes, NOT independent laboratory 3D Navier-Stokes measurements. No moving body, free-surface stress tensor, two-way impulse, or complete energy budget."
 }

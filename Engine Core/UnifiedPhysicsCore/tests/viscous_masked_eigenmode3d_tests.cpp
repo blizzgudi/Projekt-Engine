@@ -129,6 +129,89 @@ Row run(int L,int ny,int nz){
     near(forced.face_velocity_y(left,1,1),saved,0,"nu=0 changed face");
     return {nx,ny,nz,L,steps,alpha,lambda,factor,max_error,energy_ratio,residual};
 }
+
+struct ContinuumRow {
+    int nx,ny,nz,L;
+    int timesteps;
+    double dx,continuum_factor,numerical_factor,max_error,max_ledger_residual;
+};
+// Independent continuum manufactured 3D shear mode. The exact PDE solution
+// is exp(-nu*(kx^2+ky^2+kz^2)*T) times the initial separable sine profile.
+// X: solid Dirichlet at x=0 and free-surface Neumann at x=1m.
+// Y,Z: zero Dirichlet exterior. The finite-difference grid has ghost-node
+// boundaries; the analytic physical positions reflect that discretization.
+// This is a continuum diffusion benchmark, NOT measured Navier-Stokes/FSI.
+ContinuumRow continuum_run(int L) {
+    constexpr int left=2;
+    const int nx=left+L+3,ny=L+1,nz=L;
+    const double dx=1.0/(L+0.5);
+    constexpr double nu=0.01,T=0.04;
+    constexpr int timesteps=32;
+    const double dt=T/timesteps;
+    const double tx=pi/(2*L+1),ty=pi/ny,tz=pi/(nz+1);
+    const double continuum_factor=std::exp(
+        -nu*T*(tx*tx+ty*ty+tz*tz)/(dx*dx));
+    const double discrete_lambda=2*(std::cos(tx)-1)
+        +2*(std::cos(ty)-1)+2*(std::cos(tz)-1);
+    const double alpha=nu*dt/(dx*dx);
+    const double numerical_factor=std::pow(1+alpha*discrete_lambda,timesteps);
+    require(continuum_factor>0&&continuum_factor<1,
+            "invalid continuum decay factor");
+    require(alpha>0&&alpha<0.15,"continuum benchmark CFL mismatch");
+    const auto cell=[&](int x,int y,int z){
+        return (static_cast<std::size_t>(z)*ny+y)*nx+x;
+    };
+    std::vector<std::uint8_t> wet(nx*ny*nz,0),solid(nx*ny*nz,0);
+    for(int z=0;z<nz;++z)
+    for(int y=0;y<ny;++y)
+    for(int x=0;x<nx;++x){
+        if(x<left)solid[cell(x,y,z)]=1;
+        else if(x<left+L)wet[cell(x,y,z)]=1;
+    }
+    const auto shape=[&](int x,int y,int z){
+        return std::sin((x-left+1)*tx)
+            *std::sin(y*ty)*std::sin((z+1)*tz);
+    };
+    MacProjection3D mac(nx,ny,nz,dx);
+    ViscousMacDiffusion3D diffusion(nx,ny,nz,dx);
+    for(int z=0;z<nz;++z)
+    for(int y=1;y<ny;++y)
+    for(int x=left;x<left+L;++x)
+        mac.set_face_velocity_y(x,y,z,shape(x,y,z));
+    double max_residual=0;
+    for(int t=0;t<timesteps;++t){
+        MaskedMacMomentumLedger3D ledger;
+        const auto substeps=diffusion.step_masked(mac,dt,nu,wet,solid,
+                                                  {0,0,0},&ledger);
+        require(substeps==1&&ledger.substeps==1,
+                "continuum benchmark time subdivision mismatch");
+        for(int axis=0;axis<3;++axis){
+            const auto k=static_cast<std::size_t>(axis);
+            const double e=std::abs(ledger.energy_closure_residual_proxy_m2_s2[k]);
+            const double p=std::abs(ledger.closure_residual_sum_m_s[k]);
+            max_residual=std::max({max_residual,e,p});
+            // Summing tens of thousands of faces accumulates roundoff;
+            // bound absolute ledger closure to 1e-8 in face-sum units.
+            require(e<1e-8&&p<1e-8,"continuum mode ledger did not close");
+        }
+    }
+    double max_error=0;
+    for(int z=0;z<nz;++z)
+    for(int y=0;y<=ny;++y)
+    for(int x=0;x<nx;++x){
+        const double initial=(x>=left&&x<left+L&&y>0&&y<ny)
+            ?shape(x,y,z):0;
+        const double actual=mac.face_velocity_y(x,y,z);
+        near(actual,initial*numerical_factor,3e-11,
+             "continuum benchmark numerical mode mismatch");
+        max_error=std::max(max_error,
+                           std::abs(actual-initial*continuum_factor));
+    }
+    require(max_error>0&&max_error<1e-3,
+            "continuum manufactured mode accuracy bound");
+    return {nx,ny,nz,L,timesteps,dx,continuum_factor,numerical_factor,
+            max_error,max_residual};
+}
 }
 int main(){
 try{
@@ -140,6 +223,19 @@ try{
                  <<row.substeps<<","<<row.alpha<<","<<row.lambda<<","
                  <<row.factor<<","<<row.max_error<<","<<row.energy_ratio
                  <<","<<row.ledger_residual<<"\n";
+    }
+    std::cout<<"continuum_nx,ny,nz,wet_columns,timesteps,dx,continuum_factor,numerical_factor,max_error,ledger_residual\n";
+    double previous_error=0;
+    for(int L:std::array<int,4>{{5,9,17,33}}){
+        const auto row=continuum_run(L);
+        if(previous_error>0)
+            require(row.max_error<previous_error*0.65,
+                    "3D continuum manufactured mode did not converge");
+        previous_error=row.max_error;
+        std::cout<<row.nx<<","<<row.ny<<","<<row.nz<<","<<row.L<<","
+                 <<row.timesteps<<","<<row.dx<<","<<row.continuum_factor
+                 <<","<<row.numerical_factor<<","<<row.max_error
+                 <<","<<row.max_ledger_residual<<"\n";
     }
     std::cout<<"PASS: P2 masked mixed-BC eigenmode assertions="<<assertions
              <<" phase_complete=false\n";
