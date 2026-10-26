@@ -53,6 +53,35 @@ def p1_evidence() -> dict:
     except (ValueError,KeyError,TypeError,OSError) as exc:
         return {"ok":False,"why":str(exc)}
 
+def p7_full_gpu_evidence() -> dict:
+    """Pass only after hardware D3D11 CPU parity, streaming, and SHA evidence."""
+    path=LAB/"runs"/"p7_acceptance.json"
+    if not path.is_file():
+        return {"ok":False,"why":"P7 real hardware GPU quantitative report missing"}
+    try:
+        d=json.loads(path.read_text(encoding="utf-8"))
+        checks=d.get("checks",[])
+        if d.get("phase")!="P7" or d.get("accepted") is not True or len(checks)<160 or not all(x.get("pass") is True for x in checks):
+            raise ValueError("P7 hardware CPU/GPU, latency or VRAM checks incomplete")
+        hw=d.get("hardware",{})
+        if (hw.get("driver_type","").find("HARDWARE")<0 or
+            hw.get("feature_level",0)<45056 or hw.get("gpu_adapter_vendor_id",0)==0):
+            raise ValueError("P7 real GPU feature-level 11 unavailable")
+        if len(d.get("gpu_reference",[]))!=20 or len(d.get("gpu_stream",[]))!=3:
+            raise ValueError("P7 native GPU dispatch and streaming references missing")
+        n=d.get("native_assertions",{})
+        if n.get("streamer",0)<250000 or n.get("sparse",0)<230:
+            raise ValueError("P7 native sparse/streaming tests missing")
+        hashes=d.get("source_sha256",{})
+        if len(hashes)<15:raise ValueError("P7 critical shader/code signatures incomplete")
+        for name,sha in hashes.items():
+            source=CORE/name
+            if not source.is_file() or hashlib.sha256(source.read_bytes()).hexdigest()!=sha:
+                raise ValueError(f"P7 source changed after GPU execution: {name}")
+        return {"ok":True,"why":f"{len(checks)} full hardware D3D11 CPU/GPU LOD and memory/latency gates, 20 GPU dispatches, 3 VRAM brick upload tests, 250k+ CPU asserts"}
+    except (ValueError,TypeError,KeyError,OSError) as err:
+        return {"ok":False,"why":str(err)}
+
 def p7_sparse_partial_evidence() -> dict:
     path=LAB / "runs" / "p7_sparse_partial.json"
     if not path.is_file():
@@ -344,6 +373,7 @@ def main() -> None:
     p5_full = p5_full_cpu_evidence()
     p6 = p6_full_cpu_evidence()
     p7_partial = p7_sparse_partial_evidence()
+    p7_full = p7_full_gpu_evidence()
     p8 = p8_native_evidence()
     ue_bin = BUILDS / "Binaries" / "Win64" / "UnrealEditor-EngineMaterialLab.dll"
     log = LOG.read_text(encoding="utf-8",errors="replace") if LOG.exists() else ""
@@ -373,8 +403,11 @@ def main() -> None:
        "P6":{"status":"PASS" if tests["ok"] and p6["ok"] else "PARTIAL",
              "evidence":"Restricted 3D reactive-material CPU-MVP: "+p6["why"]+
              "; generic registered synthetic species, not calibrated real chemistry, not globally coupled multiphase-CFD"},
-       "P7":{"status":"PARTIAL","evidence":"P7 sparse 3D render LOD partial: "+p7_partial["why"]+
-             "; GPU execution/CPU parity, LOD streaming and latency bounds remain unverified"},
+       "P7":{"status":"PASS" if (tests["ok"] and p7_partial["ok"] and p7_full["ok"] and p8["ok"]) else "PARTIAL",
+             "evidence":"Hardware 3D render-LOD GPU/streaming CPU-MVP: "+p7_full["why"]+
+             "; previous sparse CPU gate: "+p7_partial["why"]+
+             "; P8 native UE/PIE: "+p8["why"]+
+             "; GPU physics and Unreal RDG/AAA frame gains remain unverified"},
        "P8":{"status":"PASS" if tests["ok"] and p8["ok"] else "PARTIAL",
              "evidence":"Native UE5.8 isolated adapter CPU-MVP: "+p8["why"]+
              "; real 3D MAC water only, P3-P6 Unreal renderer and P7 GPU/LOD not proven"},

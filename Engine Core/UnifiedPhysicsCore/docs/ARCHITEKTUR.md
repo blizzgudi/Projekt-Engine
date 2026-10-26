@@ -1,4 +1,4 @@
-# Unified Physics Core – Architektur P0–P6 v0.6
+# Unified Physics Core – Architektur P0–P8 v0.7
 
 Eigenständiger C++17-CPU-Physikkern, Unreal Engine nur als
 Render-/Test-Adapter. Alle Zustände verwenden SI-Einheiten.
@@ -91,19 +91,33 @@ Render-/Test-Adapter. Alle Zustände verwenden SI-Einheiten.
     Kein kompletter UE-Adapter für die P3–P6-Multiphysik,
     kein Cooking/Packaging eines eigenständigen Spiels.
 
+18. SparseWaterLod3D (P7 CPU): 8³-Bricks und conservativ
+    gewichtete Coarse-Samples aus P2-MAC/VOF-Füllgraden.
+    WaterBrickStreamer3D führt residenten Kamera-LOD, generation-
+    sicher dynamische Snapshots und begrenzte Bytes/Frame.
+19. D3D11 P7 Hardware-GPU: HLSL cs_5_0 in eigenen D3D11-
+    Hardware-Device StructuredBuffer/RWStructuredBuffer; reale
+    Hardware-Dispatches und Timestamp-Queries; GPU-Staging-
+    Readback verifiziert jeden Water/Solid-LOD-Wert gegen
+    CPU-Sparse-Sample inkl. ungerader Randzellen.
+20. P7 Brick-VRAM-Uploader (D3D11): echte 8³-Resident-Kacheln
+    pro Frame nach 4096-Byte-Budget via UpdateSubresource;
+    unabhängige reale GPU-Buffer-Map-Readback-Parität.
+    Der GPU-Solver ist ein RENDER-LOD-Kernel, kein
+    thermisch gekoppelter globaler Fluid-/Solid-GPU-Solver.
+
 ## Verifikation
-- Release-MSVC-CMake, CTest, P1/P2/P3/P4/P5/P6-Abnahmeskripte.
+- Release-MSVC-CMake, CTest, P1/P2/P3/P4/P5/P6/P7/P8-Abnahmeskripte.
 - Unabhängige numerische Referenzen: hydrostatischer Druck,
   Ritter/Stoker 2D-Dammbruch, 3D MAC/VOF, Darcy-Vertikalfluss,
   Neumann-Fourier-Eigenmode (4 Raster).
 - Energie-/Massenprüfungen im jeweils abgegrenzten Subsystem,
   Phase-Rücktransfers zu MAC und getrennte Porenbilanzen.
-- Quell-Fingerprints nach jedem P1–P6/P8-Abnahmelauf.
+- Quell-Fingerprints nach jedem P1–P8-Abnahmelauf.
 
 ## Grenzen, nicht als gelöst ausgeben
 Globale Energie von MAC-FSI/Turbulenz, 3D-Gas-/Dampfdruck- und
 Expansionsdynamik, kapillar-thermische Pore/Skelett-Kontaktmodelle,
 mehrphasige Mischungsströmungen, kalibrierte Kontinuumsfestkörper,
 rollende Drehmomente und GPU-beschleunigte Partikelkontakte,
-GPU-/LOD-Optimierung (P7) und breites Unreal-Asset-/Multiphysik-Rendering
-bleiben Forschung; der abgegrenzte native 3D-Wasser-E2E ist in P8 abgenommen; P6 bleibt auf synthetische CPU-Chemie begrenzt. Ein begrenzter P5-CPU-MVP ist kein AAA-Release.
+GPU-Physik-Solver/Unreal-RDG-Streaming-Optimierung über den geprüften P7-Hardware-LOD-Prototyp hinaus und breites UE-Asset-/Multiphysik-Rendering bleiben Forschung; der abgegrenzte native 3D-Wasser-E2E ist in P8 abgenommen; P6 bleibt auf synthetische CPU-Chemie begrenzt. Ein begrenzter P5-CPU-MVP ist kein AAA-Release.

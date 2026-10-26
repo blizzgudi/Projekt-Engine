@@ -128,3 +128,19 @@ add_test(NAME physics_p7_sparse_3d_mac_render_lod COMMAND upc_p7_sparse_lod_test
 add_executable(upc_p7_sparse_reference benchmarks/p7_sparse_reference.cpp)
 target_link_libraries(upc_p7_sparse_reference PRIVATE upc)
 add_test(NAME physics_p7_sparse_lod_memory_and_volume_reference COMMAND upc_p7_sparse_reference)
+
+# P7 GPU path is Windows-native, real Direct3D 11 hardware-only (WARP prohibited).
+if(WIN32)
+  file(MAKE_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/shaders")
+  configure_file(shaders/p7_vof_reduce.hlsl
+                 "${CMAKE_CURRENT_BINARY_DIR}/shaders/p7_vof_reduce.hlsl" COPYONLY)
+  add_executable(upc_p7_gpu_d3d11 benchmarks/p7_gpu_d3d11.cpp)
+  target_link_libraries(upc_p7_gpu_d3d11 PRIVATE upc d3d11 d3dcompiler dxgi)
+  add_test(NAME physics_p7_hardware_d3d11_cpu_parity COMMAND upc_p7_gpu_d3d11)
+  add_executable(upc_p7_gpu_streaming benchmarks/p7_gpu_streaming_d3d11.cpp)
+  target_link_libraries(upc_p7_gpu_streaming PRIVATE upc d3d11 dxgi)
+  add_test(NAME physics_p7_hardware_d3d11_brick_residency COMMAND upc_p7_gpu_streaming)
+endif()
+add_executable(upc_p7_streamer_tests tests/p7_brick_streamer3d_tests.cpp)
+target_link_libraries(upc_p7_streamer_tests PRIVATE upc)
+add_test(NAME physics_p7_resident_streaming_lod_bounds COMMAND upc_p7_streamer_tests)

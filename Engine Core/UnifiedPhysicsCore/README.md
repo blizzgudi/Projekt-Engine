@@ -1,4 +1,4 @@
-# Unified Physics Core v0.6 – Standalone C++17 CPU-Enginekern
+# Unified Physics Core v0.7 – Standalone C++17 CPU-Enginekern
 
 Projekt unter D:\Projekt Engine. Unreal 5.8 ist ein optionaler Adapter.
 Das Originalsystem wird modular in Phasen P0 bis P8 entwickelt und lokal
@@ -38,8 +38,20 @@ mit MSVC Release + CTest nachgewiesen.
   P3–P6 UE-Gesamtszenen bleiben zukünftiger Ausbau.
   Nachweis: docs/P8_UNREAL58_NATIVE_E2E_ABNAHME.md.
 
+- P7: **Hardware-GPU/Streaming-Prototyp abgenommen**: Direct3D11-
+  Compute-Shader macht reale 3D-MAC/VOF-Render-LOD-Aggregation, unabhängige
+  CPU-Sparse-Vergleiche auf 5 Volumengrößen und vier LOD-Stufen.
+  Vulkan/CUDA/WARP nicht benötigt. Konservatives 8³-Kachel-Streaming
+  mit Frame-Budget und echtem GPU-VRAM-Upload plus Readback-Beweis.
+  Die GPU beschleunigt *nicht den eigentlichen Physiksolver* und
+  kein Unreal-RDG-/Framezeitgewinn ist versprochen.
+  Siehe docs/P7_GPU_LOD_STREAMING_CPU_GPU_ABNAHME.md.
+
 ## Noch nicht abgeschlossen
-P7: GPU/LOD und Skalierung.
+*Keine offenen Phasen im abgegrenzten P0–P8-Prototyp-Plan.* Eine produktive
+AAA-Engine mit GPU-Festkörper-/Fluidsolver, Unreal-RDG, großflächiger
+World-Streaming-Integration und kompletten Visualisierung P3–P6 ist ein
+separater zukünftiger Ausbau.
 
 
 ## Referenznachweise
@@ -49,6 +61,7 @@ docs/P3_MATERIAL_VOLUME_ABNAHME.md
 docs/P4_THERMAL_CPU_MVP_ABNAHME.md
 docs/P5_SOLID_GRANULAR_CPU_MVP_ABNAHME.md
 docs/P6_REACTIVE_MATERIALS_CPU_MVP_ABNAHME.md
+docs/P7_GPU_LOD_STREAMING_CPU_GPU_ABNAHME.md
 docs/P8_UNREAL58_NATIVE_E2E_ABNAHME.md
 docs/PHASENPLAN.md
 
@@ -65,7 +78,8 @@ keine globale kinetische Energie-Rückkopplung aller Physics-Module.
   scripts/p2_acceptance.py, scripts/p3_acceptance.py,
   scripts/p4_partial_acceptance.py, scripts/p4_acceptance.py,
   scripts/p5_contact_partial.py, scripts/p5_acceptance.py,
-  scripts/p5_full_acceptance.py, scripts/p6_acceptance.py ausführen.
+  scripts/p5_full_acceptance.py, scripts/p6_acceptance.py,
+  scripts/p7_sparse_partial_acceptance.py, scripts/p7_acceptance.py ausführen.
 - P8 real Unreal Game+Editor PIE mit ENGINE TEST STUBE/scripts/p8_native_e2e.py
   game und pie starten, danach scripts/p8_acceptance.py ausführen.
 - Abschließend scripts/phase_gate.py.
