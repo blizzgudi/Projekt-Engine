@@ -7,8 +7,11 @@ physikalische Simulationen. Entwicklung liegt unter D:\Projekt Engine.
 
 - MaterialLibrary: zentrale Material-IDs, Phasen, Dichte und Viskositätsdaten.
 - VoxelGrid: material_id, Füllanteil, Temperatur und Schaden pro 3D-Zelle.
-- ShallowWater2D: konservativer 2D-Wassersolver mit Wasserhöhe, Geschwindigkeit
-  und Druck (Phase P1: noch zusätzliche Referenzvalidierung nötig).
+- ShallowWater2D: konservativer 2D-Wassersolver mit Wasserhöhe,
+  Geschwindigkeit und hydrostatischem Bodendruck. Phase P1 ist als
+  CPU-2D-MVP geprüft: HLL-Riemannsolver, Trocken-/Nassbett-Ritter/Stoker,
+  Konvergenz, 2D-Symmetrie, Hindernisse und Massenerhaltung.
+  Abnahme und verbleibende Grenzen: docs/P1_2D_FLUID_ABNAHME.md.
 - MacProjection3D: versetztes Geschwindigkeitsgitter, Druckprojektion,
   freie Oberfläche und feste Grenzen.
 - CoupledMacWater3D: **zusammenhängender CPU-3D-Wassersolver** mit MAC-Druck,
@@ -33,6 +36,7 @@ Reaktionsphysik, kein performanter GPU-Solver und kein UE5-Visual-E2E.
 ## Reproduzierbarer Test
 
 CMake mit MSVC C++17 konfigurieren, Release bauen und CTest ausführen.
+Anschließend: C:\Python314\python.exe scripts\p1_acceptance.py
 Dann: C:\Python314\python.exe scripts\p2_acceptance.py
 Zuletzt: C:\Python314\python.exe scripts\phase_gate.py
 

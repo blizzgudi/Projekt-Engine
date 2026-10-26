@@ -45,3 +45,14 @@ add_test(NAME physics_3d_reference_and_memory COMMAND upc_p2_reference)
 add_executable(upc_unified_runtime_tests tests/unified_runtime_tests.cpp)
 target_link_libraries(upc_unified_runtime_tests PRIVATE upc)
 add_test(NAME physics_unified_3d_runtime COMMAND upc_unified_runtime_tests)
+
+add_executable(upc_stoker_wet_dam_tests tests/stoker_wet_dam_tests.cpp)
+target_link_libraries(upc_stoker_wet_dam_tests PRIVATE upc)
+add_test(NAME physics_stoker_wet_bed_analytical COMMAND upc_stoker_wet_dam_tests)
+
+add_executable(upc_p1_front_probe benchmarks/p1_front_probe.cpp)
+target_link_libraries(upc_p1_front_probe PRIVATE upc)
+
+add_executable(upc_shallow2d_extended_tests tests/shallow2d_extended_tests.cpp)
+target_link_libraries(upc_shallow2d_extended_tests PRIVATE upc)
+add_test(NAME physics_2d_extended_invariants COMMAND upc_shallow2d_extended_tests)

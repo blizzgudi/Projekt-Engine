@@ -81,7 +81,7 @@ public:
 };
 
 // Depth-averaged free-surface water. NOT a volumetric 3D fluid solver.
-// Finite volume + Rusanov numerical flux + reflective wall/obstacle boundaries.
+// First-order finite volume + HLL Riemann flux + reflective wall/obstacle boundaries.
 struct WaterCell {
     double h=0;             // surface height/depth m
     double hx=0;            // h * vx, m2/s
@@ -112,12 +112,26 @@ class ShallowWater2D {
         if(q.h<=dry)return 0;
         return std::abs((x?q.hx:q.hy)/q.h)+std::sqrt(g*q.h);
     }
-    static F rusanov(F l,F r,bool x){
+    // HLL approximate Riemann flux. In a wet/dry interface use the exact
+    // rarefaction fan bounds (u +/- 2c), rather than the local wet
+    // eigenvalues only. This avoids artificially slow dry-bed expansion.
+    static F hll_flux(F l,F r,bool x){
+        if(l.h<0||r.h<0)throw std::runtime_error("Negative Riemann state");
+        if(l.h<=dry&&r.h<=dry)return {0,0,0};
+        const double cl=std::sqrt(g*l.h),cr=std::sqrt(g*r.h);
+        const double ul=l.h>dry?(x?l.hx:l.hy)/l.h:0;
+        const double ur=r.h>dry?(x?r.hx:r.hy)/r.h:0;
+        double sl=0,sr=0;
+        if(l.h<=dry){sl=ur-2*cr;sr=ur+cr;}
+        else if(r.h<=dry){sl=ul-cl;sr=ul+2*cl;}
+        else {sl=std::min(ul-cl,ur-cr);sr=std::max(ul+cl,ur+cr);}
         const F a=flux(l,x),b=flux(r,x);
-        const double s=std::max(wavespeed(l,x),wavespeed(r,x));
-        return {0.5*(a.h+b.h-s*(r.h-l.h)),
-                0.5*(a.hx+b.hx-s*(r.hx-l.hx)),
-                0.5*(a.hy+b.hy-s*(r.hy-l.hy))};
+        if(sl>=0)return a;
+        if(sr<=0)return b;
+        const double inv=1.0/(sr-sl);
+        return {(sr*a.h-sl*b.h+sl*sr*(r.h-l.h))*inv,
+                (sr*a.hx-sl*b.hx+sl*sr*(r.hx-l.hx))*inv,
+                (sr*a.hy-sl*b.hy+sl*sr*(r.hy-l.hy))*inv};
     }
     double max_speed()const{
         double s=0;
@@ -135,9 +149,9 @@ class ShallowWater2D {
             F l{0,0,0},r{0,0,0};
             if(left)l=state(a_[idx(x-1,y)]);
             if(right)r=state(a_[idx(x,y)]);
-            if(left&&right)fx[y*(nx_+1)+x]=rusanov(l,r,true);
-            else if(left)fx[y*(nx_+1)+x]=rusanov(l,mirror(l,true),true);
-            else if(right)fx[y*(nx_+1)+x]=rusanov(mirror(r,true),r,true);
+            if(left&&right)fx[y*(nx_+1)+x]=hll_flux(l,r,true);
+            else if(left)fx[y*(nx_+1)+x]=hll_flux(l,mirror(l,true),true);
+            else if(right)fx[y*(nx_+1)+x]=hll_flux(mirror(r,true),r,true);
         }
         for(std::size_t y=0;y<=ny_;++y)for(std::size_t x=0;x<nx_;++x){
             const bool bottom=y>0&&!a_[idx(x,y-1)].solid;
@@ -145,9 +159,9 @@ class ShallowWater2D {
             F b{0,0,0},t{0,0,0};
             if(bottom)b=state(a_[idx(x,y-1)]);
             if(top)t=state(a_[idx(x,y)]);
-            if(bottom&&top)fy[y*nx_+x]=rusanov(b,t,false);
-            else if(bottom)fy[y*nx_+x]=rusanov(b,mirror(b,false),false);
-            else if(top)fy[y*nx_+x]=rusanov(mirror(t,false),t,false);
+            if(bottom&&top)fy[y*nx_+x]=hll_flux(b,t,false);
+            else if(bottom)fy[y*nx_+x]=hll_flux(b,mirror(b,false),false);
+            else if(top)fy[y*nx_+x]=hll_flux(mirror(t,false),t,false);
         }
         auto next=a_;
         for(std::size_t y=0;y<ny_;++y)for(std::size_t x=0;x<nx_;++x){
@@ -177,7 +191,8 @@ public:
         a_.resize(nx*ny);
     }
     void set_depth(std::size_t x,std::size_t y,double h,double vx=0,double vy=0){
-        if(!std::isfinite(h)||h<0||!std::isfinite(vx)||!std::isfinite(vy))
+        if(!std::isfinite(h)||h<0||!std::isfinite(vx)||!std::isfinite(vy)||
+           !std::isfinite(h*vx)||!std::isfinite(h*vy))
             throw std::invalid_argument("Invalid water state");
         auto& c=a_[idx(x,y)];
         if(c.solid&&h!=0)throw std::invalid_argument("Water inside obstacle");

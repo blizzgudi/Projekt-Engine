@@ -19,6 +19,7 @@ BINARY=CORE/"build"/"upc_p2_reference.exe"
 TEST=CORE/"build"/"upc_coupled_water3d_tests.exe"
 RUNTIME=CORE/"build"/"upc_unified_runtime_tests.exe"
 WATCH=[
+    "include/upc/core.hpp",
     "include/upc/coupled_water3d.hpp",
     "include/upc/fluid3d_module.hpp",
     "include/upc/mac3d.hpp",

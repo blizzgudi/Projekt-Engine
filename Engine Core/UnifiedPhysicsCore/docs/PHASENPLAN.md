@@ -5,7 +5,7 @@ Stand: 2026-10-26. Status bezieht sich auf den realen Code, nicht auf Ambitionen
 | Phase | Inhalt | Akzeptanzkriterium | Stand |
 |---|---|---|---|
 | P0 | Repo/Ordnerstruktur, C++17-Build, Material-IDs, 3D-Voxelzustand, Tests | MSVC kompiliert, Tests gruen, Git commit | MSVC-Build und 5 CTest-Suites PASS, lokaler Git-Commit vorhanden |
-| P1 | Konservativer Basis-Wassersolver als Nachweis | Dammbruch, Druck, stabile Masse, Hindernisse | 2D Dammbruch/Masse/Hindernis PASS; Ritter-Referenz + Gitterkonvergenz getestet, Frontgenauigkeit/weitere Referenzen offen |
+| P1 | Konservativer Basis-Wassersolver als Nachweis | Dammbruch, Druck, stabile Masse, Hindernisse | **PASS (2D CPU-MVP)**: verbesserter HLL-Fluss, unabhängige Ritter-Trockenbett- und Stoker-Nassbett-Analytik mit 3 Gitterauflösungen, hydrostatischer Druck, 2D-Symmetrie, Tor/Hindernisse, positive Wasserhöhe, CFL, Massenbilanz; isolinienabhängige Frontabweichung dokumentiert (docs/P1_2D_FLUID_ABNAHME.md) |
 | P2 | Echte volumetrische 3D-Wassertechnik erforschen und auswaehlen (MAC/FLIP/APIC/MPM) | Vergleich mit Referenzfaellen, Speicherbudget, 3D-Kollision | **PASS (CPU-MVP)**: MAC+VOF ausgewählt, gekoppelter 3D-Solver, Referenz-Hydrostatik, 3D-Dammbruch/Hindernis, Auflösungs-/CPU-/Speichervergleich und gemeinsame Core-API geprüft; Einschränkungen siehe docs/P2_3D_FLUID_ABNAHME.md |
 | P3 | Gekoppelte Material- und Volumenphysik | Wasser sickert in poroesen Boden, Krafteinwirkung, Energiebilanz | Lokaler konservativer Wasser-Boden-Transfer getestet; 3D-FSI offen |
 | P4 | Thermodynamik und Phasenwechsel | validierte Waerme-/Massenerhaltung; Wasser/Eis/Dampf | Enthalpiemodell Wasser/Eis/Dampf getestet; Waerme-Kopplung offen |
@@ -29,5 +29,7 @@ Stand: 2026-10-26. Status bezieht sich auf den realen Code, nicht auf Ambitionen
 - CPU-Benchmark: `ENGINE TEST STUBE/runs/unified_physics_v0_2_cpu_bench.csv`.
 - Maschinenlesbare Statuspruefung: `Engine Core/UnifiedPhysicsCore/scripts/phase_gate.py`.
 - Externe Grundlagen: Robert Bridson, SIGGRAPH Fluids 2007 (MAC/Projection); UE5.8 Plugin/Module API Dokumentation.
-- P0 und P2 gelten innerhalb ihrer dokumentierten Abnahme als abgeschlossen. P1 und P3 bis P8 bleiben offen; P2 ist kein vollstaendig validiertes 3D-CFD- oder AAA-Fluidprodukt.
+- P0, P1 und P2 gelten innerhalb ihrer dokumentierten Abnahme als abgeschlossen. P3 bis P8 bleiben offen; P2 ist kein vollstaendig validiertes 3D-CFD- oder AAA-Fluidprodukt.
 - P2-Pruefnachweis: ENGINE TEST STUBE/runs/p2_acceptance.json (native quantitative Checks + Hashes), Script: scripts/p2_acceptance.py.
+
+- P1-Pruefnachweis: ENGINE TEST STUBE/runs/p1_acceptance.json, scripts/p1_acceptance.py, analytische Referenzen Ritter/Stoker, native Tests und SHA256-Fingerprints.

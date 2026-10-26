@@ -27,6 +27,32 @@ def ctest() -> dict:
     return {"ok":p.returncode==0 and "100% tests passed" in p.stdout,
             "tail":p.stdout[-1800:], "exit":p.returncode}
 
+def p1_evidence() -> dict:
+    report_path = LAB / "runs" / "p1_acceptance.json"
+    if not report_path.exists():
+        return {"ok":False,"why":"No P1 native acceptance result"}
+    try:
+        data=json.loads(report_path.read_text(encoding="utf-8"))
+        if data.get("phase")!="P1" or data.get("accepted") is not True:
+            raise ValueError("P1 quantitative acceptance is not PASS")
+        checks=data.get("checks",[])
+        if len(checks)<30 or not all(item.get("pass") is True for item in checks):
+            raise ValueError("Insufficient/failed P1 quantitative checks")
+        hashes=data.get("source_sha256",{})
+        if len(hashes)<8:
+            raise ValueError("Incomplete P1 source fingerprint list")
+        for filename,expected in hashes.items():
+            path=CORE/filename
+            if not path.is_file() or hashlib.sha256(path.read_bytes()).hexdigest()!=expected:
+                raise ValueError(f"Changed or missing P1 evidence source {filename}")
+        dry=data.get("ritter_dry_bed",[])
+        wet=data.get("stoker_wet_bed",[])
+        if len(dry)!=3 or len(wet)!=3:
+            raise ValueError("Independent analytical benchmark rows missing")
+        return {"ok":True,"why":f"{len(checks)} quantitative checks, Ritter + Stoker and source hashes verified"}
+    except (ValueError,KeyError,TypeError,OSError) as exc:
+        return {"ok":False,"why":str(exc)}
+
 def p2_evidence() -> dict:
     report_path = LAB / "runs" / "p2_acceptance.json"
     if not report_path.exists():
@@ -54,6 +80,7 @@ def p2_evidence() -> dict:
 
 def main() -> None:
     tests = ctest()
+    p1 = p1_evidence()
     p2 = p2_evidence()
     ue_bin = BUILDS / "Binaries" / "Win64" / "UnrealEditor-EngineMaterialLab.dll"
     log = LOG.read_text(encoding="utf-8",errors="replace") if LOG.exists() else ""
@@ -64,7 +91,9 @@ def main() -> None:
     phases = {
        "P0":{"status":"PASS" if tests["ok"] else "FAIL",
              "evidence":"MSVC/CTest C++ core regression"},
-       "P1":{"status":"PARTIAL","evidence":"Ritter analytical dry-bed reference + three-grid depth/momentum convergence tested; front bias and additional references unresolved"},
+       "P1":{"status":"PASS" if tests["ok"] and p1["ok"] else "PARTIAL",
+             "evidence":"2D shallow-water CPU baseline, "+p1["why"]+
+             "; 3D/viscosity and subgrid interface physics remain out of P1 scope"},
        "P2":{"status":"PASS" if p2["ok"] and tests["ok"] else "PARTIAL",
               "evidence":"Selected MAC+VOF coupled 3D CPU prototype; "+p2["why"]+
               "; full 3D multi-material interaction is P3"},
