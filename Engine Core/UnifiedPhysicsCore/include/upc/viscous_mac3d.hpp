@@ -27,6 +27,17 @@ struct MaskedMacMomentumLedger3D {
     std::array<double,3> solid_wall_drag_sum_m_s{};
     std::array<double,3> exterior_boundary_source_sum_m_s{};
     std::array<double,3> closure_residual_sum_m_s{};
+    // Exact algebraic face-square budget of the explicit masked stencil.
+    // Units m^2/s^2, NOT volume-integrated physical fluid kinetic energy.
+    // For each component: delta_E = -internal_gradient - solid_gradient
+    // - exterior_gradient + prescribed_wall_work + Euler_correction.
+    std::array<double,3> face_energy_change_proxy_m2_s2{};
+    std::array<double,3> internal_gradient_loss_proxy_m2_s2{};
+    std::array<double,3> solid_gradient_loss_proxy_m2_s2{};
+    std::array<double,3> exterior_gradient_loss_proxy_m2_s2{};
+    std::array<double,3> prescribed_wall_work_proxy_m2_s2{};
+    std::array<double,3> explicit_euler_correction_proxy_m2_s2{};
+    std::array<double,3> energy_closure_residual_proxy_m2_s2{};
     std::size_t substeps=0;
 };
 class ViscousMacDiffusion3D {
@@ -168,6 +179,8 @@ public:
                              int axis,auto read,auto write){
             const auto count=sx*sy*sz;
             double before_active_sum=0,after_active_sum=0;
+            double before_active_energy=0,after_active_energy=0;
+            double expected_energy_change=0;
             const std::array<double,3> previous_boundary_source=ledger?
                 std::array<double,3>{
                     ledger->solid_boundary_source_sum_m_s[0]+ledger->exterior_boundary_source_sum_m_s[0],
@@ -200,11 +213,26 @@ public:
                         if(state==3){
                             ledger->solid_wall_drive_sum_m_s[k]+=alpha*ghost;
                             ledger->solid_wall_drag_sum_m_s[k]-=alpha*center;
+                            ledger->solid_gradient_loss_proxy_m2_s2[k]+=alpha*center*center;
+                            ledger->prescribed_wall_work_proxy_m2_s2[k]+=alpha*center*ghost;
+                        } else {
+                            ledger->exterior_gradient_loss_proxy_m2_s2[k]+=alpha*center*center;
                         }
+                        expected_energy_change-=alpha*center*center;
+                        if(state==3)expected_energy_change+=alpha*center*ghost;
                     }
                     return ghost;
                 }
-                return state==2?center:before[index(ux,uy,uz,sx,sy)];
+                if(state==2)return center;
+                const double neighbor=before[index(ux,uy,uz,sx,sy)];
+                if(ledger){
+                    // Each active-active pair is visited twice, once per
+                    // endpoint; the factor 1/2 counts the undirected edge once.
+                    const double pair_loss=0.5*alpha*(center-neighbor)*(center-neighbor);
+                    ledger->internal_gradient_loss_proxy_m2_s2[static_cast<std::size_t>(axis)]+=pair_loss;
+                    expected_energy_change-=pair_loss;
+                }
+                return neighbor;
             };
             for(std::size_t z=0;z<sz;++z)
             for(std::size_t y=0;y<sy;++y)
@@ -215,13 +243,22 @@ public:
                 const auto b=static_cast<long long>(y);
                 const auto c=static_cast<long long>(z);
                 const double v=before[i];
-                if(ledger)before_active_sum+=v;
+                if(ledger){
+                    before_active_sum+=v;
+                    before_active_energy+=0.5*v*v;
+                }
                 after[i]=v+alpha*(sample(a-1,b,c,v,0)+sample(a+1,b,c,v,0)+
                     sample(a,b-1,c,v,1)+sample(a,b+1,c,v,1)+
                     sample(a,b,c-1,v,2)+sample(a,b,c+1,v,2)-6*v);
                 if(!std::isfinite(after[i]))
                     throw std::runtime_error("Nonfinite masked viscosity");
-                if(ledger)after_active_sum+=after[i];
+                if(ledger){
+                    after_active_sum+=after[i];
+                    after_active_energy+=0.5*after[i]*after[i];
+                    const double correction=0.5*(after[i]-v)*(after[i]-v);
+                    ledger->explicit_euler_correction_proxy_m2_s2[static_cast<std::size_t>(axis)]+=correction;
+                    expected_energy_change+=correction;
+                }
             }
             if(ledger){
                 const auto k=static_cast<std::size_t>(axis);
@@ -231,6 +268,10 @@ public:
                     delta-(ledger->solid_boundary_source_sum_m_s[k]+
                            ledger->exterior_boundary_source_sum_m_s[k]-
                            previous_boundary_source[k]);
+                const double energy_delta=after_active_energy-before_active_energy;
+                ledger->face_energy_change_proxy_m2_s2[k]+=energy_delta;
+                ledger->energy_closure_residual_proxy_m2_s2[k]+=
+                    energy_delta-expected_energy_change;
             }
             for(std::size_t z=0;z<sz;++z)
             for(std::size_t y=0;y<sy;++y)

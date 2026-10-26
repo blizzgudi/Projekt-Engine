@@ -198,3 +198,28 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
 - **P2 bleibt PARTIAL**, ebenso P3–P8. Keine bewegte Körpergeometrie,
   keine echte FSI-Gegenreaktion, keine stresskonsistente freie
   Oberfläche, keine externen 3D-Messdaten oder neue UE5.8-Native-E2E.
+
+
+## P2 Teilfortschritt: exakte diskrete MAC-Face-Energiebilanz (26.10.2026)
+
+- `MaskedMacMomentumLedger3D` bilanziert jetzt zusätzlich die Änderung
+  der aktiven staggered-Face-Quadratsumme als **numerischen Proxy**:
+  interne Gradientenverluste, statische Solid-/Außenwand-Verluste,
+  vorgegebene tangentiale Wandarbeit und positive Euler-Korrektur.
+  Die Summe schließt algebraisch gegen die tatsächliche Face-Änderung.
+- Unabhängige 10³-Couette-Einzelschritt-Referenz bei `alpha=0,036`:
+  `internal_loss=0,01125`, `solid_loss=0,00225`,
+  `wall_work=0,0036`, `Euler_correction=0,0107325`,
+  `face_energy_delta=+0,0008325`. Die positive Änderung bei
+  angetriebener Wand ist ausdrücklich **kein** FSI-Energiebeweis.
+- Native Test `tests/viscous_energy_ledger3d_tests.cpp` prüft
+  die Referenz, 3 Achsen, stationäre Wand, freie Oberflächen,
+  adaptive 8-Substeps, Nullviskosität und Negativfall.
+  MSVC Release **37/37 CTest PASS**.
+- Gate: `scripts/p2_viscous_energy_acceptance.py`,
+  `ENGINE TEST STUBE/runs/p2_viscous_energy_partial.json`.
+  Dokumentation: `docs/P2_VISCOUS_ENERGY_LEDGER_PARTIAL.md`.
+- **P2 bleibt PARTIAL, P3–P8 bleiben offen.** Es fehlt die
+  physikalische Gesamtenergie/Impulsbilanz, bewegte Festkörper-FSI,
+  stresskonsistente Wasser-Luft-Grenze, unabhängige 3D-Messreferenz
+  und ein neuer UE5.8-Native-E2E-Lauf für diese Erweiterung.

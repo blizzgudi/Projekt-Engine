@@ -1,0 +1,76 @@
+{
+  "phase": "P2",
+  "milestone": "explicit_masked_mac_discrete_face_energy_ledger_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "generated_utc": "2026-10-26T19:18:20.842374+00:00",
+  "checks": [
+    {
+      "name": "native_63_assertions",
+      "pass": true,
+      "value": 63
+    },
+    {
+      "name": "adaptive_substeps",
+      "pass": true,
+      "value": 8
+    },
+    {
+      "name": "independent_internal_loss",
+      "pass": true,
+      "value": 0.011249999999999996,
+      "reference": 0.011249999999999996
+    },
+    {
+      "name": "independent_solid_loss",
+      "pass": true,
+      "value": 0.0022499999999999994,
+      "reference": 0.0022499999999999994
+    },
+    {
+      "name": "independent_wall_work",
+      "pass": true,
+      "value": 0.003599999999999999,
+      "reference": 0.003599999999999999
+    },
+    {
+      "name": "independent_euler_correction",
+      "pass": true,
+      "value": 0.010732499999999996,
+      "reference": 0.010732499999999996
+    },
+    {
+      "name": "independent_energy_delta",
+      "pass": true,
+      "value": 0.0008324999999999999,
+      "reference": 0.0008324999999999999
+    },
+    {
+      "name": "full_37_native_ctest_suites",
+      "pass": true,
+      "value": 37
+    },
+    {
+      "name": "strict_gate_not_full",
+      "pass": true
+    },
+    {
+      "name": "source_sha256_coverage",
+      "pass": true
+    }
+  ],
+  "native_stdout": "PASS P2 discrete masked MAC energy ledger checks=63 internal_loss=0.011249999999999996 solid_loss=0.0022499999999999994 wall_work=0.003599999999999999 euler_correction=0.010732499999999996 energy_delta=0.00083249999999999991 adaptive_substeps=8 phase_complete=false",
+  "native_binary_sha256": "55b3a117c3ebac91f1837016694e18456dc8db6e797107b18c06f89d681cda57",
+  "ctest_exit_code": 0,
+  "ctest_stdout_tail": "Test project D:/Projekt Engine/Engine Core/UnifiedPhysicsCore/build\n      Start 37: physics_p2_masked_viscous_face_energy_ledger\n      Start 34: physics_p2_viscous_mac3d_masked_boundaries\n      Start 36: physics_p2_masked_viscous_face_momentum_ledger\n      Start 35: physics_p2_live_viscous_3d_mac_vof\n      Start 33: physics_p2_viscous_mac3d_analytic_reference\n 1/37 Test #37: physics_p2_masked_viscous_face_energy_ledger ........   Passed    0.38 sec\n 2/37 Test #34: physics_p2_viscous_mac3d_masked_boundaries ..........   Passed    0.37 sec\n 3/37 Test #36: physics_p2_masked_viscous_face_momentum_ledger ......   Passed    0.36 sec\n      Start 30: physics_p7_hardware_d3d11_cpu_parity\n      Start 29: physics_p7_sparse_lod_memory_and_volume_reference\n      Start 28: physics_p7_sparse_3d_mac_render_lod\n 4/37 Test #35: physics_p2_live_viscous_3d_mac_vof ..................   Passed    0.65 sec\n      Start  5: physics_p5_plane_contact_partial\n 5/37 Test #33: physics_p2_viscous_mac3d_analytic_reference .........   Passed    0.65 sec\n 6/37 Test #29: physics_p7_sparse_lod_memory_and_volume_reference ...   Passed    0.30 sec\n      Start 31: physics_p7_hardware_d3d11_brick_residency\n      Start 27: physics_p6_p4_exothermic_energy_coupling\n 7/37 Test  #5: physics_p5_plane_contact_partial ....................   Passed    0.03 sec\n      Start 24: physics_p5_affine_lattice_constitutive_reference\n 8/37 Test #27: physics_p6_p4_exothermic_energy_coupling ............   Passed    0.02 sec\n      Start  9: physics_3d_reference_and_memory\n 9/37 Test #24: physics_p5_affine_lattice_constitutive_reference ....   Passed    0.02 sec\n      Start  8: physics_coupled_3d_water\n10/37 Test #28: physics_p7_sparse_3d_mac_render_lod .................   Passed    0.37 sec\n      Start 19: physics_p4_p3_porous_heat_gravity_bridge\n11/37 Test #19: physics_p4_p3_porous_heat_gravity_bridge ............   Passed    0.03 sec\n      Start  2: physics_materials_tests\n12/37 Test  #2: physics_materials_tests .............................   Passed    0.01 sec\n      Start  7: physics_ritter_analytical_reference\n13/37 Test  #7: physics_ritter_analytical_reference .................   Passed    0.02 sec\n      Start 14: physics_p3_darcy_energy_reference\n14/37 Test #30: physics_p7_hardware_d3d11_cpu_parity ................   Passed    0.58 sec\n      Start 32: physics_p7_resident_streaming_lod_bounds\n15/37 Test #31: physics_p7_hardware_d3d11_brick_residency ...........   Passed    0.28 sec\n      Start 13: physics_p3_material_volume_coupling\n16/37 Test #32: physics_p7_resident_streaming_lod_bounds ............   Passed    0.03 sec\n      Start 18: physics_p4_live_mac_enthalpy_advection\n17/37 Test #13: physics_p3_material_volume_coupling .................   Passed    0.04 sec\n      Start 23: physics_p5_deformable_self_and_multibody_contact\n18/37 Test #18: physics_p4_live_mac_enthalpy_advection ..............   Passed    0.03 sec\n      Start 16: physics_p4_neumann_heat_reference\n19/37 Test #23: physics_p5_deformable_self_and_multibody_contact ....   Passed    0.02 sec\n      Start 20: physics_p5_granular_3d_contacts\n20/37 Test #14: physics_p3_darcy_energy_reference ...................   Passed    0.21 sec\n      Start 17: physics_p4_phase_mac_voxel_bridge\n21/37 Test #17: physics_p4_phase_mac_voxel_bridge ...................   Passed    0.01 sec\n      Start 15: physics_p4_thermal_conduction_and_phase\n22/37 Test #20: physics_p5_granular_3d_contacts .....................   Passed    0.03 sec\n      Start 26: physics_p6_arrhenius_fick_numeric_reference\n23/37 Test #15: physics_p4_thermal_conduction_and_phase .............   Passed    0.02 sec\n      Start 25: physics_p6_conservative_3d_mixtures_reactions\n24/37 Test  #8: physics_coupled_3d_water ............................   Passed    0.35 sec\n      Start 22: physics_p5_granular_fracture_reference\n25/37 Test #25: physics_p6_conservative_3d_mixtures_reactions .......   Passed    0.03 sec\n      Start 21: physics_p5_lattice_3d_fracture\n26/37 Test #22: physics_p5_granular_fracture_reference ..............   Passed    0.03 sec\n      Start 11: physics_stoker_wet_bed_analytical\n27/37 Test #21: physics_p5_lattice_3d_fracture ......................   Passed    0.02 sec\n      Start 12: physics_2d_extended_invariants\n28/37 Test #26: physics_p6_arrhenius_fick_numeric_reference .........   Passed    0.07 sec\n      Start  6: physics_mac3d_tests\n29/37 Test #11: physics_stoker_wet_bed_analytical ...................   Passed    0.03 sec\n      Start  3: physics_3d_transport_tests\n30/37 Test  #6: physics_mac3d_tests .................................   Passed    0.02 sec\n      Start 10: physics_unified_3d_runtime\n31/37 Test #12: physics_2d_extended_invariants ......................   Passed    0.04 sec\n      Start  1: physics_core_tests\n32/37 Test  #3: physics_3d_transport_tests ..........................   Passed    0.03 sec\n      Start  4: physics_solid_tests\n33/37 Test #10: physics_unified_3d_runtime ..........................   Passed    0.03 sec\n34/37 Test  #1: physics_core_tests ..................................   Passed    0.02 sec\n35/37 Test  #4: physics_solid_tests .................................   Passed    0.01 sec\n36/37 Test #16: physics_p4_neumann_heat_reference ...................   Passed    0.19 sec\n37/37 Test  #9: physics_3d_reference_and_memory .....................   Passed    1.64 sec\n\n100% tests passed, 0 tests failed out of 37\n\nTotal Test time (real) =   2.36 sec\n\n",
+  "phase_gate_stdout": "GATES_PASS=P0\nGATES_INCOMPLETE=P1,P2,P3,P4,P5,P6,P7,P8\nALL_COMPLETE=False\nEVIDENCE=D:\\Projekt Engine\\ENGINE TEST STUBE\\runs\\unified_physics_gate.json",
+  "source_sha256": {
+    "include/upc/viscous_mac3d.hpp": "b091da38edc446f962b0c946f7f2f5e5211fff1e69b7c718e1bafea3d01c5181",
+    "tests/viscous_energy_ledger3d_tests.cpp": "ed6de68540102fd08065f44732fbfd0a0c7d900e41ace3a2085fa7e794809134",
+    "CMakeLists.txt": "4cbc220480eeb2943a523cb55201c2459a0d68a15f5cdeab2e76bc24e6755a51",
+    "scripts/p2_viscous_energy_acceptance.py": "aa7f96f487a1a8e7ad4dda1388546685ca961effa6ad4be41c73ea47bc9d70fc",
+    "docs/P2_VISCOUS_ENERGY_LEDGER_PARTIAL.md": "d031823c963683e5d4ede9f9e29e8eaca2360cc1000690bf944b440a93333fd0",
+    "docs/PHASENPLAN.md": "508c85092032cd8138c71d25ee272c8e2e87e53e4c07a08e8387221068effbb4"
+  },
+  "limitations": "Exact algebraic staggered-face-square stencil budget only. No physical continuum energy, no moving-body FSI, no stress-consistent free surface, no measured 3D reference, no new Unreal 5.8 native E2E. P2-P8 full phases remain open."
+}

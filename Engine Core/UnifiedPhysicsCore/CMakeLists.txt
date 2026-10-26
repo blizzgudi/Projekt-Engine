@@ -164,3 +164,8 @@ add_test(NAME physics_p2_live_viscous_3d_mac_vof COMMAND upc_p2_live_viscous_wat
 add_executable(upc_p2_viscous_momentum_ledger_tests tests/viscous_momentum_ledger3d_tests.cpp)
 target_link_libraries(upc_p2_viscous_momentum_ledger_tests PRIVATE upc)
 add_test(NAME physics_p2_masked_viscous_face_momentum_ledger COMMAND upc_p2_viscous_momentum_ledger_tests)
+
+# P2: exact discrete masked MAC face-square energy ledger (NOT physical FSI).
+add_executable(upc_p2_viscous_energy_ledger_tests tests/viscous_energy_ledger3d_tests.cpp)
+target_link_libraries(upc_p2_viscous_energy_ledger_tests PRIVATE upc)
+add_test(NAME physics_p2_masked_viscous_face_energy_ledger COMMAND upc_p2_viscous_energy_ledger_tests)
