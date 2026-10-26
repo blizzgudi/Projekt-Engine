@@ -53,6 +53,32 @@ def p1_evidence() -> dict:
     except (ValueError,KeyError,TypeError,OSError) as exc:
         return {"ok":False,"why":str(exc)}
 
+def p4_partial_evidence() -> dict:
+    report_path = LAB / "runs" / "p4_partial_acceptance.json"
+    if not report_path.exists():
+        return {"ok":False,"why":"P4 3D thermal partial report missing"}
+    try:
+        data=json.loads(report_path.read_text(encoding="utf-8"))
+        if data.get("phase")!="P4" or data.get("partial_accepted") is not True or data.get("phase_complete") is not False:
+            raise ValueError("P4 partial scope evidence invalid")
+        checks=data.get("checks",[])
+        if len(checks)<22 or not all(c.get("pass") is True for c in checks):
+            raise ValueError("P4 3D Fourier quantitative checks missing")
+        if int(data.get("native_assertions",0))<800:
+            raise ValueError("P4 phase-change and thermal regression missing")
+        if len(data.get("reference",[]))!=4:
+            raise ValueError("P4 3D Neumann benchmark grid count missing")
+        hashes=data.get("source_sha256",{})
+        if len(hashes)<6:
+            raise ValueError("P4 source hash coverage incomplete")
+        for name,sha in hashes.items():
+            p=CORE/name
+            if not p.is_file() or hashlib.sha256(p.read_bytes()).hexdigest()!=sha:
+                raise ValueError(f"P4 source missing or changed: {name}")
+        return {"ok":True,"why":f"{len(checks)} quantitative checks, water latent phase plateaus, 3D Fourier and static runtime snapshot; source hashes verified; no live phase/flow coupling"}
+    except (ValueError,KeyError,TypeError,OSError) as exc:
+        return {"ok":False,"why":str(exc)}
+
 def p3_evidence() -> dict:
     report_path = LAB / "runs" / "p3_acceptance.json"
     if not report_path.exists():
@@ -112,6 +138,7 @@ def main() -> None:
     p1 = p1_evidence()
     p2 = p2_evidence()
     p3 = p3_evidence()
+    p4 = p4_partial_evidence()
     ue_bin = BUILDS / "Binaries" / "Win64" / "UnrealEditor-EngineMaterialLab.dll"
     log = LOG.read_text(encoding="utf-8",errors="replace") if LOG.exists() else ""
     plugin_built = ue_bin.exists() and ue_bin.stat().st_size>0
@@ -130,7 +157,9 @@ def main() -> None:
        "P3":{"status":"PASS" if p3["ok"] and tests["ok"] else "PARTIAL",
              "evidence":"Porous 3D soil/free-water, pressure load, voxel-body displacement, isolated mass and work-energy ledgers; "+p3["why"]+
              "; high-fidelity moving-wall impulse/energy FSI remains out of scope"},
-       "P4":{"status":"PARTIAL","evidence":"enthalpy-based pure-water phases in a closed sample; multi-cell heat/energy validation missing"},
+       "P4":{"status":"PARTIAL",
+             "evidence":"3D thermal partial validation: "+p4["why"]+
+             "; phase-changing 3D MAC transport, solid/gas volume remap, P3 thermal feedback and global energy closure still missing"},
        "P5":{"status":"PARTIAL","evidence":"3D mass-spring + fracture; stable volumetric solids/granular contact missing"},
        "P6":{"status":"PARTIAL","evidence":"composition mass bookkeeping; calibrated thermochemical laws missing"},
        "P7":{"status":"PARTIAL","evidence":"sparse CPU chunks and benchmarks; GPU/LOD integration missing"},

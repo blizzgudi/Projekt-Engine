@@ -64,3 +64,11 @@ add_test(NAME physics_p3_material_volume_coupling COMMAND upc_material_coupling3
 add_executable(upc_p3_reference benchmarks/p3_reference.cpp)
 target_link_libraries(upc_p3_reference PRIVATE upc)
 add_test(NAME physics_p3_darcy_energy_reference COMMAND upc_p3_reference)
+
+add_executable(upc_thermal3d_tests tests/thermal3d_tests.cpp)
+target_link_libraries(upc_thermal3d_tests PRIVATE upc)
+add_test(NAME physics_p4_thermal_conduction_and_phase COMMAND upc_thermal3d_tests)
+
+add_executable(upc_p4_reference benchmarks/p4_reference.cpp)
+target_link_libraries(upc_p4_reference PRIVATE upc)
+add_test(NAME physics_p4_neumann_heat_reference COMMAND upc_p4_reference)

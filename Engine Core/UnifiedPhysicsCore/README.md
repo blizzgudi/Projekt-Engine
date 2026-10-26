@@ -19,6 +19,12 @@ physikalische Simulationen. Entwicklung liegt unter D:\Projekt Engine.
   dreidimensionalem Volumentransport und Kollisionen mit festen Hindernissen.
 - UnifiedPhysicsRuntime: Eintrittsstelle für gemeinsame Materialbibliothek,
   2D- und 3D-Flüssigkeitsdomänen und zentralen Simulationsschritt.
+- thermal3d.hpp: **P4-Teilmeilenstein, noch keine vollständige P4-Abnahme.**
+  3D-Wärmeleitung zwischen Festkörper/Wasser mit Energieerhaltung,
+  Eis/Wasser/Dampf-Enthalpie, Wärmequellen und Material-ID-Snapshot aus
+  MAC-Wasser und VoxelGrid; thermische Festkörpertemperaturen zurück in
+  VoxelGrid. Keine laufende thermische Fluidadvektion, keine echte
+  Eis-/Dampfvolumen-Rückkopplung. Details: docs/P4_THERMAL_PARTIAL_ACCEPTANCE.md.
 - material_coupling3d.hpp: **Phase P3 – 3D Material-/Volumen-Kopplung als CPU-MVP:**
   Boden-IDs mit Porosität/Durchlässigkeit, MAC-Wasserinfiltration und
   Porenversickerung, Massenerhaltung, Energieverlust- und Druckkraftnachweise

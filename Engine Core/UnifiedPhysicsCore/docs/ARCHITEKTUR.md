@@ -20,7 +20,12 @@ initialisiert, rendert aber die neue 3D-Domäne noch nicht (P8 offen).
    Wasseranteile durch konservative Flüsse transportieren.
 6. UnifiedPhysicsRuntime: bindet 3D-Flüssigkeiten an gemeinsame Material-IDs
    und Dichten und besitzt zentralen Update-Aufruf.
-7. MaterialVolumeCoupler3D (P3): übernimmt registrierte Material-IDs aus
+7. ThermalVolume3D (P4-Teilmeilenstein): konservative 3D-Fourier-Wärmeleitung
+   mit harmonischer Interface-Leitfähigkeit und enthalpiebasierten
+   Eis/Flüssig/Dampf-Plateaus. Einmaliger Snapshot aus MAC/VOF und
+   zentralem VoxelGrid; Festkörpertemperaturen zurückschreibbar.
+   Kein global gekoppeltes thermisches MAC-Advektions-/Phasenwechselmodell.
+8. MaterialVolumeCoupler3D (P3): übernimmt registrierte Material-IDs aus
    demselben Core und synchronisiert befüllte MAC-Voxel mit der
    Materialdatenbank; Boden besitzt parametrisierte Porenanteile und
    vertikale Darcy-artige Versickerung, rigide Voxelkörper bekommen
