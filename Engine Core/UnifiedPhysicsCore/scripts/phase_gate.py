@@ -1,6 +1,7 @@
 """Read-only evidence inspection for P0..P8. Conservative: never infer completion from file names alone."""
 from __future__ import annotations
 import json
+import hashlib
 import subprocess
 from pathlib import Path
 from datetime import datetime, timezone
@@ -26,8 +27,34 @@ def ctest() -> dict:
     return {"ok":p.returncode==0 and "100% tests passed" in p.stdout,
             "tail":p.stdout[-1800:], "exit":p.returncode}
 
+def p2_evidence() -> dict:
+    report_path = LAB / "runs" / "p2_acceptance.json"
+    if not report_path.exists():
+        return {"ok": False, "why": "P2 native quantitative acceptance report missing"}
+    try:
+        data=json.loads(report_path.read_text(encoding="utf-8"))
+        if data.get("phase")!="P2" or data.get("accepted") is not True:
+            raise ValueError("P2 acceptance not approved")
+        checks=data.get("checks",[])
+        if len(checks)<30 or not all(entry.get("pass") is True for entry in checks):
+            raise ValueError("Missing or failed quantitative acceptance checks")
+        hashes=data.get("source_sha256",{})
+        for filename,expected in hashes.items():
+            path=CORE / filename
+            if not path.is_file():
+                raise ValueError(f"Missing P2 source: {filename}")
+            actual=hashlib.sha256(path.read_bytes()).hexdigest()
+            if actual != expected:
+                raise ValueError(f"P2 source changed since verified: {filename}")
+        if len(hashes)<7:
+            raise ValueError("Insufficient P2 source fingerprint coverage")
+        return {"ok":True,"why":f"{len(checks)} quantitative P2 checks and source hashes verified"}
+    except (ValueError,KeyError,TypeError,OSError) as exc:
+        return {"ok":False,"why":str(exc)}
+
 def main() -> None:
     tests = ctest()
+    p2 = p2_evidence()
     ue_bin = BUILDS / "Binaries" / "Win64" / "UnrealEditor-EngineMaterialLab.dll"
     log = LOG.read_text(encoding="utf-8",errors="replace") if LOG.exists() else ""
     plugin_built = ue_bin.exists() and ue_bin.stat().st_size>0
@@ -38,7 +65,9 @@ def main() -> None:
        "P0":{"status":"PASS" if tests["ok"] else "FAIL",
              "evidence":"MSVC/CTest C++ core regression"},
        "P1":{"status":"PARTIAL","evidence":"Ritter analytical dry-bed reference + three-grid depth/momentum convergence tested; front bias and additional references unresolved"},
-       "P2":{"status":"PARTIAL","evidence":"3D conservative volume transport and separate MAC projection validated; coupled 3D fluid missing"},
+       "P2":{"status":"PASS" if p2["ok"] and tests["ok"] else "PARTIAL",
+              "evidence":"Selected MAC+VOF coupled 3D CPU prototype; "+p2["why"]+
+              "; full 3D multi-material interaction is P3"},
        "P3":{"status":"PARTIAL","evidence":"single-cell porous infiltration conserves mass; integrated 3D FSI missing"},
        "P4":{"status":"PARTIAL","evidence":"enthalpy-based pure-water phases in a closed sample; multi-cell heat/energy validation missing"},
        "P5":{"status":"PARTIAL","evidence":"3D mass-spring + fracture; stable volumetric solids/granular contact missing"},

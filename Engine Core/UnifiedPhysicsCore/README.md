@@ -1,26 +1,48 @@
-# Unified Physics Core — v0.1 CPU-Prototyp
+# Unified Physics Core — v0.2 (CPU-Forschungssystem)
 
-Eigenstaendiger, **Unreal-unabhaengiger** C++17-Prototyp als erstes Engine-Modul.
+Unreal-unabhängige C++17-Bibliothek für Materialzustände, Voxel und erste
+physikalische Simulationen. Entwicklung liegt unter D:\Projekt Engine.
 
-## Was implementiert ist
+## Verfügbare Module
 
-- Zentrale Materialbibliothek mit festen IDs, Phasen, Dichte und Viskositaet (letztere bisher nur Metadatum).
-- Dichtes 3D-Voxelraster mit Material-ID, Fuellanteil, Temperatur und Schadenszustand.
-- Voxel-Massenberechnung aus Volumen, Fuellanteil und Dichte.
-- Zentraler Simulations-Tick fuer registrierte 2D-Wasserdomaenen.
-- Ein **2D-Shallow-Water-Solver** mit Schwerkraft, Tiefenfeld, Geschwindigkeit/Impuls, hydrostatischem Druck, reflektierenden Raendern und Hindernissen.
-- Numerisches Finite-Volume-Verfahren (Rusanov-Flux), automatische CFL-Teilzeitschritte, Wasser-Volumenerhaltung und Regressionstests.
-- Reproduzierbarer Dam-Break-Test mit CSV-Export.
+- MaterialLibrary: zentrale Material-IDs, Phasen, Dichte und Viskositätsdaten.
+- VoxelGrid: material_id, Füllanteil, Temperatur und Schaden pro 3D-Zelle.
+- ShallowWater2D: konservativer 2D-Wassersolver mit Wasserhöhe, Geschwindigkeit
+  und Druck (Phase P1: noch zusätzliche Referenzvalidierung nötig).
+- MacProjection3D: versetztes Geschwindigkeitsgitter, Druckprojektion,
+  freie Oberfläche und feste Grenzen.
+- CoupledMacWater3D: **zusammenhängender CPU-3D-Wassersolver** mit MAC-Druck,
+  Schwerkraft, semi-Lagrangescher Geschwindigkeitsadvektion, konservativem
+  dreidimensionalem Volumentransport und Kollisionen mit festen Hindernissen.
+- UnifiedPhysicsRuntime: Eintrittsstelle für gemeinsame Materialbibliothek,
+  2D- und 3D-Flüssigkeitsdomänen und zentralen Simulationsschritt.
+- materials_ext.hpp: Prototypen für Materialmischung, Wasserenthalpie/
+  Eis/Wasserdampf, Wasser-Boden-Infiltration und sparse 16³-Voxel-Chunks.
+- solid.hpp: einfacher 3D-Masse-Feder-Prototyp mit Bruchgrenze.
 
-## Nicht implementiert
+## Phase P2
 
-Keine 3D-Volumenfluessigkeit, keine Kopplung von VoxelGrid und Wasser, keine turbulenten 3D-Stroemungen, keine Viskositaetskraefte, keine Oberflaechenspannung, keine Waermeleitung, keine elastischen Festkoerper, keine Stoffreaktionen, kein GPU-Solver, kein Unreal-Runtime-Plugin. VoxelGrid ist aktuell ein Datencontainer; keine sparse chunks und keine physikalische Objektkopplung. V0.1 ist deshalb **kein vollstaendiger Unified Solver**.
+P2 ist als CPU-3D-Prototyp und Verfahrensentscheidung abgeschlossen, wenn
+scripts/p2_acceptance.py nach MSVC-Release-Build PASS meldet. Siehe
+docs/P2_3D_FLUID_ABNAHME.md für Methodik, Messdaten und Grenzen.
 
-## Build auf dem vorhandenen Rechner
+Die anderen Phasen bleiben eigenständig offen: keine Mehrmaterial-Fluid-
+Festkörperkopplung, keine Wärmeausbreitung im 3D-Gitter, keine kalibrierte
+Reaktionsphysik, kein performanter GPU-Solver und kein UE5-Visual-E2E.
 
-Visual Studio 2026 Build Tools, CMake (unter VS) und C++17. Der CMake-Test heisst \`physics_core_tests\`.
-Projektdateien und Build-Artefakte bleiben unter \`D:\Projekt Engine\Engine Core\UnifiedPhysicsCore\`.
+## Reproduzierbarer Test
 
-## Designregel
+CMake mit MSVC C++17 konfigurieren, Release bauen und CTest ausführen.
+Dann: C:\Python314\python.exe scripts\p2_acceptance.py
+Zuletzt: C:\Python314\python.exe scripts\phase_gate.py
 
-Ein zentraler Core besitzt Materialzustand und Simulationszeit; spezialisierte numerische Verfahren bleiben eigene, testbare Module. Parameter mit unklarer Messbasis werden nicht als validierte Physik deklariert.
+Quantitative P2-Belege liegen ausschließlich unter
+D:\Projekt Engine\ENGINE TEST STUBE\runs\p2_acceptance.json.
+Das Benchmark-Ergebnis ist nicht als realtime/AAA-Spielqualität zu verstehen.
+
+## Architekturprinzip
+
+Eine gemeinsame Materialdatenbasis, ein zentraler Runtime-Einstiegspunkt und
+austauschbare numerische Solver. Unreal ist ein optionaler Adapter und darf
+die Kernphysik nicht definieren. Nicht implementierte Stoffparameter dürfen
+nicht als physikalisch aktive Regeln ausgegeben werden.

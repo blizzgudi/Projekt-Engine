@@ -67,6 +67,10 @@ public:
         if(x>nx_||y>=ny_||z>=nz_)throw std::out_of_range("Face x");
         return u_[fu(x,y,z)];
     }
+    double face_velocity_y(std::size_t x,std::size_t y,std::size_t z)const{
+        if(x>=nx_||y>ny_||z>=nz_)throw std::out_of_range("Face y");
+        return v_[fv(x,y,z)];
+    }
     double face_velocity_z(std::size_t x,std::size_t y,std::size_t z)const{
         if(x>=nx_||y>=ny_||z>nz_)throw std::out_of_range("Face z");
         return w_[fw(x,y,z)];
@@ -129,8 +133,10 @@ public:
                 for(const auto& d:dir) {
                     const int xx=(int)x+d[0],yy=(int)y+d[1],zz=(int)z+d[2];
                     if(is_wall(xx,yy,zz))continue;
-                    ++coefficient;
-                    if(is_liquid(xx,yy,zz))sum+=p(xx,yy,zz);
+                    // Air pressure is zero on the liquid/air face, only half
+                    // a cell from the liquid center: ghost-fluid factor 2.
+                    if(is_liquid(xx,yy,zz)){++coefficient;sum+=p(xx,yy,zz);}
+                    else coefficient+=2;
                 }
                 if(coefficient==0)continue;
                 const std::size_t i=cell(x,y,z);
@@ -144,17 +150,20 @@ public:
         for(std::size_t z=0;z<nz_;++z)for(std::size_t y=0;y<ny_;++y)
         for(std::size_t x=1;x<nx_;++x)
             if(!is_wall((int)x-1,(int)y,(int)z)&&!is_wall((int)x,(int)y,(int)z)){
-                u_[fu(x,y,z)]-=scale*(p((int)x,(int)y,(int)z)-p((int)x-1,(int)y,(int)z));
+                const double ghost=is_liquid((int)x,(int)y,(int)z)!=is_liquid((int)x-1,(int)y,(int)z)?2.0:1.0;
+                u_[fu(x,y,z)]-=scale*ghost*(p((int)x,(int)y,(int)z)-p((int)x-1,(int)y,(int)z));
             }
         for(std::size_t z=0;z<nz_;++z)for(std::size_t y=1;y<ny_;++y)
         for(std::size_t x=0;x<nx_;++x)
             if(!is_wall((int)x,(int)y-1,(int)z)&&!is_wall((int)x,(int)y,(int)z)){
-                v_[fv(x,y,z)]-=scale*(p((int)x,(int)y,(int)z)-p((int)x,(int)y-1,(int)z));
+                const double ghost=is_liquid((int)x,(int)y,(int)z)!=is_liquid((int)x,(int)y-1,(int)z)?2.0:1.0;
+                v_[fv(x,y,z)]-=scale*ghost*(p((int)x,(int)y,(int)z)-p((int)x,(int)y-1,(int)z));
             }
         for(std::size_t z=1;z<nz_;++z)for(std::size_t y=0;y<ny_;++y)
         for(std::size_t x=0;x<nx_;++x)
             if(!is_wall((int)x,(int)y,(int)z-1)&&!is_wall((int)x,(int)y,(int)z)){
-                w_[fw(x,y,z)]-=scale*(p((int)x,(int)y,(int)z)-p((int)x,(int)y,(int)z-1));
+                const double ghost=is_liquid((int)x,(int)y,(int)z)!=is_liquid((int)x,(int)y,(int)z-1)?2.0:1.0;
+                w_[fw(x,y,z)]-=scale*ghost*(p((int)x,(int)y,(int)z)-p((int)x,(int)y,(int)z-1));
             }
     }
 };

@@ -1,31 +1,44 @@
-# Unified Physics Core — Architektur v0.1
+# Unified Physics Core – Architektur v0.2
 
-**Status:** C++17 CPU-Prototyp. Bestehender Build/Testbeweis fuer MSVC. Keine Unreal Integration.
+Status: Native CPU-C++17-Kernbibliothek. Physiktests erfolgreich.
+P2 ist als geprüfter 3D-Wassersolver-MVP abgegrenzt, nicht als vollständiger
+3D-CFD- oder AAA-Liquid-Solver. UE5.8-Adapter wurde früher kompiliert und
+initialisiert, rendert aber die neue 3D-Domäne noch nicht (P8 offen).
 
-**UnifiedPhysicsCore** ist die gemeinsame Eintrittsstelle, haelt eine MaterialLibrary,
-ein dichtes VoxelGrid und beliebig viele ShallowWater2D-Domaenen.
-`step(dt)` koordiniert momentan ausschliesslich Wasserdomaenen.
+## Schichten
 
-**MaterialLibrary** speichert gemeinsam nutzbare IDs, Phasen, Dichte und
-Viskositaets-Metadaten. Die Materialwerte bleiben nach Registrierung unveraenderlich
-ueber die oeffentliche API. Keine Reaktionsdatenbank vorhanden.
+1. MaterialLibrary: gemeinsame unveränderliche Material-ID, Phase und Dichte
+   sowie weitere Parameter als Metadaten. Viskosität steuert v0.2 noch nicht.
+2. VoxelGrid: dichtes 3D-Materialraster, Füllanteil, Temperatur und Schaden.
+   Noch nicht mit 3D-Wasser gekoppelt – das ist Phase P3.
+3. ShallowWater2D: älterer 2D-Druck- und Höhensolver.
+4. MacProjection3D: freie-Oberflächen-Drucklösung auf dreidimensionalem
+   gestaffeltem Geschwindigkeitsgitter (Zellen: Druck, Faces: Geschwindigkeiten).
+5. CoupledMacWater3D: nutzt denselben MAC-Projektor und [0,1]-Wasseranteile
+   im dreidimensionalen Gitter. Pro Teilschritt: Occupancy aktualisieren,
+   Geschwindigkeit advektieren, Schwerkraft, Druckprojektion,
+   Wasseranteile durch konservative Flüsse transportieren.
+6. UnifiedPhysicsRuntime: bindet 3D-Flüssigkeiten an gemeinsame Material-IDs
+   und Dichten und besitzt zentralen Update-Aufruf.
+7. Experimentelle zukünftige Materialsysteme (in materials_ext.hpp,
+   solid.hpp): getrennte Prototypen; keine behauptete Mehrphysik-Kopplung.
 
-**VoxelGrid** speichert material_id/fill/temperature_k/damage pro 3D-Zelle.
-Die Temperatur und der Schaden werden in dieser Version nicht simuliert.
-Es findet noch KEIN Datentransfer in den Wassersolver statt.
+## Numerische Nachweise
 
-**ShallowWater2D** verwendet die tiefengemittelten Erhaltungsgleichungen
-mit Rusanov-Fluss, reflektierenden Rand- und Hindernisbedingungen, adaptiver
-CFL-Zeitschrittunterteilung und Oberflaechenhoehe pro 2D-Zelle.
-Dichte beeinflusst berechnete Masse und hydrostatischen Druck, ist jedoch
-noch nicht Teil einer Mehrphasen-Kopplung. Viskositaet ist noch ohne Wirkung.
-Kein 3D Navier-Stokes, keine Blasen, Spritzer, vertikalen Stroemungen oder FSI.
+- CMake/CTest mit MSVC Release (9 Testgruppen bei P2-Abnahme).
+- Flüssigkeitsvolumen und stabile Wasseranteile bei 3D-Dammbruch.
+- Vergleich des Bodendrucks im ruhenden 3D-Becken mit rho*g*h.
+- Durchgehende innere 3D-Hindernisse, keine Leckage.
+- Vergleiche über Gittergrößen und gemessene CPU-Runtimes; rechnerische
+  Datenfeld-Speicherbudgetwerte (keine Prozess-Peak-Messungen).
+- Reproduzierbare Acceptance mit SHA256 aller kritischen P2-Quelldateien.
 
-**Grenzen:** homogener flacher Boden, keine komplexe Topographie, keine
-Viskositaet, keine genaue experimentelle Fluidvalidierung; rein numerische
-Basis-Regressionstests. Falls diese Grenzen neue Solver erfordern, geschieht
-die Erweiterung unter derselben Core-API ohne Unreal-Abhaengigkeit.
+## Grenzen
 
-**Sicherheit:** Keine plattformfremden Netzwerkfunktionen oder fremde DLLs.
-Projekt schreibt nur unter D:\Projekt Engine. Git ignoriert Build- und
-Laufzeit-Outputs.
+Das Materialraster ist weiterhin nicht identisch mit der 3D-Wasseroccupancy,
+und das Gesamtsystem hat noch keine konservative Kopplung von Voxelmaterialien,
+Wärme, Impuls und chemischer Reaktion. Die wasserführenden Zellen besitzen
+keinen Level-Set oder geometrischen VOF-Interface-Rekonstruktor.
+Der Druckprojektor skaliert ohne Multigrid schlecht. Es gibt weder GPU
+noch FSI oder Unreal-3D-Runtime-Nachweis. Keiner dieser offenen Punkte
+wird durch ein PASS der begrenzten Phase P2 implizit geschlossen.

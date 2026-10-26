@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.20)
-project(UnifiedPhysicsCore VERSION 0.1.0 LANGUAGES CXX)
+project(UnifiedPhysicsCore VERSION 0.2.0 LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_library(upc INTERFACE)
@@ -33,3 +33,15 @@ target_link_libraries(upc_bench PRIVATE upc)
 add_executable(upc_ritter_reference_tests tests/ritter_reference_tests.cpp)
 target_link_libraries(upc_ritter_reference_tests PRIVATE upc)
 add_test(NAME physics_ritter_analytical_reference COMMAND upc_ritter_reference_tests)
+
+add_executable(upc_coupled_water3d_tests tests/coupled_water3d_tests.cpp)
+target_link_libraries(upc_coupled_water3d_tests PRIVATE upc)
+add_test(NAME physics_coupled_3d_water COMMAND upc_coupled_water3d_tests)
+
+add_executable(upc_p2_reference benchmarks/p2_reference.cpp)
+target_link_libraries(upc_p2_reference PRIVATE upc)
+add_test(NAME physics_3d_reference_and_memory COMMAND upc_p2_reference)
+
+add_executable(upc_unified_runtime_tests tests/unified_runtime_tests.cpp)
+target_link_libraries(upc_unified_runtime_tests PRIVATE upc)
+add_test(NAME physics_unified_3d_runtime COMMAND upc_unified_runtime_tests)
