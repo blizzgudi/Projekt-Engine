@@ -1,0 +1,76 @@
+{
+  "phase": "P2",
+  "milestone": "live_static_wall_couette_mac_vof_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "generated_utc": "2026-10-26T16:00:02.619527+00:00",
+  "native_stdout": "PASS P2 live masked viscosity: checks=22397 initial_mass_kg=90 final_mass_kg=90 total_visc_substeps=36 dissipated_face_energy_proxy=0.0119468516707611 max_vof_difference_vs_inviscid=0.121149145596311 large_nu_substeps=8 wall_shear_vof_difference=0.230668223607722 wall_shear_mass_kg=36",
+  "masked_stdout": "PASS P2 masked 3D MAC viscosity: checks=57 free_surface_one_step=0.964 expected=0.964 energy_first=0.00047304832 energy_after=1.38039784563625e-05 adaptive_substeps=67 wall_shear=0.0144 wall_shear_expected=0.0144",
+  "ctest_exit": 0,
+  "ctest_tail": "ormable_self_and_multibody_contact\n23/35 Test #23: physics_p5_deformable_self_and_multibody_contact ....   Passed    0.01 sec\n      Start 24: physics_p5_affine_lattice_constitutive_reference\n24/35 Test #24: physics_p5_affine_lattice_constitutive_reference ....   Passed    0.02 sec\n      Start 25: physics_p6_conservative_3d_mixtures_reactions\n25/35 Test #25: physics_p6_conservative_3d_mixtures_reactions .......   Passed    0.03 sec\n      Start 26: physics_p6_arrhenius_fick_numeric_reference\n26/35 Test #26: physics_p6_arrhenius_fick_numeric_reference .........   Passed    0.06 sec\n      Start 27: physics_p6_p4_exothermic_energy_coupling\n27/35 Test #27: physics_p6_p4_exothermic_energy_coupling ............   Passed    0.01 sec\n      Start 28: physics_p7_sparse_3d_mac_render_lod\n28/35 Test #28: physics_p7_sparse_3d_mac_render_lod .................   Passed    0.07 sec\n      Start 29: physics_p7_sparse_lod_memory_and_volume_reference\n29/35 Test #29: physics_p7_sparse_lod_memory_and_volume_reference ...   Passed    0.02 sec\n      Start 30: physics_p7_hardware_d3d11_cpu_parity\n30/35 Test #30: physics_p7_hardware_d3d11_cpu_parity ................   Passed    0.57 sec\n      Start 31: physics_p7_hardware_d3d11_brick_residency\n31/35 Test #31: physics_p7_hardware_d3d11_brick_residency ...........   Passed    0.22 sec\n      Start 32: physics_p7_resident_streaming_lod_bounds\n32/35 Test #32: physics_p7_resident_streaming_lod_bounds ............   Passed    0.02 sec\n      Start 33: physics_p2_viscous_mac3d_analytic_reference\n33/35 Test #33: physics_p2_viscous_mac3d_analytic_reference .........   Passed    0.02 sec\n      Start 34: physics_p2_viscous_mac3d_masked_boundaries\n34/35 Test #34: physics_p2_viscous_mac3d_masked_boundaries ..........   Passed    0.02 sec\n      Start 35: physics_p2_live_viscous_3d_mac_vof\n35/35 Test #35: physics_p2_live_viscous_3d_mac_vof ..................   Passed    0.20 sec\n\n100% tests passed, 0 tests failed out of 35\n\nTotal Test time (real) =   3.77 sec\n",
+  "phase_gate_exit": 0,
+  "phase_gate_stdout": "GATES_PASS=P0,P1\nGATES_INCOMPLETE=P2,P3,P4,P5,P6,P7,P8\nALL_COMPLETE=False\nEVIDENCE=D:\\Projekt Engine\\ENGINE TEST STUBE\\runs\\unified_physics_gate.json",
+  "checks": [
+    {
+      "name": "live_native_exit",
+      "value": 0,
+      "pass": true
+    },
+    {
+      "name": "live_native_assertions",
+      "value": 22397,
+      "pass": true
+    },
+    {
+      "name": "wall_driven_vof_difference",
+      "value": 0.230668223607722,
+      "pass": true
+    },
+    {
+      "name": "wall_driven_mass_conserved_kg",
+      "value": 36.0,
+      "pass": true
+    },
+    {
+      "name": "masked_native_exit",
+      "value": 0,
+      "pass": true
+    },
+    {
+      "name": "independent_discrete_couette_stencil",
+      "value": {
+        "actual": 0.0144,
+        "expected": 0.0144
+      },
+      "pass": true
+    },
+    {
+      "name": "all_ctest_suites",
+      "value": 35,
+      "pass": true
+    },
+    {
+      "name": "conservative_phase_gate",
+      "value": "GATES_PASS=P0,P1\nGATES_INCOMPLETE=P2,P3,P4,P5,P6,P7,P8\nALL_COMPLETE=False\nEVIDENCE=D:\\Projekt Engine\\ENGINE TEST STUBE\\runs\\unified_physics_gate.json\n",
+      "pass": true
+    },
+    {
+      "name": "source_coverage",
+      "value": 10,
+      "pass": true
+    }
+  ],
+  "source_sha256": {
+    "CMakeLists.txt": "889f4d389d2f40f827f899393eaba74bf2217df5b14e13186eac85055bdb21bd",
+    "include/upc/mac3d.hpp": "9bb4659c5b6e6fd3a512301ae4a3a083fa96b1e67d50363ec8f5634e1038fdc5",
+    "include/upc/viscous_mac3d.hpp": "4248be5876051c96933d88227eeed9affff8dcc08bf4bcdfdd3674610cb03049",
+    "include/upc/coupled_water3d.hpp": "62d1610df6c8b0f6c77f854e3ebecd73f1524c204ef5e0e6d5ea2b8142fdf74e",
+    "tests/viscous_mac3d_masked_tests.cpp": "0e0881baa7a8542ff0c469a12bab8ba8642e4fd768340cbf095b01aac6788996",
+    "tests/coupled_viscous_water3d_tests.cpp": "5ce430ee24bad9e9fa36bbc872b338a2576607956fd49b15af01eeaee077b5c5",
+    "scripts/p2_live_viscosity_acceptance.py": "0e07b4c6aa59f27e6e42c05db4526e36dc07e31d64f0b75951643ba35ee7031d",
+    "scripts/p2_live_wall_shear_acceptance.py": "73d1005f11bbd6f5a911cde41303de2851070d1da88ba642768f8664d729eb65",
+    "scripts/phase_gate.py": "c7df8f8a53ac861558f2fe3439ab13eafb9687e8a0d170257c71b5e82cd8e3b6",
+    "docs/P2_LIVE_WALL_SHEAR_PARTIAL.md": "d36d499865f4c50b849c954ba8fa03be88b9978a852425faf6c63d8a96978a66"
+  },
+  "limitations": "Static geometry only. Prescribed tangential wall speed is not moving-body momentum/impulse coupling. Free-surface Neumann proxy, no full viscous stress, measured 3D reference, global energy validation or new UE5.8 native E2E. P2-P8 remain PARTIAL."
+}

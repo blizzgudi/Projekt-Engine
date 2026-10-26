@@ -43,13 +43,16 @@ def main() -> None:
                r"total_visc_substeps=(\d+) "
                r"dissipated_face_energy_proxy=([0-9.eE+-]+) "
                r"max_vof_difference_vs_inviscid=([0-9.eE+-]+) "
-               r"large_nu_substeps=(\d+)")
+               r"large_nu_substeps=(\d+) "
+               r"wall_shear_vof_difference=([0-9.eE+-]+) "
+               r"wall_shear_mass_kg=([0-9.eE+-]+)")
     match = re.fullmatch(pattern, actual)
     if not match or not legacy.startswith("PASS: "):
         raise RuntimeError("Structured native output missing")
-    n, m0, m1, steps, dissipation, diff, adaptive = match.groups()
+    n, m0, m1, steps, dissipation, diff, adaptive, shear_diff, shear_mass = match.groups()
     n, steps, adaptive = int(n), int(steps), int(adaptive)
-    m0, m1, dissipation, diff = map(float, (m0, m1, dissipation, diff))
+    m0, m1, dissipation, diff, shear_diff, shear_mass = map(
+        float, (m0, m1, dissipation, diff, shear_diff, shear_mass))
     cases = [
         {"name": "native_assertions", "value": n, "threshold": ">=12000",
          "pass": n >= 12000},
@@ -66,6 +69,12 @@ def main() -> None:
          "pass": math.isfinite(diff) and diff > 1e-7},
         {"name": "adaptive_diffusion_substeps", "value": adaptive,
          "threshold": ">1", "pass": adaptive > 1},
+        {"name": "live_prescribed_wall_shear_vof_effect",
+         "value": shear_diff, "threshold": ">1e-9",
+         "pass": math.isfinite(shear_diff) and shear_diff > 1e-9},
+        {"name": "live_prescribed_wall_shear_mass_kg",
+         "value": shear_mass, "threshold": "36 kg",
+         "pass": math.isfinite(shear_mass) and abs(shear_mass-36.0)<=1e-8},
         {"name": "legacy_inviscid_native_regression", "value": legacy[:100],
          "threshold": "PASS", "pass": legacy.startswith("PASS: ")},
         {"name": "exact_source_coverage", "value": len(FILES),

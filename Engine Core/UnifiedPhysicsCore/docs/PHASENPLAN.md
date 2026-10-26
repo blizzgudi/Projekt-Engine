@@ -134,3 +134,24 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
   Wandimpuls-Rueckwirkung, keine spannungskorrekte freie Oberflaeche,
   keine unabhaengigen 3D-Messdaten oder neuer UE5.8-Native-E2E-Test.
   Der Live-Solver nutzt vorerst weiterhin die Default-Wand 0.
+
+## P2 Teilfortschritt: Live-Couette-Scherung an statischen Voxelwänden (26.10.2026)
+
+- Optionales `set_wall_tangential_velocity({vx,vy,vz})` in
+  `CoupledMacWater3D`: konstante vorgeschriebene tangentiale
+  Festkörper-Wandgeschwindigkeit wird im **laufenden** 3D-MAC/VOF-
+  Viskositätsoperator angewendet; Default null, inviskoser Pfad unverändert.
+- Native MSVC Release: **35/35 CTest PASS**; Live-Test mit
+  **22.397 Assertions**, 36 kg Wassermasse exakt erhalten,
+  VOF-Differenz zur stationären Wand 0,230668223607722;
+  unabhängiger diskreter Couette-Einzelschritt 0,0144 m/s (57 Checks).
+- Maschinenlesbare Teilabnahme:
+  `scripts/p2_live_wall_shear_acceptance.py` ->
+  `ENGINE TEST STUBE/runs/p2_live_wall_shear_partial.json`,
+  9/9 Checks PASS mit Source-SHA256, `phase_complete=false`.
+  Dokumentation: `docs/P2_LIVE_WALL_SHEAR_PARTIAL.md`.
+- **P2 weiterhin PARTIAL**: Es ist eine statische Geometrie mit
+  vorgegebenem Wandgeschwindigkeits-Ghost, **kein** bewegter Festkörper,
+  keine Impulsrückwirkung, keine stresskonsistente freie Oberfläche,
+  keine unabhängigen gemessenen 3D-Referenzen oder erneuter UE5.8
+  Native-E2E-Nachweis für diesen neuen Parameter. P3–P8 bleiben offen.

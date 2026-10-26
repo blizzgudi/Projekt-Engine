@@ -28,6 +28,8 @@ class CoupledMacWater3D {
     std::vector<std::uint8_t> solid_;
     double last_projection_divergence_=0;
     double kinematic_viscosity_m2_s_=0;
+    // Prescribed tangential shear at static voxel obstacles (no solid motion).
+    std::array<double,3> wall_tangential_velocity_m_s_{{0.0,0.0,0.0}};
     double last_viscous_energy_before_=0;
     double last_viscous_energy_after_=0;
     std::size_t last_viscosity_substeps_=0;
@@ -204,7 +206,8 @@ class CoupledMacWater3D {
             ViscousMacDiffusion3D visc(nx_,ny_,nz_,dx_);
             last_viscous_energy_before_=visc.face_energy_proxy(mac_);
             last_viscosity_substeps_+=visc.step_masked(
-                mac_,dt,kinematic_viscosity_m2_s_,wet_mask,solid_);
+                mac_,dt,kinematic_viscosity_m2_s_,wet_mask,solid_,
+                wall_tangential_velocity_m_s_);
             last_viscous_energy_after_=visc.face_energy_proxy(mac_);
         }
         mac_.apply_gravity(dt);
@@ -262,6 +265,20 @@ public:
         kinematic_viscosity_m2_s_=nu_m2_s;
     }
     double kinematic_viscosity_m2_s()const{return kinematic_viscosity_m2_s_;}
+    // Experimental fixed-geometry Couette boundary, opt-in and effective
+    // only when nu>0. This prescribes tangential velocity at *static*
+    // solid interfaces; it does NOT move solids or exchange body impulse.
+    // The operator prevents normal flow at solid faces. Wall-driven shear
+    // may ADD kinetic energy: viscous face-energy is not monotone in this mode.
+    void set_wall_tangential_velocity(const std::array<double,3>& v_m_s){
+        for(double v:v_m_s)
+            if(!std::isfinite(v))
+                throw std::invalid_argument("Nonfinite coupled wall velocity");
+        wall_tangential_velocity_m_s_=v_m_s;
+    }
+    std::array<double,3> wall_tangential_velocity_m_s()const{
+        return wall_tangential_velocity_m_s_;
+    }
     std::size_t last_viscosity_substeps()const{return last_viscosity_substeps_;}
     // Before/after *diffusion only*, prior to gravity/projection.
     // Face-square proxy is NOT the full physical fluid energy.

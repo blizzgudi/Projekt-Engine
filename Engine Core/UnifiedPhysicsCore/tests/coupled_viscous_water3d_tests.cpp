@@ -98,6 +98,73 @@ int main(){
     high.step(0.04,180);
     require(high.last_viscosity_substeps()>1,"large nu did not substep");
     near(high.mass_kg(),high_mass,1e-8,"large nu lost mass");
+    // Live static-wall Couette shear: a prescribed tangential speed must
+    // influence actual coupled VOF motion, not just the isolated operator.
+    // The wall x=2 is a static solid mask; no rigid-body motion/FSI claim.
+    CoupledMacWater3D still(8,8,6,dx),explicit_zero(8,8,6,dx),
+                      driven(8,8,6,dx);
+    for(std::size_t z=0;z<6;++z)
+      for(std::size_t y=0;y<8;++y)
+        for(std::size_t x=0;x<8;++x) {
+            if(x==2) {
+                still.set_solid(x,y,z);
+                explicit_zero.set_solid(x,y,z);
+                driven.set_solid(x,y,z);
+            }
+            if(x>=3&&x<=5&&y>=1&&y<=3&&z<4) {
+                still.set_water(x,y,z,1);
+                explicit_zero.set_water(x,y,z,1);
+                driven.set_water(x,y,z,1);
+            }
+        }
+    still.set_kinematic_viscosity(0.035);
+    explicit_zero.set_kinematic_viscosity(0.035);
+    driven.set_kinematic_viscosity(0.035);
+    explicit_zero.set_wall_tangential_velocity({0.0,0.0,0.0});
+    driven.set_wall_tangential_velocity({0.0,0.75,0.0});
+    near(driven.wall_tangential_velocity_m_s()[1],0.75,0,
+         "wall speed getter failed");
+    const double wall_initial_mass=driven.mass_kg();
+    double wall_driven_vof_difference=0;
+    for(int t=0;t<12;++t) {
+        still.step(dt,180);
+        explicit_zero.step(dt,180);
+        driven.step(dt,180);
+        near(still.mass_kg(),wall_initial_mass,1e-8,
+             "stationary wall mass drift");
+        near(driven.mass_kg(),wall_initial_mass,1e-8,
+             "prescribed shear changed total water mass");
+        require(driven.last_viscosity_substeps()>0,
+                "live wall-driven viscosity not executed");
+        require(std::isfinite(driven.last_projection_divergence())&&
+                driven.last_projection_divergence()<8,
+                "wall-driven projection diverged");
+        for(std::size_t z=0;z<6;++z)
+          for(std::size_t y=0;y<8;++y)
+            for(std::size_t x=0;x<8;++x) {
+                const double d=driven.water_fraction(x,y,z);
+                const double s=still.water_fraction(x,y,z);
+                const double e=explicit_zero.water_fraction(x,y,z);
+                require(std::isfinite(d)&&d>=0&&d<=1,
+                        "wall-driven VOF fraction out of bounds");
+                require(s==e,
+                        "explicit zero-wall setting changed legacy viscous flow");
+                if(x==2)near(d,0,0,
+                             "prescribed tangential wall caused normal penetration");
+                wall_driven_vof_difference=std::max(
+                    wall_driven_vof_difference,std::abs(d-s));
+            }
+    }
+    require(wall_driven_vof_difference>1e-9,
+            "prescribed wall shear did not change live VOF flow");
+    // Invalid wall speed must leave the last valid configuration intact.
+    rejected=false;
+    try{driven.set_wall_tangential_velocity(
+            {0.0,std::numeric_limits<double>::infinity(),0.0});}
+    catch(const std::invalid_argument&){rejected=true;}
+    require(rejected,"nonfinite coupled wall velocity accepted");
+    near(driven.wall_tangential_velocity_m_s()[1],0.75,0,
+         "invalid wall speed modified existing configuration");
     std::cout.precision(15);
     std::cout<<"PASS P2 live masked viscosity: checks="<<checks
              <<" initial_mass_kg="<<initial
@@ -106,6 +173,8 @@ int main(){
              <<" dissipated_face_energy_proxy="<<positive_dissipation
              <<" max_vof_difference_vs_inviscid="<<max_diff
              <<" large_nu_substeps="<<high.last_viscosity_substeps()
+             <<" wall_shear_vof_difference="<<wall_driven_vof_difference
+             <<" wall_shear_mass_kg="<<driven.mass_kg()
              <<"\n";
     return 0;
  } catch(const std::exception& e) {
