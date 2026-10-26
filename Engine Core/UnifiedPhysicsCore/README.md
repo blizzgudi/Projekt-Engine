@@ -19,6 +19,12 @@ physikalische Simulationen. Entwicklung liegt unter D:\Projekt Engine.
   dreidimensionalem Volumentransport und Kollisionen mit festen Hindernissen.
 - UnifiedPhysicsRuntime: Eintrittsstelle für gemeinsame Materialbibliothek,
   2D- und 3D-Flüssigkeitsdomänen und zentralen Simulationsschritt.
+- material_coupling3d.hpp: **Phase P3 – 3D Material-/Volumen-Kopplung als CPU-MVP:**
+  Boden-IDs mit Porosität/Durchlässigkeit, MAC-Wasserinfiltration und
+  Porenversickerung, Massenerhaltung, Energieverlust- und Druckkraftnachweise
+  sowie ein voxelquantisierter beweglicher Starrkörper mit konservativer
+  Wasserverdrängung. docs/P3_MATERIAL_VOLUME_ABNAHME.md erläutert Grenzen:
+  kein validiertes vollumfängliches dynamisches Fluid-Festkörper-FSI.
 - materials_ext.hpp: Prototypen für Materialmischung, Wasserenthalpie/
   Eis/Wasserdampf, Wasser-Boden-Infiltration und sparse 16³-Voxel-Chunks.
 - solid.hpp: einfacher 3D-Masse-Feder-Prototyp mit Bruchgrenze.

@@ -56,3 +56,11 @@ target_link_libraries(upc_p1_front_probe PRIVATE upc)
 add_executable(upc_shallow2d_extended_tests tests/shallow2d_extended_tests.cpp)
 target_link_libraries(upc_shallow2d_extended_tests PRIVATE upc)
 add_test(NAME physics_2d_extended_invariants COMMAND upc_shallow2d_extended_tests)
+
+add_executable(upc_material_coupling3d_tests tests/material_coupling3d_tests.cpp)
+target_link_libraries(upc_material_coupling3d_tests PRIVATE upc)
+add_test(NAME physics_p3_material_volume_coupling COMMAND upc_material_coupling3d_tests)
+
+add_executable(upc_p3_reference benchmarks/p3_reference.cpp)
+target_link_libraries(upc_p3_reference PRIVATE upc)
+add_test(NAME physics_p3_darcy_energy_reference COMMAND upc_p3_reference)

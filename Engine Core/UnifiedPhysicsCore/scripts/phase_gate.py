@@ -53,6 +53,35 @@ def p1_evidence() -> dict:
     except (ValueError,KeyError,TypeError,OSError) as exc:
         return {"ok":False,"why":str(exc)}
 
+def p3_evidence() -> dict:
+    report_path = LAB / "runs" / "p3_acceptance.json"
+    if not report_path.exists():
+        return {"ok":False,"why":"P3 CPU material-voxel acceptance report missing"}
+    try:
+        data=json.loads(report_path.read_text(encoding="utf-8"))
+        if data.get("phase")!="P3" or data.get("accepted") is not True:
+            raise ValueError("P3 quantitative acceptance not approved")
+        checks=data.get("checks",[])
+        if len(checks)<45 or not all(c.get("pass") is True for c in checks):
+            raise ValueError("Insufficient or failed P3 quantitative checks")
+        if int(data.get("body_native_assertions",0))<500:
+            raise ValueError("3D body/porosity native tests missing")
+        if float(data.get("buoyancy_relative_error",1))>=0.05:
+            raise ValueError("Buoyancy check outside tolerance")
+        rows=data.get("reference",[])
+        if len(rows)!=12:
+            raise ValueError("Missing Darcy/integrated 3D results")
+        hashes=data.get("source_sha256",{})
+        if len(hashes)<9:
+            raise ValueError("Not all P3 source files fingerprinted")
+        for filename,sha in hashes.items():
+            source=CORE/filename
+            if not source.is_file() or hashlib.sha256(source.read_bytes()).hexdigest()!=sha:
+                raise ValueError(f"Missing or changed P3 source: {filename}")
+        return {"ok":True,"why":f"{len(checks)} quantitative P3 gates, 3D moving body, Darcy and energy checks; source hashes verified. CPU MVP only"}
+    except (ValueError,KeyError,TypeError,OSError) as exc:
+        return {"ok":False,"why":str(exc)}
+
 def p2_evidence() -> dict:
     report_path = LAB / "runs" / "p2_acceptance.json"
     if not report_path.exists():
@@ -82,6 +111,7 @@ def main() -> None:
     tests = ctest()
     p1 = p1_evidence()
     p2 = p2_evidence()
+    p3 = p3_evidence()
     ue_bin = BUILDS / "Binaries" / "Win64" / "UnrealEditor-EngineMaterialLab.dll"
     log = LOG.read_text(encoding="utf-8",errors="replace") if LOG.exists() else ""
     plugin_built = ue_bin.exists() and ue_bin.stat().st_size>0
@@ -97,7 +127,9 @@ def main() -> None:
        "P2":{"status":"PASS" if p2["ok"] and tests["ok"] else "PARTIAL",
               "evidence":"Selected MAC+VOF coupled 3D CPU prototype; "+p2["why"]+
               "; full 3D multi-material interaction is P3"},
-       "P3":{"status":"PARTIAL","evidence":"single-cell porous infiltration conserves mass; integrated 3D FSI missing"},
+       "P3":{"status":"PASS" if p3["ok"] and tests["ok"] else "PARTIAL",
+             "evidence":"Porous 3D soil/free-water, pressure load, voxel-body displacement, isolated mass and work-energy ledgers; "+p3["why"]+
+             "; high-fidelity moving-wall impulse/energy FSI remains out of scope"},
        "P4":{"status":"PARTIAL","evidence":"enthalpy-based pure-water phases in a closed sample; multi-cell heat/energy validation missing"},
        "P5":{"status":"PARTIAL","evidence":"3D mass-spring + fracture; stable volumetric solids/granular contact missing"},
        "P6":{"status":"PARTIAL","evidence":"composition mass bookkeeping; calibrated thermochemical laws missing"},

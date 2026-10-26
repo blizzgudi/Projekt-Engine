@@ -71,6 +71,11 @@ public:
     }
     Voxel at(std::size_t x,std::size_t y,std::size_t z)const{return cells_[idx(x,y,z)];}
     std::size_t size()const{return cells_.size();}
+    std::size_t nx()const{return nx_;}
+    std::size_t ny()const{return ny_;}
+    std::size_t nz()const{return nz_;}
+    double cell_size_m()const{return dx_;}
+
     double mass_kg(const MaterialLibrary& lib)const{
         const double volume=dx_*dx_*dx_;
         double mass=0;

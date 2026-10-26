@@ -226,6 +226,12 @@ public:
     double last_projection_divergence()const{return last_projection_divergence_;}
     std::size_t last_substeps()const{return substeps_;}
     std::size_t cell_count()const{return fill_.size();}
+    std::size_t nx()const{return nx_;}
+    std::size_t ny()const{return ny_;}
+    std::size_t nz()const{return nz_;}
+    double cell_size_m()const{return dx_;}
+    double density_kg_m3()const{return rho_;}
+
     // Exact resident capacity for owned grid arrays; excludes transient vectors,
     // allocators, stack, and instrumentation.
     std::size_t resident_bytes_model()const{

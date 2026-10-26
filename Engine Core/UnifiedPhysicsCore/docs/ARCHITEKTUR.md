@@ -20,7 +20,14 @@ initialisiert, rendert aber die neue 3D-Domäne noch nicht (P8 offen).
    Wasseranteile durch konservative Flüsse transportieren.
 6. UnifiedPhysicsRuntime: bindet 3D-Flüssigkeiten an gemeinsame Material-IDs
    und Dichten und besitzt zentralen Update-Aufruf.
-7. Experimentelle zukünftige Materialsysteme (in materials_ext.hpp,
+7. MaterialVolumeCoupler3D (P3): übernimmt registrierte Material-IDs aus
+   demselben Core und synchronisiert befüllte MAC-Voxel mit der
+   Materialdatenbank; Boden besitzt parametrisierte Porenanteile und
+   vertikale Darcy-artige Versickerung, rigide Voxelkörper bekommen
+   MAC-Druckkräfte und können zellweise Wasser konservativ verdrängen.
+   Isolierte Transfer-Energie und Body-Work-Energy-Bilanzen nachgewiesen,
+   nicht die vollständige Energie- und Impulsbilanz des gesamten 3D-Fluids.
+8. Experimentelle zukünftige Materialsysteme (in materials_ext.hpp,
    solid.hpp): getrennte Prototypen; keine behauptete Mehrphysik-Kopplung.
 
 ## Numerische Nachweise
