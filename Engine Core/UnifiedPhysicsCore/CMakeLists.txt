@@ -29,3 +29,7 @@ add_test(NAME physics_mac3d_tests COMMAND upc_mac3d_tests)
 
 add_executable(upc_bench benchmarks/bench.cpp)
 target_link_libraries(upc_bench PRIVATE upc)
+
+add_executable(upc_ritter_reference_tests tests/ritter_reference_tests.cpp)
+target_link_libraries(upc_ritter_reference_tests PRIVATE upc)
+add_test(NAME physics_ritter_analytical_reference COMMAND upc_ritter_reference_tests)

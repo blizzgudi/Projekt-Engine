@@ -37,7 +37,7 @@ def main() -> None:
     phases = {
        "P0":{"status":"PASS" if tests["ok"] else "FAIL",
              "evidence":"MSVC/CTest C++ core regression"},
-       "P1":{"status":"PARTIAL","evidence":"2D dam-break + obstacle/mass unit tests; independent reference data missing"},
+       "P1":{"status":"PARTIAL","evidence":"Ritter analytical dry-bed reference + three-grid depth/momentum convergence tested; front bias and additional references unresolved"},
        "P2":{"status":"PARTIAL","evidence":"3D conservative volume transport and separate MAC projection validated; coupled 3D fluid missing"},
        "P3":{"status":"PARTIAL","evidence":"single-cell porous infiltration conserves mass; integrated 3D FSI missing"},
        "P4":{"status":"PARTIAL","evidence":"enthalpy-based pure-water phases in a closed sample; multi-cell heat/energy validation missing"},

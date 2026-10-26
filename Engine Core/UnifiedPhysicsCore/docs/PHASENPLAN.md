@@ -5,7 +5,7 @@ Stand: 2026-10-26. Status bezieht sich auf den realen Code, nicht auf Ambitionen
 | Phase | Inhalt | Akzeptanzkriterium | Stand |
 |---|---|---|---|
 | P0 | Repo/Ordnerstruktur, C++17-Build, Material-IDs, 3D-Voxelzustand, Tests | MSVC kompiliert, Tests gruen, Git commit | MSVC-Build und 5 CTest-Suites PASS, lokaler Git-Commit vorhanden |
-| P1 | Konservativer Basis-Wassersolver als Nachweis | Dammbruch, Druck, stabile Masse, Hindernisse | 2D Dammbruch/Masse/Hindernis PASS; unabhängige Referenzvalidierung offen |
+| P1 | Konservativer Basis-Wassersolver als Nachweis | Dammbruch, Druck, stabile Masse, Hindernisse | 2D Dammbruch/Masse/Hindernis PASS; Ritter-Referenz + Gitterkonvergenz getestet, Frontgenauigkeit/weitere Referenzen offen |
 | P2 | Echte volumetrische 3D-Wassertechnik erforschen und auswaehlen (MAC/FLIP/APIC/MPM) | Vergleich mit Referenzfaellen, Speicherbudget, 3D-Kollision | 3D Volumentransport + separater MAC Druckprojektor tests PASS; gekoppelte 3D-Wasserphysik offen |
 | P3 | Gekoppelte Material- und Volumenphysik | Wasser sickert in poroesen Boden, Krafteinwirkung, Energiebilanz | Lokaler konservativer Wasser-Boden-Transfer getestet; 3D-FSI offen |
 | P4 | Thermodynamik und Phasenwechsel | validierte Waerme-/Massenerhaltung; Wasser/Eis/Dampf | Enthalpiemodell Wasser/Eis/Dampf getestet; Waerme-Kopplung offen |
