@@ -15,6 +15,7 @@ FILES=[
  "include/upc/mac3d.hpp",
  "include/upc/viscous_mac3d.hpp",
  "tests/viscous_mac3d_tests.cpp",
+ "tests/viscous_mac3d_masked_tests.cpp",
  "docs/P2_VISCOUS_MAC_PARTIAL.md",
  "scripts/p2_viscosity_acceptance.py",
 ]
@@ -51,17 +52,47 @@ def main():
       {"name":"full_source_coverage","value":len(FILES),"limit":">=6",
        "pass":all((CORE/p).is_file() for p in FILES)},
     ]
+    masked_exe=CORE/"build"/"upc_p2_viscosity_masked_tests.exe"
+    masked=subprocess.run([str(masked_exe)],cwd=str(CORE),capture_output=True,
+                          text=True,timeout=45)
+    if masked.returncode:
+        raise SystemExit("Native masked viscosity test failed: "+masked.stderr[-1000:])
+    masked_match=re.search(
+        r"PASS P2 masked 3D MAC viscosity: checks=(\d+) "
+        r"free_surface_one_step=([0-9.eE+-]+) "
+        r"expected=([0-9.eE+-]+) "
+        r"energy_first=([0-9.eE+-]+) "
+        r"energy_after=([0-9.eE+-]+) "
+        r"adaptive_substeps=(\d+)",masked.stdout)
+    if not masked_match:
+        raise SystemExit("Missing native masked 3D viscosity measurements")
+    ncheck,observed,expected,first,last,nsteps=masked_match.groups()
+    ncheck,nsteps=int(ncheck),int(nsteps)
+    observed,expected,first,last=map(float,(observed,expected,first,last))
+    cases.extend([
+      {"name":"native_masked_boundary_assertions","value":ncheck,
+       "limit":">=45","pass":ncheck>=45},
+      {"name":"independent_free_surface_neumann_stencil",
+       "value":{"observed":observed,"expected":expected},
+       "limit":"abs_error<=1e-13",
+       "pass":math.isfinite(observed) and abs(observed-expected)<=1e-13},
+      {"name":"masked_energy_dissipation","value":[first,last],
+       "limit":"0<after<before","pass":0<last<first},
+      {"name":"masked_viscosity_adaptive_CFL","value":nsteps,
+       "limit":">50","pass":nsteps>50},
+    ])
     fingerprints={p:hashlib.sha256((CORE/p).read_bytes()).hexdigest() for p in FILES}
     ok=all(x["pass"] for x in cases)
     payload={"phase":"P2","milestone":"viscous_mac3d_partial",
        "partial_accepted":ok,"phase_complete":False,
        "generated_utc":datetime.now(timezone.utc).isoformat(),
-       "native_stdout":r.stdout.strip(),"checks":cases,"source_sha256":fingerprints,
-       "limitations":"standalone 3D homogeneous MAC viscous diffusion, no CoupledMacWater3D integration, no multiphase/solid boundaries, no external CFD validation"}
+       "native_stdout":r.stdout.strip(),"masked_native_stdout":masked.stdout.strip(),"checks":cases,"source_sha256":fingerprints,
+       "limitations":"Standalone MAC viscous diffusion with static wet/solid masks and approximate Neumann free-surface/Dirichlet wall conditions; no CoupledMacWater3D live integration, no moving solids, no stress-jump CFD reference"}
     OUT.parent.mkdir(parents=True,exist_ok=True)
     OUT.write_text(json.dumps(payload,indent=2,ensure_ascii=False),encoding="utf-8")
     print("P2_VISCOUS_MAC_PARTIAL="+str(ok))
     print("P2_VISCOUS_MAC_ASSERTIONS="+str(checks))
+    print("P2_MASKED_MAC_ASSERTIONS="+str(ncheck))
     print("P2_VISCOUS_MAC_EIGENMODE_ERROR="+str(err))
     print("P2_VISCOUS_MAC_REPORT="+str(OUT))
     if not ok:raise SystemExit("P2 optional viscous MAC partial evidence FAIL")

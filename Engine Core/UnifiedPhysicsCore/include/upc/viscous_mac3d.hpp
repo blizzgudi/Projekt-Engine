@@ -7,6 +7,7 @@
 #include <algorithm>
 #include <cmath>
 #include <cstddef>
+#include <cstdint>
 #include <limits>
 #include <stdexcept>
 #include <vector>
@@ -96,6 +97,100 @@ public:
                 [&](auto x,auto y,auto z,double v){mac.set_face_velocity_z(x,y,z,v);},alpha);
         }
         return substeps;
+    }
+    // Optional mask-aware free-surface/solid diffusion primitive.
+    // Wet masks are caller-owned snapshots (one per cell); no solver coupling.
+    // Boundary model: no-slip normal solid/wall faces (Dirichlet zero),
+    // zero-normal-gradient to inactive air faces (Neumann proxy).
+    // Tangential moving-wall velocities and stress-jump physics not modeled.
+    std::size_t step_masked(MacProjection3D& mac,double dt,double nu,
+                            const std::vector<std::uint8_t>& wet,
+                            const std::vector<std::uint8_t>& solid)const {
+        if(!std::isfinite(dt)||dt<=0||!std::isfinite(nu)||nu<0)
+            throw std::invalid_argument("Invalid masked viscosity timestep");
+        const auto n=nx_*ny_*nz_;
+        if(wet.size()!=n||solid.size()!=n)
+            throw std::invalid_argument("Masked viscosity occupancy shape mismatch");
+        for(std::size_t i=0;i<n;++i)
+            if(wet[i]>1||solid[i]>1||(wet[i]&&solid[i]))
+                throw std::invalid_argument("Masked viscosity invalid wet/solid overlap");
+        if(nu==0)return 0;
+        const double requested=nu*dt/(dx_*dx_*0.15);
+        if(!std::isfinite(requested)||requested>10000)
+            throw std::invalid_argument("Masked viscosity substep cap exceeded");
+        const auto steps=std::max<std::size_t>(1,
+            static_cast<std::size_t>(std::ceil(requested)));
+        const double alpha=nu*dt/(dx_*dx_*static_cast<double>(steps));
+        // 0: solid/wall, 1: active liquid interface, 2: air-only.
+        const auto classify=[&](int axis,std::size_t x,std::size_t y,std::size_t z){
+            long long ax=x,ay=y,az=z,bx=x,by=y,bz=z;
+            if(axis==0)--ax;
+            if(axis==1)--ay;
+            if(axis==2)--az;
+            const auto inside=[&](long long a,long long b,long long c){
+                return a>=0&&b>=0&&c>=0&&a<(long long)nx_&&
+                       b<(long long)ny_&&c<(long long)nz_;
+            };
+            if(!inside(ax,ay,az)||!inside(bx,by,bz))return 0;
+            const auto a=index(static_cast<std::size_t>(ax),
+                static_cast<std::size_t>(ay),static_cast<std::size_t>(az),nx_,ny_);
+            const auto b=index(static_cast<std::size_t>(bx),
+                static_cast<std::size_t>(by),static_cast<std::size_t>(bz),nx_,ny_);
+            if(solid[a]||solid[b])return 0;
+            return wet[a]||wet[b]?1:2;
+        };
+        const auto apply=[&](std::size_t sx,std::size_t sy,std::size_t sz,
+                             int axis,auto read,auto write){
+            const auto count=sx*sy*sz;
+            std::vector<double> before(count),after(count);
+            for(std::size_t z=0;z<sz;++z)
+            for(std::size_t y=0;y<sy;++y)
+            for(std::size_t x=0;x<sx;++x)
+                before[index(x,y,z,sx,sy)]=read(x,y,z);
+            const auto sample=[&](long long x,long long y,long long z,
+                                   double center){
+                if(x<0||y<0||z<0||x>=(long long)sx||
+                   y>=(long long)sy||z>=(long long)sz)
+                    return 0.0; // fixed no-slip exterior ghost
+                const auto ux=static_cast<std::size_t>(x);
+                const auto uy=static_cast<std::size_t>(y);
+                const auto uz=static_cast<std::size_t>(z);
+                const auto state=classify(axis,ux,uy,uz);
+                return state==0?0.0:state==2?center:
+                    before[index(ux,uy,uz,sx,sy)];
+            };
+            for(std::size_t z=0;z<sz;++z)
+            for(std::size_t y=0;y<sy;++y)
+            for(std::size_t x=0;x<sx;++x){
+                const auto i=index(x,y,z,sx,sy);
+                if(classify(axis,x,y,z)!=1){after[i]=0;continue;}
+                const auto a=static_cast<long long>(x);
+                const auto b=static_cast<long long>(y);
+                const auto c=static_cast<long long>(z);
+                const double v=before[i];
+                after[i]=v+alpha*(sample(a-1,b,c,v)+sample(a+1,b,c,v)+
+                    sample(a,b-1,c,v)+sample(a,b+1,c,v)+
+                    sample(a,b,c-1,v)+sample(a,b,c+1,v)-6*v);
+                if(!std::isfinite(after[i]))
+                    throw std::runtime_error("Nonfinite masked viscosity");
+            }
+            for(std::size_t z=0;z<sz;++z)
+            for(std::size_t y=0;y<sy;++y)
+            for(std::size_t x=0;x<sx;++x)
+                write(x,y,z,after[index(x,y,z,sx,sy)]);
+        };
+        for(std::size_t i=0;i<steps;++i){
+            apply(nx_+1,ny_,nz_,0,
+                [&](auto x,auto y,auto z){return mac.face_velocity_x(x,y,z);},
+                [&](auto x,auto y,auto z,double v){mac.set_face_velocity_x(x,y,z,v);});
+            apply(nx_,ny_+1,nz_,1,
+                [&](auto x,auto y,auto z){return mac.face_velocity_y(x,y,z);},
+                [&](auto x,auto y,auto z,double v){mac.set_face_velocity_y(x,y,z,v);});
+            apply(nx_,ny_,nz_+1,2,
+                [&](auto x,auto y,auto z){return mac.face_velocity_z(x,y,z);},
+                [&](auto x,auto y,auto z,double v){mac.set_face_velocity_z(x,y,z,v);});
+        }
+        return steps;
     }
     // Staggered face-energy proxy, not a volume-integrated continuum energy.
     double face_energy_proxy(const MacProjection3D& mac)const {

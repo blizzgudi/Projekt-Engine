@@ -149,3 +149,8 @@ add_test(NAME physics_p7_resident_streaming_lod_bounds COMMAND upc_p7_streamer_t
 add_executable(upc_p2_viscosity_tests tests/viscous_mac3d_tests.cpp)
 target_link_libraries(upc_p2_viscosity_tests PRIVATE upc)
 add_test(NAME physics_p2_viscous_mac3d_analytic_reference COMMAND upc_p2_viscosity_tests)
+
+# P2 follow-on: stationary solid and free-surface masked viscosity primitive.
+add_executable(upc_p2_viscosity_masked_tests tests/viscous_mac3d_masked_tests.cpp)
+target_link_libraries(upc_p2_viscosity_masked_tests PRIVATE upc)
+add_test(NAME physics_p2_viscous_mac3d_masked_boundaries COMMAND upc_p2_viscosity_masked_tests)

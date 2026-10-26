@@ -56,3 +56,40 @@ die bisherigen Wasserergebnisse.
 gekoppelter Viskositätspfad mit Flüssigkeitsoberfläche und
 Festkörpern, externe 3D-Referenz/Validierung sowie
 Druck-/Impuls-/Massen-/Zeitbudget-Nachweise.
+
+
+## Zweiter Teilnachweis: Maskierte 3D-Viskosität (2026-10-26)
+
+**Neue echte Implementierung:** Die bereits existierende Klasse
+\`ViscousMacDiffusion3D\` besitzt jetzt zusätzlich \`step_masked(...)\`
+mit expliziten 3D-\`wet\`- und \`solid\`-Zellmasken. Diese Funktion ist
+bewusst weiterhin ein **separater Operator** und noch kein
+gekoppelter \`CoupledMacWater3D\`-Solver.
+
+Die drei Richtungen der versetzten MAC-Faces unterscheiden:
+- Außenwände und stationäre feste Hindernisse: Normalgeschwindigkeit 0.
+  Nachbarn dieser Faces verwenden Dirichlet-Null (vereinfachtes No-Slip).
+- Aktive Wasser- oder Wasser-Luft-Faces: 3D-Laplace-Diffusion.
+- Luft-Luft-Faces: Geschwindigkeit 0; beim Sampling von einem aktiven
+  Wasserface über eine Luftgrenze: Nullgradient (Neumann-Proxy).
+- Stabilität: explizite adaptive Substeps bei \`nu*dt_sub/dx²<=0.15\`,
+  Ablehnung überlappender Masken und nichtendlicher Parameter.
+- \`nu=0\` lässt die Eingabe einschließlich vorhandener Faces exakt
+  unverändert, sodass alte inviscide Tests nicht beeinflusst werden.
+
+\`tests/viscous_mac3d_masked_tests.cpp\` prüft echte 3D-Faces:
+stationäre feste Innenzelle, geschlossene Domainwände, isolierte
+Luft-Luft-Faces, aktive Flüssigkeitsdiffusion, 30 dissipative Schritte,
+analytisch unabhängigen diskreten Wasser-Luft-Stencil (\`1-alpha\`),
+gleichförmige Bulk-Geschwindigkeit, Null-Viskosität, ungültige
+Eingaben und adaptiven großen Zeitschritt. Das Abnahmeskript
+\`scripts/p2_viscosity_acceptance.py\` prüft die Messwerte beider
+nativen Testprogramme und speichert SHA256 aller Quellen.
+
+**Einschränkungen:** Neumann am freien Rand ist ein einfacher
+numerischer Nullgradient, kein nachgewiesener vollständiger
+spannungsfreier Grenzflächen-Tensor. Tangentiales No-Slip an beliebigen
+Voxeloberflächen ist nur approximiert; bewegliche Hindernisse,
+Impulsrückgabe an Körper, realistische Oberflächenspannung,
+gekoppelte Druckprojektion mit viskoser Advektion und unabhängige
+3D-CFD-Messdaten fehlen. **P2 bleibt PARTIAL.**

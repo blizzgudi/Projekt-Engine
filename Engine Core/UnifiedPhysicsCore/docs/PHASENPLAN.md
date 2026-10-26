@@ -72,6 +72,12 @@ Fortschritt am 26.10.2026: optionaler 3D-MAC-Viskositätsoperator,
 adaptives Viskositäts-CFL, 33/33 CTest-Suites. Siehe
 `docs/P2_VISCOUS_MAC_PARTIAL.md` und
 `ENGINE TEST STUBE/runs/p2_viscosity_partial.json`.
+Weiterer Teilfortschritt am 26.10.2026: statische 3D-Wasser-/Feststoff-
+Masken für den MAC-Viskositätsoperator, freie Oberflächen als
+Neumann-Nullgradient-Proxy, stationäre Festkörper und Außenwände
+mit Dirichlet-Null-Geschwindigkeit, eigenständige native Testfälle
+mit analytischem Wasser-Luft-Diskretisierungsstencil, 34/34 CTest.
+Keine Kopplung in den Live-Solver und keine Vollabnahme.
 **Noch offen:** Viskosität in `CoupledMacWater3D` mit
 Wasser-Luft-/Festkörper-Randbedingungen integrieren,
 3D-Referenzexperimente, Impuls-/Energiebilanz und
