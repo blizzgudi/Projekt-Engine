@@ -21,6 +21,10 @@ namespace upc {
 struct MaskedMacMomentumLedger3D {
     std::array<double,3> active_face_delta_sum_m_s{};
     std::array<double,3> solid_boundary_source_sum_m_s{};
+    // Separate fixed-wall drive and current-fluid drag (face-sum proxies).
+    // Neither component is a physical reaction impulse.
+    std::array<double,3> solid_wall_drive_sum_m_s{};
+    std::array<double,3> solid_wall_drag_sum_m_s{};
     std::array<double,3> exterior_boundary_source_sum_m_s{};
     std::array<double,3> closure_residual_sum_m_s{};
     std::size_t substeps=0;
@@ -191,7 +195,12 @@ public:
                     if(ledger){
                         auto& source=state==3?ledger->solid_boundary_source_sum_m_s:
                                                ledger->exterior_boundary_source_sum_m_s;
-                        source[static_cast<std::size_t>(axis)]+=alpha*(ghost-center);
+                        const auto k=static_cast<std::size_t>(axis);
+                        source[k]+=alpha*(ghost-center);
+                        if(state==3){
+                            ledger->solid_wall_drive_sum_m_s[k]+=alpha*ghost;
+                            ledger->solid_wall_drag_sum_m_s[k]-=alpha*center;
+                        }
                     }
                     return ghost;
                 }

@@ -23,6 +23,9 @@ static void closed(const MaskedMacMomentumLedger3D& l,double tol){
              l.solid_boundary_source_sum_m_s[a]+
              l.exterior_boundary_source_sum_m_s[a],tol,
              "masked face-velocity ledger not closed");
+        near(l.solid_boundary_source_sum_m_s[a],
+             l.solid_wall_drive_sum_m_s[a]+l.solid_wall_drag_sum_m_s[a],
+             tol,"solid wall drive/drag decomposition mismatch");
         near(l.closure_residual_sum_m_s[a],0,tol,
              "masked ledger residual nonzero");
     }
@@ -65,6 +68,26 @@ try {
     near(ledger.solid_boundary_source_sum_m_s[2],0,1e-14,
          "solid wall spuriously injected z velocity");
     closed(ledger,1e-12);
+    near(ledger.solid_wall_drive_sum_m_s[1],independent_wall_source,
+         1e-12,"independent 90-face wall drive count");
+    near(ledger.solid_wall_drag_sum_m_s[1],0,1e-14,
+         "zero initial fluid velocity generated wall drag");
+    // One adjacent face starts at 0.25 m/s; independent 6-neighbor stencil.
+    MacProjection3D preloaded(nx,ny,nz,dx);
+    preloaded.set_face_velocity_y(4,5,5,0.25);
+    MaskedMacMomentumLedger3D preloaded_ledger;
+    diffusion.step_masked(preloaded,dt,nu,wet,solid,prescribed,&preloaded_ledger);
+    near(preloaded_ledger.solid_wall_drive_sum_m_s[1],
+         independent_wall_source,1e-12,"preloaded wall drive");
+    near(preloaded_ledger.solid_wall_drag_sum_m_s[1],
+         -alpha*0.25,1e-12,"preloaded wall drag");
+    near(preloaded_ledger.solid_boundary_source_sum_m_s[1],
+         independent_wall_source-alpha*0.25,1e-12,
+         "preloaded net solid wall source");
+    near(preloaded.face_velocity_y(4,5,5),
+         0.25+alpha*(0.4-6*0.25),1e-12,
+         "preloaded 6-neighbor velocity stencil");
+    closed(preloaded_ledger,1e-12);
     // Negative wall velocity reverses the source, not its magnitude.
     MacProjection3D reversed(nx,ny,nz,dx);
     MaskedMacMomentumLedger3D negative;
@@ -81,6 +104,10 @@ try {
                                       {0,0.3,0},&multi);
     check(n>=8&&multi.substeps==n,"adaptive ledger substeps not counted");
     closed(multi,1e-10);
+    check(multi.solid_wall_drive_sum_m_s[1]>0,
+          "adaptive wall drive not counted");
+    check(multi.solid_wall_drag_sum_m_s[1]<=0,
+          "adaptive wall drag has wrong sign");
     check(multi.solid_boundary_source_sum_m_s[1]>0,
           "prescribed wall did not inject momentum proxy");
     // nu=0 is exactly no-op, even when a caller reuses the ledger.
@@ -120,10 +147,16 @@ try {
     check(live.last_viscosity_substeps()>0,"live ledger not invoked");
     const auto fluid=live.last_viscous_face_momentum_delta_proxy_kg_m_s();
     const auto solid_source=live.last_viscous_solid_wall_source_proxy_kg_m_s();
+    const auto drive=live.last_viscous_solid_wall_drive_proxy_kg_m_s();
+    const auto drag=live.last_viscous_solid_wall_drag_proxy_kg_m_s();
     const auto exterior=live.last_viscous_exterior_source_proxy_kg_m_s();
     const auto residual=live.last_viscous_closure_residual_proxy_kg_m_s();
     check(solid_source[1]>0,"live wall shear momentum source absent");
+    check(drive[1]>0&&drag[1]<=0,
+          "live wall drive/drag signs wrong");
     for(std::size_t a=0;a<3;++a){
+        near(solid_source[a],drive[a]+drag[a],1e-8,
+             "live wall drive/drag decomposition not closed");
         near(fluid[a],solid_source[a]+exterior[a],1e-8,
              "live momentum proxy failed wall/exterior closure");
         near(residual[a],0,1e-8,"live closure residual nonzero");
@@ -134,6 +167,10 @@ try {
         near(v,0,0,"inviscid step retained momentum ledger");
     for(double v:live.last_viscous_solid_wall_source_proxy_kg_m_s())
         near(v,0,0,"inviscid step retained solid wall ledger");
+    for(double v:live.last_viscous_solid_wall_drive_proxy_kg_m_s())
+        near(v,0,0,"inviscid step retained wall drive ledger");
+    for(double v:live.last_viscous_solid_wall_drag_proxy_kg_m_s())
+        near(v,0,0,"inviscid step retained wall drag ledger");
     std::cout.precision(17);
     std::cout<<"PASS P2 masked MAC face-momentum proxy ledger checks="<<checks
              <<" discrete_wall_source_m_s="<<independent_wall_source
@@ -141,7 +178,11 @@ try {
              <<" live_mass_kg="<<mass
              <<" live_wall_y_source_proxy_kg_m_s="<<solid_source[1]
              <<" live_y_closure_residual_proxy_kg_m_s="<<residual[1]
-             <<" phase_complete=false\n";
+             <<" phase_complete=false"
+             <<" wall_drive_sum_m_s="<<ledger.solid_wall_drive_sum_m_s[1]
+             <<" preloaded_wall_drag_m_s="<<preloaded_ledger.solid_wall_drag_sum_m_s[1]
+             <<" live_wall_drive_proxy_kg_m_s="<<drive[1]
+             <<" live_wall_drag_proxy_kg_m_s="<<drag[1]<<"\n";
     return 0;
 }catch(const std::exception& e){
     std::cerr<<"FAIL P2 face-momentum proxy after "<<checks<<": "<<e.what()<<"\n";

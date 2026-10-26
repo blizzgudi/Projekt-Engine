@@ -1,0 +1,67 @@
+{
+  "phase": "P2",
+  "milestone": "static_wall_drive_drag_decomposition_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "generated_utc": "2026-10-26T18:21:07.535690+00:00",
+  "checks": [
+    {
+      "name": "parent_gate_pass",
+      "pass": true
+    },
+    {
+      "name": "native_92_assertions",
+      "pass": true
+    },
+    {
+      "name": "independent_90_face_drive",
+      "value": 1.2959999999999978,
+      "pass": true
+    },
+    {
+      "name": "independent_preloaded_wall_drag",
+      "value": -0.008999999999999998,
+      "pass": true
+    },
+    {
+      "name": "live_wall_drive_positive",
+      "value": 0.8399999999999999,
+      "pass": true
+    },
+    {
+      "name": "live_wall_drag_nonpositive",
+      "value": 0.0,
+      "pass": true
+    },
+    {
+      "name": "native_inviscid_zero_and_ledger_closure",
+      "pass": true
+    },
+    {
+      "name": "all_36_ctest_suites",
+      "pass": true
+    },
+    {
+      "name": "phase_gate_remains_partial",
+      "pass": true
+    },
+    {
+      "name": "source_hash_coverage",
+      "pass": true
+    }
+  ],
+  "native_stdout": "PASS P2 masked MAC face-momentum proxy ledger checks=92 discrete_wall_source_m_s=1.2959999999999998 adaptive_substeps=8 live_mass_kg=36.000000000000007 live_wall_y_source_proxy_kg_m_s=0.83999999999999986 live_y_closure_residual_proxy_kg_m_s=0 phase_complete=false wall_drive_sum_m_s=1.2959999999999978 preloaded_wall_drag_m_s=-0.0089999999999999976 live_wall_drive_proxy_kg_m_s=0.83999999999999986 live_wall_drag_proxy_kg_m_s=0",
+  "parent_acceptance_stdout": "P2_MOMENTUM_LEDGER_PARTIAL=True\nP2_MOMENTUM_LEDGER_NATIVE_CHECKS=92\nP2_MOMENTUM_LEDGER_DISCRETE_SOURCE=1.2959999999999998\nP2_MOMENTUM_LEDGER_CTEST=36\nP2_MOMENTUM_LEDGER_REPORT=D:\\Projekt Engine\\ENGINE TEST STUBE\\runs\\p2_viscous_momentum_ledger_partial.json",
+  "parent_report_sha256": "b2a0ef6b9931e239dd0e9559595c8dc1cdf3985b6c138f48e05a8df60e631233",
+  "native_binary_sha256": "65a979639acd0e644299b39311dc0291aa616e372af66799f47527432b3a563d",
+  "source_sha256": {
+    "include/upc/viscous_mac3d.hpp": "2b6fc09aa5d7df56ff6b1255b25659daf47ec358346c40bbf77efbab8a025b07",
+    "include/upc/coupled_water3d.hpp": "d9873a324a5d6c2d7fa354ab90bbf06572af72dfa950c65371a144cd0410dc7b",
+    "tests/viscous_momentum_ledger3d_tests.cpp": "95234fa863a0615c843d59142bcc771e4bca28d3325e160a5bb21d7d143fe005",
+    "scripts/p2_momentum_ledger_acceptance.py": "df0dd8ad66919efdd5128754526473c62db08e23d5b1a9b8ae1cbd170721772b",
+    "scripts/p2_wall_drive_drag_acceptance.py": "c651ea810a76dd21bec4bb45a470c47847d0b829734aac6d3165a48737ecc5b4",
+    "docs/P2_WALL_DRIVE_DRAG_PARTIAL.md": "aa64358a70363928fe42d30c0888ffd48f7fbbdcca7d44df14fa00dc388e8f9c",
+    "docs/PHASENPLAN.md": "cac2b34b52bf5afe8a05afcec03d24567d3b1c5a78e6bed90a58529712f83e4e"
+  },
+  "limitations": "Prescribed tangential velocity on fixed voxel geometry only; numerical staggered-face source decomposition, not physical solid impulse, stress-consistent free-surface viscosity, moving-body FSI, measured 3D reference, or UE5.8 native E2E. P2 through P8 remain incomplete."
+}

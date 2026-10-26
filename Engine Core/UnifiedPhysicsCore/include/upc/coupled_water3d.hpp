@@ -37,6 +37,8 @@ class CoupledMacWater3D {
     // continuum FSI impulse. Units after rho*dx^3 scaling: kg*m/s.
     std::array<double,3> last_viscous_face_momentum_delta_proxy_kg_m_s_{};
     std::array<double,3> last_viscous_solid_wall_source_proxy_kg_m_s_{};
+    std::array<double,3> last_viscous_solid_wall_drive_proxy_kg_m_s_{};
+    std::array<double,3> last_viscous_solid_wall_drag_proxy_kg_m_s_{};
     std::array<double,3> last_viscous_exterior_source_proxy_kg_m_s_{};
     std::array<double,3> last_viscous_closure_residual_proxy_kg_m_s_{};
     std::function<void(const TransportFlux3D&)> transport_callback_;
@@ -221,6 +223,10 @@ class CoupledMacWater3D {
                     face_mass_proxy*ledger.active_face_delta_sum_m_s[axis];
                 last_viscous_solid_wall_source_proxy_kg_m_s_[axis]+=
                     face_mass_proxy*ledger.solid_boundary_source_sum_m_s[axis];
+                last_viscous_solid_wall_drive_proxy_kg_m_s_[axis]+=
+                    face_mass_proxy*ledger.solid_wall_drive_sum_m_s[axis];
+                last_viscous_solid_wall_drag_proxy_kg_m_s_[axis]+=
+                    face_mass_proxy*ledger.solid_wall_drag_sum_m_s[axis];
                 last_viscous_exterior_source_proxy_kg_m_s_[axis]+=
                     face_mass_proxy*ledger.exterior_boundary_source_sum_m_s[axis];
                 last_viscous_closure_residual_proxy_kg_m_s_[axis]+=
@@ -306,6 +312,13 @@ public:
     std::array<double,3> last_viscous_solid_wall_source_proxy_kg_m_s()const{
         return last_viscous_solid_wall_source_proxy_kg_m_s_;
     }
+    // Drive/drag are numeric source proxies, not force/impulse on a body.
+    std::array<double,3> last_viscous_solid_wall_drive_proxy_kg_m_s()const{
+        return last_viscous_solid_wall_drive_proxy_kg_m_s_;
+    }
+    std::array<double,3> last_viscous_solid_wall_drag_proxy_kg_m_s()const{
+        return last_viscous_solid_wall_drag_proxy_kg_m_s_;
+    }
     std::array<double,3> last_viscous_exterior_source_proxy_kg_m_s()const{
         return last_viscous_exterior_source_proxy_kg_m_s_;
     }
@@ -344,6 +357,8 @@ public:
         last_viscosity_substeps_=0;
         last_viscous_face_momentum_delta_proxy_kg_m_s_={};
         last_viscous_solid_wall_source_proxy_kg_m_s_={};
+        last_viscous_solid_wall_drive_proxy_kg_m_s_={};
+        last_viscous_solid_wall_drag_proxy_kg_m_s_={};
         last_viscous_exterior_source_proxy_kg_m_s_={};
         last_viscous_closure_residual_proxy_kg_m_s_={};
         last_viscous_energy_before_=0;

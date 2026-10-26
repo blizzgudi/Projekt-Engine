@@ -179,3 +179,22 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
   bewegte K?rper, stresskonsistente freie Oberfl?chen, unabh?ngige
   3D-Messreferenzen, globale Energie-/Impulsbilanz und neue UE5.8
   Native-E2E-Abnahme. **P2 bleibt PARTIAL, P3?P8 bleiben offen.**
+
+## P2 Teilfortschritt: Zerlegung der statischen MAC-Wandquelle (26.10.2026)
+
+- `ViscousMacDiffusion3D::step_masked` trennt die diskrete
+  Festkörper-Grenzquelle in `alpha*v_ghost` (vorgegebener Drive)
+  und `-alpha*v_face` (lokaler Drag). Beide sind ausdrücklich
+  **nur numerische staggered-Face-Summen-Proxies**.
+- `CoupledMacWater3D` akkumuliert beide Beiträge über die
+  tatsächlichen Live-Viskositäts-Substeps, mit Reset bei `nu=0`.
+- Unabhängige diskrete Couette-Referenz: 90 Wand-Faces,
+  `alpha=0.036`, `v_wall=0.4 m/s` -> Drive `1.296 m/s`.
+  Ein vorbelegtes Face mit `v=0.25 m/s` ergibt Drag `-0.009 m/s`.
+- Nachweis: `docs/P2_WALL_DRIVE_DRAG_PARTIAL.md`,
+  `scripts/p2_wall_drive_drag_acceptance.py` und
+  `ENGINE TEST STUBE/runs/p2_wall_drive_drag_partial.json`.
+  Der Report gilt nur bei echtem `partial_accepted=true`.
+- **P2 bleibt PARTIAL**, ebenso P3–P8. Keine bewegte Körpergeometrie,
+  keine echte FSI-Gegenreaktion, keine stresskonsistente freie
+  Oberfläche, keine externen 3D-Messdaten oder neue UE5.8-Native-E2E.
