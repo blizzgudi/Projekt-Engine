@@ -23,6 +23,10 @@ add_executable(upc_solid_tests tests/solid_tests.cpp)
 target_link_libraries(upc_solid_tests PRIVATE upc)
 add_test(NAME physics_solid_tests COMMAND upc_solid_tests)
 
+add_executable(upc_solid_contact3d_tests tests/solid_contact3d_tests.cpp)
+target_link_libraries(upc_solid_contact3d_tests PRIVATE upc)
+add_test(NAME physics_p5_plane_contact_partial COMMAND upc_solid_contact3d_tests)
+
 add_executable(upc_mac3d_tests tests/mac3d_tests.cpp)
 target_link_libraries(upc_mac3d_tests PRIVATE upc)
 add_test(NAME physics_mac3d_tests COMMAND upc_mac3d_tests)
