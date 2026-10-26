@@ -29,3 +29,10 @@ intern spezialisiert bleiben und werden nicht als unrealistische Universalformel
 ## Status
 Die Issues werden erst nach realer GitHub-Repo-Erstellung dort erstellt.
 Bis dahin ist dies die verbindliche lokale Phasenaufteilung.
+
+## Nachweis v0.1
+- Stand: C++17, MSVC 19.51, CMake/Ninja Release-Build erfolgreich.
+- CTest: 1/1 PASS; direkter Test: 472 Assertions PASS.
+- Dammbruch-Test: 41 CSV-Zeilen, 1.56 m3 Anfang/Ende, ca. 1560 kg Wasser, rechte Wassertiefe am Ende ca. 0.221089 m.
+- Lokaler Git-Commit: 7f15ef8 auf Branch main.
+- GitHub-Remote: NICHT ANGELEGT / NICHT GEPUSHT. Keine GitHub-CI-Ausfuehrung behaupten.
