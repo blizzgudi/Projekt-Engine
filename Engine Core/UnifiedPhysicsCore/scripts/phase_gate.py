@@ -53,6 +53,35 @@ def p1_evidence() -> dict:
     except (ValueError,KeyError,TypeError,OSError) as exc:
         return {"ok":False,"why":str(exc)}
 
+def p5_full_cpu_evidence() -> dict:
+    path=LAB / "runs" / "p5_full_acceptance.json"
+    if not path.is_file():
+        return {"ok":False,"why":"P5 deformable multi-body and constitutive verification missing"}
+    try:
+        data=json.loads(path.read_text(encoding="utf-8"))
+        if data.get("phase")!="P5" or data.get("accepted") is not True:
+            raise ValueError("P5 advanced numerical CPU gate is NOT PASS")
+        checks=data.get("checks",[])
+        if len(checks)<60 or not all(check.get("pass") is True for check in checks):
+            raise ValueError("Not enough successful P5 self-contact and constitutive controls")
+        if len(data.get("affine_3d_reference",[]))!=12 or len(data.get("original_reference",[]))!=11:
+            raise ValueError("Constitutive or grain/fracture calibration benchmark missing")
+        counts=data.get("native_checks",{})
+        if (counts.get("plane",0)<10984 or counts.get("granular",0)<37000
+             or counts.get("lattice",0)<22000 or counts.get("volume_self",0)<17):
+            raise ValueError("Deformable/contact/grain native suite incomplete")
+        source_hashes=data.get("source_sha256",{})
+        if len(source_hashes)<16:
+            raise ValueError("P5 source coverage incomplete")
+        for filename,sha in source_hashes.items():
+            f=CORE/filename
+            if not f.is_file() or hashlib.sha256(f.read_bytes()).hexdigest()!=sha:
+                raise ValueError(f"P5 advanced code changed since test: {filename}")
+        return {"ok":True,"why":f"{len(checks)} full P5 CPU controls plus "+
+                "nonbonded 3D self/multibody/fracture-contacts and affine stress-strain references"}
+    except (ValueError,KeyError,TypeError,OSError) as exc:
+        return {"ok":False,"why":str(exc)}
+
 def p5_bounded_partial_evidence() -> dict:
     path = LAB / "runs" / "p5_acceptance.json"
     if not path.is_file():
@@ -221,6 +250,7 @@ def main() -> None:
     p4 = p4_complete_evidence()
     p5 = p5_bounded_partial_evidence()
     p5_partial = p5_partial_evidence()
+    p5_full = p5_full_cpu_evidence()
     ue_bin = BUILDS / "Binaries" / "Win64" / "UnrealEditor-EngineMaterialLab.dll"
     log = LOG.read_text(encoding="utf-8",errors="replace") if LOG.exists() else ""
     plugin_built = ue_bin.exists() and ue_bin.stat().st_size>0
@@ -242,10 +272,10 @@ def main() -> None:
        "P4":{"status":"PASS" if tests["ok"] and p4["ok"] and p4_partial["ok"] else "PARTIAL",
              "evidence":"3D CPU thermodynamics MVP: "+p4["why"]+
              "; thermal, liquid advection and P3-gravity heat budgets conserved in their test domains; no gas hydrodynamics or fully unified mechanical-energy closure"},
-       "P5":{"status":"PARTIAL",
-             "evidence":"3D CPU solid/granular partial validation: "+p5["why"]+
-             "; plane contact "+p5_partial["why"]+
-             "; P5 still open: no validated deformable volume self-contact, continuum/granular constitutive benchmark, or fully coupled fracture-contact energy"},
+       "P5":{"status":"PASS" if (tests["ok"] and p5["ok"] and p5_partial["ok"] and p5_full["ok"]) else "PARTIAL",
+             "evidence":"Bounded 3D CPU mass-spring/fracture and spherical DEM contact MVP; "+
+             p5_full["why"]+"; preliminary contact "+p5_partial["why"]+
+             "; full continuum FEM/MPM, accurate arbitrary surface contact and global FSI/thermal energy remain unverified"},
        "P6":{"status":"PARTIAL","evidence":"composition mass bookkeeping; calibrated thermochemical laws missing"},
        "P7":{"status":"PARTIAL","evidence":"sparse CPU chunks and benchmarks; GPU/LOD integration missing"},
        "P8":{"status":"PARTIAL" if plugin_built and native_module else "NOT_RUN",

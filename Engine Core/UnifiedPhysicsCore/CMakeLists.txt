@@ -100,3 +100,11 @@ add_test(NAME physics_p5_lattice_3d_fracture COMMAND upc_solid_lattice3d_tests)
 add_executable(upc_p5_reference benchmarks/p5_reference.cpp)
 target_link_libraries(upc_p5_reference PRIVATE upc)
 add_test(NAME physics_p5_granular_fracture_reference COMMAND upc_p5_reference)
+
+add_executable(upc_deformable_contact3d_tests tests/deformable_contact3d_tests.cpp)
+target_link_libraries(upc_deformable_contact3d_tests PRIVATE upc)
+add_test(NAME physics_p5_deformable_self_and_multibody_contact COMMAND upc_deformable_contact3d_tests)
+
+add_executable(upc_p5_constitutive benchmarks/p5_constitutive_reference.cpp)
+target_link_libraries(upc_p5_constitutive PRIVATE upc)
+add_test(NAME physics_p5_affine_lattice_constitutive_reference COMMAND upc_p5_constitutive)

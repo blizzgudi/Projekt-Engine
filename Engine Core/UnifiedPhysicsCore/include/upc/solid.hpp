@@ -64,6 +64,20 @@ public:
     std::size_t intact_bonds()const{
         std::size_t n=0;for(const auto& b:bonds_)n+=b.intact?1:0;return n;
     }
+    Vec3 elastic_force_on_node(std::size_t node_index)const{
+        if(node_index>=nodes_.size())throw std::out_of_range("Invalid spring node");
+        Vec3 total;
+        for(const auto& edge:bonds_)if(edge.intact &&
+              (edge.a==node_index||edge.b==node_index)){
+            const Vec3 delta=nodes_[edge.b].position-nodes_[edge.a].position;
+            const double length=norm(delta);
+            if(length<1e-12)continue;
+            const Vec3 force=delta*(edge.stiffness_n_per_m*
+                                    (length-edge.rest_m)/length);
+            total=total+(edge.a==node_index?force:force*(-1));
+        }
+        return total;
+    }
     double elastic_energy_j()const {
         double e=0;
         for(const auto& b:bonds_)if(b.intact){

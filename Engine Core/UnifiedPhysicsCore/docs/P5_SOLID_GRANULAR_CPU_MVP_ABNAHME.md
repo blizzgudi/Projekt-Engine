@@ -121,8 +121,8 @@ Skripte/Nachweise:
   Zeitschritte; es gibt keinen kontinuierlichen Swept-TOI-
   Kontakt und keinen allgemeinen Stapel-/Constraint-Solver.
 - Spring-Lattice ist kein kalibriertes FEM- oder MPM-Modell.
-  Exakte Kontaktkräfte mit durchgehend deformierten
-  Volumenkörpern und Selbstkollision der Flächen sind offen.
+  Kontinuierliche Mesh-/FEM-Oberflächenkontakte sind offen;
+  sphärische nichtgebundene Knotenkontakte sind als CPU-MVP implementiert.
 - Bruchkontakt und Wasser/Boden mit Impulsaustausch sowie
   gesamte thermo-mechanische Energie werden nicht gleichzeitig
   erhalten. Dem P5-MVP fehlt daher die globale, vollständig
@@ -131,9 +131,43 @@ Skripte/Nachweise:
   Meshoberflächen, keine skalierte GPU-Granularphysik und
   keine Unreal-PIE-Visualisierung. P7/P8 bleiben offen.
 
-**Nicht erfüllte P5-Abschlusskriterien:** allgemeine stabile Kontaktlösung
-für belastete 3D-Festkörper mit Oberflächen- und Selbstkontakten,
-Granulat-Kalibrierung gegen unabhängige dynamische Referenzfälle,
-reproduzierbare Stabilitäts- und Konvergenzgrenzen bei hochbelasteten
-Stapeln sowie echte gekoppelte Bruch-/Kontaktenergie. Daher ist ein
-P5-PASS derzeit nicht zulässig.
+## Erweiterte P5-3D-Selbstkontakt-/Konstitutiv-Abnahme
+
+Die anfängliche P5-Teilabnahme (plane/granular/lattice) alleine genügte
+nicht für eine P5-Abschlusserklärung. Ergänzt:
+
+- **DeformableContact3D:** Ein oder mehrere dynamische Federgitterkörper
+  mit sphärischen volumetrischen Knotenkontaktproxies.
+  Nicht benachbarte Knoten dürfen sich selbst berühren; feste noch
+  intakte Federbindungen sind ausgenommen. Kontakt derselben oder
+  verschiedener deformierbarer Körper wird über inverse Massen,
+  Projektion, Stoßimpulse und Coulomb-Reibung behandelt.
+- **Gekoppelte Bruch/Kontaktprüfung:** Zwei ursprünglich durch eine
+  Feder verbundene Knoten trennen sich bei Überschreiten der
+  Dehnungsgrenze. Danach kollidieren sie wie getrennte Fragmente.
+  Die isolierte kinetische Impulsbilanz stimmt mit dem errechneten
+  e²-Verhältnis überein; dissipierte Impulsenergie wird getrennt
+  erfasst, ebenso die positive Bruch-Federenergiefreisetzung.
+- **Affine 3D-Lattice-Materialantwort:** Für 4³/6³/8³ Gitter
+  werden axiale ε=0,001/0,002/0,004 sowie Scherspannungs-
+  Antwort und elastische Energie quantitativ vermessen.
+  Axiale Kraft bei verdoppelter Dehnung ungefähr verdoppelt;
+  Energie verhält sich näherungsweise quadratisch, Quer-
+  Restkraft unter rein axialer Dehnung bleibt numerisch klein.
+  Dies ist ein *diskreter konstitutiver Konsistenztest*, keine
+  Kalibrierung des Young-Moduls gegen Laborversuche.
+- **Quantitative Full-CPU-MVP-Gate:** scripts/p5_full_acceptance.py
+  prüft alle ursprünglichen Referenzen plus Selbstkontakt, dynamische
+  Bruchkontakt-Folge und numerisches Last-/Steifigkeitsverhalten.
+  Maschinenbericht: ENGINE TEST STUBE/runs/p5_full_acceptance.json,
+  zusätzlich Quell-SHA256. Diese Gate muss P5 im Gesamt-
+  phase_gate.py vor einem PASS ausdrücklich bestätigen.
+
+Die Grenzen sind weiterhin ernst zu nehmen: sphärische Knoten
+bilden kein facettengetreues deformierendes Oberflächennetz.
+Beliebige Stapel, Rotationsmomente, Sand-Druckgesetz/MPM,
+hochbelastete Kontakte, kontinuierliches Kollisions-Timing
+und gekoppelte Impuls-/Wärmebilanz aller Materialien sind nicht
+wissenschaftlich validiert. Der vollständige P5-CPU-MVP ist
+deshalb nur die **reale, abgegrenzte** Material-/Bruch-/
+Kontakt-Demonstration, nicht die fertige AAA-Festkörperphysik.

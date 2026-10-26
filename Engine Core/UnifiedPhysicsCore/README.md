@@ -16,13 +16,14 @@ mit MSVC Release + CTest nachgewiesen.
   liquide/Steam-Volumendiagnose, live konservativer MAC-Massen-
   und Enthalpietransport, P3-Darcy-Gravitationsenergie-zu-Wärme.
 
-- P5: Volumetrisches 3D-Federgitter mit Material-IDs, Hooke/strain-basierter
-  Bruchmechanik und Fragmenten, VoxelGrid-Schadensexport; 3D-Kugelgranulat
-  mit realen Korn-Korn-/Wandkontakten, Rückprall, Reibung, Stapeltests und
-  CPU-Benchmark. Siehe docs/P5_SOLID_GRANULAR_CPU_MVP_ABNAHME.md.
+- P5: **vollständig getesteter abgegrenzter CPU-MVP** mit volumetrischem
+  3D-Federgitter, Material-IDs, Hooke-/strain-basiertem Bruch, Fragmenten,
+  VoxelGrid-Schadensexport; 3D-Kugelgranulat (Korn-Korn/Wand,
+  Rückprall/Reibung/Stapel), nichtgebundenem deformierbarem
+  Selbst-/Mehrkörperkontakt und affine Zug-/Scherkraft-Benchmarks.
+  Grenzen: docs/P5_SOLID_GRANULAR_CPU_MVP_ABNAHME.md.
 
 ## Noch nicht abgeschlossen
-P5: Belastete deformierbare Volumenkontakte, Selbstkollision und unabhängig kalibrierte Granulat-/Bruchreferenzen. Die aktuellen CPU-Tests sind nur ein Teilnachweis.
 P6: Dynamische Materialmischungen und Reaktionsphysik.
 P7: GPU/LOD und Skalierung.
 P8: Unreal5.8-Gameplay-/Rendering- und End-to-End-Test.
@@ -35,7 +36,7 @@ docs/P4_THERMAL_CPU_MVP_ABNAHME.md
 docs/P5_SOLID_GRANULAR_CPU_MVP_ABNAHME.md
 docs/PHASENPLAN.md
 
-Wichtige Einschränkung: P4 ist ein abgegrenzter CPU-MVP; P5 ist ein geprüfter Teilnachweis. Beide sind keine
+Wichtige Einschränkung: P4 und P5 sind abgegrenzte CPU-MVPs. Beide sind keine
 universellen Thermo-FSI-/FEM-/MPM-/DEM-Systeme. P4 ist kein
 vollständiger 3D-Steam/Gas/thermoelastischer Solver. Das Dampfvolumen
 wird diagnostiziert, aber nicht in einem Gas-Druckfeld bewegt.
@@ -47,7 +48,8 @@ keine globale kinetische Energie-Rückkopplung aller Physics-Module.
 - Dann alle scripts/p1_acceptance.py,
   scripts/p2_acceptance.py, scripts/p3_acceptance.py,
   scripts/p4_partial_acceptance.py, scripts/p4_acceptance.py,
-  scripts/p5_contact_partial.py, scripts/p5_acceptance.py ausführen.
+  scripts/p5_contact_partial.py, scripts/p5_acceptance.py,
+  scripts/p5_full_acceptance.py ausführen.
 - Abschließend scripts/phase_gate.py.
 - Maschinenlesbare Nachweise liegen unter:
   D:\Projekt Engine\ENGINE TEST STUBE\runs\

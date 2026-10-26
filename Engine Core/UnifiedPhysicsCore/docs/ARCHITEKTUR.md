@@ -49,8 +49,21 @@ Render-/Test-Adapter. Alle Zustände verwenden SI-Einheiten.
     numerische Domänen; kein erzwungener gemeinsamer
     Solverkern oder vollständig konservative FSI.
 
+13. DeformableContact3D (P5): Ungebundene massbasierte
+    Volumensphären an einem/mehreren SpringSolid3D-Objekten.
+    Paarweise Selbst- und Mehrkörper-Nichtdurchdringung durch
+    wiederholte Impuls-/Reibkontakte und substep-limitierten
+    Kontaktlöseprozess. Nach Federbruch dürfen die ehemaligen
+    Nachbarn wieder gegenseitig stoßen. Kollisions-Energieverluste
+    und freigesetzte elastische Bruchenergie getrennt ausgewiesen.
+    Kein kontinuierliches verformbares Triangle-Mesh-Kontaktmodell.
+14. P5-Konstitutiv-Validierung: affine 3D-Zug-/Scherlast
+    an Gittergrößen 4³,6³,8³. Relative Kraft/Dehnung und
+    Energie/Dehnung auf numerische kleine-Dehnungs-
+    Linearisierung geprüft, nicht gegen reale Labormesswerte.
+
 ## Verifikation
-- Release-MSVC-CMake, CTest, P1/P2/P3/P4-Abnahme und P5-Teilnachweis-Skripte.
+- Release-MSVC-CMake, CTest, P1/P2/P3/P4/P5-Abnahmeskripte.
 - Unabhängige numerische Referenzen: hydrostatischer Druck,
   Ritter/Stoker 2D-Dammbruch, 3D MAC/VOF, Darcy-Vertikalfluss,
   Neumann-Fourier-Eigenmode (4 Raster).
@@ -64,4 +77,4 @@ Expansionsdynamik, kapillar-thermische Pore/Skelett-Kontaktmodelle,
 mehrphasige Mischungsströmungen, kalibrierte Kontinuumsfestkörper,
 rollende Drehmomente und GPU-beschleunigte Partikelkontakte,
 GPU-/LOD-Optimierung und Unreal-Rendering/E2E verbleiben als
-Forschung bzw. P5–P8. P5 bleibt PARTIAL; ein CPU-MVP ist kein AAA-Release.
+Forschung bzw. P6–P8. Ein begrenzter P5-CPU-MVP ist kein AAA-Release.
