@@ -87,7 +87,7 @@ def main():
        "partial_accepted":ok,"phase_complete":False,
        "generated_utc":datetime.now(timezone.utc).isoformat(),
        "native_stdout":r.stdout.strip(),"masked_native_stdout":masked.stdout.strip(),"checks":cases,"source_sha256":fingerprints,
-       "limitations":"Standalone MAC viscous diffusion with static wet/solid masks and approximate Neumann free-surface/Dirichlet wall conditions; no CoupledMacWater3D live integration, no moving solids, no stress-jump CFD reference"}
+       "limitations":"Standalone masked MAC diffusion proof only; CoupledMacWater3D live integration is separately tested in p2_live_viscosity_partial.json; moving solids and stress-jump CFD references remain unvalidated"}
     OUT.parent.mkdir(parents=True,exist_ok=True)
     OUT.write_text(json.dumps(payload,indent=2,ensure_ascii=False),encoding="utf-8")
     print("P2_VISCOUS_MAC_PARTIAL="+str(ok))

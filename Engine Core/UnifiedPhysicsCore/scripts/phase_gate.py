@@ -356,7 +356,32 @@ def p2_viscosity_partial_evidence() -> dict:
             f=CORE/filename
             if not f.is_file() or hashlib.sha256(f.read_bytes()).hexdigest()!=sha:
                 raise ValueError(f"P2 viscosity tested source changed: {filename}")
-        return {"ok":True,"why":"Independent analytic 3D MAC viscous eigenmode and energy-dissipation checks PASS; not integrated in coupled water solver"}
+        return {"ok":True,"why":"Independent analytic 3D MAC viscous eigenmode and energy-dissipation checks PASS; isolated operator evidence only"}
+    except (ValueError,KeyError,TypeError,OSError) as err:
+        return {"ok":False,"why":str(err)}
+
+def p2_live_viscosity_partial_evidence() -> dict:
+    """Actual CoupledMacWater3D viscous-flow integration, not P2 full acceptance."""
+    path=LAB/"runs"/"p2_live_viscosity_partial.json"
+    if not path.is_file():
+        return {"ok":False,"why":"No live 3D MAC/VOF viscosity integration evidence"}
+    try:
+        d=json.loads(path.read_text(encoding="utf-8"))
+        checks=d.get("checks",[])
+        if (d.get("phase")!="P2" or
+            d.get("milestone")!="live_masked_mac_vof_viscosity_partial" or
+            d.get("partial_accepted") is not True or
+            d.get("phase_complete") is not False or
+            len(checks)<8 or not all(x.get("pass") is True for x in checks)):
+            raise ValueError("Live 3D viscous MAC/VOF partial tests incomplete")
+        hashes=d.get("source_sha256",{})
+        if len(hashes)<8:
+            raise ValueError("Live 3D viscous MAC source fingerprint list incomplete")
+        for filename,sha in hashes.items():
+            f=CORE/filename
+            if not f.is_file() or hashlib.sha256(f.read_bytes()).hexdigest()!=sha:
+                raise ValueError(f"Live 3D viscous MAC tested source changed: {filename}")
+        return {"ok":True,"why":"Native live MAC/VOF masked viscosity and legacy regression, mass and face-energy proxy verified"}
     except (ValueError,KeyError,TypeError,OSError) as err:
         return {"ok":False,"why":str(err)}
 
@@ -366,7 +391,7 @@ def p2_viscosity_partial_evidence() -> dict:
 # validation and a code-reviewed replacement of these explicit blockers.
 FULL_SCOPE_OPEN={
     "P2":[
-        "integrate stable 3D viscosity with live MAC/VOF free surface",
+        "validate full stress-consistent 3D viscosity at moving free surface (current Neumann proxy only)",
         "validate dynamic solid no-slip/impulse and 3D obstacle coupling",
         "compare 3D flow and momentum against independent measured references",
     ],
@@ -436,6 +461,7 @@ def main() -> None:
     p1 = p1_evidence()
     p2 = p2_evidence()
     p2_viscosity = p2_viscosity_partial_evidence()
+    p2_live_viscosity = p2_live_viscosity_partial_evidence()
     p3 = p3_evidence()
     p4_partial = p4_partial_evidence()
     p4 = p4_complete_evidence()
@@ -460,8 +486,9 @@ def main() -> None:
              "; 3D/viscosity and subgrid interface physics remain out of P1 scope"},
        "P2":{"status":"PASS" if p2["ok"] and p2_viscosity["ok"] and tests["ok"] else "PARTIAL",
               "evidence":"Selected MAC+VOF coupled 3D CPU prototype; "+p2["why"]+
-              "; optional viscous MAC milestone: "+p2_viscosity["why"]+
-              "; full live viscous flow/3D validation not proven"},
+              "; optional isolated viscous MAC milestone: "+p2_viscosity["why"]+
+              "; live coupled viscous MAC/VOF milestone: "+p2_live_viscosity["why"]+
+              "; full 3D CFD/FSI validation not proven"},
        "P3":{"status":"PASS" if p3["ok"] and tests["ok"] else "PARTIAL",
              "evidence":"Porous 3D soil/free-water, pressure load, voxel-body displacement, isolated mass and work-energy ledgers; "+p3["why"]+
              "; high-fidelity moving-wall impulse/energy FSI remains out of scope"},

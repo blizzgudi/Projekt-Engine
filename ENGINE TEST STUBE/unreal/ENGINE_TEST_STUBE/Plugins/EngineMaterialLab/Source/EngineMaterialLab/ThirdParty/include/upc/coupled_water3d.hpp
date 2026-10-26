@@ -1,11 +1,12 @@
 #pragma once
 // UPC P2: Coupled 3D free-surface MAC pressure + bounded VOF transport.
-// Experimental first-order CPU solver (inviscid, non-surface-tension).
+// Experimental first-order CPU solver (optional masked viscosity; no surface tension).
 // Pressure is solved on wet MAC cells. MAC face velocities transport material
 // fill fractions in all three axes. Volume fluxes are pairwise conservative.
 // Velocity self-advection is semi-Lagrangian; it dissipates energy numerically.
 // No FLIP/APIC particle transfers, no 3D splashes below grid resolution.
 #include "upc/mac3d.hpp"
+#include "upc/viscous_mac3d.hpp"
 #include <algorithm>
 #include <array>
 #include <cmath>
@@ -26,6 +27,10 @@ class CoupledMacWater3D {
     std::vector<double> fill_;
     std::vector<std::uint8_t> solid_;
     double last_projection_divergence_=0;
+    double kinematic_viscosity_m2_s_=0;
+    double last_viscous_energy_before_=0;
+    double last_viscous_energy_after_=0;
+    std::size_t last_viscosity_substeps_=0;
     std::function<void(const TransportFlux3D&)> transport_callback_;
     std::size_t substeps_=0;
     static constexpr double wet=1e-5;
@@ -190,6 +195,18 @@ class CoupledMacWater3D {
     void substep(double dt,int pressure_iterations){
         sync_occupancy();
         advect_velocity(dt);
+        if(kinematic_viscosity_m2_s_>0){
+            // Snapshot actual liquid occupancy AFTER the previous VOF update.
+            // No per-voxel viscosity copies: this is a temporary wet mask.
+            std::vector<std::uint8_t> wet_mask(fill_.size(),0);
+            for(std::size_t i=0;i<fill_.size();++i)
+                wet_mask[i]=(!solid_[i]&&fill_[i]>wet)?1:0;
+            ViscousMacDiffusion3D visc(nx_,ny_,nz_,dx_);
+            last_viscous_energy_before_=visc.face_energy_proxy(mac_);
+            last_viscosity_substeps_+=visc.step_masked(
+                mac_,dt,kinematic_viscosity_m2_s_,wet_mask,solid_);
+            last_viscous_energy_after_=visc.face_energy_proxy(mac_);
+        }
         mac_.apply_gravity(dt);
         mac_.project(dt,pressure_iterations);
         last_projection_divergence_=mac_.max_divergence();
@@ -234,6 +251,22 @@ public:
     }
     double mass_kg()const{return rho_*volume_m3();}
     double last_projection_divergence()const{return last_projection_divergence_;}
+    // Opt-in: nu=0 preserves the legacy inviscid MAC/VOF path exactly.
+    // Positive nu requires a 3D grid with at least two cells per axis.
+    // Stationary solids use approximate no-slip; free surface uses a
+    // zero-gradient proxy. No moving-body impulse coupling is implied.
+    void set_kinematic_viscosity(double nu_m2_s){
+        if(!std::isfinite(nu_m2_s)||nu_m2_s<0||
+           (nu_m2_s>0&&(nx_<2||ny_<2||nz_<2)))
+            throw std::invalid_argument("Invalid coupled kinematic viscosity");
+        kinematic_viscosity_m2_s_=nu_m2_s;
+    }
+    double kinematic_viscosity_m2_s()const{return kinematic_viscosity_m2_s_;}
+    std::size_t last_viscosity_substeps()const{return last_viscosity_substeps_;}
+    // Before/after *diffusion only*, prior to gravity/projection.
+    // Face-square proxy is NOT the full physical fluid energy.
+    double last_viscous_energy_before()const{return last_viscous_energy_before_;}
+    double last_viscous_energy_after()const{return last_viscous_energy_after_;}
     std::size_t last_substeps()const{return substeps_;}
     std::size_t cell_count()const{return fill_.size();}
     std::size_t nx()const{return nx_;}
@@ -259,6 +292,9 @@ public:
             throw std::invalid_argument("Invalid coupled step");
         double remaining=seconds;
         substeps_=0;
+        last_viscosity_substeps_=0;
+        last_viscous_energy_before_=0;
+        last_viscous_energy_after_=0;
         while(remaining>1e-13){
             if(++substeps_>4000)throw std::runtime_error("Coupled solver substep cap");
             const double peak=max_velocity_sum();

@@ -88,3 +88,30 @@ des maschinenlesbaren Gates pro P3–P8 aufgelistet. Vor
 jeder echten Vollphasenfreigabe müssen diese durch separate
 reproduzierbare Abnahmeskripte mit unabhängigen Referenzen,
 Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
+
+## Aktueller P2-Teilfortschritt: Live-Viskosität im gekoppelten MAC/VOF (26.10.2026)
+
+- Opt-in `set_kinematic_viscosity(nu_m2_s)` in
+  `include/upc/coupled_water3d.hpp`. Bei `nu=0` bleibt die
+  bestehende inviskose Wasser-Implementierung bitgleich.
+- Echte Kopplung von `ViscousMacDiffusion3D::step_masked` mit
+  dynamischer Wet-Maske, statischen Solid-Hindernissen, Live-VOF-
+  Transport und nachfolgender Druckprojektion.
+- MSVC Release: 35/35 CTest PASS. Separater Native-Test
+  `tests/coupled_viscous_water3d_tests.cpp`: 12.553 Assertions,
+  90 kg Wasser -> 90 kg, 36 interne Viskositäts-Substeps,
+  Face-Energie-Proxy-Abnahme 0,0119468516707611 und
+  VOF-Unterschied zum inviskosen Vergleich 0,121149145596311.
+- Unabhängiges Teil-Gate:
+  `scripts/p2_live_viscosity_acceptance.py`,
+  `ENGINE TEST STUBE/runs/p2_live_viscosity_partial.json`.
+  Vollständige Belege und Grenzen: `docs/P2_LIVE_VISCOUS_MAC_PARTIAL.md`.
+- **P2 bleibt PARTIAL**: spannungskorrekte Wasser-Luft-Grenze,
+  bewegte Festkörper mit Impulsrückgabe, unabhängige gemessene
+  3D-Strömungsreferenzen und globale Energie-/Impulsvalidierung offen.
+  P3–P8 ebenfalls nicht voll abgenommen.
+- **Aktualisierte P8-Native-E2E-Probe:** isoliertes UE5.8-Plugin mit
+  aktiviertem viskosen P2-Pfad neu gebaut (Win64 Editor/Game/Shipping),
+  zwei echte Game-/PIE-Runs Exit 0 mit 111 Viskositäts-Substeps und
+  realen 960×540 Render-PNGs. `scripts/p8_acceptance.py`:
+  23/23 Checks PASS. P8-Vollphase bleibt **PARTIAL**.

@@ -29,6 +29,7 @@ CRITICAL_FILES=[
   "Engine Core/UnifiedPhysicsCore/include/upc/core.hpp",
   "Engine Core/UnifiedPhysicsCore/include/upc/mac3d.hpp",
   "Engine Core/UnifiedPhysicsCore/include/upc/coupled_water3d.hpp",
+  "Engine Core/UnifiedPhysicsCore/include/upc/viscous_mac3d.hpp",
   "Engine Core/UnifiedPhysicsCore/include/upc/fluid3d_module.hpp",
   "ENGINE TEST STUBE/unreal/ENGINE_TEST_STUBE/ENGINE_TEST_STUBE.uproject",
   "ENGINE TEST STUBE/unreal/ENGINE_TEST_STUBE/Plugins/EngineMaterialLab/EngineMaterialLab.uplugin",
@@ -37,6 +38,7 @@ CRITICAL_FILES=[
   "ENGINE TEST STUBE/unreal/ENGINE_TEST_STUBE/Plugins/EngineMaterialLab/Source/EngineMaterialLab/ThirdParty/include/upc/core.hpp",
   "ENGINE TEST STUBE/unreal/ENGINE_TEST_STUBE/Plugins/EngineMaterialLab/Source/EngineMaterialLab/ThirdParty/include/upc/mac3d.hpp",
   "ENGINE TEST STUBE/unreal/ENGINE_TEST_STUBE/Plugins/EngineMaterialLab/Source/EngineMaterialLab/ThirdParty/include/upc/coupled_water3d.hpp",
+  "ENGINE TEST STUBE/unreal/ENGINE_TEST_STUBE/Plugins/EngineMaterialLab/Source/EngineMaterialLab/ThirdParty/include/upc/viscous_mac3d.hpp",
   "ENGINE TEST STUBE/unreal/ENGINE_TEST_STUBE/Plugins/EngineMaterialLab/Source/EngineMaterialLab/ThirdParty/include/upc/fluid3d_module.hpp",
   "ENGINE TEST STUBE/unreal/ENGINE_TEST_STUBE/Content/Python/p8_pie_probe.py",
   "ENGINE TEST STUBE/scripts/p8_native_e2e.py",
@@ -58,7 +60,7 @@ def main():
     fp={name:sha(PROJECT/name) for name in CRITICAL_FILES}
     third=PLUGIN/"Source"/"EngineMaterialLab"/"ThirdParty"/"include"/"upc"
     origin=CORE/"include"/"upc"
-    for header in ("core.hpp","mac3d.hpp","coupled_water3d.hpp","fluid3d_module.hpp"):
+    for header in ("core.hpp","mac3d.hpp","coupled_water3d.hpp","viscous_mac3d.hpp","fluid3d_module.hpp"):
         ok=sha(third/header)==sha(origin/header)
         gate("independent_upc_header_matches_unreal_adapter_"+header,ok,ok,True)
     source=PLUGIN/"Source"/"EngineMaterialLab"/"Private"/"EngineMaterialLabModule.cpp"
@@ -123,6 +125,12 @@ def main():
              native.get("max_mass_residual_kg",1)<1e-6 and
              native.get("max_outside_vof",0)>0.04,
              native,{"mass":128.0,"flow":">0.04"})
+        gate(mode+"_live_masked_viscosity_executed",
+             native.get("kinematic_viscosity_m2_s",0)>0 and
+             native.get("viscous_substeps",0)>=85,
+             {"nu_m2_s":native.get("kinematic_viscosity_m2_s"),
+              "viscous_substeps":native.get("viscous_substeps")},
+             "positive nu and >=85 live viscosity steps")
         raw=UE/"Saved"/"EngineMaterialLab"/"P8Native"/(
             f"P8_{mode.upper()}_UE58_Native_3DWater.png")
         gate(mode+"_actual_native_render_png_hash",
@@ -148,7 +156,7 @@ def main():
     OUT.parent.mkdir(parents=True,exist_ok=True)
     report={
       "phase":"P8","schema_version":1,"accepted":passed,
-      "scope":"Native UE5.8 plugin build and real clean Game + Editor PIE + SceneCapture GPU-rendered 3D MAC/VOF E2E, excluding full P3-P6 multi-material Unreal runtime and P7 GPU LOD",
+      "scope":"Native UE5.8 plugin build and real clean Game + Editor PIE + SceneCapture GPU-rendered 3D MAC/VOF with opt-in masked viscosity E2E; excluding full P3-P6 multi-material Unreal runtime and P7 GPU LOD",
       "generated_utc":datetime.now(timezone.utc).isoformat(),
       "checks":checks,"sources_sha256":fp,"native_plugin_dll_sha256":sha(editor_dll),
       "process_proof":{

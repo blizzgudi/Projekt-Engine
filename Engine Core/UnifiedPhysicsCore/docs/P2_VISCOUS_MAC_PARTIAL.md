@@ -93,3 +93,13 @@ Voxeloberflächen ist nur approximiert; bewegliche Hindernisse,
 Impulsrückgabe an Körper, realistische Oberflächenspannung,
 gekoppelte Druckprojektion mit viskoser Advektion und unabhängige
 3D-CFD-Messdaten fehlen. **P2 bleibt PARTIAL.**
+
+## Nachtrag (26.10.2026): Live-Kopplung separat nachgewiesen
+
+Die obigen Grenzen beschreiben den **historischen isolierten Operator**
+zum Zeitpunkt seiner ersten Abnahme. Inzwischen gibt es zusätzlich
+einen optionalen Live-Pfad im `CoupledMacWater3D`-Solver.
+Seine Tests, Messwerte und weiter offenen Grenzen sind in
+`docs/P2_LIVE_VISCOUS_MAC_PARTIAL.md` und
+`ENGINE TEST STUBE/runs/p2_live_viscosity_partial.json`
+separat dokumentiert. Die vollständige P2-Phase bleibt **PARTIAL**.

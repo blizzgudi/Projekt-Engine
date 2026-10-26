@@ -97,3 +97,35 @@ für das 3D-MAC-Fluid und die Build-/Rendering-/PIE-Verbindung.**
   Editor-/Game-Prozess mit der Projekt-Plugin-DLL; kein nachgewiesener
   standalone gekochter Shipping-Spielbuild, obwohl der Plugin-
   Shipping-UBT-Kompilationsschritt erfolgreich ist.
+
+## Nachtrag 26.10.2026: Live-viskoser 3D-MAC/VOF-Pfad in Unreal 5.8
+
+Nach Einführung des optionalen `CoupledMacWater3D`-Viskositätsschritts
+wurden die originalen UPC-Header einschließlich
+`viscous_mac3d.hpp` bytegleich in den isolierten
+`ENGINE_TEST_STUBE`-Pluginadapter übernommen.
+Die P8-Demo aktiviert **nu=0,005 m²/s** (illustrativer Testwert,
+nicht reale Wasserviskosität) und protokolliert die tatsächlich
+durchlaufenen viskosen Substeps.
+
+**Echte Native-E2E-Neuabnahme im isolierten UE5.8-Projekt:**
+- UAT BuildPlugin Win64 UnrealEditor Development, UnrealGame
+  Development und UnrealGame Shipping: **BUILD SUCCESSFUL**.
+- Zwei getrennte echte UE5.8-Prozesse: **GAME PASS, Exit 0**
+  (32,34 s); **PIE PASS, Exit 0** (27,4 s).
+- 85 Simulationsframes, jeweils **111 viskose interne Substeps**.
+- 128 kg Wasser vor und nach der Simulation; Wasser außerhalb
+  des ursprünglichen Damms: max VOF 0,467519769.
+- Reale SceneCapture-PNGs 960×540:
+  GAME SHA256 `c920703a156f8c6143aa77c1cb717ef4eec3a4ac934d9729a73a91ae48b97efc`;
+  PIE SHA256 `34ff2dcdc5f858409a38fb0b48bf8746c366e14194461e3c438a6815efcc4cbf`.
+- Native-Prozessberichte und Logs unter
+  `ENGINE TEST STUBE/runs/p8_game_process.json` und
+  `p8_pie_process.json`; Gate `scripts/p8_acceptance.py`
+  prüft den aktiven viskosen Pfad ausdrücklich.
+
+**Grenzen:** Visuelle Würfel-Demo statt hochwertigem Wasser-Shader;
+keine beweglichen Körper mit Impulsrückgabe, keine P3–P6-
+Materialsimulation in UE, keine P7-RDG/LOD-Integration,
+keine wissenschaftlich validierte 3D-Strömungsreferenz.
+P8 bleibt **PARTIAL** im Vollphasen-Gate.

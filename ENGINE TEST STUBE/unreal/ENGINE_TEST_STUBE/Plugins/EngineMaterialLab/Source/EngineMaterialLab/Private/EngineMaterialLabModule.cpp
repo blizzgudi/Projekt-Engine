@@ -31,18 +31,20 @@ class FEngineMaterialLabModule final:public IModuleInterface {
  UTextureRenderTarget2D* RT=nullptr;
  FString Kind,OutputDir;
  int32 Frames=0;
+ int64 ViscousSubsteps=0;
  bool Done=false,AutoQuit=false;
  double InitialMass=0,MassError=0,Outside=0;
  void Reset(){
    if(RT){RT->RemoveFromRoot();RT=nullptr;}
    Physics.reset();Water=nullptr;Root.Reset();VoxelMesh.Reset();
-   Camera.Reset();ActiveWorld.Reset();Frames=0;Done=false;
+   Camera.Reset();ActiveWorld.Reset();Frames=0;ViscousSubsteps=0;Done=false;
  }
  void Initialize(UWorld* W){
    Reset();ActiveWorld=W;Kind=W->WorldType==EWorldType::PIE?TEXT("PIE"):TEXT("GAME");
    Physics=std::make_unique<upc::UnifiedPhysicsRuntime>(12,8,6,0.1);
    Physics->core().materials().add({1,upc::Phase::Liquid,1000,0.001});
    Water=&Physics->add_water3d(12,8,6,0.1,1);
+   Water->set_kinematic_viscosity(0.005); // P2 live masked MAC/VOF integration proof
    for(int z=0;z<4;z++)for(int y=0;y<8;y++)for(int x=0;x<4;x++)Water->set_water(x,y,z,1);
    InitialMass=Water->mass_kg();MassError=0;Outside=0;
    Root=W->SpawnActor<AActor>(AActor::StaticClass(),FVector(0),FRotator(0));
@@ -99,9 +101,11 @@ class FEngineMaterialLabModule final:public IModuleInterface {
           "\"frames\":%d,\"initial_mass_kg\":%.12f,\"final_mass_kg\":%.12f,"
           "\"max_mass_residual_kg\":%.12f,\"max_outside_vof\":%.9f,"
           "\"mesh_instances\":%d,\"png_bytes\":%lld,"
+          "\"viscous_substeps\":%lld,\"kinematic_viscosity_m2_s\":%.6f,"
           "\"mass_ok\":%s,\"flow_ok\":%s,\"mesh_ok\":%s,\"render_ok\":%s}"),
      *Kind,*FEngineVersion::Current().ToString(),Frames,InitialMass,Water->mass_kg(),
-     MassError,Outside,MeshCount,Bytes,MassOK?TEXT("true"):TEXT("false"),
+     MassError,Outside,MeshCount,Bytes,ViscousSubsteps,
+     Water->kinematic_viscosity_m2_s(),MassOK?TEXT("true"):TEXT("false"),
      FlowOK?TEXT("true"):TEXT("false"),MeshOK?TEXT("true"):TEXT("false"),
      RenderOK?TEXT("true"):TEXT("false"));
    const FString Report=OutputDir/(Base+TEXT(".json"));
@@ -126,7 +130,8 @@ class FEngineMaterialLabModule final:public IModuleInterface {
       UE_LOG(LogEngineMaterialLab,Error,TEXT("P8 native physics failed: %hs"),E.what());
       return true;
    }
-   Frames++;MassError=FMath::Max(MassError,FMath::Abs(Water->mass_kg()-InitialMass));
+   Frames++;ViscousSubsteps+=static_cast<int64>(Water->last_viscosity_substeps());
+   MassError=FMath::Max(MassError,FMath::Abs(Water->mass_kg()-InitialMass));
    Draw();
    if(Frames==85)Prove();
    if(AutoQuit&&Frames>=95){UE_LOG(LogEngineMaterialLab,Display,TEXT("P8 AUTOQUIT"));

@@ -154,3 +154,8 @@ add_test(NAME physics_p2_viscous_mac3d_analytic_reference COMMAND upc_p2_viscosi
 add_executable(upc_p2_viscosity_masked_tests tests/viscous_mac3d_masked_tests.cpp)
 target_link_libraries(upc_p2_viscosity_masked_tests PRIVATE upc)
 add_test(NAME physics_p2_viscous_mac3d_masked_boundaries COMMAND upc_p2_viscosity_masked_tests)
+
+# P2 follow-on: opt-in masked viscosity in the LIVE coupled MAC/VOF solver.
+add_executable(upc_p2_live_viscous_water_tests tests/coupled_viscous_water3d_tests.cpp)
+target_link_libraries(upc_p2_live_viscous_water_tests PRIVATE upc)
+add_test(NAME physics_p2_live_viscous_3d_mac_vof COMMAND upc_p2_live_viscous_water_tests)
