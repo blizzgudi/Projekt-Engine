@@ -1,4 +1,4 @@
-# Unified Physics Core – Architektur P0–P4 v0.4
+# Unified Physics Core – Architektur P0–P5 v0.5
 
 Eigenständiger C++17-CPU-Physikkern, Unreal Engine nur als
 Render-/Test-Adapter. Alle Zustände verwenden SI-Einheiten.
@@ -34,18 +34,34 @@ Render-/Test-Adapter. Alle Zustände verwenden SI-Einheiten.
 9. thermal_volume_estimates.hpp: Flüssig-/Eisvolumen und
    Wasserdampf als idealgasbasierte Volumendiagnostik.
 
+10. SpringSolid3D/SpringLattice3D (P5): 3D-Materialknoten mit
+    26fachen räumlichen Federbindungen, expliziten Kräften,
+    Stabilitätssubsteps, Schwellenbruch und Fragment-Union-Find.
+    Bruch-Bondanteile werden über die ursprünglichen Material-IDs
+    als Damage in das zentrale VoxelGrid übertragen.
+11. SolidPlaneContact3D (P5): Knoten-/Wandreibung und
+    Restitutionsimpulse gegen eine feste Ebene.
+12. GranularWorld3D (P5): Material-ID-/Dichte-gesteuerte
+    sphärische Partikel mit sechs Wandebenen und gegenseitigen
+    Normalkollisions-/Coulomb-Tangentialimpulsen,
+    12 Iterationen und adaptiver Kornweg-Schrittweite.
+    Granular-Density, Bruch und Kontakt sind eigenständige
+    numerische Domänen; kein erzwungener gemeinsamer
+    Solverkern oder vollständig konservative FSI.
+
 ## Verifikation
-- Release-MSVC-CMake, CTest, P1/P2/P3/P4 Acceptance-Skripte.
+- Release-MSVC-CMake, CTest, P1/P2/P3/P4-Abnahme und P5-Teilnachweis-Skripte.
 - Unabhängige numerische Referenzen: hydrostatischer Druck,
   Ritter/Stoker 2D-Dammbruch, 3D MAC/VOF, Darcy-Vertikalfluss,
   Neumann-Fourier-Eigenmode (4 Raster).
 - Energie-/Massenprüfungen im jeweils abgegrenzten Subsystem,
   Phase-Rücktransfers zu MAC und getrennte Porenbilanzen.
-- Quell-Fingerprints nach jedem P4-Abnahmelauf.
+- Quell-Fingerprints nach jedem P1–P5-Abnahmelauf.
 
 ## Grenzen, nicht als gelöst ausgeben
 Globale Energie von MAC-FSI/Turbulenz, 3D-Gas-/Dampfdruck- und
 Expansionsdynamik, kapillar-thermische Pore/Skelett-Kontaktmodelle,
-mehrphasige Mischungsströmungen, Kontinuumsfestkörper,
+mehrphasige Mischungsströmungen, kalibrierte Kontinuumsfestkörper,
+rollende Drehmomente und GPU-beschleunigte Partikelkontakte,
 GPU-/LOD-Optimierung und Unreal-Rendering/E2E verbleiben als
-Forschung bzw. P5–P8. Ein CPU-MVP ist kein AAA-Release.
+Forschung bzw. P5–P8. P5 bleibt PARTIAL; ein CPU-MVP ist kein AAA-Release.

@@ -53,6 +53,56 @@ def p1_evidence() -> dict:
     except (ValueError,KeyError,TypeError,OSError) as exc:
         return {"ok":False,"why":str(exc)}
 
+def p5_bounded_partial_evidence() -> dict:
+    path = LAB / "runs" / "p5_acceptance.json"
+    if not path.is_file():
+        return {"ok":False,"why":"P5 bounded 3D CPU solid/fracture/granular acceptance missing"}
+    try:
+        data=json.loads(path.read_text(encoding="utf-8"))
+        if (data.get("phase")!="P5" or data.get("partial_accepted") is not True
+            or data.get("phase_complete") is not False):
+            raise ValueError("P5 bounded CPU-partial milestone NOT approved")
+        checks=data.get("checks",[])
+        if len(checks)<45 or not all(item.get("pass") is True for item in checks):
+            raise ValueError("Incomplete P5 numeric benchmarks/invariants")
+        native=data.get("native_checks",{})
+        if native.get("plane",0)<10984 or native.get("lattice",0)<22000 or native.get("granular",0)<37000:
+            raise ValueError("P5 contact, volumetric fracture or granular checks missing")
+        rows=data.get("reference",[])
+        if len(rows)!=11:
+            raise ValueError("Missing independent Hooke/collision/fracture/CPU results")
+        hashes=data.get("source_sha256",{})
+        if len(hashes)<13:
+            raise ValueError("P5 critical source fingerprints incomplete")
+        for filename,sha in hashes.items():
+            source=CORE / filename
+            if not source.is_file() or hashlib.sha256(source.read_bytes()).hexdigest()!=sha:
+                raise ValueError(f"P5 source missing/changed since test: {filename}")
+        return {"ok":True,"why":f"{len(checks)} quantitative CPU acceptance controls, "+
+                "lattice fragments/voxel damage and DEM contact/energy/CPU; source hashes verified"}
+    except (ValueError,TypeError,KeyError,OSError) as exc:
+        return {"ok":False,"why":str(exc)}
+
+def p5_partial_evidence() -> dict:
+    path=LAB / "runs" / "p5_contact_partial.json"
+    if not path.is_file():
+        return {"ok":False,"why":"P5 plane contact partial evidence missing"}
+    try:
+        data=json.loads(path.read_text(encoding="utf-8"))
+        if (data.get("phase")!="P5" or
+            data.get("partial_accepted") is not True or
+            data.get("phase_complete") is not False):
+            raise ValueError("P5 contact partial flags invalid")
+        if data.get("native_checks",0)<10984:
+            raise ValueError("Plane contact native assertions missing")
+        for filename,sha in data.get("source_sha256",{}).items():
+            source=CORE/filename
+            if not source.is_file() or hashlib.sha256(source.read_bytes()).hexdigest()!=sha:
+                raise ValueError(f"P5 plane contact source mismatch: {filename}")
+        return {"ok":True,"why":"Plane and restitution checks from prior P5 milestone verified"}
+    except (ValueError,TypeError,KeyError,OSError) as exc:
+        return {"ok":False,"why":str(exc)}
+
 def p4_complete_evidence() -> dict:
     report_path = LAB / "runs" / "p4_acceptance.json"
     if not report_path.exists():
@@ -169,6 +219,8 @@ def main() -> None:
     p3 = p3_evidence()
     p4_partial = p4_partial_evidence()
     p4 = p4_complete_evidence()
+    p5 = p5_bounded_partial_evidence()
+    p5_partial = p5_partial_evidence()
     ue_bin = BUILDS / "Binaries" / "Win64" / "UnrealEditor-EngineMaterialLab.dll"
     log = LOG.read_text(encoding="utf-8",errors="replace") if LOG.exists() else ""
     plugin_built = ue_bin.exists() and ue_bin.stat().st_size>0
@@ -190,7 +242,10 @@ def main() -> None:
        "P4":{"status":"PASS" if tests["ok"] and p4["ok"] and p4_partial["ok"] else "PARTIAL",
              "evidence":"3D CPU thermodynamics MVP: "+p4["why"]+
              "; thermal, liquid advection and P3-gravity heat budgets conserved in their test domains; no gas hydrodynamics or fully unified mechanical-energy closure"},
-       "P5":{"status":"PARTIAL","evidence":"3D mass-spring + fracture; stable volumetric solids/granular contact missing"},
+       "P5":{"status":"PARTIAL",
+             "evidence":"3D CPU solid/granular partial validation: "+p5["why"]+
+             "; plane contact "+p5_partial["why"]+
+             "; P5 still open: no validated deformable volume self-contact, continuum/granular constitutive benchmark, or fully coupled fracture-contact energy"},
        "P6":{"status":"PARTIAL","evidence":"composition mass bookkeeping; calibrated thermochemical laws missing"},
        "P7":{"status":"PARTIAL","evidence":"sparse CPU chunks and benchmarks; GPU/LOD integration missing"},
        "P8":{"status":"PARTIAL" if plugin_built and native_module else "NOT_RUN",

@@ -88,3 +88,15 @@ add_test(NAME physics_p4_live_mac_enthalpy_advection COMMAND upc_thermal_advecti
 add_executable(upc_thermal_soil_tests tests/thermal_soil_integration_tests.cpp)
 target_link_libraries(upc_thermal_soil_tests PRIVATE upc)
 add_test(NAME physics_p4_p3_porous_heat_gravity_bridge COMMAND upc_thermal_soil_tests)
+
+add_executable(upc_granular3d_tests tests/granular3d_tests.cpp)
+target_link_libraries(upc_granular3d_tests PRIVATE upc)
+add_test(NAME physics_p5_granular_3d_contacts COMMAND upc_granular3d_tests)
+
+add_executable(upc_solid_lattice3d_tests tests/solid_lattice3d_tests.cpp)
+target_link_libraries(upc_solid_lattice3d_tests PRIVATE upc)
+add_test(NAME physics_p5_lattice_3d_fracture COMMAND upc_solid_lattice3d_tests)
+
+add_executable(upc_p5_reference benchmarks/p5_reference.cpp)
+target_link_libraries(upc_p5_reference PRIVATE upc)
+add_test(NAME physics_p5_granular_fracture_reference COMMAND upc_p5_reference)

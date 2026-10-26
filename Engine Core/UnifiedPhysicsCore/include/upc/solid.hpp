@@ -31,11 +31,14 @@ class SpringSolid3D {
     std::vector<MassNode> nodes_;
     std::vector<ElasticBond> bonds_;
     Vec3 gravity_{0,0,-9.81};
+    double fracture_released_j_=0;
 public:
     std::size_t add_node(MassNode n){
         if(!std::isfinite(n.mass_kg)||n.mass_kg<=0||
            !std::isfinite(n.position.x)||!std::isfinite(n.position.y)||
-           !std::isfinite(n.position.z))throw std::invalid_argument("Invalid mass node");
+           !std::isfinite(n.position.z)||!std::isfinite(n.velocity.x)||
+           !std::isfinite(n.velocity.y)||!std::isfinite(n.velocity.z))
+           throw std::invalid_argument("Invalid mass node");
         nodes_.push_back(n);
         return nodes_.size()-1;
     }
@@ -56,6 +59,8 @@ public:
     MassNode& node(std::size_t i){return nodes_.at(i);}
     const MassNode& node(std::size_t i)const{return nodes_.at(i);}
     std::size_t node_count()const{return nodes_.size();}
+    const std::vector<ElasticBond>& bonds()const{return bonds_;}
+    double fracture_released_j()const{return fracture_released_j_;}
     std::size_t intact_bonds()const{
         std::size_t n=0;for(const auto& b:bonds_)n+=b.intact?1:0;return n;
     }
@@ -77,7 +82,11 @@ public:
             const double len=norm(delta);
             if(len<1e-12)continue;
             const double extension=len-b.rest_m;
-            if(std::abs(extension)/b.rest_m > b.max_strain){b.intact=false;continue;}
+            if(std::abs(extension)/b.rest_m > b.max_strain){
+                fracture_released_j_+=0.5*b.stiffness_n_per_m*
+                                       extension*extension;
+                b.intact=false;continue;
+            }
             Vec3 f=delta*(b.stiffness_n_per_m*extension/len);
             force[b.a]=force[b.a]+f;
             force[b.b]=force[b.b]-f;
