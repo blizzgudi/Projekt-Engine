@@ -1,0 +1,23 @@
+# Native builds
+**/build/
+**/out/
+**/CMakeFiles/
+**/CMakeCache.txt
+**/.vs/
+*.obj
+*.pdb
+*.exe
+*.lib
+*.dll
+# Unreal generated content
+**/Saved/
+**/Intermediate/
+**/DerivedDataCache/
+**/Binaries/
+# Test output and caches
+**/__pycache__/
+*.pyc
+ENGINE TEST STUBE/experiments/*/output/
+ENGINE TEST STUBE/runs/
+ENGINE TEST STUBE/benchmarks/
+Thumbs.db

@@ -1,0 +1,19 @@
+name: Unified Physics Core CI
+on:
+  push:
+  pull_request:
+jobs:
+  core:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Configure
+        run: cmake -S "Engine Core/UnifiedPhysicsCore" -B "Engine Core/UnifiedPhysicsCore/build" -DCMAKE_BUILD_TYPE=Release
+      - name: Build
+        run: cmake --build "Engine Core/UnifiedPhysicsCore/build" --config Release
+      - name: Unit tests
+        run: ctest --test-dir "Engine Core/UnifiedPhysicsCore/build" -C Release --output-on-failure
