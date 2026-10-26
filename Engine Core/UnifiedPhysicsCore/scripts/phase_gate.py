@@ -53,6 +53,30 @@ def p1_evidence() -> dict:
     except (ValueError,KeyError,TypeError,OSError) as exc:
         return {"ok":False,"why":str(exc)}
 
+def p7_sparse_partial_evidence() -> dict:
+    path=LAB / "runs" / "p7_sparse_partial.json"
+    if not path.is_file():
+        return {"ok":False,"why":"No native P7 sparse 3D LOD partial report"}
+    try:
+        d=json.loads(path.read_text(encoding="utf-8"))
+        if d.get("phase")!="P7" or d.get("partial_accepted") is not True or d.get("phase_complete") is not False:
+            raise ValueError("P7 CPU LOD partial report flags invalid")
+        checks=d.get("checks",[])
+        if len(checks)<20 or not all(c.get("pass") is True for c in checks):
+            raise ValueError("P7 sparse 3D LOD numeric checks missing")
+        if d.get("native_assertions",0)<230 or len(d.get("reference",[]))!=3:
+            raise ValueError("P7 native MAC/VOF LOD integration/CPU references missing")
+        hashes=d.get("source_sha256",{})
+        if len(hashes)<8:
+            raise ValueError("P7 partial source fingerprint list incomplete")
+        for name,sha in hashes.items():
+            f=CORE/name
+            if not f.is_file() or hashlib.sha256(f.read_bytes()).hexdigest()!=sha:
+                raise ValueError(f"P7 partial source changed: {name}")
+        return {"ok":True,"why":f"{len(checks)} sparse 3D MAC/VOF LOD CPU checks with source hashes; GPU still open"}
+    except (ValueError,KeyError,TypeError,OSError) as exc:
+        return {"ok":False,"why":str(exc)}
+
 def p6_full_cpu_evidence() -> dict:
     path=LAB / "runs" / "p6_acceptance.json"
     if not path.is_file():
@@ -280,6 +304,7 @@ def main() -> None:
     p5_partial = p5_partial_evidence()
     p5_full = p5_full_cpu_evidence()
     p6 = p6_full_cpu_evidence()
+    p7_partial = p7_sparse_partial_evidence()
     ue_bin = BUILDS / "Binaries" / "Win64" / "UnrealEditor-EngineMaterialLab.dll"
     log = LOG.read_text(encoding="utf-8",errors="replace") if LOG.exists() else ""
     plugin_built = ue_bin.exists() and ue_bin.stat().st_size>0
@@ -308,7 +333,8 @@ def main() -> None:
        "P6":{"status":"PASS" if tests["ok"] and p6["ok"] else "PARTIAL",
              "evidence":"Restricted 3D reactive-material CPU-MVP: "+p6["why"]+
              "; generic registered synthetic species, not calibrated real chemistry, not globally coupled multiphase-CFD"},
-       "P7":{"status":"PARTIAL","evidence":"sparse CPU chunks and benchmarks; GPU/LOD integration missing"},
+       "P7":{"status":"PARTIAL","evidence":"P7 sparse 3D render LOD partial: "+p7_partial["why"]+
+             "; GPU execution/CPU parity, LOD streaming and latency bounds remain unverified"},
        "P8":{"status":"PARTIAL" if plugin_built and native_module else "NOT_RUN",
              "evidence":"UE 5.8 plugin build="+str(plugin_built)+" native module load="+str(native_module)
              +"; PIE/rendering/native clean exit not verified"},

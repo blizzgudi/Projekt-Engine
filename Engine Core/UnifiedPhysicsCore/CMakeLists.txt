@@ -120,3 +120,11 @@ add_test(NAME physics_p6_arrhenius_fick_numeric_reference COMMAND upc_p6_referen
 add_executable(upc_p6_thermal_bridge_tests tests/reactive_thermal_bridge_tests.cpp)
 target_link_libraries(upc_p6_thermal_bridge_tests PRIVATE upc)
 add_test(NAME physics_p6_p4_exothermic_energy_coupling COMMAND upc_p6_thermal_bridge_tests)
+
+add_executable(upc_p7_sparse_lod_tests tests/sparse_water_lod3d_tests.cpp)
+target_link_libraries(upc_p7_sparse_lod_tests PRIVATE upc)
+add_test(NAME physics_p7_sparse_3d_mac_render_lod COMMAND upc_p7_sparse_lod_tests)
+
+add_executable(upc_p7_sparse_reference benchmarks/p7_sparse_reference.cpp)
+target_link_libraries(upc_p7_sparse_reference PRIVATE upc)
+add_test(NAME physics_p7_sparse_lod_memory_and_volume_reference COMMAND upc_p7_sparse_reference)
