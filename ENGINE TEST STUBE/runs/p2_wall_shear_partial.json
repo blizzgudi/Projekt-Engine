@@ -1,0 +1,58 @@
+{
+  "phase": "P2",
+  "milestone": "prescribed_fixed_wall_tangential_shear_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "generated_utc": "2026-10-26T14:57:59.056304+00:00",
+  "native_stdout": "PASS P2 masked 3D MAC viscosity: checks=57 free_surface_one_step=0.964 expected=0.964 energy_first=0.00047304832 energy_after=1.38039784563625e-05 adaptive_substeps=67 wall_shear=0.0144 wall_shear_expected=0.0144",
+  "native_stderr": "",
+  "ctest_exit": 0,
+  "ctest_tail": "..................   Passed    0.03 sec\n      Start 13: physics_p3_material_volume_coupling\n13/35 Test #13: physics_p3_material_volume_coupling .................   Passed    0.04 sec\n      Start 14: physics_p3_darcy_energy_reference\n14/35 Test #14: physics_p3_darcy_energy_reference ...................   Passed    0.16 sec\n      Start 15: physics_p4_thermal_conduction_and_phase\n15/35 Test #15: physics_p4_thermal_conduction_and_phase .............   Passed    0.01 sec\n      Start 16: physics_p4_neumann_heat_reference\n16/35 Test #16: physics_p4_neumann_heat_reference ...................   Passed    0.09 sec\n      Start 17: physics_p4_phase_mac_voxel_bridge\n17/35 Test #17: physics_p4_phase_mac_voxel_bridge ...................   Passed    0.02 sec\n      Start 18: physics_p4_live_mac_enthalpy_advection\n18/35 Test #18: physics_p4_live_mac_enthalpy_advection ..............   Passed    0.03 sec\n      Start 19: physics_p4_p3_porous_heat_gravity_bridge\n19/35 Test #19: physics_p4_p3_porous_heat_gravity_bridge ............   Passed    0.02 sec\n      Start 20: physics_p5_granular_3d_contacts\n20/35 Test #20: physics_p5_granular_3d_contacts .....................   Passed    0.03 sec\n      Start 21: physics_p5_lattice_3d_fracture\n21/35 Test #21: physics_p5_lattice_3d_fracture ......................   Passed    0.01 sec\n      Start 22: physics_p5_granular_fracture_reference\n22/35 Test #22: physics_p5_granular_fracture_reference ..............   Passed    0.02 sec\n      Start 23: physics_p5_deformable_self_and_multibody_contact\n23/35 Test #23: physics_p5_deformable_self_and_multibody_contact ....   Passed    0.02 sec\n      Start 24: physics_p5_affine_lattice_constitutive_reference\n24/35 Test #24: physics_p5_affine_lattice_constitutive_reference ....   Passed    0.01 sec\n      Start 25: physics_p6_conservative_3d_mixtures_reactions\n25/35 Test #25: physics_p6_conservative_3d_mixtures_reactions .......   Passed    0.03 sec\n      Start 26: physics_p6_arrhenius_fick_numeric_reference\n26/35 Test #26: physics_p6_arrhenius_fick_numeric_reference .........   Passed    0.06 sec\n      Start 27: physics_p6_p4_exothermic_energy_coupling\n27/35 Test #27: physics_p6_p4_exothermic_energy_coupling ............   Passed    0.02 sec\n      Start 28: physics_p7_sparse_3d_mac_render_lod\n28/35 Test #28: physics_p7_sparse_3d_mac_render_lod .................   Passed    0.07 sec\n      Start 29: physics_p7_sparse_lod_memory_and_volume_reference\n29/35 Test #29: physics_p7_sparse_lod_memory_and_volume_reference ...   Passed    0.02 sec\n      Start 30: physics_p7_hardware_d3d11_cpu_parity\n30/35 Test #30: physics_p7_hardware_d3d11_cpu_parity ................   Passed    0.58 sec\n      Start 31: physics_p7_hardware_d3d11_brick_residency\n31/35 Test #31: physics_p7_hardware_d3d11_brick_residency ...........   Passed    0.55 sec\n      Start 32: physics_p7_resident_streaming_lod_bounds\n32/35 Test #32: physics_p7_resident_streaming_lod_bounds ............   Passed    0.02 sec\n      Start 33: physics_p2_viscous_mac3d_analytic_reference\n33/35 Test #33: physics_p2_viscous_mac3d_analytic_reference .........   Passed    0.02 sec\n      Start 34: physics_p2_viscous_mac3d_masked_boundaries\n34/35 Test #34: physics_p2_viscous_mac3d_masked_boundaries ..........   Passed    0.02 sec\n      Start 35: physics_p2_live_viscous_3d_mac_vof\n35/35 Test #35: physics_p2_live_viscous_3d_mac_vof ..................   Passed    0.13 sec\n\n100% tests passed, 0 tests failed out of 35\n\nTotal Test time (real) =   4.07 sec\n",
+  "checks": [
+    {
+      "name": "native_exit_zero",
+      "value": 0,
+      "pass": true
+    },
+    {
+      "name": "native_discrete_shear_assertions",
+      "value": 57,
+      "pass": true
+    },
+    {
+      "name": "independent_discrete_couette_reference",
+      "value": {
+        "actual": 0.0144,
+        "expected": 0.0144
+      },
+      "pass": true
+    },
+    {
+      "name": "all_native_ctests_exit_zero",
+      "value": 0,
+      "pass": true
+    },
+    {
+      "name": "native_ctest_count",
+      "value": 35,
+      "pass": true
+    },
+    {
+      "name": "complete_source_coverage",
+      "value": 9,
+      "pass": true
+    }
+  ],
+  "source_sha256": {
+    "CMakeLists.txt": "889f4d389d2f40f827f899393eaba74bf2217df5b14e13186eac85055bdb21bd",
+    "include/upc/mac3d.hpp": "9bb4659c5b6e6fd3a512301ae4a3a083fa96b1e67d50363ec8f5634e1038fdc5",
+    "include/upc/viscous_mac3d.hpp": "4248be5876051c96933d88227eeed9affff8dcc08bf4bcdfdd3674610cb03049",
+    "include/upc/coupled_water3d.hpp": "796d036b19ad3778532b3c3a20f94d09ea0d2f56e887bdd08ea07fefb411239a",
+    "tests/viscous_mac3d_masked_tests.cpp": "0e0881baa7a8542ff0c469a12bab8ba8642e4fd768340cbf095b01aac6788996",
+    "tests/coupled_viscous_water3d_tests.cpp": "44b63fb3940c4211a2fbc515d13ed3f74e1892bb684899a64fa142e4fd074a1a",
+    "scripts/phase_gate.py": "c7df8f8a53ac861558f2fe3439ab13eafb9687e8a0d170257c71b5e82cd8e3b6",
+    "scripts/p2_wall_shear_acceptance.py": "d02fc8ee0aba9d59f1115df94c867a1ae81bb144b3ba73cf4402df65cf07d8fc",
+    "docs/P2_WALL_SHEAR_PARTIAL.md": "a6c91ca8253a6f4b379adb5ded054b9d8e935f6fddb690491b9106857b9411be"
+  },
+  "limitations": "Fixed geometry with prescribed tangential wall ghost velocity only; no normal wall motion, moving-body impulse, full stress-free surface, measured 3D CFD benchmark or Unreal native E2E for this option."
+}

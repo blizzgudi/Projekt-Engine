@@ -5,6 +5,7 @@
 // Not a multi-phase viscosity, not moving-solid boundary handling.
 #include "upc/mac3d.hpp"
 #include <algorithm>
+#include <array>
 #include <cmath>
 #include <cstddef>
 #include <cstdint>
@@ -100,14 +101,21 @@ public:
     }
     // Optional mask-aware free-surface/solid diffusion primitive.
     // Wet masks are caller-owned snapshots (one per cell); no solver coupling.
-    // Boundary model: no-slip normal solid/wall faces (Dirichlet zero),
+    // Boundary model: impermeable normal solid/wall faces (Dirichlet zero),
     // zero-normal-gradient to inactive air faces (Neumann proxy).
-    // Tangential moving-wall velocities and stress-jump physics not modeled.
+    // Optional prescribed tangential solid-wall velocity is a fixed-geometry
+    // Couette/shear boundary ONLY. No moving geometry, normal wall motion,
+    // reaction impulse, or full free-surface stress condition is modeled.
     std::size_t step_masked(MacProjection3D& mac,double dt,double nu,
                             const std::vector<std::uint8_t>& wet,
-                            const std::vector<std::uint8_t>& solid)const {
+                            const std::vector<std::uint8_t>& solid,
+                            const std::array<double,3>& wall_tangential_velocity_m_s=
+                                {0.0,0.0,0.0})const {
         if(!std::isfinite(dt)||dt<=0||!std::isfinite(nu)||nu<0)
             throw std::invalid_argument("Invalid masked viscosity timestep");
+        for(double v:wall_tangential_velocity_m_s)
+            if(!std::isfinite(v))
+                throw std::invalid_argument("Nonfinite tangential solid-wall velocity");
         const auto n=nx_*ny_*nz_;
         if(wet.size()!=n||solid.size()!=n)
             throw std::invalid_argument("Masked viscosity occupancy shape mismatch");
@@ -121,7 +129,7 @@ public:
         const auto steps=std::max<std::size_t>(1,
             static_cast<std::size_t>(std::ceil(requested)));
         const double alpha=nu*dt/(dx_*dx_*static_cast<double>(steps));
-        // 0: solid/wall, 1: active liquid interface, 2: air-only.
+        // 0: exterior, 1: active liquid, 2: air-only, 3: solid face.
         const auto classify=[&](int axis,std::size_t x,std::size_t y,std::size_t z){
             long long ax=x,ay=y,az=z,bx=x,by=y,bz=z;
             if(axis==0)--ax;
@@ -136,7 +144,7 @@ public:
                 static_cast<std::size_t>(ay),static_cast<std::size_t>(az),nx_,ny_);
             const auto b=index(static_cast<std::size_t>(bx),
                 static_cast<std::size_t>(by),static_cast<std::size_t>(bz),nx_,ny_);
-            if(solid[a]||solid[b])return 0;
+            if(solid[a]||solid[b])return 3;
             return wet[a]||wet[b]?1:2;
         };
         const auto apply=[&](std::size_t sx,std::size_t sy,std::size_t sz,
@@ -148,7 +156,7 @@ public:
             for(std::size_t x=0;x<sx;++x)
                 before[index(x,y,z,sx,sy)]=read(x,y,z);
             const auto sample=[&](long long x,long long y,long long z,
-                                   double center){
+                                   double center,int neighbor_axis){
                 if(x<0||y<0||z<0||x>=(long long)sx||
                    y>=(long long)sy||z>=(long long)sz)
                     return 0.0; // fixed no-slip exterior ghost
@@ -156,8 +164,12 @@ public:
                 const auto uy=static_cast<std::size_t>(y);
                 const auto uz=static_cast<std::size_t>(z);
                 const auto state=classify(axis,ux,uy,uz);
-                return state==0?0.0:state==2?center:
-                    before[index(ux,uy,uz,sx,sy)];
+                // Do not inject the wall's NORMAL velocity component:
+                // fixed geometry cannot displace water or transfer impulse.
+                return state==0?0.0:state==3?
+                    (neighbor_axis==axis?0.0:
+                     wall_tangential_velocity_m_s[static_cast<std::size_t>(axis)]):
+                    state==2?center:before[index(ux,uy,uz,sx,sy)];
             };
             for(std::size_t z=0;z<sz;++z)
             for(std::size_t y=0;y<sy;++y)
@@ -168,9 +180,9 @@ public:
                 const auto b=static_cast<long long>(y);
                 const auto c=static_cast<long long>(z);
                 const double v=before[i];
-                after[i]=v+alpha*(sample(a-1,b,c,v)+sample(a+1,b,c,v)+
-                    sample(a,b-1,c,v)+sample(a,b+1,c,v)+
-                    sample(a,b,c-1,v)+sample(a,b,c+1,v)-6*v);
+                after[i]=v+alpha*(sample(a-1,b,c,v,0)+sample(a+1,b,c,v,0)+
+                    sample(a,b-1,c,v,1)+sample(a,b+1,c,v,1)+
+                    sample(a,b,c-1,v,2)+sample(a,b,c+1,v,2)-6*v);
                 if(!std::isfinite(after[i]))
                     throw std::runtime_error("Nonfinite masked viscosity");
             }

@@ -456,12 +456,36 @@ def p2_evidence() -> dict:
     except (ValueError,KeyError,TypeError,OSError) as exc:
         return {"ok":False,"why":str(exc)}
 
+def p2_wall_shear_partial_evidence() -> dict:
+    """Fixed-geometry prescribed tangential wall shear only; not FSI or P2 full."""
+    path=LAB/"runs"/"p2_wall_shear_partial.json"
+    if not path.is_file():
+        return {"ok":False,"why":"P2 fixed-wall shear partial evidence missing"}
+    try:
+        d=json.loads(path.read_text(encoding="utf-8"))
+        checks=d.get("checks",[])
+        if (d.get("phase")!="P2" or d.get("milestone")!="prescribed_fixed_wall_tangential_shear_partial"
+                or d.get("partial_accepted") is not True or d.get("phase_complete") is not False
+                or len(checks)<6 or not all(c.get("pass") is True for c in checks)):
+            raise ValueError("P2 wall shear partial acceptance invalid")
+        hashes=d.get("source_sha256",{})
+        if len(hashes)<7:
+            raise ValueError("P2 wall shear source coverage insufficient")
+        for name,sha in hashes.items():
+            f=CORE/name
+            if not f.is_file() or hashlib.sha256(f.read_bytes()).hexdigest()!=sha:
+                raise ValueError(f"P2 wall shear source mismatch: {name}")
+        return {"ok":True,"why":"independent discrete Couette wall-shear stencil and 35 native CTests with SHA evidence"}
+    except (ValueError,KeyError,TypeError,OSError) as err:
+        return {"ok":False,"why":str(err)}
+
 def main() -> None:
     tests = ctest()
     p1 = p1_evidence()
     p2 = p2_evidence()
     p2_viscosity = p2_viscosity_partial_evidence()
     p2_live_viscosity = p2_live_viscosity_partial_evidence()
+    p2_wall_shear = p2_wall_shear_partial_evidence()
     p3 = p3_evidence()
     p4_partial = p4_partial_evidence()
     p4 = p4_complete_evidence()
@@ -488,6 +512,7 @@ def main() -> None:
               "evidence":"Selected MAC+VOF coupled 3D CPU prototype; "+p2["why"]+
               "; optional isolated viscous MAC milestone: "+p2_viscosity["why"]+
               "; live coupled viscous MAC/VOF milestone: "+p2_live_viscosity["why"]+
+              "; fixed-wall tangential shear partial: "+p2_wall_shear["why"]+
               "; full 3D CFD/FSI validation not proven"},
        "P3":{"status":"PASS" if p3["ok"] and tests["ok"] else "PARTIAL",
              "evidence":"Porous 3D soil/free-water, pressure load, voxel-body displacement, isolated mass and work-energy ledgers; "+p3["why"]+

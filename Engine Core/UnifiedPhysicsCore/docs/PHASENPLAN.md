@@ -115,3 +115,22 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
   zwei echte Game-/PIE-Runs Exit 0 mit 111 Viskositäts-Substeps und
   realen 960×540 Render-PNGs. `scripts/p8_acceptance.py`:
   23/23 Checks PASS. P8-Vollphase bleibt **PARTIAL**.
+
+## P2 Teilfortschritt: vorgeschriebene tangentiale Wandgeschwindigkeit (26.10.2026)
+
+- `ViscousMacDiffusion3D::step_masked` unterstuetzt einen optionalen
+  konstanten tangentialen Festkoerper-Wandwert (Couette-Scherbedingung,
+  unveraenderte Geometrie, keine Normalbewegung). Die Default-Wand ist
+  weiterhin stationaer; der `nu=0`-Pfad bleibt unveraendert.
+- Native MSVC Release Build und vollstaendige 35/35 CTest-Suite PASS.
+  57 Assertions im maskierten Native-Test, diskrete Einzelschritt-Referenz
+  `v_y=nu*dt/dx^2*0.4=0.0144 m/s` exakt innerhalb 1e-13.
+  Negativtest fuer nichtfinite Wandgeschwindigkeit, kein Normalfluss.
+- Separates maschinenlesbares Gate:
+  `scripts/p2_wall_shear_acceptance.py` und
+  `ENGINE TEST STUBE/runs/p2_wall_shear_partial.json`.
+  Dokumentation: `docs/P2_WALL_SHEAR_PARTIAL.md`.
+- **P2 bleibt PARTIAL.** Kein bewegtes Festkoerper-Mesh, keine
+  Wandimpuls-Rueckwirkung, keine spannungskorrekte freie Oberflaeche,
+  keine unabhaengigen 3D-Messdaten oder neuer UE5.8-Native-E2E-Test.
+  Der Live-Solver nutzt vorerst weiterhin die Default-Wand 0.

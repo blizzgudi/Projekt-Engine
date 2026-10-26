@@ -3,6 +3,8 @@
 // Does not imply live CoupledMacWater3D integration or full P2 closure.
 #include "upc/viscous_mac3d.hpp"
 #include <algorithm>
+#include <array>
+#include <limits>
 #include <cmath>
 #include <cstdint>
 #include <iostream>
@@ -77,6 +79,44 @@ try{
  near(uniform.face_velocity_x(5,5,5),1.0,1e-13,
       "uniform wet bulk velocity diffused");
  near(uniform.face_velocity_x(0,5,5),0,0,"no-slip wall x=0");
+ // Independent Couette-style one-step shear injection from a fixed
+ // impermeable solid wall with prescribed tangential velocity (not FSI).
+ // Solid x<4, wet x>=4; interior y-face (4,5,5) has exactly one
+ // solid x-neighbor, so explicit Laplacian gives alpha*wall_velocity_y.
+ std::fill(wet.begin(),wet.end(),1);
+ std::fill(solid.begin(),solid.end(),0);
+ for(std::size_t z=0;z<nz;++z)
+ for(std::size_t y=0;y<ny;++y)
+ for(std::size_t x=0;x<4;++x) {
+     wet[cell(x,y,z)]=0;solid[cell(x,y,z)]=1;
+ }
+ MacProjection3D moving_wall(nx,ny,nz,dx),stationary_wall(nx,ny,nz,dx);
+ // x component is NORMAL to this wall and must not leak into x-faces.
+ const std::array<double,3> prescribed_tangent{0.7,0.4,0.0};
+ require(visc.step_masked(moving_wall,dt,nu,wet,solid,prescribed_tangent)==1,
+         "fixed moving-wall shear step count");
+ require(visc.step_masked(stationary_wall,dt,nu,wet,solid)==1,
+         "stationary wall step count");
+ near(moving_wall.face_velocity_y(4,5,5),alpha*prescribed_tangent[1],1e-13,
+      "prescribed tangential wall shear stencil mismatch");
+ near(stationary_wall.face_velocity_y(4,5,5),0,0,
+      "stationary wall injected tangential momentum");
+ near(moving_wall.face_velocity_y(3,5,5),0,0,
+      "solid face retained tangential velocity");
+ near(moving_wall.face_velocity_x(4,5,5),0,0,
+      "wall normal face leaked velocity");
+ near(moving_wall.face_velocity_x(5,5,5),0,0,
+      "normal wall component leaked into adjacent liquid face");
+ near(moving_wall.face_velocity_y(5,5,5),0,0,
+      "one-step explicit shear reached nonadjacent face");
+ bool invalid_wall=false;
+ try {
+     visc.step_masked(moving_wall,dt,nu,wet,solid,
+         {0.0,std::numeric_limits<double>::quiet_NaN(),0.0});
+ } catch(const std::invalid_argument&) {invalid_wall=true;}
+ require(invalid_wall,"nonfinite wall velocity accepted");
+ near(moving_wall.face_velocity_y(4,5,5),alpha*prescribed_tangent[1],1e-13,
+      "invalid wall input modified prior fluid state");
  // Exact no-op for nu=0, including arbitrary user-provided face values.
  MacProjection3D inviscid(nx,ny,nz,dx);
  inviscid.set_face_velocity_x(5,5,5,7.0);
@@ -107,7 +147,9 @@ try{
    <<" free_surface_one_step="<<free_surface.face_velocity_x(5,4,4)
    <<" expected="<<1-alpha
    <<" energy_first="<<first<<" energy_after="<<prev
-   <<" adaptive_substeps="<<steps<<"\n";
+   <<" adaptive_substeps="<<steps
+   <<" wall_shear="<<moving_wall.face_velocity_y(4,5,5)
+   <<" wall_shear_expected="<<alpha*prescribed_tangent[1]<<"\n";
  return 0;
 }catch(const std::exception& e){
  std::cerr<<"FAIL P2 masked 3D viscosity after "<<checks<<": "<<e.what()<<"\n";
