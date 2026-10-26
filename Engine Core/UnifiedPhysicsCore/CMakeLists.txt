@@ -174,3 +174,9 @@ add_test(NAME physics_p2_masked_viscous_face_energy_ledger COMMAND upc_p2_viscou
 add_executable(upc_p2_live_viscous_energy_ledger_tests tests/coupled_viscous_energy_ledger3d_tests.cpp)
 target_link_libraries(upc_p2_live_viscous_energy_ledger_tests PRIVATE upc)
 add_test(NAME physics_p2_live_viscous_energy_ledger_partial COMMAND upc_p2_live_viscous_energy_ledger_tests)
+
+# P2: independent 3D mixed Dirichlet-solid / Neumann-air masked eigenmode.
+# This is a numerical partial reference, not complete 3D CFD or FSI.
+add_executable(upc_p2_masked_eigenmode_tests tests/viscous_masked_eigenmode3d_tests.cpp)
+target_link_libraries(upc_p2_masked_eigenmode_tests PRIVATE upc)
+add_test(NAME physics_p2_masked_mixed_bc_3d_eigenmode_partial COMMAND upc_p2_masked_eigenmode_tests)

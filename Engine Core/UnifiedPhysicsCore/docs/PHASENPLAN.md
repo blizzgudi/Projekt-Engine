@@ -242,3 +242,11 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
   keine physikalische globale Energie-/Impulsbilanz, keine gemessene
   3D-CFD-Referenz, keine neue UE5.8-Native-E2E-Abnahme.
   P3-P8 bleiben ebenfalls Vollphasen-offen.
+
+## P2 Teilfortschritt: unabhängiger diskreter 3D-MAC-Mischrand-Eigenmode (26.10.2026)
+
+- Drei maskierte 3D-Gitter `8×7×6`, `10×9×8`, `12×11×10` mit fester Dirichlet-Festkörperwand links, Neumann-Nullgradient-Proxy an der Wasser/Luft-Grenze rechts, äußerem No-Slip und analytisch separierter x/y/z-Eigenfunktion. Drei adaptive Viskositäts-Substeps pro Gitter.
+- Neuer MSVC-Native-Test `tests/viscous_masked_eigenmode3d_tests.cpp`: **9060 Assertions PASS**, maximale diskrete Eigenmode-Abweichung `3.33e-16`; unabhängige Prüfung der exakten Face-Energieverhältnisse und eines vorgeschriebenen Couette-Ghost-Wandscher-Einzelschritts.
+- Separates Gate `scripts/p2_masked_mixed_bc_acceptance.py`: **27/27 PASS**, `phase_complete=false`, Hashnachweise unter `ENGINE TEST STUBE/runs/p2_masked_mixed_bc_partial.json`.
+- Komplette native CTest-Suite **39/39 PASS**; nach Änderung von `CMakeLists.txt` wurde P1-2D mit **33/33 PASS** und aktualisierten Quellhashes reproduziert. `phase_gate.py`: **P0,P1 PASS; P2–P8 INCOMPLETE; ALL_COMPLETE=False**.
+- Grenzen: diskreter Eigenmode ist **keine externe Messreferenz**, keine vollständige freie-Oberflächen-Spannungsrandbedingung, keine bewegte Körper-FSI oder globale Energie-/Impulsabnahme. P2 bleibt **PARTIAL**. Details: `docs/P2_MASKED_MIXED_BC_EIGENMODE_PARTIAL.md`.
