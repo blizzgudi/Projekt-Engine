@@ -180,3 +180,9 @@ add_test(NAME physics_p2_live_viscous_energy_ledger_partial COMMAND upc_p2_live_
 add_executable(upc_p2_masked_eigenmode_tests tests/viscous_masked_eigenmode3d_tests.cpp)
 target_link_libraries(upc_p2_masked_eigenmode_tests PRIVATE upc)
 add_test(NAME physics_p2_masked_mixed_bc_3d_eigenmode_partial COMMAND upc_p2_masked_eigenmode_tests)
+
+# P2: 3D manufactured pressure-gradient cancellation, solid obstacles,
+# free-surface Dirichlet and closed Neumann gauge (numerical partial only).
+add_executable(upc_p2_manufactured_projection_tests tests/p2_pressure_projection_manufactured3d_tests.cpp)
+target_link_libraries(upc_p2_manufactured_projection_tests PRIVATE upc)
+add_test(NAME physics_p2_3d_manufactured_pressure_projection_partial COMMAND upc_p2_manufactured_projection_tests)

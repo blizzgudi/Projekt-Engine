@@ -1,0 +1,409 @@
+{
+  "schema_version": 1,
+  "phase": "P2",
+  "milestone": "3d_manufactured_pressure_projection_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "generated_utc": "2026-10-26T23:06:52.239336+00:00",
+  "scope": "3D staggered MAC pressure projection; manufactured gradient cancellation with internal solid obstacle, exterior no-flux, liquid/air half-cell Dirichlet and closed pure-Neumann pressure gauge on 8x7x6, 12x11x10 and 16x15x14 grids.",
+  "native_assertions": 38296,
+  "native_stdout": "mode,nx,ny,nz,fluid_cells,initial_divergence,final_divergence,max_pressure_error_pa,max_face_speed_m_s,max_solid_flux_m_s\nair,8,7,6,99,1.8171340293249461,8.7207575416668043e-11,2.3360723844234599e-07,1.7677942443228289e-11,0\nair,12,11,10,647,1.7789293312963277,9.2227027609966677e-11,8.6513568930968177e-07,3.6832925598417887e-11,0\nair,16,15,14,2027,1.696353006339133,9.2872375913842509e-11,1.8819035290107422e-06,5.5867116488528268e-11,0\nclosed,8,7,6,119,0.037661153148502886,8.304290821615698e-11,1.4065614095670753e-07,9.7873309934035091e-12,0\nclosed,12,11,10,719,0.028799392224282717,8.7289420991636026e-11,4.3808245209220331e-07,1.8371930197861111e-11,0\nclosed,16,15,14,2183,0.028408767224282719,9.0620814617494577e-11,9.8685092098094174e-07,2.8609594131690647e-11,0\nPASS: P2 3D manufactured projection assertions=38296 phase_complete=false\n",
+  "checks": [
+    {
+      "name": "native_assertions",
+      "pass": true,
+      "value": 38296,
+      "limit": 38000
+    },
+    {
+      "name": "air_8_mode",
+      "pass": true,
+      "value": "air",
+      "limit": "air"
+    },
+    {
+      "name": "air_8_dimensions",
+      "pass": true,
+      "value": [
+        8,
+        7,
+        6
+      ],
+      "limit": [
+        8,
+        7,
+        6
+      ]
+    },
+    {
+      "name": "air_8_fluid_count",
+      "pass": true,
+      "value": 99,
+      "limit": 99
+    },
+    {
+      "name": "air_8_independent_initial_divergence",
+      "pass": true,
+      "value": 1.817134029324946,
+      "limit": 1.817134029324946
+    },
+    {
+      "name": "air_8_projection_divergence",
+      "pass": true,
+      "value": 8.720757541666804e-11,
+      "limit": 2e-08
+    },
+    {
+      "name": "air_8_pressure_gauge_aware",
+      "pass": true,
+      "value": 2.33607238442346e-07,
+      "limit": 0.0003
+    },
+    {
+      "name": "air_8_velocity_cancellation",
+      "pass": true,
+      "value": 1.767794244322829e-11,
+      "limit": 2e-07
+    },
+    {
+      "name": "air_8_solid_impermeability",
+      "pass": true,
+      "value": 0.0,
+      "limit": 0.0
+    },
+    {
+      "name": "air_8_divergence_reduction",
+      "pass": true,
+      "value": 20836882812.563965,
+      "limit": 1000000.0
+    },
+    {
+      "name": "air_12_mode",
+      "pass": true,
+      "value": "air",
+      "limit": "air"
+    },
+    {
+      "name": "air_12_dimensions",
+      "pass": true,
+      "value": [
+        12,
+        11,
+        10
+      ],
+      "limit": [
+        12,
+        11,
+        10
+      ]
+    },
+    {
+      "name": "air_12_fluid_count",
+      "pass": true,
+      "value": 647,
+      "limit": 647
+    },
+    {
+      "name": "air_12_independent_initial_divergence",
+      "pass": true,
+      "value": 1.7789293312963277,
+      "limit": 1.7789293312963277
+    },
+    {
+      "name": "air_12_projection_divergence",
+      "pass": true,
+      "value": 9.222702760996668e-11,
+      "limit": 2e-08
+    },
+    {
+      "name": "air_12_pressure_gauge_aware",
+      "pass": true,
+      "value": 8.651356893096818e-07,
+      "limit": 0.0003
+    },
+    {
+      "name": "air_12_velocity_cancellation",
+      "pass": true,
+      "value": 3.683292559841789e-11,
+      "limit": 2e-07
+    },
+    {
+      "name": "air_12_solid_impermeability",
+      "pass": true,
+      "value": 0.0,
+      "limit": 0.0
+    },
+    {
+      "name": "air_12_divergence_reduction",
+      "pass": true,
+      "value": 19288590095.514305,
+      "limit": 1000000.0
+    },
+    {
+      "name": "air_16_mode",
+      "pass": true,
+      "value": "air",
+      "limit": "air"
+    },
+    {
+      "name": "air_16_dimensions",
+      "pass": true,
+      "value": [
+        16,
+        15,
+        14
+      ],
+      "limit": [
+        16,
+        15,
+        14
+      ]
+    },
+    {
+      "name": "air_16_fluid_count",
+      "pass": true,
+      "value": 2027,
+      "limit": 2027
+    },
+    {
+      "name": "air_16_independent_initial_divergence",
+      "pass": true,
+      "value": 1.696353006339133,
+      "limit": 1.696353006339133
+    },
+    {
+      "name": "air_16_projection_divergence",
+      "pass": true,
+      "value": 9.287237591384251e-11,
+      "limit": 2e-08
+    },
+    {
+      "name": "air_16_pressure_gauge_aware",
+      "pass": true,
+      "value": 1.8819035290107422e-06,
+      "limit": 0.0003
+    },
+    {
+      "name": "air_16_velocity_cancellation",
+      "pass": true,
+      "value": 5.586711648852827e-11,
+      "limit": 2e-07
+    },
+    {
+      "name": "air_16_solid_impermeability",
+      "pass": true,
+      "value": 0.0,
+      "limit": 0.0
+    },
+    {
+      "name": "air_16_divergence_reduction",
+      "pass": true,
+      "value": 18265420580.096237,
+      "limit": 1000000.0
+    },
+    {
+      "name": "closed_8_mode",
+      "pass": true,
+      "value": "closed",
+      "limit": "closed"
+    },
+    {
+      "name": "closed_8_dimensions",
+      "pass": true,
+      "value": [
+        8,
+        7,
+        6
+      ],
+      "limit": [
+        8,
+        7,
+        6
+      ]
+    },
+    {
+      "name": "closed_8_fluid_count",
+      "pass": true,
+      "value": 119,
+      "limit": 119
+    },
+    {
+      "name": "closed_8_independent_initial_divergence",
+      "pass": true,
+      "value": 0.037661153148502886,
+      "limit": 0.037661153148502886
+    },
+    {
+      "name": "closed_8_projection_divergence",
+      "pass": true,
+      "value": 8.304290821615698e-11,
+      "limit": 2e-08
+    },
+    {
+      "name": "closed_8_pressure_gauge_aware",
+      "pass": true,
+      "value": 1.4065614095670753e-07,
+      "limit": 0.0003
+    },
+    {
+      "name": "closed_8_velocity_cancellation",
+      "pass": true,
+      "value": 9.787330993403509e-12,
+      "limit": 2e-07
+    },
+    {
+      "name": "closed_8_solid_impermeability",
+      "pass": true,
+      "value": 0.0,
+      "limit": 0.0
+    },
+    {
+      "name": "closed_8_divergence_reduction",
+      "pass": true,
+      "value": 453514381.39031196,
+      "limit": 1000000.0
+    },
+    {
+      "name": "closed_12_mode",
+      "pass": true,
+      "value": "closed",
+      "limit": "closed"
+    },
+    {
+      "name": "closed_12_dimensions",
+      "pass": true,
+      "value": [
+        12,
+        11,
+        10
+      ],
+      "limit": [
+        12,
+        11,
+        10
+      ]
+    },
+    {
+      "name": "closed_12_fluid_count",
+      "pass": true,
+      "value": 719,
+      "limit": 719
+    },
+    {
+      "name": "closed_12_independent_initial_divergence",
+      "pass": true,
+      "value": 0.028799392224282717,
+      "limit": 0.028799392224282717
+    },
+    {
+      "name": "closed_12_projection_divergence",
+      "pass": true,
+      "value": 8.728942099163603e-11,
+      "limit": 2e-08
+    },
+    {
+      "name": "closed_12_pressure_gauge_aware",
+      "pass": true,
+      "value": 4.380824520922033e-07,
+      "limit": 0.0003
+    },
+    {
+      "name": "closed_12_velocity_cancellation",
+      "pass": true,
+      "value": 1.837193019786111e-11,
+      "limit": 2e-07
+    },
+    {
+      "name": "closed_12_solid_impermeability",
+      "pass": true,
+      "value": 0.0,
+      "limit": 0.0
+    },
+    {
+      "name": "closed_12_divergence_reduction",
+      "pass": true,
+      "value": 329929926.18248945,
+      "limit": 1000000.0
+    },
+    {
+      "name": "closed_16_mode",
+      "pass": true,
+      "value": "closed",
+      "limit": "closed"
+    },
+    {
+      "name": "closed_16_dimensions",
+      "pass": true,
+      "value": [
+        16,
+        15,
+        14
+      ],
+      "limit": [
+        16,
+        15,
+        14
+      ]
+    },
+    {
+      "name": "closed_16_fluid_count",
+      "pass": true,
+      "value": 2183,
+      "limit": 2183
+    },
+    {
+      "name": "closed_16_independent_initial_divergence",
+      "pass": true,
+      "value": 0.02840876722428272,
+      "limit": 0.02840876722428272
+    },
+    {
+      "name": "closed_16_projection_divergence",
+      "pass": true,
+      "value": 9.062081461749458e-11,
+      "limit": 2e-08
+    },
+    {
+      "name": "closed_16_pressure_gauge_aware",
+      "pass": true,
+      "value": 9.868509209809417e-07,
+      "limit": 0.0003
+    },
+    {
+      "name": "closed_16_velocity_cancellation",
+      "pass": true,
+      "value": 2.8609594131690647e-11,
+      "limit": 2e-07
+    },
+    {
+      "name": "closed_16_solid_impermeability",
+      "pass": true,
+      "value": 0.0,
+      "limit": 0.0
+    },
+    {
+      "name": "closed_16_divergence_reduction",
+      "pass": true,
+      "value": 313490530.2296668,
+      "limit": 1000000.0
+    },
+    {
+      "name": "complete_ctest_40_of_40",
+      "pass": true,
+      "value": "40/40",
+      "limit": "40/40"
+    }
+  ],
+  "source_sha256": {
+    "include/upc/mac3d.hpp": "9bb4659c5b6e6fd3a512301ae4a3a083fa96b1e67d50363ec8f5634e1038fdc5",
+    "tests/p2_pressure_projection_manufactured3d_tests.cpp": "61ddc50037dc33834e0c93f118cf4cba1aee2e5a31afc726b2df15649b381fdf",
+    "scripts/p2_pressure_projection_acceptance.py": "64bcb914200261078ec90f2e1596c76dfba03110331d2fb5cfbb353c3efce175",
+    "docs/P2_MANUFACTURED_PRESSURE_PROJECTION_PARTIAL.md": "307e27d730460ebf9e19cab87130a3fdf356a66a197712692cbbe8d531edc725",
+    "docs/PHASENPLAN.md": "68de2cf71f206ee64890e18c6e45a7d37939203b4e11ac203d88998757238535",
+    "CMakeLists.txt": "b109d01a326ffc80c32dba2012b556b5e17e90d5ef3eb97df5deb2c074866a20"
+  },
+  "binary_sha256": "89caeb49b059c6e1211a507966798c25deddabae67ec9105a4036db95b2fb86b",
+  "ctest_log_path": "D:\\Projekt Engine\\ENGINE TEST STUBE\\runs\\p2_pressure_projection_ctest_20261027.txt",
+  "ctest_log_sha256": "50a5c1cd321893632fb5768d8fa42415538a59d58585c3d8322907ca9990b587",
+  "limitation": "Manufactured discrete pressure-gradient identity, not external measured 3D CFD. No moving-solid two-way FSI, physical stress-consistent free-surface viscosity, turbulence validation or new Unreal 5.8 Native-E2E."
+}

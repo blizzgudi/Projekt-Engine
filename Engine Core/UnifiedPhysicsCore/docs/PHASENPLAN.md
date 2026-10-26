@@ -250,3 +250,25 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
 - Separates Gate `scripts/p2_masked_mixed_bc_acceptance.py`: **27/27 PASS**, `phase_complete=false`, Hashnachweise unter `ENGINE TEST STUBE/runs/p2_masked_mixed_bc_partial.json`.
 - Komplette native CTest-Suite **39/39 PASS**; nach Änderung von `CMakeLists.txt` wurde P1-2D mit **33/33 PASS** und aktualisierten Quellhashes reproduziert. `phase_gate.py`: **P0,P1 PASS; P2–P8 INCOMPLETE; ALL_COMPLETE=False**.
 - Grenzen: diskreter Eigenmode ist **keine externe Messreferenz**, keine vollständige freie-Oberflächen-Spannungsrandbedingung, keine bewegte Körper-FSI oder globale Energie-/Impulsabnahme. P2 bleibt **PARTIAL**. Details: `docs/P2_MASKED_MIXED_BC_EIGENMODE_PARTIAL.md`.
+
+## P2 Teilfortschritt: 3D-MAC-Druckprojektion gegen Manufactured Pressure (27.10.2026)
+
+- Drei 3D-Gitter 8x7x6, 12x11x10, 16x15x14; je zwei
+  Topologien mit fester Innenhinderniszelle: offene Wasser/Luft-Grenze
+  (Ghost-Fluid-Dirichlet, Halbzellenfaktor 2) und geschlossene
+  Festkoerper-Neumann-Raender (Druck bis auf additive Konstante).
+- Analytisch vorgegebenes raeumliches 3D-Druckfeld erzeugt bekannte
+  diskrete MAC-Gradienten; die Projektion muss diese eliminieren.
+  Die unabhaengige Python-Referenz berechnet die Ausgangsdivergenz
+  separat aus dem Druckfeld, statt sie aus dem C++-Solver abzulesen.
+- Neuer MSVC-Release-Nativetest: 38.296 Assertions PASS.
+  Nach Projektion max. Divergenz unter 9.3e-11 1/s, kein Festkoerperfluss;
+  alle 40/40 CTest-Suites PASS.
+- Dokumentation: `docs/P2_MANUFACTURED_PRESSURE_PROJECTION_PARTIAL.md`.
+  Gate: `scripts/p2_pressure_projection_acceptance.py`.
+  Report: `ENGINE TEST STUBE/runs/p2_manufactured_projection_partial.json`
+  (Source-/Binary-/Log-SHA256, `phase_complete=false`).
+- **P2 bleibt PARTIAL**: numerischer diskreter Manufactured-Solution-Test
+  ist keine externe 3D-CFD-Messreferenz; bewegte Festkoerper-FSI,
+  freie-Oberflaechen-Spannungsbedingungen, globale Energie-/Impulsbilanz
+  und neue Unreal-5.8-Native-E2E-Abnahme fehlen. P3-P8 ebenso offen.
