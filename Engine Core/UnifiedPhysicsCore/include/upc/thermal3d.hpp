@@ -137,6 +137,69 @@ public:
     double total_enthalpy_j()const{
         double e=0;for(const auto& c:cells_)e+=c.enthalpy_j;return e;
     }
+    double total_water_mass_kg()const{
+        double mass=0;for(const auto& c:cells_)if(c.water)mass+=c.mass_kg;
+        return mass;
+    }
+    // Apply a face-centred MAC liquid flux as mass and enthalpy transfer.
+    // Only all-liquid cells are supported; frozen/vapor cells must first be
+    // remapped by the phase bridge. Transfer is energy/mass conservative.
+    void transport_liquid(std::size_t source,std::size_t destination,
+                          double transferred_kg){
+        if(source>=cells_.size()||destination>=cells_.size()||
+           source==destination||!std::isfinite(transferred_kg)||
+           transferred_kg<0)
+            throw std::invalid_argument("Invalid thermal liquid transfer");
+        if(transferred_kg==0)return;
+        auto& a=cells_[source];auto& b=cells_[destination];
+        if(!a.water || a.mass_kg<transferred_kg-1e-9 ||
+           (b.material_id && (!b.water||b.material_id!=a.material_id)))
+            throw std::runtime_error("Thermal liquid transfer invalid material/source mass");
+        const double donor_h=a.enthalpy_j/a.mass_kg;
+        const double destination_temperature=b.water?water_temperature(
+            b.enthalpy_j/b.mass_kg):0;
+        (void)destination_temperature; // phase validation handled below
+        if(water_phase_flat(source).liquid<1-1e-8 ||
+           (b.water && water_phase_flat(destination).liquid<1-1e-8))
+            throw std::runtime_error("Advection of partially frozen/vapor cell unsupported");
+        if(!b.material_id){
+            b=a;b.mass_kg=0;b.enthalpy_j=0;
+        }
+        const double moved=std::min(a.mass_kg,transferred_kg);
+        const double moved_energy=moved*donor_h;
+        a.mass_kg-=moved;a.enthalpy_j-=moved_energy;
+        b.mass_kg+=moved;b.enthalpy_j+=moved_energy;
+        if(a.mass_kg<=1e-12)a=ThermalVoxelState{};
+    }
+    // Conservative withdrawal for P3 porous transfer. Caller owns receiving
+    // soil-pore energy and adds it to its enthalpy ledger.
+    double remove_liquid_mass(std::size_t i,double amount_kg){
+        if(i>=cells_.size()||!std::isfinite(amount_kg)||amount_kg<=0)
+            throw std::invalid_argument("Invalid water withdrawal");
+        auto& c=cells_[i];
+        if(!c.water || c.mass_kg<amount_kg-1e-9 ||
+           water_phase_flat(i).liquid<1-1e-8)
+            throw std::runtime_error("Cannot move nonliquid water to soil");
+        const double removed=std::min(c.mass_kg,amount_kg);
+        const double heat=c.enthalpy_j*removed/c.mass_kg;
+        c.mass_kg-=removed;c.enthalpy_j-=heat;
+        if(c.mass_kg<1e-12)c=ThermalVoxelState{};
+        return heat;
+    }
+    PhaseFractions water_phase_flat(std::size_t i)const{
+        if(i>=cells_.size()||!cells_[i].water||cells_[i].mass_kg<=0)
+            throw std::out_of_range("No water at requested thermal index");
+        const double h=cells_[i].enthalpy_j/cells_[i].mass_kg;
+        const double at_boil=fusion_+liquid_cp_*(boiling_-melting_);
+        if(h<0)return {1,0,0,water_temperature(h)};
+        if(h<=fusion_){const double f=h/fusion_;return {1-f,f,0,melting_};}
+        if(h<at_boil)return {0,1,0,water_temperature(h)};
+        if(h<=at_boil+evaporation_){
+            const double f=(h-at_boil)/evaporation_;
+            return {0,1-f,f,boiling_};
+        }
+        return {0,0,1,water_temperature(h)};
+    }
     double supplied_heat_j()const{return injected_heat_j_;}
     std::size_t last_substeps()const{return substeps_;}
     void add_heat_j(std::size_t x,std::size_t y,std::size_t z,double energy){
@@ -190,11 +253,35 @@ public:
         }
         if(!std::isfinite(safe_dt)||safe_dt<=0)
             throw std::runtime_error("Thermal timestep stability failure");
-        const std::size_t count=static_cast<std::size_t>(std::ceil(dt/safe_dt));
-        if(count>100000)throw std::runtime_error("Thermal substep cap");
+        // Very small VOF liquid fragments can have tiny heat capacity.
+        // Explicit Fourier substeps would become impractically numerous.
+        // Use bounded, sequential exact two-node Fourier relaxation for
+        // extreme stiffness; equal/opposite energy update remains conservative.
+        const double requested=std::ceil(dt/safe_dt);
+        const bool stiff=requested>10000;
+        const std::size_t count=stiff?64:
+            static_cast<std::size_t>(requested);
         const double h=dt/static_cast<double>(count);
         std::vector<double> delta(cells_.size());
         for(std::size_t s=0;s<count;++s){
+            if(stiff){
+                for(const auto& edge:edges){
+                    auto& a=cells_[edge.a];auto& b=cells_[edge.b];
+                    const double ta=temp(a),tb=temp(b);
+                    const double ca=a.mass_kg*min_cp(a);
+                    const double cb=b.mass_kg*min_cp(b);
+                    if(ca<=0||cb<=0)continue;
+                    const double inverse=1.0/ca+1.0/cb;
+                    const double exact=(ta-tb)/inverse*
+                        (-std::expm1(-edge.conductance*h*inverse));
+                    // Half of the two-cell equilibrium jump avoids crossing
+                    // a latent-temperature plateau with linearized c_p.
+                    const double max_step=0.49*std::abs(ta-tb)/inverse;
+                    const double q=std::clamp(exact,-max_step,max_step);
+                    a.enthalpy_j-=q;b.enthalpy_j+=q;
+                }
+                continue;
+            }
             std::fill(delta.begin(),delta.end(),0.0);
             for(const auto& edge:edges){
                 const double q=h*edge.conductance*

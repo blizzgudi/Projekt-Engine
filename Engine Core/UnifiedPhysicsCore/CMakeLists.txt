@@ -72,3 +72,15 @@ add_test(NAME physics_p4_thermal_conduction_and_phase COMMAND upc_thermal3d_test
 add_executable(upc_p4_reference benchmarks/p4_reference.cpp)
 target_link_libraries(upc_p4_reference PRIVATE upc)
 add_test(NAME physics_p4_neumann_heat_reference COMMAND upc_p4_reference)
+
+add_executable(upc_thermal_phase_bridge_tests tests/thermal_phase_bridge_tests.cpp)
+target_link_libraries(upc_thermal_phase_bridge_tests PRIVATE upc)
+add_test(NAME physics_p4_phase_mac_voxel_bridge COMMAND upc_thermal_phase_bridge_tests)
+
+add_executable(upc_thermal_advection3d_tests tests/thermal_advection3d_tests.cpp)
+target_link_libraries(upc_thermal_advection3d_tests PRIVATE upc)
+add_test(NAME physics_p4_live_mac_enthalpy_advection COMMAND upc_thermal_advection3d_tests)
+
+add_executable(upc_thermal_soil_tests tests/thermal_soil_integration_tests.cpp)
+target_link_libraries(upc_thermal_soil_tests PRIVATE upc)
+add_test(NAME physics_p4_p3_porous_heat_gravity_bridge COMMAND upc_thermal_soil_tests)

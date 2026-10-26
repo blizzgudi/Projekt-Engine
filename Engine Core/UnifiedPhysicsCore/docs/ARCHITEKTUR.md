@@ -1,56 +1,51 @@
-# Unified Physics Core – Architektur v0.2
+# Unified Physics Core – Architektur P0–P4 v0.4
 
-Status: Native CPU-C++17-Kernbibliothek. Physiktests erfolgreich.
-P2 ist als geprüfter 3D-Wassersolver-MVP abgegrenzt, nicht als vollständiger
-3D-CFD- oder AAA-Liquid-Solver. UE5.8-Adapter wurde früher kompiliert und
-initialisiert, rendert aber die neue 3D-Domäne noch nicht (P8 offen).
+Eigenständiger C++17-CPU-Physikkern, Unreal Engine nur als
+Render-/Test-Adapter. Alle Zustände verwenden SI-Einheiten.
 
-## Schichten
+## Komponenten
+1. MaterialLibrary und VoxelGrid: Material-IDs, Phasen, Dichte,
+   Materialmasse, 3D-Materialzustand und voxelweise Temperatur.
+2. ShallowWater2D: Konservative Tiefe/Impuls-Verteilung
+   mit HLL-Riemannlösung und reflektierenden Wänden.
+3. CoupledMacWater3D + MacProjection3D: MAC-Faces für Geschwindigkeiten,
+   Druckprojektion, Schwerkraft und konservativer begrenzter
+   Volumentransport. Optionaler Flux-Listener zur
+   Energie-/Materialkopplung. Andere P2-Testergebnisse bleiben gültig.
+4. MaterialVolumeCoupler3D: P3-Overlay über denselben Material-IDs
+   und Fluid-Voxelkoordinaten, vertikale poröse Infiltration sowie
+   MAC-Wasserdruck auf starre Voxel und Zellbewegungs-Kollision.
+   Optionaler Pore-Transfer-Listener mit Quell-/Zielvolumen und
+   isolierter Änderung des Gravitationspotentials.
+5. ThermalVolume3D: material-ID-spezifische 3D-Fourier-Wärmeleitung,
+   Enthalpie, feste und liquide Zellzustände,
+   Phasenverteilung Eis/Wasser/Dampf bei ungefährem Atmosphärendruck.
+   Große numerische VOF-Zeitschrittsteifigkeit begrenzt die
+   paarweise Wärmestrom-Relaxation, ohne Energie zu erzeugen.
+6. ThermalPhaseMacBridge3D: Wasserphasenumwandlung als
+   MAC-Wasseranteil, Ice-Blockierung, Vapor-Inventar,
+   Temperatur-Writeback zu festem Materialgrid.
+7. ThermalMacAdvection3D: Energie- und Massenadvektion auf den
+   tatsächlich verwendeten MAC-Volumenflüssen; Teilphasenadvektion
+   ohne geeignetes Mehrphasenmodell explizit gesperrt.
+8. ThermalPoreExchange3D: Poröse 3D-Materialschichten bekommen
+   Enthalpie aus Quellwasser und frei werdende Gravitation
+   als Wärme. Die lokale Transferbilanz ist konservativ.
+9. thermal_volume_estimates.hpp: Flüssig-/Eisvolumen und
+   Wasserdampf als idealgasbasierte Volumendiagnostik.
 
-1. MaterialLibrary: gemeinsame unveränderliche Material-ID, Phase und Dichte
-   sowie weitere Parameter als Metadaten. Viskosität steuert v0.2 noch nicht.
-2. VoxelGrid: dichtes 3D-Materialraster, Füllanteil, Temperatur und Schaden.
-   Noch nicht mit 3D-Wasser gekoppelt – das ist Phase P3.
-3. ShallowWater2D: älterer 2D-Druck- und Höhensolver.
-4. MacProjection3D: freie-Oberflächen-Drucklösung auf dreidimensionalem
-   gestaffeltem Geschwindigkeitsgitter (Zellen: Druck, Faces: Geschwindigkeiten).
-5. CoupledMacWater3D: nutzt denselben MAC-Projektor und [0,1]-Wasseranteile
-   im dreidimensionalen Gitter. Pro Teilschritt: Occupancy aktualisieren,
-   Geschwindigkeit advektieren, Schwerkraft, Druckprojektion,
-   Wasseranteile durch konservative Flüsse transportieren.
-6. UnifiedPhysicsRuntime: bindet 3D-Flüssigkeiten an gemeinsame Material-IDs
-   und Dichten und besitzt zentralen Update-Aufruf.
-7. ThermalVolume3D (P4-Teilmeilenstein): konservative 3D-Fourier-Wärmeleitung
-   mit harmonischer Interface-Leitfähigkeit und enthalpiebasierten
-   Eis/Flüssig/Dampf-Plateaus. Einmaliger Snapshot aus MAC/VOF und
-   zentralem VoxelGrid; Festkörpertemperaturen zurückschreibbar.
-   Kein global gekoppeltes thermisches MAC-Advektions-/Phasenwechselmodell.
-8. MaterialVolumeCoupler3D (P3): übernimmt registrierte Material-IDs aus
-   demselben Core und synchronisiert befüllte MAC-Voxel mit der
-   Materialdatenbank; Boden besitzt parametrisierte Porenanteile und
-   vertikale Darcy-artige Versickerung, rigide Voxelkörper bekommen
-   MAC-Druckkräfte und können zellweise Wasser konservativ verdrängen.
-   Isolierte Transfer-Energie und Body-Work-Energy-Bilanzen nachgewiesen,
-   nicht die vollständige Energie- und Impulsbilanz des gesamten 3D-Fluids.
-8. Experimentelle zukünftige Materialsysteme (in materials_ext.hpp,
-   solid.hpp): getrennte Prototypen; keine behauptete Mehrphysik-Kopplung.
+## Verifikation
+- Release-MSVC-CMake, CTest, P1/P2/P3/P4 Acceptance-Skripte.
+- Unabhängige numerische Referenzen: hydrostatischer Druck,
+  Ritter/Stoker 2D-Dammbruch, 3D MAC/VOF, Darcy-Vertikalfluss,
+  Neumann-Fourier-Eigenmode (4 Raster).
+- Energie-/Massenprüfungen im jeweils abgegrenzten Subsystem,
+  Phase-Rücktransfers zu MAC und getrennte Porenbilanzen.
+- Quell-Fingerprints nach jedem P4-Abnahmelauf.
 
-## Numerische Nachweise
-
-- CMake/CTest mit MSVC Release (9 Testgruppen bei P2-Abnahme).
-- Flüssigkeitsvolumen und stabile Wasseranteile bei 3D-Dammbruch.
-- Vergleich des Bodendrucks im ruhenden 3D-Becken mit rho*g*h.
-- Durchgehende innere 3D-Hindernisse, keine Leckage.
-- Vergleiche über Gittergrößen und gemessene CPU-Runtimes; rechnerische
-  Datenfeld-Speicherbudgetwerte (keine Prozess-Peak-Messungen).
-- Reproduzierbare Acceptance mit SHA256 aller kritischen P2-Quelldateien.
-
-## Grenzen
-
-Das Materialraster ist weiterhin nicht identisch mit der 3D-Wasseroccupancy,
-und das Gesamtsystem hat noch keine konservative Kopplung von Voxelmaterialien,
-Wärme, Impuls und chemischer Reaktion. Die wasserführenden Zellen besitzen
-keinen Level-Set oder geometrischen VOF-Interface-Rekonstruktor.
-Der Druckprojektor skaliert ohne Multigrid schlecht. Es gibt weder GPU
-noch FSI oder Unreal-3D-Runtime-Nachweis. Keiner dieser offenen Punkte
-wird durch ein PASS der begrenzten Phase P2 implizit geschlossen.
+## Grenzen, nicht als gelöst ausgeben
+Globale Energie von MAC-FSI/Turbulenz, 3D-Gas-/Dampfdruck- und
+Expansionsdynamik, kapillar-thermische Pore/Skelett-Kontaktmodelle,
+mehrphasige Mischungsströmungen, Kontinuumsfestkörper,
+GPU-/LOD-Optimierung und Unreal-Rendering/E2E verbleiben als
+Forschung bzw. P5–P8. Ein CPU-MVP ist kein AAA-Release.

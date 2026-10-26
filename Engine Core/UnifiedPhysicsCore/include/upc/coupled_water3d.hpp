@@ -11,11 +11,13 @@
 #include <cmath>
 #include <cstddef>
 #include <cstdint>
+#include <functional>
 #include <limits>
 #include <stdexcept>
 #include <vector>
 
 namespace upc {
+struct TransportFlux3D {std::size_t from,to;double volume_m3;};
 class CoupledMacWater3D {
     struct Transfer {std::size_t from,to;double amount;};
     std::size_t nx_,ny_,nz_;
@@ -24,6 +26,7 @@ class CoupledMacWater3D {
     std::vector<double> fill_;
     std::vector<std::uint8_t> solid_;
     double last_projection_divergence_=0;
+    std::function<void(const TransportFlux3D&)> transport_callback_;
     std::size_t substeps_=0;
     static constexpr double wet=1e-5;
     std::size_t cell(std::size_t x,std::size_t y,std::size_t z) const {
@@ -161,11 +164,16 @@ class CoupledMacWater3D {
                 in_scale[i]=(1-fill_[i])/wants_in[i];
         }
         auto next=fill_;
+        std::vector<TransportFlux3D> transfer_report;
+        if(transport_callback_)transfer_report.reserve(transfers.size());
         for(const auto& transfer:transfers){
             const double amount=transfer.amount*
                 std::min(out_scale[transfer.from],in_scale[transfer.to]);
             next[transfer.from]-=amount;
             next[transfer.to]+=amount;
+            if(transport_callback_&&amount>0)
+                transfer_report.push_back({transfer.from,transfer.to,
+                                           amount*dx_*dx_*dx_});
         }
         for(std::size_t i=0;i<next.size();++i){
             if(!std::isfinite(next[i])||next[i]<-1e-9||next[i]>1+1e-9)
@@ -176,6 +184,8 @@ class CoupledMacWater3D {
                 throw std::runtime_error("3D water entered a solid");
         }
         fill_.swap(next);
+        for(const auto& transfer:transfer_report)
+            transport_callback_(transfer);
     }
     void substep(double dt,int pressure_iterations){
         sync_occupancy();
@@ -231,6 +241,9 @@ public:
     std::size_t nz()const{return nz_;}
     double cell_size_m()const{return dx_;}
     double density_kg_m3()const{return rho_;}
+    void set_transport_listener(std::function<void(const TransportFlux3D&)> listener){
+        transport_callback_=std::move(listener);
+    }
 
     // Exact resident capacity for owned grid arrays; excludes transient vectors,
     // allocators, stack, and instrumentation.

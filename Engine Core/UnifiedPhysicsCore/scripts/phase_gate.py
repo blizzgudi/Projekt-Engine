@@ -53,6 +53,35 @@ def p1_evidence() -> dict:
     except (ValueError,KeyError,TypeError,OSError) as exc:
         return {"ok":False,"why":str(exc)}
 
+def p4_complete_evidence() -> dict:
+    report_path = LAB / "runs" / "p4_acceptance.json"
+    if not report_path.exists():
+        return {"ok":False,"why":"P4 dynamic thermodynamics CPU-MVP report missing"}
+    try:
+        data=json.loads(report_path.read_text(encoding="utf-8"))
+        if data.get("phase")!="P4" or data.get("accepted") is not True or data.get("phase_complete") is not True:
+            raise ValueError("P4 coupled CPU acceptance not approved")
+        checks=data.get("checks",[])
+        if len(checks)<25 or not all(c.get("pass") is True for c in checks):
+            raise ValueError("Insufficient/failed P4 thermo-fluid quantitative checks")
+        if data.get("native_thermal_assertions",0)<800 or data.get("native_phase_bridge_assertions",0)<25:
+            raise ValueError("P4 thermal phase tests missing")
+        if len(data.get("reference",[]))!=4:
+            raise ValueError("P4 Neumann heat reference resolution missing")
+        native=data.get("native_stdout",{})
+        if not all("PASS:" in native.get(k,"") for k in ("thermal","phase_bridge","live_advection","soil_integration")):
+            raise ValueError("P4 live MAC/P3 material bridge native proof missing")
+        hashes=data.get("source_sha256",{})
+        if len(hashes)<15:
+            raise ValueError("P4 full source fingerprints incomplete")
+        for path,sha in hashes.items():
+            actual=CORE/path
+            if not actual.is_file() or hashlib.sha256(actual.read_bytes()).hexdigest()!=sha:
+                raise ValueError(f"P4 source changed after acceptance: {path}")
+        return {"ok":True,"why":f"{len(checks)} verified coupled 3D heat/phase/advection/soil gates; 4 Neumann references, source hashes"}
+    except (ValueError,KeyError,TypeError,OSError) as exc:
+        return {"ok":False,"why":str(exc)}
+
 def p4_partial_evidence() -> dict:
     report_path = LAB / "runs" / "p4_partial_acceptance.json"
     if not report_path.exists():
@@ -138,7 +167,8 @@ def main() -> None:
     p1 = p1_evidence()
     p2 = p2_evidence()
     p3 = p3_evidence()
-    p4 = p4_partial_evidence()
+    p4_partial = p4_partial_evidence()
+    p4 = p4_complete_evidence()
     ue_bin = BUILDS / "Binaries" / "Win64" / "UnrealEditor-EngineMaterialLab.dll"
     log = LOG.read_text(encoding="utf-8",errors="replace") if LOG.exists() else ""
     plugin_built = ue_bin.exists() and ue_bin.stat().st_size>0
@@ -157,9 +187,9 @@ def main() -> None:
        "P3":{"status":"PASS" if p3["ok"] and tests["ok"] else "PARTIAL",
              "evidence":"Porous 3D soil/free-water, pressure load, voxel-body displacement, isolated mass and work-energy ledgers; "+p3["why"]+
              "; high-fidelity moving-wall impulse/energy FSI remains out of scope"},
-       "P4":{"status":"PARTIAL",
-             "evidence":"3D thermal partial validation: "+p4["why"]+
-             "; phase-changing 3D MAC transport, solid/gas volume remap, P3 thermal feedback and global energy closure still missing"},
+       "P4":{"status":"PASS" if tests["ok"] and p4["ok"] and p4_partial["ok"] else "PARTIAL",
+             "evidence":"3D CPU thermodynamics MVP: "+p4["why"]+
+             "; thermal, liquid advection and P3-gravity heat budgets conserved in their test domains; no gas hydrodynamics or fully unified mechanical-energy closure"},
        "P5":{"status":"PARTIAL","evidence":"3D mass-spring + fracture; stable volumetric solids/granular contact missing"},
        "P6":{"status":"PARTIAL","evidence":"composition mass bookkeeping; calibrated thermochemical laws missing"},
        "P7":{"status":"PARTIAL","evidence":"sparse CPU chunks and benchmarks; GPU/LOD integration missing"},

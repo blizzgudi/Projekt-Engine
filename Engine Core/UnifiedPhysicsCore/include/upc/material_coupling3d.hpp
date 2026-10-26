@@ -10,6 +10,8 @@
 #include <cmath>
 #include <cstddef>
 #include <cstdint>
+#include <functional>
+#include <utility>
 #include <unordered_map>
 #include <stdexcept>
 #include <vector>
@@ -33,6 +35,12 @@ struct RigidVoxelBody3D {
     double last_mechanical_residual_j=0;
     bool active=false;
 };
+struct PoreTransfer3D {
+    std::size_t source,to;
+    double volume_m3;
+    double potential_released_j;
+    bool source_pore;
+};
 struct P3ExchangeReport {
     double volume_m3=0;
     double potential_released_j=0;
@@ -51,6 +59,7 @@ class MaterialVolumeCoupler3D {
     std::vector<PorousVoxel3D> soil_;
     struct SoilDefinition {double porosity, conductivity;};
     std::unordered_map<std::uint32_t,SoilDefinition> porous_materials_;
+    std::function<void(const PoreTransfer3D&)> pore_transfer_callback_;
     RigidVoxelBody3D body_;
     double dissipated_j_=0;
     double total_infiltrated_m3_=0;
@@ -171,6 +180,9 @@ public:
     // 2) saturated/partially wet upper porous voxel -> lower porous voxel.
     // This does not implement full Richards/Stokes-Darcy, capillary rise,
     // or lateral subsurface pressure diffusion.
+    void set_pore_transfer_listener(std::function<void(const PoreTransfer3D&)> observer){
+        pore_transfer_callback_=std::move(observer);
+    }
     P3ExchangeReport exchange(double dt){
         if(!std::isfinite(dt)||dt<=0||dt>2)
             throw std::invalid_argument("Invalid coupled exchange dt");
@@ -222,6 +234,9 @@ public:
             const double grav_loss=rho_*g*flux*dx_;
             dissipated_j_+=grav_loss;
             report.potential_released_j+=grav_loss;
+            if(pore_transfer_callback_)
+                pore_transfer_callback_({src_index,at(x,y,z),flux,
+                                         grav_loss,above.material_id!=0});
         }
         total_infiltrated_m3_+=report.free_to_soil_m3;
         report.mass_residual_kg=total_water_mass_kg()-mass0;
