@@ -169,7 +169,7 @@ def p8_native_evidence() -> dict:
             log=LAB/"runs"/("p8_"+mode+"_unreal_native.log")
             if not png.is_file() or hashlib.sha256(png.read_bytes()).hexdigest()!=image or not log.is_file() or hashlib.sha256(log.read_bytes()).hexdigest()!=r.get("native_log_sha256"):
                 raise ValueError(f"P8 {mode} GPU PNG or UE native log mismatch")
-        return {"ok":True,"why":"20 strict checks: UE5.8 BuildPlugin + clean real GAME and PIE, native 3D MAC/VOF rendering+mass+flow, SHA256 proof"}
+        return {"ok":True,"why":f"{len(checks)} strict checks: UE5.8 BuildPlugin + clean real GAME and PIE, native 3D MAC/VOF viscous rendering+mass+flow, SHA256 proof"}
     except (ValueError,KeyError,TypeError,OSError) as err:
         return {"ok":False,"why":str(err)}
 
