@@ -1,0 +1,62 @@
+{
+  "phase": "P2",
+  "milestone": "live_coupled_viscous_face_energy_ledger_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "generated_utc": "2026-10-26T19:58:33.929590+00:00",
+  "checks": [
+    {
+      "name": "native_assertions",
+      "pass": true,
+      "value": 697
+    },
+    {
+      "name": "3d_vof_mass_kg",
+      "pass": true,
+      "value": 36.00000000000001
+    },
+    {
+      "name": "wall_work_proxy",
+      "pass": true,
+      "value": 2.8622854929466457
+    },
+    {
+      "name": "gradient_loss_proxy",
+      "pass": true,
+      "value": 2.437429725141957
+    },
+    {
+      "name": "adaptive_live_substeps",
+      "pass": true,
+      "value": 24
+    },
+    {
+      "name": "all_native_ctest_suites",
+      "pass": true,
+      "value": 38
+    },
+    {
+      "name": "full_phases_not_claimed",
+      "pass": true
+    },
+    {
+      "name": "source_hash_coverage",
+      "pass": true
+    }
+  ],
+  "native_stdout": "PASS P2 live viscous energy ledger checks=697 mass_kg=36.000000000000007 wall_work=2.8622854929466457 gradient_loss=2.437429725141957 viscosity_substeps=24 phase_complete=false",
+  "native_binary_sha256": "d01533df3fc7812518225083edcdbb668891bcc1af6ee6e1f70554c2b66239b3",
+  "ctest_exit_code": 0,
+  "ctest_stdout_tail": "Test project D:/Projekt Engine/Engine Core/UnifiedPhysicsCore/build\n      Start  9: physics_3d_reference_and_memory\n      Start 30: physics_p7_hardware_d3d11_cpu_parity\n      Start 35: physics_p2_live_viscous_3d_mac_vof\n      Start 37: physics_p2_masked_viscous_face_energy_ledger\n      Start 31: physics_p7_hardware_d3d11_brick_residency\n 1/38 Test #30: physics_p7_hardware_d3d11_cpu_parity ................   Passed    7.09 sec\n 2/38 Test  #9: physics_3d_reference_and_memory .....................   Passed   12.14 sec\n 3/38 Test #37: physics_p2_masked_viscous_face_energy_ledger ........   Passed    5.55 sec\n      Start  8: physics_coupled_3d_water\n      Start 14: physics_p3_darcy_energy_reference\n      Start 16: physics_p4_neumann_heat_reference\n 4/38 Test #35: physics_p2_live_viscous_3d_mac_vof ..................   Passed   14.01 sec\n      Start 28: physics_p7_sparse_3d_mac_render_lod\n 5/38 Test #31: physics_p7_hardware_d3d11_brick_residency ...........   Passed   13.64 sec\n 6/38 Test  #8: physics_coupled_3d_water ............................   Passed    2.75 sec\n 7/38 Test #14: physics_p3_darcy_energy_reference ...................   Passed    1.93 sec\n      Start 26: physics_p6_arrhenius_fick_numeric_reference\n      Start 23: physics_p5_deformable_self_and_multibody_contact\n      Start 36: physics_p2_masked_viscous_face_momentum_ledger\n 8/38 Test #16: physics_p4_neumann_heat_reference ...................   Passed    1.42 sec\n      Start 32: physics_p7_resident_streaming_lod_bounds\n 9/38 Test #23: physics_p5_deformable_self_and_multibody_contact ....   Passed    1.11 sec\n10/38 Test #26: physics_p6_arrhenius_fick_numeric_reference .........   Passed    1.12 sec\n11/38 Test #28: physics_p7_sparse_3d_mac_render_lod .................   Passed    1.73 sec\n      Start 25: physics_p6_conservative_3d_mixtures_reactions\n      Start 13: physics_p3_material_volume_coupling\n      Start 33: physics_p2_viscous_mac3d_analytic_reference\n12/38 Test #36: physics_p2_masked_viscous_face_momentum_ledger ......   Passed    1.89 sec\n      Start 20: physics_p5_granular_3d_contacts\n13/38 Test #32: physics_p7_resident_streaming_lod_bounds ............   Passed    1.35 sec\n14/38 Test #25: physics_p6_conservative_3d_mixtures_reactions .......   Passed    0.83 sec\n      Start 29: physics_p7_sparse_lod_memory_and_volume_reference\n      Start 34: physics_p2_viscous_mac3d_masked_boundaries\n15/38 Test #33: physics_p2_viscous_mac3d_analytic_reference .........   Passed    0.66 sec\n16/38 Test #13: physics_p3_material_volume_coupling .................   Passed    1.08 sec\n      Start 18: physics_p4_live_mac_enthalpy_advection\n      Start 22: physics_p5_granular_fracture_reference\n17/38 Test #20: physics_p5_granular_3d_contacts .....................   Passed    8.21 sec\n      Start 12: physics_2d_extended_invariants\n18/38 Test #29: physics_p7_sparse_lod_memory_and_volume_reference ...   Passed    7.90 sec\n19/38 Test #34: physics_p2_viscous_mac3d_masked_boundaries ..........   Passed    7.58 sec\n      Start 19: physics_p4_p3_porous_heat_gravity_bridge\n      Start 11: physics_stoker_wet_bed_analytical\n20/38 Test #18: physics_p4_live_mac_enthalpy_advection ..............   Passed    5.59 sec\n21/38 Test #22: physics_p5_granular_fracture_reference ..............   Passed    5.11 sec\n      Start  7: physics_ritter_analytical_reference\n      Start 24: physics_p5_affine_lattice_constitutive_reference\n22/38 Test #12: physics_2d_extended_invariants ......................   Passed    5.12 sec\n      Start 17: physics_p4_phase_mac_voxel_bridge\n23/38 Test #19: physics_p4_p3_porous_heat_gravity_bridge ............   Passed   10.13 sec\n      Start 27: physics_p6_p4_exothermic_energy_coupling\n24/38 Test #11: physics_stoker_wet_bed_analytical ...................   Passed    5.58 sec\n25/38 Test #24: physics_p5_affine_lattice_constitutive_reference ....   Passed    5.56 sec\n26/38 Test  #7: physics_ritter_analytical_reference .................   Passed    5.57 sec\n      Start 21: physics_p5_lattice_3d_fracture\n      Start  1: physics_core_tests\n      Start  5: physics_p5_plane_contact_partial\n27/38 Test #17: physics_p4_phase_mac_voxel_bridge ...................   Passed    5.55 sec\n      Start 15: physics_p4_thermal_conduction_and_phase\n28/38 Test #27: physics_p6_p4_exothermic_energy_coupling ............   Passed    1.13 sec\n29/38 Test #21: physics_p5_lattice_3d_fracture ......................   Passed    0.66 sec\n30/38 Test  #1: physics_core_tests ..................................   Passed    0.65 sec\n      Start  3: physics_3d_transport_tests\n      Start 10: physics_unified_3d_runtime\n      Start  6: physics_mac3d_tests\n31/38 Test  #5: physics_p5_plane_contact_partial ....................   Passed    1.06 sec\n      Start  2: physics_materials_tests\n32/38 Test #15: physics_p4_thermal_conduction_and_phase .............   Passed    1.04 sec\n33/38 Test  #3: physics_3d_transport_tests ..........................   Passed    0.42 sec\n34/38 Test #10: physics_unified_3d_runtime ..........................   Passed    0.40 sec\n      Start  4: physics_solid_tests\n      Start 38: physics_p2_live_viscous_energy_ledger_partial\n35/38 Test  #6: physics_mac3d_tests .................................   Passed    0.03 sec\n36/38 Test  #2: physics_materials_tests .............................   Passed    0.03 sec\n37/38 Test  #4: physics_solid_tests .................................   Passed    0.02 sec\n38/38 Test #38: physics_p2_live_viscous_energy_ledger_partial .......   Passed    0.07 sec\n\n100% tests passed, 0 tests failed out of 38\n\nTotal Test time (real) =  42.77 sec\n\n",
+  "phase_gate_stdout": "GATES_PASS=P0\nGATES_INCOMPLETE=P1,P2,P3,P4,P5,P6,P7,P8\nALL_COMPLETE=False\nEVIDENCE=D:\\Projekt Engine\\ENGINE TEST STUBE\\runs\\unified_physics_gate.json",
+  "source_sha256": {
+    "include/upc/coupled_water3d.hpp": "6268c6e050068aa610c0848611d8d01e16764b1c0fcf85d9150bd49fca6707e4",
+    "include/upc/viscous_mac3d.hpp": "b091da38edc446f962b0c946f7f2f5e5211fff1e69b7c718e1bafea3d01c5181",
+    "tests/coupled_viscous_energy_ledger3d_tests.cpp": "97e9be6bdfcad084b9b71bed88ee43c6717a222c70e81ae15fdaa3e005280706",
+    "CMakeLists.txt": "1e2ae7b4e34a7f9ace7ab1b5484d103ba0023e5d56bc53644e25318cb5b2924d",
+    "scripts/p2_live_energy_acceptance.py": "78c182fa90bf024eeddce6876a3e1e0bab44ba9067e15242f93d6ff4f92a853a",
+    "docs/P2_LIVE_ENERGY_LEDGER_PARTIAL.md": "4eacfbb8f1c0b84233a642b9e8d1c1c3d61f7265bc399deb34636a22df0f7140",
+    "docs/PHASENPLAN.md": "80c6d889d0bfdef7b0d1d9344f4608646b7f0ba8374c32f1ef00913057f5852a"
+  },
+  "limitations": "Discrete face-square budget only; no continuum physical energy, moving-solid FSI, stress-consistent air/water surface, measured 3D CFD reference, or fresh UE5.8 native E2E. P2-P8 full phases remain open."
+}

@@ -223,3 +223,22 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
   physikalische Gesamtenergie/Impulsbilanz, bewegte Festkörper-FSI,
   stresskonsistente Wasser-Luft-Grenze, unabhängige 3D-Messreferenz
   und ein neuer UE5.8-Native-E2E-Lauf für diese Erweiterung.
+
+## P2 Teilfortschritt: Live-VOF-Aggregation des diskreten Viskositaets-Energieledgers (26.10.2026)
+
+- `CoupledMacWater3D::last_viscous_diffusion_ledger()` akkumuliert die
+  isoliert geprüften diskreten MAC-Face-Quadratsummen-Bilanzterme ueber
+  alle adaptiven Viskositaetsstufen eines echten 3D-MAC/VOF-`step()`.
+  Nach jedem oeffentlichen Step erfolgt Reset, auch fuer `nu=0`.
+- Neue native 8x8x6-Wasser/Festkoerper-Tests: 697 Assertions PASS,
+  36 kg Wasser, 24 Viskositaets-Substeps in 10 Live-Steps,
+  vorgegebene Wandarbeit 2.8622854929466457 und Gradientverlust
+  2.437429725141957 (jeweils **numerische Face-Proxies**, keine Joule).
+- Dokumentation: `docs/P2_LIVE_ENERGY_LEDGER_PARTIAL.md`;
+  Test: `tests/coupled_viscous_energy_ledger3d_tests.cpp`;
+  Teil-Gate: `scripts/p2_live_energy_acceptance.py`;
+  Report: `ENGINE TEST STUBE/runs/p2_live_energy_partial.json`.
+- **P2 bleibt PARTIAL**: keine bewegliche FSI-Koerpergeometrie,
+  keine physikalische globale Energie-/Impulsbilanz, keine gemessene
+  3D-CFD-Referenz, keine neue UE5.8-Native-E2E-Abnahme.
+  P3-P8 bleiben ebenfalls Vollphasen-offen.

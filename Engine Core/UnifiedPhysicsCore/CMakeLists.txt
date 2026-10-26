@@ -169,3 +169,8 @@ add_test(NAME physics_p2_masked_viscous_face_momentum_ledger COMMAND upc_p2_visc
 add_executable(upc_p2_viscous_energy_ledger_tests tests/viscous_energy_ledger3d_tests.cpp)
 target_link_libraries(upc_p2_viscous_energy_ledger_tests PRIVATE upc)
 add_test(NAME physics_p2_masked_viscous_face_energy_ledger COMMAND upc_p2_viscous_energy_ledger_tests)
+
+# P2: live MAC/VOF accumulation of the exact discrete viscous energy ledger.
+add_executable(upc_p2_live_viscous_energy_ledger_tests tests/coupled_viscous_energy_ledger3d_tests.cpp)
+target_link_libraries(upc_p2_live_viscous_energy_ledger_tests PRIVATE upc)
+add_test(NAME physics_p2_live_viscous_energy_ledger_partial COMMAND upc_p2_live_viscous_energy_ledger_tests)

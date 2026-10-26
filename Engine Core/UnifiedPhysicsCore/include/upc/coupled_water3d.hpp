@@ -33,6 +33,9 @@ class CoupledMacWater3D {
     double last_viscous_energy_before_=0;
     double last_viscous_energy_after_=0;
     std::size_t last_viscosity_substeps_=0;
+    // Accumulated over all viscosity stages of the most recent public step().
+    // Raw MAC face-square/face-sum diagnostics, not continuum FSI energy.
+    MaskedMacMomentumLedger3D last_viscous_diffusion_ledger_{};
     // Only the diffusion-stage MAC face-velocity-sum momentum proxy, not
     // continuum FSI impulse. Units after rho*dx^3 scaling: kg*m/s.
     std::array<double,3> last_viscous_face_momentum_delta_proxy_kg_m_s_{};
@@ -218,6 +221,37 @@ class CoupledMacWater3D {
                 mac_,dt,kinematic_viscosity_m2_s_,wet_mask,solid_,
                 wall_tangential_velocity_m_s_,&ledger);
             const double face_mass_proxy=rho_*dx_*dx_*dx_;
+            // Keep the unscaled, exact operator ledger across adaptive live
+            // MAC/VOF substeps; pressure/gravity/advection are excluded.
+            for(std::size_t axis=0;axis<3;++axis){
+                last_viscous_diffusion_ledger_.active_face_delta_sum_m_s[axis]+=
+                    ledger.active_face_delta_sum_m_s[axis];
+                last_viscous_diffusion_ledger_.solid_boundary_source_sum_m_s[axis]+=
+                    ledger.solid_boundary_source_sum_m_s[axis];
+                last_viscous_diffusion_ledger_.solid_wall_drive_sum_m_s[axis]+=
+                    ledger.solid_wall_drive_sum_m_s[axis];
+                last_viscous_diffusion_ledger_.solid_wall_drag_sum_m_s[axis]+=
+                    ledger.solid_wall_drag_sum_m_s[axis];
+                last_viscous_diffusion_ledger_.exterior_boundary_source_sum_m_s[axis]+=
+                    ledger.exterior_boundary_source_sum_m_s[axis];
+                last_viscous_diffusion_ledger_.closure_residual_sum_m_s[axis]+=
+                    ledger.closure_residual_sum_m_s[axis];
+                last_viscous_diffusion_ledger_.face_energy_change_proxy_m2_s2[axis]+=
+                    ledger.face_energy_change_proxy_m2_s2[axis];
+                last_viscous_diffusion_ledger_.internal_gradient_loss_proxy_m2_s2[axis]+=
+                    ledger.internal_gradient_loss_proxy_m2_s2[axis];
+                last_viscous_diffusion_ledger_.solid_gradient_loss_proxy_m2_s2[axis]+=
+                    ledger.solid_gradient_loss_proxy_m2_s2[axis];
+                last_viscous_diffusion_ledger_.exterior_gradient_loss_proxy_m2_s2[axis]+=
+                    ledger.exterior_gradient_loss_proxy_m2_s2[axis];
+                last_viscous_diffusion_ledger_.prescribed_wall_work_proxy_m2_s2[axis]+=
+                    ledger.prescribed_wall_work_proxy_m2_s2[axis];
+                last_viscous_diffusion_ledger_.explicit_euler_correction_proxy_m2_s2[axis]+=
+                    ledger.explicit_euler_correction_proxy_m2_s2[axis];
+                last_viscous_diffusion_ledger_.energy_closure_residual_proxy_m2_s2[axis]+=
+                    ledger.energy_closure_residual_proxy_m2_s2[axis];
+            }
+            last_viscous_diffusion_ledger_.substeps+=ledger.substeps;
             for(std::size_t axis=0;axis<3;++axis){
                 last_viscous_face_momentum_delta_proxy_kg_m_s_[axis]+=
                     face_mass_proxy*ledger.active_face_delta_sum_m_s[axis];
@@ -304,6 +338,11 @@ public:
         return wall_tangential_velocity_m_s_;
     }
     std::size_t last_viscosity_substeps()const{return last_viscosity_substeps_;}
+    // Returns a copy of the *last public step* diffusion-only ledger. It
+    // resets each step and includes every internal adaptive substep.
+    MaskedMacMomentumLedger3D last_viscous_diffusion_ledger()const{
+        return last_viscous_diffusion_ledger_;
+    }
     // Diagnostic only: the sums are staggered-face momentum proxies for
     // diffusion, NOT a conservative physical solid-body reaction impulse.
     std::array<double,3> last_viscous_face_momentum_delta_proxy_kg_m_s()const{
@@ -355,6 +394,7 @@ public:
         double remaining=seconds;
         substeps_=0;
         last_viscosity_substeps_=0;
+        last_viscous_diffusion_ledger_=MaskedMacMomentumLedger3D{};
         last_viscous_face_momentum_delta_proxy_kg_m_s_={};
         last_viscous_solid_wall_source_proxy_kg_m_s_={};
         last_viscous_solid_wall_drive_proxy_kg_m_s_={};
