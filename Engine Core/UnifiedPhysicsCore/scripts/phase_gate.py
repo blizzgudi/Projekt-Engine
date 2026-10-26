@@ -479,6 +479,31 @@ def p2_wall_shear_partial_evidence() -> dict:
     except (ValueError,KeyError,TypeError,OSError) as err:
         return {"ok":False,"why":str(err)}
 
+def p2_momentum_ledger_partial_evidence() -> dict:
+    """Bounded diagnostic face-momentum budget, never physical FSI acceptance."""
+    path=LAB/"runs"/"p2_viscous_momentum_ledger_partial.json"
+    if not path.is_file():
+        return {"ok":False,"why":"P2 masked MAC momentum ledger partial report missing"}
+    try:
+        d=json.loads(path.read_text(encoding="utf-8"))
+        checks=d.get("checks",[])
+        if (d.get("phase")!="P2" or
+            d.get("milestone")!="masked_mac_face_momentum_proxy_ledger_partial" or
+            d.get("partial_accepted") is not True or
+            d.get("phase_complete") is not False or
+            len(checks)<10 or not all(c.get("pass") is True for c in checks)):
+            raise ValueError("P2 masked face-momentum partial checks invalid")
+        hashes=d.get("source_sha256",{})
+        if len(hashes)<10:
+            raise ValueError("P2 momentum ledger fingerprint coverage insufficient")
+        for name,sha in hashes.items():
+            f=CORE/name
+            if not f.is_file() or hashlib.sha256(f.read_bytes()).hexdigest()!=sha:
+                raise ValueError(f"P2 momentum ledger source changed: {name}")
+        return {"ok":True,"why":"53 native assertions, independent 90-face Couette source, live 36kg VOF and diffusion-only face-momentum proxy closure; NOT physical FSI"}
+    except (ValueError,KeyError,TypeError,OSError) as err:
+        return {"ok":False,"why":str(err)}
+
 def main() -> None:
     tests = ctest()
     p1 = p1_evidence()
@@ -486,6 +511,7 @@ def main() -> None:
     p2_viscosity = p2_viscosity_partial_evidence()
     p2_live_viscosity = p2_live_viscosity_partial_evidence()
     p2_wall_shear = p2_wall_shear_partial_evidence()
+    p2_momentum_ledger = p2_momentum_ledger_partial_evidence()
     p3 = p3_evidence()
     p4_partial = p4_partial_evidence()
     p4 = p4_complete_evidence()
@@ -513,6 +539,7 @@ def main() -> None:
               "; optional isolated viscous MAC milestone: "+p2_viscosity["why"]+
               "; live coupled viscous MAC/VOF milestone: "+p2_live_viscosity["why"]+
               "; fixed-wall tangential shear partial: "+p2_wall_shear["why"]+
+              "; face-momentum proxy ledger partial: "+p2_momentum_ledger["why"]+
               "; full 3D CFD/FSI validation not proven"},
        "P3":{"status":"PASS" if p3["ok"] and tests["ok"] else "PARTIAL",
              "evidence":"Porous 3D soil/free-water, pressure load, voxel-body displacement, isolated mass and work-energy ledgers; "+p3["why"]+

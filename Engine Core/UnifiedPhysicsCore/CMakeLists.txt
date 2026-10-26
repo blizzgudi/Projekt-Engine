@@ -159,3 +159,8 @@ add_test(NAME physics_p2_viscous_mac3d_masked_boundaries COMMAND upc_p2_viscosit
 add_executable(upc_p2_live_viscous_water_tests tests/coupled_viscous_water3d_tests.cpp)
 target_link_libraries(upc_p2_live_viscous_water_tests PRIVATE upc)
 add_test(NAME physics_p2_live_viscous_3d_mac_vof COMMAND upc_p2_live_viscous_water_tests)
+
+# P2: bounded MAC diffusion face-momentum proxy budget (NOT physical FSI).
+add_executable(upc_p2_viscous_momentum_ledger_tests tests/viscous_momentum_ledger3d_tests.cpp)
+target_link_libraries(upc_p2_viscous_momentum_ledger_tests PRIVATE upc)
+add_test(NAME physics_p2_masked_viscous_face_momentum_ledger COMMAND upc_p2_viscous_momentum_ledger_tests)

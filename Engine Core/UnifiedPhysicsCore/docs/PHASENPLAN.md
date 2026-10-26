@@ -155,3 +155,27 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
   keine Impulsrückwirkung, keine stresskonsistente freie Oberfläche,
   keine unabhängigen gemessenen 3D-Referenzen oder erneuter UE5.8
   Native-E2E-Nachweis für diesen neuen Parameter. P3–P8 bleiben offen.
+
+
+## P2 Teilfortschritt: Maskierte 3D-MAC-Wand-Impulsdiagnose (26.10.2026)
+
+- Der laufende 3D-MAC/VOF-Solver erfasst optional die **diskrete
+  Face-Geschwindigkeitssummenbilanz** des Viskosit?tsoperators getrennt
+  nach statischer Festk?rperwand und ?u?erer Nullgeschwindigkeitsgrenze.
+  Live-Akkumulation pro Solver-Step und R?cksetzen bei `nu=0`.
+- Unabh?ngige Couette-Stencil-Referenz: 90 angrenzende tangentiale
+  Faces ? 0,036 ? 0,4 m/s = **1,296 m/s**. Der neue native Test
+  pr?ft zus?tzlich Vorzeichenwechsel, Normalfluss, 8 adaptive
+  Substeps, Negativfall und Live-36-kg-VOF-Massenkonstanz.
+- MSVC Release **36/36 CTest PASS**, 53 native Assertions im neuen
+  Test, Abschlussresiduum des diskreten Face-Summen-Operators 0
+  im protokollierten Live-Fall.
+- Nachweis: `docs/P2_VISCOUS_MOMENTUM_LEDGER_PARTIAL.md`,
+  `scripts/p2_momentum_ledger_acceptance.py`,
+  `ENGINE TEST STUBE/runs/p2_viscous_momentum_ledger_partial.json`
+  mit Quell-SHA256 und `phase_complete=false`.
+- **Wichtig:** Die als `*_proxy_kg_m_s` ausgegebene Summe ist
+  **keine physikalische Wandimpuls-/FSI-Bilanz**. Es fehlen echte
+  bewegte K?rper, stresskonsistente freie Oberfl?chen, unabh?ngige
+  3D-Messreferenzen, globale Energie-/Impulsbilanz und neue UE5.8
+  Native-E2E-Abnahme. **P2 bleibt PARTIAL, P3?P8 bleiben offen.**

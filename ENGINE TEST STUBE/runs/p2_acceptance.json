@@ -1,0 +1,305 @@
+{
+  "schema_version": 1,
+  "generated_utc": "2026-10-26T16:46:24.745887+00:00",
+  "phase": "P2",
+  "scope": "CPU MAC pressure + bounded VOF 3D free-surface transport prototype; no FLIP/APIC/MPM, no 3D FSI",
+  "accepted": true,
+  "source_sha256": {
+    "include/upc/core.hpp": "08114486924261c69c423dc5b5f30ab3a575c3cf5211b3898ce8ceb7a72b00a6",
+    "include/upc/coupled_water3d.hpp": "3774c4f8b459f1fcec7f12e026610b337eb1d9585ed8ec993f608fb60d88705c",
+    "include/upc/fluid3d_module.hpp": "f7a8cc65ddd05666b8f65e9ff0a19d04a2163e071b4da0b09a71f2977383dada",
+    "include/upc/mac3d.hpp": "9bb4659c5b6e6fd3a512301ae4a3a083fa96b1e67d50363ec8f5634e1038fdc5",
+    "tests/coupled_water3d_tests.cpp": "4a615c6e77cf4dd31a8f8ab841c26521fa5289dfa06a9606a261232431873d0d",
+    "tests/unified_runtime_tests.cpp": "afcbc2110a3eb5af243225f3bd17db0932c28e17ba11bc2868d69c1351dfd0c9",
+    "docs/P2_3D_FLUID_ABNAHME.md": "7789282381fb5dc98e91b2d1a563d6d9dfb89f966c7af1dddc4d6a4f225f5f34",
+    "benchmarks/p2_reference.cpp": "20af87420b10cceca7e40cee4ce80cb8cfedaeb22fc3ca61f5fe07ca17827ade",
+    "CMakeLists.txt": "60d378e9ea971b45d0cacf995105d38dbe1df29a2704d77a746bedf1c73966f1"
+  },
+  "reference": [
+    {
+      "scenario": "dam_break",
+      "nx": "8",
+      "ny": "4",
+      "nz": "6",
+      "cell_m": "0.200000000000",
+      "elapsed_ms": "8.871500000000",
+      "initial_m3": "0.256000000000",
+      "final_m3": "0.256000000000",
+      "centroid_x_m": "0.224708753143",
+      "pressure_pa": "0.000000000000",
+      "reference_pa": "0.000000000000",
+      "max_div_1_s": "0.000000000090",
+      "resident_bytes": "9088"
+    },
+    {
+      "scenario": "dam_break",
+      "nx": "16",
+      "ny": "8",
+      "nz": "12",
+      "cell_m": "0.100000000000",
+      "elapsed_ms": "110.272000000000",
+      "initial_m3": "0.256000000000",
+      "final_m3": "0.256000000000",
+      "centroid_x_m": "0.219865818224",
+      "pressure_pa": "0.000000000000",
+      "reference_pa": "0.000000000000",
+      "max_div_1_s": "0.000519485047",
+      "resident_bytes": "69376"
+    },
+    {
+      "scenario": "dam_break",
+      "nx": "32",
+      "ny": "16",
+      "nz": "24",
+      "cell_m": "0.050000000000",
+      "elapsed_ms": "1257.981100000000",
+      "initial_m3": "0.256000000000",
+      "final_m3": "0.256000000000",
+      "centroid_x_m": "0.215753641661",
+      "pressure_pa": "0.000000000000",
+      "reference_pa": "0.000000000000",
+      "max_div_1_s": "0.019641534912",
+      "resident_bytes": "541696"
+    },
+    {
+      "scenario": "hydrostatic",
+      "nx": "8",
+      "ny": "8",
+      "nz": "8",
+      "cell_m": "0.150000000000",
+      "elapsed_ms": "1.915300000000",
+      "initial_m3": "0.864000000000",
+      "final_m3": "0.864000000000",
+      "centroid_x_m": "0.000000000000",
+      "pressure_pa": "5150.249999866099",
+      "reference_pa": "5150.250000000000",
+      "max_div_1_s": "0.000000000012",
+      "resident_bytes": "23552"
+    },
+    {
+      "scenario": "hydrostatic",
+      "nx": "16",
+      "ny": "16",
+      "nz": "16",
+      "cell_m": "0.075000000000",
+      "elapsed_ms": "49.755900000000",
+      "initial_m3": "0.864000000000",
+      "final_m3": "0.864000000000",
+      "centroid_x_m": "0.000000000000",
+      "pressure_pa": "5518.124996392487",
+      "reference_pa": "5518.125000000000",
+      "max_div_1_s": "0.000000000285",
+      "resident_bytes": "182272"
+    },
+    {
+      "scenario": "hydrostatic",
+      "nx": "24",
+      "ny": "24",
+      "nz": "24",
+      "cell_m": "0.050000000000",
+      "elapsed_ms": "166.817300000000",
+      "initial_m3": "0.864000000000",
+      "final_m3": "0.864000000000",
+      "centroid_x_m": "0.000000000000",
+      "pressure_pa": "5640.200953538789",
+      "reference_pa": "5640.749999999999",
+      "max_div_1_s": "0.000041297575",
+      "resident_bytes": "608256"
+    }
+  ],
+  "checks": [
+    {
+      "name": "mass_dam_break_8",
+      "pass": true,
+      "value": 0.0,
+      "limit": 1e-08
+    },
+    {
+      "name": "resident_budget_dam_break_8",
+      "pass": true,
+      "value": 9088,
+      "limit": 2000000
+    },
+    {
+      "name": "finite_runtime_dam_break_8",
+      "pass": true,
+      "value": 8.8715,
+      "limit": null
+    },
+    {
+      "name": "mass_dam_break_16",
+      "pass": true,
+      "value": 0.0,
+      "limit": 1e-08
+    },
+    {
+      "name": "resident_budget_dam_break_16",
+      "pass": true,
+      "value": 69376,
+      "limit": 2000000
+    },
+    {
+      "name": "finite_runtime_dam_break_16",
+      "pass": true,
+      "value": 110.272,
+      "limit": null
+    },
+    {
+      "name": "mass_dam_break_32",
+      "pass": true,
+      "value": 0.0,
+      "limit": 1e-08
+    },
+    {
+      "name": "resident_budget_dam_break_32",
+      "pass": true,
+      "value": 541696,
+      "limit": 2000000
+    },
+    {
+      "name": "finite_runtime_dam_break_32",
+      "pass": true,
+      "value": 1257.9811,
+      "limit": null
+    },
+    {
+      "name": "mass_hydrostatic_8",
+      "pass": true,
+      "value": 0.0,
+      "limit": 1e-08
+    },
+    {
+      "name": "resident_budget_hydrostatic_8",
+      "pass": true,
+      "value": 23552,
+      "limit": 2000000
+    },
+    {
+      "name": "finite_runtime_hydrostatic_8",
+      "pass": true,
+      "value": 1.9153,
+      "limit": null
+    },
+    {
+      "name": "mass_hydrostatic_16",
+      "pass": true,
+      "value": 0.0,
+      "limit": 1e-08
+    },
+    {
+      "name": "resident_budget_hydrostatic_16",
+      "pass": true,
+      "value": 182272,
+      "limit": 2000000
+    },
+    {
+      "name": "finite_runtime_hydrostatic_16",
+      "pass": true,
+      "value": 49.7559,
+      "limit": null
+    },
+    {
+      "name": "mass_hydrostatic_24",
+      "pass": true,
+      "value": 0.0,
+      "limit": 1e-08
+    },
+    {
+      "name": "resident_budget_hydrostatic_24",
+      "pass": true,
+      "value": 608256,
+      "limit": 2000000
+    },
+    {
+      "name": "finite_runtime_hydrostatic_24",
+      "pass": true,
+      "value": 166.8173,
+      "limit": null
+    },
+    {
+      "name": "hydrostatic_reference_8",
+      "pass": true,
+      "value": 2.5998983925677614e-11,
+      "limit": 0.01
+    },
+    {
+      "name": "hydrostatic_divergence_8",
+      "pass": true,
+      "value": 1.2e-11,
+      "limit": 0.05
+    },
+    {
+      "name": "hydrostatic_reference_16",
+      "pass": true,
+      "value": 6.5375694707382e-10,
+      "limit": 0.01
+    },
+    {
+      "name": "hydrostatic_divergence_16",
+      "pass": true,
+      "value": 2.85e-10,
+      "limit": 0.05
+    },
+    {
+      "name": "hydrostatic_reference_24",
+      "pass": true,
+      "value": 9.733571975540659e-05,
+      "limit": 0.01
+    },
+    {
+      "name": "hydrostatic_divergence_24",
+      "pass": true,
+      "value": 4.1297575e-05,
+      "limit": 0.05
+    },
+    {
+      "name": "3d_dam_break_moves",
+      "pass": true,
+      "value": [
+        0.224708753143,
+        0.219865818224,
+        0.215753641661
+      ],
+      "limit": [
+        0.2,
+        0.2,
+        0.2
+      ]
+    },
+    {
+      "name": "grid_centroid_coarse_to_medium",
+      "pass": true,
+      "value": 0.004842934919000008,
+      "limit": 0.02
+    },
+    {
+      "name": "grid_centroid_medium_to_fine",
+      "pass": true,
+      "value": 0.004112176563000003,
+      "limit": 0.015
+    },
+    {
+      "name": "centroid_resolution_difference_decreases",
+      "pass": true,
+      "value": 0.8491083675039566,
+      "limit": 1.0
+    },
+    {
+      "name": "3d_solid_collision_test",
+      "pass": true,
+      "value": "PASS: 1918 coupled-3D checks, initial=0.32 final=0.32 right=12.0656 bottom=37.6525 max_div=0.0027321 resident_bytes=69376",
+      "limit": null
+    },
+    {
+      "name": "unified_material_runtime",
+      "pass": true,
+      "value": "PASS: 3D domains registered, shared phase/density respected, stable handles, unified step",
+      "limit": null
+    }
+  ],
+  "native_3d_tests_stdout": "PASS: 1918 coupled-3D checks, initial=0.32 final=0.32 right=12.0656 bottom=37.6525 max_div=0.0027321 resident_bytes=69376",
+  "native_unified_runtime_stdout": "PASS: 3D domains registered, shared phase/density respected, stable handles, unified step",
+  "comparison_note": "Centroid differences across grids are a numerical self-convergence sanity check, not validation against measured dam-break data",
+  "reference_stderr": "hydrostatic probe grid=8 value=5150.25 theory=5150.25 divergence=1.23627e-11\\nhydrostatic probe grid=16 value=5518.12 theory=5518.12 divergence=2.84943e-10\\nhydrostatic probe grid=24 value=5640.2 theory=5640.75 divergence=4.12976e-05\\n",
+  "last_runtime_note": "CPU timings are single-run hardware-specific observations, not interactive frame-rate evidence"
+}

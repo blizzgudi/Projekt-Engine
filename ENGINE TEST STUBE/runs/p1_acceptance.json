@@ -1,0 +1,328 @@
+{
+  "schema_version": 1,
+  "phase": "P1",
+  "accepted": true,
+  "generated_utc": "2026-10-26T16:44:35.560150+00:00",
+  "scope": "2D depth-averaged CPU shallow-water solver only, not volumetric CFD",
+  "source_sha256": {
+    "include/upc/core.hpp": "08114486924261c69c423dc5b5f30ab3a575c3cf5211b3898ce8ceb7a72b00a6",
+    "tests/ritter_reference_tests.cpp": "965a35ae23dbc34feda1aae61315ebb3b4a5b092225a1ba2849dd6512d71659c",
+    "tests/stoker_wet_dam_tests.cpp": "dfd74e87c76b7479dd1d28082743513a9363a9376a6bc473c454c2e030b36321",
+    "tests/shallow2d_extended_tests.cpp": "7e7b7b8049df24072dd18b459c9e8c7a288c191ab7bad0cf0b04a96f5f40f5f1",
+    "tests/core_tests.cpp": "8074124bc802f12559c9d76a610b8050870ff76f3d0984b87fde5782ffea4674",
+    "docs/P1_2D_FLUID_ABNAHME.md": "66d76ae1279b208de4306b12e323c15038e97d6190e15de2cb7bb51e289dfc98",
+    "CMakeLists.txt": "60d378e9ea971b45d0cacf995105d38dbe1df29a2704d77a746bedf1c73966f1",
+    "scripts/p1_acceptance.py": "e6c7d32692df9863018743098bfc10b8e7707d32435865e6f1c30fe1dfce4091"
+  },
+  "ritter_dry_bed": [
+    {
+      "dx_m": 0.1,
+      "depth_mean_abs_error_m": 0.00606821724447,
+      "momentum_mean_abs_error_m2_s": 0.0152139407299,
+      "volume_error_m3": 7.02771174588e-14,
+      "max_depth_m": 1.0,
+      "front_abs_error_m": 0.283954023663,
+      "strong_front_iso_0p002_error_m": 0.216045976337
+    },
+    {
+      "dx_m": 0.05,
+      "depth_mean_abs_error_m": 0.00418579830111,
+      "momentum_mean_abs_error_m2_s": 0.0101179649185,
+      "volume_error_m3": 5.5677684685e-14,
+      "max_depth_m": 1.0,
+      "front_abs_error_m": 0.108954023663,
+      "strong_front_iso_0p002_error_m": 0.291045976337
+    },
+    {
+      "dx_m": 0.025,
+      "depth_mean_abs_error_m": 0.00275964606902,
+      "momentum_mean_abs_error_m2_s": 0.00700564679433,
+      "volume_error_m3": 3.84969833789e-14,
+      "max_depth_m": 1.0,
+      "front_abs_error_m": 0.0285459763366,
+      "strong_front_iso_0p002_error_m": 0.303545976337
+    }
+  ],
+  "stoker_wet_bed": [
+    {
+      "dx_m": 0.1,
+      "depth_mean_abs_error_m": 0.006906014664452,
+      "momentum_mean_abs_error_m2_s": 0.01642748126123,
+      "volume_error_m3": 0.0,
+      "shock_position_error_m": 0.04079926386841
+    },
+    {
+      "dx_m": 0.05,
+      "depth_mean_abs_error_m": 0.004174301311383,
+      "momentum_mean_abs_error_m2_s": 0.009896392575041,
+      "volume_error_m3": 2.22044604925e-16,
+      "shock_position_error_m": 0.01579926386841
+    },
+    {
+      "dx_m": 0.025,
+      "depth_mean_abs_error_m": 0.002451384712522,
+      "momentum_mean_abs_error_m2_s": 0.005861859697573,
+      "volume_error_m3": 1.859623566247e-15,
+      "shock_position_error_m": 0.003299263868408
+    }
+  ],
+  "invariants_stdout": "PASS: 2165 assertions in 2D wet/dry gate, axis symmetry, pressure, CFL, positivity, conservation",
+  "core_stdout": "PASS: 472 physics assertions (materials, voxels, mass, hydrostatic pressure, dam-break, still water, obstacles)",
+  "benchmark_2d": [
+    {
+      "experiment": "shallow_water_2d",
+      "cells": "1024",
+      "iterations": "30",
+      "time_ms": "7.4577"
+    },
+    {
+      "experiment": "shallow_water_2d",
+      "cells": "4096",
+      "iterations": "30",
+      "time_ms": "23.104"
+    },
+    {
+      "experiment": "shallow_water_2d",
+      "cells": "9216",
+      "iterations": "30",
+      "time_ms": "30.0852"
+    }
+  ],
+  "checks": [
+    {
+      "name": "ritter_mass_0.1",
+      "pass": true,
+      "value": 7.02771174588e-14,
+      "tolerance": 1e-09
+    },
+    {
+      "name": "ritter_depth_L1_0.1",
+      "pass": true,
+      "value": 0.00606821724447,
+      "tolerance": 0.01
+    },
+    {
+      "name": "ritter_momentum_L1_0.1",
+      "pass": true,
+      "value": 0.0152139407299,
+      "tolerance": 0.025
+    },
+    {
+      "name": "ritter_mass_0.05",
+      "pass": true,
+      "value": 5.5677684685e-14,
+      "tolerance": 1e-09
+    },
+    {
+      "name": "ritter_depth_L1_0.05",
+      "pass": true,
+      "value": 0.00418579830111,
+      "tolerance": 0.01
+    },
+    {
+      "name": "ritter_momentum_L1_0.05",
+      "pass": true,
+      "value": 0.0101179649185,
+      "tolerance": 0.025
+    },
+    {
+      "name": "ritter_mass_0.025",
+      "pass": true,
+      "value": 3.84969833789e-14,
+      "tolerance": 1e-09
+    },
+    {
+      "name": "ritter_depth_L1_0.025",
+      "pass": true,
+      "value": 0.00275964606902,
+      "tolerance": 0.01
+    },
+    {
+      "name": "ritter_momentum_L1_0.025",
+      "pass": true,
+      "value": 0.00700564679433,
+      "tolerance": 0.025
+    },
+    {
+      "name": "ritter_convergence_depth_mean_abs_error_m",
+      "pass": true,
+      "value": [
+        0.00606821724447,
+        0.00418579830111,
+        0.00275964606902
+      ],
+      "tolerance": "strict decline"
+    },
+    {
+      "name": "ritter_convergence_momentum_mean_abs_error_m2_s",
+      "pass": true,
+      "value": [
+        0.0152139407299,
+        0.0101179649185,
+        0.00700564679433
+      ],
+      "tolerance": "strict decline"
+    },
+    {
+      "name": "stoker_mass_0.1",
+      "pass": true,
+      "value": 0.0,
+      "tolerance": 1e-09
+    },
+    {
+      "name": "stoker_depth_L1_0.1",
+      "pass": true,
+      "value": 0.006906014664452,
+      "tolerance": 0.01
+    },
+    {
+      "name": "stoker_momentum_L1_0.1",
+      "pass": true,
+      "value": 0.01642748126123,
+      "tolerance": 0.025
+    },
+    {
+      "name": "stoker_mass_0.05",
+      "pass": true,
+      "value": 2.22044604925e-16,
+      "tolerance": 1e-09
+    },
+    {
+      "name": "stoker_depth_L1_0.05",
+      "pass": true,
+      "value": 0.004174301311383,
+      "tolerance": 0.01
+    },
+    {
+      "name": "stoker_momentum_L1_0.05",
+      "pass": true,
+      "value": 0.009896392575041,
+      "tolerance": 0.025
+    },
+    {
+      "name": "stoker_mass_0.025",
+      "pass": true,
+      "value": 1.859623566247e-15,
+      "tolerance": 1e-09
+    },
+    {
+      "name": "stoker_depth_L1_0.025",
+      "pass": true,
+      "value": 0.002451384712522,
+      "tolerance": 0.01
+    },
+    {
+      "name": "stoker_momentum_L1_0.025",
+      "pass": true,
+      "value": 0.005861859697573,
+      "tolerance": 0.025
+    },
+    {
+      "name": "stoker_convergence_depth_mean_abs_error_m",
+      "pass": true,
+      "value": [
+        0.006906014664452,
+        0.004174301311383,
+        0.002451384712522
+      ],
+      "tolerance": "strict decline"
+    },
+    {
+      "name": "stoker_convergence_momentum_mean_abs_error_m2_s",
+      "pass": true,
+      "value": [
+        0.01642748126123,
+        0.009896392575041,
+        0.005861859697573
+      ],
+      "tolerance": "strict decline"
+    },
+    {
+      "name": "ritter_fine_dry_front_under_8cm",
+      "pass": true,
+      "value": 0.0285459763366,
+      "tolerance": 0.08
+    },
+    {
+      "name": "ritter_front_refinement_monotonic",
+      "pass": true,
+      "value": [
+        0.283954023663,
+        0.108954023663,
+        0.0285459763366
+      ],
+      "tolerance": "strict decline"
+    },
+    {
+      "name": "ritter_isoline_error_disclosed",
+      "pass": true,
+      "value": [
+        0.216045976337,
+        0.291045976337,
+        0.303545976337
+      ],
+      "tolerance": 0.36
+    },
+    {
+      "name": "stoker_wet_shock_under_5cm",
+      "pass": true,
+      "value": [
+        0.04079926386841,
+        0.01579926386841,
+        0.003299263868408
+      ],
+      "tolerance": 0.05
+    },
+    {
+      "name": "stoker_shock_converges",
+      "pass": true,
+      "value": [
+        0.04079926386841,
+        0.01579926386841,
+        0.003299263868408
+      ],
+      "tolerance": "strict decline"
+    },
+    {
+      "name": "2d_extended_obstacles_pressure_cfl_symmetry",
+      "pass": true,
+      "value": 2165,
+      "tolerance": 2100
+    },
+    {
+      "name": "baseline_material_dam_obstacle_regressions",
+      "pass": true,
+      "value": 472,
+      "tolerance": 400
+    },
+    {
+      "name": "p1_cpu_benchmark_available",
+      "pass": true,
+      "value": [
+        "1024",
+        "4096",
+        "9216"
+      ],
+      "tolerance": 3
+    },
+    {
+      "name": "p1_cpu_benchmark_finite_1024",
+      "pass": true,
+      "value": 7.4577,
+      "tolerance": "positive finite milliseconds"
+    },
+    {
+      "name": "p1_cpu_benchmark_finite_4096",
+      "pass": true,
+      "value": 23.104,
+      "tolerance": "positive finite milliseconds"
+    },
+    {
+      "name": "p1_cpu_benchmark_finite_9216",
+      "pass": true,
+      "value": 30.0852,
+      "tolerance": "positive finite milliseconds"
+    }
+  ],
+  "limitation": "1e-6m front threshold is numerical and detects tiny diffuse water; 0.002m contour has much larger deviation, documented. No subgrid interface model, viscosity or 3D dynamics."
+}

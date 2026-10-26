@@ -33,6 +33,12 @@ class CoupledMacWater3D {
     double last_viscous_energy_before_=0;
     double last_viscous_energy_after_=0;
     std::size_t last_viscosity_substeps_=0;
+    // Only the diffusion-stage MAC face-velocity-sum momentum proxy, not
+    // continuum FSI impulse. Units after rho*dx^3 scaling: kg*m/s.
+    std::array<double,3> last_viscous_face_momentum_delta_proxy_kg_m_s_{};
+    std::array<double,3> last_viscous_solid_wall_source_proxy_kg_m_s_{};
+    std::array<double,3> last_viscous_exterior_source_proxy_kg_m_s_{};
+    std::array<double,3> last_viscous_closure_residual_proxy_kg_m_s_{};
     std::function<void(const TransportFlux3D&)> transport_callback_;
     std::size_t substeps_=0;
     static constexpr double wet=1e-5;
@@ -205,9 +211,21 @@ class CoupledMacWater3D {
                 wet_mask[i]=(!solid_[i]&&fill_[i]>wet)?1:0;
             ViscousMacDiffusion3D visc(nx_,ny_,nz_,dx_);
             last_viscous_energy_before_=visc.face_energy_proxy(mac_);
+            MaskedMacMomentumLedger3D ledger;
             last_viscosity_substeps_+=visc.step_masked(
                 mac_,dt,kinematic_viscosity_m2_s_,wet_mask,solid_,
-                wall_tangential_velocity_m_s_);
+                wall_tangential_velocity_m_s_,&ledger);
+            const double face_mass_proxy=rho_*dx_*dx_*dx_;
+            for(std::size_t axis=0;axis<3;++axis){
+                last_viscous_face_momentum_delta_proxy_kg_m_s_[axis]+=
+                    face_mass_proxy*ledger.active_face_delta_sum_m_s[axis];
+                last_viscous_solid_wall_source_proxy_kg_m_s_[axis]+=
+                    face_mass_proxy*ledger.solid_boundary_source_sum_m_s[axis];
+                last_viscous_exterior_source_proxy_kg_m_s_[axis]+=
+                    face_mass_proxy*ledger.exterior_boundary_source_sum_m_s[axis];
+                last_viscous_closure_residual_proxy_kg_m_s_[axis]+=
+                    face_mass_proxy*ledger.closure_residual_sum_m_s[axis];
+            }
             last_viscous_energy_after_=visc.face_energy_proxy(mac_);
         }
         mac_.apply_gravity(dt);
@@ -280,6 +298,20 @@ public:
         return wall_tangential_velocity_m_s_;
     }
     std::size_t last_viscosity_substeps()const{return last_viscosity_substeps_;}
+    // Diagnostic only: the sums are staggered-face momentum proxies for
+    // diffusion, NOT a conservative physical solid-body reaction impulse.
+    std::array<double,3> last_viscous_face_momentum_delta_proxy_kg_m_s()const{
+        return last_viscous_face_momentum_delta_proxy_kg_m_s_;
+    }
+    std::array<double,3> last_viscous_solid_wall_source_proxy_kg_m_s()const{
+        return last_viscous_solid_wall_source_proxy_kg_m_s_;
+    }
+    std::array<double,3> last_viscous_exterior_source_proxy_kg_m_s()const{
+        return last_viscous_exterior_source_proxy_kg_m_s_;
+    }
+    std::array<double,3> last_viscous_closure_residual_proxy_kg_m_s()const{
+        return last_viscous_closure_residual_proxy_kg_m_s_;
+    }
     // Before/after *diffusion only*, prior to gravity/projection.
     // Face-square proxy is NOT the full physical fluid energy.
     double last_viscous_energy_before()const{return last_viscous_energy_before_;}
@@ -310,6 +342,10 @@ public:
         double remaining=seconds;
         substeps_=0;
         last_viscosity_substeps_=0;
+        last_viscous_face_momentum_delta_proxy_kg_m_s_={};
+        last_viscous_solid_wall_source_proxy_kg_m_s_={};
+        last_viscous_exterior_source_proxy_kg_m_s_={};
+        last_viscous_closure_residual_proxy_kg_m_s_={};
         last_viscous_energy_before_=0;
         last_viscous_energy_after_=0;
         while(remaining>1e-13){

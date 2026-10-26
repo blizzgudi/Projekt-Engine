@@ -1,8 +1,8 @@
 #pragma once
 // P2 follow-on: optional explicit 3D kinematic-viscosity diffusion for
-// face-centred MAC velocities. Independent primitive, not yet integrated
-// into CoupledMacWater3D. Homogeneous liquid, stationary no-slip exterior.
-// Not a multi-phase viscosity, not moving-solid boundary handling.
+// face-centred MAC velocities. Opt-in mask-aware path is integrated
+// with CoupledMacWater3D. Free-surface gradient is a Neumann proxy.
+// Not stress-consistent multiphase viscosity or moving-solid FSI.
 #include "upc/mac3d.hpp"
 #include <algorithm>
 #include <array>
@@ -14,6 +14,17 @@
 #include <vector>
 
 namespace upc {
+// Staggered-face velocity-sum budget for the explicit masked viscosity
+// stencil. NOT a physical 3D fluid/solid impulse or stress tensor: MAC
+// face dual volumes overlap and this excludes pressure/advection/gravity.
+// Multiply by rho*dx^3 for an explicitly labelled momentum *proxy*.
+struct MaskedMacMomentumLedger3D {
+    std::array<double,3> active_face_delta_sum_m_s{};
+    std::array<double,3> solid_boundary_source_sum_m_s{};
+    std::array<double,3> exterior_boundary_source_sum_m_s{};
+    std::array<double,3> closure_residual_sum_m_s{};
+    std::size_t substeps=0;
+};
 class ViscousMacDiffusion3D {
     std::size_t nx_,ny_,nz_;
     double dx_;
@@ -110,7 +121,8 @@ public:
                             const std::vector<std::uint8_t>& wet,
                             const std::vector<std::uint8_t>& solid,
                             const std::array<double,3>& wall_tangential_velocity_m_s=
-                                {0.0,0.0,0.0})const {
+                                {0.0,0.0,0.0},
+                            MaskedMacMomentumLedger3D* ledger=nullptr)const {
         if(!std::isfinite(dt)||dt<=0||!std::isfinite(nu)||nu<0)
             throw std::invalid_argument("Invalid masked viscosity timestep");
         for(double v:wall_tangential_velocity_m_s)
@@ -122,6 +134,7 @@ public:
         for(std::size_t i=0;i<n;++i)
             if(wet[i]>1||solid[i]>1||(wet[i]&&solid[i]))
                 throw std::invalid_argument("Masked viscosity invalid wet/solid overlap");
+        if(ledger)*ledger=MaskedMacMomentumLedger3D{};
         if(nu==0)return 0;
         const double requested=nu*dt/(dx_*dx_*0.15);
         if(!std::isfinite(requested)||requested>10000)
@@ -150,6 +163,13 @@ public:
         const auto apply=[&](std::size_t sx,std::size_t sy,std::size_t sz,
                              int axis,auto read,auto write){
             const auto count=sx*sy*sz;
+            double before_active_sum=0,after_active_sum=0;
+            const std::array<double,3> previous_boundary_source=ledger?
+                std::array<double,3>{
+                    ledger->solid_boundary_source_sum_m_s[0]+ledger->exterior_boundary_source_sum_m_s[0],
+                    ledger->solid_boundary_source_sum_m_s[1]+ledger->exterior_boundary_source_sum_m_s[1],
+                    ledger->solid_boundary_source_sum_m_s[2]+ledger->exterior_boundary_source_sum_m_s[2]}
+                :std::array<double,3>{};
             std::vector<double> before(count),after(count);
             for(std::size_t z=0;z<sz;++z)
             for(std::size_t y=0;y<sy;++y)
@@ -157,19 +177,25 @@ public:
                 before[index(x,y,z,sx,sy)]=read(x,y,z);
             const auto sample=[&](long long x,long long y,long long z,
                                    double center,int neighbor_axis){
-                if(x<0||y<0||z<0||x>=(long long)sx||
-                   y>=(long long)sy||z>=(long long)sz)
-                    return 0.0; // fixed no-slip exterior ghost
-                const auto ux=static_cast<std::size_t>(x);
-                const auto uy=static_cast<std::size_t>(y);
-                const auto uz=static_cast<std::size_t>(z);
-                const auto state=classify(axis,ux,uy,uz);
-                // Do not inject the wall's NORMAL velocity component:
-                // fixed geometry cannot displace water or transfer impulse.
-                return state==0?0.0:state==3?
-                    (neighbor_axis==axis?0.0:
-                     wall_tangential_velocity_m_s[static_cast<std::size_t>(axis)]):
-                    state==2?center:before[index(ux,uy,uz,sx,sy)];
+                const bool outside=x<0||y<0||z<0||
+                    x>=(long long)sx||y>=(long long)sy||z>=(long long)sz;
+                const auto ux=outside?std::size_t{0}:static_cast<std::size_t>(x);
+                const auto uy=outside?std::size_t{0}:static_cast<std::size_t>(y);
+                const auto uz=outside?std::size_t{0}:static_cast<std::size_t>(z);
+                const auto state=outside?0:classify(axis,ux,uy,uz);
+                if(state==0||state==3){
+                    // Fixed exterior ghost = 0. A solid ghost may prescribe
+                    // tangential shear, but never normal motion.
+                    const double ghost=state==3&&neighbor_axis!=axis?
+                        wall_tangential_velocity_m_s[static_cast<std::size_t>(axis)]:0.0;
+                    if(ledger){
+                        auto& source=state==3?ledger->solid_boundary_source_sum_m_s:
+                                               ledger->exterior_boundary_source_sum_m_s;
+                        source[static_cast<std::size_t>(axis)]+=alpha*(ghost-center);
+                    }
+                    return ghost;
+                }
+                return state==2?center:before[index(ux,uy,uz,sx,sy)];
             };
             for(std::size_t z=0;z<sz;++z)
             for(std::size_t y=0;y<sy;++y)
@@ -180,11 +206,22 @@ public:
                 const auto b=static_cast<long long>(y);
                 const auto c=static_cast<long long>(z);
                 const double v=before[i];
+                if(ledger)before_active_sum+=v;
                 after[i]=v+alpha*(sample(a-1,b,c,v,0)+sample(a+1,b,c,v,0)+
                     sample(a,b-1,c,v,1)+sample(a,b+1,c,v,1)+
                     sample(a,b,c-1,v,2)+sample(a,b,c+1,v,2)-6*v);
                 if(!std::isfinite(after[i]))
                     throw std::runtime_error("Nonfinite masked viscosity");
+                if(ledger)after_active_sum+=after[i];
+            }
+            if(ledger){
+                const auto k=static_cast<std::size_t>(axis);
+                const double delta=after_active_sum-before_active_sum;
+                ledger->active_face_delta_sum_m_s[k]+=delta;
+                ledger->closure_residual_sum_m_s[k]+=
+                    delta-(ledger->solid_boundary_source_sum_m_s[k]+
+                           ledger->exterior_boundary_source_sum_m_s[k]-
+                           previous_boundary_source[k]);
             }
             for(std::size_t z=0;z<sz;++z)
             for(std::size_t y=0;y<sy;++y)
@@ -202,6 +239,7 @@ public:
                 [&](auto x,auto y,auto z){return mac.face_velocity_z(x,y,z);},
                 [&](auto x,auto y,auto z,double v){mac.set_face_velocity_z(x,y,z,v);});
         }
+        if(ledger)ledger->substeps=steps;
         return steps;
     }
     // Staggered face-energy proxy, not a volume-integrated continuum energy.
