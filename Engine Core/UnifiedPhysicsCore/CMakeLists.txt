@@ -144,3 +144,8 @@ endif()
 add_executable(upc_p7_streamer_tests tests/p7_brick_streamer3d_tests.cpp)
 target_link_libraries(upc_p7_streamer_tests PRIVATE upc)
 add_test(NAME physics_p7_resident_streaming_lod_bounds COMMAND upc_p7_streamer_tests)
+
+# P2 follow-on: independent 3D MAC viscous diffusion primitive and analytic reference.
+add_executable(upc_p2_viscosity_tests tests/viscous_mac3d_tests.cpp)
+target_link_libraries(upc_p2_viscosity_tests PRIVATE upc)
+add_test(NAME physics_p2_viscous_mac3d_analytic_reference COMMAND upc_p2_viscosity_tests)

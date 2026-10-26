@@ -336,6 +336,76 @@ def p3_evidence() -> dict:
     except (ValueError,KeyError,TypeError,OSError) as exc:
         return {"ok":False,"why":str(exc)}
 
+def p2_viscosity_partial_evidence() -> dict:
+    """Isolated 3D viscosity step: separate technical milestone, NOT P2 full."""
+    path=LAB/"runs"/"p2_viscosity_partial.json"
+    if not path.is_file():
+        return {"ok":False,"why":"No optional P2 viscous-MAC partial evidence"}
+    try:
+        d=json.loads(path.read_text(encoding="utf-8"))
+        checks=d.get("checks",[])
+        if (d.get("phase")!="P2" or
+            d.get("milestone")!="viscous_mac3d_partial" or
+            d.get("partial_accepted") is not True or
+            d.get("phase_complete") is not False or
+            len(checks)<7 or not all(x.get("pass") is True for x in checks)):
+            raise ValueError("P2 viscous MAC partial numeric tests incomplete")
+        hashes=d.get("source_sha256",{})
+        if len(hashes)<6:raise ValueError("P2 viscosity fingerprints incomplete")
+        for filename,sha in hashes.items():
+            f=CORE/filename
+            if not f.is_file() or hashlib.sha256(f.read_bytes()).hexdigest()!=sha:
+                raise ValueError(f"P2 viscosity tested source changed: {filename}")
+        return {"ok":True,"why":"Independent analytic 3D MAC viscous eigenmode and energy-dissipation checks PASS; not integrated in coupled water solver"}
+    except (ValueError,KeyError,TypeError,OSError) as err:
+        return {"ok":False,"why":str(err)}
+
+# This gate distinguishes a bounded prototype acceptance from an entire
+# physics/Unreal development phase. A green P2-P8 MVP must NEVER imply
+# full completion. The listed criteria require independent future E2E
+# validation and a code-reviewed replacement of these explicit blockers.
+FULL_SCOPE_OPEN={
+    "P2":[
+        "integrate stable 3D viscosity with live MAC/VOF free surface",
+        "validate dynamic solid no-slip/impulse and 3D obstacle coupling",
+        "compare 3D flow and momentum against independent measured references",
+    ],
+    "P3":[
+        "bidirectional moving-solid/free-water force and impulse conservation",
+        "closed energy/mass accounting for porous flow and moving solids",
+        "validate 3D anisotropic soil and deformation against independent references",
+    ],
+    "P4":[
+        "real 3D steam/gas momentum and transport with phase changes",
+        "globally coupled mechanical, latent and sensible energy conservation",
+    ],
+    "P5":[
+        "validated continuum deformable FEM/MPM or equivalent and mesh contacts",
+        "validated granular and fracture benchmarks across material scales",
+    ],
+    "P6":[
+        "experimentally calibrated real-species chemistry and multiphase transfer",
+        "validated full energy/species coupling to moving fluid and solids",
+    ],
+    "P7":[
+        "native GPU/LOD streaming integration into real UE rendering runtime",
+        "end-to-end frame-time and memory scaling with large scenes and async transfers",
+    ],
+    "P8":[
+        "Unreal editor reload and repeatable Native-E2E for coupled P2-P7 modules",
+        "live P3-P6 materials and P7 LOD/streaming visualized and verified in Unreal",
+    ],
+}
+def enforce_full_phase_scope(phases:dict) -> dict:
+    """Preserve MVP evidence, refuse full PASS while full criteria are open."""
+    for name,record in phases.items():
+        record["prototype_status"]=record["status"]
+        record["full_acceptance_open"]=list(FULL_SCOPE_OPEN.get(name,[]))
+        record["completion_scope"]="full" if not record["full_acceptance_open"] else "bounded_prototype"
+        if record["full_acceptance_open"] and record["status"]=="PASS":
+            record["status"]="PARTIAL"
+    return phases
+
 def p2_evidence() -> dict:
     report_path = LAB / "runs" / "p2_acceptance.json"
     if not report_path.exists():
@@ -365,6 +435,7 @@ def main() -> None:
     tests = ctest()
     p1 = p1_evidence()
     p2 = p2_evidence()
+    p2_viscosity = p2_viscosity_partial_evidence()
     p3 = p3_evidence()
     p4_partial = p4_partial_evidence()
     p4 = p4_complete_evidence()
@@ -387,9 +458,10 @@ def main() -> None:
        "P1":{"status":"PASS" if tests["ok"] and p1["ok"] else "PARTIAL",
              "evidence":"2D shallow-water CPU baseline, "+p1["why"]+
              "; 3D/viscosity and subgrid interface physics remain out of P1 scope"},
-       "P2":{"status":"PASS" if p2["ok"] and tests["ok"] else "PARTIAL",
+       "P2":{"status":"PASS" if p2["ok"] and p2_viscosity["ok"] and tests["ok"] else "PARTIAL",
               "evidence":"Selected MAC+VOF coupled 3D CPU prototype; "+p2["why"]+
-              "; full 3D multi-material interaction is P3"},
+              "; optional viscous MAC milestone: "+p2_viscosity["why"]+
+              "; full live viscous flow/3D validation not proven"},
        "P3":{"status":"PASS" if p3["ok"] and tests["ok"] else "PARTIAL",
              "evidence":"Porous 3D soil/free-water, pressure load, voxel-body displacement, isolated mass and work-energy ledgers; "+p3["why"]+
              "; high-fidelity moving-wall impulse/energy FSI remains out of scope"},
@@ -412,6 +484,7 @@ def main() -> None:
              "evidence":"Native UE5.8 isolated adapter CPU-MVP: "+p8["why"]+
              "; real 3D MAC water only, P3-P6 Unreal renderer and P7 GPU/LOD not proven"},
     }
+    phases=enforce_full_phase_scope(phases)
     out={
       "generated_utc":datetime.now(timezone.utc).isoformat(),
       "project_root":str(PROJECT),"git_commit":git_rev(),"ctest":tests,

@@ -30,6 +30,10 @@ mit MSVC Release + CTest nachgewiesen.
   benachbarte P4-Festkörperzelle. Synthetic-CPU-MVP, **keine**
   automatischen echten Chemievorhersagen.
 
+- P2 Zusatz (PARTIAL): unabhängiger 3D-MAC-Viskositäts-Diffusionsoperator,
+  analytische diskrete Eigenmode, Energie-Proxy, adaptive Substeps;
+  nicht in die Live-Wassersimulation eingebunden.
+
 - P8: Unreal Engine 5.8 Native-Adapter mit echter 3D-MAC/VOF-
   Wassersimulation, dynamischem Unreal-InstancedStaticMesh-Rendering,
   native Game- und Editor-PIE-Sitzungen mit ExitCode=0, zwei echten
@@ -48,7 +52,7 @@ mit MSVC Release + CTest nachgewiesen.
   Siehe docs/P7_GPU_LOD_STREAMING_CPU_GPU_ABNAHME.md.
 
 ## Noch nicht abgeschlossen
-*Keine offenen Phasen im abgegrenzten P0–P8-Prototyp-Plan.* Eine produktive
+*P0–P8 besitzen grüne, abgegrenzte Prototyp-Gates; dies ist KEINE Vollphasenabnahme.* P2–P8 bleiben als Gesamtphasen PARTIAL. Eine produktive
 AAA-Engine mit GPU-Festkörper-/Fluidsolver, Unreal-RDG, großflächiger
 World-Streaming-Integration und kompletten Visualisierung P3–P6 ist ein
 separater zukünftiger Ausbau.
@@ -57,6 +61,7 @@ separater zukünftiger Ausbau.
 ## Referenznachweise
 docs/P1_2D_FLUID_ABNAHME.md
 docs/P2_3D_FLUID_ABNAHME.md
+docs/P2_VISCOUS_MAC_PARTIAL.md
 docs/P3_MATERIAL_VOLUME_ABNAHME.md
 docs/P4_THERMAL_CPU_MVP_ABNAHME.md
 docs/P5_SOLID_GRANULAR_CPU_MVP_ABNAHME.md
@@ -79,7 +84,8 @@ keine globale kinetische Energie-Rückkopplung aller Physics-Module.
   scripts/p4_partial_acceptance.py, scripts/p4_acceptance.py,
   scripts/p5_contact_partial.py, scripts/p5_acceptance.py,
   scripts/p5_full_acceptance.py, scripts/p6_acceptance.py,
-  scripts/p7_sparse_partial_acceptance.py, scripts/p7_acceptance.py ausführen.
+  scripts/p7_sparse_partial_acceptance.py, scripts/p7_acceptance.py,
+  scripts/p2_viscosity_acceptance.py ausführen.
 - P8 real Unreal Game+Editor PIE mit ENGINE TEST STUBE/scripts/p8_native_e2e.py
   game und pie starten, danach scripts/p8_acceptance.py ausführen.
 - Abschließend scripts/phase_gate.py.
@@ -88,3 +94,8 @@ keine globale kinetische Energie-Rückkopplung aller Physics-Module.
 
 Git bleibt eigenständig lokal unter D:\Projekt Engine; kein Push zum
 fremden AI-Game-Studio-Repository.
+
+Vollphasenstatus: scripts/phase_gate.py trennt prototype_status und status.
+Ein PASS in einem abgegrenzten MVP schließt die Gesamtphase P2–P8 nicht ab.
+Nächster offener Vollphasenbereich: P2, insbesondere gekoppelter viskoser
+3D-MAC/VOF-Transport mit validierten freien Oberflächen und Festkörpern.
