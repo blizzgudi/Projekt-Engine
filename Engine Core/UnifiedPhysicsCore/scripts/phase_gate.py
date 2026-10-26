@@ -53,6 +53,34 @@ def p1_evidence() -> dict:
     except (ValueError,KeyError,TypeError,OSError) as exc:
         return {"ok":False,"why":str(exc)}
 
+def p6_full_cpu_evidence() -> dict:
+    path=LAB / "runs" / "p6_acceptance.json"
+    if not path.is_file():
+        return {"ok":False,"why":"P6 3D stoichiometry/diffusion/thermal coupled acceptance report missing"}
+    try:
+        d=json.loads(path.read_text(encoding="utf-8"))
+        if d.get("phase")!="P6" or d.get("accepted") is not True:
+            raise ValueError("P6 quantitative model validation NOT PASS")
+        c=d.get("checks",[])
+        if len(c)<36 or not all(x.get("pass") is True for x in c):
+            raise ValueError("P6 reaction/energy/Fick quantitative controls incomplete")
+        rows=d.get("reference",[])
+        if len(rows)!=6 or len([x for x in rows if x.get("scenario")=="arrhenius_kinetics"])!=3:
+            raise ValueError("P6 kinetic numerical comparison absent")
+        assert_count=d.get("native_assertions",{})
+        if assert_count.get("mixture",0)<830 or assert_count.get("p4_contact",0)<300:
+            raise ValueError("P6 3D elemental mass/heat or P4 heat feedback native test absent")
+        source_hashes=d.get("source_sha256",{})
+        if len(source_hashes)<11:
+            raise ValueError("P6 source SHA-256 coverage incomplete")
+        for name,expected in source_hashes.items():
+            source=CORE/name
+            if not source.is_file() or hashlib.sha256(source.read_bytes()).hexdigest()!=expected:
+                raise ValueError(f"P6 source changed: {name}")
+        return {"ok":True,"why":f"{len(c)} reaction/3D Fick/Arrhenius/atomic mass/thermal contact checks and matching source hashes"}
+    except (ValueError,KeyError,TypeError,OSError) as exc:
+        return {"ok":False,"why":str(exc)}
+
 def p5_full_cpu_evidence() -> dict:
     path=LAB / "runs" / "p5_full_acceptance.json"
     if not path.is_file():
@@ -251,6 +279,7 @@ def main() -> None:
     p5 = p5_bounded_partial_evidence()
     p5_partial = p5_partial_evidence()
     p5_full = p5_full_cpu_evidence()
+    p6 = p6_full_cpu_evidence()
     ue_bin = BUILDS / "Binaries" / "Win64" / "UnrealEditor-EngineMaterialLab.dll"
     log = LOG.read_text(encoding="utf-8",errors="replace") if LOG.exists() else ""
     plugin_built = ue_bin.exists() and ue_bin.stat().st_size>0
@@ -276,7 +305,9 @@ def main() -> None:
              "evidence":"Bounded 3D CPU mass-spring/fracture and spherical DEM contact MVP; "+
              p5_full["why"]+"; preliminary contact "+p5_partial["why"]+
              "; full continuum FEM/MPM, accurate arbitrary surface contact and global FSI/thermal energy remain unverified"},
-       "P6":{"status":"PARTIAL","evidence":"composition mass bookkeeping; calibrated thermochemical laws missing"},
+       "P6":{"status":"PASS" if tests["ok"] and p6["ok"] else "PARTIAL",
+             "evidence":"Restricted 3D reactive-material CPU-MVP: "+p6["why"]+
+             "; generic registered synthetic species, not calibrated real chemistry, not globally coupled multiphase-CFD"},
        "P7":{"status":"PARTIAL","evidence":"sparse CPU chunks and benchmarks; GPU/LOD integration missing"},
        "P8":{"status":"PARTIAL" if plugin_built and native_module else "NOT_RUN",
              "evidence":"UE 5.8 plugin build="+str(plugin_built)+" native module load="+str(native_module)

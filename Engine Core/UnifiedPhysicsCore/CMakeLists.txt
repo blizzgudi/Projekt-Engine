@@ -108,3 +108,15 @@ add_test(NAME physics_p5_deformable_self_and_multibody_contact COMMAND upc_defor
 add_executable(upc_p5_constitutive benchmarks/p5_constitutive_reference.cpp)
 target_link_libraries(upc_p5_constitutive PRIVATE upc)
 add_test(NAME physics_p5_affine_lattice_constitutive_reference COMMAND upc_p5_constitutive)
+
+add_executable(upc_p6_reactive3d_tests tests/reactive_mixture3d_tests.cpp)
+target_link_libraries(upc_p6_reactive3d_tests PRIVATE upc)
+add_test(NAME physics_p6_conservative_3d_mixtures_reactions COMMAND upc_p6_reactive3d_tests)
+
+add_executable(upc_p6_reference benchmarks/p6_reference.cpp)
+target_link_libraries(upc_p6_reference PRIVATE upc)
+add_test(NAME physics_p6_arrhenius_fick_numeric_reference COMMAND upc_p6_reference)
+
+add_executable(upc_p6_thermal_bridge_tests tests/reactive_thermal_bridge_tests.cpp)
+target_link_libraries(upc_p6_thermal_bridge_tests PRIVATE upc)
+add_test(NAME physics_p6_p4_exothermic_energy_coupling COMMAND upc_p6_thermal_bridge_tests)

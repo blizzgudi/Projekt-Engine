@@ -1,4 +1,4 @@
-# Unified Physics Core – Architektur P0–P5 v0.5
+# Unified Physics Core – Architektur P0–P6 v0.6
 
 Eigenständiger C++17-CPU-Physikkern, Unreal Engine nur als
 Render-/Test-Adapter. Alle Zustände verwenden SI-Einheiten.
@@ -62,14 +62,32 @@ Render-/Test-Adapter. Alle Zustände verwenden SI-Einheiten.
     Energie/Dehnung auf numerische kleine-Dehnungs-
     Linearisierung geprüft, nicht gegen reale Labormesswerte.
 
+15. ReactiveMixtureVolume3D (P6): zentral registrierte
+    MaterialLibrary-ID-Spezies in 3D-Voxeln mit explizitem mol-
+    und atomaren Zusammensetzungsregister. Reaktionsregeln
+    müssen stöchiometrisch Element- und Masse erhalten; aus
+    registrierten Bildungsenthalpien entsteht sensible
+    Reaktionswärme. Arrhenius-Aktivierung und vereinfachte
+    begrenzte pseudo-erste-Reaktionsordnung; Fick-artige
+    3D-Nachbarflüsse mit Stoff-, Massenerhaltung sowie
+    chemischer und sensibler Energie. Das VoxelGrid speichert
+    nur einen *dominanten Material-Proxy*: die komplette
+    chemische Zusammensetzung verbleibt in ReactiveMixtureVolume3D.
+16. ReactiveThermalContact3D (P6): konservativer Fourier-
+    Kontakt zwischen zwei separaten benachbarten P6/P4-
+    Materie-Parzellen. Gesonderte chemische und P4-thermische
+    Energiespeicher halten gemeinsame Erhaltung ein.
+    Kein automatisches realchemisches Modell und keine
+    reaktive CFD-/FSI-Aussage.
+
 ## Verifikation
-- Release-MSVC-CMake, CTest, P1/P2/P3/P4/P5-Abnahmeskripte.
+- Release-MSVC-CMake, CTest, P1/P2/P3/P4/P5/P6-Abnahmeskripte.
 - Unabhängige numerische Referenzen: hydrostatischer Druck,
   Ritter/Stoker 2D-Dammbruch, 3D MAC/VOF, Darcy-Vertikalfluss,
   Neumann-Fourier-Eigenmode (4 Raster).
 - Energie-/Massenprüfungen im jeweils abgegrenzten Subsystem,
   Phase-Rücktransfers zu MAC und getrennte Porenbilanzen.
-- Quell-Fingerprints nach jedem P1–P5-Abnahmelauf.
+- Quell-Fingerprints nach jedem P1–P6-Abnahmelauf.
 
 ## Grenzen, nicht als gelöst ausgeben
 Globale Energie von MAC-FSI/Turbulenz, 3D-Gas-/Dampfdruck- und
@@ -77,4 +95,4 @@ Expansionsdynamik, kapillar-thermische Pore/Skelett-Kontaktmodelle,
 mehrphasige Mischungsströmungen, kalibrierte Kontinuumsfestkörper,
 rollende Drehmomente und GPU-beschleunigte Partikelkontakte,
 GPU-/LOD-Optimierung und Unreal-Rendering/E2E verbleiben als
-Forschung bzw. P6–P8. Ein begrenzter P5-CPU-MVP ist kein AAA-Release.
+Forschung bzw. P7/P8; P6 bleibt auf synthetische CPU-Chemie begrenzt. Ein begrenzter P5-CPU-MVP ist kein AAA-Release.

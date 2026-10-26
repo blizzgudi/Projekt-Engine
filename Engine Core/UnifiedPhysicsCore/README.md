@@ -1,4 +1,4 @@
-# Unified Physics Core v0.5 – Standalone C++17 CPU-Enginekern
+# Unified Physics Core v0.6 – Standalone C++17 CPU-Enginekern
 
 Projekt unter D:\Projekt Engine. Unreal 5.8 ist ein optionaler Adapter.
 Das Originalsystem wird modular in Phasen P0 bis P8 entwickelt und lokal
@@ -23,8 +23,14 @@ mit MSVC Release + CTest nachgewiesen.
   Selbst-/Mehrkörperkontakt und affine Zug-/Scherkraft-Benchmarks.
   Grenzen: docs/P5_SOLID_GRANULAR_CPU_MVP_ABNAHME.md.
 
+- P6: Mehrspezies-Voxelgemische mit registrierten Elementmassen,
+  ausgeglichener Reaktions-Stöchiometrie, Arrhenius-1.-Ordnung-Regeln,
+  konservativer 3D-Fick-Diffusion, Reaktionsenthalpie-Bilanz,
+  dominantem VoxelGrid-Material-Proxy und Wärmeabgabe an eine
+  benachbarte P4-Festkörperzelle. Synthetic-CPU-MVP, **keine**
+  automatischen echten Chemievorhersagen.
+
 ## Noch nicht abgeschlossen
-P6: Dynamische Materialmischungen und Reaktionsphysik.
 P7: GPU/LOD und Skalierung.
 P8: Unreal5.8-Gameplay-/Rendering- und End-to-End-Test.
 
@@ -34,9 +40,10 @@ docs/P2_3D_FLUID_ABNAHME.md
 docs/P3_MATERIAL_VOLUME_ABNAHME.md
 docs/P4_THERMAL_CPU_MVP_ABNAHME.md
 docs/P5_SOLID_GRANULAR_CPU_MVP_ABNAHME.md
+docs/P6_REACTIVE_MATERIALS_CPU_MVP_ABNAHME.md
 docs/PHASENPLAN.md
 
-Wichtige Einschränkung: P4 und P5 sind abgegrenzte CPU-MVPs. Beide sind keine
+Wichtige Einschränkung: P4, P5 und P6 sind abgegrenzte CPU-MVPs. Sie sind keine
 universellen Thermo-FSI-/FEM-/MPM-/DEM-Systeme. P4 ist kein
 vollständiger 3D-Steam/Gas/thermoelastischer Solver. Das Dampfvolumen
 wird diagnostiziert, aber nicht in einem Gas-Druckfeld bewegt.
@@ -49,7 +56,7 @@ keine globale kinetische Energie-Rückkopplung aller Physics-Module.
   scripts/p2_acceptance.py, scripts/p3_acceptance.py,
   scripts/p4_partial_acceptance.py, scripts/p4_acceptance.py,
   scripts/p5_contact_partial.py, scripts/p5_acceptance.py,
-  scripts/p5_full_acceptance.py ausführen.
+  scripts/p5_full_acceptance.py, scripts/p6_acceptance.py ausführen.
 - Abschließend scripts/phase_gate.py.
 - Maschinenlesbare Nachweise liegen unter:
   D:\Projekt Engine\ENGINE TEST STUBE\runs\
