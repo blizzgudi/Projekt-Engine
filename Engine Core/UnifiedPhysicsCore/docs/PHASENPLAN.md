@@ -495,3 +495,24 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
   nicht, der Fluid-Gegenimpuls wird nicht auf MAC-Faces angewandt.
   Keine bidirektionale dynamische FSI, keine globale Impuls-/Energie-
   Erhaltung, keine externen 3D-CFD-Messdaten oder neue UE5.8 Native-E2E.
+## P2 Teilfortschritt: konservative Ein-Zellen-Voxelmasken-Verschiebung (27.10.2026)
+
+- Neue eigenstaendige 3D-Rigid-Occupancy-Remap-Komponente
+  include/upc/p2_voxel_sweep_remap3d.hpp: exakt ein Voxel entlang einer
+  Koordinatenachse, Validierung von Kollisionen, Grenzen und VOF-Masken.
+  Einfrierbare/atomare Eingaben; Wasseranteile werden vom neuen
+  Fuehrungs-Voxel auf das freigegebene Nachlauf-Voxel derselben
+  alten zusammenhaengenden Koerperzeile konservativ umklassifiziert.
+- MSVC-Release Build PASS; vollstaendiger 52/52 CTest PASS;
+  76.222 native Assertions in 18 3D-Achsen-/Richtungsfaellen.
+  Unabhaengige Python-Referenz und SHA256-Nachweise:
+  scripts/p2_voxel_sweep_acceptance.py,
+  ENGINE TEST STUBE/runs/p2_voxel_sweep_partial.json.
+  Detailgrenzen: docs/P2_VOXEL_SWEEP_MASS_REMAP_PARTIAL.md.
+- **P2 weiterhin PARTIAL, P3-P8 ebenfalls.** Das Wasser-Remap
+  verschiebt die skalare Fuellung kuenstlich durch den Koerper.
+  Es ist kein physikalischer lokaler VOF-Flux, keine MAC-Face-Advektion,
+  keine dynamische Zweiwege-FSI, keine Impuls-/Energieerhaltung und
+  keine neue UE5.8 Native-E2E-Abnahme. Erst die naechsten Arbeiten
+  duerfen dieses reine Geometrie-/Massen-Buchhaltungsmodul
+  in einen dynamischen Solver integrieren.

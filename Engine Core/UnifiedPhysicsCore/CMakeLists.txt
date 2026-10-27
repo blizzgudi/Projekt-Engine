@@ -251,3 +251,9 @@ add_test(NAME physics_p2_kinematic_projection_atomic_convergence_partial COMMAND
 add_executable(upc_p2_lagged_pressure_body_tests tests/p2_lagged_kinematic_pressure_body3d_tests.cpp)
 target_link_libraries(upc_p2_lagged_pressure_body_tests PRIVATE upc)
 add_test(NAME physics_p2_lagged_kinematic_pressure_body_partial COMMAND upc_p2_lagged_pressure_body_tests)
+
+# P2 partial: one-cell 3D rigid-mask sweep with exact conservative VOF
+# reclassification, no MAC momentum/pressure coupling or full FSI.
+add_executable(upc_p2_voxel_sweep_remap_tests tests/p2_voxel_sweep_remap3d_tests.cpp)
+target_link_libraries(upc_p2_voxel_sweep_remap_tests PRIVATE upc)
+add_test(NAME physics_p2_voxel_sweep_mass_remap_partial COMMAND upc_p2_voxel_sweep_remap_tests)

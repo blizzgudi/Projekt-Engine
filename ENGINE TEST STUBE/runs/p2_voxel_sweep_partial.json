@@ -1,0 +1,800 @@
+{
+  "phase": "P2",
+  "milestone": "one_cell_solid_sweep_conservative_vof_remap_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "timestamp_utc": "2026-10-27T21:03:55.319613+00:00",
+  "ctest_count": 52,
+  "native_assertions": 76222,
+  "checks": [
+    {
+      "name": "8_0_-1_grid",
+      "actual": 8.0,
+      "expected": 8,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "8_0_-1_axis",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "8_0_-1_sign",
+      "actual": -1.0,
+      "expected": -1,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "8_0_-1_entering",
+      "actual": 2.0,
+      "expected": 2,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "8_0_-1_displaced_m3",
+      "actual": 0.00078125,
+      "expected": 0.00078125,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "8_0_-1_residual_m3",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "8_0_1_grid",
+      "actual": 8.0,
+      "expected": 8,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "8_0_1_axis",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "8_0_1_sign",
+      "actual": 1.0,
+      "expected": 1,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "8_0_1_entering",
+      "actual": 2.0,
+      "expected": 2,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "8_0_1_displaced_m3",
+      "actual": 0.0005859375,
+      "expected": 0.0005859375,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "8_0_1_residual_m3",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "8_1_-1_grid",
+      "actual": 8.0,
+      "expected": 8,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "8_1_-1_axis",
+      "actual": 1.0,
+      "expected": 1,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "8_1_-1_sign",
+      "actual": -1.0,
+      "expected": -1,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "8_1_-1_entering",
+      "actual": 2.0,
+      "expected": 2,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "8_1_-1_displaced_m3",
+      "actual": 0.0017578125,
+      "expected": 0.0017578125,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "8_1_-1_residual_m3",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "8_1_1_grid",
+      "actual": 8.0,
+      "expected": 8,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "8_1_1_axis",
+      "actual": 1.0,
+      "expected": 1,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "8_1_1_sign",
+      "actual": 1.0,
+      "expected": 1,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "8_1_1_entering",
+      "actual": 2.0,
+      "expected": 2,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "8_1_1_displaced_m3",
+      "actual": 0.001953125,
+      "expected": 0.001953125,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "8_1_1_residual_m3",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "8_2_-1_grid",
+      "actual": 8.0,
+      "expected": 8,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "8_2_-1_axis",
+      "actual": 2.0,
+      "expected": 2,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "8_2_-1_sign",
+      "actual": -1.0,
+      "expected": -1,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "8_2_-1_entering",
+      "actual": 2.0,
+      "expected": 2,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "8_2_-1_displaced_m3",
+      "actual": 0.0021484375,
+      "expected": 0.0021484375,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "8_2_-1_residual_m3",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "8_2_1_grid",
+      "actual": 8.0,
+      "expected": 8,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "8_2_1_axis",
+      "actual": 2.0,
+      "expected": 2,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "8_2_1_sign",
+      "actual": 1.0,
+      "expected": 1,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "8_2_1_entering",
+      "actual": 2.0,
+      "expected": 2,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "8_2_1_displaced_m3",
+      "actual": 0.0025390624999999997,
+      "expected": 0.0025390624999999997,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "8_2_1_residual_m3",
+      "actual": -5.551115123125783e-17,
+      "expected": 0.0,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "12_0_-1_grid",
+      "actual": 12.0,
+      "expected": 12,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "12_0_-1_axis",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "12_0_-1_sign",
+      "actual": -1.0,
+      "expected": -1,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "12_0_-1_entering",
+      "actual": 2.0,
+      "expected": 2,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "12_0_-1_displaced_m3",
+      "actual": 0.0021484375,
+      "expected": 0.0021484375,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "12_0_-1_residual_m3",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "12_0_1_grid",
+      "actual": 12.0,
+      "expected": 12,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "12_0_1_axis",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "12_0_1_sign",
+      "actual": 1.0,
+      "expected": 1,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "12_0_1_entering",
+      "actual": 2.0,
+      "expected": 2,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "12_0_1_displaced_m3",
+      "actual": 0.001953125,
+      "expected": 0.001953125,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "12_0_1_residual_m3",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "12_1_-1_grid",
+      "actual": 12.0,
+      "expected": 12,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "12_1_-1_axis",
+      "actual": 1.0,
+      "expected": 1,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "12_1_-1_sign",
+      "actual": -1.0,
+      "expected": -1,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "12_1_-1_entering",
+      "actual": 2.0,
+      "expected": 2,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "12_1_-1_displaced_m3",
+      "actual": 0.0013671875,
+      "expected": 0.0013671875,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "12_1_-1_residual_m3",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "12_1_1_grid",
+      "actual": 12.0,
+      "expected": 12,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "12_1_1_axis",
+      "actual": 1.0,
+      "expected": 1,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "12_1_1_sign",
+      "actual": 1.0,
+      "expected": 1,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "12_1_1_entering",
+      "actual": 2.0,
+      "expected": 2,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "12_1_1_displaced_m3",
+      "actual": 0.0015624999999999999,
+      "expected": 0.0015624999999999999,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "12_1_1_residual_m3",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "12_2_-1_grid",
+      "actual": 12.0,
+      "expected": 12,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "12_2_-1_axis",
+      "actual": 2.0,
+      "expected": 2,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "12_2_-1_sign",
+      "actual": -1.0,
+      "expected": -1,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "12_2_-1_entering",
+      "actual": 2.0,
+      "expected": 2,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "12_2_-1_displaced_m3",
+      "actual": 0.0017578124999999998,
+      "expected": 0.0017578124999999998,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "12_2_-1_residual_m3",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "12_2_1_grid",
+      "actual": 12.0,
+      "expected": 12,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "12_2_1_axis",
+      "actual": 2.0,
+      "expected": 2,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "12_2_1_sign",
+      "actual": 1.0,
+      "expected": 1,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "12_2_1_entering",
+      "actual": 2.0,
+      "expected": 2,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "12_2_1_displaced_m3",
+      "actual": 0.0021484375,
+      "expected": 0.0021484375,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "12_2_1_residual_m3",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "16_0_-1_grid",
+      "actual": 16.0,
+      "expected": 16,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "16_0_-1_axis",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "16_0_-1_sign",
+      "actual": -1.0,
+      "expected": -1,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "16_0_-1_entering",
+      "actual": 2.0,
+      "expected": 2,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "16_0_-1_displaced_m3",
+      "actual": 0.0017578124999999998,
+      "expected": 0.0017578124999999998,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "16_0_-1_residual_m3",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "16_0_1_grid",
+      "actual": 16.0,
+      "expected": 16,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "16_0_1_axis",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "16_0_1_sign",
+      "actual": 1.0,
+      "expected": 1,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "16_0_1_entering",
+      "actual": 2.0,
+      "expected": 2,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "16_0_1_displaced_m3",
+      "actual": 0.0015624999999999999,
+      "expected": 0.0015624999999999999,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "16_0_1_residual_m3",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "16_1_-1_grid",
+      "actual": 16.0,
+      "expected": 16,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "16_1_-1_axis",
+      "actual": 1.0,
+      "expected": 1,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "16_1_-1_sign",
+      "actual": -1.0,
+      "expected": -1,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "16_1_-1_entering",
+      "actual": 2.0,
+      "expected": 2,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "16_1_-1_displaced_m3",
+      "actual": 0.0009765625,
+      "expected": 0.0009765625,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "16_1_-1_residual_m3",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "16_1_1_grid",
+      "actual": 16.0,
+      "expected": 16,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "16_1_1_axis",
+      "actual": 1.0,
+      "expected": 1,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "16_1_1_sign",
+      "actual": 1.0,
+      "expected": 1,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "16_1_1_entering",
+      "actual": 2.0,
+      "expected": 2,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "16_1_1_displaced_m3",
+      "actual": 0.001171875,
+      "expected": 0.001171875,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "16_1_1_residual_m3",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "16_2_-1_grid",
+      "actual": 16.0,
+      "expected": 16,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "16_2_-1_axis",
+      "actual": 2.0,
+      "expected": 2,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "16_2_-1_sign",
+      "actual": -1.0,
+      "expected": -1,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "16_2_-1_entering",
+      "actual": 2.0,
+      "expected": 2,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "16_2_-1_displaced_m3",
+      "actual": 0.0013671875,
+      "expected": 0.0013671875,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "16_2_-1_residual_m3",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "16_2_1_grid",
+      "actual": 16.0,
+      "expected": 16,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "16_2_1_axis",
+      "actual": 2.0,
+      "expected": 2,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "16_2_1_sign",
+      "actual": 1.0,
+      "expected": 1,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "16_2_1_entering",
+      "actual": 2.0,
+      "expected": 2,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "16_2_1_displaced_m3",
+      "actual": 0.0017578125,
+      "expected": 0.0017578125,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "16_2_1_residual_m3",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-13,
+      "pass": true
+    }
+  ],
+  "native_csv": [
+    "grid,axis,sign,entering,displaced_m3,residual_m3",
+    "8,0,-1,2,0.00078125000000000004,0",
+    "8,0,1,2,0.00058593749999999998,0",
+    "8,1,-1,2,0.0017578125,0",
+    "8,1,1,2,0.001953125,0",
+    "8,2,-1,2,0.0021484375000000002,0",
+    "8,2,1,2,0.0025390624999999997,-5.5511151231257827e-17",
+    "12,0,-1,2,0.0021484375000000002,0",
+    "12,0,1,2,0.001953125,0",
+    "12,1,-1,2,0.0013671874999999999,0",
+    "12,1,1,2,0.0015624999999999999,0",
+    "12,2,-1,2,0.0017578124999999998,0",
+    "12,2,1,2,0.0021484375000000002,0",
+    "16,0,-1,2,0.0017578124999999998,0",
+    "16,0,1,2,0.0015624999999999999,0",
+    "16,1,-1,2,0.0009765625,0",
+    "16,1,1,2,0.001171875,0",
+    "16,2,-1,2,0.0013671874999999999,0",
+    "16,2,1,2,0.0017578125,0"
+  ],
+  "phase_gate_output": "GATES_PASS=P0,P1\nGATES_INCOMPLETE=P2,P3,P4,P5,P6,P7,P8\nALL_COMPLETE=False\nEVIDENCE=D:\\Projekt Engine\\ENGINE TEST STUBE\\runs\\unified_physics_gate.json",
+  "source_sha256": {
+    "include/upc/p2_voxel_sweep_remap3d.hpp": "4ab90fa1939c2699791984af3c71fabf975b9b7a63fad79c62f6b303fa83adbe",
+    "tests/p2_voxel_sweep_remap3d_tests.cpp": "13560518cbebc7f055394686f7cc82eb1590db817fe5d0398ca45ef00fff5945",
+    "scripts/p2_voxel_sweep_acceptance.py": "11c47a1699b6c53a117ee00fb6834a8ca7ce3c337d0f47d34fa1119fa6717f35",
+    "docs/P2_VOXEL_SWEEP_MASS_REMAP_PARTIAL.md": "b44cf85e0089d2f541189290c3f5fead3a8a35375ca3f64162bd8a19b5316edd",
+    "docs/PHASENPLAN.md": "dbd5edafe6282a60c21eed008dd418358455a3273f296fe906619d22108c80d6",
+    "CMakeLists.txt": "11cbc32337277e2f6974caace997e7dbf7ac0b531c074befbe475e176ba05a89"
+  },
+  "native_exe_sha256": "0269dd821d70fd7fc75ca5757e28f3524a9e6f07a5d7e959b5c587364e1b7856",
+  "ctest_log_sha256": "c6534c410f4bf5a7a21bd7e7d3ce4ad55489c737e9fac9d9d98b27f31031fd84",
+  "scope": "exact integer voxel mask shift + conservative scalar VOF reclassification; nonphysical through-body transfer, no MAC/FSI"
+}
