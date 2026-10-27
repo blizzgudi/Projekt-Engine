@@ -454,3 +454,24 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
 - P2 bleibt PARTIAL; P3-P8 ebenso. Nur eingefrorene Geometrie,
   keine echte bewegliche Zweiwege-FSI, keine globale Energie-/Impuls-
   validierung, keine externen 3D-Messdaten oder neue UE5.8-Native-E2E.
+
+## P2 Teilfortschritt: atomare Konvergenz der kinematischen MAC-Projektion (27.10.2026)
+
+- Fehlerbehebung: Nach Erschoepfung des Druck-Iterationsbudgets darf ein
+  unterkonvergiertes 3D-MAC-Geschwindigkeitsfeld nicht mehr in den
+  eigentlichen MAC-Zustand geschrieben werden. Neue Divergenzschranke
+  1e-8 s^-1 wird vor dem Face-Writeback geprueft; Fehler lassen
+  alle Face-Geschwindigkeiten bitgenau unveraendert.
+- Native Regression: 8^3/12^3/16^3, offene und geschlossene
+  Fluessigkeitsgeometrie, Translation plus Rotation; 12 bewusst
+  zu kurze Druckloesungen werden abgelehnt und alle 81.600
+  MAC-Face-Vergleiche bleiben unveraendert. Sechs volle
+  Konvergenzlaeufe und stationaerer Ein-Iterations-Nullfall.
+- MSVC Release **50/50 CTest PASS**; unabhaengiges Python-Gate,
+  Source-SHA256 und Binaerhash: siehe
+  `docs/P2_KINEMATIC_PROJECTION_CONVERGENCE_PARTIAL.md`,
+  `scripts/p2_kinematic_convergence_acceptance.py` und
+  `ENGINE TEST STUBE/runs/p2_kinematic_convergence_partial.json`.
+- **P2 bleibt PARTIAL; P3-P8 ebenfalls.** Keine bewegte Maske,
+  keine dynamische Zweiwege-FSI, keine externe 3D-CFD-Messvalidierung,
+  keine globale Energie-/Impulsbilanz und kein neues UE5.8 Native-E2E.

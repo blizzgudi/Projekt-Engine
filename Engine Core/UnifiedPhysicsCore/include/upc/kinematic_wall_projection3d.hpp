@@ -284,6 +284,14 @@ public:
         if(!std::isfinite(result.max_divergence_after_s_inv)||
            !std::isfinite(result.max_abs_pressure_pa))
             throw std::overflow_error("Nonfinite kinematic projection diagnostics");
+        // A pressure-iteration limit is not proof of a solenoidal field.
+        // Refuse to publish an under-converged velocity field. In particular,
+        // this must run before the atomic MAC commit below: callers may retry
+        // with a larger iteration budget without losing their input state.
+        constexpr double max_divergence_tolerance_s_inv=1e-8;
+        if(result.max_divergence_after_s_inv>max_divergence_tolerance_s_inv)
+            throw std::runtime_error(
+                "Kinematic MAC projection did not satisfy divergence tolerance");
         // Atomic commit of all face arrays after successful preflight/solve.
         for(std::size_t z=0;z<nz;++z)
         for(std::size_t y=0;y<ny;++y)

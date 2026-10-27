@@ -1,0 +1,280 @@
+{
+  "phase": "P2",
+  "milestone": "kinematic_projection_atomic_convergence_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "timestamp_utc": "2026-10-27T19:13:57.452776+00:00",
+  "native_assertions": 81644,
+  "checks": [
+    {
+      "name": "8_closed_grid",
+      "pass": true,
+      "value": 8,
+      "reference": 8,
+      "tolerance": 0.0
+    },
+    {
+      "name": "8_closed_boundary",
+      "pass": true,
+      "value": "closed",
+      "reference": "closed",
+      "tolerance": 0.0
+    },
+    {
+      "name": "8_closed_rejected_budgets",
+      "pass": true,
+      "value": 2,
+      "reference": 2,
+      "tolerance": 0.0
+    },
+    {
+      "name": "8_closed_mac_face_count",
+      "pass": true,
+      "value": 1728,
+      "reference": 1728,
+      "tolerance": 0.0
+    },
+    {
+      "name": "8_closed_iterations_in_bounds",
+      "pass": true,
+      "value": 435,
+      "reference": "3..5000"
+    },
+    {
+      "name": "8_closed_divergence_below_1e-8",
+      "pass": true,
+      "value": 1.063039901331303e-12,
+      "reference": "<=1e-8 s^-1"
+    },
+    {
+      "name": "8_open_grid",
+      "pass": true,
+      "value": 8,
+      "reference": 8,
+      "tolerance": 0.0
+    },
+    {
+      "name": "8_open_boundary",
+      "pass": true,
+      "value": "open",
+      "reference": "open",
+      "tolerance": 0.0
+    },
+    {
+      "name": "8_open_rejected_budgets",
+      "pass": true,
+      "value": 2,
+      "reference": 2,
+      "tolerance": 0.0
+    },
+    {
+      "name": "8_open_mac_face_count",
+      "pass": true,
+      "value": 1728,
+      "reference": 1728,
+      "tolerance": 0.0
+    },
+    {
+      "name": "8_open_iterations_in_bounds",
+      "pass": true,
+      "value": 1044,
+      "reference": "3..5000"
+    },
+    {
+      "name": "8_open_divergence_below_1e-8",
+      "pass": true,
+      "value": 1.1159394805795864e-12,
+      "reference": "<=1e-8 s^-1"
+    },
+    {
+      "name": "12_closed_grid",
+      "pass": true,
+      "value": 12,
+      "reference": 12,
+      "tolerance": 0.0
+    },
+    {
+      "name": "12_closed_boundary",
+      "pass": true,
+      "value": "closed",
+      "reference": "closed",
+      "tolerance": 0.0
+    },
+    {
+      "name": "12_closed_rejected_budgets",
+      "pass": true,
+      "value": 2,
+      "reference": 2,
+      "tolerance": 0.0
+    },
+    {
+      "name": "12_closed_mac_face_count",
+      "pass": true,
+      "value": 5616,
+      "reference": 5616,
+      "tolerance": 0.0
+    },
+    {
+      "name": "12_closed_iterations_in_bounds",
+      "pass": true,
+      "value": 932,
+      "reference": "3..5000"
+    },
+    {
+      "name": "12_closed_divergence_below_1e-8",
+      "pass": true,
+      "value": 1.141503612554079e-12,
+      "reference": "<=1e-8 s^-1"
+    },
+    {
+      "name": "12_open_grid",
+      "pass": true,
+      "value": 12,
+      "reference": 12,
+      "tolerance": 0.0
+    },
+    {
+      "name": "12_open_boundary",
+      "pass": true,
+      "value": "open",
+      "reference": "open",
+      "tolerance": 0.0
+    },
+    {
+      "name": "12_open_rejected_budgets",
+      "pass": true,
+      "value": 2,
+      "reference": 2,
+      "tolerance": 0.0
+    },
+    {
+      "name": "12_open_mac_face_count",
+      "pass": true,
+      "value": 5616,
+      "reference": 5616,
+      "tolerance": 0.0
+    },
+    {
+      "name": "12_open_iterations_in_bounds",
+      "pass": true,
+      "value": 2569,
+      "reference": "3..5000"
+    },
+    {
+      "name": "12_open_divergence_below_1e-8",
+      "pass": true,
+      "value": 1.154548597568153e-12,
+      "reference": "<=1e-8 s^-1"
+    },
+    {
+      "name": "16_closed_grid",
+      "pass": true,
+      "value": 16,
+      "reference": 16,
+      "tolerance": 0.0
+    },
+    {
+      "name": "16_closed_boundary",
+      "pass": true,
+      "value": "closed",
+      "reference": "closed",
+      "tolerance": 0.0
+    },
+    {
+      "name": "16_closed_rejected_budgets",
+      "pass": true,
+      "value": 2,
+      "reference": 2,
+      "tolerance": 0.0
+    },
+    {
+      "name": "16_closed_mac_face_count",
+      "pass": true,
+      "value": 13056,
+      "reference": 13056,
+      "tolerance": 0.0
+    },
+    {
+      "name": "16_closed_iterations_in_bounds",
+      "pass": true,
+      "value": 1603,
+      "reference": "3..5000"
+    },
+    {
+      "name": "16_closed_divergence_below_1e-8",
+      "pass": true,
+      "value": 1.1596696740639578e-12,
+      "reference": "<=1e-8 s^-1"
+    },
+    {
+      "name": "16_open_grid",
+      "pass": true,
+      "value": 16,
+      "reference": 16,
+      "tolerance": 0.0
+    },
+    {
+      "name": "16_open_boundary",
+      "pass": true,
+      "value": "open",
+      "reference": "open",
+      "tolerance": 0.0
+    },
+    {
+      "name": "16_open_rejected_budgets",
+      "pass": true,
+      "value": 2,
+      "reference": 2,
+      "tolerance": 0.0
+    },
+    {
+      "name": "16_open_mac_face_count",
+      "pass": true,
+      "value": 13056,
+      "reference": 13056,
+      "tolerance": 0.0
+    },
+    {
+      "name": "16_open_iterations_in_bounds",
+      "pass": true,
+      "value": 4746,
+      "reference": "3..5000"
+    },
+    {
+      "name": "16_open_divergence_below_1e-8",
+      "pass": true,
+      "value": 1.1612237254122852e-12,
+      "reference": "<=1e-8 s^-1"
+    },
+    {
+      "name": "native_assertions",
+      "pass": true,
+      "value": 81644,
+      "reference": 81644,
+      "tolerance": 0.0
+    }
+  ],
+  "native_csv": [
+    "grid,boundary,rejected_budgets,accepted_iterations,max_divergence_s_inv,mac_faces",
+    "8,closed,2,435,1.063039901331303e-12,1728",
+    "8,open,2,1044,1.1159394805795864e-12,1728",
+    "12,closed,2,932,1.141503612554079e-12,5616",
+    "12,open,2,2569,1.154548597568153e-12,5616",
+    "16,closed,2,1603,1.1596696740639578e-12,13056",
+    "16,open,2,4746,1.1612237254122852e-12,13056"
+  ],
+  "ctest_count": 50,
+  "phase_gate_output": "GATES_PASS=P0,P1\nGATES_INCOMPLETE=P2,P3,P4,P5,P6,P7,P8\nALL_COMPLETE=False\nEVIDENCE=D:\\Projekt Engine\\ENGINE TEST STUBE\\runs\\unified_physics_gate.json",
+  "source_sha256": {
+    "include/upc/kinematic_wall_projection3d.hpp": "55ba1bbaf8e4899ae4d8f26ebc8b0b6df0cc009d2755961a67b1f600aa1cd783",
+    "include/upc/mac3d.hpp": "9bb4659c5b6e6fd3a512301ae4a3a083fa96b1e67d50363ec8f5634e1038fdc5",
+    "tests/p2_kinematic_projection_convergence3d_tests.cpp": "e14ec856afe4434d080dc9319ed802b7ea76d7d3b2fb27c868a585dcf2427e40",
+    "scripts/p2_kinematic_convergence_acceptance.py": "ec24967c72970d2f5a7db2f40efb76a0ca812c5fba03591af7fff8ed56cf0c0c",
+    "docs/P2_KINEMATIC_PROJECTION_CONVERGENCE_PARTIAL.md": "f90153f441c13ad3934c7e4e43cd75b8866af4015ab528cce07a8df6e5302f54",
+    "docs/PHASENPLAN.md": "03e5a9b4dcd927bd830400a8359bafa5138c8b6bcc15da5b7b8b77a5c496c192",
+    "CMakeLists.txt": "afab6457beb7f7b6cb33f6dda01c9c1202c9636c8a88d104aec7214a29e94719"
+  },
+  "native_exe_sha256": "132bf8753bd3075ddf25e5f560b1ad2cc8234d11b07fe5920d2f8ad86c39fa91",
+  "ctest_log_sha256": "38ba72be10420afbf1e3bb86dbdd31017e0122a33647254e9236c78262bbcab6",
+  "scope": "frozen-mask kinematic MAC solver atomic rejection on underconvergence; not dynamic FSI"
+}

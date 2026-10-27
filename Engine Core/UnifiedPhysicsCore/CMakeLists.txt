@@ -239,3 +239,9 @@ add_test(NAME physics_p2_kinematic_disconnected_wet_component_partial COMMAND up
 add_executable(upc_p2_kinematic_pressure_work_tests tests/p2_kinematic_wall_pressure_work3d_tests.cpp)
 target_link_libraries(upc_p2_kinematic_pressure_work_tests PRIVATE upc)
 add_test(NAME physics_p2_kinematic_wall_pressure_work_partial COMMAND upc_p2_kinematic_pressure_work_tests)
+
+# P2 partial: a nonconverged kinematic projection must not commit MAC velocities.
+# Three 3D grids, open/closed boundaries, two insufficient iteration budgets.
+add_executable(upc_p2_kinematic_convergence_tests tests/p2_kinematic_projection_convergence3d_tests.cpp)
+target_link_libraries(upc_p2_kinematic_convergence_tests PRIVATE upc)
+add_test(NAME physics_p2_kinematic_projection_atomic_convergence_partial COMMAND upc_p2_kinematic_convergence_tests)
