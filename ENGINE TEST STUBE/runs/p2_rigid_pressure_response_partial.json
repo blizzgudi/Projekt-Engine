@@ -1,0 +1,1659 @@
+{
+  "schema_version": 1,
+  "phase": "P2",
+  "milestone": "frozen_3d_mac_pressure_rigid_impulse_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "generated_utc": "2026-10-27T01:52:07.878725+00:00",
+  "scope": "12 real projected 3D MAC pressure fields; static body wrench -> frozen-force velocity/position/impulse and energy ledger",
+  "native_assertions": 603,
+  "native_stdout": "mode,n,offset_pa,force_x_N,force_y_N,force_z_N,velocity_x_m_s,velocity_y_m_s,velocity_z_m_s,centre_x_m,centre_y_m,centre_z_m,omega_x_rad_s,omega_y_rad_s,omega_z_rad_s,reaction_x_Ns,reaction_y_Ns,reaction_z_Ns,pressure_work_J,kinetic_delta_J,energy_residual_J,divergence\nair,8,150,-0.53760000550920439,0.84479999985157306,-0.38400000018971636,0.08924799988981591,-0.18310400000296856,0.29231999999620567,0.32473119999724542,0.23042239999992578,0.25480799999990511,0.20000000000000079,-0.099999999999974429,0.14999999999999178,0.026880000275460222,-0.042239999992578658,0.01920000000948582,-0.016320921626000247,-0.016320921626000254,-6.9388939039072284e-18,8.8189012841487224e-11\nair,8,1200,-0.53760000556022369,0.84479999985019827,-0.38400000019147118,0.089247999888795532,-0.18310400000299604,0.29231999999617059,0.32473119999721989,0.23042239999992509,0.25480799999990428,0.20000000000000082,-0.099999999999974207,0.1499999999999917,0.026880000278011185,-0.042239999992509915,0.019200000009573559,-0.016320921626240995,-0.016320921626241002,-6.9388939039072284e-18,8.9002584599193191e-11\nair,12,150,-0.53760001161562954,0.84479999980279907,-0.38400000023213443,0.089247999767687408,-0.18310400000394403,0.29231999999535729,0.48473119999419217,0.39042239999990141,0.41480799999988394,0.20000000000000012,-0.099999999999976497,0.14999999999998251,0.02688000058078148,-0.042239999990139956,0.019200000011606724,-0.016320921653423789,-0.016320921653423817,-2.7755575615628914e-17,9.2140601789039711e-11\nair,12,1200,-0.53760001164005899,0.8447999998023823,-0.38400000023261693,0.089247999767198827,-0.18310400000395236,0.29231999999534763,0.48473119999417996,0.39042239999990119,0.41480799999988371,0.20000000000000012,-0.099999999999976455,0.14999999999998245,0.02688000058200295,-0.042239999990119119,0.019200000011630847,-0.016320921653536047,-0.016320921653536078,-3.1225022567582528e-17,9.2333600617763856e-11\nair,16,150,-0.53760001730732976,0.84479999978057962,-0.38400000024528147,0.08924799965385341,-0.18310400000438842,0.29231999999509434,0.64473119999134632,0.55042239999989029,0.57480799999987742,0.20000000000000007,-0.099999999999983186,0.1499999999999862,0.026880000865366488,-0.042239999989028984,0.019200000012264073,-0.016320921678810506,-0.016320921678810538,-3.1225022567582528e-17,9.2810110183076666e-11\nair,16,1200,-0.53760001736671459,0.844799999779827,-0.3840000002461208,0.089247999652665708,-0.18310400000440347,0.29231999999507757,0.64473119999131667,0.55042239999988996,0.57480799999987697,0.20000000000000004,-0.099999999999983102,0.14999999999998614,0.026880000868335731,-0.042239999988991354,0.01920000001230604,-0.016320921679080891,-0.016320921679080905,-1.3877787807814457e-17,9.3127992839038554e-11\nclosed,8,150,-0.53759999647374812,0.84480000000226063,-0.38399999999814022,0.089248000070525038,-0.1831039999999548,0.29232000000003716,0.32473120000176314,0.23042240000000111,0.25480800000000092,0.20000000000000001,-0.10000000000004618,0.15000000000003677,0.026879999823687408,-0.042240000000113034,0.019199999999907014,-0.01632092158425235,-0.016320921584252364,-1.3877787807814457e-17,8.1690486623473002e-11\nclosed,8,1200,-0.53759999647374812,0.84480000000226063,-0.38399999999814022,0.089248000070525038,-0.1831039999999548,0.29232000000003716,0.32473120000176314,0.23042240000000111,0.25480800000000092,0.20000000000000001,-0.10000000000004618,0.15000000000003677,0.026879999823687408,-0.042240000000113034,0.019199999999907014,-0.01632092158425235,-0.016320921584252364,-1.3877787807814457e-17,8.1690486623473002e-11\nclosed,12,150,-0.53759999259172853,0.84479999987318888,-0.38400000000046652,0.089248000148165432,-0.18310400000253624,0.29231999999999064,0.48473120000370412,0.39042239999993661,0.41480799999999979,0.19999999999999882,-0.10000000000004636,0.15000000000003844,0.026879999629586426,-0.042239999993659447,0.019200000000023327,-0.016320921565781486,-0.0163209215657815,-1.3877787807814457e-17,8.8414179948669014e-11\nclosed,12,1200,-0.53759999259172853,0.84479999987318888,-0.38400000000046652,0.089248000148165432,-0.18310400000253624,0.29231999999999064,0.48473120000370412,0.39042239999993661,0.41480799999999979,0.19999999999999882,-0.10000000000004636,0.15000000000003844,0.026879999629586426,-0.042239999993659447,0.019200000000023327,-0.016320921565781486,-0.0163209215657815,-1.3877787807814457e-17,8.8414179948669014e-11\nclosed,16,150,-0.53759998865734904,0.844799999073093,-0.38399999999313439,0.08924800022685303,-0.18310400001853816,0.2923200000001373,0.6447312000056713,0.55042239999953657,0.57480800000000354,0.19999999999999557,-0.1000000000000375,0.15000000000003416,0.026879999432867452,-0.042239999953654656,0.019199999999656721,-0.016320921540793593,-0.016320921540793603,-1.0408340855860843e-17,9.1822415556469528e-11\nclosed,16,1200,-0.53759998865734904,0.844799999073093,-0.38399999999313439,0.08924800022685303,-0.18310400001853816,0.2923200000001373,0.6447312000056713,0.55042239999953657,0.57480800000000354,0.19999999999999557,-0.1000000000000375,0.15000000000003416,0.026879999432867452,-0.042239999953654656,0.019199999999656721,-0.016320921540793593,-0.016320921540793603,-1.0408340855860843e-17,9.1822415556469528e-11\nPASS: P2 frozen pressure response assertions=603 phase_complete=false\n",
+  "checks": [
+    {
+      "name": "native_assertions",
+      "pass": true,
+      "value": 603,
+      "expected": ">=456"
+    },
+    {
+      "name": "air_8_150_mode",
+      "pass": true,
+      "value": "air",
+      "expected": "air"
+    },
+    {
+      "name": "air_8_150_n",
+      "pass": true,
+      "value": 8,
+      "expected": 8
+    },
+    {
+      "name": "air_8_150_offset",
+      "pass": true,
+      "value": 150.0,
+      "expected": 150.0
+    },
+    {
+      "name": "air_8_150_force_0",
+      "pass": true,
+      "value": -0.5376000055092044,
+      "expected": -0.5376
+    },
+    {
+      "name": "air_8_150_velocity_0",
+      "pass": true,
+      "value": 0.08924799988981591,
+      "expected": 0.08924800000000001
+    },
+    {
+      "name": "air_8_150_position_0",
+      "pass": true,
+      "value": 0.3247311999972454,
+      "expected": 0.3247312
+    },
+    {
+      "name": "air_8_150_reaction_0",
+      "pass": true,
+      "value": 0.02688000027546022,
+      "expected": 0.02688
+    },
+    {
+      "name": "air_8_150_omega_0",
+      "pass": true,
+      "value": 0.2000000000000008,
+      "expected": 0.2
+    },
+    {
+      "name": "air_8_150_force_1",
+      "pass": true,
+      "value": 0.8447999998515731,
+      "expected": 0.8448000000000001
+    },
+    {
+      "name": "air_8_150_velocity_1",
+      "pass": true,
+      "value": -0.18310400000296856,
+      "expected": -0.18310400000000002
+    },
+    {
+      "name": "air_8_150_position_1",
+      "pass": true,
+      "value": 0.23042239999992578,
+      "expected": 0.23042239999999997
+    },
+    {
+      "name": "air_8_150_reaction_1",
+      "pass": true,
+      "value": -0.04223999999257866,
+      "expected": -0.04224000000000001
+    },
+    {
+      "name": "air_8_150_omega_1",
+      "pass": true,
+      "value": -0.09999999999997443,
+      "expected": -0.1
+    },
+    {
+      "name": "air_8_150_force_2",
+      "pass": true,
+      "value": -0.38400000018971636,
+      "expected": -0.384
+    },
+    {
+      "name": "air_8_150_velocity_2",
+      "pass": true,
+      "value": 0.29231999999620567,
+      "expected": 0.29231999999999997
+    },
+    {
+      "name": "air_8_150_position_2",
+      "pass": true,
+      "value": 0.2548079999999051,
+      "expected": 0.254808
+    },
+    {
+      "name": "air_8_150_reaction_2",
+      "pass": true,
+      "value": 0.01920000000948582,
+      "expected": 0.019200000000000002
+    },
+    {
+      "name": "air_8_150_omega_2",
+      "pass": true,
+      "value": 0.14999999999999178,
+      "expected": 0.15
+    },
+    {
+      "name": "air_8_150_work",
+      "pass": true,
+      "value": -0.016320921626000247,
+      "expected": -0.01632092160000001
+    },
+    {
+      "name": "air_8_150_kinetic",
+      "pass": true,
+      "value": -0.016320921626000254,
+      "expected": -0.01632092160000001
+    },
+    {
+      "name": "air_8_150_energy_residual",
+      "pass": true,
+      "value": -6.938893903907228e-18,
+      "expected": 0.0
+    },
+    {
+      "name": "air_8_150_projection_divergence",
+      "pass": true,
+      "value": 8.818901284148722e-11,
+      "expected": "<2e-8"
+    },
+    {
+      "name": "air_8_1200_mode",
+      "pass": true,
+      "value": "air",
+      "expected": "air"
+    },
+    {
+      "name": "air_8_1200_n",
+      "pass": true,
+      "value": 8,
+      "expected": 8
+    },
+    {
+      "name": "air_8_1200_offset",
+      "pass": true,
+      "value": 1200.0,
+      "expected": 1200.0
+    },
+    {
+      "name": "air_8_1200_force_0",
+      "pass": true,
+      "value": -0.5376000055602237,
+      "expected": -0.5376
+    },
+    {
+      "name": "air_8_1200_velocity_0",
+      "pass": true,
+      "value": 0.08924799988879553,
+      "expected": 0.08924800000000001
+    },
+    {
+      "name": "air_8_1200_position_0",
+      "pass": true,
+      "value": 0.3247311999972199,
+      "expected": 0.3247312
+    },
+    {
+      "name": "air_8_1200_reaction_0",
+      "pass": true,
+      "value": 0.026880000278011185,
+      "expected": 0.02688
+    },
+    {
+      "name": "air_8_1200_omega_0",
+      "pass": true,
+      "value": 0.20000000000000082,
+      "expected": 0.2
+    },
+    {
+      "name": "air_8_1200_force_1",
+      "pass": true,
+      "value": 0.8447999998501983,
+      "expected": 0.8448000000000001
+    },
+    {
+      "name": "air_8_1200_velocity_1",
+      "pass": true,
+      "value": -0.18310400000299604,
+      "expected": -0.18310400000000002
+    },
+    {
+      "name": "air_8_1200_position_1",
+      "pass": true,
+      "value": 0.2304223999999251,
+      "expected": 0.23042239999999997
+    },
+    {
+      "name": "air_8_1200_reaction_1",
+      "pass": true,
+      "value": -0.042239999992509915,
+      "expected": -0.04224000000000001
+    },
+    {
+      "name": "air_8_1200_omega_1",
+      "pass": true,
+      "value": -0.0999999999999742,
+      "expected": -0.1
+    },
+    {
+      "name": "air_8_1200_force_2",
+      "pass": true,
+      "value": -0.3840000001914712,
+      "expected": -0.384
+    },
+    {
+      "name": "air_8_1200_velocity_2",
+      "pass": true,
+      "value": 0.2923199999961706,
+      "expected": 0.29231999999999997
+    },
+    {
+      "name": "air_8_1200_position_2",
+      "pass": true,
+      "value": 0.2548079999999043,
+      "expected": 0.254808
+    },
+    {
+      "name": "air_8_1200_reaction_2",
+      "pass": true,
+      "value": 0.01920000000957356,
+      "expected": 0.019200000000000002
+    },
+    {
+      "name": "air_8_1200_omega_2",
+      "pass": true,
+      "value": 0.1499999999999917,
+      "expected": 0.15
+    },
+    {
+      "name": "air_8_1200_work",
+      "pass": true,
+      "value": -0.016320921626240995,
+      "expected": -0.01632092160000001
+    },
+    {
+      "name": "air_8_1200_kinetic",
+      "pass": true,
+      "value": -0.016320921626241002,
+      "expected": -0.01632092160000001
+    },
+    {
+      "name": "air_8_1200_energy_residual",
+      "pass": true,
+      "value": -6.938893903907228e-18,
+      "expected": 0.0
+    },
+    {
+      "name": "air_8_1200_projection_divergence",
+      "pass": true,
+      "value": 8.900258459919319e-11,
+      "expected": "<2e-8"
+    },
+    {
+      "name": "air_12_150_mode",
+      "pass": true,
+      "value": "air",
+      "expected": "air"
+    },
+    {
+      "name": "air_12_150_n",
+      "pass": true,
+      "value": 12,
+      "expected": 12
+    },
+    {
+      "name": "air_12_150_offset",
+      "pass": true,
+      "value": 150.0,
+      "expected": 150.0
+    },
+    {
+      "name": "air_12_150_force_0",
+      "pass": true,
+      "value": -0.5376000116156295,
+      "expected": -0.5376
+    },
+    {
+      "name": "air_12_150_velocity_0",
+      "pass": true,
+      "value": 0.08924799976768741,
+      "expected": 0.08924800000000001
+    },
+    {
+      "name": "air_12_150_position_0",
+      "pass": true,
+      "value": 0.4847311999941922,
+      "expected": 0.4847312
+    },
+    {
+      "name": "air_12_150_reaction_0",
+      "pass": true,
+      "value": 0.02688000058078148,
+      "expected": 0.02688
+    },
+    {
+      "name": "air_12_150_omega_0",
+      "pass": true,
+      "value": 0.20000000000000012,
+      "expected": 0.2
+    },
+    {
+      "name": "air_12_150_force_1",
+      "pass": true,
+      "value": 0.8447999998027991,
+      "expected": 0.8448000000000001
+    },
+    {
+      "name": "air_12_150_velocity_1",
+      "pass": true,
+      "value": -0.18310400000394403,
+      "expected": -0.18310400000000002
+    },
+    {
+      "name": "air_12_150_position_1",
+      "pass": true,
+      "value": 0.3904223999999014,
+      "expected": 0.3904224
+    },
+    {
+      "name": "air_12_150_reaction_1",
+      "pass": true,
+      "value": -0.042239999990139956,
+      "expected": -0.04224000000000001
+    },
+    {
+      "name": "air_12_150_omega_1",
+      "pass": true,
+      "value": -0.0999999999999765,
+      "expected": -0.1
+    },
+    {
+      "name": "air_12_150_force_2",
+      "pass": true,
+      "value": -0.38400000023213443,
+      "expected": -0.384
+    },
+    {
+      "name": "air_12_150_velocity_2",
+      "pass": true,
+      "value": 0.2923199999953573,
+      "expected": 0.29231999999999997
+    },
+    {
+      "name": "air_12_150_position_2",
+      "pass": true,
+      "value": 0.41480799999988394,
+      "expected": 0.414808
+    },
+    {
+      "name": "air_12_150_reaction_2",
+      "pass": true,
+      "value": 0.019200000011606724,
+      "expected": 0.019200000000000002
+    },
+    {
+      "name": "air_12_150_omega_2",
+      "pass": true,
+      "value": 0.1499999999999825,
+      "expected": 0.15
+    },
+    {
+      "name": "air_12_150_work",
+      "pass": true,
+      "value": -0.01632092165342379,
+      "expected": -0.01632092160000001
+    },
+    {
+      "name": "air_12_150_kinetic",
+      "pass": true,
+      "value": -0.016320921653423817,
+      "expected": -0.01632092160000001
+    },
+    {
+      "name": "air_12_150_energy_residual",
+      "pass": true,
+      "value": -2.7755575615628914e-17,
+      "expected": 0.0
+    },
+    {
+      "name": "air_12_150_projection_divergence",
+      "pass": true,
+      "value": 9.214060178903971e-11,
+      "expected": "<2e-8"
+    },
+    {
+      "name": "air_12_1200_mode",
+      "pass": true,
+      "value": "air",
+      "expected": "air"
+    },
+    {
+      "name": "air_12_1200_n",
+      "pass": true,
+      "value": 12,
+      "expected": 12
+    },
+    {
+      "name": "air_12_1200_offset",
+      "pass": true,
+      "value": 1200.0,
+      "expected": 1200.0
+    },
+    {
+      "name": "air_12_1200_force_0",
+      "pass": true,
+      "value": -0.537600011640059,
+      "expected": -0.5376
+    },
+    {
+      "name": "air_12_1200_velocity_0",
+      "pass": true,
+      "value": 0.08924799976719883,
+      "expected": 0.08924800000000001
+    },
+    {
+      "name": "air_12_1200_position_0",
+      "pass": true,
+      "value": 0.48473119999417996,
+      "expected": 0.4847312
+    },
+    {
+      "name": "air_12_1200_reaction_0",
+      "pass": true,
+      "value": 0.02688000058200295,
+      "expected": 0.02688
+    },
+    {
+      "name": "air_12_1200_omega_0",
+      "pass": true,
+      "value": 0.20000000000000012,
+      "expected": 0.2
+    },
+    {
+      "name": "air_12_1200_force_1",
+      "pass": true,
+      "value": 0.8447999998023823,
+      "expected": 0.8448000000000001
+    },
+    {
+      "name": "air_12_1200_velocity_1",
+      "pass": true,
+      "value": -0.18310400000395236,
+      "expected": -0.18310400000000002
+    },
+    {
+      "name": "air_12_1200_position_1",
+      "pass": true,
+      "value": 0.3904223999999012,
+      "expected": 0.3904224
+    },
+    {
+      "name": "air_12_1200_reaction_1",
+      "pass": true,
+      "value": -0.04223999999011912,
+      "expected": -0.04224000000000001
+    },
+    {
+      "name": "air_12_1200_omega_1",
+      "pass": true,
+      "value": -0.09999999999997645,
+      "expected": -0.1
+    },
+    {
+      "name": "air_12_1200_force_2",
+      "pass": true,
+      "value": -0.38400000023261693,
+      "expected": -0.384
+    },
+    {
+      "name": "air_12_1200_velocity_2",
+      "pass": true,
+      "value": 0.29231999999534763,
+      "expected": 0.29231999999999997
+    },
+    {
+      "name": "air_12_1200_position_2",
+      "pass": true,
+      "value": 0.4148079999998837,
+      "expected": 0.414808
+    },
+    {
+      "name": "air_12_1200_reaction_2",
+      "pass": true,
+      "value": 0.019200000011630847,
+      "expected": 0.019200000000000002
+    },
+    {
+      "name": "air_12_1200_omega_2",
+      "pass": true,
+      "value": 0.14999999999998245,
+      "expected": 0.15
+    },
+    {
+      "name": "air_12_1200_work",
+      "pass": true,
+      "value": -0.016320921653536047,
+      "expected": -0.01632092160000001
+    },
+    {
+      "name": "air_12_1200_kinetic",
+      "pass": true,
+      "value": -0.016320921653536078,
+      "expected": -0.01632092160000001
+    },
+    {
+      "name": "air_12_1200_energy_residual",
+      "pass": true,
+      "value": -3.122502256758253e-17,
+      "expected": 0.0
+    },
+    {
+      "name": "air_12_1200_projection_divergence",
+      "pass": true,
+      "value": 9.233360061776386e-11,
+      "expected": "<2e-8"
+    },
+    {
+      "name": "air_16_150_mode",
+      "pass": true,
+      "value": "air",
+      "expected": "air"
+    },
+    {
+      "name": "air_16_150_n",
+      "pass": true,
+      "value": 16,
+      "expected": 16
+    },
+    {
+      "name": "air_16_150_offset",
+      "pass": true,
+      "value": 150.0,
+      "expected": 150.0
+    },
+    {
+      "name": "air_16_150_force_0",
+      "pass": true,
+      "value": -0.5376000173073298,
+      "expected": -0.5376
+    },
+    {
+      "name": "air_16_150_velocity_0",
+      "pass": true,
+      "value": 0.08924799965385341,
+      "expected": 0.08924800000000001
+    },
+    {
+      "name": "air_16_150_position_0",
+      "pass": true,
+      "value": 0.6447311999913463,
+      "expected": 0.6447312000000001
+    },
+    {
+      "name": "air_16_150_reaction_0",
+      "pass": true,
+      "value": 0.026880000865366488,
+      "expected": 0.02688
+    },
+    {
+      "name": "air_16_150_omega_0",
+      "pass": true,
+      "value": 0.20000000000000007,
+      "expected": 0.2
+    },
+    {
+      "name": "air_16_150_force_1",
+      "pass": true,
+      "value": 0.8447999997805796,
+      "expected": 0.8448000000000001
+    },
+    {
+      "name": "air_16_150_velocity_1",
+      "pass": true,
+      "value": -0.18310400000438842,
+      "expected": -0.18310400000000002
+    },
+    {
+      "name": "air_16_150_position_1",
+      "pass": true,
+      "value": 0.5504223999998903,
+      "expected": 0.5504224000000001
+    },
+    {
+      "name": "air_16_150_reaction_1",
+      "pass": true,
+      "value": -0.042239999989028984,
+      "expected": -0.04224000000000001
+    },
+    {
+      "name": "air_16_150_omega_1",
+      "pass": true,
+      "value": -0.09999999999998319,
+      "expected": -0.1
+    },
+    {
+      "name": "air_16_150_force_2",
+      "pass": true,
+      "value": -0.38400000024528147,
+      "expected": -0.384
+    },
+    {
+      "name": "air_16_150_velocity_2",
+      "pass": true,
+      "value": 0.29231999999509434,
+      "expected": 0.29231999999999997
+    },
+    {
+      "name": "air_16_150_position_2",
+      "pass": true,
+      "value": 0.5748079999998774,
+      "expected": 0.5748080000000001
+    },
+    {
+      "name": "air_16_150_reaction_2",
+      "pass": true,
+      "value": 0.019200000012264073,
+      "expected": 0.019200000000000002
+    },
+    {
+      "name": "air_16_150_omega_2",
+      "pass": true,
+      "value": 0.1499999999999862,
+      "expected": 0.15
+    },
+    {
+      "name": "air_16_150_work",
+      "pass": true,
+      "value": -0.016320921678810506,
+      "expected": -0.01632092160000001
+    },
+    {
+      "name": "air_16_150_kinetic",
+      "pass": true,
+      "value": -0.016320921678810538,
+      "expected": -0.01632092160000001
+    },
+    {
+      "name": "air_16_150_energy_residual",
+      "pass": true,
+      "value": -3.122502256758253e-17,
+      "expected": 0.0
+    },
+    {
+      "name": "air_16_150_projection_divergence",
+      "pass": true,
+      "value": 9.281011018307667e-11,
+      "expected": "<2e-8"
+    },
+    {
+      "name": "air_16_1200_mode",
+      "pass": true,
+      "value": "air",
+      "expected": "air"
+    },
+    {
+      "name": "air_16_1200_n",
+      "pass": true,
+      "value": 16,
+      "expected": 16
+    },
+    {
+      "name": "air_16_1200_offset",
+      "pass": true,
+      "value": 1200.0,
+      "expected": 1200.0
+    },
+    {
+      "name": "air_16_1200_force_0",
+      "pass": true,
+      "value": -0.5376000173667146,
+      "expected": -0.5376
+    },
+    {
+      "name": "air_16_1200_velocity_0",
+      "pass": true,
+      "value": 0.08924799965266571,
+      "expected": 0.08924800000000001
+    },
+    {
+      "name": "air_16_1200_position_0",
+      "pass": true,
+      "value": 0.6447311999913167,
+      "expected": 0.6447312000000001
+    },
+    {
+      "name": "air_16_1200_reaction_0",
+      "pass": true,
+      "value": 0.02688000086833573,
+      "expected": 0.02688
+    },
+    {
+      "name": "air_16_1200_omega_0",
+      "pass": true,
+      "value": 0.20000000000000004,
+      "expected": 0.2
+    },
+    {
+      "name": "air_16_1200_force_1",
+      "pass": true,
+      "value": 0.844799999779827,
+      "expected": 0.8448000000000001
+    },
+    {
+      "name": "air_16_1200_velocity_1",
+      "pass": true,
+      "value": -0.18310400000440347,
+      "expected": -0.18310400000000002
+    },
+    {
+      "name": "air_16_1200_position_1",
+      "pass": true,
+      "value": 0.55042239999989,
+      "expected": 0.5504224000000001
+    },
+    {
+      "name": "air_16_1200_reaction_1",
+      "pass": true,
+      "value": -0.042239999988991354,
+      "expected": -0.04224000000000001
+    },
+    {
+      "name": "air_16_1200_omega_1",
+      "pass": true,
+      "value": -0.0999999999999831,
+      "expected": -0.1
+    },
+    {
+      "name": "air_16_1200_force_2",
+      "pass": true,
+      "value": -0.3840000002461208,
+      "expected": -0.384
+    },
+    {
+      "name": "air_16_1200_velocity_2",
+      "pass": true,
+      "value": 0.2923199999950776,
+      "expected": 0.29231999999999997
+    },
+    {
+      "name": "air_16_1200_position_2",
+      "pass": true,
+      "value": 0.574807999999877,
+      "expected": 0.5748080000000001
+    },
+    {
+      "name": "air_16_1200_reaction_2",
+      "pass": true,
+      "value": 0.01920000001230604,
+      "expected": 0.019200000000000002
+    },
+    {
+      "name": "air_16_1200_omega_2",
+      "pass": true,
+      "value": 0.14999999999998614,
+      "expected": 0.15
+    },
+    {
+      "name": "air_16_1200_work",
+      "pass": true,
+      "value": -0.01632092167908089,
+      "expected": -0.01632092160000001
+    },
+    {
+      "name": "air_16_1200_kinetic",
+      "pass": true,
+      "value": -0.016320921679080905,
+      "expected": -0.01632092160000001
+    },
+    {
+      "name": "air_16_1200_energy_residual",
+      "pass": true,
+      "value": -1.3877787807814457e-17,
+      "expected": 0.0
+    },
+    {
+      "name": "air_16_1200_projection_divergence",
+      "pass": true,
+      "value": 9.312799283903855e-11,
+      "expected": "<2e-8"
+    },
+    {
+      "name": "closed_8_150_mode",
+      "pass": true,
+      "value": "closed",
+      "expected": "closed"
+    },
+    {
+      "name": "closed_8_150_n",
+      "pass": true,
+      "value": 8,
+      "expected": 8
+    },
+    {
+      "name": "closed_8_150_offset",
+      "pass": true,
+      "value": 150.0,
+      "expected": 150.0
+    },
+    {
+      "name": "closed_8_150_force_0",
+      "pass": true,
+      "value": -0.5375999964737481,
+      "expected": -0.5376
+    },
+    {
+      "name": "closed_8_150_velocity_0",
+      "pass": true,
+      "value": 0.08924800007052504,
+      "expected": 0.08924800000000001
+    },
+    {
+      "name": "closed_8_150_position_0",
+      "pass": true,
+      "value": 0.32473120000176314,
+      "expected": 0.3247312
+    },
+    {
+      "name": "closed_8_150_reaction_0",
+      "pass": true,
+      "value": 0.026879999823687408,
+      "expected": 0.02688
+    },
+    {
+      "name": "closed_8_150_omega_0",
+      "pass": true,
+      "value": 0.2,
+      "expected": 0.2
+    },
+    {
+      "name": "closed_8_150_force_1",
+      "pass": true,
+      "value": 0.8448000000022606,
+      "expected": 0.8448000000000001
+    },
+    {
+      "name": "closed_8_150_velocity_1",
+      "pass": true,
+      "value": -0.1831039999999548,
+      "expected": -0.18310400000000002
+    },
+    {
+      "name": "closed_8_150_position_1",
+      "pass": true,
+      "value": 0.2304224000000011,
+      "expected": 0.23042239999999997
+    },
+    {
+      "name": "closed_8_150_reaction_1",
+      "pass": true,
+      "value": -0.042240000000113034,
+      "expected": -0.04224000000000001
+    },
+    {
+      "name": "closed_8_150_omega_1",
+      "pass": true,
+      "value": -0.10000000000004618,
+      "expected": -0.1
+    },
+    {
+      "name": "closed_8_150_force_2",
+      "pass": true,
+      "value": -0.3839999999981402,
+      "expected": -0.384
+    },
+    {
+      "name": "closed_8_150_velocity_2",
+      "pass": true,
+      "value": 0.29232000000003716,
+      "expected": 0.29231999999999997
+    },
+    {
+      "name": "closed_8_150_position_2",
+      "pass": true,
+      "value": 0.2548080000000009,
+      "expected": 0.254808
+    },
+    {
+      "name": "closed_8_150_reaction_2",
+      "pass": true,
+      "value": 0.019199999999907014,
+      "expected": 0.019200000000000002
+    },
+    {
+      "name": "closed_8_150_omega_2",
+      "pass": true,
+      "value": 0.15000000000003677,
+      "expected": 0.15
+    },
+    {
+      "name": "closed_8_150_work",
+      "pass": true,
+      "value": -0.01632092158425235,
+      "expected": -0.01632092160000001
+    },
+    {
+      "name": "closed_8_150_kinetic",
+      "pass": true,
+      "value": -0.016320921584252364,
+      "expected": -0.01632092160000001
+    },
+    {
+      "name": "closed_8_150_energy_residual",
+      "pass": true,
+      "value": -1.3877787807814457e-17,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_8_150_projection_divergence",
+      "pass": true,
+      "value": 8.1690486623473e-11,
+      "expected": "<2e-8"
+    },
+    {
+      "name": "closed_8_1200_mode",
+      "pass": true,
+      "value": "closed",
+      "expected": "closed"
+    },
+    {
+      "name": "closed_8_1200_n",
+      "pass": true,
+      "value": 8,
+      "expected": 8
+    },
+    {
+      "name": "closed_8_1200_offset",
+      "pass": true,
+      "value": 1200.0,
+      "expected": 1200.0
+    },
+    {
+      "name": "closed_8_1200_force_0",
+      "pass": true,
+      "value": -0.5375999964737481,
+      "expected": -0.5376
+    },
+    {
+      "name": "closed_8_1200_velocity_0",
+      "pass": true,
+      "value": 0.08924800007052504,
+      "expected": 0.08924800000000001
+    },
+    {
+      "name": "closed_8_1200_position_0",
+      "pass": true,
+      "value": 0.32473120000176314,
+      "expected": 0.3247312
+    },
+    {
+      "name": "closed_8_1200_reaction_0",
+      "pass": true,
+      "value": 0.026879999823687408,
+      "expected": 0.02688
+    },
+    {
+      "name": "closed_8_1200_omega_0",
+      "pass": true,
+      "value": 0.2,
+      "expected": 0.2
+    },
+    {
+      "name": "closed_8_1200_force_1",
+      "pass": true,
+      "value": 0.8448000000022606,
+      "expected": 0.8448000000000001
+    },
+    {
+      "name": "closed_8_1200_velocity_1",
+      "pass": true,
+      "value": -0.1831039999999548,
+      "expected": -0.18310400000000002
+    },
+    {
+      "name": "closed_8_1200_position_1",
+      "pass": true,
+      "value": 0.2304224000000011,
+      "expected": 0.23042239999999997
+    },
+    {
+      "name": "closed_8_1200_reaction_1",
+      "pass": true,
+      "value": -0.042240000000113034,
+      "expected": -0.04224000000000001
+    },
+    {
+      "name": "closed_8_1200_omega_1",
+      "pass": true,
+      "value": -0.10000000000004618,
+      "expected": -0.1
+    },
+    {
+      "name": "closed_8_1200_force_2",
+      "pass": true,
+      "value": -0.3839999999981402,
+      "expected": -0.384
+    },
+    {
+      "name": "closed_8_1200_velocity_2",
+      "pass": true,
+      "value": 0.29232000000003716,
+      "expected": 0.29231999999999997
+    },
+    {
+      "name": "closed_8_1200_position_2",
+      "pass": true,
+      "value": 0.2548080000000009,
+      "expected": 0.254808
+    },
+    {
+      "name": "closed_8_1200_reaction_2",
+      "pass": true,
+      "value": 0.019199999999907014,
+      "expected": 0.019200000000000002
+    },
+    {
+      "name": "closed_8_1200_omega_2",
+      "pass": true,
+      "value": 0.15000000000003677,
+      "expected": 0.15
+    },
+    {
+      "name": "closed_8_1200_work",
+      "pass": true,
+      "value": -0.01632092158425235,
+      "expected": -0.01632092160000001
+    },
+    {
+      "name": "closed_8_1200_kinetic",
+      "pass": true,
+      "value": -0.016320921584252364,
+      "expected": -0.01632092160000001
+    },
+    {
+      "name": "closed_8_1200_energy_residual",
+      "pass": true,
+      "value": -1.3877787807814457e-17,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_8_1200_projection_divergence",
+      "pass": true,
+      "value": 8.1690486623473e-11,
+      "expected": "<2e-8"
+    },
+    {
+      "name": "closed_12_150_mode",
+      "pass": true,
+      "value": "closed",
+      "expected": "closed"
+    },
+    {
+      "name": "closed_12_150_n",
+      "pass": true,
+      "value": 12,
+      "expected": 12
+    },
+    {
+      "name": "closed_12_150_offset",
+      "pass": true,
+      "value": 150.0,
+      "expected": 150.0
+    },
+    {
+      "name": "closed_12_150_force_0",
+      "pass": true,
+      "value": -0.5375999925917285,
+      "expected": -0.5376
+    },
+    {
+      "name": "closed_12_150_velocity_0",
+      "pass": true,
+      "value": 0.08924800014816543,
+      "expected": 0.08924800000000001
+    },
+    {
+      "name": "closed_12_150_position_0",
+      "pass": true,
+      "value": 0.4847312000037041,
+      "expected": 0.4847312
+    },
+    {
+      "name": "closed_12_150_reaction_0",
+      "pass": true,
+      "value": 0.026879999629586426,
+      "expected": 0.02688
+    },
+    {
+      "name": "closed_12_150_omega_0",
+      "pass": true,
+      "value": 0.19999999999999882,
+      "expected": 0.2
+    },
+    {
+      "name": "closed_12_150_force_1",
+      "pass": true,
+      "value": 0.8447999998731889,
+      "expected": 0.8448000000000001
+    },
+    {
+      "name": "closed_12_150_velocity_1",
+      "pass": true,
+      "value": -0.18310400000253624,
+      "expected": -0.18310400000000002
+    },
+    {
+      "name": "closed_12_150_position_1",
+      "pass": true,
+      "value": 0.3904223999999366,
+      "expected": 0.3904224
+    },
+    {
+      "name": "closed_12_150_reaction_1",
+      "pass": true,
+      "value": -0.04223999999365945,
+      "expected": -0.04224000000000001
+    },
+    {
+      "name": "closed_12_150_omega_1",
+      "pass": true,
+      "value": -0.10000000000004636,
+      "expected": -0.1
+    },
+    {
+      "name": "closed_12_150_force_2",
+      "pass": true,
+      "value": -0.3840000000004665,
+      "expected": -0.384
+    },
+    {
+      "name": "closed_12_150_velocity_2",
+      "pass": true,
+      "value": 0.29231999999999064,
+      "expected": 0.29231999999999997
+    },
+    {
+      "name": "closed_12_150_position_2",
+      "pass": true,
+      "value": 0.4148079999999998,
+      "expected": 0.414808
+    },
+    {
+      "name": "closed_12_150_reaction_2",
+      "pass": true,
+      "value": 0.019200000000023327,
+      "expected": 0.019200000000000002
+    },
+    {
+      "name": "closed_12_150_omega_2",
+      "pass": true,
+      "value": 0.15000000000003844,
+      "expected": 0.15
+    },
+    {
+      "name": "closed_12_150_work",
+      "pass": true,
+      "value": -0.016320921565781486,
+      "expected": -0.01632092160000001
+    },
+    {
+      "name": "closed_12_150_kinetic",
+      "pass": true,
+      "value": -0.0163209215657815,
+      "expected": -0.01632092160000001
+    },
+    {
+      "name": "closed_12_150_energy_residual",
+      "pass": true,
+      "value": -1.3877787807814457e-17,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_12_150_projection_divergence",
+      "pass": true,
+      "value": 8.841417994866901e-11,
+      "expected": "<2e-8"
+    },
+    {
+      "name": "closed_12_1200_mode",
+      "pass": true,
+      "value": "closed",
+      "expected": "closed"
+    },
+    {
+      "name": "closed_12_1200_n",
+      "pass": true,
+      "value": 12,
+      "expected": 12
+    },
+    {
+      "name": "closed_12_1200_offset",
+      "pass": true,
+      "value": 1200.0,
+      "expected": 1200.0
+    },
+    {
+      "name": "closed_12_1200_force_0",
+      "pass": true,
+      "value": -0.5375999925917285,
+      "expected": -0.5376
+    },
+    {
+      "name": "closed_12_1200_velocity_0",
+      "pass": true,
+      "value": 0.08924800014816543,
+      "expected": 0.08924800000000001
+    },
+    {
+      "name": "closed_12_1200_position_0",
+      "pass": true,
+      "value": 0.4847312000037041,
+      "expected": 0.4847312
+    },
+    {
+      "name": "closed_12_1200_reaction_0",
+      "pass": true,
+      "value": 0.026879999629586426,
+      "expected": 0.02688
+    },
+    {
+      "name": "closed_12_1200_omega_0",
+      "pass": true,
+      "value": 0.19999999999999882,
+      "expected": 0.2
+    },
+    {
+      "name": "closed_12_1200_force_1",
+      "pass": true,
+      "value": 0.8447999998731889,
+      "expected": 0.8448000000000001
+    },
+    {
+      "name": "closed_12_1200_velocity_1",
+      "pass": true,
+      "value": -0.18310400000253624,
+      "expected": -0.18310400000000002
+    },
+    {
+      "name": "closed_12_1200_position_1",
+      "pass": true,
+      "value": 0.3904223999999366,
+      "expected": 0.3904224
+    },
+    {
+      "name": "closed_12_1200_reaction_1",
+      "pass": true,
+      "value": -0.04223999999365945,
+      "expected": -0.04224000000000001
+    },
+    {
+      "name": "closed_12_1200_omega_1",
+      "pass": true,
+      "value": -0.10000000000004636,
+      "expected": -0.1
+    },
+    {
+      "name": "closed_12_1200_force_2",
+      "pass": true,
+      "value": -0.3840000000004665,
+      "expected": -0.384
+    },
+    {
+      "name": "closed_12_1200_velocity_2",
+      "pass": true,
+      "value": 0.29231999999999064,
+      "expected": 0.29231999999999997
+    },
+    {
+      "name": "closed_12_1200_position_2",
+      "pass": true,
+      "value": 0.4148079999999998,
+      "expected": 0.414808
+    },
+    {
+      "name": "closed_12_1200_reaction_2",
+      "pass": true,
+      "value": 0.019200000000023327,
+      "expected": 0.019200000000000002
+    },
+    {
+      "name": "closed_12_1200_omega_2",
+      "pass": true,
+      "value": 0.15000000000003844,
+      "expected": 0.15
+    },
+    {
+      "name": "closed_12_1200_work",
+      "pass": true,
+      "value": -0.016320921565781486,
+      "expected": -0.01632092160000001
+    },
+    {
+      "name": "closed_12_1200_kinetic",
+      "pass": true,
+      "value": -0.0163209215657815,
+      "expected": -0.01632092160000001
+    },
+    {
+      "name": "closed_12_1200_energy_residual",
+      "pass": true,
+      "value": -1.3877787807814457e-17,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_12_1200_projection_divergence",
+      "pass": true,
+      "value": 8.841417994866901e-11,
+      "expected": "<2e-8"
+    },
+    {
+      "name": "closed_16_150_mode",
+      "pass": true,
+      "value": "closed",
+      "expected": "closed"
+    },
+    {
+      "name": "closed_16_150_n",
+      "pass": true,
+      "value": 16,
+      "expected": 16
+    },
+    {
+      "name": "closed_16_150_offset",
+      "pass": true,
+      "value": 150.0,
+      "expected": 150.0
+    },
+    {
+      "name": "closed_16_150_force_0",
+      "pass": true,
+      "value": -0.537599988657349,
+      "expected": -0.5376
+    },
+    {
+      "name": "closed_16_150_velocity_0",
+      "pass": true,
+      "value": 0.08924800022685303,
+      "expected": 0.08924800000000001
+    },
+    {
+      "name": "closed_16_150_position_0",
+      "pass": true,
+      "value": 0.6447312000056713,
+      "expected": 0.6447312000000001
+    },
+    {
+      "name": "closed_16_150_reaction_0",
+      "pass": true,
+      "value": 0.026879999432867452,
+      "expected": 0.02688
+    },
+    {
+      "name": "closed_16_150_omega_0",
+      "pass": true,
+      "value": 0.19999999999999557,
+      "expected": 0.2
+    },
+    {
+      "name": "closed_16_150_force_1",
+      "pass": true,
+      "value": 0.844799999073093,
+      "expected": 0.8448000000000001
+    },
+    {
+      "name": "closed_16_150_velocity_1",
+      "pass": true,
+      "value": -0.18310400001853816,
+      "expected": -0.18310400000000002
+    },
+    {
+      "name": "closed_16_150_position_1",
+      "pass": true,
+      "value": 0.5504223999995366,
+      "expected": 0.5504224000000001
+    },
+    {
+      "name": "closed_16_150_reaction_1",
+      "pass": true,
+      "value": -0.042239999953654656,
+      "expected": -0.04224000000000001
+    },
+    {
+      "name": "closed_16_150_omega_1",
+      "pass": true,
+      "value": -0.1000000000000375,
+      "expected": -0.1
+    },
+    {
+      "name": "closed_16_150_force_2",
+      "pass": true,
+      "value": -0.3839999999931344,
+      "expected": -0.384
+    },
+    {
+      "name": "closed_16_150_velocity_2",
+      "pass": true,
+      "value": 0.2923200000001373,
+      "expected": 0.29231999999999997
+    },
+    {
+      "name": "closed_16_150_position_2",
+      "pass": true,
+      "value": 0.5748080000000035,
+      "expected": 0.5748080000000001
+    },
+    {
+      "name": "closed_16_150_reaction_2",
+      "pass": true,
+      "value": 0.01919999999965672,
+      "expected": 0.019200000000000002
+    },
+    {
+      "name": "closed_16_150_omega_2",
+      "pass": true,
+      "value": 0.15000000000003416,
+      "expected": 0.15
+    },
+    {
+      "name": "closed_16_150_work",
+      "pass": true,
+      "value": -0.016320921540793593,
+      "expected": -0.01632092160000001
+    },
+    {
+      "name": "closed_16_150_kinetic",
+      "pass": true,
+      "value": -0.016320921540793603,
+      "expected": -0.01632092160000001
+    },
+    {
+      "name": "closed_16_150_energy_residual",
+      "pass": true,
+      "value": -1.0408340855860843e-17,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_16_150_projection_divergence",
+      "pass": true,
+      "value": 9.182241555646953e-11,
+      "expected": "<2e-8"
+    },
+    {
+      "name": "closed_16_1200_mode",
+      "pass": true,
+      "value": "closed",
+      "expected": "closed"
+    },
+    {
+      "name": "closed_16_1200_n",
+      "pass": true,
+      "value": 16,
+      "expected": 16
+    },
+    {
+      "name": "closed_16_1200_offset",
+      "pass": true,
+      "value": 1200.0,
+      "expected": 1200.0
+    },
+    {
+      "name": "closed_16_1200_force_0",
+      "pass": true,
+      "value": -0.537599988657349,
+      "expected": -0.5376
+    },
+    {
+      "name": "closed_16_1200_velocity_0",
+      "pass": true,
+      "value": 0.08924800022685303,
+      "expected": 0.08924800000000001
+    },
+    {
+      "name": "closed_16_1200_position_0",
+      "pass": true,
+      "value": 0.6447312000056713,
+      "expected": 0.6447312000000001
+    },
+    {
+      "name": "closed_16_1200_reaction_0",
+      "pass": true,
+      "value": 0.026879999432867452,
+      "expected": 0.02688
+    },
+    {
+      "name": "closed_16_1200_omega_0",
+      "pass": true,
+      "value": 0.19999999999999557,
+      "expected": 0.2
+    },
+    {
+      "name": "closed_16_1200_force_1",
+      "pass": true,
+      "value": 0.844799999073093,
+      "expected": 0.8448000000000001
+    },
+    {
+      "name": "closed_16_1200_velocity_1",
+      "pass": true,
+      "value": -0.18310400001853816,
+      "expected": -0.18310400000000002
+    },
+    {
+      "name": "closed_16_1200_position_1",
+      "pass": true,
+      "value": 0.5504223999995366,
+      "expected": 0.5504224000000001
+    },
+    {
+      "name": "closed_16_1200_reaction_1",
+      "pass": true,
+      "value": -0.042239999953654656,
+      "expected": -0.04224000000000001
+    },
+    {
+      "name": "closed_16_1200_omega_1",
+      "pass": true,
+      "value": -0.1000000000000375,
+      "expected": -0.1
+    },
+    {
+      "name": "closed_16_1200_force_2",
+      "pass": true,
+      "value": -0.3839999999931344,
+      "expected": -0.384
+    },
+    {
+      "name": "closed_16_1200_velocity_2",
+      "pass": true,
+      "value": 0.2923200000001373,
+      "expected": 0.29231999999999997
+    },
+    {
+      "name": "closed_16_1200_position_2",
+      "pass": true,
+      "value": 0.5748080000000035,
+      "expected": 0.5748080000000001
+    },
+    {
+      "name": "closed_16_1200_reaction_2",
+      "pass": true,
+      "value": 0.01919999999965672,
+      "expected": 0.019200000000000002
+    },
+    {
+      "name": "closed_16_1200_omega_2",
+      "pass": true,
+      "value": 0.15000000000003416,
+      "expected": 0.15
+    },
+    {
+      "name": "closed_16_1200_work",
+      "pass": true,
+      "value": -0.016320921540793593,
+      "expected": -0.01632092160000001
+    },
+    {
+      "name": "closed_16_1200_kinetic",
+      "pass": true,
+      "value": -0.016320921540793603,
+      "expected": -0.01632092160000001
+    },
+    {
+      "name": "closed_16_1200_energy_residual",
+      "pass": true,
+      "value": -1.0408340855860843e-17,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_16_1200_projection_divergence",
+      "pass": true,
+      "value": 9.182241555646953e-11,
+      "expected": "<2e-8"
+    },
+    {
+      "name": "air_8_gauge_invariance",
+      "pass": true,
+      "value": 5.1019299895926906e-11,
+      "expected": "<3e-5"
+    },
+    {
+      "name": "air_12_gauge_invariance",
+      "pass": true,
+      "value": 2.4429458456154407e-11,
+      "expected": "<3e-5"
+    },
+    {
+      "name": "air_16_gauge_invariance",
+      "pass": true,
+      "value": 5.938483038647746e-11,
+      "expected": "<3e-5"
+    },
+    {
+      "name": "closed_8_gauge_invariance",
+      "pass": true,
+      "value": 0.0,
+      "expected": "<3e-5"
+    },
+    {
+      "name": "closed_12_gauge_invariance",
+      "pass": true,
+      "value": 0.0,
+      "expected": "<3e-5"
+    },
+    {
+      "name": "closed_16_gauge_invariance",
+      "pass": true,
+      "value": 0.0,
+      "expected": "<3e-5"
+    },
+    {
+      "name": "complete_ctest_43_of_43",
+      "pass": true,
+      "value": "43/43",
+      "expected": "43/43"
+    }
+  ],
+  "source_sha256": {
+    "include/upc/mac3d.hpp": "9bb4659c5b6e6fd3a512301ae4a3a083fa96b1e67d50363ec8f5634e1038fdc5",
+    "include/upc/static_pressure_load3d.hpp": "a3c32e9ed62318250eee7e51123da22e0013a635eda9cff29f58002415d06438",
+    "include/upc/rigid_pressure_response3d.hpp": "41282862ecf047ab9cf7c27ebea34314f049658e03bb3bbd4533609a0f41afe1",
+    "tests/p2_rigid_pressure_response3d_tests.cpp": "df11dc52e2b24b50e423346b3840141ad68bdc0ac43bcaf5f379171cfcba6f91",
+    "scripts/p2_rigid_pressure_response_acceptance.py": "d46df4100870d8d67f0f8ee04a02cc591533725e5e6799e9e8819216a740e1cc",
+    "docs/P2_FROZEN_PRESSURE_RIGID_RESPONSE_PARTIAL.md": "f8caeac97e03c9ab4b59fc9929854219a1aecc7485494ec0e7de1e16c007de75",
+    "docs/PHASENPLAN.md": "0ba47fd2e32e11462dec4f870fd5bcb508a6183c05117714bd9d2745e161a2d6",
+    "CMakeLists.txt": "2748b1413786b63b77a0c57de7ccb67353dd50becbfcaa71beed069731efc67e"
+  },
+  "binary_sha256": "28466f54c8d3e86554549eff1f6e0002b3b1214714a8ba55557ec199984a0ae8",
+  "ctest_log_path": "D:\\Projekt Engine\\ENGINE TEST STUBE\\runs\\p2_rigid_pressure_response_ctest_20261027.txt",
+  "ctest_log_sha256": "8535b2a310f5aa0aebc55ece69de6a4759d11f78fb0b92fc320b5722a2a5cb26",
+  "limitation": "No fluid-side impulse applied, no moving solid occupancy, no body orientation, no physical FSI conservation, no measured 3D CFD or new UE5.8 native E2E; P2 remains partial"
+}

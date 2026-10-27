@@ -316,3 +316,24 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
   angewendet. Kein bidirektionaler FSI-Impuls, keine physikalische
   globale Energievalidierung, keine externen CFD-Messdaten und keine
   neue Unreal-5.8-Native-E2E-Abnahme.
+
+## P2 Teilfortschritt: gefrorene Druckkraft-Impulsantwort (27.10.2026)
+
+- Neue isolierte `RigidPressureResponse3D::step` berechnet aus der
+  nach echter 3D-MAC-Projektion ermittelten statischen Druckkraft und dem
+  Druckdrehmoment eine konstant belastete Starrkoerper-Impulsantwort:
+  Translation, Winkelgeschwindigkeit, Druckarbeit, kinetische Energie.
+- Ein gleicher und entgegengesetzter Fluidimpuls wird nur als
+  **nicht angewandtes Diagnosekonto** ausgegeben. Weder Fluid-MAC noch
+  Solid-Voxelmaske oder Koerperorientierung werden aktualisiert.
+- Native 12 Faelle: drei 3D-Gitter, Wasser-Luft/Neumann und zwei
+  Druck-Offsets; analytische Kraft (-0.5376,+0.8448,-0.3840) N,
+  exakte konstant belastete Verschiebung und Arbeitsbilanz.
+- MSVC Release Build, 43/43 CTest, 603 native Assertions und
+  unabhaengiges Python-Gate 272/272 Checks PASS.
+  Report: `ENGINE TEST STUBE/runs/p2_rigid_pressure_response_partial.json`.
+  Dokumentation: `docs/P2_FROZEN_PRESSURE_RIGID_RESPONSE_PARTIAL.md`.
+- **P2 bleibt PARTIAL**, P3-P8 bleiben unvollstaendig.
+  Es fehlen echte bewegte Fluid/Solid-Grenzen, angewandte
+  Gegenimpulse, gekoppelte Erhaltung, externe 3D-CFD-Referenzen,
+  Rotationsdynamik und UE5.8 Native-E2E dieses neuen Teilpfades.

@@ -198,3 +198,9 @@ add_test(NAME physics_p2_static_voxel_pressure_traction_partial COMMAND upc_p2_s
 add_executable(upc_p2_static_body_wrench_tests tests/p2_static_body_wrench3d_tests.cpp)
 target_link_libraries(upc_p2_static_body_wrench_tests PRIVATE upc)
 add_test(NAME physics_p2_static_3d_body_force_torque_partial COMMAND upc_p2_static_body_wrench_tests)
+
+# P2 partial: frozen projected-pressure force/torque -> rigid-body impulse
+# and bookkeeping-only opposite fluid impulse. NOT moving-solid FSI.
+add_executable(upc_p2_rigid_pressure_response_tests tests/p2_rigid_pressure_response3d_tests.cpp)
+target_link_libraries(upc_p2_rigid_pressure_response_tests PRIVATE upc)
+add_test(NAME physics_p2_frozen_pressure_rigid_response_partial COMMAND upc_p2_rigid_pressure_response_tests)
