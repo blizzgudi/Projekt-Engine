@@ -4,7 +4,7 @@
   "milestone": "3d_manufactured_pressure_projection_partial",
   "partial_accepted": true,
   "phase_complete": false,
-  "generated_utc": "2026-10-26T23:06:52.239336+00:00",
+  "generated_utc": "2026-10-27T00:26:12.129620+00:00",
   "scope": "3D staggered MAC pressure projection; manufactured gradient cancellation with internal solid obstacle, exterior no-flux, liquid/air half-cell Dirichlet and closed pure-Neumann pressure gauge on 8x7x6, 12x11x10 and 16x15x14 grids.",
   "native_assertions": 38296,
   "native_stdout": "mode,nx,ny,nz,fluid_cells,initial_divergence,final_divergence,max_pressure_error_pa,max_face_speed_m_s,max_solid_flux_m_s\nair,8,7,6,99,1.8171340293249461,8.7207575416668043e-11,2.3360723844234599e-07,1.7677942443228289e-11,0\nair,12,11,10,647,1.7789293312963277,9.2227027609966677e-11,8.6513568930968177e-07,3.6832925598417887e-11,0\nair,16,15,14,2027,1.696353006339133,9.2872375913842509e-11,1.8819035290107422e-06,5.5867116488528268e-11,0\nclosed,8,7,6,119,0.037661153148502886,8.304290821615698e-11,1.4065614095670753e-07,9.7873309934035091e-12,0\nclosed,12,11,10,719,0.028799392224282717,8.7289420991636026e-11,4.3808245209220331e-07,1.8371930197861111e-11,0\nclosed,16,15,14,2183,0.028408767224282719,9.0620814617494577e-11,9.8685092098094174e-07,2.8609594131690647e-11,0\nPASS: P2 3D manufactured projection assertions=38296 phase_complete=false\n",
@@ -399,8 +399,8 @@
     "tests/p2_pressure_projection_manufactured3d_tests.cpp": "61ddc50037dc33834e0c93f118cf4cba1aee2e5a31afc726b2df15649b381fdf",
     "scripts/p2_pressure_projection_acceptance.py": "64bcb914200261078ec90f2e1596c76dfba03110331d2fb5cfbb353c3efce175",
     "docs/P2_MANUFACTURED_PRESSURE_PROJECTION_PARTIAL.md": "307e27d730460ebf9e19cab87130a3fdf356a66a197712692cbbe8d531edc725",
-    "docs/PHASENPLAN.md": "68de2cf71f206ee64890e18c6e45a7d37939203b4e11ac203d88998757238535",
-    "CMakeLists.txt": "b109d01a326ffc80c32dba2012b556b5e17e90d5ef3eb97df5deb2c074866a20"
+    "docs/PHASENPLAN.md": "33738686cf679f2fc11565ffd2827d90efa00473116569644473dcb8ba75b475",
+    "CMakeLists.txt": "297475f7f60a38425f32e4dea4145c77f0407bd9485a1081aaf9e2f32bd797ee"
   },
   "binary_sha256": "89caeb49b059c6e1211a507966798c25deddabae67ec9105a4036db95b2fb86b",
   "ctest_log_path": "D:\\Projekt Engine\\ENGINE TEST STUBE\\runs\\p2_pressure_projection_ctest_20261027.txt",

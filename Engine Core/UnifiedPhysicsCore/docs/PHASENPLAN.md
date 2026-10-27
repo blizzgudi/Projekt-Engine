@@ -272,3 +272,25 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
   ist keine externe 3D-CFD-Messreferenz; bewegte Festkoerper-FSI,
   freie-Oberflaechen-Spannungsbedingungen, globale Energie-/Impulsbilanz
   und neue Unreal-5.8-Native-E2E-Abnahme fehlen. P3-P8 ebenso offen.
+
+## P2 Teilfortschritt: statische 3D-MAC-Drucklast an Solid-Voxel (27.10.2026)
+
+- Neue **nur lesende** Drucklast-Diagnose in
+  `include/upc/static_pressure_load3d.hpp`: `F = sum(p_fluid * n * dx^2)`
+  auf sechs benetzten, achsenparallelen Flaechen eines **statischen**
+  Solid-Voxels. Weder Fluid- noch Solid-Bewegung wird veraendert.
+- Unabhaengige Manufactured-Pressure-Referenz mit
+  `(7,-11,5) Pa/Zelle` und `dx=0.08 m`:
+  `(-0.0896,+0.1408,-0.0640) N`. Drei 3D-Raster,
+  offene Luft-/geschlossene Neumann-Grenzen, je zwei
+  Druck-Offsets; sechs benetzte Flaechen und Gauge-Invarianz
+  fuer ein vollstaendig benetztes Hindernis.
+- Native-Test: `tests/p2_static_pressure_load3d_tests.cpp`;
+  Gate: `scripts/p2_static_pressure_load_acceptance.py`;
+  Nachweis: `ENGINE TEST STUBE/runs/p2_static_pressure_load_partial.json`;
+  Dokumentation: `docs/P2_STATIC_SOLID_PRESSURE_TRACTION_PARTIAL.md`.
+- **P2 bleibt PARTIAL**, P3–P8 bleiben offen. Diese Kraft ist
+  Zellmittel-Druck auf statischen Voxel-Flaechen, keine bewegte
+  FSI-Reaktion, keine stresskonsistente Oberflaeche, keine globale
+  Impuls-/Energieerhaltung, keine externe CFD-Messung oder neue
+  Unreal-5.8-Native-E2E-Abnahme.

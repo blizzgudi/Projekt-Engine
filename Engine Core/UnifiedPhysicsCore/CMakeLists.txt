@@ -186,3 +186,9 @@ add_test(NAME physics_p2_masked_mixed_bc_3d_eigenmode_partial COMMAND upc_p2_mas
 add_executable(upc_p2_manufactured_projection_tests tests/p2_pressure_projection_manufactured3d_tests.cpp)
 target_link_libraries(upc_p2_manufactured_projection_tests PRIVATE upc)
 add_test(NAME physics_p2_3d_manufactured_pressure_projection_partial COMMAND upc_p2_manufactured_projection_tests)
+
+# P2 partial: static voxel pressure-face traction after a real MAC projection.
+# A force diagnostic only: no moving-solid reaction or full FSI acceptance.
+add_executable(upc_p2_static_pressure_load_tests tests/p2_static_pressure_load3d_tests.cpp)
+target_link_libraries(upc_p2_static_pressure_load_tests PRIVATE upc)
+add_test(NAME physics_p2_static_voxel_pressure_traction_partial COMMAND upc_p2_static_pressure_load_tests)
