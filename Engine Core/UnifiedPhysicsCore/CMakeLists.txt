@@ -233,3 +233,9 @@ add_test(NAME physics_p2_kinematic_solid_wall_projection_partial COMMAND upc_p2_
 add_executable(upc_p2_kinematic_component_tests tests/p2_kinematic_component_compatibility3d_tests.cpp)
 target_link_libraries(upc_p2_kinematic_component_tests PRIVATE upc)
 add_test(NAME physics_p2_kinematic_disconnected_wet_component_partial COMMAND upc_p2_kinematic_component_tests)
+
+# P2 partial: frozen-mask kinematic wall pressure traction and instantaneous work.
+# Independent analytic open-pocket and closed-gauge tests; NOT dynamic FSI.
+add_executable(upc_p2_kinematic_pressure_work_tests tests/p2_kinematic_wall_pressure_work3d_tests.cpp)
+target_link_libraries(upc_p2_kinematic_pressure_work_tests PRIVATE upc)
+add_test(NAME physics_p2_kinematic_wall_pressure_work_partial COMMAND upc_p2_kinematic_pressure_work_tests)

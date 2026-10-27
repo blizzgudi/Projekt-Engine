@@ -434,3 +434,23 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
 - Native Regression: zwei geschlossene, voneinander isolierte Kammern mit gleich großem entgegengesetztem Wandfluss werden vor Mutation abgewiesen; auch eine getrennte offene Kammer verdeckt die inkompatible geschlossene Kammer nicht. Zwei offene Kammern bestehen die analytische Einzelzellen-Druckreferenz ±192 Pa bei ±0,12 m/s. Statische geschlossene Kammern bleiben zulässig.
 - Vollständiger MSVC-Release-CTest-Durchlauf: **48/48 PASS**. Eigene Abnahme: `scripts/p2_kinematic_component_acceptance.py`, Nachweis `ENGINE TEST STUBE/runs/p2_kinematic_component_partial.json`; Details `docs/P2_KINEMATIC_COMPONENT_COMPATIBILITY_PARTIAL.md`.
 - **P2 weiterhin PARTIAL**, P3–P8 offen: nur kinematische Wandgeschwindigkeiten auf fester Maske, keine tatsächliche Körperverlagerung oder bidirektionale Fluid-/Festkörper-Kopplung, keine vollständige Energie-/Impulsbilanz oder neue Unreal-5.8-Native-E2E-Abnahme.
+
+
+## P2 Teilfortschritt: Drucktraktion und Wandarbeit der kinematischen MAC-Wand (27.10.2026)
+
+- Neuer read-only-Operator KinematicWallPressureProbe3D verwendet das
+  reale Druckfeld von KinematicWallMacProjection3D, summiert
+  benetzte Druck-Faces zu Kraft, Drehmoment, Momentanleistung und
+  eingefrorenen Impulsen/Arbeit. Keine MAC- oder Solid-Mutation.
+- Unabhängige offene Einzellen-Referenz: p = +/-192 Pa,
+  F_x = -2.4576 N, P = -0.294912 W, W = -0.0073728 J,
+  J_x = -0.06144 Ns bei v_x = +0.12 m/s; Umkehrsymmetrie,
+  statische Nullwerte, Gauge-Invarianz eines 24-Face-Körpers
+  und P=F.v+Tau.omega geprüft.
+- MSVC Release 49/49 CTest PASS, 69 native Assertions.
+  Dokumentation: docs/P2_KINEMATIC_WALL_PRESSURE_WORK_PARTIAL.md;
+  Gate: scripts/p2_kinematic_pressure_work_acceptance.py;
+  Bericht: ENGINE TEST STUBE/runs/p2_kinematic_pressure_work_partial.json.
+- P2 bleibt PARTIAL; P3-P8 ebenso. Nur eingefrorene Geometrie,
+  keine echte bewegliche Zweiwege-FSI, keine globale Energie-/Impuls-
+  validierung, keine externen 3D-Messdaten oder neue UE5.8-Native-E2E.
