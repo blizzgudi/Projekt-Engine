@@ -3,7 +3,7 @@
   "milestone": "kinematic_wall_pressure_work_partial",
   "partial_accepted": true,
   "phase_complete": false,
-  "timestamp_utc": "2026-10-27T17:22:37.326336+00:00",
+  "timestamp_utc": "2026-10-27T19:13:46.341818+00:00",
   "native_assertions": 69,
   "checks": [
     {
@@ -171,16 +171,16 @@
   "ctest_count": 49,
   "phase_gate_output": "GATES_PASS=P0,P1\nGATES_INCOMPLETE=P2,P3,P4,P5,P6,P7,P8\nALL_COMPLETE=False\nEVIDENCE=D:\\Projekt Engine\\ENGINE TEST STUBE\\runs\\unified_physics_gate.json",
   "source_sha256": {
-    "include/upc/kinematic_wall_projection3d.hpp": "f0f2432e44aac851d435293751f4ba378e1b9af91f0108339cfb2f9254cdd443",
+    "include/upc/kinematic_wall_projection3d.hpp": "55ba1bbaf8e4899ae4d8f26ebc8b0b6df0cc009d2755961a67b1f600aa1cd783",
     "include/upc/kinematic_wall_pressure_work3d.hpp": "5c6b89c3bcb2ce6c49bd95d8d645681bfc125c57cbdc955e6224defad110e0b7",
     "include/upc/mac3d.hpp": "9bb4659c5b6e6fd3a512301ae4a3a083fa96b1e67d50363ec8f5634e1038fdc5",
     "tests/p2_kinematic_wall_pressure_work3d_tests.cpp": "6e7360236a7d3d16e7b2abee931e988be1794ffadfa317ace00549f77b646f95",
     "scripts/p2_kinematic_pressure_work_acceptance.py": "8aea42edbbe7ab7dc0ff8d8530082d4a7094d8edfc9d656de806967ee6105042",
     "docs/P2_KINEMATIC_WALL_PRESSURE_WORK_PARTIAL.md": "c47f56a2f3170f320de4d782fe09c6dd1c07dafe6c2b6fdedfa0a3d1ac40fe89",
-    "docs/PHASENPLAN.md": "03a83c8e416b04ab3c1f5f9399665bc77a342aa758b762e2971088c2f7594452",
-    "CMakeLists.txt": "b841d4ce753d6d4e92ec15bc063eaf9e8c80807a4b42b34fc71c5ee7047bfca6"
+    "docs/PHASENPLAN.md": "03e5a9b4dcd927bd830400a8359bafa5138c8b6bcc15da5b7b8b77a5c496c192",
+    "CMakeLists.txt": "afab6457beb7f7b6cb33f6dda01c9c1202c9636c8a88d104aec7214a29e94719"
   },
-  "native_exe_sha256": "5b2a9bdd6edffe57afd41faa687f303013244eccb6e9bb99e2fd16f407807dfb",
+  "native_exe_sha256": "9308ed62043f7d3be7038fda095a8995eb3fcddb52ae8e2500373e07f6f424d8",
   "ctest_log_sha256": "24820822bdab771d961a47ed1b590e7cdf4439d9a32a041571b4837d0a2e6b7b",
   "scope": "frozen geometry, read-only pressure traction/work; no dynamic FSI"
 }

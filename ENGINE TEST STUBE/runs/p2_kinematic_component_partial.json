@@ -3,7 +3,7 @@
   "milestone": "per_connected_wet_component_neumann_compatibility_partial",
   "partial_accepted": true,
   "phase_complete": false,
-  "timestamp_utc": "2026-10-27T07:02:17.996726+00:00",
+  "timestamp_utc": "2026-10-27T19:13:36.056994+00:00",
   "scope": "frozen-mask component-wise closed Neumann solvability; not geometric FSI",
   "native_assertions": 62,
   "checks": [
@@ -329,14 +329,14 @@
   "phase_gate_output": "GATES_PASS=P0,P1\nGATES_INCOMPLETE=P2,P3,P4,P5,P6,P7,P8\nALL_COMPLETE=False\nEVIDENCE=D:\\Projekt Engine\\ENGINE TEST STUBE\\runs\\unified_physics_gate.json",
   "source_sha256": {
     "include/upc/mac3d.hpp": "9bb4659c5b6e6fd3a512301ae4a3a083fa96b1e67d50363ec8f5634e1038fdc5",
-    "include/upc/kinematic_wall_projection3d.hpp": "f0f2432e44aac851d435293751f4ba378e1b9af91f0108339cfb2f9254cdd443",
+    "include/upc/kinematic_wall_projection3d.hpp": "55ba1bbaf8e4899ae4d8f26ebc8b0b6df0cc009d2755961a67b1f600aa1cd783",
     "tests/p2_kinematic_component_compatibility3d_tests.cpp": "dabd7b7a5029482c6bbbc036019dbcb07372f7bf305b359051561dec9bbfbeb3",
     "tests/p2_kinematic_wall_projection3d_tests.cpp": "31da426894877075edf756dc344e2ce6a22c434c69508516ed6c78143a4efbed",
     "scripts/p2_kinematic_component_acceptance.py": "8f70d80280780fe4c993108bc9e728fe18227af3f892e19f2b0264b76f8790c9",
     "docs/P2_KINEMATIC_COMPONENT_COMPATIBILITY_PARTIAL.md": "f648615774817cfc703d0c5002e16f7ea6d1da9f6d5a2ced21ef629cb58a37d3",
-    "docs/PHASENPLAN.md": "3f25f4cac01aac7ef18afd2f8c5ccd986a925d8e6005a19426b5e3209505c333",
-    "CMakeLists.txt": "ac04202387d7a055faa32e974a13f10c67a2af916a74bdfb5f0ed1f4858f2164"
+    "docs/PHASENPLAN.md": "03e5a9b4dcd927bd830400a8359bafa5138c8b6bcc15da5b7b8b77a5c496c192",
+    "CMakeLists.txt": "afab6457beb7f7b6cb33f6dda01c9c1202c9636c8a88d104aec7214a29e94719"
   },
-  "native_exe_sha256": "8a847e1ec3ba263e8f2d0eec9be2fdc9db8f6dc7a76f3c8cdf854e8262142572",
+  "native_exe_sha256": "107f135df1e970212a7f16ba76ae803c0c62db9cbf23ef6817fc7eed98f7ed61",
   "ctest_log_sha256": "2f671b289178f6f74983950d0f898635f927aefe3f1c030b602c3d82604f6f13"
 }
