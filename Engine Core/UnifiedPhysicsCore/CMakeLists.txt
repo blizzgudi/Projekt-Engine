@@ -263,3 +263,9 @@ add_test(NAME physics_p2_voxel_sweep_mass_remap_partial COMMAND upc_p2_voxel_swe
 add_executable(upc_p2_exterior_vof_route_tests tests/p2_exterior_vof_route3d_tests.cpp)
 target_link_libraries(upc_p2_exterior_vof_route_tests PRIVATE upc)
 add_test(NAME physics_p2_exterior_vof_face_route_partial COMMAND upc_p2_exterior_vof_route_tests)
+# P2 partial: independent conservative 3D MAC finite-volume donor-cell VOF
+# flux with static solid mask, exact four-cell circulation, CFL and 3D curl.
+# No moving boundary, momentum feedback or full FSI acceptance.
+add_executable(upc_p2_conservative_vof_flux_tests tests/p2_conservative_vof_flux3d_tests.cpp)
+target_link_libraries(upc_p2_conservative_vof_flux_tests PRIVATE upc)
+add_test(NAME physics_p2_conservative_3d_mac_vof_face_flux_partial COMMAND upc_p2_conservative_vof_flux_tests)

@@ -536,3 +536,10 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
   noch kein zeitaufgeloester physikalischer VOF-Face-Flux, kein MAC-Impuls,
   keine Energieerhaltung oder bidirektionale FSI. Keine neuen externen
   CFD-Messdaten und kein neues Unreal-5.8 Native-E2E.
+
+## P2 Teilfortschritt: konservativer MAC-Face-VOF-Fluss (27.10.2026)
+
+- Neuer isolierter C++-Finite-Volume-Operator `ConservativeVofFlux3D` transportiert VOF mit lokalem Donor-Cell-Fluss ueber echte 3D-MAC-Faces statt durch die Solid-Maske. Feste und aeussere Waende sind undurchlaessig; diskrete Divergenz und ausgehendes CFL werden validiert.
+- Analytische Vier-Zellen-Zirkulation in XY/XZ/YZ bei 8^3/12^3/16^3 und beiden Umlaufrichtungen, 3D-Curl-Referenz, Hindernisse und Negativfaelle. Native Assertions: 44653. Unabhaengige Python-Gates: 111/111. MSVC Release und vollstaendige 54/54 CTest PASS. P1 erneut 33/33 PASS.
+- Nachweis: `docs/P2_CONSERVATIVE_MAC_VOF_FLUX_PARTIAL.md`, `scripts/p2_conservative_vof_flux_acceptance.py`, `ENGINE TEST STUBE/runs/p2_conservative_vof_flux_partial.json` und vollstaendiges CTest-Protokoll mit SHA256.
+- **P2 weiterhin PARTIAL.** Der neue Operator ist optional und arbeitet auf eingefrorener Solid-Maske. Keine bewegte Geometrie, kein Fluid-Gegenimpuls, keine globale Energie-/Impulsbilanz, keine externen 3D-CFD-Messdaten und keine neue UE5.8-Native-E2E-Abnahme. P3-P8 weiterhin PARTIAL.
