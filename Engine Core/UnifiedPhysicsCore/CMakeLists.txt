@@ -192,3 +192,9 @@ add_test(NAME physics_p2_3d_manufactured_pressure_projection_partial COMMAND upc
 add_executable(upc_p2_static_pressure_load_tests tests/p2_static_pressure_load3d_tests.cpp)
 target_link_libraries(upc_p2_static_pressure_load_tests PRIVATE upc)
 add_test(NAME physics_p2_static_voxel_pressure_traction_partial COMMAND upc_p2_static_pressure_load_tests)
+
+# P2 partial: force and torque on a static multi-voxel body after a real
+# 3D MAC pressure projection; not a moving-body FSI impulse.
+add_executable(upc_p2_static_body_wrench_tests tests/p2_static_body_wrench3d_tests.cpp)
+target_link_libraries(upc_p2_static_body_wrench_tests PRIVATE upc)
+add_test(NAME physics_p2_static_3d_body_force_torque_partial COMMAND upc_p2_static_body_wrench_tests)

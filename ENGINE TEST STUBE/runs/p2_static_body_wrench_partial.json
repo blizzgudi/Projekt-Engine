@@ -1,0 +1,1250 @@
+{
+  "schema_version": 1,
+  "phase": "P2",
+  "milestone": "static_3d_body_pressure_force_torque_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "generated_utc": "2026-10-27T01:26:45.646928+00:00",
+  "scope": "Static 2x2x2 body pressure force/torque from real 3D MAC projection; 12 native cases, independent Python face integration",
+  "native_assertions": 11768,
+  "native_stdout": "mode,nx,ny,nz,offset_pa,solid_voxels,wetted_faces,force_x_N,force_y_N,force_z_N,torque_x_Nm,torque_y_Nm,torque_z_Nm,max_force_error_N,max_torque_error_Nm,max_pressure_error_pa,divergence\nair,8,7,6,150,8,24,-0.53760000550920439,0.84479999985157306,-0.38400000018971636,-0.29491200000990309,-0.0061440012612441475,0.39936000127461374,5.509204425990788e-09,1.2746136923702522e-09,2.4998968228828744e-07,8.8189012841487224e-11\nair,8,7,6,1200,8,24,-0.53760000556022369,0.84479999985019827,-0.38400000019147118,-0.29491200000999318,-0.0061440012729230276,0.39936000128641691,5.5602237258867149e-09,1.2864168619231009e-09,2.5230428946088068e-07,8.9002584599193191e-11\nair,12,11,10,150,8,24,-0.53760001161562954,0.84479999980279907,-0.38400000023213443,-0.49152000001397245,-0.030720004534592338,0.62054400455138536,1.1615629569305952e-08,4.5513853796919079e-09,8.7201678411474859e-07,9.2140601789039711e-11\nair,12,11,10,1200,8,24,-0.53760001164005899,0.8447999998023823,-0.38400000023261693,-0.49152000001400209,-0.030720004544128265,0.62054400456095582,1.1640059027762106e-08,4.5609558352310842e-09,8.7385069491574541e-07,9.2333600617763856e-11\nair,16,15,14,150,8,24,-0.53760001730732976,0.84479999978057962,-0.38400000024528147,-0.68812800001448182,-0.055296009534956392,0.84172800955150984,1.7307329791549364e-08,9.5515098053056136e-09,1.8853932033380261e-06,9.2810110183076666e-11\nair,16,15,14,1200,8,24,-0.53760001736671459,0.844799999779827,-0.3840000002461208,-0.68812800001453223,-0.055296009567674886,0.84172800958428518,1.7366714621935841e-08,9.5842851433047827e-09,1.8918633486464387e-06,9.3127992839038554e-11\nclosed,8,7,6,150,8,24,-0.53759999647374812,0.84480000000226063,-0.38399999999814022,-0.2949120000000961,-0.006143999154756382,0.39935999915486431,3.5262518460754677e-09,8.4524361468329978e-10,1.6270016089947603e-07,8.1690486623473002e-11\nclosed,8,7,6,1200,8,24,-0.53759999647374812,0.84480000000226063,-0.38399999999814022,-0.2949120000000961,-0.006143999154756382,0.39935999915486431,3.5262518460754677e-09,8.4524361468329978e-10,1.6270018932118546e-07,8.1690486623473002e-11\nclosed,12,11,10,150,8,24,-0.53759999259172853,0.84479999987318888,-0.38400000000046652,-0.49151999994947165,-0.030719997036930992,0.62054399697628315,7.4082714407452954e-09,3.0237168324731556e-09,4.9202736818187987e-07,8.8414179948669014e-11\nclosed,12,11,10,1200,8,24,-0.53759999259172853,0.84479999987318888,-0.38400000000046652,-0.49151999994947165,-0.030719997036930992,0.62054399697628315,7.4082714407452954e-09,3.0237168324731556e-09,4.9202753871213645e-07,8.8414179948669014e-11\nclosed,16,15,14,150,8,24,-0.53759998865734904,0.844799999073093,-0.38399999999313439,-0.68812799947712311,-0.05529599365288438,0.8417279930553051,1.1342650929613285e-08,6.9446949302331973e-09,1.0167096036184375e-06,9.1822415556469528e-11\nclosed,16,15,14,1200,8,24,-0.53759998865734904,0.844799999073093,-0.38399999999313439,-0.68812799947712311,-0.05529599365288438,0.8417279930553051,1.1342650929613285e-08,6.9446949302331973e-09,1.0167095751967281e-06,9.1822415556469528e-11\nPASS: P2 static body wrench assertions=11768 phase_complete=false\n",
+  "checks": [
+    {
+      "name": "native_assertions",
+      "pass": true,
+      "value": 11768,
+      "expected": ">=11768"
+    },
+    {
+      "name": "air_8_150_mode",
+      "pass": true,
+      "value": "air",
+      "expected": "air"
+    },
+    {
+      "name": "air_8_150_dimensions",
+      "pass": true,
+      "value": [
+        8,
+        7,
+        6
+      ],
+      "expected": [
+        8,
+        7,
+        6
+      ]
+    },
+    {
+      "name": "air_8_150_offset",
+      "pass": true,
+      "value": 150.0,
+      "expected": 150.0
+    },
+    {
+      "name": "air_8_150_body_voxels",
+      "pass": true,
+      "value": 8,
+      "expected": 8
+    },
+    {
+      "name": "air_8_150_wetted_faces",
+      "pass": true,
+      "value": 24,
+      "expected": 24
+    },
+    {
+      "name": "air_8_150_force_0",
+      "pass": true,
+      "value": -0.5376000055092044,
+      "expected": -0.5376
+    },
+    {
+      "name": "air_8_150_torque_0",
+      "pass": true,
+      "value": -0.2949120000099031,
+      "expected": -0.2949119999999999
+    },
+    {
+      "name": "air_8_150_force_1",
+      "pass": true,
+      "value": 0.8447999998515731,
+      "expected": 0.8448000000000004
+    },
+    {
+      "name": "air_8_150_torque_1",
+      "pass": true,
+      "value": -0.0061440012612441475,
+      "expected": -0.006143999999999872
+    },
+    {
+      "name": "air_8_150_force_2",
+      "pass": true,
+      "value": -0.38400000018971636,
+      "expected": -0.3840000000000001
+    },
+    {
+      "name": "air_8_150_torque_2",
+      "pass": true,
+      "value": 0.39936000127461374,
+      "expected": 0.39935999999999977
+    },
+    {
+      "name": "air_8_150_max_force_error",
+      "pass": true,
+      "value": 5.509204425990788e-09,
+      "expected": 2e-05
+    },
+    {
+      "name": "air_8_150_max_torque_error",
+      "pass": true,
+      "value": 1.2746136923702522e-09,
+      "expected": 3e-05
+    },
+    {
+      "name": "air_8_150_pressure_reconstruction",
+      "pass": true,
+      "value": 2.4998968228828744e-07,
+      "expected": 0.0003
+    },
+    {
+      "name": "air_8_150_projection_divergence",
+      "pass": true,
+      "value": 8.818901284148722e-11,
+      "expected": 2e-08
+    },
+    {
+      "name": "air_8_1200_mode",
+      "pass": true,
+      "value": "air",
+      "expected": "air"
+    },
+    {
+      "name": "air_8_1200_dimensions",
+      "pass": true,
+      "value": [
+        8,
+        7,
+        6
+      ],
+      "expected": [
+        8,
+        7,
+        6
+      ]
+    },
+    {
+      "name": "air_8_1200_offset",
+      "pass": true,
+      "value": 1200.0,
+      "expected": 1200.0
+    },
+    {
+      "name": "air_8_1200_body_voxels",
+      "pass": true,
+      "value": 8,
+      "expected": 8
+    },
+    {
+      "name": "air_8_1200_wetted_faces",
+      "pass": true,
+      "value": 24,
+      "expected": 24
+    },
+    {
+      "name": "air_8_1200_force_0",
+      "pass": true,
+      "value": -0.5376000055602237,
+      "expected": -0.5376000000000021
+    },
+    {
+      "name": "air_8_1200_torque_0",
+      "pass": true,
+      "value": -0.2949120000099932,
+      "expected": -0.2949120000000005
+    },
+    {
+      "name": "air_8_1200_force_1",
+      "pass": true,
+      "value": 0.8447999998501983,
+      "expected": 0.8447999999999976
+    },
+    {
+      "name": "air_8_1200_torque_1",
+      "pass": true,
+      "value": -0.0061440012729230276,
+      "expected": -0.006143999999999483
+    },
+    {
+      "name": "air_8_1200_force_2",
+      "pass": true,
+      "value": -0.3840000001914712,
+      "expected": -0.38400000000000034
+    },
+    {
+      "name": "air_8_1200_torque_2",
+      "pass": true,
+      "value": 0.3993600012864169,
+      "expected": 0.3993600000000015
+    },
+    {
+      "name": "air_8_1200_max_force_error",
+      "pass": true,
+      "value": 5.560223725886715e-09,
+      "expected": 2e-05
+    },
+    {
+      "name": "air_8_1200_max_torque_error",
+      "pass": true,
+      "value": 1.2864168619231009e-09,
+      "expected": 3e-05
+    },
+    {
+      "name": "air_8_1200_pressure_reconstruction",
+      "pass": true,
+      "value": 2.523042894608807e-07,
+      "expected": 0.0003
+    },
+    {
+      "name": "air_8_1200_projection_divergence",
+      "pass": true,
+      "value": 8.900258459919319e-11,
+      "expected": 2e-08
+    },
+    {
+      "name": "air_12_150_mode",
+      "pass": true,
+      "value": "air",
+      "expected": "air"
+    },
+    {
+      "name": "air_12_150_dimensions",
+      "pass": true,
+      "value": [
+        12,
+        11,
+        10
+      ],
+      "expected": [
+        12,
+        11,
+        10
+      ]
+    },
+    {
+      "name": "air_12_150_offset",
+      "pass": true,
+      "value": 150.0,
+      "expected": 150.0
+    },
+    {
+      "name": "air_12_150_body_voxels",
+      "pass": true,
+      "value": 8,
+      "expected": 8
+    },
+    {
+      "name": "air_12_150_wetted_faces",
+      "pass": true,
+      "value": 24,
+      "expected": 24
+    },
+    {
+      "name": "air_12_150_force_0",
+      "pass": true,
+      "value": -0.5376000116156295,
+      "expected": -0.5376000000000001
+    },
+    {
+      "name": "air_12_150_torque_0",
+      "pass": true,
+      "value": -0.49152000001397245,
+      "expected": -0.4915199999999999
+    },
+    {
+      "name": "air_12_150_force_1",
+      "pass": true,
+      "value": 0.8447999998027991,
+      "expected": 0.8447999999999997
+    },
+    {
+      "name": "air_12_150_torque_1",
+      "pass": true,
+      "value": -0.030720004534592338,
+      "expected": -0.030719999999999525
+    },
+    {
+      "name": "air_12_150_force_2",
+      "pass": true,
+      "value": -0.38400000023213443,
+      "expected": -0.3840000000000001
+    },
+    {
+      "name": "air_12_150_torque_2",
+      "pass": true,
+      "value": 0.6205440045513854,
+      "expected": 0.6205440000000002
+    },
+    {
+      "name": "air_12_150_max_force_error",
+      "pass": true,
+      "value": 1.1615629569305952e-08,
+      "expected": 2e-05
+    },
+    {
+      "name": "air_12_150_max_torque_error",
+      "pass": true,
+      "value": 4.551385379691908e-09,
+      "expected": 3e-05
+    },
+    {
+      "name": "air_12_150_pressure_reconstruction",
+      "pass": true,
+      "value": 8.720167841147486e-07,
+      "expected": 0.0003
+    },
+    {
+      "name": "air_12_150_projection_divergence",
+      "pass": true,
+      "value": 9.214060178903971e-11,
+      "expected": 2e-08
+    },
+    {
+      "name": "air_12_1200_mode",
+      "pass": true,
+      "value": "air",
+      "expected": "air"
+    },
+    {
+      "name": "air_12_1200_dimensions",
+      "pass": true,
+      "value": [
+        12,
+        11,
+        10
+      ],
+      "expected": [
+        12,
+        11,
+        10
+      ]
+    },
+    {
+      "name": "air_12_1200_offset",
+      "pass": true,
+      "value": 1200.0,
+      "expected": 1200.0
+    },
+    {
+      "name": "air_12_1200_body_voxels",
+      "pass": true,
+      "value": 8,
+      "expected": 8
+    },
+    {
+      "name": "air_12_1200_wetted_faces",
+      "pass": true,
+      "value": 24,
+      "expected": 24
+    },
+    {
+      "name": "air_12_1200_force_0",
+      "pass": true,
+      "value": -0.537600011640059,
+      "expected": -0.5375999999999994
+    },
+    {
+      "name": "air_12_1200_torque_0",
+      "pass": true,
+      "value": -0.4915200000140021,
+      "expected": -0.49151999999999907
+    },
+    {
+      "name": "air_12_1200_force_1",
+      "pass": true,
+      "value": 0.8447999998023823,
+      "expected": 0.8447999999999984
+    },
+    {
+      "name": "air_12_1200_torque_1",
+      "pass": true,
+      "value": -0.030720004544128265,
+      "expected": -0.0307200000000023
+    },
+    {
+      "name": "air_12_1200_force_2",
+      "pass": true,
+      "value": -0.38400000023261693,
+      "expected": -0.38399999999999856
+    },
+    {
+      "name": "air_12_1200_torque_2",
+      "pass": true,
+      "value": 0.6205440045609558,
+      "expected": 0.6205439999999993
+    },
+    {
+      "name": "air_12_1200_max_force_error",
+      "pass": true,
+      "value": 1.1640059027762106e-08,
+      "expected": 2e-05
+    },
+    {
+      "name": "air_12_1200_max_torque_error",
+      "pass": true,
+      "value": 4.560955835231084e-09,
+      "expected": 3e-05
+    },
+    {
+      "name": "air_12_1200_pressure_reconstruction",
+      "pass": true,
+      "value": 8.738506949157454e-07,
+      "expected": 0.0003
+    },
+    {
+      "name": "air_12_1200_projection_divergence",
+      "pass": true,
+      "value": 9.233360061776386e-11,
+      "expected": 2e-08
+    },
+    {
+      "name": "air_16_150_mode",
+      "pass": true,
+      "value": "air",
+      "expected": "air"
+    },
+    {
+      "name": "air_16_150_dimensions",
+      "pass": true,
+      "value": [
+        16,
+        15,
+        14
+      ],
+      "expected": [
+        16,
+        15,
+        14
+      ]
+    },
+    {
+      "name": "air_16_150_offset",
+      "pass": true,
+      "value": 150.0,
+      "expected": 150.0
+    },
+    {
+      "name": "air_16_150_body_voxels",
+      "pass": true,
+      "value": 8,
+      "expected": 8
+    },
+    {
+      "name": "air_16_150_wetted_faces",
+      "pass": true,
+      "value": 24,
+      "expected": 24
+    },
+    {
+      "name": "air_16_150_force_0",
+      "pass": true,
+      "value": -0.5376000173073298,
+      "expected": -0.5376000000000002
+    },
+    {
+      "name": "air_16_150_torque_0",
+      "pass": true,
+      "value": -0.6881280000144818,
+      "expected": -0.6881280000000001
+    },
+    {
+      "name": "air_16_150_force_1",
+      "pass": true,
+      "value": 0.8447999997805796,
+      "expected": 0.8447999999999998
+    },
+    {
+      "name": "air_16_150_torque_1",
+      "pass": true,
+      "value": -0.05529600953495639,
+      "expected": -0.05529599999999957
+    },
+    {
+      "name": "air_16_150_force_2",
+      "pass": true,
+      "value": -0.38400000024528147,
+      "expected": -0.3840000000000001
+    },
+    {
+      "name": "air_16_150_torque_2",
+      "pass": true,
+      "value": 0.8417280095515098,
+      "expected": 0.8417280000000004
+    },
+    {
+      "name": "air_16_150_max_force_error",
+      "pass": true,
+      "value": 1.7307329791549364e-08,
+      "expected": 2e-05
+    },
+    {
+      "name": "air_16_150_max_torque_error",
+      "pass": true,
+      "value": 9.551509805305614e-09,
+      "expected": 3e-05
+    },
+    {
+      "name": "air_16_150_pressure_reconstruction",
+      "pass": true,
+      "value": 1.885393203338026e-06,
+      "expected": 0.0003
+    },
+    {
+      "name": "air_16_150_projection_divergence",
+      "pass": true,
+      "value": 9.281011018307667e-11,
+      "expected": 2e-08
+    },
+    {
+      "name": "air_16_1200_mode",
+      "pass": true,
+      "value": "air",
+      "expected": "air"
+    },
+    {
+      "name": "air_16_1200_dimensions",
+      "pass": true,
+      "value": [
+        16,
+        15,
+        14
+      ],
+      "expected": [
+        16,
+        15,
+        14
+      ]
+    },
+    {
+      "name": "air_16_1200_offset",
+      "pass": true,
+      "value": 1200.0,
+      "expected": 1200.0
+    },
+    {
+      "name": "air_16_1200_body_voxels",
+      "pass": true,
+      "value": 8,
+      "expected": 8
+    },
+    {
+      "name": "air_16_1200_wetted_faces",
+      "pass": true,
+      "value": 24,
+      "expected": 24
+    },
+    {
+      "name": "air_16_1200_force_0",
+      "pass": true,
+      "value": -0.5376000173667146,
+      "expected": -0.5376000000000003
+    },
+    {
+      "name": "air_16_1200_torque_0",
+      "pass": true,
+      "value": -0.6881280000145322,
+      "expected": -0.6881279999999954
+    },
+    {
+      "name": "air_16_1200_force_1",
+      "pass": true,
+      "value": 0.844799999779827,
+      "expected": 0.8447999999999976
+    },
+    {
+      "name": "air_16_1200_torque_1",
+      "pass": true,
+      "value": -0.055296009567674886,
+      "expected": -0.055295999999999346
+    },
+    {
+      "name": "air_16_1200_force_2",
+      "pass": true,
+      "value": -0.3840000002461208,
+      "expected": -0.38399999999999856
+    },
+    {
+      "name": "air_16_1200_torque_2",
+      "pass": true,
+      "value": 0.8417280095842852,
+      "expected": 0.8417279999999989
+    },
+    {
+      "name": "air_16_1200_max_force_error",
+      "pass": true,
+      "value": 1.736671462193584e-08,
+      "expected": 2e-05
+    },
+    {
+      "name": "air_16_1200_max_torque_error",
+      "pass": true,
+      "value": 9.584285143304783e-09,
+      "expected": 3e-05
+    },
+    {
+      "name": "air_16_1200_pressure_reconstruction",
+      "pass": true,
+      "value": 1.8918633486464387e-06,
+      "expected": 0.0003
+    },
+    {
+      "name": "air_16_1200_projection_divergence",
+      "pass": true,
+      "value": 9.312799283903855e-11,
+      "expected": 2e-08
+    },
+    {
+      "name": "closed_8_150_mode",
+      "pass": true,
+      "value": "closed",
+      "expected": "closed"
+    },
+    {
+      "name": "closed_8_150_dimensions",
+      "pass": true,
+      "value": [
+        8,
+        7,
+        6
+      ],
+      "expected": [
+        8,
+        7,
+        6
+      ]
+    },
+    {
+      "name": "closed_8_150_offset",
+      "pass": true,
+      "value": 150.0,
+      "expected": 150.0
+    },
+    {
+      "name": "closed_8_150_body_voxels",
+      "pass": true,
+      "value": 8,
+      "expected": 8
+    },
+    {
+      "name": "closed_8_150_wetted_faces",
+      "pass": true,
+      "value": 24,
+      "expected": 24
+    },
+    {
+      "name": "closed_8_150_force_0",
+      "pass": true,
+      "value": -0.5375999964737481,
+      "expected": -0.5376
+    },
+    {
+      "name": "closed_8_150_torque_0",
+      "pass": true,
+      "value": -0.2949120000000961,
+      "expected": -0.2949119999999999
+    },
+    {
+      "name": "closed_8_150_force_1",
+      "pass": true,
+      "value": 0.8448000000022606,
+      "expected": 0.8448000000000004
+    },
+    {
+      "name": "closed_8_150_torque_1",
+      "pass": true,
+      "value": -0.006143999154756382,
+      "expected": -0.006143999999999872
+    },
+    {
+      "name": "closed_8_150_force_2",
+      "pass": true,
+      "value": -0.3839999999981402,
+      "expected": -0.3840000000000001
+    },
+    {
+      "name": "closed_8_150_torque_2",
+      "pass": true,
+      "value": 0.3993599991548643,
+      "expected": 0.39935999999999977
+    },
+    {
+      "name": "closed_8_150_max_force_error",
+      "pass": true,
+      "value": 3.5262518460754677e-09,
+      "expected": 2e-05
+    },
+    {
+      "name": "closed_8_150_max_torque_error",
+      "pass": true,
+      "value": 8.452436146832998e-10,
+      "expected": 3e-05
+    },
+    {
+      "name": "closed_8_150_pressure_reconstruction",
+      "pass": true,
+      "value": 1.6270016089947603e-07,
+      "expected": 0.0003
+    },
+    {
+      "name": "closed_8_150_projection_divergence",
+      "pass": true,
+      "value": 8.1690486623473e-11,
+      "expected": 2e-08
+    },
+    {
+      "name": "closed_8_1200_mode",
+      "pass": true,
+      "value": "closed",
+      "expected": "closed"
+    },
+    {
+      "name": "closed_8_1200_dimensions",
+      "pass": true,
+      "value": [
+        8,
+        7,
+        6
+      ],
+      "expected": [
+        8,
+        7,
+        6
+      ]
+    },
+    {
+      "name": "closed_8_1200_offset",
+      "pass": true,
+      "value": 1200.0,
+      "expected": 1200.0
+    },
+    {
+      "name": "closed_8_1200_body_voxels",
+      "pass": true,
+      "value": 8,
+      "expected": 8
+    },
+    {
+      "name": "closed_8_1200_wetted_faces",
+      "pass": true,
+      "value": 24,
+      "expected": 24
+    },
+    {
+      "name": "closed_8_1200_force_0",
+      "pass": true,
+      "value": -0.5375999964737481,
+      "expected": -0.5376000000000021
+    },
+    {
+      "name": "closed_8_1200_torque_0",
+      "pass": true,
+      "value": -0.2949120000000961,
+      "expected": -0.2949120000000005
+    },
+    {
+      "name": "closed_8_1200_force_1",
+      "pass": true,
+      "value": 0.8448000000022606,
+      "expected": 0.8447999999999976
+    },
+    {
+      "name": "closed_8_1200_torque_1",
+      "pass": true,
+      "value": -0.006143999154756382,
+      "expected": -0.006143999999999483
+    },
+    {
+      "name": "closed_8_1200_force_2",
+      "pass": true,
+      "value": -0.3839999999981402,
+      "expected": -0.38400000000000034
+    },
+    {
+      "name": "closed_8_1200_torque_2",
+      "pass": true,
+      "value": 0.3993599991548643,
+      "expected": 0.3993600000000015
+    },
+    {
+      "name": "closed_8_1200_max_force_error",
+      "pass": true,
+      "value": 3.5262518460754677e-09,
+      "expected": 2e-05
+    },
+    {
+      "name": "closed_8_1200_max_torque_error",
+      "pass": true,
+      "value": 8.452436146832998e-10,
+      "expected": 3e-05
+    },
+    {
+      "name": "closed_8_1200_pressure_reconstruction",
+      "pass": true,
+      "value": 1.6270018932118546e-07,
+      "expected": 0.0003
+    },
+    {
+      "name": "closed_8_1200_projection_divergence",
+      "pass": true,
+      "value": 8.1690486623473e-11,
+      "expected": 2e-08
+    },
+    {
+      "name": "closed_12_150_mode",
+      "pass": true,
+      "value": "closed",
+      "expected": "closed"
+    },
+    {
+      "name": "closed_12_150_dimensions",
+      "pass": true,
+      "value": [
+        12,
+        11,
+        10
+      ],
+      "expected": [
+        12,
+        11,
+        10
+      ]
+    },
+    {
+      "name": "closed_12_150_offset",
+      "pass": true,
+      "value": 150.0,
+      "expected": 150.0
+    },
+    {
+      "name": "closed_12_150_body_voxels",
+      "pass": true,
+      "value": 8,
+      "expected": 8
+    },
+    {
+      "name": "closed_12_150_wetted_faces",
+      "pass": true,
+      "value": 24,
+      "expected": 24
+    },
+    {
+      "name": "closed_12_150_force_0",
+      "pass": true,
+      "value": -0.5375999925917285,
+      "expected": -0.5376000000000001
+    },
+    {
+      "name": "closed_12_150_torque_0",
+      "pass": true,
+      "value": -0.49151999994947165,
+      "expected": -0.4915199999999999
+    },
+    {
+      "name": "closed_12_150_force_1",
+      "pass": true,
+      "value": 0.8447999998731889,
+      "expected": 0.8447999999999997
+    },
+    {
+      "name": "closed_12_150_torque_1",
+      "pass": true,
+      "value": -0.030719997036930992,
+      "expected": -0.030719999999999525
+    },
+    {
+      "name": "closed_12_150_force_2",
+      "pass": true,
+      "value": -0.3840000000004665,
+      "expected": -0.3840000000000001
+    },
+    {
+      "name": "closed_12_150_torque_2",
+      "pass": true,
+      "value": 0.6205439969762832,
+      "expected": 0.6205440000000002
+    },
+    {
+      "name": "closed_12_150_max_force_error",
+      "pass": true,
+      "value": 7.4082714407452954e-09,
+      "expected": 2e-05
+    },
+    {
+      "name": "closed_12_150_max_torque_error",
+      "pass": true,
+      "value": 3.0237168324731556e-09,
+      "expected": 3e-05
+    },
+    {
+      "name": "closed_12_150_pressure_reconstruction",
+      "pass": true,
+      "value": 4.920273681818799e-07,
+      "expected": 0.0003
+    },
+    {
+      "name": "closed_12_150_projection_divergence",
+      "pass": true,
+      "value": 8.841417994866901e-11,
+      "expected": 2e-08
+    },
+    {
+      "name": "closed_12_1200_mode",
+      "pass": true,
+      "value": "closed",
+      "expected": "closed"
+    },
+    {
+      "name": "closed_12_1200_dimensions",
+      "pass": true,
+      "value": [
+        12,
+        11,
+        10
+      ],
+      "expected": [
+        12,
+        11,
+        10
+      ]
+    },
+    {
+      "name": "closed_12_1200_offset",
+      "pass": true,
+      "value": 1200.0,
+      "expected": 1200.0
+    },
+    {
+      "name": "closed_12_1200_body_voxels",
+      "pass": true,
+      "value": 8,
+      "expected": 8
+    },
+    {
+      "name": "closed_12_1200_wetted_faces",
+      "pass": true,
+      "value": 24,
+      "expected": 24
+    },
+    {
+      "name": "closed_12_1200_force_0",
+      "pass": true,
+      "value": -0.5375999925917285,
+      "expected": -0.5375999999999994
+    },
+    {
+      "name": "closed_12_1200_torque_0",
+      "pass": true,
+      "value": -0.49151999994947165,
+      "expected": -0.49151999999999907
+    },
+    {
+      "name": "closed_12_1200_force_1",
+      "pass": true,
+      "value": 0.8447999998731889,
+      "expected": 0.8447999999999984
+    },
+    {
+      "name": "closed_12_1200_torque_1",
+      "pass": true,
+      "value": -0.030719997036930992,
+      "expected": -0.0307200000000023
+    },
+    {
+      "name": "closed_12_1200_force_2",
+      "pass": true,
+      "value": -0.3840000000004665,
+      "expected": -0.38399999999999856
+    },
+    {
+      "name": "closed_12_1200_torque_2",
+      "pass": true,
+      "value": 0.6205439969762832,
+      "expected": 0.6205439999999993
+    },
+    {
+      "name": "closed_12_1200_max_force_error",
+      "pass": true,
+      "value": 7.4082714407452954e-09,
+      "expected": 2e-05
+    },
+    {
+      "name": "closed_12_1200_max_torque_error",
+      "pass": true,
+      "value": 3.0237168324731556e-09,
+      "expected": 3e-05
+    },
+    {
+      "name": "closed_12_1200_pressure_reconstruction",
+      "pass": true,
+      "value": 4.920275387121364e-07,
+      "expected": 0.0003
+    },
+    {
+      "name": "closed_12_1200_projection_divergence",
+      "pass": true,
+      "value": 8.841417994866901e-11,
+      "expected": 2e-08
+    },
+    {
+      "name": "closed_16_150_mode",
+      "pass": true,
+      "value": "closed",
+      "expected": "closed"
+    },
+    {
+      "name": "closed_16_150_dimensions",
+      "pass": true,
+      "value": [
+        16,
+        15,
+        14
+      ],
+      "expected": [
+        16,
+        15,
+        14
+      ]
+    },
+    {
+      "name": "closed_16_150_offset",
+      "pass": true,
+      "value": 150.0,
+      "expected": 150.0
+    },
+    {
+      "name": "closed_16_150_body_voxels",
+      "pass": true,
+      "value": 8,
+      "expected": 8
+    },
+    {
+      "name": "closed_16_150_wetted_faces",
+      "pass": true,
+      "value": 24,
+      "expected": 24
+    },
+    {
+      "name": "closed_16_150_force_0",
+      "pass": true,
+      "value": -0.537599988657349,
+      "expected": -0.5376000000000002
+    },
+    {
+      "name": "closed_16_150_torque_0",
+      "pass": true,
+      "value": -0.6881279994771231,
+      "expected": -0.6881280000000001
+    },
+    {
+      "name": "closed_16_150_force_1",
+      "pass": true,
+      "value": 0.844799999073093,
+      "expected": 0.8447999999999998
+    },
+    {
+      "name": "closed_16_150_torque_1",
+      "pass": true,
+      "value": -0.05529599365288438,
+      "expected": -0.05529599999999957
+    },
+    {
+      "name": "closed_16_150_force_2",
+      "pass": true,
+      "value": -0.3839999999931344,
+      "expected": -0.3840000000000001
+    },
+    {
+      "name": "closed_16_150_torque_2",
+      "pass": true,
+      "value": 0.8417279930553051,
+      "expected": 0.8417280000000004
+    },
+    {
+      "name": "closed_16_150_max_force_error",
+      "pass": true,
+      "value": 1.1342650929613285e-08,
+      "expected": 2e-05
+    },
+    {
+      "name": "closed_16_150_max_torque_error",
+      "pass": true,
+      "value": 6.944694930233197e-09,
+      "expected": 3e-05
+    },
+    {
+      "name": "closed_16_150_pressure_reconstruction",
+      "pass": true,
+      "value": 1.0167096036184375e-06,
+      "expected": 0.0003
+    },
+    {
+      "name": "closed_16_150_projection_divergence",
+      "pass": true,
+      "value": 9.182241555646953e-11,
+      "expected": 2e-08
+    },
+    {
+      "name": "closed_16_1200_mode",
+      "pass": true,
+      "value": "closed",
+      "expected": "closed"
+    },
+    {
+      "name": "closed_16_1200_dimensions",
+      "pass": true,
+      "value": [
+        16,
+        15,
+        14
+      ],
+      "expected": [
+        16,
+        15,
+        14
+      ]
+    },
+    {
+      "name": "closed_16_1200_offset",
+      "pass": true,
+      "value": 1200.0,
+      "expected": 1200.0
+    },
+    {
+      "name": "closed_16_1200_body_voxels",
+      "pass": true,
+      "value": 8,
+      "expected": 8
+    },
+    {
+      "name": "closed_16_1200_wetted_faces",
+      "pass": true,
+      "value": 24,
+      "expected": 24
+    },
+    {
+      "name": "closed_16_1200_force_0",
+      "pass": true,
+      "value": -0.537599988657349,
+      "expected": -0.5376000000000003
+    },
+    {
+      "name": "closed_16_1200_torque_0",
+      "pass": true,
+      "value": -0.6881279994771231,
+      "expected": -0.6881279999999954
+    },
+    {
+      "name": "closed_16_1200_force_1",
+      "pass": true,
+      "value": 0.844799999073093,
+      "expected": 0.8447999999999976
+    },
+    {
+      "name": "closed_16_1200_torque_1",
+      "pass": true,
+      "value": -0.05529599365288438,
+      "expected": -0.055295999999999346
+    },
+    {
+      "name": "closed_16_1200_force_2",
+      "pass": true,
+      "value": -0.3839999999931344,
+      "expected": -0.38399999999999856
+    },
+    {
+      "name": "closed_16_1200_torque_2",
+      "pass": true,
+      "value": 0.8417279930553051,
+      "expected": 0.8417279999999989
+    },
+    {
+      "name": "closed_16_1200_max_force_error",
+      "pass": true,
+      "value": 1.1342650929613285e-08,
+      "expected": 2e-05
+    },
+    {
+      "name": "closed_16_1200_max_torque_error",
+      "pass": true,
+      "value": 6.944694930233197e-09,
+      "expected": 3e-05
+    },
+    {
+      "name": "closed_16_1200_pressure_reconstruction",
+      "pass": true,
+      "value": 1.0167095751967281e-06,
+      "expected": 0.0003
+    },
+    {
+      "name": "closed_16_1200_projection_divergence",
+      "pass": true,
+      "value": 9.182241555646953e-11,
+      "expected": 2e-08
+    },
+    {
+      "name": "air_8_pressure_gauge_invariance",
+      "pass": true,
+      "value": 5.1019299895926906e-11,
+      "expected": 3e-05
+    },
+    {
+      "name": "air_12_pressure_gauge_invariance",
+      "pass": true,
+      "value": 2.4429458456154407e-11,
+      "expected": 3e-05
+    },
+    {
+      "name": "air_16_pressure_gauge_invariance",
+      "pass": true,
+      "value": 5.938483038647746e-11,
+      "expected": 3e-05
+    },
+    {
+      "name": "closed_8_pressure_gauge_invariance",
+      "pass": true,
+      "value": 0.0,
+      "expected": 3e-05
+    },
+    {
+      "name": "closed_12_pressure_gauge_invariance",
+      "pass": true,
+      "value": 0.0,
+      "expected": 3e-05
+    },
+    {
+      "name": "closed_16_pressure_gauge_invariance",
+      "pass": true,
+      "value": 0.0,
+      "expected": 3e-05
+    },
+    {
+      "name": "complete_ctest_42_of_42",
+      "pass": true,
+      "value": "42/42",
+      "expected": "42/42"
+    }
+  ],
+  "source_sha256": {
+    "include/upc/mac3d.hpp": "9bb4659c5b6e6fd3a512301ae4a3a083fa96b1e67d50363ec8f5634e1038fdc5",
+    "include/upc/static_pressure_load3d.hpp": "a3c32e9ed62318250eee7e51123da22e0013a635eda9cff29f58002415d06438",
+    "tests/p2_static_body_wrench3d_tests.cpp": "d08eb969249efb4dad84d264f6c5c677ca48eb68d899389eccd34d854ff4e701",
+    "scripts/p2_static_body_wrench_acceptance.py": "bcd7342bfef4e2f96799254b67fddf19c63a4dada0d808636277da2b908e2759",
+    "docs/P2_STATIC_BODY_WRENCH_PARTIAL.md": "25f89e888fea09fa47f1cb3a0881bfca6a1aeedd29898c9051adf4c708e9c389",
+    "docs/PHASENPLAN.md": "8e0ad361b7d089792da62f93f39151b7694b881089364db4d309b9e54026d995",
+    "CMakeLists.txt": "6dd503dcf6c3aefd192eb32f330fcf182c90d10ef66e5266acc91fd2b2d7efe8"
+  },
+  "binary_sha256": "54743a2212ddc3235fc8396e1c1838f88a665e73cdc27bb408c9da10d15c12e1",
+  "ctest_log_path": "D:\\Projekt Engine\\ENGINE TEST STUBE\\runs\\p2_static_body_wrench_ctest_20261027.txt",
+  "ctest_log_sha256": "f9a132d2614c0ffb7ca6f9774dccaa87f2cfdd12e123eb9d4a860eb974d78ff8",
+  "limitation": "No moving-body FSI, no impulse reaction, no physical total-energy closure, no measured CFD, no UE5.8 native E2E, no full P2 acceptance"
+}

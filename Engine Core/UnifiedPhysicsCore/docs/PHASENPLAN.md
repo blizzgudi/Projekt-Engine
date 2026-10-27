@@ -294,3 +294,25 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
   FSI-Reaktion, keine stresskonsistente Oberflaeche, keine globale
   Impuls-/Energieerhaltung, keine externe CFD-Messung oder neue
   Unreal-5.8-Native-E2E-Abnahme.
+
+
+## P2 Teilfortschritt: statische Mehrvoxel-Druckkraft und Drehmoment (27.10.2026)
+
+- `StaticSolidPressureProbe3D::load_on_body` summiert Druckkraft und
+  Drehmoment um einen frei definierten Ursprung auf den benetzten
+  Grenzflaechen einer explizit ausgewaehlten statischen Solid-Voxelgruppe.
+- Neue 2x2x2-Koerperreferenz mit 24 benetzten Flaechen, drei 3D-Rastern,
+  zwei Druck-Offsets und offenen/geschlossenen MAC-Druckgrenzen.
+  Analytische Kraft: (-0.5376,+0.8448,-0.3840) N bei dx=0.08 m.
+  MSVC Release 42/42 CTest PASS, 11.768 native Assertions,
+  188/188 unabhaengige Python-Checks; P1 33/33 erneut PASS.
+- Native-Test: `tests/p2_static_body_wrench3d_tests.cpp`;
+  unabhaengige Teilabnahme:
+  `scripts/p2_static_body_wrench_acceptance.py`;
+  Nachweis: `ENGINE TEST STUBE/runs/p2_static_body_wrench_partial.json`.
+  Dokumentation: `docs/P2_STATIC_BODY_WRENCH_PARTIAL.md`.
+- **P2 bleibt PARTIAL; P3-P8 ebenso.** Die statische Drucklast und
+  das statische Drehmoment werden nicht auf einen bewegten Koerper
+  angewendet. Kein bidirektionaler FSI-Impuls, keine physikalische
+  globale Energievalidierung, keine externen CFD-Messdaten und keine
+  neue Unreal-5.8-Native-E2E-Abnahme.

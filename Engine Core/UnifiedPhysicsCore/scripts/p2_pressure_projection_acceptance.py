@@ -152,10 +152,10 @@ def main() -> None:
               initial / max(final, 1e-30), 1e6)
     log_bytes = LOG.read_bytes()
     log_text = log_bytes.decode("utf-16" if log_bytes.startswith((b"\xff\xfe", b"\xfe\xff")) else "utf-8")
-    check("complete_ctest_40_of_40",
-          "100% tests passed, 0 tests failed out of 40" in log_text
-          and "40/40 Test" in log_text,
-          "40/40" if "40/40 Test" in log_text else "MISSING", "40/40")
+    check("complete_ctest_42_of_42",
+          "100% tests passed, 0 tests failed out of 42" in log_text
+          and "42/42 Test" in log_text,
+          "42/42" if "42/42 Test" in log_text else "MISSING", "42/42")
     source_hashes = {name: sha(CORE / name) for name in SOURCES}
     accepted = all(c["pass"] for c in checks)
     report = {
