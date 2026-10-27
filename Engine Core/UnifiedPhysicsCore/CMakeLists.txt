@@ -221,3 +221,9 @@ add_test(NAME physics_p2_applied_six_component_face_wrench_partial COMMAND upc_p
 add_executable(upc_p2_post_projection_audit_tests tests/p2_post_projection_wrench_audit3d_tests.cpp)
 target_link_libraries(upc_p2_post_projection_audit_tests PRIVATE upc)
 add_test(NAME physics_p2_post_projection_wrench_audit_partial COMMAND upc_p2_post_projection_audit_tests)
+
+# P2 partial: kinematic moving-wall normal velocities on a fixed voxel mask,
+# pressure projection with real moving-wall flux, NOT bidirectional FSI.
+add_executable(upc_p2_kinematic_wall_tests tests/p2_kinematic_wall_projection3d_tests.cpp)
+target_link_libraries(upc_p2_kinematic_wall_tests PRIVATE upc)
+add_test(NAME physics_p2_kinematic_solid_wall_projection_partial COMMAND upc_p2_kinematic_wall_tests)

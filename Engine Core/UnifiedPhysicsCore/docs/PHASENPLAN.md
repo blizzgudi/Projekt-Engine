@@ -405,3 +405,25 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
   nachgewiesene konservative bewegliche FSI-Kopplung. Externe 3D-
   Messreferenzen, physikalische Gesamtenergie, stresskonsistente
   freie Oberflaechen und UE5.8-Native-E2E bleiben offen.
+
+## P2 Teilfortschritt: kinematische bewegte 3D-Solid-Wand (27.10.2026)
+
+- Neuer separater CPU-Operator `KinematicWallMacProjection3D`:
+  vorgeschriebene starre Normalgeschwindigkeit `v + omega x r` an
+  24 benetzten Grenz-Faces eines 2x2x2-Voxelkörpers, echte 3D-MAC-
+  Poisson-Projektion mit Neumann-Wand- und Dirichlet-Luft-Grenze.
+  Unveraenderte aeussere Normalwände; Net-Wandvolumenquelle null.
+- 12 Szenarien auf 8x7x6 / 12x11x10 / 16x15x14, geschlossen/offen,
+  reine Translation/kombinierte Rotation, je auch mit invertierter
+  Bewegung: native 95.830 Assertions PASS, maximale Divergenz
+  1.164e-12 1/s, 47/47 komplette CTest-Suite PASS,
+  unabhaengiges Python-Gate 74/74 Checks PASS.
+- Belege: `docs/P2_KINEMATIC_MOVING_WALL_PROJECTION_PARTIAL.md`,
+  `scripts/p2_kinematic_wall_projection_acceptance.py`,
+  `ENGINE TEST STUBE/runs/p2_kinematic_wall_partial.json`.
+  P1 wurde nach CMake-Aenderung mit 33/33 Checks erneut geprueft.
+- **P2 bleibt PARTIAL; P3-P8 offen.** Nur vorgeschriebene bewegte
+  Wandgeschwindigkeit bei **eingefrorener Koerpermaske**. Keine
+  swept-volume-Maskenbewegung, keine dynamische Kraft-Rueckwirkung,
+  keine globale Impuls-/Energiebilanz, keine externen CFD-Messdaten,
+  keine stresskonsistente freie Oberflaeche oder neue UE5.8 Native-E2E.

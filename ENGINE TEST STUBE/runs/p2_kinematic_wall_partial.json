@@ -1,0 +1,487 @@
+{
+  "phase": "P2",
+  "milestone": "frozen_mask_kinematic_moving_wall_projection_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "timestamp_utc": "2026-10-27T06:27:26.882347+00:00",
+  "scope": "prescribed rigid normal-wall velocity and 3D MAC pressure projection; no body remap or two-way FSI",
+  "native_assertions": 95830,
+  "checks": [
+    {
+      "name": "native_assertions",
+      "pass": true,
+      "value": 95830,
+      "expected": ">=90000"
+    },
+    {
+      "name": "closed_8_0_body_faces",
+      "pass": true,
+      "value": 24,
+      "expected": 24
+    },
+    {
+      "name": "closed_8_0_divergence",
+      "pass": true,
+      "value": 1.0794140646412653e-12,
+      "expected": "<1e-8 1/s"
+    },
+    {
+      "name": "closed_8_0_net_wall_flux",
+      "pass": true,
+      "value": 0.0,
+      "expected": "abs<1e-14 m3/s"
+    },
+    {
+      "name": "closed_8_0_pressure",
+      "pass": true,
+      "value": 342.68749063953453,
+      "expected": "(1,1000) Pa"
+    },
+    {
+      "name": "closed_8_0_convergence",
+      "pass": true,
+      "value": 438,
+      "expected": "(0,4500)"
+    },
+    {
+      "name": "closed_8_0_face_energy_lower_bound",
+      "pass": true,
+      "value": 0.1304649019963915,
+      "expected": ">=0.08089600000000004"
+    },
+    {
+      "name": "closed_8_1_body_faces",
+      "pass": true,
+      "value": 24,
+      "expected": 24
+    },
+    {
+      "name": "closed_8_1_divergence",
+      "pass": true,
+      "value": 1.0862404725697772e-12,
+      "expected": "<1e-8 1/s"
+    },
+    {
+      "name": "closed_8_1_net_wall_flux",
+      "pass": true,
+      "value": 1.0842021724855044e-19,
+      "expected": "abs<1e-14 m3/s"
+    },
+    {
+      "name": "closed_8_1_pressure",
+      "pass": true,
+      "value": 282.1707642801189,
+      "expected": "(1,1000) Pa"
+    },
+    {
+      "name": "closed_8_1_convergence",
+      "pass": true,
+      "value": 434,
+      "expected": "(0,4500)"
+    },
+    {
+      "name": "closed_8_1_face_energy_lower_bound",
+      "pass": true,
+      "value": 0.0841343782666621,
+      "expected": ">=0.05361664"
+    },
+    {
+      "name": "closed_12_0_body_faces",
+      "pass": true,
+      "value": 24,
+      "expected": 24
+    },
+    {
+      "name": "closed_12_0_divergence",
+      "pass": true,
+      "value": 1.1172866017788996e-12,
+      "expected": "<1e-8 1/s"
+    },
+    {
+      "name": "closed_12_0_net_wall_flux",
+      "pass": true,
+      "value": 0.0,
+      "expected": "abs<1e-14 m3/s"
+    },
+    {
+      "name": "closed_12_0_pressure",
+      "pass": true,
+      "value": 291.55520592166914,
+      "expected": "(1,1000) Pa"
+    },
+    {
+      "name": "closed_12_0_convergence",
+      "pass": true,
+      "value": 924,
+      "expected": "(0,4500)"
+    },
+    {
+      "name": "closed_12_0_face_energy_lower_bound",
+      "pass": true,
+      "value": 0.12473670456557603,
+      "expected": ">=0.08089600000000004"
+    },
+    {
+      "name": "closed_12_1_body_faces",
+      "pass": true,
+      "value": 24,
+      "expected": 24
+    },
+    {
+      "name": "closed_12_1_divergence",
+      "pass": true,
+      "value": 1.1219364738461468e-12,
+      "expected": "<1e-8 1/s"
+    },
+    {
+      "name": "closed_12_1_net_wall_flux",
+      "pass": true,
+      "value": 0.0,
+      "expected": "abs<1e-14 m3/s"
+    },
+    {
+      "name": "closed_12_1_pressure",
+      "pass": true,
+      "value": 247.68497667933275,
+      "expected": "(1,1000) Pa"
+    },
+    {
+      "name": "closed_12_1_convergence",
+      "pass": true,
+      "value": 915,
+      "expected": "(0,4500)"
+    },
+    {
+      "name": "closed_12_1_face_energy_lower_bound",
+      "pass": true,
+      "value": 0.08074768838104532,
+      "expected": ">=0.05361664"
+    },
+    {
+      "name": "closed_16_0_body_faces",
+      "pass": true,
+      "value": 24,
+      "expected": 24
+    },
+    {
+      "name": "closed_16_0_divergence",
+      "pass": true,
+      "value": 1.1455981698211062e-12,
+      "expected": "<1e-8 1/s"
+    },
+    {
+      "name": "closed_16_0_net_wall_flux",
+      "pass": true,
+      "value": 0.0,
+      "expected": "abs<1e-14 m3/s"
+    },
+    {
+      "name": "closed_16_0_pressure",
+      "pass": true,
+      "value": 281.97568293624846,
+      "expected": "(1,1000) Pa"
+    },
+    {
+      "name": "closed_16_0_convergence",
+      "pass": true,
+      "value": 1581,
+      "expected": "(0,4500)"
+    },
+    {
+      "name": "closed_16_0_face_energy_lower_bound",
+      "pass": true,
+      "value": 0.1236885487892583,
+      "expected": ">=0.08089600000000004"
+    },
+    {
+      "name": "closed_16_1_body_faces",
+      "pass": true,
+      "value": 24,
+      "expected": 24
+    },
+    {
+      "name": "closed_16_1_divergence",
+      "pass": true,
+      "value": 1.1449037722109472e-12,
+      "expected": "<1e-8 1/s"
+    },
+    {
+      "name": "closed_16_1_net_wall_flux",
+      "pass": true,
+      "value": 3.2526065174565133e-19,
+      "expected": "abs<1e-14 m3/s"
+    },
+    {
+      "name": "closed_16_1_pressure",
+      "pass": true,
+      "value": 241.29611286280146,
+      "expected": "(1,1000) Pa"
+    },
+    {
+      "name": "closed_16_1_convergence",
+      "pass": true,
+      "value": 1565,
+      "expected": "(0,4500)"
+    },
+    {
+      "name": "closed_16_1_face_energy_lower_bound",
+      "pass": true,
+      "value": 0.08012709744847064,
+      "expected": ">=0.05361664"
+    },
+    {
+      "name": "air_8_0_body_faces",
+      "pass": true,
+      "value": 24,
+      "expected": 24
+    },
+    {
+      "name": "air_8_0_divergence",
+      "pass": true,
+      "value": 1.09426356864617e-12,
+      "expected": "<1e-8 1/s"
+    },
+    {
+      "name": "air_8_0_net_wall_flux",
+      "pass": true,
+      "value": 0.0,
+      "expected": "abs<1e-14 m3/s"
+    },
+    {
+      "name": "air_8_0_pressure",
+      "pass": true,
+      "value": 317.0817154769542,
+      "expected": "(1,1000) Pa"
+    },
+    {
+      "name": "air_8_0_convergence",
+      "pass": true,
+      "value": 640,
+      "expected": "(0,4500)"
+    },
+    {
+      "name": "air_8_0_face_energy_lower_bound",
+      "pass": true,
+      "value": 0.1258401126388205,
+      "expected": ">=0.08089600000000004"
+    },
+    {
+      "name": "air_8_1_body_faces",
+      "pass": true,
+      "value": 24,
+      "expected": 24
+    },
+    {
+      "name": "air_8_1_divergence",
+      "pass": true,
+      "value": 1.1295977174474725e-12,
+      "expected": "<1e-8 1/s"
+    },
+    {
+      "name": "air_8_1_net_wall_flux",
+      "pass": true,
+      "value": 1.0842021724855044e-19,
+      "expected": "abs<1e-14 m3/s"
+    },
+    {
+      "name": "air_8_1_pressure",
+      "pass": true,
+      "value": 257.3619767155753,
+      "expected": "(1,1000) Pa"
+    },
+    {
+      "name": "air_8_1_convergence",
+      "pass": true,
+      "value": 630,
+      "expected": "(0,4500)"
+    },
+    {
+      "name": "air_8_1_face_energy_lower_bound",
+      "pass": true,
+      "value": 0.08137175769254526,
+      "expected": ">=0.05361664"
+    },
+    {
+      "name": "air_12_0_body_faces",
+      "pass": true,
+      "value": 24,
+      "expected": 24
+    },
+    {
+      "name": "air_12_0_divergence",
+      "pass": true,
+      "value": 1.1469995011290438e-12,
+      "expected": "<1e-8 1/s"
+    },
+    {
+      "name": "air_12_0_net_wall_flux",
+      "pass": true,
+      "value": 0.0,
+      "expected": "abs<1e-14 m3/s"
+    },
+    {
+      "name": "air_12_0_pressure",
+      "pass": true,
+      "value": 294.53139887792975,
+      "expected": "(1,1000) Pa"
+    },
+    {
+      "name": "air_12_0_convergence",
+      "pass": true,
+      "value": 1964,
+      "expected": "(0,4500)"
+    },
+    {
+      "name": "air_12_0_face_energy_lower_bound",
+      "pass": true,
+      "value": 0.12381773177244242,
+      "expected": ">=0.08089600000000004"
+    },
+    {
+      "name": "air_12_1_body_faces",
+      "pass": true,
+      "value": 24,
+      "expected": 24
+    },
+    {
+      "name": "air_12_1_divergence",
+      "pass": true,
+      "value": 1.1521067709878083e-12,
+      "expected": "<1e-8 1/s"
+    },
+    {
+      "name": "air_12_1_net_wall_flux",
+      "pass": true,
+      "value": 0.0,
+      "expected": "abs<1e-14 m3/s"
+    },
+    {
+      "name": "air_12_1_pressure",
+      "pass": true,
+      "value": 241.30482724891868,
+      "expected": "(1,1000) Pa"
+    },
+    {
+      "name": "air_12_1_convergence",
+      "pass": true,
+      "value": 1933,
+      "expected": "(0,4500)"
+    },
+    {
+      "name": "air_12_1_face_energy_lower_bound",
+      "pass": true,
+      "value": 0.08019775318049785,
+      "expected": ">=0.05361664"
+    },
+    {
+      "name": "air_16_0_body_faces",
+      "pass": true,
+      "value": 24,
+      "expected": 24
+    },
+    {
+      "name": "air_16_0_divergence",
+      "pass": true,
+      "value": 1.1633746808785428e-12,
+      "expected": "<1e-8 1/s"
+    },
+    {
+      "name": "air_16_0_net_wall_flux",
+      "pass": true,
+      "value": 0.0,
+      "expected": "abs<1e-14 m3/s"
+    },
+    {
+      "name": "air_16_0_pressure",
+      "pass": true,
+      "value": 285.79409234794014,
+      "expected": "(1,1000) Pa"
+    },
+    {
+      "name": "air_16_0_convergence",
+      "pass": true,
+      "value": 3926,
+      "expected": "(0,4500)"
+    },
+    {
+      "name": "air_16_0_face_energy_lower_bound",
+      "pass": true,
+      "value": 0.12337139906083924,
+      "expected": ">=0.08089600000000004"
+    },
+    {
+      "name": "air_16_1_body_faces",
+      "pass": true,
+      "value": 24,
+      "expected": 24
+    },
+    {
+      "name": "air_16_1_divergence",
+      "pass": true,
+      "value": 1.1624175336481454e-12,
+      "expected": "<1e-8 1/s"
+    },
+    {
+      "name": "air_16_1_net_wall_flux",
+      "pass": true,
+      "value": 3.2526065174565133e-19,
+      "expected": "abs<1e-14 m3/s"
+    },
+    {
+      "name": "air_16_1_pressure",
+      "pass": true,
+      "value": 235.3519991350469,
+      "expected": "(1,1000) Pa"
+    },
+    {
+      "name": "air_16_1_convergence",
+      "pass": true,
+      "value": 3861,
+      "expected": "(0,4500)"
+    },
+    {
+      "name": "air_16_1_face_energy_lower_bound",
+      "pass": true,
+      "value": 0.0799372459724421,
+      "expected": ">=0.05361664"
+    },
+    {
+      "name": "scenarios",
+      "pass": true,
+      "value": 12,
+      "expected": 12
+    }
+  ],
+  "native_csv": [
+    "mode,n,motion,divergence_s_inv,body_faces,wall_flux_m3_s,max_pressure_pa,iterations,face_energy_proxy_J",
+    "closed,8,0,1.0794140646412653e-12,24,0,342.68749063953453,438,0.13046490199639149",
+    "closed,8,1,1.0862404725697772e-12,24,1.0842021724855044e-19,282.17076428011887,434,0.084134378266662105",
+    "closed,12,0,1.1172866017788996e-12,24,0,291.55520592166914,924,0.12473670456557603",
+    "closed,12,1,1.1219364738461468e-12,24,0,247.68497667933275,915,0.080747688381045318",
+    "closed,16,0,1.1455981698211062e-12,24,0,281.97568293624846,1581,0.12368854878925831",
+    "closed,16,1,1.1449037722109472e-12,24,3.2526065174565133e-19,241.29611286280146,1565,0.080127097448470644",
+    "air,8,0,1.0942635686461699e-12,24,0,317.08171547695417,640,0.1258401126388205",
+    "air,8,1,1.1295977174474725e-12,24,1.0842021724855044e-19,257.36197671557528,630,0.08137175769254526",
+    "air,12,0,1.1469995011290438e-12,24,0,294.53139887792975,1964,0.12381773177244242",
+    "air,12,1,1.1521067709878083e-12,24,0,241.30482724891868,1933,0.080197753180497849",
+    "air,16,0,1.1633746808785428e-12,24,0,285.79409234794014,3926,0.12337139906083924",
+    "air,16,1,1.1624175336481454e-12,24,3.2526065174565133e-19,235.3519991350469,3861,0.079937245972442103"
+  ],
+  "independent_wall_energy_J": {
+    "0": 0.08089600000000004,
+    "1": 0.05361664
+  },
+  "ctest_count": 47,
+  "phase_gate_output": "GATES_PASS=P0,P1\nGATES_INCOMPLETE=P2,P3,P4,P5,P6,P7,P8\nALL_COMPLETE=False\nEVIDENCE=D:\\Projekt Engine\\ENGINE TEST STUBE\\runs\\unified_physics_gate.json",
+  "source_sha256": {
+    "include/upc/mac3d.hpp": "9bb4659c5b6e6fd3a512301ae4a3a083fa96b1e67d50363ec8f5634e1038fdc5",
+    "include/upc/kinematic_wall_projection3d.hpp": "6cc4d7d9ffedd9dd7a7906c7950e7e4eef1c9e91ebc24972201bd708258422ad",
+    "tests/p2_kinematic_wall_projection3d_tests.cpp": "31da426894877075edf756dc344e2ce6a22c434c69508516ed6c78143a4efbed",
+    "scripts/p2_kinematic_wall_projection_acceptance.py": "4d4b82248db76405588867b1a627a18543cd4f1fe3681707de6d439796a4c9db",
+    "docs/P2_KINEMATIC_MOVING_WALL_PROJECTION_PARTIAL.md": "c68384d55cd913fd1c58505a78dca93c1bd0b48e3e9af8703b6c2624565cc136",
+    "docs/PHASENPLAN.md": "804d66d3e52f30206f573b5b9d5a5bfe1039a0a859cfa26910780f0b8729959b",
+    "CMakeLists.txt": "e4f86a60c9c17d31be8389724bdf4d7a9f6049eebbcdf52a66ed2cc4eab78d0f"
+  },
+  "native_exe_sha256": "aa6e14a3ba614530303fd2714601b9cf96c002de77e1d1c91e63cb00562981bf",
+  "ctest_log_sha256": "d6d1b55a350e82d8a6e88afec9a6cbc9527df412f1c87914ee8f33a375f70915"
+}
