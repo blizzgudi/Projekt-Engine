@@ -1,0 +1,1588 @@
+{
+  "schema_version": 1,
+  "phase": "P2",
+  "milestone": "applied_frozen_pressure_fluid_face_reaction_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "generated_utc": "2026-10-27T03:32:59.960511+00:00",
+  "scope": "12 projected 3D MAC fields, frozen 2x2x2 body pressure wrench, applied opposite linear impulse to internal wet-wet faces; independent discrete face-momentum closure BEFORE pressure reprojection",
+  "native_assertions": 65400,
+  "native_stdout": "mode,n,offset_pa,force_x_N,force_y_N,force_z_N,body_x_Ns,body_y_Ns,body_z_Ns,fluid_x_Ns,fluid_y_Ns,fluid_z_Ns,faces_x,faces_y,faces_z,face_energy_proxy_J,divergence_pre_projection,divergence_post_projection\nair,8,150,-0.53760000550920439,0.84479999985157306,-0.38400000018971636,-0.026880000275460222,0.042239999992578658,-0.01920000000948582,0.026880000275460232,-0.042239999992578672,0.019200000009485824,28,28,24,0.00010242857158141665,0.060267857382222727,9.0213592220212226e-11\nair,8,1200,-0.53760000556022369,0.84479999985019827,-0.38400000019147118,-0.026880000278011185,0.042239999992509915,-0.019200000009573559,0.026880000278011178,-0.042239999992509943,0.019200000009573559,28,28,24,0.00010242857158283193,0.060267857384438635,9.0213639167013328e-11\nair,12,150,-0.53760001161562954,0.84479999980279907,-0.38400000023213443,-0.02688000058078148,0.042239999990139956,-0.019200000011606724,0.026880000580781469,-0.042239999990139949,0.019200000011606714,32,32,32,8.7750000198542102e-05,0.052734375465057402,9.2195031787417094e-11\nair,12,1200,-0.53760001164005899,0.8447999998023823,-0.38400000023261693,-0.02688000058200295,0.042239999990119119,-0.019200000011630847,0.026880000582002937,-0.042239999990119091,0.019200000011630844,32,32,32,8.7750000198959412e-05,0.052734375466035308,9.2195037547241135e-11\nair,16,150,-0.53760001730732976,0.84479999978057962,-0.38400000024528147,-0.026880000865366488,0.042239999989028984,-0.019200000012264073,0.026880000865366471,-0.042239999989028991,0.019200000012264073,32,32,32,8.7750000288021877e-05,0.052734375693271232,9.3031705712308887e-11\nair,16,1200,-0.53760001736671459,0.844799999779827,-0.3840000002461208,-0.026880000868335731,0.042239999988991354,-0.01920000001230604,0.026880000868335745,-0.042239999988991327,0.01920000001230604,32,32,32,8.7750000289009531e-05,0.052734375695648997,9.3031706284056126e-11\nclosed,8,150,-0.53759999647374812,0.84480000000226063,-0.38399999999814022,-0.026879999823687408,0.042240000000113034,-0.019199999999907014,0.026879999823687391,-0.042240000000113055,0.019199999999907014,32,28,24,9.927857134342432e-05,0.057338169571379188,8.4676386352168249e-11\nclosed,8,1200,-0.53759999647374812,0.84480000000226063,-0.38399999999814022,-0.026879999823687408,0.042240000000113034,-0.019199999999907014,0.026879999823687391,-0.042240000000113055,0.019199999999907014,32,28,24,9.927857134342432e-05,0.057338169571379188,8.4676386352168249e-11\nclosed,12,150,-0.53759999259172853,0.84479999987318888,-0.38400000000046652,-0.026879999629586426,0.042239999993659447,-0.019200000000023327,0.026879999629586426,-0.042239999993659426,0.01920000000002332,32,32,32,8.7749999852541381e-05,0.052734374764269364,9.033311007255329e-11\nclosed,12,1200,-0.53759999259172853,0.84479999987318888,-0.38400000000046652,-0.026879999629586426,0.042239999993659447,-0.019200000000023327,0.026879999629586426,-0.042239999993659426,0.01920000000002332,32,32,32,8.7749999852541381e-05,0.052734374764269364,9.033311007255329e-11\nclosed,16,150,-0.53759998865734904,0.844799999073093,-0.38399999999313439,-0.026879999432867452,0.042239999953654656,-0.019199999999656721,0.026879999432867452,-0.042239999953654676,0.019199999999656717,32,32,32,8.7749999770439413e-05,0.052734374574391049,9.0750667468226181e-11\nclosed,16,1200,-0.53759998865734904,0.844799999073093,-0.38399999999313439,-0.026879999432867452,0.042239999953654656,-0.019199999999656721,0.026879999432867452,-0.042239999953654676,0.019199999999656717,32,32,32,8.7749999770439413e-05,0.052734374574391049,9.0750667468226181e-11\nPASS: P2 applied fluid face reaction assertions=65400 phase_complete=false\n",
+  "checks": [
+    {
+      "name": "native_assertions",
+      "pass": true,
+      "value": 65400,
+      "expected": ">=65000"
+    },
+    {
+      "name": "air_8_150_mode",
+      "pass": true,
+      "value": "air",
+      "expected": "air"
+    },
+    {
+      "name": "air_8_150_grid",
+      "pass": true,
+      "value": 8,
+      "expected": 8
+    },
+    {
+      "name": "air_8_150_pressure_offset",
+      "pass": true,
+      "value": 150.0,
+      "expected": 150.0
+    },
+    {
+      "name": "air_8_150_force_0",
+      "pass": true,
+      "value": -0.5376000055092044,
+      "expected": -0.5376000000000001
+    },
+    {
+      "name": "air_8_150_body_0",
+      "pass": true,
+      "value": -0.02688000027546022,
+      "expected": -0.026880000000000005
+    },
+    {
+      "name": "air_8_150_applied_fluid_0",
+      "pass": true,
+      "value": 0.026880000275460232,
+      "expected": 0.026880000000000005
+    },
+    {
+      "name": "air_8_150_net_impulse_0",
+      "pass": true,
+      "value": 1.0408340855860843e-17,
+      "expected": 0.0
+    },
+    {
+      "name": "air_8_150_independent_face_count_0",
+      "pass": true,
+      "value": 28,
+      "expected": 28
+    },
+    {
+      "name": "air_8_150_force_1",
+      "pass": true,
+      "value": 0.8447999998515731,
+      "expected": 0.8448
+    },
+    {
+      "name": "air_8_150_body_1",
+      "pass": true,
+      "value": 0.04223999999257866,
+      "expected": 0.04224
+    },
+    {
+      "name": "air_8_150_applied_fluid_1",
+      "pass": true,
+      "value": -0.04223999999257867,
+      "expected": -0.04224
+    },
+    {
+      "name": "air_8_150_net_impulse_1",
+      "pass": true,
+      "value": -1.3877787807814457e-17,
+      "expected": 0.0
+    },
+    {
+      "name": "air_8_150_independent_face_count_1",
+      "pass": true,
+      "value": 28,
+      "expected": 28
+    },
+    {
+      "name": "air_8_150_force_2",
+      "pass": true,
+      "value": -0.38400000018971636,
+      "expected": -0.384
+    },
+    {
+      "name": "air_8_150_body_2",
+      "pass": true,
+      "value": -0.01920000000948582,
+      "expected": -0.019200000000000002
+    },
+    {
+      "name": "air_8_150_applied_fluid_2",
+      "pass": true,
+      "value": 0.019200000009485824,
+      "expected": 0.019200000000000002
+    },
+    {
+      "name": "air_8_150_net_impulse_2",
+      "pass": true,
+      "value": 3.469446951953614e-18,
+      "expected": 0.0
+    },
+    {
+      "name": "air_8_150_independent_face_count_2",
+      "pass": true,
+      "value": 24,
+      "expected": 24
+    },
+    {
+      "name": "air_8_150_face_energy_proxy",
+      "pass": true,
+      "value": 0.00010242857158141665,
+      "expected": 0.00010242857142857141
+    },
+    {
+      "name": "air_8_150_reaction_creates_divergence",
+      "pass": true,
+      "value": 0.06026785738222273,
+      "expected": ">1e-5"
+    },
+    {
+      "name": "air_8_150_post_projection_divergence",
+      "pass": true,
+      "value": 9.021359222021223e-11,
+      "expected": "<2e-8"
+    },
+    {
+      "name": "air_8_1200_mode",
+      "pass": true,
+      "value": "air",
+      "expected": "air"
+    },
+    {
+      "name": "air_8_1200_grid",
+      "pass": true,
+      "value": 8,
+      "expected": 8
+    },
+    {
+      "name": "air_8_1200_pressure_offset",
+      "pass": true,
+      "value": 1200.0,
+      "expected": 1200.0
+    },
+    {
+      "name": "air_8_1200_force_0",
+      "pass": true,
+      "value": -0.5376000055602237,
+      "expected": -0.5376000000000001
+    },
+    {
+      "name": "air_8_1200_body_0",
+      "pass": true,
+      "value": -0.026880000278011185,
+      "expected": -0.026880000000000005
+    },
+    {
+      "name": "air_8_1200_applied_fluid_0",
+      "pass": true,
+      "value": 0.026880000278011178,
+      "expected": 0.026880000000000005
+    },
+    {
+      "name": "air_8_1200_net_impulse_0",
+      "pass": true,
+      "value": -6.938893903907228e-18,
+      "expected": 0.0
+    },
+    {
+      "name": "air_8_1200_independent_face_count_0",
+      "pass": true,
+      "value": 28,
+      "expected": 28
+    },
+    {
+      "name": "air_8_1200_force_1",
+      "pass": true,
+      "value": 0.8447999998501983,
+      "expected": 0.8448
+    },
+    {
+      "name": "air_8_1200_body_1",
+      "pass": true,
+      "value": 0.042239999992509915,
+      "expected": 0.04224
+    },
+    {
+      "name": "air_8_1200_applied_fluid_1",
+      "pass": true,
+      "value": -0.04223999999250994,
+      "expected": -0.04224
+    },
+    {
+      "name": "air_8_1200_net_impulse_1",
+      "pass": true,
+      "value": -2.7755575615628914e-17,
+      "expected": 0.0
+    },
+    {
+      "name": "air_8_1200_independent_face_count_1",
+      "pass": true,
+      "value": 28,
+      "expected": 28
+    },
+    {
+      "name": "air_8_1200_force_2",
+      "pass": true,
+      "value": -0.3840000001914712,
+      "expected": -0.384
+    },
+    {
+      "name": "air_8_1200_body_2",
+      "pass": true,
+      "value": -0.01920000000957356,
+      "expected": -0.019200000000000002
+    },
+    {
+      "name": "air_8_1200_applied_fluid_2",
+      "pass": true,
+      "value": 0.01920000000957356,
+      "expected": 0.019200000000000002
+    },
+    {
+      "name": "air_8_1200_net_impulse_2",
+      "pass": true,
+      "value": 0.0,
+      "expected": 0.0
+    },
+    {
+      "name": "air_8_1200_independent_face_count_2",
+      "pass": true,
+      "value": 24,
+      "expected": 24
+    },
+    {
+      "name": "air_8_1200_face_energy_proxy",
+      "pass": true,
+      "value": 0.00010242857158283193,
+      "expected": 0.00010242857142857141
+    },
+    {
+      "name": "air_8_1200_reaction_creates_divergence",
+      "pass": true,
+      "value": 0.060267857384438635,
+      "expected": ">1e-5"
+    },
+    {
+      "name": "air_8_1200_post_projection_divergence",
+      "pass": true,
+      "value": 9.021363916701333e-11,
+      "expected": "<2e-8"
+    },
+    {
+      "name": "air_12_150_mode",
+      "pass": true,
+      "value": "air",
+      "expected": "air"
+    },
+    {
+      "name": "air_12_150_grid",
+      "pass": true,
+      "value": 12,
+      "expected": 12
+    },
+    {
+      "name": "air_12_150_pressure_offset",
+      "pass": true,
+      "value": 150.0,
+      "expected": 150.0
+    },
+    {
+      "name": "air_12_150_force_0",
+      "pass": true,
+      "value": -0.5376000116156295,
+      "expected": -0.5376000000000001
+    },
+    {
+      "name": "air_12_150_body_0",
+      "pass": true,
+      "value": -0.02688000058078148,
+      "expected": -0.026880000000000005
+    },
+    {
+      "name": "air_12_150_applied_fluid_0",
+      "pass": true,
+      "value": 0.02688000058078147,
+      "expected": 0.026880000000000005
+    },
+    {
+      "name": "air_12_150_net_impulse_0",
+      "pass": true,
+      "value": -1.0408340855860843e-17,
+      "expected": 0.0
+    },
+    {
+      "name": "air_12_150_independent_face_count_0",
+      "pass": true,
+      "value": 32,
+      "expected": 32
+    },
+    {
+      "name": "air_12_150_force_1",
+      "pass": true,
+      "value": 0.8447999998027991,
+      "expected": 0.8448
+    },
+    {
+      "name": "air_12_150_body_1",
+      "pass": true,
+      "value": 0.042239999990139956,
+      "expected": 0.04224
+    },
+    {
+      "name": "air_12_150_applied_fluid_1",
+      "pass": true,
+      "value": -0.04223999999013995,
+      "expected": -0.04224
+    },
+    {
+      "name": "air_12_150_net_impulse_1",
+      "pass": true,
+      "value": 6.938893903907228e-18,
+      "expected": 0.0
+    },
+    {
+      "name": "air_12_150_independent_face_count_1",
+      "pass": true,
+      "value": 32,
+      "expected": 32
+    },
+    {
+      "name": "air_12_150_force_2",
+      "pass": true,
+      "value": -0.38400000023213443,
+      "expected": -0.384
+    },
+    {
+      "name": "air_12_150_body_2",
+      "pass": true,
+      "value": -0.019200000011606724,
+      "expected": -0.019200000000000002
+    },
+    {
+      "name": "air_12_150_applied_fluid_2",
+      "pass": true,
+      "value": 0.019200000011606714,
+      "expected": 0.019200000000000002
+    },
+    {
+      "name": "air_12_150_net_impulse_2",
+      "pass": true,
+      "value": -1.0408340855860843e-17,
+      "expected": 0.0
+    },
+    {
+      "name": "air_12_150_independent_face_count_2",
+      "pass": true,
+      "value": 32,
+      "expected": 32
+    },
+    {
+      "name": "air_12_150_face_energy_proxy",
+      "pass": true,
+      "value": 8.77500001985421e-05,
+      "expected": 8.774999999999999e-05
+    },
+    {
+      "name": "air_12_150_reaction_creates_divergence",
+      "pass": true,
+      "value": 0.0527343754650574,
+      "expected": ">1e-5"
+    },
+    {
+      "name": "air_12_150_post_projection_divergence",
+      "pass": true,
+      "value": 9.21950317874171e-11,
+      "expected": "<2e-8"
+    },
+    {
+      "name": "air_12_1200_mode",
+      "pass": true,
+      "value": "air",
+      "expected": "air"
+    },
+    {
+      "name": "air_12_1200_grid",
+      "pass": true,
+      "value": 12,
+      "expected": 12
+    },
+    {
+      "name": "air_12_1200_pressure_offset",
+      "pass": true,
+      "value": 1200.0,
+      "expected": 1200.0
+    },
+    {
+      "name": "air_12_1200_force_0",
+      "pass": true,
+      "value": -0.537600011640059,
+      "expected": -0.5376000000000001
+    },
+    {
+      "name": "air_12_1200_body_0",
+      "pass": true,
+      "value": -0.02688000058200295,
+      "expected": -0.026880000000000005
+    },
+    {
+      "name": "air_12_1200_applied_fluid_0",
+      "pass": true,
+      "value": 0.026880000582002937,
+      "expected": 0.026880000000000005
+    },
+    {
+      "name": "air_12_1200_net_impulse_0",
+      "pass": true,
+      "value": -1.3877787807814457e-17,
+      "expected": 0.0
+    },
+    {
+      "name": "air_12_1200_independent_face_count_0",
+      "pass": true,
+      "value": 32,
+      "expected": 32
+    },
+    {
+      "name": "air_12_1200_force_1",
+      "pass": true,
+      "value": 0.8447999998023823,
+      "expected": 0.8448
+    },
+    {
+      "name": "air_12_1200_body_1",
+      "pass": true,
+      "value": 0.04223999999011912,
+      "expected": 0.04224
+    },
+    {
+      "name": "air_12_1200_applied_fluid_1",
+      "pass": true,
+      "value": -0.04223999999011909,
+      "expected": -0.04224
+    },
+    {
+      "name": "air_12_1200_net_impulse_1",
+      "pass": true,
+      "value": 2.7755575615628914e-17,
+      "expected": 0.0
+    },
+    {
+      "name": "air_12_1200_independent_face_count_1",
+      "pass": true,
+      "value": 32,
+      "expected": 32
+    },
+    {
+      "name": "air_12_1200_force_2",
+      "pass": true,
+      "value": -0.38400000023261693,
+      "expected": -0.384
+    },
+    {
+      "name": "air_12_1200_body_2",
+      "pass": true,
+      "value": -0.019200000011630847,
+      "expected": -0.019200000000000002
+    },
+    {
+      "name": "air_12_1200_applied_fluid_2",
+      "pass": true,
+      "value": 0.019200000011630844,
+      "expected": 0.019200000000000002
+    },
+    {
+      "name": "air_12_1200_net_impulse_2",
+      "pass": true,
+      "value": -3.469446951953614e-18,
+      "expected": 0.0
+    },
+    {
+      "name": "air_12_1200_independent_face_count_2",
+      "pass": true,
+      "value": 32,
+      "expected": 32
+    },
+    {
+      "name": "air_12_1200_face_energy_proxy",
+      "pass": true,
+      "value": 8.775000019895941e-05,
+      "expected": 8.774999999999999e-05
+    },
+    {
+      "name": "air_12_1200_reaction_creates_divergence",
+      "pass": true,
+      "value": 0.05273437546603531,
+      "expected": ">1e-5"
+    },
+    {
+      "name": "air_12_1200_post_projection_divergence",
+      "pass": true,
+      "value": 9.219503754724113e-11,
+      "expected": "<2e-8"
+    },
+    {
+      "name": "air_16_150_mode",
+      "pass": true,
+      "value": "air",
+      "expected": "air"
+    },
+    {
+      "name": "air_16_150_grid",
+      "pass": true,
+      "value": 16,
+      "expected": 16
+    },
+    {
+      "name": "air_16_150_pressure_offset",
+      "pass": true,
+      "value": 150.0,
+      "expected": 150.0
+    },
+    {
+      "name": "air_16_150_force_0",
+      "pass": true,
+      "value": -0.5376000173073298,
+      "expected": -0.5376000000000001
+    },
+    {
+      "name": "air_16_150_body_0",
+      "pass": true,
+      "value": -0.026880000865366488,
+      "expected": -0.026880000000000005
+    },
+    {
+      "name": "air_16_150_applied_fluid_0",
+      "pass": true,
+      "value": 0.02688000086536647,
+      "expected": 0.026880000000000005
+    },
+    {
+      "name": "air_16_150_net_impulse_0",
+      "pass": true,
+      "value": -1.734723475976807e-17,
+      "expected": 0.0
+    },
+    {
+      "name": "air_16_150_independent_face_count_0",
+      "pass": true,
+      "value": 32,
+      "expected": 32
+    },
+    {
+      "name": "air_16_150_force_1",
+      "pass": true,
+      "value": 0.8447999997805796,
+      "expected": 0.8448
+    },
+    {
+      "name": "air_16_150_body_1",
+      "pass": true,
+      "value": 0.042239999989028984,
+      "expected": 0.04224
+    },
+    {
+      "name": "air_16_150_applied_fluid_1",
+      "pass": true,
+      "value": -0.04223999998902899,
+      "expected": -0.04224
+    },
+    {
+      "name": "air_16_150_net_impulse_1",
+      "pass": true,
+      "value": -6.938893903907228e-18,
+      "expected": 0.0
+    },
+    {
+      "name": "air_16_150_independent_face_count_1",
+      "pass": true,
+      "value": 32,
+      "expected": 32
+    },
+    {
+      "name": "air_16_150_force_2",
+      "pass": true,
+      "value": -0.38400000024528147,
+      "expected": -0.384
+    },
+    {
+      "name": "air_16_150_body_2",
+      "pass": true,
+      "value": -0.019200000012264073,
+      "expected": -0.019200000000000002
+    },
+    {
+      "name": "air_16_150_applied_fluid_2",
+      "pass": true,
+      "value": 0.019200000012264073,
+      "expected": 0.019200000000000002
+    },
+    {
+      "name": "air_16_150_net_impulse_2",
+      "pass": true,
+      "value": 0.0,
+      "expected": 0.0
+    },
+    {
+      "name": "air_16_150_independent_face_count_2",
+      "pass": true,
+      "value": 32,
+      "expected": 32
+    },
+    {
+      "name": "air_16_150_face_energy_proxy",
+      "pass": true,
+      "value": 8.775000028802188e-05,
+      "expected": 8.774999999999999e-05
+    },
+    {
+      "name": "air_16_150_reaction_creates_divergence",
+      "pass": true,
+      "value": 0.05273437569327123,
+      "expected": ">1e-5"
+    },
+    {
+      "name": "air_16_150_post_projection_divergence",
+      "pass": true,
+      "value": 9.303170571230889e-11,
+      "expected": "<2e-8"
+    },
+    {
+      "name": "air_16_1200_mode",
+      "pass": true,
+      "value": "air",
+      "expected": "air"
+    },
+    {
+      "name": "air_16_1200_grid",
+      "pass": true,
+      "value": 16,
+      "expected": 16
+    },
+    {
+      "name": "air_16_1200_pressure_offset",
+      "pass": true,
+      "value": 1200.0,
+      "expected": 1200.0
+    },
+    {
+      "name": "air_16_1200_force_0",
+      "pass": true,
+      "value": -0.5376000173667146,
+      "expected": -0.5376000000000001
+    },
+    {
+      "name": "air_16_1200_body_0",
+      "pass": true,
+      "value": -0.02688000086833573,
+      "expected": -0.026880000000000005
+    },
+    {
+      "name": "air_16_1200_applied_fluid_0",
+      "pass": true,
+      "value": 0.026880000868335745,
+      "expected": 0.026880000000000005
+    },
+    {
+      "name": "air_16_1200_net_impulse_0",
+      "pass": true,
+      "value": 1.3877787807814457e-17,
+      "expected": 0.0
+    },
+    {
+      "name": "air_16_1200_independent_face_count_0",
+      "pass": true,
+      "value": 32,
+      "expected": 32
+    },
+    {
+      "name": "air_16_1200_force_1",
+      "pass": true,
+      "value": 0.844799999779827,
+      "expected": 0.8448
+    },
+    {
+      "name": "air_16_1200_body_1",
+      "pass": true,
+      "value": 0.042239999988991354,
+      "expected": 0.04224
+    },
+    {
+      "name": "air_16_1200_applied_fluid_1",
+      "pass": true,
+      "value": -0.04223999998899133,
+      "expected": -0.04224
+    },
+    {
+      "name": "air_16_1200_net_impulse_1",
+      "pass": true,
+      "value": 2.7755575615628914e-17,
+      "expected": 0.0
+    },
+    {
+      "name": "air_16_1200_independent_face_count_1",
+      "pass": true,
+      "value": 32,
+      "expected": 32
+    },
+    {
+      "name": "air_16_1200_force_2",
+      "pass": true,
+      "value": -0.3840000002461208,
+      "expected": -0.384
+    },
+    {
+      "name": "air_16_1200_body_2",
+      "pass": true,
+      "value": -0.01920000001230604,
+      "expected": -0.019200000000000002
+    },
+    {
+      "name": "air_16_1200_applied_fluid_2",
+      "pass": true,
+      "value": 0.01920000001230604,
+      "expected": 0.019200000000000002
+    },
+    {
+      "name": "air_16_1200_net_impulse_2",
+      "pass": true,
+      "value": 0.0,
+      "expected": 0.0
+    },
+    {
+      "name": "air_16_1200_independent_face_count_2",
+      "pass": true,
+      "value": 32,
+      "expected": 32
+    },
+    {
+      "name": "air_16_1200_face_energy_proxy",
+      "pass": true,
+      "value": 8.775000028900953e-05,
+      "expected": 8.774999999999999e-05
+    },
+    {
+      "name": "air_16_1200_reaction_creates_divergence",
+      "pass": true,
+      "value": 0.052734375695649,
+      "expected": ">1e-5"
+    },
+    {
+      "name": "air_16_1200_post_projection_divergence",
+      "pass": true,
+      "value": 9.303170628405613e-11,
+      "expected": "<2e-8"
+    },
+    {
+      "name": "closed_8_150_mode",
+      "pass": true,
+      "value": "closed",
+      "expected": "closed"
+    },
+    {
+      "name": "closed_8_150_grid",
+      "pass": true,
+      "value": 8,
+      "expected": 8
+    },
+    {
+      "name": "closed_8_150_pressure_offset",
+      "pass": true,
+      "value": 150.0,
+      "expected": 150.0
+    },
+    {
+      "name": "closed_8_150_force_0",
+      "pass": true,
+      "value": -0.5375999964737481,
+      "expected": -0.5376000000000001
+    },
+    {
+      "name": "closed_8_150_body_0",
+      "pass": true,
+      "value": -0.026879999823687408,
+      "expected": -0.026880000000000005
+    },
+    {
+      "name": "closed_8_150_applied_fluid_0",
+      "pass": true,
+      "value": 0.02687999982368739,
+      "expected": 0.026880000000000005
+    },
+    {
+      "name": "closed_8_150_net_impulse_0",
+      "pass": true,
+      "value": -1.734723475976807e-17,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_8_150_independent_face_count_0",
+      "pass": true,
+      "value": 32,
+      "expected": 32
+    },
+    {
+      "name": "closed_8_150_force_1",
+      "pass": true,
+      "value": 0.8448000000022606,
+      "expected": 0.8448
+    },
+    {
+      "name": "closed_8_150_body_1",
+      "pass": true,
+      "value": 0.042240000000113034,
+      "expected": 0.04224
+    },
+    {
+      "name": "closed_8_150_applied_fluid_1",
+      "pass": true,
+      "value": -0.042240000000113055,
+      "expected": -0.04224
+    },
+    {
+      "name": "closed_8_150_net_impulse_1",
+      "pass": true,
+      "value": -2.0816681711721685e-17,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_8_150_independent_face_count_1",
+      "pass": true,
+      "value": 28,
+      "expected": 28
+    },
+    {
+      "name": "closed_8_150_force_2",
+      "pass": true,
+      "value": -0.3839999999981402,
+      "expected": -0.384
+    },
+    {
+      "name": "closed_8_150_body_2",
+      "pass": true,
+      "value": -0.019199999999907014,
+      "expected": -0.019200000000000002
+    },
+    {
+      "name": "closed_8_150_applied_fluid_2",
+      "pass": true,
+      "value": 0.019199999999907014,
+      "expected": 0.019200000000000002
+    },
+    {
+      "name": "closed_8_150_net_impulse_2",
+      "pass": true,
+      "value": 0.0,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_8_150_independent_face_count_2",
+      "pass": true,
+      "value": 24,
+      "expected": 24
+    },
+    {
+      "name": "closed_8_150_face_energy_proxy",
+      "pass": true,
+      "value": 9.927857134342432e-05,
+      "expected": 9.927857142857142e-05
+    },
+    {
+      "name": "closed_8_150_reaction_creates_divergence",
+      "pass": true,
+      "value": 0.05733816957137919,
+      "expected": ">1e-5"
+    },
+    {
+      "name": "closed_8_150_post_projection_divergence",
+      "pass": true,
+      "value": 8.467638635216825e-11,
+      "expected": "<2e-8"
+    },
+    {
+      "name": "closed_8_1200_mode",
+      "pass": true,
+      "value": "closed",
+      "expected": "closed"
+    },
+    {
+      "name": "closed_8_1200_grid",
+      "pass": true,
+      "value": 8,
+      "expected": 8
+    },
+    {
+      "name": "closed_8_1200_pressure_offset",
+      "pass": true,
+      "value": 1200.0,
+      "expected": 1200.0
+    },
+    {
+      "name": "closed_8_1200_force_0",
+      "pass": true,
+      "value": -0.5375999964737481,
+      "expected": -0.5376000000000001
+    },
+    {
+      "name": "closed_8_1200_body_0",
+      "pass": true,
+      "value": -0.026879999823687408,
+      "expected": -0.026880000000000005
+    },
+    {
+      "name": "closed_8_1200_applied_fluid_0",
+      "pass": true,
+      "value": 0.02687999982368739,
+      "expected": 0.026880000000000005
+    },
+    {
+      "name": "closed_8_1200_net_impulse_0",
+      "pass": true,
+      "value": -1.734723475976807e-17,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_8_1200_independent_face_count_0",
+      "pass": true,
+      "value": 32,
+      "expected": 32
+    },
+    {
+      "name": "closed_8_1200_force_1",
+      "pass": true,
+      "value": 0.8448000000022606,
+      "expected": 0.8448
+    },
+    {
+      "name": "closed_8_1200_body_1",
+      "pass": true,
+      "value": 0.042240000000113034,
+      "expected": 0.04224
+    },
+    {
+      "name": "closed_8_1200_applied_fluid_1",
+      "pass": true,
+      "value": -0.042240000000113055,
+      "expected": -0.04224
+    },
+    {
+      "name": "closed_8_1200_net_impulse_1",
+      "pass": true,
+      "value": -2.0816681711721685e-17,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_8_1200_independent_face_count_1",
+      "pass": true,
+      "value": 28,
+      "expected": 28
+    },
+    {
+      "name": "closed_8_1200_force_2",
+      "pass": true,
+      "value": -0.3839999999981402,
+      "expected": -0.384
+    },
+    {
+      "name": "closed_8_1200_body_2",
+      "pass": true,
+      "value": -0.019199999999907014,
+      "expected": -0.019200000000000002
+    },
+    {
+      "name": "closed_8_1200_applied_fluid_2",
+      "pass": true,
+      "value": 0.019199999999907014,
+      "expected": 0.019200000000000002
+    },
+    {
+      "name": "closed_8_1200_net_impulse_2",
+      "pass": true,
+      "value": 0.0,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_8_1200_independent_face_count_2",
+      "pass": true,
+      "value": 24,
+      "expected": 24
+    },
+    {
+      "name": "closed_8_1200_face_energy_proxy",
+      "pass": true,
+      "value": 9.927857134342432e-05,
+      "expected": 9.927857142857142e-05
+    },
+    {
+      "name": "closed_8_1200_reaction_creates_divergence",
+      "pass": true,
+      "value": 0.05733816957137919,
+      "expected": ">1e-5"
+    },
+    {
+      "name": "closed_8_1200_post_projection_divergence",
+      "pass": true,
+      "value": 8.467638635216825e-11,
+      "expected": "<2e-8"
+    },
+    {
+      "name": "closed_12_150_mode",
+      "pass": true,
+      "value": "closed",
+      "expected": "closed"
+    },
+    {
+      "name": "closed_12_150_grid",
+      "pass": true,
+      "value": 12,
+      "expected": 12
+    },
+    {
+      "name": "closed_12_150_pressure_offset",
+      "pass": true,
+      "value": 150.0,
+      "expected": 150.0
+    },
+    {
+      "name": "closed_12_150_force_0",
+      "pass": true,
+      "value": -0.5375999925917285,
+      "expected": -0.5376000000000001
+    },
+    {
+      "name": "closed_12_150_body_0",
+      "pass": true,
+      "value": -0.026879999629586426,
+      "expected": -0.026880000000000005
+    },
+    {
+      "name": "closed_12_150_applied_fluid_0",
+      "pass": true,
+      "value": 0.026879999629586426,
+      "expected": 0.026880000000000005
+    },
+    {
+      "name": "closed_12_150_net_impulse_0",
+      "pass": true,
+      "value": 0.0,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_12_150_independent_face_count_0",
+      "pass": true,
+      "value": 32,
+      "expected": 32
+    },
+    {
+      "name": "closed_12_150_force_1",
+      "pass": true,
+      "value": 0.8447999998731889,
+      "expected": 0.8448
+    },
+    {
+      "name": "closed_12_150_body_1",
+      "pass": true,
+      "value": 0.04223999999365945,
+      "expected": 0.04224
+    },
+    {
+      "name": "closed_12_150_applied_fluid_1",
+      "pass": true,
+      "value": -0.042239999993659426,
+      "expected": -0.04224
+    },
+    {
+      "name": "closed_12_150_net_impulse_1",
+      "pass": true,
+      "value": 2.0816681711721685e-17,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_12_150_independent_face_count_1",
+      "pass": true,
+      "value": 32,
+      "expected": 32
+    },
+    {
+      "name": "closed_12_150_force_2",
+      "pass": true,
+      "value": -0.3840000000004665,
+      "expected": -0.384
+    },
+    {
+      "name": "closed_12_150_body_2",
+      "pass": true,
+      "value": -0.019200000000023327,
+      "expected": -0.019200000000000002
+    },
+    {
+      "name": "closed_12_150_applied_fluid_2",
+      "pass": true,
+      "value": 0.01920000000002332,
+      "expected": 0.019200000000000002
+    },
+    {
+      "name": "closed_12_150_net_impulse_2",
+      "pass": true,
+      "value": -6.938893903907228e-18,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_12_150_independent_face_count_2",
+      "pass": true,
+      "value": 32,
+      "expected": 32
+    },
+    {
+      "name": "closed_12_150_face_energy_proxy",
+      "pass": true,
+      "value": 8.774999985254138e-05,
+      "expected": 8.774999999999999e-05
+    },
+    {
+      "name": "closed_12_150_reaction_creates_divergence",
+      "pass": true,
+      "value": 0.052734374764269364,
+      "expected": ">1e-5"
+    },
+    {
+      "name": "closed_12_150_post_projection_divergence",
+      "pass": true,
+      "value": 9.033311007255329e-11,
+      "expected": "<2e-8"
+    },
+    {
+      "name": "closed_12_1200_mode",
+      "pass": true,
+      "value": "closed",
+      "expected": "closed"
+    },
+    {
+      "name": "closed_12_1200_grid",
+      "pass": true,
+      "value": 12,
+      "expected": 12
+    },
+    {
+      "name": "closed_12_1200_pressure_offset",
+      "pass": true,
+      "value": 1200.0,
+      "expected": 1200.0
+    },
+    {
+      "name": "closed_12_1200_force_0",
+      "pass": true,
+      "value": -0.5375999925917285,
+      "expected": -0.5376000000000001
+    },
+    {
+      "name": "closed_12_1200_body_0",
+      "pass": true,
+      "value": -0.026879999629586426,
+      "expected": -0.026880000000000005
+    },
+    {
+      "name": "closed_12_1200_applied_fluid_0",
+      "pass": true,
+      "value": 0.026879999629586426,
+      "expected": 0.026880000000000005
+    },
+    {
+      "name": "closed_12_1200_net_impulse_0",
+      "pass": true,
+      "value": 0.0,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_12_1200_independent_face_count_0",
+      "pass": true,
+      "value": 32,
+      "expected": 32
+    },
+    {
+      "name": "closed_12_1200_force_1",
+      "pass": true,
+      "value": 0.8447999998731889,
+      "expected": 0.8448
+    },
+    {
+      "name": "closed_12_1200_body_1",
+      "pass": true,
+      "value": 0.04223999999365945,
+      "expected": 0.04224
+    },
+    {
+      "name": "closed_12_1200_applied_fluid_1",
+      "pass": true,
+      "value": -0.042239999993659426,
+      "expected": -0.04224
+    },
+    {
+      "name": "closed_12_1200_net_impulse_1",
+      "pass": true,
+      "value": 2.0816681711721685e-17,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_12_1200_independent_face_count_1",
+      "pass": true,
+      "value": 32,
+      "expected": 32
+    },
+    {
+      "name": "closed_12_1200_force_2",
+      "pass": true,
+      "value": -0.3840000000004665,
+      "expected": -0.384
+    },
+    {
+      "name": "closed_12_1200_body_2",
+      "pass": true,
+      "value": -0.019200000000023327,
+      "expected": -0.019200000000000002
+    },
+    {
+      "name": "closed_12_1200_applied_fluid_2",
+      "pass": true,
+      "value": 0.01920000000002332,
+      "expected": 0.019200000000000002
+    },
+    {
+      "name": "closed_12_1200_net_impulse_2",
+      "pass": true,
+      "value": -6.938893903907228e-18,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_12_1200_independent_face_count_2",
+      "pass": true,
+      "value": 32,
+      "expected": 32
+    },
+    {
+      "name": "closed_12_1200_face_energy_proxy",
+      "pass": true,
+      "value": 8.774999985254138e-05,
+      "expected": 8.774999999999999e-05
+    },
+    {
+      "name": "closed_12_1200_reaction_creates_divergence",
+      "pass": true,
+      "value": 0.052734374764269364,
+      "expected": ">1e-5"
+    },
+    {
+      "name": "closed_12_1200_post_projection_divergence",
+      "pass": true,
+      "value": 9.033311007255329e-11,
+      "expected": "<2e-8"
+    },
+    {
+      "name": "closed_16_150_mode",
+      "pass": true,
+      "value": "closed",
+      "expected": "closed"
+    },
+    {
+      "name": "closed_16_150_grid",
+      "pass": true,
+      "value": 16,
+      "expected": 16
+    },
+    {
+      "name": "closed_16_150_pressure_offset",
+      "pass": true,
+      "value": 150.0,
+      "expected": 150.0
+    },
+    {
+      "name": "closed_16_150_force_0",
+      "pass": true,
+      "value": -0.537599988657349,
+      "expected": -0.5376000000000001
+    },
+    {
+      "name": "closed_16_150_body_0",
+      "pass": true,
+      "value": -0.026879999432867452,
+      "expected": -0.026880000000000005
+    },
+    {
+      "name": "closed_16_150_applied_fluid_0",
+      "pass": true,
+      "value": 0.026879999432867452,
+      "expected": 0.026880000000000005
+    },
+    {
+      "name": "closed_16_150_net_impulse_0",
+      "pass": true,
+      "value": 0.0,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_16_150_independent_face_count_0",
+      "pass": true,
+      "value": 32,
+      "expected": 32
+    },
+    {
+      "name": "closed_16_150_force_1",
+      "pass": true,
+      "value": 0.844799999073093,
+      "expected": 0.8448
+    },
+    {
+      "name": "closed_16_150_body_1",
+      "pass": true,
+      "value": 0.042239999953654656,
+      "expected": 0.04224
+    },
+    {
+      "name": "closed_16_150_applied_fluid_1",
+      "pass": true,
+      "value": -0.042239999953654676,
+      "expected": -0.04224
+    },
+    {
+      "name": "closed_16_150_net_impulse_1",
+      "pass": true,
+      "value": -2.0816681711721685e-17,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_16_150_independent_face_count_1",
+      "pass": true,
+      "value": 32,
+      "expected": 32
+    },
+    {
+      "name": "closed_16_150_force_2",
+      "pass": true,
+      "value": -0.3839999999931344,
+      "expected": -0.384
+    },
+    {
+      "name": "closed_16_150_body_2",
+      "pass": true,
+      "value": -0.01919999999965672,
+      "expected": -0.019200000000000002
+    },
+    {
+      "name": "closed_16_150_applied_fluid_2",
+      "pass": true,
+      "value": 0.019199999999656717,
+      "expected": 0.019200000000000002
+    },
+    {
+      "name": "closed_16_150_net_impulse_2",
+      "pass": true,
+      "value": -3.469446951953614e-18,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_16_150_independent_face_count_2",
+      "pass": true,
+      "value": 32,
+      "expected": 32
+    },
+    {
+      "name": "closed_16_150_face_energy_proxy",
+      "pass": true,
+      "value": 8.774999977043941e-05,
+      "expected": 8.774999999999999e-05
+    },
+    {
+      "name": "closed_16_150_reaction_creates_divergence",
+      "pass": true,
+      "value": 0.05273437457439105,
+      "expected": ">1e-5"
+    },
+    {
+      "name": "closed_16_150_post_projection_divergence",
+      "pass": true,
+      "value": 9.075066746822618e-11,
+      "expected": "<2e-8"
+    },
+    {
+      "name": "closed_16_1200_mode",
+      "pass": true,
+      "value": "closed",
+      "expected": "closed"
+    },
+    {
+      "name": "closed_16_1200_grid",
+      "pass": true,
+      "value": 16,
+      "expected": 16
+    },
+    {
+      "name": "closed_16_1200_pressure_offset",
+      "pass": true,
+      "value": 1200.0,
+      "expected": 1200.0
+    },
+    {
+      "name": "closed_16_1200_force_0",
+      "pass": true,
+      "value": -0.537599988657349,
+      "expected": -0.5376000000000001
+    },
+    {
+      "name": "closed_16_1200_body_0",
+      "pass": true,
+      "value": -0.026879999432867452,
+      "expected": -0.026880000000000005
+    },
+    {
+      "name": "closed_16_1200_applied_fluid_0",
+      "pass": true,
+      "value": 0.026879999432867452,
+      "expected": 0.026880000000000005
+    },
+    {
+      "name": "closed_16_1200_net_impulse_0",
+      "pass": true,
+      "value": 0.0,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_16_1200_independent_face_count_0",
+      "pass": true,
+      "value": 32,
+      "expected": 32
+    },
+    {
+      "name": "closed_16_1200_force_1",
+      "pass": true,
+      "value": 0.844799999073093,
+      "expected": 0.8448
+    },
+    {
+      "name": "closed_16_1200_body_1",
+      "pass": true,
+      "value": 0.042239999953654656,
+      "expected": 0.04224
+    },
+    {
+      "name": "closed_16_1200_applied_fluid_1",
+      "pass": true,
+      "value": -0.042239999953654676,
+      "expected": -0.04224
+    },
+    {
+      "name": "closed_16_1200_net_impulse_1",
+      "pass": true,
+      "value": -2.0816681711721685e-17,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_16_1200_independent_face_count_1",
+      "pass": true,
+      "value": 32,
+      "expected": 32
+    },
+    {
+      "name": "closed_16_1200_force_2",
+      "pass": true,
+      "value": -0.3839999999931344,
+      "expected": -0.384
+    },
+    {
+      "name": "closed_16_1200_body_2",
+      "pass": true,
+      "value": -0.01919999999965672,
+      "expected": -0.019200000000000002
+    },
+    {
+      "name": "closed_16_1200_applied_fluid_2",
+      "pass": true,
+      "value": 0.019199999999656717,
+      "expected": 0.019200000000000002
+    },
+    {
+      "name": "closed_16_1200_net_impulse_2",
+      "pass": true,
+      "value": -3.469446951953614e-18,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_16_1200_independent_face_count_2",
+      "pass": true,
+      "value": 32,
+      "expected": 32
+    },
+    {
+      "name": "closed_16_1200_face_energy_proxy",
+      "pass": true,
+      "value": 8.774999977043941e-05,
+      "expected": 8.774999999999999e-05
+    },
+    {
+      "name": "closed_16_1200_reaction_creates_divergence",
+      "pass": true,
+      "value": 0.05273437457439105,
+      "expected": ">1e-5"
+    },
+    {
+      "name": "closed_16_1200_post_projection_divergence",
+      "pass": true,
+      "value": 9.075066746822618e-11,
+      "expected": "<2e-8"
+    },
+    {
+      "name": "air_8_gauge_invariance",
+      "pass": true,
+      "value": 5.1019299895926906e-11,
+      "expected": "<3e-5"
+    },
+    {
+      "name": "air_12_gauge_invariance",
+      "pass": true,
+      "value": 2.4429458456154407e-11,
+      "expected": "<3e-5"
+    },
+    {
+      "name": "air_16_gauge_invariance",
+      "pass": true,
+      "value": 5.938483038647746e-11,
+      "expected": "<3e-5"
+    },
+    {
+      "name": "closed_8_gauge_invariance",
+      "pass": true,
+      "value": 0.0,
+      "expected": "<3e-5"
+    },
+    {
+      "name": "closed_12_gauge_invariance",
+      "pass": true,
+      "value": 0.0,
+      "expected": "<3e-5"
+    },
+    {
+      "name": "closed_16_gauge_invariance",
+      "pass": true,
+      "value": 0.0,
+      "expected": "<3e-5"
+    },
+    {
+      "name": "complete_ctest_44_of_44",
+      "pass": true,
+      "value": "44/44",
+      "expected": "44/44"
+    }
+  ],
+  "source_sha256": {
+    "include/upc/mac3d.hpp": "9bb4659c5b6e6fd3a512301ae4a3a083fa96b1e67d50363ec8f5634e1038fdc5",
+    "include/upc/static_pressure_load3d.hpp": "a3c32e9ed62318250eee7e51123da22e0013a635eda9cff29f58002415d06438",
+    "include/upc/rigid_pressure_response3d.hpp": "41282862ecf047ab9cf7c27ebea34314f049658e03bb3bbd4533609a0f41afe1",
+    "include/upc/pressure_reaction_transfer3d.hpp": "cf16cef5becdebd1c32e362e090ae1a37babba6c90f423f49780d181f78ec10c",
+    "tests/p2_pressure_reaction_transfer3d_tests.cpp": "3d2495e504edf7d51e120456667fe978c02860dedbc1add4245bb52ba20ffe95",
+    "scripts/p2_applied_fluid_reaction_acceptance.py": "6b85a068d65bf6d88d6a0c08b959615de79cbd10def4a2e8b51455ecfc59e8ae",
+    "docs/P2_APPLIED_FLUID_REACTION_PARTIAL.md": "3e210be2761968c68700c164662f090bc48a653590760c17f5e49d1081ca5185",
+    "docs/PHASENPLAN.md": "a485b79beb538bcd9f368a7a72e7d134f01ae45443693f08dd06749216239ad8",
+    "CMakeLists.txt": "66c3d001906368f02d55247c7c742ffc0af6e4cbeadc27bbfab4ace99aeae848"
+  },
+  "binary_sha256": "118a9fc52c557894708d6f041601d46f880e4b63a6966f60548ec958c1ffe665",
+  "ctest_log_path": "D:\\Projekt Engine\\ENGINE TEST STUBE\\runs\\p2_applied_fluid_reaction_ctest_20261027.txt",
+  "ctest_log_sha256": "fa1b45d10aa2c3a11ceb809acfbfd9e03b6eafecfc874939ea219b9f66f66f8f",
+  "limitation": "Fixed body, no remeshing or VOF body motion, no angular reaction, face-momentum proxy only, pressure reprojection changes budget; no complete 3D FSI/energy, independent CFD measurements or new UE5.8 native E2E. P2 remains PARTIAL."
+}

@@ -337,3 +337,28 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
   Es fehlen echte bewegte Fluid/Solid-Grenzen, angewandte
   Gegenimpulse, gekoppelte Erhaltung, externe 3D-CFD-Referenzen,
   Rotationsdynamik und UE5.8 Native-E2E dieses neuen Teilpfades.
+
+## P2 Teilfortschritt: tatsächlich angewandter Fluid-Gegenimpuls (27.10.2026)
+
+- `FrozenPressureFluidReaction3D::apply` verteilt den aus
+  `RigidPressureResponse3D` stammenden Gegenimpuls **tatsächlich** auf
+  gültige wet-wet MAC-Face-Geschwindigkeiten um einen eingefrorenen
+  2x2x2-Voxelkörper. Solid-Normal-, Außen- und Luft-Faces bleiben
+  unverändert. Alle Eingaben und Overflow-Fälle werden vor Änderungen
+  validiert; fehlende zulässige Faces brechen ab.
+- Reale projizierte 3D-Druckfelder: 12 Szenarien (3 Raster,
+  Wasser-Luft/geschlossene Neumann-Grenzen, 2 Druckoffsets).
+  Analytische Kraft (-0.5376,+0.8448,-0.3840) N,
+  Körperimpuls bei 0.05 s (-0.02688,+0.04224,-0.01920) Ns,
+  wirklich gemessener Fluid-Face-Gegenimpuls entgegengesetzt.
+- MSVC Build + 44/44 CTest, 65.400 native Assertions,
+  unabhängiges Python-Gate 260/260 Checks PASS;
+  P1-Referenz-Gate nach CMake-Änderung erneut 33/33 PASS.
+  Bericht: `ENGINE TEST STUBE/runs/p2_applied_fluid_reaction_partial.json`;
+  Dokumentation: `docs/P2_APPLIED_FLUID_REACTION_PARTIAL.md`.
+- **P2 weiterhin PARTIAL, P3-P8 ebenso.** Die neue Face-Impulsbilanz
+  gilt nur **vor** der erneuten Druckprojektion und ist kein
+  konservativer Finite-Volume-FSI-Fluss. Keine bewegte Körpermaske,
+  keine angewandte Drehimpulsreaktion, keine physikalische globale
+  Energie-/Impulsabnahme, keine unabhängigen CFD-Messdaten und
+  kein UE5.8-Native-E2E für diesen neuen Pfad.

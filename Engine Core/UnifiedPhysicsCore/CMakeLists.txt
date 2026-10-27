@@ -204,3 +204,8 @@ add_test(NAME physics_p2_static_3d_body_force_torque_partial COMMAND upc_p2_stat
 add_executable(upc_p2_rigid_pressure_response_tests tests/p2_rigid_pressure_response3d_tests.cpp)
 target_link_libraries(upc_p2_rigid_pressure_response_tests PRIVATE upc)
 add_test(NAME physics_p2_frozen_pressure_rigid_response_partial COMMAND upc_p2_rigid_pressure_response_tests)
+# P2 partial: actual opposite linear impulse written into nearby wet-wet
+# MAC face velocities; fixed body, no angular feedback or full FSI.
+add_executable(upc_p2_pressure_reaction_transfer_tests tests/p2_pressure_reaction_transfer3d_tests.cpp)
+target_link_libraries(upc_p2_pressure_reaction_transfer_tests PRIVATE upc)
+add_test(NAME physics_p2_applied_fluid_face_reaction_partial COMMAND upc_p2_pressure_reaction_transfer_tests)
