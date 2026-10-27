@@ -3,7 +3,7 @@
   "milestone": "frozen_mask_kinematic_moving_wall_projection_partial",
   "partial_accepted": true,
   "phase_complete": false,
-  "timestamp_utc": "2026-10-27T06:27:26.882347+00:00",
+  "timestamp_utc": "2026-10-27T07:01:58.311186+00:00",
   "scope": "prescribed rigid normal-wall velocity and 3D MAC pressure projection; no body remap or two-way FSI",
   "native_assertions": 95830,
   "checks": [
@@ -475,13 +475,13 @@
   "phase_gate_output": "GATES_PASS=P0,P1\nGATES_INCOMPLETE=P2,P3,P4,P5,P6,P7,P8\nALL_COMPLETE=False\nEVIDENCE=D:\\Projekt Engine\\ENGINE TEST STUBE\\runs\\unified_physics_gate.json",
   "source_sha256": {
     "include/upc/mac3d.hpp": "9bb4659c5b6e6fd3a512301ae4a3a083fa96b1e67d50363ec8f5634e1038fdc5",
-    "include/upc/kinematic_wall_projection3d.hpp": "6cc4d7d9ffedd9dd7a7906c7950e7e4eef1c9e91ebc24972201bd708258422ad",
+    "include/upc/kinematic_wall_projection3d.hpp": "f0f2432e44aac851d435293751f4ba378e1b9af91f0108339cfb2f9254cdd443",
     "tests/p2_kinematic_wall_projection3d_tests.cpp": "31da426894877075edf756dc344e2ce6a22c434c69508516ed6c78143a4efbed",
     "scripts/p2_kinematic_wall_projection_acceptance.py": "4d4b82248db76405588867b1a627a18543cd4f1fe3681707de6d439796a4c9db",
     "docs/P2_KINEMATIC_MOVING_WALL_PROJECTION_PARTIAL.md": "c68384d55cd913fd1c58505a78dca93c1bd0b48e3e9af8703b6c2624565cc136",
-    "docs/PHASENPLAN.md": "804d66d3e52f30206f573b5b9d5a5bfe1039a0a859cfa26910780f0b8729959b",
-    "CMakeLists.txt": "e4f86a60c9c17d31be8389724bdf4d7a9f6049eebbcdf52a66ed2cc4eab78d0f"
+    "docs/PHASENPLAN.md": "3f25f4cac01aac7ef18afd2f8c5ccd986a925d8e6005a19426b5e3209505c333",
+    "CMakeLists.txt": "ac04202387d7a055faa32e974a13f10c67a2af916a74bdfb5f0ed1f4858f2164"
   },
-  "native_exe_sha256": "aa6e14a3ba614530303fd2714601b9cf96c002de77e1d1c91e63cb00562981bf",
+  "native_exe_sha256": "9df17b45c56f7f5f7ae5702bd1cb6196869fd22bf0d4962e53c3ea85a49d3cf0",
   "ctest_log_sha256": "d6d1b55a350e82d8a6e88afec9a6cbc9527df412f1c87914ee8f33a375f70915"
 }

@@ -20,6 +20,11 @@ struct KinematicWallProjectionResult3D {
     double max_divergence_after_s_inv=0;
     double max_abs_pressure_pa=0;
     int pressure_iterations=0;
+    // Count connected wet components by six-face adjacency. A closed
+    // component must satisfy its own discrete Neumann compatibility.
+    std::size_t closed_liquid_components=0;
+    std::size_t open_liquid_components=0;
+    double max_closed_component_net_flux_m3_s=0;
     // Pressure is a gauge-dependent numerical field; solid/air cells are zero.
     std::vector<double> pressure_pa;
 };
@@ -153,11 +158,10 @@ public:
             throw std::overflow_error("Kinematic wall flux overflow");
         // A fully enclosed liquid region cannot accommodate a nonzero
         // total volume source with impermeable external walls.
-        bool has_free_surface=false;
         constexpr int directions[6][3]={{1,0,0},{-1,0,0},
             {0,1,0},{0,-1,0},{0,0,1},{0,0,-1}};
         std::vector<double> rhs(nx*ny*nz,0),pressure(nx*ny*nz,0);
-        double total_divergence_volume=0;
+        std::vector<double> cell_flux_m3_s(nx*ny*nz,0);
         for(std::size_t z=0;z<nz;++z)
         for(std::size_t y=0;y<ny;++y)
         for(std::size_t x=0;x<nx;++x)if(wet[idx(x,y,z)]) {
@@ -165,23 +169,61 @@ public:
                 u[ux(x+1,y,z)]-u[ux(x,y,z)]+
                 v[vy(x,y+1,z)]-v[vy(x,y,z)]+
                 w[wz(x,y,z+1)]-w[wz(x,y,z)])/dx_m;
-            rhs[idx(x,y,z)]=rhs_scale*divergence*dx_m;
-            total_divergence_volume+=divergence*dx_m*dx_m*dx_m;
-            if(!std::isfinite(rhs[idx(x,y,z)])||
-               !std::isfinite(total_divergence_volume))
+            const auto i=idx(x,y,z);
+            rhs[i]=rhs_scale*divergence*dx_m;
+            cell_flux_m3_s[i]=divergence*dx_m*dx_m*dx_m;
+            if(!std::isfinite(rhs[i])||!std::isfinite(cell_flux_m3_s[i]))
                 throw std::overflow_error("Kinematic projection RHS overflow");
-            for(const auto& d:directions) {
-                const int xx=static_cast<int>(x)+d[0];
-                const int yy=static_cast<int>(y)+d[1];
-                const int zz=static_cast<int>(z)+d[2];
-                if(!wall(xx,yy,zz)&&!liquid(xx,yy,zz))
-                    has_free_surface=true;
+        }
+        // A global zero flux is insufficient: disconnected sealed water
+        // pockets may have equal and opposite volume sources. Check the
+        // Neumann solvability condition for EACH wet component before
+        // modifying the MAC field or iterating the pressure equation.
+        std::vector<std::uint8_t> visited(nx*ny*nz,0);
+        std::vector<std::size_t> queue;
+        queue.reserve(nwet);
+        for(std::size_t seed=0;seed<wet.size();++seed) {
+            if(!wet[seed]||visited[seed])continue;
+            visited[seed]=1;
+            queue.clear();
+            queue.push_back(seed);
+            bool component_has_air=false;
+            double component_flux=0;
+            for(std::size_t head=0;head<queue.size();++head) {
+                const std::size_t i=queue[head];
+                component_flux+=cell_flux_m3_s[i];
+                if(!std::isfinite(component_flux))
+                    throw std::overflow_error("Nonfinite component volume flux");
+                const int x=static_cast<int>(i%nx);
+                const int y=static_cast<int>((i/nx)%ny);
+                const int z=static_cast<int>(i/(nx*ny));
+                for(const auto& d:directions) {
+                    const int xx=x+d[0],yy=y+d[1],zz=z+d[2];
+                    if(wall(xx,yy,zz))continue;
+                    if(!liquid(xx,yy,zz)) {
+                        component_has_air=true;
+                    }else {
+                        const auto j=index(xx,yy,zz);
+                        if(!visited[j]) {
+                            visited[j]=1;
+                            queue.push_back(j);
+                        }
+                    }
+                }
+            }
+            if(component_has_air) {
+                ++result.open_liquid_components;
+            }else {
+                ++result.closed_liquid_components;
+                result.max_closed_component_net_flux_m3_s=std::max(
+                    result.max_closed_component_net_flux_m3_s,
+                    std::abs(component_flux));
+                if(std::abs(component_flux)>
+                   1e-10*(1+std::abs(result.net_body_wall_flux_m3_s)))
+                    throw std::invalid_argument(
+                        "Incompatible closed wet-component moving-wall flux");
             }
         }
-        if(!has_free_surface &&
-           std::abs(total_divergence_volume)>
-           1e-10*(1+std::abs(result.net_body_wall_flux_m3_s)))
-            throw std::invalid_argument("Incompatible closed-domain moving-wall flux");
         for(int iteration=0;iteration<max_iterations;++iteration) {
             double max_delta=0;
             for(std::size_t z=0;z<nz;++z)

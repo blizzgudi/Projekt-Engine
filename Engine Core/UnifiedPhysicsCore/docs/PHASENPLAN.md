@@ -427,3 +427,10 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
   swept-volume-Maskenbewegung, keine dynamische Kraft-Rueckwirkung,
   keine globale Impuls-/Energiebilanz, keine externen CFD-Messdaten,
   keine stresskonsistente freie Oberflaeche oder neue UE5.8 Native-E2E.
+
+## P2 Teilfortschritt: lokale Neumann-Kompatibilität getrennter Flüssigkeitskammern (27.10.2026)
+
+- `KinematicWallMacProjection3D` prüft bei eingefrorener Festkörpermaske jetzt **jede zusammenhängende benetzte Komponente** separat auf unvereinbaren Netto-Wandfluss, nicht nur die global aufsummierte Quelle.
+- Native Regression: zwei geschlossene, voneinander isolierte Kammern mit gleich großem entgegengesetztem Wandfluss werden vor Mutation abgewiesen; auch eine getrennte offene Kammer verdeckt die inkompatible geschlossene Kammer nicht. Zwei offene Kammern bestehen die analytische Einzelzellen-Druckreferenz ±192 Pa bei ±0,12 m/s. Statische geschlossene Kammern bleiben zulässig.
+- Vollständiger MSVC-Release-CTest-Durchlauf: **48/48 PASS**. Eigene Abnahme: `scripts/p2_kinematic_component_acceptance.py`, Nachweis `ENGINE TEST STUBE/runs/p2_kinematic_component_partial.json`; Details `docs/P2_KINEMATIC_COMPONENT_COMPATIBILITY_PARTIAL.md`.
+- **P2 weiterhin PARTIAL**, P3–P8 offen: nur kinematische Wandgeschwindigkeiten auf fester Maske, keine tatsächliche Körperverlagerung oder bidirektionale Fluid-/Festkörper-Kopplung, keine vollständige Energie-/Impulsbilanz oder neue Unreal-5.8-Native-E2E-Abnahme.

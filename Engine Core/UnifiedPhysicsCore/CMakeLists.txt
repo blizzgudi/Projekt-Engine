@@ -227,3 +227,9 @@ add_test(NAME physics_p2_post_projection_wrench_audit_partial COMMAND upc_p2_pos
 add_executable(upc_p2_kinematic_wall_tests tests/p2_kinematic_wall_projection3d_tests.cpp)
 target_link_libraries(upc_p2_kinematic_wall_tests PRIVATE upc)
 add_test(NAME physics_p2_kinematic_solid_wall_projection_partial COMMAND upc_p2_kinematic_wall_tests)
+
+# P2 partial: Neumann compatibility per disconnected 3D liquid component.
+# Global cancellation of opposing sealed-pocket fluxes is NOT sufficient.
+add_executable(upc_p2_kinematic_component_tests tests/p2_kinematic_component_compatibility3d_tests.cpp)
+target_link_libraries(upc_p2_kinematic_component_tests PRIVATE upc)
+add_test(NAME physics_p2_kinematic_disconnected_wet_component_partial COMMAND upc_p2_kinematic_component_tests)

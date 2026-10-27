@@ -1,0 +1,342 @@
+{
+  "phase": "P2",
+  "milestone": "per_connected_wet_component_neumann_compatibility_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "timestamp_utc": "2026-10-27T07:02:17.996726+00:00",
+  "scope": "frozen-mask component-wise closed Neumann solvability; not geometric FSI",
+  "native_assertions": 62,
+  "checks": [
+    {
+      "name": "native_assertions",
+      "pass": true,
+      "value": 62,
+      "reference": ">=62"
+    },
+    {
+      "name": "sealed_components_rejected",
+      "pass": true,
+      "value": true,
+      "reference": true
+    },
+    {
+      "name": "mixed_components_rejected",
+      "pass": true,
+      "value": true,
+      "reference": true
+    },
+    {
+      "name": "both_open_positive_closed",
+      "pass": true,
+      "value": 0,
+      "reference": 0
+    },
+    {
+      "name": "both_open_positive_open",
+      "pass": true,
+      "value": 2,
+      "reference": 2
+    },
+    {
+      "name": "both_open_positive_body_faces",
+      "pass": true,
+      "value": 2,
+      "reference": 2
+    },
+    {
+      "name": "both_open_positive_net_body_flux_m3_s",
+      "pass": true,
+      "value": 0.0,
+      "reference": {
+        "value": 0.0,
+        "tolerance": 1e-15
+      }
+    },
+    {
+      "name": "both_open_positive_max_divergence_s_inv",
+      "pass": true,
+      "value": 0.0,
+      "reference": {
+        "value": 0.0,
+        "tolerance": 1e-10
+      }
+    },
+    {
+      "name": "both_open_positive_pressure_left_pa",
+      "pass": true,
+      "value": -192.0,
+      "reference": {
+        "value": -191.99999999999997,
+        "tolerance": 1e-10
+      }
+    },
+    {
+      "name": "both_open_positive_pressure_right_pa",
+      "pass": true,
+      "value": 192.0,
+      "reference": {
+        "value": 191.99999999999997,
+        "tolerance": 1e-10
+      }
+    },
+    {
+      "name": "both_open_positive_air_face_left_m_s",
+      "pass": true,
+      "value": 0.12,
+      "reference": {
+        "value": 0.12,
+        "tolerance": 1e-12
+      }
+    },
+    {
+      "name": "both_open_positive_air_face_right_m_s",
+      "pass": true,
+      "value": 0.12,
+      "reference": {
+        "value": 0.12,
+        "tolerance": 1e-12
+      }
+    },
+    {
+      "name": "both_open_negative_closed",
+      "pass": true,
+      "value": 0,
+      "reference": 0
+    },
+    {
+      "name": "both_open_negative_open",
+      "pass": true,
+      "value": 2,
+      "reference": 2
+    },
+    {
+      "name": "both_open_negative_body_faces",
+      "pass": true,
+      "value": 2,
+      "reference": 2
+    },
+    {
+      "name": "both_open_negative_net_body_flux_m3_s",
+      "pass": true,
+      "value": 0.0,
+      "reference": {
+        "value": 0.0,
+        "tolerance": 1e-15
+      }
+    },
+    {
+      "name": "both_open_negative_max_divergence_s_inv",
+      "pass": true,
+      "value": 0.0,
+      "reference": {
+        "value": 0.0,
+        "tolerance": 1e-10
+      }
+    },
+    {
+      "name": "both_open_negative_pressure_left_pa",
+      "pass": true,
+      "value": 192.0,
+      "reference": {
+        "value": 191.99999999999997,
+        "tolerance": 1e-10
+      }
+    },
+    {
+      "name": "both_open_negative_pressure_right_pa",
+      "pass": true,
+      "value": -192.0,
+      "reference": {
+        "value": -191.99999999999997,
+        "tolerance": 1e-10
+      }
+    },
+    {
+      "name": "both_open_negative_air_face_left_m_s",
+      "pass": true,
+      "value": -0.12,
+      "reference": {
+        "value": -0.12,
+        "tolerance": 1e-12
+      }
+    },
+    {
+      "name": "both_open_negative_air_face_right_m_s",
+      "pass": true,
+      "value": -0.12,
+      "reference": {
+        "value": -0.12,
+        "tolerance": 1e-12
+      }
+    },
+    {
+      "name": "one_open_one_closed_stationary_closed",
+      "pass": true,
+      "value": 1,
+      "reference": 1
+    },
+    {
+      "name": "one_open_one_closed_stationary_open",
+      "pass": true,
+      "value": 1,
+      "reference": 1
+    },
+    {
+      "name": "one_open_one_closed_stationary_body_faces",
+      "pass": true,
+      "value": 2,
+      "reference": 2
+    },
+    {
+      "name": "one_open_one_closed_stationary_net_body_flux_m3_s",
+      "pass": true,
+      "value": 0.0,
+      "reference": {
+        "value": 0.0,
+        "tolerance": 1e-15
+      }
+    },
+    {
+      "name": "one_open_one_closed_stationary_max_divergence_s_inv",
+      "pass": true,
+      "value": 0.0,
+      "reference": {
+        "value": 0.0,
+        "tolerance": 1e-10
+      }
+    },
+    {
+      "name": "one_open_one_closed_stationary_pressure_left_pa",
+      "pass": true,
+      "value": 0.0,
+      "reference": {
+        "value": 0.0,
+        "tolerance": 1e-10
+      }
+    },
+    {
+      "name": "one_open_one_closed_stationary_pressure_right_pa",
+      "pass": true,
+      "value": 0.0,
+      "reference": {
+        "value": 0.0,
+        "tolerance": 1e-10
+      }
+    },
+    {
+      "name": "one_open_one_closed_stationary_air_face_left_m_s",
+      "pass": true,
+      "value": 0.0,
+      "reference": {
+        "value": 0.0,
+        "tolerance": 1e-12
+      }
+    },
+    {
+      "name": "one_open_one_closed_stationary_air_face_right_m_s",
+      "pass": true,
+      "value": 0.0,
+      "reference": {
+        "value": 0.0,
+        "tolerance": 1e-12
+      }
+    },
+    {
+      "name": "both_closed_stationary_closed",
+      "pass": true,
+      "value": 2,
+      "reference": 2
+    },
+    {
+      "name": "both_closed_stationary_open",
+      "pass": true,
+      "value": 0,
+      "reference": 0
+    },
+    {
+      "name": "both_closed_stationary_body_faces",
+      "pass": true,
+      "value": 2,
+      "reference": 2
+    },
+    {
+      "name": "both_closed_stationary_net_body_flux_m3_s",
+      "pass": true,
+      "value": 0.0,
+      "reference": {
+        "value": 0.0,
+        "tolerance": 1e-15
+      }
+    },
+    {
+      "name": "both_closed_stationary_max_divergence_s_inv",
+      "pass": true,
+      "value": 0.0,
+      "reference": {
+        "value": 0.0,
+        "tolerance": 1e-10
+      }
+    },
+    {
+      "name": "both_closed_stationary_pressure_left_pa",
+      "pass": true,
+      "value": 0.0,
+      "reference": {
+        "value": 0.0,
+        "tolerance": 1e-10
+      }
+    },
+    {
+      "name": "both_closed_stationary_pressure_right_pa",
+      "pass": true,
+      "value": 0.0,
+      "reference": {
+        "value": 0.0,
+        "tolerance": 1e-10
+      }
+    },
+    {
+      "name": "both_closed_stationary_air_face_left_m_s",
+      "pass": true,
+      "value": 0.0,
+      "reference": {
+        "value": 0.0,
+        "tolerance": 1e-12
+      }
+    },
+    {
+      "name": "both_closed_stationary_air_face_right_m_s",
+      "pass": true,
+      "value": 0.0,
+      "reference": {
+        "value": 0.0,
+        "tolerance": 1e-12
+      }
+    }
+  ],
+  "native_csv": [
+    "case,closed_components,open_components,body_faces,net_body_flux_m3_s,max_divergence_s_inv,pressure_left_pa,pressure_right_pa,air_face_left_m_s,air_face_right_m_s",
+    "both_open_positive,0,2,2,0,0,-192,192,0.12,0.12",
+    "both_open_negative,0,2,2,0,0,192,-192,-0.12,-0.12",
+    "one_open_one_closed_stationary,1,1,2,0,0,0,0,0,0",
+    "both_closed_stationary,2,0,2,0,0,0,0,0,0"
+  ],
+  "native_rejections": [
+    "REJECTED: two_closed_moving (component incompatibility, MAC unchanged)",
+    "REJECTED: one_open_one_closed_moving (component incompatibility, MAC unchanged)"
+  ],
+  "ctest_count": 48,
+  "phase_gate_output": "GATES_PASS=P0,P1\nGATES_INCOMPLETE=P2,P3,P4,P5,P6,P7,P8\nALL_COMPLETE=False\nEVIDENCE=D:\\Projekt Engine\\ENGINE TEST STUBE\\runs\\unified_physics_gate.json",
+  "source_sha256": {
+    "include/upc/mac3d.hpp": "9bb4659c5b6e6fd3a512301ae4a3a083fa96b1e67d50363ec8f5634e1038fdc5",
+    "include/upc/kinematic_wall_projection3d.hpp": "f0f2432e44aac851d435293751f4ba378e1b9af91f0108339cfb2f9254cdd443",
+    "tests/p2_kinematic_component_compatibility3d_tests.cpp": "dabd7b7a5029482c6bbbc036019dbcb07372f7bf305b359051561dec9bbfbeb3",
+    "tests/p2_kinematic_wall_projection3d_tests.cpp": "31da426894877075edf756dc344e2ce6a22c434c69508516ed6c78143a4efbed",
+    "scripts/p2_kinematic_component_acceptance.py": "8f70d80280780fe4c993108bc9e728fe18227af3f892e19f2b0264b76f8790c9",
+    "docs/P2_KINEMATIC_COMPONENT_COMPATIBILITY_PARTIAL.md": "f648615774817cfc703d0c5002e16f7ea6d1da9f6d5a2ced21ef629cb58a37d3",
+    "docs/PHASENPLAN.md": "3f25f4cac01aac7ef18afd2f8c5ccd986a925d8e6005a19426b5e3209505c333",
+    "CMakeLists.txt": "ac04202387d7a055faa32e974a13f10c67a2af916a74bdfb5f0ed1f4858f2164"
+  },
+  "native_exe_sha256": "8a847e1ec3ba263e8f2d0eec9be2fdc9db8f6dc7a76f3c8cdf854e8262142572",
+  "ctest_log_sha256": "2f671b289178f6f74983950d0f898635f927aefe3f1c030b602c3d82604f6f13"
+}
