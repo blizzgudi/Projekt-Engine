@@ -1,0 +1,801 @@
+{
+  "phase": "P2",
+  "milestone": "exterior_face_connected_vof_route_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "timestamp_utc": "2026-10-27T22:17:28.310646+00:00",
+  "ctest_count": 53,
+  "native_assertions": 114764,
+  "checks": [
+    {
+      "name": "8_0_-1_grid",
+      "actual": 8.0,
+      "expected": 8,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "8_0_-1_axis",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "8_0_-1_sign",
+      "actual": -1.0,
+      "expected": -1,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "8_0_-1_face_steps",
+      "actual": 3.0,
+      "expected": 3,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "8_0_-1_leading_m3",
+      "actual": 0.000546875,
+      "expected": 0.000546875,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "8_0_-1_residual_m3",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "8_0_1_grid",
+      "actual": 8.0,
+      "expected": 8,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "8_0_1_axis",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "8_0_1_sign",
+      "actual": 1.0,
+      "expected": 1,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "8_0_1_face_steps",
+      "actual": 3.0,
+      "expected": 3,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "8_0_1_leading_m3",
+      "actual": 0.0005859375,
+      "expected": 0.0005859375,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "8_0_1_residual_m3",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "8_1_-1_grid",
+      "actual": 8.0,
+      "expected": 8,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "8_1_-1_axis",
+      "actual": 1.0,
+      "expected": 1,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "8_1_-1_sign",
+      "actual": -1.0,
+      "expected": -1,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "8_1_-1_face_steps",
+      "actual": 3.0,
+      "expected": 3,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "8_1_-1_leading_m3",
+      "actual": 0.00052734375,
+      "expected": 0.00052734375,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "8_1_-1_residual_m3",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "8_1_1_grid",
+      "actual": 8.0,
+      "expected": 8,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "8_1_1_axis",
+      "actual": 1.0,
+      "expected": 1,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "8_1_1_sign",
+      "actual": 1.0,
+      "expected": 1,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "8_1_1_face_steps",
+      "actual": 3.0,
+      "expected": 3,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "8_1_1_leading_m3",
+      "actual": 0.00060546875,
+      "expected": 0.00060546875,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "8_1_1_residual_m3",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "8_2_-1_grid",
+      "actual": 8.0,
+      "expected": 8,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "8_2_-1_axis",
+      "actual": 2.0,
+      "expected": 2,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "8_2_-1_sign",
+      "actual": -1.0,
+      "expected": -1,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "8_2_-1_face_steps",
+      "actual": 3.0,
+      "expected": 3,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "8_2_-1_leading_m3",
+      "actual": 0.0005078125,
+      "expected": 0.0005078125,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "8_2_-1_residual_m3",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "8_2_1_grid",
+      "actual": 8.0,
+      "expected": 8,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "8_2_1_axis",
+      "actual": 2.0,
+      "expected": 2,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "8_2_1_sign",
+      "actual": 1.0,
+      "expected": 1,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "8_2_1_face_steps",
+      "actual": 3.0,
+      "expected": 3,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "8_2_1_leading_m3",
+      "actual": 0.000625,
+      "expected": 0.000625,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "8_2_1_residual_m3",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "12_0_-1_grid",
+      "actual": 12.0,
+      "expected": 12,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "12_0_-1_axis",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "12_0_-1_sign",
+      "actual": -1.0,
+      "expected": -1,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "12_0_-1_face_steps",
+      "actual": 3.0,
+      "expected": 3,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "12_0_-1_leading_m3",
+      "actual": 0.00078125,
+      "expected": 0.00078125,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "12_0_-1_residual_m3",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "12_0_1_grid",
+      "actual": 12.0,
+      "expected": 12,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "12_0_1_axis",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "12_0_1_sign",
+      "actual": 1.0,
+      "expected": 1,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "12_0_1_face_steps",
+      "actual": 3.0,
+      "expected": 3,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "12_0_1_leading_m3",
+      "actual": 0.0008203125000000001,
+      "expected": 0.0008203125000000001,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "12_0_1_residual_m3",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "12_1_-1_grid",
+      "actual": 12.0,
+      "expected": 12,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "12_1_-1_axis",
+      "actual": 1.0,
+      "expected": 1,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "12_1_-1_sign",
+      "actual": -1.0,
+      "expected": -1,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "12_1_-1_face_steps",
+      "actual": 3.0,
+      "expected": 3,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "12_1_-1_leading_m3",
+      "actual": 0.00076171875,
+      "expected": 0.00076171875,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "12_1_-1_residual_m3",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "12_1_1_grid",
+      "actual": 12.0,
+      "expected": 12,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "12_1_1_axis",
+      "actual": 1.0,
+      "expected": 1,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "12_1_1_sign",
+      "actual": 1.0,
+      "expected": 1,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "12_1_1_face_steps",
+      "actual": 3.0,
+      "expected": 3,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "12_1_1_leading_m3",
+      "actual": 0.00083984375,
+      "expected": 0.00083984375,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "12_1_1_residual_m3",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "12_2_-1_grid",
+      "actual": 12.0,
+      "expected": 12,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "12_2_-1_axis",
+      "actual": 2.0,
+      "expected": 2,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "12_2_-1_sign",
+      "actual": -1.0,
+      "expected": -1,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "12_2_-1_face_steps",
+      "actual": 3.0,
+      "expected": 3,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "12_2_-1_leading_m3",
+      "actual": 0.0007421875,
+      "expected": 0.0007421875,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "12_2_-1_residual_m3",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "12_2_1_grid",
+      "actual": 12.0,
+      "expected": 12,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "12_2_1_axis",
+      "actual": 2.0,
+      "expected": 2,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "12_2_1_sign",
+      "actual": 1.0,
+      "expected": 1,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "12_2_1_face_steps",
+      "actual": 3.0,
+      "expected": 3,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "12_2_1_leading_m3",
+      "actual": 0.000859375,
+      "expected": 0.000859375,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "12_2_1_residual_m3",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "16_0_-1_grid",
+      "actual": 16.0,
+      "expected": 16,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "16_0_-1_axis",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "16_0_-1_sign",
+      "actual": -1.0,
+      "expected": -1,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "16_0_-1_face_steps",
+      "actual": 3.0,
+      "expected": 3,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "16_0_-1_leading_m3",
+      "actual": 0.000625,
+      "expected": 0.000625,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "16_0_-1_residual_m3",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "16_0_1_grid",
+      "actual": 16.0,
+      "expected": 16,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "16_0_1_axis",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "16_0_1_sign",
+      "actual": 1.0,
+      "expected": 1,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "16_0_1_face_steps",
+      "actual": 3.0,
+      "expected": 3,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "16_0_1_leading_m3",
+      "actual": 0.0006640624999999999,
+      "expected": 0.0006640624999999999,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "16_0_1_residual_m3",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "16_1_-1_grid",
+      "actual": 16.0,
+      "expected": 16,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "16_1_-1_axis",
+      "actual": 1.0,
+      "expected": 1,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "16_1_-1_sign",
+      "actual": -1.0,
+      "expected": -1,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "16_1_-1_face_steps",
+      "actual": 3.0,
+      "expected": 3,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "16_1_-1_leading_m3",
+      "actual": 0.00060546875,
+      "expected": 0.00060546875,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "16_1_-1_residual_m3",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "16_1_1_grid",
+      "actual": 16.0,
+      "expected": 16,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "16_1_1_axis",
+      "actual": 1.0,
+      "expected": 1,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "16_1_1_sign",
+      "actual": 1.0,
+      "expected": 1,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "16_1_1_face_steps",
+      "actual": 3.0,
+      "expected": 3,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "16_1_1_leading_m3",
+      "actual": 0.00068359375,
+      "expected": 0.00068359375,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "16_1_1_residual_m3",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "16_2_-1_grid",
+      "actual": 16.0,
+      "expected": 16,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "16_2_-1_axis",
+      "actual": 2.0,
+      "expected": 2,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "16_2_-1_sign",
+      "actual": -1.0,
+      "expected": -1,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "16_2_-1_face_steps",
+      "actual": 3.0,
+      "expected": 3,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "16_2_-1_leading_m3",
+      "actual": 0.0005859375,
+      "expected": 0.0005859375,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "16_2_-1_residual_m3",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "16_2_1_grid",
+      "actual": 16.0,
+      "expected": 16,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "16_2_1_axis",
+      "actual": 2.0,
+      "expected": 2,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "16_2_1_sign",
+      "actual": 1.0,
+      "expected": 1,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "16_2_1_face_steps",
+      "actual": 3.0,
+      "expected": 3,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "16_2_1_leading_m3",
+      "actual": 0.000703125,
+      "expected": 0.000703125,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "16_2_1_residual_m3",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-13,
+      "pass": true
+    }
+  ],
+  "native_csv": [
+    "grid,axis,sign,face_steps,leading_m3,residual_m3",
+    "8,0,-1,3,0.00054687500000000005,0",
+    "8,0,1,3,0.00058593749999999998,0",
+    "8,1,-1,3,0.00052734375000000003,0",
+    "8,1,1,3,0.00060546875,0",
+    "8,2,-1,3,0.00050781250000000002,0",
+    "8,2,1,3,0.00062500000000000001,0",
+    "12,0,-1,3,0.00078125000000000004,0",
+    "12,0,1,3,0.00082031250000000008,0",
+    "12,1,-1,3,0.00076171875000000003,0",
+    "12,1,1,3,0.00083984374999999999,0",
+    "12,2,-1,3,0.00074218750000000001,0",
+    "12,2,1,3,0.000859375,0",
+    "16,0,-1,3,0.00062500000000000001,0",
+    "16,0,1,3,0.00066406249999999994,0",
+    "16,1,-1,3,0.00060546875,0",
+    "16,1,1,3,0.00068359374999999996,0",
+    "16,2,-1,3,0.00058593749999999998,0",
+    "16,2,1,3,0.00070312499999999997,0"
+  ],
+  "phase_gate_output": "GATES_PASS=P0,P1\nGATES_INCOMPLETE=P2,P3,P4,P5,P6,P7,P8\nALL_COMPLETE=False\nEVIDENCE=D:\\Projekt Engine\\ENGINE TEST STUBE\\runs\\unified_physics_gate.json",
+  "source_sha256": {
+    "include/upc/p2_voxel_sweep_remap3d.hpp": "4ab90fa1939c2699791984af3c71fabf975b9b7a63fad79c62f6b303fa83adbe",
+    "include/upc/p2_exterior_vof_route3d.hpp": "ca70cb61e83eec97c9c8fe881f17ab19ca26296620ec2fd237af87e0a8bd0641",
+    "tests/p2_exterior_vof_route3d_tests.cpp": "9cf63a6d210964d737de22622368ee2bc3377eed3b6e3645e1cf1dba1f4cf73d",
+    "scripts/p2_exterior_vof_route_acceptance.py": "70fb4228160e1dfe1e1a6fd830460d3032fd7288d0088070651e6d1699d77da5",
+    "docs/P2_EXTERIOR_VOF_ROUTE_PARTIAL.md": "314276f34a5a64da9fbfec9df4790bb8ccf58f1d18c000c7d3d2c7df2f4b1613",
+    "docs/PHASENPLAN.md": "da8dda967b67153d9cd64fed00e73b837ac791ed7eef59cec9885a3db674694f",
+    "CMakeLists.txt": "cf85192789b278349157c9d551232fa21ee5e0d641dd725b5a1014c73b8ab42c"
+  },
+  "native_exe_sha256": "508efe6444e3fbaf6a68283fa77d46c770ee537e99d2dec4a172ae0630e839c6",
+  "ctest_log_sha256": "fe3d26a435726d040edad509fa374f1df6c59b8e399477b020fc003fd8d30e0f",
+  "scope": "six-neighbor exterior-only scalar VOF permutation; NOT physical flux, MAC momentum, energy or FSI"
+}

@@ -257,3 +257,9 @@ add_test(NAME physics_p2_lagged_kinematic_pressure_body_partial COMMAND upc_p2_l
 add_executable(upc_p2_voxel_sweep_remap_tests tests/p2_voxel_sweep_remap3d_tests.cpp)
 target_link_libraries(upc_p2_voxel_sweep_remap_tests PRIVATE upc)
 add_test(NAME physics_p2_voxel_sweep_mass_remap_partial COMMAND upc_p2_voxel_sweep_remap_tests)
+
+# P2 partial: shortest exterior face-connected VOF displacement routes around
+# moving rigid voxel geometry; conservative scalar proxy, NOT fluid dynamics.
+add_executable(upc_p2_exterior_vof_route_tests tests/p2_exterior_vof_route3d_tests.cpp)
+target_link_libraries(upc_p2_exterior_vof_route_tests PRIVATE upc)
+add_test(NAME physics_p2_exterior_vof_face_route_partial COMMAND upc_p2_exterior_vof_route_tests)

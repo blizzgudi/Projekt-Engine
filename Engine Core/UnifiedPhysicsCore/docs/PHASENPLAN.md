@@ -516,3 +516,23 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
   keine neue UE5.8 Native-E2E-Abnahme. Erst die naechsten Arbeiten
   duerfen dieses reine Geometrie-/Massen-Buchhaltungsmodul
   in einen dynamischen Solver integrieren.
+
+## P2 Teilfortschritt: exterior-only 3D-VOF-Routen um bewegte Voxel (27.10.2026)
+
+- Neuer optionaler CPU-Prototyp `ExteriorVoxelSweep3DRemap` vermeidet
+  den vorherigen direkten Wassertransport durch den Starrkoerper.
+  Stattdessen fuehrt eine sechsfach benachbarte kuerzeste Route ueber
+  Zellen ausserhalb der alten UND neuen Koerpermaske und fester Hindernisse.
+  Wasseranteile werden entlang des Weges konservativ umklassifiziert;
+  blockierte nasse Wege werden atomar abgewiesen, trockene Bewegung bleibt
+  ohne Route moeglich. Bestehender Remap unveraendert.
+- MSVC Release und **53/53 vollstaendige CTest-Suites PASS**;
+  114.764 native Assertions in 18 3D-Achsen-/Richtungsfaellen sowie
+  blockierter Nass- und eingeschlossener Trockenfall.
+- Belege: `docs/P2_EXTERIOR_VOF_ROUTE_PARTIAL.md`,
+  `scripts/p2_exterior_vof_route_acceptance.py`,
+  `ENGINE TEST STUBE/runs/p2_exterior_vof_route_partial.json`.
+- **P2-P8 bleiben PARTIAL.** Auch die exterior-only-Permutation ist
+  noch kein zeitaufgeloester physikalischer VOF-Face-Flux, kein MAC-Impuls,
+  keine Energieerhaltung oder bidirektionale FSI. Keine neuen externen
+  CFD-Messdaten und kein neues Unreal-5.8 Native-E2E.
