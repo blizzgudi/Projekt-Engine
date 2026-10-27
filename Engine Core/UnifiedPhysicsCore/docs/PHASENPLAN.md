@@ -543,3 +543,24 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
 - Analytische Vier-Zellen-Zirkulation in XY/XZ/YZ bei 8^3/12^3/16^3 und beiden Umlaufrichtungen, 3D-Curl-Referenz, Hindernisse und Negativfaelle. Native Assertions: 44653. Unabhaengige Python-Gates: 111/111. MSVC Release und vollstaendige 54/54 CTest PASS. P1 erneut 33/33 PASS.
 - Nachweis: `docs/P2_CONSERVATIVE_MAC_VOF_FLUX_PARTIAL.md`, `scripts/p2_conservative_vof_flux_acceptance.py`, `ENGINE TEST STUBE/runs/p2_conservative_vof_flux_partial.json` und vollstaendiges CTest-Protokoll mit SHA256.
 - **P2 weiterhin PARTIAL.** Der neue Operator ist optional und arbeitet auf eingefrorener Solid-Maske. Keine bewegte Geometrie, kein Fluid-Gegenimpuls, keine globale Energie-/Impulsbilanz, keine externen 3D-CFD-Messdaten und keine neue UE5.8-Native-E2E-Abnahme. P3-P8 weiterhin PARTIAL.
+
+
+## P2 Teilfortschritt: lokaler beweglicher 3D-VOF-Grenzfluss mit GCL (28.10.2026)
+
+- Neuer isolierter `MovingBoundaryVofFlux3D` prueft alte/neue binaere
+  Starrkoerpermaske und **extern vorgegebene** MAC-Face-Volumenfluesse.
+  Jede Zelle muss die diskrete geometrische Volumenbilanz (GCL)
+  erfuellen; Wasser wird konservativ mit Donor-Cell-VOF transportiert.
+  Kein Wassertransport durch alte Festkoerper-Donoren, neue Solid-Empfaenger,
+  feste Hindernisse oder Domain-Grenzen.
+- MSVC-Release-Build, **55/55 CTest PASS**, 115318 native Assertions,
+  333/333 unabhaengige Python-Referenzchecks fuer 8^3/12^3/16^3,
+  alle Achsen und Vorzeichen, 1-/2-Voxel-Koerper, statische Zirkulation,
+  CFL/GCL/Fehlerfaelle. P1 erneut mit 33/33 Checks bestaetigt.
+- Nachweise: `docs/P2_MOVING_BOUNDARY_GCL_VOF_PARTIAL.md`,
+  `scripts/p2_moving_boundary_vof_acceptance.py`,
+  `ENGINE TEST STUBE/runs/p2_moving_boundary_vof_partial.json`.
+- **P2 bleibt PARTIAL**: Face-Fluesse werden noch nicht aus realer
+  Koerperkinematik/Fluiddruck berechnet; keine gekoppelte MAC-Impulsbilanz,
+  keine globale Energieerhaltung, keine externen 3D-CFD-Messungen und
+  kein neuer UE5.8-Native-E2E-Lauf fuer diesen Operator. P3-P8 offen.

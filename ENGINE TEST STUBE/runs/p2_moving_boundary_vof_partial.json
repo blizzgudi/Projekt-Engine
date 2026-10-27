@@ -1,0 +1,2359 @@
+{
+  "phase": "P2",
+  "milestone": "binary_moving_boundary_local_gcl_vof_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "accepted": false,
+  "full_ctest_suites": 55,
+  "native_assertions": 115318,
+  "checks": [
+    {
+      "name": "single_(8, 0, -1, 1)_faces",
+      "actual": 3,
+      "expected": 3,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 0, -1, 1)_changed_mask",
+      "actual": 2,
+      "expected": 2,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 0, -1, 1)_gcl",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 0, -1, 1)_water_residual",
+      "actual": -2.220446049250313e-16,
+      "expected": 0,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 0, -1, 1)_first_exterior",
+      "actual": 0.6,
+      "expected": 0.6,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 0, -1, 1)_second_exterior",
+      "actual": 0.19999999999999996,
+      "expected": 0.2,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 0, -1, 1)_vacated",
+      "actual": 0.8,
+      "expected": 0.8,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 0, -1, 2)_faces",
+      "actual": 3,
+      "expected": 3,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 0, -1, 2)_changed_mask",
+      "actual": 2,
+      "expected": 2,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 0, -1, 2)_gcl",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 0, -1, 2)_water_residual",
+      "actual": -2.220446049250313e-16,
+      "expected": 0,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 0, -1, 2)_first_exterior",
+      "actual": 0.6,
+      "expected": 0.6,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 0, -1, 2)_second_exterior",
+      "actual": 0.19999999999999996,
+      "expected": 0.2,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 0, -1, 2)_vacated",
+      "actual": 0.8,
+      "expected": 0.8,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 0, 1, 1)_faces",
+      "actual": 3,
+      "expected": 3,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 0, 1, 1)_changed_mask",
+      "actual": 2,
+      "expected": 2,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 0, 1, 1)_gcl",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 0, 1, 1)_water_residual",
+      "actual": 2.220446049250313e-16,
+      "expected": 0,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 0, 1, 1)_first_exterior",
+      "actual": 0.6,
+      "expected": 0.6,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 0, 1, 1)_second_exterior",
+      "actual": 0.19999999999999996,
+      "expected": 0.2,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 0, 1, 1)_vacated",
+      "actual": 0.8,
+      "expected": 0.8,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 0, 1, 2)_faces",
+      "actual": 3,
+      "expected": 3,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 0, 1, 2)_changed_mask",
+      "actual": 2,
+      "expected": 2,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 0, 1, 2)_gcl",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 0, 1, 2)_water_residual",
+      "actual": 2.220446049250313e-16,
+      "expected": 0,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 0, 1, 2)_first_exterior",
+      "actual": 0.6,
+      "expected": 0.6,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 0, 1, 2)_second_exterior",
+      "actual": 0.19999999999999996,
+      "expected": 0.2,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 0, 1, 2)_vacated",
+      "actual": 0.8,
+      "expected": 0.8,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 1, -1, 0)_faces",
+      "actual": 3,
+      "expected": 3,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 1, -1, 0)_changed_mask",
+      "actual": 2,
+      "expected": 2,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 1, -1, 0)_gcl",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 1, -1, 0)_water_residual",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 1, -1, 0)_first_exterior",
+      "actual": 0.6000000000000001,
+      "expected": 0.6,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 1, -1, 0)_second_exterior",
+      "actual": 0.2,
+      "expected": 0.2,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 1, -1, 0)_vacated",
+      "actual": 0.8,
+      "expected": 0.8,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 1, -1, 2)_faces",
+      "actual": 3,
+      "expected": 3,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 1, -1, 2)_changed_mask",
+      "actual": 2,
+      "expected": 2,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 1, -1, 2)_gcl",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 1, -1, 2)_water_residual",
+      "actual": -2.220446049250313e-16,
+      "expected": 0,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 1, -1, 2)_first_exterior",
+      "actual": 0.6,
+      "expected": 0.6,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 1, -1, 2)_second_exterior",
+      "actual": 0.19999999999999996,
+      "expected": 0.2,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 1, -1, 2)_vacated",
+      "actual": 0.8,
+      "expected": 0.8,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 1, 1, 0)_faces",
+      "actual": 3,
+      "expected": 3,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 1, 1, 0)_changed_mask",
+      "actual": 2,
+      "expected": 2,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 1, 1, 0)_gcl",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 1, 1, 0)_water_residual",
+      "actual": 2.220446049250313e-16,
+      "expected": 0,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 1, 1, 0)_first_exterior",
+      "actual": 0.6000000000000001,
+      "expected": 0.6,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 1, 1, 0)_second_exterior",
+      "actual": 0.2,
+      "expected": 0.2,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 1, 1, 0)_vacated",
+      "actual": 0.8,
+      "expected": 0.8,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 1, 1, 2)_faces",
+      "actual": 3,
+      "expected": 3,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 1, 1, 2)_changed_mask",
+      "actual": 2,
+      "expected": 2,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 1, 1, 2)_gcl",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 1, 1, 2)_water_residual",
+      "actual": 2.220446049250313e-16,
+      "expected": 0,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 1, 1, 2)_first_exterior",
+      "actual": 0.6,
+      "expected": 0.6,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 1, 1, 2)_second_exterior",
+      "actual": 0.19999999999999996,
+      "expected": 0.2,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 1, 1, 2)_vacated",
+      "actual": 0.8,
+      "expected": 0.8,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 2, -1, 0)_faces",
+      "actual": 3,
+      "expected": 3,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 2, -1, 0)_changed_mask",
+      "actual": 2,
+      "expected": 2,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 2, -1, 0)_gcl",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 2, -1, 0)_water_residual",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 2, -1, 0)_first_exterior",
+      "actual": 0.6000000000000001,
+      "expected": 0.6,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 2, -1, 0)_second_exterior",
+      "actual": 0.2,
+      "expected": 0.2,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 2, -1, 0)_vacated",
+      "actual": 0.8,
+      "expected": 0.8,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 2, -1, 1)_faces",
+      "actual": 3,
+      "expected": 3,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 2, -1, 1)_changed_mask",
+      "actual": 2,
+      "expected": 2,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 2, -1, 1)_gcl",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 2, -1, 1)_water_residual",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 2, -1, 1)_first_exterior",
+      "actual": 0.6000000000000001,
+      "expected": 0.6,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 2, -1, 1)_second_exterior",
+      "actual": 0.2,
+      "expected": 0.2,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 2, -1, 1)_vacated",
+      "actual": 0.8,
+      "expected": 0.8,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 2, 1, 0)_faces",
+      "actual": 3,
+      "expected": 3,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 2, 1, 0)_changed_mask",
+      "actual": 2,
+      "expected": 2,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 2, 1, 0)_gcl",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 2, 1, 0)_water_residual",
+      "actual": 2.220446049250313e-16,
+      "expected": 0,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 2, 1, 0)_first_exterior",
+      "actual": 0.6000000000000001,
+      "expected": 0.6,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 2, 1, 0)_second_exterior",
+      "actual": 0.2,
+      "expected": 0.2,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 2, 1, 0)_vacated",
+      "actual": 0.8,
+      "expected": 0.8,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 2, 1, 1)_faces",
+      "actual": 3,
+      "expected": 3,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 2, 1, 1)_changed_mask",
+      "actual": 2,
+      "expected": 2,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 2, 1, 1)_gcl",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 2, 1, 1)_water_residual",
+      "actual": 2.220446049250313e-16,
+      "expected": 0,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 2, 1, 1)_first_exterior",
+      "actual": 0.6000000000000001,
+      "expected": 0.6,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 2, 1, 1)_second_exterior",
+      "actual": 0.2,
+      "expected": 0.2,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(8, 2, 1, 1)_vacated",
+      "actual": 0.8,
+      "expected": 0.8,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 0, -1, 1)_faces",
+      "actual": 3,
+      "expected": 3,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 0, -1, 1)_changed_mask",
+      "actual": 2,
+      "expected": 2,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 0, -1, 1)_gcl",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 0, -1, 1)_water_residual",
+      "actual": -2.220446049250313e-16,
+      "expected": 0,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 0, -1, 1)_first_exterior",
+      "actual": 0.6,
+      "expected": 0.6,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 0, -1, 1)_second_exterior",
+      "actual": 0.19999999999999996,
+      "expected": 0.2,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 0, -1, 1)_vacated",
+      "actual": 0.8,
+      "expected": 0.8,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 0, -1, 2)_faces",
+      "actual": 3,
+      "expected": 3,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 0, -1, 2)_changed_mask",
+      "actual": 2,
+      "expected": 2,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 0, -1, 2)_gcl",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 0, -1, 2)_water_residual",
+      "actual": -2.220446049250313e-16,
+      "expected": 0,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 0, -1, 2)_first_exterior",
+      "actual": 0.6,
+      "expected": 0.6,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 0, -1, 2)_second_exterior",
+      "actual": 0.19999999999999996,
+      "expected": 0.2,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 0, -1, 2)_vacated",
+      "actual": 0.8,
+      "expected": 0.8,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 0, 1, 1)_faces",
+      "actual": 3,
+      "expected": 3,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 0, 1, 1)_changed_mask",
+      "actual": 2,
+      "expected": 2,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 0, 1, 1)_gcl",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 0, 1, 1)_water_residual",
+      "actual": 2.220446049250313e-16,
+      "expected": 0,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 0, 1, 1)_first_exterior",
+      "actual": 0.6,
+      "expected": 0.6,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 0, 1, 1)_second_exterior",
+      "actual": 0.19999999999999996,
+      "expected": 0.2,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 0, 1, 1)_vacated",
+      "actual": 0.8,
+      "expected": 0.8,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 0, 1, 2)_faces",
+      "actual": 3,
+      "expected": 3,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 0, 1, 2)_changed_mask",
+      "actual": 2,
+      "expected": 2,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 0, 1, 2)_gcl",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 0, 1, 2)_water_residual",
+      "actual": 2.220446049250313e-16,
+      "expected": 0,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 0, 1, 2)_first_exterior",
+      "actual": 0.6,
+      "expected": 0.6,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 0, 1, 2)_second_exterior",
+      "actual": 0.19999999999999996,
+      "expected": 0.2,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 0, 1, 2)_vacated",
+      "actual": 0.8,
+      "expected": 0.8,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 1, -1, 0)_faces",
+      "actual": 3,
+      "expected": 3,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 1, -1, 0)_changed_mask",
+      "actual": 2,
+      "expected": 2,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 1, -1, 0)_gcl",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 1, -1, 0)_water_residual",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 1, -1, 0)_first_exterior",
+      "actual": 0.6000000000000001,
+      "expected": 0.6,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 1, -1, 0)_second_exterior",
+      "actual": 0.2,
+      "expected": 0.2,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 1, -1, 0)_vacated",
+      "actual": 0.8,
+      "expected": 0.8,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 1, -1, 2)_faces",
+      "actual": 3,
+      "expected": 3,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 1, -1, 2)_changed_mask",
+      "actual": 2,
+      "expected": 2,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 1, -1, 2)_gcl",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 1, -1, 2)_water_residual",
+      "actual": -2.220446049250313e-16,
+      "expected": 0,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 1, -1, 2)_first_exterior",
+      "actual": 0.6,
+      "expected": 0.6,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 1, -1, 2)_second_exterior",
+      "actual": 0.19999999999999996,
+      "expected": 0.2,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 1, -1, 2)_vacated",
+      "actual": 0.8,
+      "expected": 0.8,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 1, 1, 0)_faces",
+      "actual": 3,
+      "expected": 3,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 1, 1, 0)_changed_mask",
+      "actual": 2,
+      "expected": 2,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 1, 1, 0)_gcl",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 1, 1, 0)_water_residual",
+      "actual": 2.220446049250313e-16,
+      "expected": 0,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 1, 1, 0)_first_exterior",
+      "actual": 0.6000000000000001,
+      "expected": 0.6,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 1, 1, 0)_second_exterior",
+      "actual": 0.2,
+      "expected": 0.2,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 1, 1, 0)_vacated",
+      "actual": 0.8,
+      "expected": 0.8,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 1, 1, 2)_faces",
+      "actual": 3,
+      "expected": 3,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 1, 1, 2)_changed_mask",
+      "actual": 2,
+      "expected": 2,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 1, 1, 2)_gcl",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 1, 1, 2)_water_residual",
+      "actual": 2.220446049250313e-16,
+      "expected": 0,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 1, 1, 2)_first_exterior",
+      "actual": 0.6,
+      "expected": 0.6,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 1, 1, 2)_second_exterior",
+      "actual": 0.19999999999999996,
+      "expected": 0.2,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 1, 1, 2)_vacated",
+      "actual": 0.8,
+      "expected": 0.8,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 2, -1, 0)_faces",
+      "actual": 3,
+      "expected": 3,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 2, -1, 0)_changed_mask",
+      "actual": 2,
+      "expected": 2,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 2, -1, 0)_gcl",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 2, -1, 0)_water_residual",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 2, -1, 0)_first_exterior",
+      "actual": 0.6000000000000001,
+      "expected": 0.6,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 2, -1, 0)_second_exterior",
+      "actual": 0.2,
+      "expected": 0.2,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 2, -1, 0)_vacated",
+      "actual": 0.8,
+      "expected": 0.8,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 2, -1, 1)_faces",
+      "actual": 3,
+      "expected": 3,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 2, -1, 1)_changed_mask",
+      "actual": 2,
+      "expected": 2,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 2, -1, 1)_gcl",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 2, -1, 1)_water_residual",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 2, -1, 1)_first_exterior",
+      "actual": 0.6000000000000001,
+      "expected": 0.6,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 2, -1, 1)_second_exterior",
+      "actual": 0.2,
+      "expected": 0.2,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 2, -1, 1)_vacated",
+      "actual": 0.8,
+      "expected": 0.8,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 2, 1, 0)_faces",
+      "actual": 3,
+      "expected": 3,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 2, 1, 0)_changed_mask",
+      "actual": 2,
+      "expected": 2,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 2, 1, 0)_gcl",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 2, 1, 0)_water_residual",
+      "actual": 2.220446049250313e-16,
+      "expected": 0,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 2, 1, 0)_first_exterior",
+      "actual": 0.6000000000000001,
+      "expected": 0.6,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 2, 1, 0)_second_exterior",
+      "actual": 0.2,
+      "expected": 0.2,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 2, 1, 0)_vacated",
+      "actual": 0.8,
+      "expected": 0.8,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 2, 1, 1)_faces",
+      "actual": 3,
+      "expected": 3,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 2, 1, 1)_changed_mask",
+      "actual": 2,
+      "expected": 2,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 2, 1, 1)_gcl",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 2, 1, 1)_water_residual",
+      "actual": 2.220446049250313e-16,
+      "expected": 0,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 2, 1, 1)_first_exterior",
+      "actual": 0.6000000000000001,
+      "expected": 0.6,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 2, 1, 1)_second_exterior",
+      "actual": 0.2,
+      "expected": 0.2,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(12, 2, 1, 1)_vacated",
+      "actual": 0.8,
+      "expected": 0.8,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 0, -1, 1)_faces",
+      "actual": 3,
+      "expected": 3,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 0, -1, 1)_changed_mask",
+      "actual": 2,
+      "expected": 2,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 0, -1, 1)_gcl",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 0, -1, 1)_water_residual",
+      "actual": -2.220446049250313e-16,
+      "expected": 0,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 0, -1, 1)_first_exterior",
+      "actual": 0.6,
+      "expected": 0.6,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 0, -1, 1)_second_exterior",
+      "actual": 0.19999999999999996,
+      "expected": 0.2,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 0, -1, 1)_vacated",
+      "actual": 0.8,
+      "expected": 0.8,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 0, -1, 2)_faces",
+      "actual": 3,
+      "expected": 3,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 0, -1, 2)_changed_mask",
+      "actual": 2,
+      "expected": 2,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 0, -1, 2)_gcl",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 0, -1, 2)_water_residual",
+      "actual": -2.220446049250313e-16,
+      "expected": 0,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 0, -1, 2)_first_exterior",
+      "actual": 0.6,
+      "expected": 0.6,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 0, -1, 2)_second_exterior",
+      "actual": 0.19999999999999996,
+      "expected": 0.2,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 0, -1, 2)_vacated",
+      "actual": 0.8,
+      "expected": 0.8,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 0, 1, 1)_faces",
+      "actual": 3,
+      "expected": 3,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 0, 1, 1)_changed_mask",
+      "actual": 2,
+      "expected": 2,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 0, 1, 1)_gcl",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 0, 1, 1)_water_residual",
+      "actual": 2.220446049250313e-16,
+      "expected": 0,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 0, 1, 1)_first_exterior",
+      "actual": 0.6,
+      "expected": 0.6,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 0, 1, 1)_second_exterior",
+      "actual": 0.19999999999999996,
+      "expected": 0.2,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 0, 1, 1)_vacated",
+      "actual": 0.8,
+      "expected": 0.8,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 0, 1, 2)_faces",
+      "actual": 3,
+      "expected": 3,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 0, 1, 2)_changed_mask",
+      "actual": 2,
+      "expected": 2,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 0, 1, 2)_gcl",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 0, 1, 2)_water_residual",
+      "actual": 2.220446049250313e-16,
+      "expected": 0,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 0, 1, 2)_first_exterior",
+      "actual": 0.6,
+      "expected": 0.6,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 0, 1, 2)_second_exterior",
+      "actual": 0.19999999999999996,
+      "expected": 0.2,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 0, 1, 2)_vacated",
+      "actual": 0.8,
+      "expected": 0.8,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 1, -1, 0)_faces",
+      "actual": 3,
+      "expected": 3,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 1, -1, 0)_changed_mask",
+      "actual": 2,
+      "expected": 2,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 1, -1, 0)_gcl",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 1, -1, 0)_water_residual",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 1, -1, 0)_first_exterior",
+      "actual": 0.6000000000000001,
+      "expected": 0.6,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 1, -1, 0)_second_exterior",
+      "actual": 0.2,
+      "expected": 0.2,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 1, -1, 0)_vacated",
+      "actual": 0.8,
+      "expected": 0.8,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 1, -1, 2)_faces",
+      "actual": 3,
+      "expected": 3,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 1, -1, 2)_changed_mask",
+      "actual": 2,
+      "expected": 2,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 1, -1, 2)_gcl",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 1, -1, 2)_water_residual",
+      "actual": -2.220446049250313e-16,
+      "expected": 0,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 1, -1, 2)_first_exterior",
+      "actual": 0.6,
+      "expected": 0.6,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 1, -1, 2)_second_exterior",
+      "actual": 0.19999999999999996,
+      "expected": 0.2,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 1, -1, 2)_vacated",
+      "actual": 0.8,
+      "expected": 0.8,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 1, 1, 0)_faces",
+      "actual": 3,
+      "expected": 3,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 1, 1, 0)_changed_mask",
+      "actual": 2,
+      "expected": 2,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 1, 1, 0)_gcl",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 1, 1, 0)_water_residual",
+      "actual": 2.220446049250313e-16,
+      "expected": 0,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 1, 1, 0)_first_exterior",
+      "actual": 0.6000000000000001,
+      "expected": 0.6,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 1, 1, 0)_second_exterior",
+      "actual": 0.2,
+      "expected": 0.2,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 1, 1, 0)_vacated",
+      "actual": 0.8,
+      "expected": 0.8,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 1, 1, 2)_faces",
+      "actual": 3,
+      "expected": 3,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 1, 1, 2)_changed_mask",
+      "actual": 2,
+      "expected": 2,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 1, 1, 2)_gcl",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 1, 1, 2)_water_residual",
+      "actual": 2.220446049250313e-16,
+      "expected": 0,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 1, 1, 2)_first_exterior",
+      "actual": 0.6,
+      "expected": 0.6,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 1, 1, 2)_second_exterior",
+      "actual": 0.19999999999999996,
+      "expected": 0.2,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 1, 1, 2)_vacated",
+      "actual": 0.8,
+      "expected": 0.8,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 2, -1, 0)_faces",
+      "actual": 3,
+      "expected": 3,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 2, -1, 0)_changed_mask",
+      "actual": 2,
+      "expected": 2,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 2, -1, 0)_gcl",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 2, -1, 0)_water_residual",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 2, -1, 0)_first_exterior",
+      "actual": 0.6000000000000001,
+      "expected": 0.6,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 2, -1, 0)_second_exterior",
+      "actual": 0.2,
+      "expected": 0.2,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 2, -1, 0)_vacated",
+      "actual": 0.8,
+      "expected": 0.8,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 2, -1, 1)_faces",
+      "actual": 3,
+      "expected": 3,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 2, -1, 1)_changed_mask",
+      "actual": 2,
+      "expected": 2,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 2, -1, 1)_gcl",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 2, -1, 1)_water_residual",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 2, -1, 1)_first_exterior",
+      "actual": 0.6000000000000001,
+      "expected": 0.6,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 2, -1, 1)_second_exterior",
+      "actual": 0.2,
+      "expected": 0.2,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 2, -1, 1)_vacated",
+      "actual": 0.8,
+      "expected": 0.8,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 2, 1, 0)_faces",
+      "actual": 3,
+      "expected": 3,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 2, 1, 0)_changed_mask",
+      "actual": 2,
+      "expected": 2,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 2, 1, 0)_gcl",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 2, 1, 0)_water_residual",
+      "actual": 2.220446049250313e-16,
+      "expected": 0,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 2, 1, 0)_first_exterior",
+      "actual": 0.6000000000000001,
+      "expected": 0.6,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 2, 1, 0)_second_exterior",
+      "actual": 0.2,
+      "expected": 0.2,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 2, 1, 0)_vacated",
+      "actual": 0.8,
+      "expected": 0.8,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 2, 1, 1)_faces",
+      "actual": 3,
+      "expected": 3,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 2, 1, 1)_changed_mask",
+      "actual": 2,
+      "expected": 2,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 2, 1, 1)_gcl",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 2, 1, 1)_water_residual",
+      "actual": 2.220446049250313e-16,
+      "expected": 0,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 2, 1, 1)_first_exterior",
+      "actual": 0.6000000000000001,
+      "expected": 0.6,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 2, 1, 1)_second_exterior",
+      "actual": 0.2,
+      "expected": 0.2,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "single_(16, 2, 1, 1)_vacated",
+      "actual": 0.8,
+      "expected": 0.8,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "double_(8, 0, -1)_faces",
+      "actual": 4,
+      "expected": 4,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "double_(8, 0, -1)_mass",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "double_(8, 0, -1)_first_exterior",
+      "actual": 0.9,
+      "expected": 0.9,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "double_(8, 0, -1)_vacated",
+      "actual": 0.5,
+      "expected": 0.5,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "double_(8, 0, 1)_faces",
+      "actual": 4,
+      "expected": 4,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "double_(8, 0, 1)_mass",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "double_(8, 0, 1)_first_exterior",
+      "actual": 0.9,
+      "expected": 0.9,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "double_(8, 0, 1)_vacated",
+      "actual": 0.5,
+      "expected": 0.5,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "double_(8, 1, -1)_faces",
+      "actual": 4,
+      "expected": 4,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "double_(8, 1, -1)_mass",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "double_(8, 1, -1)_first_exterior",
+      "actual": 0.9,
+      "expected": 0.9,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "double_(8, 1, -1)_vacated",
+      "actual": 0.5,
+      "expected": 0.5,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "double_(8, 1, 1)_faces",
+      "actual": 4,
+      "expected": 4,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "double_(8, 1, 1)_mass",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "double_(8, 1, 1)_first_exterior",
+      "actual": 0.9,
+      "expected": 0.9,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "double_(8, 1, 1)_vacated",
+      "actual": 0.5,
+      "expected": 0.5,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "double_(8, 2, -1)_faces",
+      "actual": 4,
+      "expected": 4,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "double_(8, 2, -1)_mass",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "double_(8, 2, -1)_first_exterior",
+      "actual": 0.9,
+      "expected": 0.9,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "double_(8, 2, -1)_vacated",
+      "actual": 0.5,
+      "expected": 0.5,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "double_(8, 2, 1)_faces",
+      "actual": 4,
+      "expected": 4,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "double_(8, 2, 1)_mass",
+      "actual": -2.220446049250313e-16,
+      "expected": 0,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "double_(8, 2, 1)_first_exterior",
+      "actual": 0.9,
+      "expected": 0.9,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "double_(8, 2, 1)_vacated",
+      "actual": 0.5,
+      "expected": 0.5,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "double_(12, 0, -1)_faces",
+      "actual": 4,
+      "expected": 4,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "double_(12, 0, -1)_mass",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "double_(12, 0, -1)_first_exterior",
+      "actual": 0.9,
+      "expected": 0.9,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "double_(12, 0, -1)_vacated",
+      "actual": 0.5,
+      "expected": 0.5,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "double_(12, 0, 1)_faces",
+      "actual": 4,
+      "expected": 4,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "double_(12, 0, 1)_mass",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "double_(12, 0, 1)_first_exterior",
+      "actual": 0.9,
+      "expected": 0.9,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "double_(12, 0, 1)_vacated",
+      "actual": 0.5,
+      "expected": 0.5,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "double_(12, 1, -1)_faces",
+      "actual": 4,
+      "expected": 4,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "double_(12, 1, -1)_mass",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "double_(12, 1, -1)_first_exterior",
+      "actual": 0.9,
+      "expected": 0.9,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "double_(12, 1, -1)_vacated",
+      "actual": 0.5,
+      "expected": 0.5,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "double_(12, 1, 1)_faces",
+      "actual": 4,
+      "expected": 4,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "double_(12, 1, 1)_mass",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "double_(12, 1, 1)_first_exterior",
+      "actual": 0.9,
+      "expected": 0.9,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "double_(12, 1, 1)_vacated",
+      "actual": 0.5,
+      "expected": 0.5,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "double_(12, 2, -1)_faces",
+      "actual": 4,
+      "expected": 4,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "double_(12, 2, -1)_mass",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "double_(12, 2, -1)_first_exterior",
+      "actual": 0.9,
+      "expected": 0.9,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "double_(12, 2, -1)_vacated",
+      "actual": 0.5,
+      "expected": 0.5,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "double_(12, 2, 1)_faces",
+      "actual": 4,
+      "expected": 4,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "double_(12, 2, 1)_mass",
+      "actual": -2.220446049250313e-16,
+      "expected": 0,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "double_(12, 2, 1)_first_exterior",
+      "actual": 0.9,
+      "expected": 0.9,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "double_(12, 2, 1)_vacated",
+      "actual": 0.5,
+      "expected": 0.5,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "double_(16, 0, -1)_faces",
+      "actual": 4,
+      "expected": 4,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "double_(16, 0, -1)_mass",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "double_(16, 0, -1)_first_exterior",
+      "actual": 0.9,
+      "expected": 0.9,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "double_(16, 0, -1)_vacated",
+      "actual": 0.5,
+      "expected": 0.5,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "double_(16, 0, 1)_faces",
+      "actual": 4,
+      "expected": 4,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "double_(16, 0, 1)_mass",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "double_(16, 0, 1)_first_exterior",
+      "actual": 0.9,
+      "expected": 0.9,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "double_(16, 0, 1)_vacated",
+      "actual": 0.5,
+      "expected": 0.5,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "double_(16, 1, -1)_faces",
+      "actual": 4,
+      "expected": 4,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "double_(16, 1, -1)_mass",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "double_(16, 1, -1)_first_exterior",
+      "actual": 0.9,
+      "expected": 0.9,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "double_(16, 1, -1)_vacated",
+      "actual": 0.5,
+      "expected": 0.5,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "double_(16, 1, 1)_faces",
+      "actual": 4,
+      "expected": 4,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "double_(16, 1, 1)_mass",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "double_(16, 1, 1)_first_exterior",
+      "actual": 0.9,
+      "expected": 0.9,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "double_(16, 1, 1)_vacated",
+      "actual": 0.5,
+      "expected": 0.5,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "double_(16, 2, -1)_faces",
+      "actual": 4,
+      "expected": 4,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "double_(16, 2, -1)_mass",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "double_(16, 2, -1)_first_exterior",
+      "actual": 0.9,
+      "expected": 0.9,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "double_(16, 2, -1)_vacated",
+      "actual": 0.5,
+      "expected": 0.5,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "double_(16, 2, 1)_faces",
+      "actual": 4,
+      "expected": 4,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "double_(16, 2, 1)_mass",
+      "actual": -2.220446049250313e-16,
+      "expected": 0,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "double_(16, 2, 1)_first_exterior",
+      "actual": 0.9,
+      "expected": 0.9,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "double_(16, 2, 1)_vacated",
+      "actual": 0.5,
+      "expected": 0.5,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "ring_8_source",
+      "actual": 0.75,
+      "expected": 0.75,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "ring_8_receiver",
+      "actual": 0.25,
+      "expected": 0.25,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "ring_8_mass",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "ring_12_source",
+      "actual": 0.75,
+      "expected": 0.75,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "ring_12_receiver",
+      "actual": 0.25,
+      "expected": 0.25,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "ring_12_mass",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "ring_16_source",
+      "actual": 0.75,
+      "expected": 0.75,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "ring_16_receiver",
+      "actual": 0.25,
+      "expected": 0.25,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "ring_16_mass",
+      "actual": 0.0,
+      "expected": 0,
+      "tolerance": 1e-12,
+      "pass": true
+    }
+  ],
+  "native_stdout": "single,8,0,-1,1,3,2,0,-2.2204460492503131e-16,0.59999999999999998,0.19999999999999996,0.80000000000000004\nsingle,8,0,-1,2,3,2,0,-2.2204460492503131e-16,0.59999999999999998,0.19999999999999996,0.80000000000000004\ndouble,8,0,-1,4,0,0.90000000000000002,0.5\nsingle,8,0,1,1,3,2,0,2.2204460492503131e-16,0.59999999999999998,0.19999999999999996,0.80000000000000004\nsingle,8,0,1,2,3,2,0,2.2204460492503131e-16,0.59999999999999998,0.19999999999999996,0.80000000000000004\ndouble,8,0,1,4,0,0.90000000000000002,0.5\nsingle,8,1,-1,0,3,2,0,0,0.60000000000000009,0.20000000000000001,0.80000000000000004\nsingle,8,1,-1,2,3,2,0,-2.2204460492503131e-16,0.59999999999999998,0.19999999999999996,0.80000000000000004\ndouble,8,1,-1,4,0,0.90000000000000002,0.5\nsingle,8,1,1,0,3,2,0,2.2204460492503131e-16,0.60000000000000009,0.20000000000000001,0.80000000000000004\nsingle,8,1,1,2,3,2,0,2.2204460492503131e-16,0.59999999999999998,0.19999999999999996,0.80000000000000004\ndouble,8,1,1,4,0,0.90000000000000002,0.5\nsingle,8,2,-1,0,3,2,0,0,0.60000000000000009,0.20000000000000001,0.80000000000000004\nsingle,8,2,-1,1,3,2,0,0,0.60000000000000009,0.20000000000000001,0.80000000000000004\ndouble,8,2,-1,4,0,0.90000000000000002,0.5\nsingle,8,2,1,0,3,2,0,2.2204460492503131e-16,0.60000000000000009,0.20000000000000001,0.80000000000000004\nsingle,8,2,1,1,3,2,0,2.2204460492503131e-16,0.60000000000000009,0.20000000000000001,0.80000000000000004\ndouble,8,2,1,4,-2.2204460492503131e-16,0.90000000000000002,0.5\nring,8,0.75,0.25,0\nsingle,12,0,-1,1,3,2,0,-2.2204460492503131e-16,0.59999999999999998,0.19999999999999996,0.80000000000000004\nsingle,12,0,-1,2,3,2,0,-2.2204460492503131e-16,0.59999999999999998,0.19999999999999996,0.80000000000000004\ndouble,12,0,-1,4,0,0.90000000000000002,0.5\nsingle,12,0,1,1,3,2,0,2.2204460492503131e-16,0.59999999999999998,0.19999999999999996,0.80000000000000004\nsingle,12,0,1,2,3,2,0,2.2204460492503131e-16,0.59999999999999998,0.19999999999999996,0.80000000000000004\ndouble,12,0,1,4,0,0.90000000000000002,0.5\nsingle,12,1,-1,0,3,2,0,0,0.60000000000000009,0.20000000000000001,0.80000000000000004\nsingle,12,1,-1,2,3,2,0,-2.2204460492503131e-16,0.59999999999999998,0.19999999999999996,0.80000000000000004\ndouble,12,1,-1,4,0,0.90000000000000002,0.5\nsingle,12,1,1,0,3,2,0,2.2204460492503131e-16,0.60000000000000009,0.20000000000000001,0.80000000000000004\nsingle,12,1,1,2,3,2,0,2.2204460492503131e-16,0.59999999999999998,0.19999999999999996,0.80000000000000004\ndouble,12,1,1,4,0,0.90000000000000002,0.5\nsingle,12,2,-1,0,3,2,0,0,0.60000000000000009,0.20000000000000001,0.80000000000000004\nsingle,12,2,-1,1,3,2,0,0,0.60000000000000009,0.20000000000000001,0.80000000000000004\ndouble,12,2,-1,4,0,0.90000000000000002,0.5\nsingle,12,2,1,0,3,2,0,2.2204460492503131e-16,0.60000000000000009,0.20000000000000001,0.80000000000000004\nsingle,12,2,1,1,3,2,0,2.2204460492503131e-16,0.60000000000000009,0.20000000000000001,0.80000000000000004\ndouble,12,2,1,4,-2.2204460492503131e-16,0.90000000000000002,0.5\nring,12,0.75,0.25,0\nsingle,16,0,-1,1,3,2,0,-2.2204460492503131e-16,0.59999999999999998,0.19999999999999996,0.80000000000000004\nsingle,16,0,-1,2,3,2,0,-2.2204460492503131e-16,0.59999999999999998,0.19999999999999996,0.80000000000000004\ndouble,16,0,-1,4,0,0.90000000000000002,0.5\nsingle,16,0,1,1,3,2,0,2.2204460492503131e-16,0.59999999999999998,0.19999999999999996,0.80000000000000004\nsingle,16,0,1,2,3,2,0,2.2204460492503131e-16,0.59999999999999998,0.19999999999999996,0.80000000000000004\ndouble,16,0,1,4,0,0.90000000000000002,0.5\nsingle,16,1,-1,0,3,2,0,0,0.60000000000000009,0.20000000000000001,0.80000000000000004\nsingle,16,1,-1,2,3,2,0,-2.2204460492503131e-16,0.59999999999999998,0.19999999999999996,0.80000000000000004\ndouble,16,1,-1,4,0,0.90000000000000002,0.5\nsingle,16,1,1,0,3,2,0,2.2204460492503131e-16,0.60000000000000009,0.20000000000000001,0.80000000000000004\nsingle,16,1,1,2,3,2,0,2.2204460492503131e-16,0.59999999999999998,0.19999999999999996,0.80000000000000004\ndouble,16,1,1,4,0,0.90000000000000002,0.5\nsingle,16,2,-1,0,3,2,0,0,0.60000000000000009,0.20000000000000001,0.80000000000000004\nsingle,16,2,-1,1,3,2,0,0,0.60000000000000009,0.20000000000000001,0.80000000000000004\ndouble,16,2,-1,4,0,0.90000000000000002,0.5\nsingle,16,2,1,0,3,2,0,2.2204460492503131e-16,0.60000000000000009,0.20000000000000001,0.80000000000000004\nsingle,16,2,1,1,3,2,0,2.2204460492503131e-16,0.60000000000000009,0.20000000000000001,0.80000000000000004\ndouble,16,2,1,4,-2.2204460492503131e-16,0.90000000000000002,0.5\nring,16,0.75,0.25,0\nPASS: P2 moving-boundary GCL VOF assertions=115318 phase_complete=false\n",
+  "ctest_log_sha256": "5e49d05ff081e83970b5b2920d4219f5af56a0a7977b62742a0cf252628f361d",
+  "source_sha256": {
+    "include/upc/p2_moving_boundary_vof_flux3d.hpp": "fbf0894b78e784de09e5a285059d923c69001044b604ae6d1800a8bbd00527d5",
+    "tests/p2_moving_boundary_vof_flux3d_tests.cpp": "87a8de3786e849ba601dcca94de58f969ad978e54f2295585004058aacdd5e89",
+    "scripts/p2_moving_boundary_vof_acceptance.py": "75807018775cc335b24441abeade20e8bb5a45d01c8a85b8fe0df7717c5bbc5c",
+    "docs/P2_MOVING_BOUNDARY_GCL_VOF_PARTIAL.md": "60b4d4edaf6b96c8f49a10f3b4a558a3354e33fd47e8bef39ee3acdb31a062dd",
+    "CMakeLists.txt": "751aa6ca5a0de0588fc0b6cf6a756821192028f43121dbca881b6a42fe77bed4"
+  },
+  "generated_utc": "2026-10-27T23:35:27.765505+00:00",
+  "limitations": [
+    "MAC face volume flux is externally supplied, not computed from body kinematics",
+    "Binary cell occupancy with unit-cell sweeps, no subcell geometry",
+    "No pressure projection, velocity remap, fluid impulse or global energy closure",
+    "Not integrated into live CoupledMacWater3D",
+    "No independent measured 3D CFD reference or new Unreal 5.8 native E2E"
+  ]
+}

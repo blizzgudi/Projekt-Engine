@@ -269,3 +269,10 @@ add_test(NAME physics_p2_exterior_vof_face_route_partial COMMAND upc_p2_exterior
 add_executable(upc_p2_conservative_vof_flux_tests tests/p2_conservative_vof_flux3d_tests.cpp)
 target_link_libraries(upc_p2_conservative_vof_flux_tests PRIVATE upc)
 add_test(NAME physics_p2_conservative_3d_mac_vof_face_flux_partial COMMAND upc_p2_conservative_vof_flux_tests)
+
+# P2 partial: moving binary occupancy + externally supplied swept MAC volume
+# flux, exact per-cell geometric conservation law and conservative VOF.
+# No pressure/FSI impulse or independently measured CFD reference.
+add_executable(upc_p2_moving_boundary_vof_flux_tests tests/p2_moving_boundary_vof_flux3d_tests.cpp)
+target_link_libraries(upc_p2_moving_boundary_vof_flux_tests PRIVATE upc)
+add_test(NAME physics_p2_moving_boundary_gcl_vof_flux_partial COMMAND upc_p2_moving_boundary_vof_flux_tests)
