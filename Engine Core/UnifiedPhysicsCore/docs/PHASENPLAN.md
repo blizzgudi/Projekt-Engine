@@ -362,3 +362,20 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
   keine angewandte Drehimpulsreaktion, keine physikalische globale
   Energie-/Impulsabnahme, keine unabhängigen CFD-Messdaten und
   kein UE5.8-Native-E2E für diesen neuen Pfad.
+
+## P2 Teilfortschritt: angewandte sechsachsige Druck-Wrench-Reaktion (27.10.2026)
+
+- Opt-in `FrozenPressureFluidWrench3D::apply`: lineare **und** angulare
+  Gegenimpulse auf die tatsaechlich geaenderten benetzten MAC-Faces,
+  diskrete 6x6-Minimalimpuls-Verteilung, kein Eingriff in Solid-Normal-
+  oder Wasser-Luft-Faces. Fehlerfaelle bleiben atomar.
+- Analytischer 2x2x2-Druckkoerper mit versetztem Drehpunkt, 3 3D-Gitter,
+  zwei Randtypen, zwei Druck-Offsets; native und unabhaengige Python-
+  Pruefung der sechs Impulsbilanzen, Druck-Gauge, Divergenz und Energie.
+- Nachweis: `docs/P2_PRESSURE_WRENCH_REACTION_PARTIAL.md`,
+  `scripts/p2_pressure_wrench_reaction_acceptance.py`,
+  `ENGINE TEST STUBE/runs/p2_pressure_wrench_reaction_partial.json`.
+- **P2 bleibt PARTIAL**: nur diskrete Face-Impulsbilanz **vor**
+  Reprojektion; feste Koerpermaske, keine vollstaendige dynamische
+  FSI-Energie-/Impulserhaltung, keine externen 3D-CFD-Referenzen,
+  keine erneute UE5.8-Native-E2E-Abnahme.

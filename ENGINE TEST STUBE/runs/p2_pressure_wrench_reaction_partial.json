@@ -1,0 +1,2308 @@
+{
+  "schema_version": 1,
+  "phase": "P2",
+  "milestone": "applied_six_component_frozen_pressure_wrench_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "generated_utc": "2026-10-27T03:55:26.421014+00:00",
+  "scope": "12 real projected 3D MAC fields, frozen 2x2x2 body, applied opposite linear and angular impulses to wet-wet faces; independent 6-DOF face impulse sums before re-projection",
+  "native_assertions": 65472,
+  "native_stdout": "mode,n,offset_pa,force_x_N,force_y_N,force_z_N,body_x_Ns,body_y_Ns,body_z_Ns,fluid_x_Ns,fluid_y_Ns,fluid_z_Ns,body_tx_Nms,body_ty_Nms,body_tz_Nms,fluid_tx_Nms,fluid_ty_Nms,fluid_tz_Nms,faces_x,faces_y,faces_z,face_energy_proxy_J,divergence_pre_projection,divergence_post_projection\nair,8,150,-0.53760000550920439,0.84479999985157306,-0.38400000018971636,-0.026880000275460222,0.042239999992578658,-0.01920000000948582,0.026880000275460215,-0.042239999992578665,0.019200000009485824,0.00013823999975742102,4.6080002919532752e-05,-9.2159995225630717e-05,-0.00013823999975742278,-4.6080002919534053e-05,9.2159995225630554e-05,28,28,24,0.00010242857158141668,0.06026785738218994,9.0213619875837954e-11\nair,8,1200,-0.53760000556022369,0.84479999985019827,-0.38400000019147118,-0.026880000278011185,0.042239999992509915,-0.019200000009573559,0.026880000278011185,-0.042239999992509922,0.019200000009573556,0.00013823999975517975,4.6080002946569115e-05,-9.2159995181424759e-05,-0.00013823999975518116,-4.6080002946569901e-05,9.2159995181424732e-05,28,28,24,0.00010242857158283196,0.060267857384405543,9.0213602257552651e-11\nair,12,150,-0.53760001161562954,0.84479999980279907,-0.38400000023213443,-0.02688000058078148,0.042239999990139956,-0.019200000011606724,0.026880000580781473,-0.042239999990139956,0.019200000011606721,0.00013823999969426979,4.608000624946509e-05,-9.2159990009033774e-05,-0.00013823999969426825,-4.6080006249464873e-05,9.2159990009033814e-05,32,32,32,8.7750000198542102e-05,0.052734375465029279,9.2195033100318162e-11\nair,12,1200,-0.53760001164005899,0.8447999998023823,-0.38400000023261693,-0.02688000058200295,0.042239999990119119,-0.019200000011630847,0.02688000058200294,-0.04223999999011914,0.019200000011630844,0.00013823999969362621,4.6080006262594345e-05,-9.2159989988017951e-05,-0.0001382399996936248,-4.6080006262593382e-05,9.2159989988017843e-05,32,32,32,8.7750000198959425e-05,0.052734375466007184,9.2195035556713709e-11\nair,16,150,-0.53760001730732976,0.84479999978057962,-0.38400000024528147,-0.026880000865366488,0.042239999989028984,-0.019200000012264073,0.026880000865366488,-0.042239999989029005,0.019200000012264073,0.00013823999967084688,4.6080009368010964e-05,-9.2159985154427135e-05,-0.00013823999967084674,-4.6080009368010388e-05,9.2159985154426918e-05,32,32,32,8.775000028802189e-05,0.052734375693251158,9.3031705722896799e-11\nair,16,1200,-0.53760001736671459,0.844799999779827,-0.3840000002461208,-0.026880000868335731,0.042239999988991354,-0.01920000001230604,0.026880000868335724,-0.042239999988991361,0.01920000001230604,0.00013823999966972313,4.6080009400148451e-05,-9.2159985103484893e-05,-0.00013823999966972354,-4.608000940014797e-05,9.2159985103484743e-05,32,32,32,8.7750000289009585e-05,0.052734375695628867,9.3031706633457217e-11\nclosed,8,150,-0.53759999647374812,0.84480000000226063,-0.38399999999814022,-0.026879999823687408,0.042240000000113034,-0.019199999999907014,0.026879999823687398,-0.042240000000113034,0.019199999999907014,0.00013824000000282636,4.6079998038685127e-05,-9.2160002976711337e-05,-0.00013824000000282844,-4.6079998038686157e-05,9.2160002976711121e-05,32,28,24,9.9278571343424361e-05,0.0573381695713224,8.467636449871821e-11\nclosed,8,1200,-0.53759999647374812,0.84480000000226063,-0.38399999999814022,-0.026879999823687408,0.042240000000113034,-0.019199999999907014,0.026879999823687398,-0.042240000000113034,0.019199999999907014,0.00013824000000282636,4.6079998038685127e-05,-9.2160002976711337e-05,-0.00013824000000282844,-4.6079998038686157e-05,9.2160002976711121e-05,32,28,24,9.9278571343424361e-05,0.0573381695713224,8.467636449871821e-11\nclosed,12,150,-0.53759999259172853,0.84479999987318888,-0.38400000000046652,-0.026879999629586426,0.042239999993659447,-0.019200000000023327,0.026879999629586419,-0.042239999993659447,0.019200000000023323,0.00013823999992938394,4.6079995901972513e-05,-9.2160006191544753e-05,-0.00013823999992938288,-4.6079995901971835e-05,9.216000619154478e-05,32,32,32,8.7749999852541368e-05,0.052734374764212985,9.0333111025465355e-11\nclosed,12,1200,-0.53759999259172853,0.84479999987318888,-0.38400000000046652,-0.026879999629586426,0.042239999993659447,-0.019200000000023327,0.026879999629586419,-0.042239999993659447,0.019200000000023323,0.00013823999992938394,4.6079995901972513e-05,-9.2160006191544753e-05,-0.00013823999992938288,-4.6079995901971835e-05,9.216000619154478e-05,32,32,32,8.7749999852541368e-05,0.052734374764212985,9.0333111025465355e-11\nclosed,16,150,-0.53759998865734904,0.844799999073093,-0.38399999999313439,-0.026879999432867452,0.042239999953654656,-0.019199999999656721,0.026879999432867452,-0.042239999953654662,0.019199999999656724,0.00013823999949426078,4.6079993747257792e-05,-9.2160009018256138e-05,-0.00013823999949426108,-4.607999374725788e-05,9.2160009018255813e-05,32,32,32,8.7749999770439426e-05,0.052734374574342109,9.0750666102385553e-11\nclosed,16,1200,-0.53759998865734904,0.844799999073093,-0.38399999999313439,-0.026879999432867452,0.042239999953654656,-0.019199999999656721,0.026879999432867452,-0.042239999953654662,0.019199999999656724,0.00013823999949426078,4.6079993747257792e-05,-9.2160009018256138e-05,-0.00013823999949426108,-4.607999374725788e-05,9.2160009018255813e-05,32,32,32,8.7749999770439426e-05,0.052734374574342109,9.0750666102385553e-11\nPASS: P2 six-component face wrench reaction assertions=65472 phase_complete=false\n",
+  "checks": [
+    {
+      "name": "native_assertions",
+      "pass": true,
+      "value": 65472,
+      "expected": ">=65000"
+    },
+    {
+      "name": "air_8_150_mode",
+      "pass": true,
+      "value": "air",
+      "expected": "air"
+    },
+    {
+      "name": "air_8_150_n",
+      "pass": true,
+      "value": 8,
+      "expected": 8
+    },
+    {
+      "name": "air_8_150_offset",
+      "pass": true,
+      "value": 150.0,
+      "expected": 150.0
+    },
+    {
+      "name": "air_8_150_force_0",
+      "pass": true,
+      "value": -0.5376000055092044,
+      "expected": -0.5376000000000001
+    },
+    {
+      "name": "air_8_150_body_linear_0",
+      "pass": true,
+      "value": -0.02688000027546022,
+      "expected": -0.026880000000000005
+    },
+    {
+      "name": "air_8_150_fluid_linear_0",
+      "pass": true,
+      "value": 0.026880000275460215,
+      "expected": 0.026880000000000005
+    },
+    {
+      "name": "air_8_150_linear_closure_0",
+      "pass": true,
+      "value": -6.938893903907228e-18,
+      "expected": 0.0
+    },
+    {
+      "name": "air_8_150_body_torque_0",
+      "pass": true,
+      "value": 0.00013823999975742102,
+      "expected": 0.0001382399999999999
+    },
+    {
+      "name": "air_8_150_fluid_torque_0",
+      "pass": true,
+      "value": -0.00013823999975742278,
+      "expected": -0.0001382399999999999
+    },
+    {
+      "name": "air_8_150_angular_closure_0",
+      "pass": true,
+      "value": -1.7618285302889447e-18,
+      "expected": 0.0
+    },
+    {
+      "name": "air_8_150_face_count_0",
+      "pass": true,
+      "value": 28,
+      "expected": 28
+    },
+    {
+      "name": "air_8_150_force_1",
+      "pass": true,
+      "value": 0.8447999998515731,
+      "expected": 0.8448
+    },
+    {
+      "name": "air_8_150_body_linear_1",
+      "pass": true,
+      "value": 0.04223999999257866,
+      "expected": 0.04224
+    },
+    {
+      "name": "air_8_150_fluid_linear_1",
+      "pass": true,
+      "value": -0.042239999992578665,
+      "expected": -0.04224
+    },
+    {
+      "name": "air_8_150_linear_closure_1",
+      "pass": true,
+      "value": -6.938893903907228e-18,
+      "expected": 0.0
+    },
+    {
+      "name": "air_8_150_body_torque_1",
+      "pass": true,
+      "value": 4.608000291953275e-05,
+      "expected": 4.608000000000004e-05
+    },
+    {
+      "name": "air_8_150_fluid_torque_1",
+      "pass": true,
+      "value": -4.608000291953405e-05,
+      "expected": -4.608000000000004e-05
+    },
+    {
+      "name": "air_8_150_angular_closure_1",
+      "pass": true,
+      "value": -1.3010426069826053e-18,
+      "expected": 0.0
+    },
+    {
+      "name": "air_8_150_face_count_1",
+      "pass": true,
+      "value": 28,
+      "expected": 28
+    },
+    {
+      "name": "air_8_150_force_2",
+      "pass": true,
+      "value": -0.38400000018971636,
+      "expected": -0.384
+    },
+    {
+      "name": "air_8_150_body_linear_2",
+      "pass": true,
+      "value": -0.01920000000948582,
+      "expected": -0.019200000000000002
+    },
+    {
+      "name": "air_8_150_fluid_linear_2",
+      "pass": true,
+      "value": 0.019200000009485824,
+      "expected": 0.019200000000000002
+    },
+    {
+      "name": "air_8_150_linear_closure_2",
+      "pass": true,
+      "value": 3.469446951953614e-18,
+      "expected": 0.0
+    },
+    {
+      "name": "air_8_150_body_torque_2",
+      "pass": true,
+      "value": -9.215999522563072e-05,
+      "expected": -9.21599999999999e-05
+    },
+    {
+      "name": "air_8_150_fluid_torque_2",
+      "pass": true,
+      "value": 9.215999522563055e-05,
+      "expected": 9.21599999999999e-05
+    },
+    {
+      "name": "air_8_150_angular_closure_2",
+      "pass": true,
+      "value": -1.6263032587282567e-19,
+      "expected": 0.0
+    },
+    {
+      "name": "air_8_150_face_count_2",
+      "pass": true,
+      "value": 24,
+      "expected": 24
+    },
+    {
+      "name": "air_8_150_torque_nonzero",
+      "pass": true,
+      "value": 0.00013823999975742102,
+      "expected": ">1e-5"
+    },
+    {
+      "name": "air_8_150_energy_finite",
+      "pass": true,
+      "value": 0.00010242857158141668,
+      "expected": "[0,1)"
+    },
+    {
+      "name": "air_8_150_pre_projection_divergence",
+      "pass": true,
+      "value": 0.06026785738218994,
+      "expected": ">1e-5"
+    },
+    {
+      "name": "air_8_150_post_projection_divergence",
+      "pass": true,
+      "value": 9.021361987583795e-11,
+      "expected": "<2e-8"
+    },
+    {
+      "name": "air_8_1200_mode",
+      "pass": true,
+      "value": "air",
+      "expected": "air"
+    },
+    {
+      "name": "air_8_1200_n",
+      "pass": true,
+      "value": 8,
+      "expected": 8
+    },
+    {
+      "name": "air_8_1200_offset",
+      "pass": true,
+      "value": 1200.0,
+      "expected": 1200.0
+    },
+    {
+      "name": "air_8_1200_force_0",
+      "pass": true,
+      "value": -0.5376000055602237,
+      "expected": -0.5376000000000001
+    },
+    {
+      "name": "air_8_1200_body_linear_0",
+      "pass": true,
+      "value": -0.026880000278011185,
+      "expected": -0.026880000000000005
+    },
+    {
+      "name": "air_8_1200_fluid_linear_0",
+      "pass": true,
+      "value": 0.026880000278011185,
+      "expected": 0.026880000000000005
+    },
+    {
+      "name": "air_8_1200_linear_closure_0",
+      "pass": true,
+      "value": 0.0,
+      "expected": 0.0
+    },
+    {
+      "name": "air_8_1200_body_torque_0",
+      "pass": true,
+      "value": 0.00013823999975517975,
+      "expected": 0.0001382399999999999
+    },
+    {
+      "name": "air_8_1200_fluid_torque_0",
+      "pass": true,
+      "value": -0.00013823999975518116,
+      "expected": -0.0001382399999999999
+    },
+    {
+      "name": "air_8_1200_angular_closure_0",
+      "pass": true,
+      "value": -1.4094628242311558e-18,
+      "expected": 0.0
+    },
+    {
+      "name": "air_8_1200_face_count_0",
+      "pass": true,
+      "value": 28,
+      "expected": 28
+    },
+    {
+      "name": "air_8_1200_force_1",
+      "pass": true,
+      "value": 0.8447999998501983,
+      "expected": 0.8448
+    },
+    {
+      "name": "air_8_1200_body_linear_1",
+      "pass": true,
+      "value": 0.042239999992509915,
+      "expected": 0.04224
+    },
+    {
+      "name": "air_8_1200_fluid_linear_1",
+      "pass": true,
+      "value": -0.04223999999250992,
+      "expected": -0.04224
+    },
+    {
+      "name": "air_8_1200_linear_closure_1",
+      "pass": true,
+      "value": -6.938893903907228e-18,
+      "expected": 0.0
+    },
+    {
+      "name": "air_8_1200_body_torque_1",
+      "pass": true,
+      "value": 4.6080002946569115e-05,
+      "expected": 4.608000000000004e-05
+    },
+    {
+      "name": "air_8_1200_fluid_torque_1",
+      "pass": true,
+      "value": -4.60800029465699e-05,
+      "expected": -4.608000000000004e-05
+    },
+    {
+      "name": "air_8_1200_angular_closure_1",
+      "pass": true,
+      "value": -7.860465750519907e-19,
+      "expected": 0.0
+    },
+    {
+      "name": "air_8_1200_face_count_1",
+      "pass": true,
+      "value": 28,
+      "expected": 28
+    },
+    {
+      "name": "air_8_1200_force_2",
+      "pass": true,
+      "value": -0.3840000001914712,
+      "expected": -0.384
+    },
+    {
+      "name": "air_8_1200_body_linear_2",
+      "pass": true,
+      "value": -0.01920000000957356,
+      "expected": -0.019200000000000002
+    },
+    {
+      "name": "air_8_1200_fluid_linear_2",
+      "pass": true,
+      "value": 0.019200000009573556,
+      "expected": 0.019200000000000002
+    },
+    {
+      "name": "air_8_1200_linear_closure_2",
+      "pass": true,
+      "value": -3.469446951953614e-18,
+      "expected": 0.0
+    },
+    {
+      "name": "air_8_1200_body_torque_2",
+      "pass": true,
+      "value": -9.215999518142476e-05,
+      "expected": -9.21599999999999e-05
+    },
+    {
+      "name": "air_8_1200_fluid_torque_2",
+      "pass": true,
+      "value": 9.215999518142473e-05,
+      "expected": 9.21599999999999e-05
+    },
+    {
+      "name": "air_8_1200_angular_closure_2",
+      "pass": true,
+      "value": -2.710505431213761e-20,
+      "expected": 0.0
+    },
+    {
+      "name": "air_8_1200_face_count_2",
+      "pass": true,
+      "value": 24,
+      "expected": 24
+    },
+    {
+      "name": "air_8_1200_torque_nonzero",
+      "pass": true,
+      "value": 0.00013823999975517975,
+      "expected": ">1e-5"
+    },
+    {
+      "name": "air_8_1200_energy_finite",
+      "pass": true,
+      "value": 0.00010242857158283196,
+      "expected": "[0,1)"
+    },
+    {
+      "name": "air_8_1200_pre_projection_divergence",
+      "pass": true,
+      "value": 0.06026785738440554,
+      "expected": ">1e-5"
+    },
+    {
+      "name": "air_8_1200_post_projection_divergence",
+      "pass": true,
+      "value": 9.021360225755265e-11,
+      "expected": "<2e-8"
+    },
+    {
+      "name": "air_12_150_mode",
+      "pass": true,
+      "value": "air",
+      "expected": "air"
+    },
+    {
+      "name": "air_12_150_n",
+      "pass": true,
+      "value": 12,
+      "expected": 12
+    },
+    {
+      "name": "air_12_150_offset",
+      "pass": true,
+      "value": 150.0,
+      "expected": 150.0
+    },
+    {
+      "name": "air_12_150_force_0",
+      "pass": true,
+      "value": -0.5376000116156295,
+      "expected": -0.5376000000000001
+    },
+    {
+      "name": "air_12_150_body_linear_0",
+      "pass": true,
+      "value": -0.02688000058078148,
+      "expected": -0.026880000000000005
+    },
+    {
+      "name": "air_12_150_fluid_linear_0",
+      "pass": true,
+      "value": 0.026880000580781473,
+      "expected": 0.026880000000000005
+    },
+    {
+      "name": "air_12_150_linear_closure_0",
+      "pass": true,
+      "value": -6.938893903907228e-18,
+      "expected": 0.0
+    },
+    {
+      "name": "air_12_150_body_torque_0",
+      "pass": true,
+      "value": 0.0001382399996942698,
+      "expected": 0.0001382399999999999
+    },
+    {
+      "name": "air_12_150_fluid_torque_0",
+      "pass": true,
+      "value": -0.00013823999969426825,
+      "expected": -0.0001382399999999999
+    },
+    {
+      "name": "air_12_150_angular_closure_0",
+      "pass": true,
+      "value": 1.5449880957918438e-18,
+      "expected": 0.0
+    },
+    {
+      "name": "air_12_150_face_count_0",
+      "pass": true,
+      "value": 32,
+      "expected": 32
+    },
+    {
+      "name": "air_12_150_force_1",
+      "pass": true,
+      "value": 0.8447999998027991,
+      "expected": 0.8448
+    },
+    {
+      "name": "air_12_150_body_linear_1",
+      "pass": true,
+      "value": 0.042239999990139956,
+      "expected": 0.04224
+    },
+    {
+      "name": "air_12_150_fluid_linear_1",
+      "pass": true,
+      "value": -0.042239999990139956,
+      "expected": -0.04224
+    },
+    {
+      "name": "air_12_150_linear_closure_1",
+      "pass": true,
+      "value": 0.0,
+      "expected": 0.0
+    },
+    {
+      "name": "air_12_150_body_torque_1",
+      "pass": true,
+      "value": 4.608000624946509e-05,
+      "expected": 4.608000000000004e-05
+    },
+    {
+      "name": "air_12_150_fluid_torque_1",
+      "pass": true,
+      "value": -4.608000624946487e-05,
+      "expected": -4.608000000000004e-05
+    },
+    {
+      "name": "air_12_150_angular_closure_1",
+      "pass": true,
+      "value": 2.168404344971009e-19,
+      "expected": 0.0
+    },
+    {
+      "name": "air_12_150_face_count_1",
+      "pass": true,
+      "value": 32,
+      "expected": 32
+    },
+    {
+      "name": "air_12_150_force_2",
+      "pass": true,
+      "value": -0.38400000023213443,
+      "expected": -0.384
+    },
+    {
+      "name": "air_12_150_body_linear_2",
+      "pass": true,
+      "value": -0.019200000011606724,
+      "expected": -0.019200000000000002
+    },
+    {
+      "name": "air_12_150_fluid_linear_2",
+      "pass": true,
+      "value": 0.01920000001160672,
+      "expected": 0.019200000000000002
+    },
+    {
+      "name": "air_12_150_linear_closure_2",
+      "pass": true,
+      "value": -3.469446951953614e-18,
+      "expected": 0.0
+    },
+    {
+      "name": "air_12_150_body_torque_2",
+      "pass": true,
+      "value": -9.215999000903377e-05,
+      "expected": -9.21599999999999e-05
+    },
+    {
+      "name": "air_12_150_fluid_torque_2",
+      "pass": true,
+      "value": 9.215999000903381e-05,
+      "expected": 9.21599999999999e-05
+    },
+    {
+      "name": "air_12_150_angular_closure_2",
+      "pass": true,
+      "value": 4.0657581468206416e-20,
+      "expected": 0.0
+    },
+    {
+      "name": "air_12_150_face_count_2",
+      "pass": true,
+      "value": 32,
+      "expected": 32
+    },
+    {
+      "name": "air_12_150_torque_nonzero",
+      "pass": true,
+      "value": 0.0001382399996942698,
+      "expected": ">1e-5"
+    },
+    {
+      "name": "air_12_150_energy_finite",
+      "pass": true,
+      "value": 8.77500001985421e-05,
+      "expected": "[0,1)"
+    },
+    {
+      "name": "air_12_150_pre_projection_divergence",
+      "pass": true,
+      "value": 0.05273437546502928,
+      "expected": ">1e-5"
+    },
+    {
+      "name": "air_12_150_post_projection_divergence",
+      "pass": true,
+      "value": 9.219503310031816e-11,
+      "expected": "<2e-8"
+    },
+    {
+      "name": "air_12_1200_mode",
+      "pass": true,
+      "value": "air",
+      "expected": "air"
+    },
+    {
+      "name": "air_12_1200_n",
+      "pass": true,
+      "value": 12,
+      "expected": 12
+    },
+    {
+      "name": "air_12_1200_offset",
+      "pass": true,
+      "value": 1200.0,
+      "expected": 1200.0
+    },
+    {
+      "name": "air_12_1200_force_0",
+      "pass": true,
+      "value": -0.537600011640059,
+      "expected": -0.5376000000000001
+    },
+    {
+      "name": "air_12_1200_body_linear_0",
+      "pass": true,
+      "value": -0.02688000058200295,
+      "expected": -0.026880000000000005
+    },
+    {
+      "name": "air_12_1200_fluid_linear_0",
+      "pass": true,
+      "value": 0.02688000058200294,
+      "expected": 0.026880000000000005
+    },
+    {
+      "name": "air_12_1200_linear_closure_0",
+      "pass": true,
+      "value": -1.0408340855860843e-17,
+      "expected": 0.0
+    },
+    {
+      "name": "air_12_1200_body_torque_0",
+      "pass": true,
+      "value": 0.0001382399996936262,
+      "expected": 0.0001382399999999999
+    },
+    {
+      "name": "air_12_1200_fluid_torque_0",
+      "pass": true,
+      "value": -0.0001382399996936248,
+      "expected": -0.0001382399999999999
+    },
+    {
+      "name": "air_12_1200_angular_closure_0",
+      "pass": true,
+      "value": 1.4094628242311558e-18,
+      "expected": 0.0
+    },
+    {
+      "name": "air_12_1200_face_count_0",
+      "pass": true,
+      "value": 32,
+      "expected": 32
+    },
+    {
+      "name": "air_12_1200_force_1",
+      "pass": true,
+      "value": 0.8447999998023823,
+      "expected": 0.8448
+    },
+    {
+      "name": "air_12_1200_body_linear_1",
+      "pass": true,
+      "value": 0.04223999999011912,
+      "expected": 0.04224
+    },
+    {
+      "name": "air_12_1200_fluid_linear_1",
+      "pass": true,
+      "value": -0.04223999999011914,
+      "expected": -0.04224
+    },
+    {
+      "name": "air_12_1200_linear_closure_1",
+      "pass": true,
+      "value": -2.0816681711721685e-17,
+      "expected": 0.0
+    },
+    {
+      "name": "air_12_1200_body_torque_1",
+      "pass": true,
+      "value": 4.6080006262594345e-05,
+      "expected": 4.608000000000004e-05
+    },
+    {
+      "name": "air_12_1200_fluid_torque_1",
+      "pass": true,
+      "value": -4.608000626259338e-05,
+      "expected": -4.608000000000004e-05
+    },
+    {
+      "name": "air_12_1200_angular_closure_1",
+      "pass": true,
+      "value": 9.622294280808852e-19,
+      "expected": 0.0
+    },
+    {
+      "name": "air_12_1200_face_count_1",
+      "pass": true,
+      "value": 32,
+      "expected": 32
+    },
+    {
+      "name": "air_12_1200_force_2",
+      "pass": true,
+      "value": -0.38400000023261693,
+      "expected": -0.384
+    },
+    {
+      "name": "air_12_1200_body_linear_2",
+      "pass": true,
+      "value": -0.019200000011630847,
+      "expected": -0.019200000000000002
+    },
+    {
+      "name": "air_12_1200_fluid_linear_2",
+      "pass": true,
+      "value": 0.019200000011630844,
+      "expected": 0.019200000000000002
+    },
+    {
+      "name": "air_12_1200_linear_closure_2",
+      "pass": true,
+      "value": -3.469446951953614e-18,
+      "expected": 0.0
+    },
+    {
+      "name": "air_12_1200_body_torque_2",
+      "pass": true,
+      "value": -9.215998998801795e-05,
+      "expected": -9.21599999999999e-05
+    },
+    {
+      "name": "air_12_1200_fluid_torque_2",
+      "pass": true,
+      "value": 9.215998998801784e-05,
+      "expected": 9.21599999999999e-05
+    },
+    {
+      "name": "air_12_1200_angular_closure_2",
+      "pass": true,
+      "value": -1.0842021724855044e-19,
+      "expected": 0.0
+    },
+    {
+      "name": "air_12_1200_face_count_2",
+      "pass": true,
+      "value": 32,
+      "expected": 32
+    },
+    {
+      "name": "air_12_1200_torque_nonzero",
+      "pass": true,
+      "value": 0.0001382399996936262,
+      "expected": ">1e-5"
+    },
+    {
+      "name": "air_12_1200_energy_finite",
+      "pass": true,
+      "value": 8.775000019895943e-05,
+      "expected": "[0,1)"
+    },
+    {
+      "name": "air_12_1200_pre_projection_divergence",
+      "pass": true,
+      "value": 0.052734375466007184,
+      "expected": ">1e-5"
+    },
+    {
+      "name": "air_12_1200_post_projection_divergence",
+      "pass": true,
+      "value": 9.219503555671371e-11,
+      "expected": "<2e-8"
+    },
+    {
+      "name": "air_16_150_mode",
+      "pass": true,
+      "value": "air",
+      "expected": "air"
+    },
+    {
+      "name": "air_16_150_n",
+      "pass": true,
+      "value": 16,
+      "expected": 16
+    },
+    {
+      "name": "air_16_150_offset",
+      "pass": true,
+      "value": 150.0,
+      "expected": 150.0
+    },
+    {
+      "name": "air_16_150_force_0",
+      "pass": true,
+      "value": -0.5376000173073298,
+      "expected": -0.5376000000000001
+    },
+    {
+      "name": "air_16_150_body_linear_0",
+      "pass": true,
+      "value": -0.026880000865366488,
+      "expected": -0.026880000000000005
+    },
+    {
+      "name": "air_16_150_fluid_linear_0",
+      "pass": true,
+      "value": 0.026880000865366488,
+      "expected": 0.026880000000000005
+    },
+    {
+      "name": "air_16_150_linear_closure_0",
+      "pass": true,
+      "value": 0.0,
+      "expected": 0.0
+    },
+    {
+      "name": "air_16_150_body_torque_0",
+      "pass": true,
+      "value": 0.00013823999967084688,
+      "expected": 0.0001382399999999999
+    },
+    {
+      "name": "air_16_150_fluid_torque_0",
+      "pass": true,
+      "value": -0.00013823999967084674,
+      "expected": -0.0001382399999999999
+    },
+    {
+      "name": "air_16_150_angular_closure_0",
+      "pass": true,
+      "value": 1.3552527156068805e-19,
+      "expected": 0.0
+    },
+    {
+      "name": "air_16_150_face_count_0",
+      "pass": true,
+      "value": 32,
+      "expected": 32
+    },
+    {
+      "name": "air_16_150_force_1",
+      "pass": true,
+      "value": 0.8447999997805796,
+      "expected": 0.8448
+    },
+    {
+      "name": "air_16_150_body_linear_1",
+      "pass": true,
+      "value": 0.042239999989028984,
+      "expected": 0.04224
+    },
+    {
+      "name": "air_16_150_fluid_linear_1",
+      "pass": true,
+      "value": -0.042239999989029005,
+      "expected": -0.04224
+    },
+    {
+      "name": "air_16_150_linear_closure_1",
+      "pass": true,
+      "value": -2.0816681711721685e-17,
+      "expected": 0.0
+    },
+    {
+      "name": "air_16_150_body_torque_1",
+      "pass": true,
+      "value": 4.6080009368010964e-05,
+      "expected": 4.608000000000004e-05
+    },
+    {
+      "name": "air_16_150_fluid_torque_1",
+      "pass": true,
+      "value": -4.608000936801039e-05,
+      "expected": -4.608000000000004e-05
+    },
+    {
+      "name": "air_16_150_angular_closure_1",
+      "pass": true,
+      "value": 5.759824041329242e-19,
+      "expected": 0.0
+    },
+    {
+      "name": "air_16_150_face_count_1",
+      "pass": true,
+      "value": 32,
+      "expected": 32
+    },
+    {
+      "name": "air_16_150_force_2",
+      "pass": true,
+      "value": -0.38400000024528147,
+      "expected": -0.384
+    },
+    {
+      "name": "air_16_150_body_linear_2",
+      "pass": true,
+      "value": -0.019200000012264073,
+      "expected": -0.019200000000000002
+    },
+    {
+      "name": "air_16_150_fluid_linear_2",
+      "pass": true,
+      "value": 0.019200000012264073,
+      "expected": 0.019200000000000002
+    },
+    {
+      "name": "air_16_150_linear_closure_2",
+      "pass": true,
+      "value": 0.0,
+      "expected": 0.0
+    },
+    {
+      "name": "air_16_150_body_torque_2",
+      "pass": true,
+      "value": -9.215998515442713e-05,
+      "expected": -9.21599999999999e-05
+    },
+    {
+      "name": "air_16_150_fluid_torque_2",
+      "pass": true,
+      "value": 9.215998515442692e-05,
+      "expected": 9.21599999999999e-05
+    },
+    {
+      "name": "air_16_150_angular_closure_2",
+      "pass": true,
+      "value": -2.168404344971009e-19,
+      "expected": 0.0
+    },
+    {
+      "name": "air_16_150_face_count_2",
+      "pass": true,
+      "value": 32,
+      "expected": 32
+    },
+    {
+      "name": "air_16_150_torque_nonzero",
+      "pass": true,
+      "value": 0.00013823999967084688,
+      "expected": ">1e-5"
+    },
+    {
+      "name": "air_16_150_energy_finite",
+      "pass": true,
+      "value": 8.775000028802189e-05,
+      "expected": "[0,1)"
+    },
+    {
+      "name": "air_16_150_pre_projection_divergence",
+      "pass": true,
+      "value": 0.05273437569325116,
+      "expected": ">1e-5"
+    },
+    {
+      "name": "air_16_150_post_projection_divergence",
+      "pass": true,
+      "value": 9.30317057228968e-11,
+      "expected": "<2e-8"
+    },
+    {
+      "name": "air_16_1200_mode",
+      "pass": true,
+      "value": "air",
+      "expected": "air"
+    },
+    {
+      "name": "air_16_1200_n",
+      "pass": true,
+      "value": 16,
+      "expected": 16
+    },
+    {
+      "name": "air_16_1200_offset",
+      "pass": true,
+      "value": 1200.0,
+      "expected": 1200.0
+    },
+    {
+      "name": "air_16_1200_force_0",
+      "pass": true,
+      "value": -0.5376000173667146,
+      "expected": -0.5376000000000001
+    },
+    {
+      "name": "air_16_1200_body_linear_0",
+      "pass": true,
+      "value": -0.02688000086833573,
+      "expected": -0.026880000000000005
+    },
+    {
+      "name": "air_16_1200_fluid_linear_0",
+      "pass": true,
+      "value": 0.026880000868335724,
+      "expected": 0.026880000000000005
+    },
+    {
+      "name": "air_16_1200_linear_closure_0",
+      "pass": true,
+      "value": -6.938893903907228e-18,
+      "expected": 0.0
+    },
+    {
+      "name": "air_16_1200_body_torque_0",
+      "pass": true,
+      "value": 0.00013823999966972313,
+      "expected": 0.0001382399999999999
+    },
+    {
+      "name": "air_16_1200_fluid_torque_0",
+      "pass": true,
+      "value": -0.00013823999966972354,
+      "expected": -0.0001382399999999999
+    },
+    {
+      "name": "air_16_1200_angular_closure_0",
+      "pass": true,
+      "value": -4.0657581468206416e-19,
+      "expected": 0.0
+    },
+    {
+      "name": "air_16_1200_face_count_0",
+      "pass": true,
+      "value": 32,
+      "expected": 32
+    },
+    {
+      "name": "air_16_1200_force_1",
+      "pass": true,
+      "value": 0.844799999779827,
+      "expected": 0.8448
+    },
+    {
+      "name": "air_16_1200_body_linear_1",
+      "pass": true,
+      "value": 0.042239999988991354,
+      "expected": 0.04224
+    },
+    {
+      "name": "air_16_1200_fluid_linear_1",
+      "pass": true,
+      "value": -0.04223999998899136,
+      "expected": -0.04224
+    },
+    {
+      "name": "air_16_1200_linear_closure_1",
+      "pass": true,
+      "value": -6.938893903907228e-18,
+      "expected": 0.0
+    },
+    {
+      "name": "air_16_1200_body_torque_1",
+      "pass": true,
+      "value": 4.608000940014845e-05,
+      "expected": 4.608000000000004e-05
+    },
+    {
+      "name": "air_16_1200_fluid_torque_1",
+      "pass": true,
+      "value": -4.608000940014797e-05,
+      "expected": -4.608000000000004e-05
+    },
+    {
+      "name": "air_16_1200_angular_closure_1",
+      "pass": true,
+      "value": 4.811147140404426e-19,
+      "expected": 0.0
+    },
+    {
+      "name": "air_16_1200_face_count_1",
+      "pass": true,
+      "value": 32,
+      "expected": 32
+    },
+    {
+      "name": "air_16_1200_force_2",
+      "pass": true,
+      "value": -0.3840000002461208,
+      "expected": -0.384
+    },
+    {
+      "name": "air_16_1200_body_linear_2",
+      "pass": true,
+      "value": -0.01920000001230604,
+      "expected": -0.019200000000000002
+    },
+    {
+      "name": "air_16_1200_fluid_linear_2",
+      "pass": true,
+      "value": 0.01920000001230604,
+      "expected": 0.019200000000000002
+    },
+    {
+      "name": "air_16_1200_linear_closure_2",
+      "pass": true,
+      "value": 0.0,
+      "expected": 0.0
+    },
+    {
+      "name": "air_16_1200_body_torque_2",
+      "pass": true,
+      "value": -9.215998510348489e-05,
+      "expected": -9.21599999999999e-05
+    },
+    {
+      "name": "air_16_1200_fluid_torque_2",
+      "pass": true,
+      "value": 9.215998510348474e-05,
+      "expected": 9.21599999999999e-05
+    },
+    {
+      "name": "air_16_1200_angular_closure_2",
+      "pass": true,
+      "value": -1.4907779871675686e-19,
+      "expected": 0.0
+    },
+    {
+      "name": "air_16_1200_face_count_2",
+      "pass": true,
+      "value": 32,
+      "expected": 32
+    },
+    {
+      "name": "air_16_1200_torque_nonzero",
+      "pass": true,
+      "value": 0.00013823999966972313,
+      "expected": ">1e-5"
+    },
+    {
+      "name": "air_16_1200_energy_finite",
+      "pass": true,
+      "value": 8.775000028900958e-05,
+      "expected": "[0,1)"
+    },
+    {
+      "name": "air_16_1200_pre_projection_divergence",
+      "pass": true,
+      "value": 0.05273437569562887,
+      "expected": ">1e-5"
+    },
+    {
+      "name": "air_16_1200_post_projection_divergence",
+      "pass": true,
+      "value": 9.303170663345722e-11,
+      "expected": "<2e-8"
+    },
+    {
+      "name": "closed_8_150_mode",
+      "pass": true,
+      "value": "closed",
+      "expected": "closed"
+    },
+    {
+      "name": "closed_8_150_n",
+      "pass": true,
+      "value": 8,
+      "expected": 8
+    },
+    {
+      "name": "closed_8_150_offset",
+      "pass": true,
+      "value": 150.0,
+      "expected": 150.0
+    },
+    {
+      "name": "closed_8_150_force_0",
+      "pass": true,
+      "value": -0.5375999964737481,
+      "expected": -0.5376000000000001
+    },
+    {
+      "name": "closed_8_150_body_linear_0",
+      "pass": true,
+      "value": -0.026879999823687408,
+      "expected": -0.026880000000000005
+    },
+    {
+      "name": "closed_8_150_fluid_linear_0",
+      "pass": true,
+      "value": 0.026879999823687398,
+      "expected": 0.026880000000000005
+    },
+    {
+      "name": "closed_8_150_linear_closure_0",
+      "pass": true,
+      "value": -1.0408340855860843e-17,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_8_150_body_torque_0",
+      "pass": true,
+      "value": 0.00013824000000282636,
+      "expected": 0.0001382399999999999
+    },
+    {
+      "name": "closed_8_150_fluid_torque_0",
+      "pass": true,
+      "value": -0.00013824000000282844,
+      "expected": -0.0001382399999999999
+    },
+    {
+      "name": "closed_8_150_angular_closure_0",
+      "pass": true,
+      "value": -2.087089182034596e-18,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_8_150_face_count_0",
+      "pass": true,
+      "value": 32,
+      "expected": 32
+    },
+    {
+      "name": "closed_8_150_force_1",
+      "pass": true,
+      "value": 0.8448000000022606,
+      "expected": 0.8448
+    },
+    {
+      "name": "closed_8_150_body_linear_1",
+      "pass": true,
+      "value": 0.042240000000113034,
+      "expected": 0.04224
+    },
+    {
+      "name": "closed_8_150_fluid_linear_1",
+      "pass": true,
+      "value": -0.042240000000113034,
+      "expected": -0.04224
+    },
+    {
+      "name": "closed_8_150_linear_closure_1",
+      "pass": true,
+      "value": 0.0,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_8_150_body_torque_1",
+      "pass": true,
+      "value": 4.607999803868513e-05,
+      "expected": 4.608000000000004e-05
+    },
+    {
+      "name": "closed_8_150_fluid_torque_1",
+      "pass": true,
+      "value": -4.607999803868616e-05,
+      "expected": -4.608000000000004e-05
+    },
+    {
+      "name": "closed_8_150_angular_closure_1",
+      "pass": true,
+      "value": -1.0299920638612292e-18,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_8_150_face_count_1",
+      "pass": true,
+      "value": 28,
+      "expected": 28
+    },
+    {
+      "name": "closed_8_150_force_2",
+      "pass": true,
+      "value": -0.3839999999981402,
+      "expected": -0.384
+    },
+    {
+      "name": "closed_8_150_body_linear_2",
+      "pass": true,
+      "value": -0.019199999999907014,
+      "expected": -0.019200000000000002
+    },
+    {
+      "name": "closed_8_150_fluid_linear_2",
+      "pass": true,
+      "value": 0.019199999999907014,
+      "expected": 0.019200000000000002
+    },
+    {
+      "name": "closed_8_150_linear_closure_2",
+      "pass": true,
+      "value": 0.0,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_8_150_body_torque_2",
+      "pass": true,
+      "value": -9.216000297671134e-05,
+      "expected": -9.21599999999999e-05
+    },
+    {
+      "name": "closed_8_150_fluid_torque_2",
+      "pass": true,
+      "value": 9.216000297671112e-05,
+      "expected": 9.21599999999999e-05
+    },
+    {
+      "name": "closed_8_150_angular_closure_2",
+      "pass": true,
+      "value": -2.168404344971009e-19,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_8_150_face_count_2",
+      "pass": true,
+      "value": 24,
+      "expected": 24
+    },
+    {
+      "name": "closed_8_150_torque_nonzero",
+      "pass": true,
+      "value": 0.00013824000000282636,
+      "expected": ">1e-5"
+    },
+    {
+      "name": "closed_8_150_energy_finite",
+      "pass": true,
+      "value": 9.927857134342436e-05,
+      "expected": "[0,1)"
+    },
+    {
+      "name": "closed_8_150_pre_projection_divergence",
+      "pass": true,
+      "value": 0.0573381695713224,
+      "expected": ">1e-5"
+    },
+    {
+      "name": "closed_8_150_post_projection_divergence",
+      "pass": true,
+      "value": 8.467636449871821e-11,
+      "expected": "<2e-8"
+    },
+    {
+      "name": "closed_8_1200_mode",
+      "pass": true,
+      "value": "closed",
+      "expected": "closed"
+    },
+    {
+      "name": "closed_8_1200_n",
+      "pass": true,
+      "value": 8,
+      "expected": 8
+    },
+    {
+      "name": "closed_8_1200_offset",
+      "pass": true,
+      "value": 1200.0,
+      "expected": 1200.0
+    },
+    {
+      "name": "closed_8_1200_force_0",
+      "pass": true,
+      "value": -0.5375999964737481,
+      "expected": -0.5376000000000001
+    },
+    {
+      "name": "closed_8_1200_body_linear_0",
+      "pass": true,
+      "value": -0.026879999823687408,
+      "expected": -0.026880000000000005
+    },
+    {
+      "name": "closed_8_1200_fluid_linear_0",
+      "pass": true,
+      "value": 0.026879999823687398,
+      "expected": 0.026880000000000005
+    },
+    {
+      "name": "closed_8_1200_linear_closure_0",
+      "pass": true,
+      "value": -1.0408340855860843e-17,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_8_1200_body_torque_0",
+      "pass": true,
+      "value": 0.00013824000000282636,
+      "expected": 0.0001382399999999999
+    },
+    {
+      "name": "closed_8_1200_fluid_torque_0",
+      "pass": true,
+      "value": -0.00013824000000282844,
+      "expected": -0.0001382399999999999
+    },
+    {
+      "name": "closed_8_1200_angular_closure_0",
+      "pass": true,
+      "value": -2.087089182034596e-18,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_8_1200_face_count_0",
+      "pass": true,
+      "value": 32,
+      "expected": 32
+    },
+    {
+      "name": "closed_8_1200_force_1",
+      "pass": true,
+      "value": 0.8448000000022606,
+      "expected": 0.8448
+    },
+    {
+      "name": "closed_8_1200_body_linear_1",
+      "pass": true,
+      "value": 0.042240000000113034,
+      "expected": 0.04224
+    },
+    {
+      "name": "closed_8_1200_fluid_linear_1",
+      "pass": true,
+      "value": -0.042240000000113034,
+      "expected": -0.04224
+    },
+    {
+      "name": "closed_8_1200_linear_closure_1",
+      "pass": true,
+      "value": 0.0,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_8_1200_body_torque_1",
+      "pass": true,
+      "value": 4.607999803868513e-05,
+      "expected": 4.608000000000004e-05
+    },
+    {
+      "name": "closed_8_1200_fluid_torque_1",
+      "pass": true,
+      "value": -4.607999803868616e-05,
+      "expected": -4.608000000000004e-05
+    },
+    {
+      "name": "closed_8_1200_angular_closure_1",
+      "pass": true,
+      "value": -1.0299920638612292e-18,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_8_1200_face_count_1",
+      "pass": true,
+      "value": 28,
+      "expected": 28
+    },
+    {
+      "name": "closed_8_1200_force_2",
+      "pass": true,
+      "value": -0.3839999999981402,
+      "expected": -0.384
+    },
+    {
+      "name": "closed_8_1200_body_linear_2",
+      "pass": true,
+      "value": -0.019199999999907014,
+      "expected": -0.019200000000000002
+    },
+    {
+      "name": "closed_8_1200_fluid_linear_2",
+      "pass": true,
+      "value": 0.019199999999907014,
+      "expected": 0.019200000000000002
+    },
+    {
+      "name": "closed_8_1200_linear_closure_2",
+      "pass": true,
+      "value": 0.0,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_8_1200_body_torque_2",
+      "pass": true,
+      "value": -9.216000297671134e-05,
+      "expected": -9.21599999999999e-05
+    },
+    {
+      "name": "closed_8_1200_fluid_torque_2",
+      "pass": true,
+      "value": 9.216000297671112e-05,
+      "expected": 9.21599999999999e-05
+    },
+    {
+      "name": "closed_8_1200_angular_closure_2",
+      "pass": true,
+      "value": -2.168404344971009e-19,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_8_1200_face_count_2",
+      "pass": true,
+      "value": 24,
+      "expected": 24
+    },
+    {
+      "name": "closed_8_1200_torque_nonzero",
+      "pass": true,
+      "value": 0.00013824000000282636,
+      "expected": ">1e-5"
+    },
+    {
+      "name": "closed_8_1200_energy_finite",
+      "pass": true,
+      "value": 9.927857134342436e-05,
+      "expected": "[0,1)"
+    },
+    {
+      "name": "closed_8_1200_pre_projection_divergence",
+      "pass": true,
+      "value": 0.0573381695713224,
+      "expected": ">1e-5"
+    },
+    {
+      "name": "closed_8_1200_post_projection_divergence",
+      "pass": true,
+      "value": 8.467636449871821e-11,
+      "expected": "<2e-8"
+    },
+    {
+      "name": "closed_12_150_mode",
+      "pass": true,
+      "value": "closed",
+      "expected": "closed"
+    },
+    {
+      "name": "closed_12_150_n",
+      "pass": true,
+      "value": 12,
+      "expected": 12
+    },
+    {
+      "name": "closed_12_150_offset",
+      "pass": true,
+      "value": 150.0,
+      "expected": 150.0
+    },
+    {
+      "name": "closed_12_150_force_0",
+      "pass": true,
+      "value": -0.5375999925917285,
+      "expected": -0.5376000000000001
+    },
+    {
+      "name": "closed_12_150_body_linear_0",
+      "pass": true,
+      "value": -0.026879999629586426,
+      "expected": -0.026880000000000005
+    },
+    {
+      "name": "closed_12_150_fluid_linear_0",
+      "pass": true,
+      "value": 0.02687999962958642,
+      "expected": 0.026880000000000005
+    },
+    {
+      "name": "closed_12_150_linear_closure_0",
+      "pass": true,
+      "value": -6.938893903907228e-18,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_12_150_body_torque_0",
+      "pass": true,
+      "value": 0.00013823999992938394,
+      "expected": 0.0001382399999999999
+    },
+    {
+      "name": "closed_12_150_fluid_torque_0",
+      "pass": true,
+      "value": -0.00013823999992938288,
+      "expected": -0.0001382399999999999
+    },
+    {
+      "name": "closed_12_150_angular_closure_0",
+      "pass": true,
+      "value": 1.0570971181733668e-18,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_12_150_face_count_0",
+      "pass": true,
+      "value": 32,
+      "expected": 32
+    },
+    {
+      "name": "closed_12_150_force_1",
+      "pass": true,
+      "value": 0.8447999998731889,
+      "expected": 0.8448
+    },
+    {
+      "name": "closed_12_150_body_linear_1",
+      "pass": true,
+      "value": 0.04223999999365945,
+      "expected": 0.04224
+    },
+    {
+      "name": "closed_12_150_fluid_linear_1",
+      "pass": true,
+      "value": -0.04223999999365945,
+      "expected": -0.04224
+    },
+    {
+      "name": "closed_12_150_linear_closure_1",
+      "pass": true,
+      "value": 0.0,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_12_150_body_torque_1",
+      "pass": true,
+      "value": 4.607999590197251e-05,
+      "expected": 4.608000000000004e-05
+    },
+    {
+      "name": "closed_12_150_fluid_torque_1",
+      "pass": true,
+      "value": -4.6079995901971835e-05,
+      "expected": -4.608000000000004e-05
+    },
+    {
+      "name": "closed_12_150_angular_closure_1",
+      "pass": true,
+      "value": 6.776263578034403e-19,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_12_150_face_count_1",
+      "pass": true,
+      "value": 32,
+      "expected": 32
+    },
+    {
+      "name": "closed_12_150_force_2",
+      "pass": true,
+      "value": -0.3840000000004665,
+      "expected": -0.384
+    },
+    {
+      "name": "closed_12_150_body_linear_2",
+      "pass": true,
+      "value": -0.019200000000023327,
+      "expected": -0.019200000000000002
+    },
+    {
+      "name": "closed_12_150_fluid_linear_2",
+      "pass": true,
+      "value": 0.019200000000023323,
+      "expected": 0.019200000000000002
+    },
+    {
+      "name": "closed_12_150_linear_closure_2",
+      "pass": true,
+      "value": -3.469446951953614e-18,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_12_150_body_torque_2",
+      "pass": true,
+      "value": -9.216000619154475e-05,
+      "expected": -9.21599999999999e-05
+    },
+    {
+      "name": "closed_12_150_fluid_torque_2",
+      "pass": true,
+      "value": 9.216000619154478e-05,
+      "expected": 9.21599999999999e-05
+    },
+    {
+      "name": "closed_12_150_angular_closure_2",
+      "pass": true,
+      "value": 2.710505431213761e-20,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_12_150_face_count_2",
+      "pass": true,
+      "value": 32,
+      "expected": 32
+    },
+    {
+      "name": "closed_12_150_torque_nonzero",
+      "pass": true,
+      "value": 0.00013823999992938394,
+      "expected": ">1e-5"
+    },
+    {
+      "name": "closed_12_150_energy_finite",
+      "pass": true,
+      "value": 8.774999985254137e-05,
+      "expected": "[0,1)"
+    },
+    {
+      "name": "closed_12_150_pre_projection_divergence",
+      "pass": true,
+      "value": 0.052734374764212985,
+      "expected": ">1e-5"
+    },
+    {
+      "name": "closed_12_150_post_projection_divergence",
+      "pass": true,
+      "value": 9.033311102546536e-11,
+      "expected": "<2e-8"
+    },
+    {
+      "name": "closed_12_1200_mode",
+      "pass": true,
+      "value": "closed",
+      "expected": "closed"
+    },
+    {
+      "name": "closed_12_1200_n",
+      "pass": true,
+      "value": 12,
+      "expected": 12
+    },
+    {
+      "name": "closed_12_1200_offset",
+      "pass": true,
+      "value": 1200.0,
+      "expected": 1200.0
+    },
+    {
+      "name": "closed_12_1200_force_0",
+      "pass": true,
+      "value": -0.5375999925917285,
+      "expected": -0.5376000000000001
+    },
+    {
+      "name": "closed_12_1200_body_linear_0",
+      "pass": true,
+      "value": -0.026879999629586426,
+      "expected": -0.026880000000000005
+    },
+    {
+      "name": "closed_12_1200_fluid_linear_0",
+      "pass": true,
+      "value": 0.02687999962958642,
+      "expected": 0.026880000000000005
+    },
+    {
+      "name": "closed_12_1200_linear_closure_0",
+      "pass": true,
+      "value": -6.938893903907228e-18,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_12_1200_body_torque_0",
+      "pass": true,
+      "value": 0.00013823999992938394,
+      "expected": 0.0001382399999999999
+    },
+    {
+      "name": "closed_12_1200_fluid_torque_0",
+      "pass": true,
+      "value": -0.00013823999992938288,
+      "expected": -0.0001382399999999999
+    },
+    {
+      "name": "closed_12_1200_angular_closure_0",
+      "pass": true,
+      "value": 1.0570971181733668e-18,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_12_1200_face_count_0",
+      "pass": true,
+      "value": 32,
+      "expected": 32
+    },
+    {
+      "name": "closed_12_1200_force_1",
+      "pass": true,
+      "value": 0.8447999998731889,
+      "expected": 0.8448
+    },
+    {
+      "name": "closed_12_1200_body_linear_1",
+      "pass": true,
+      "value": 0.04223999999365945,
+      "expected": 0.04224
+    },
+    {
+      "name": "closed_12_1200_fluid_linear_1",
+      "pass": true,
+      "value": -0.04223999999365945,
+      "expected": -0.04224
+    },
+    {
+      "name": "closed_12_1200_linear_closure_1",
+      "pass": true,
+      "value": 0.0,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_12_1200_body_torque_1",
+      "pass": true,
+      "value": 4.607999590197251e-05,
+      "expected": 4.608000000000004e-05
+    },
+    {
+      "name": "closed_12_1200_fluid_torque_1",
+      "pass": true,
+      "value": -4.6079995901971835e-05,
+      "expected": -4.608000000000004e-05
+    },
+    {
+      "name": "closed_12_1200_angular_closure_1",
+      "pass": true,
+      "value": 6.776263578034403e-19,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_12_1200_face_count_1",
+      "pass": true,
+      "value": 32,
+      "expected": 32
+    },
+    {
+      "name": "closed_12_1200_force_2",
+      "pass": true,
+      "value": -0.3840000000004665,
+      "expected": -0.384
+    },
+    {
+      "name": "closed_12_1200_body_linear_2",
+      "pass": true,
+      "value": -0.019200000000023327,
+      "expected": -0.019200000000000002
+    },
+    {
+      "name": "closed_12_1200_fluid_linear_2",
+      "pass": true,
+      "value": 0.019200000000023323,
+      "expected": 0.019200000000000002
+    },
+    {
+      "name": "closed_12_1200_linear_closure_2",
+      "pass": true,
+      "value": -3.469446951953614e-18,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_12_1200_body_torque_2",
+      "pass": true,
+      "value": -9.216000619154475e-05,
+      "expected": -9.21599999999999e-05
+    },
+    {
+      "name": "closed_12_1200_fluid_torque_2",
+      "pass": true,
+      "value": 9.216000619154478e-05,
+      "expected": 9.21599999999999e-05
+    },
+    {
+      "name": "closed_12_1200_angular_closure_2",
+      "pass": true,
+      "value": 2.710505431213761e-20,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_12_1200_face_count_2",
+      "pass": true,
+      "value": 32,
+      "expected": 32
+    },
+    {
+      "name": "closed_12_1200_torque_nonzero",
+      "pass": true,
+      "value": 0.00013823999992938394,
+      "expected": ">1e-5"
+    },
+    {
+      "name": "closed_12_1200_energy_finite",
+      "pass": true,
+      "value": 8.774999985254137e-05,
+      "expected": "[0,1)"
+    },
+    {
+      "name": "closed_12_1200_pre_projection_divergence",
+      "pass": true,
+      "value": 0.052734374764212985,
+      "expected": ">1e-5"
+    },
+    {
+      "name": "closed_12_1200_post_projection_divergence",
+      "pass": true,
+      "value": 9.033311102546536e-11,
+      "expected": "<2e-8"
+    },
+    {
+      "name": "closed_16_150_mode",
+      "pass": true,
+      "value": "closed",
+      "expected": "closed"
+    },
+    {
+      "name": "closed_16_150_n",
+      "pass": true,
+      "value": 16,
+      "expected": 16
+    },
+    {
+      "name": "closed_16_150_offset",
+      "pass": true,
+      "value": 150.0,
+      "expected": 150.0
+    },
+    {
+      "name": "closed_16_150_force_0",
+      "pass": true,
+      "value": -0.537599988657349,
+      "expected": -0.5376000000000001
+    },
+    {
+      "name": "closed_16_150_body_linear_0",
+      "pass": true,
+      "value": -0.026879999432867452,
+      "expected": -0.026880000000000005
+    },
+    {
+      "name": "closed_16_150_fluid_linear_0",
+      "pass": true,
+      "value": 0.026879999432867452,
+      "expected": 0.026880000000000005
+    },
+    {
+      "name": "closed_16_150_linear_closure_0",
+      "pass": true,
+      "value": 0.0,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_16_150_body_torque_0",
+      "pass": true,
+      "value": 0.00013823999949426078,
+      "expected": 0.0001382399999999999
+    },
+    {
+      "name": "closed_16_150_fluid_torque_0",
+      "pass": true,
+      "value": -0.00013823999949426108,
+      "expected": -0.0001382399999999999
+    },
+    {
+      "name": "closed_16_150_angular_closure_0",
+      "pass": true,
+      "value": -2.981555974335137e-19,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_16_150_face_count_0",
+      "pass": true,
+      "value": 32,
+      "expected": 32
+    },
+    {
+      "name": "closed_16_150_force_1",
+      "pass": true,
+      "value": 0.844799999073093,
+      "expected": 0.8448
+    },
+    {
+      "name": "closed_16_150_body_linear_1",
+      "pass": true,
+      "value": 0.042239999953654656,
+      "expected": 0.04224
+    },
+    {
+      "name": "closed_16_150_fluid_linear_1",
+      "pass": true,
+      "value": -0.04223999995365466,
+      "expected": -0.04224
+    },
+    {
+      "name": "closed_16_150_linear_closure_1",
+      "pass": true,
+      "value": -6.938893903907228e-18,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_16_150_body_torque_1",
+      "pass": true,
+      "value": 4.607999374725779e-05,
+      "expected": 4.608000000000004e-05
+    },
+    {
+      "name": "closed_16_150_fluid_torque_1",
+      "pass": true,
+      "value": -4.607999374725788e-05,
+      "expected": -4.608000000000004e-05
+    },
+    {
+      "name": "closed_16_150_angular_closure_1",
+      "pass": true,
+      "value": -8.809142651444724e-20,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_16_150_face_count_1",
+      "pass": true,
+      "value": 32,
+      "expected": 32
+    },
+    {
+      "name": "closed_16_150_force_2",
+      "pass": true,
+      "value": -0.3839999999931344,
+      "expected": -0.384
+    },
+    {
+      "name": "closed_16_150_body_linear_2",
+      "pass": true,
+      "value": -0.01919999999965672,
+      "expected": -0.019200000000000002
+    },
+    {
+      "name": "closed_16_150_fluid_linear_2",
+      "pass": true,
+      "value": 0.019199999999656724,
+      "expected": 0.019200000000000002
+    },
+    {
+      "name": "closed_16_150_linear_closure_2",
+      "pass": true,
+      "value": 3.469446951953614e-18,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_16_150_body_torque_2",
+      "pass": true,
+      "value": -9.216000901825614e-05,
+      "expected": -9.21599999999999e-05
+    },
+    {
+      "name": "closed_16_150_fluid_torque_2",
+      "pass": true,
+      "value": 9.216000901825581e-05,
+      "expected": 9.21599999999999e-05
+    },
+    {
+      "name": "closed_16_150_angular_closure_2",
+      "pass": true,
+      "value": -3.2526065174565133e-19,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_16_150_face_count_2",
+      "pass": true,
+      "value": 32,
+      "expected": 32
+    },
+    {
+      "name": "closed_16_150_torque_nonzero",
+      "pass": true,
+      "value": 0.00013823999949426078,
+      "expected": ">1e-5"
+    },
+    {
+      "name": "closed_16_150_energy_finite",
+      "pass": true,
+      "value": 8.774999977043943e-05,
+      "expected": "[0,1)"
+    },
+    {
+      "name": "closed_16_150_pre_projection_divergence",
+      "pass": true,
+      "value": 0.05273437457434211,
+      "expected": ">1e-5"
+    },
+    {
+      "name": "closed_16_150_post_projection_divergence",
+      "pass": true,
+      "value": 9.075066610238555e-11,
+      "expected": "<2e-8"
+    },
+    {
+      "name": "closed_16_1200_mode",
+      "pass": true,
+      "value": "closed",
+      "expected": "closed"
+    },
+    {
+      "name": "closed_16_1200_n",
+      "pass": true,
+      "value": 16,
+      "expected": 16
+    },
+    {
+      "name": "closed_16_1200_offset",
+      "pass": true,
+      "value": 1200.0,
+      "expected": 1200.0
+    },
+    {
+      "name": "closed_16_1200_force_0",
+      "pass": true,
+      "value": -0.537599988657349,
+      "expected": -0.5376000000000001
+    },
+    {
+      "name": "closed_16_1200_body_linear_0",
+      "pass": true,
+      "value": -0.026879999432867452,
+      "expected": -0.026880000000000005
+    },
+    {
+      "name": "closed_16_1200_fluid_linear_0",
+      "pass": true,
+      "value": 0.026879999432867452,
+      "expected": 0.026880000000000005
+    },
+    {
+      "name": "closed_16_1200_linear_closure_0",
+      "pass": true,
+      "value": 0.0,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_16_1200_body_torque_0",
+      "pass": true,
+      "value": 0.00013823999949426078,
+      "expected": 0.0001382399999999999
+    },
+    {
+      "name": "closed_16_1200_fluid_torque_0",
+      "pass": true,
+      "value": -0.00013823999949426108,
+      "expected": -0.0001382399999999999
+    },
+    {
+      "name": "closed_16_1200_angular_closure_0",
+      "pass": true,
+      "value": -2.981555974335137e-19,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_16_1200_face_count_0",
+      "pass": true,
+      "value": 32,
+      "expected": 32
+    },
+    {
+      "name": "closed_16_1200_force_1",
+      "pass": true,
+      "value": 0.844799999073093,
+      "expected": 0.8448
+    },
+    {
+      "name": "closed_16_1200_body_linear_1",
+      "pass": true,
+      "value": 0.042239999953654656,
+      "expected": 0.04224
+    },
+    {
+      "name": "closed_16_1200_fluid_linear_1",
+      "pass": true,
+      "value": -0.04223999995365466,
+      "expected": -0.04224
+    },
+    {
+      "name": "closed_16_1200_linear_closure_1",
+      "pass": true,
+      "value": -6.938893903907228e-18,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_16_1200_body_torque_1",
+      "pass": true,
+      "value": 4.607999374725779e-05,
+      "expected": 4.608000000000004e-05
+    },
+    {
+      "name": "closed_16_1200_fluid_torque_1",
+      "pass": true,
+      "value": -4.607999374725788e-05,
+      "expected": -4.608000000000004e-05
+    },
+    {
+      "name": "closed_16_1200_angular_closure_1",
+      "pass": true,
+      "value": -8.809142651444724e-20,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_16_1200_face_count_1",
+      "pass": true,
+      "value": 32,
+      "expected": 32
+    },
+    {
+      "name": "closed_16_1200_force_2",
+      "pass": true,
+      "value": -0.3839999999931344,
+      "expected": -0.384
+    },
+    {
+      "name": "closed_16_1200_body_linear_2",
+      "pass": true,
+      "value": -0.01919999999965672,
+      "expected": -0.019200000000000002
+    },
+    {
+      "name": "closed_16_1200_fluid_linear_2",
+      "pass": true,
+      "value": 0.019199999999656724,
+      "expected": 0.019200000000000002
+    },
+    {
+      "name": "closed_16_1200_linear_closure_2",
+      "pass": true,
+      "value": 3.469446951953614e-18,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_16_1200_body_torque_2",
+      "pass": true,
+      "value": -9.216000901825614e-05,
+      "expected": -9.21599999999999e-05
+    },
+    {
+      "name": "closed_16_1200_fluid_torque_2",
+      "pass": true,
+      "value": 9.216000901825581e-05,
+      "expected": 9.21599999999999e-05
+    },
+    {
+      "name": "closed_16_1200_angular_closure_2",
+      "pass": true,
+      "value": -3.2526065174565133e-19,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_16_1200_face_count_2",
+      "pass": true,
+      "value": 32,
+      "expected": 32
+    },
+    {
+      "name": "closed_16_1200_torque_nonzero",
+      "pass": true,
+      "value": 0.00013823999949426078,
+      "expected": ">1e-5"
+    },
+    {
+      "name": "closed_16_1200_energy_finite",
+      "pass": true,
+      "value": 8.774999977043943e-05,
+      "expected": "[0,1)"
+    },
+    {
+      "name": "closed_16_1200_pre_projection_divergence",
+      "pass": true,
+      "value": 0.05273437457434211,
+      "expected": ">1e-5"
+    },
+    {
+      "name": "closed_16_1200_post_projection_divergence",
+      "pass": true,
+      "value": 9.075066610238555e-11,
+      "expected": "<2e-8"
+    },
+    {
+      "name": "air_8_pressure_gauge_invariance",
+      "pass": true,
+      "value": 5.1019299895926906e-11,
+      "expected": "<3e-5"
+    },
+    {
+      "name": "air_12_pressure_gauge_invariance",
+      "pass": true,
+      "value": 2.4429458456154407e-11,
+      "expected": "<3e-5"
+    },
+    {
+      "name": "air_16_pressure_gauge_invariance",
+      "pass": true,
+      "value": 5.938483038647746e-11,
+      "expected": "<3e-5"
+    },
+    {
+      "name": "closed_8_pressure_gauge_invariance",
+      "pass": true,
+      "value": 0.0,
+      "expected": "<3e-5"
+    },
+    {
+      "name": "closed_12_pressure_gauge_invariance",
+      "pass": true,
+      "value": 0.0,
+      "expected": "<3e-5"
+    },
+    {
+      "name": "closed_16_pressure_gauge_invariance",
+      "pass": true,
+      "value": 0.0,
+      "expected": "<3e-5"
+    },
+    {
+      "name": "full_ctest_45",
+      "pass": true,
+      "value": "45/45",
+      "expected": "45/45"
+    }
+  ],
+  "source_sha256": {
+    "include/upc/mac3d.hpp": "9bb4659c5b6e6fd3a512301ae4a3a083fa96b1e67d50363ec8f5634e1038fdc5",
+    "include/upc/static_pressure_load3d.hpp": "a3c32e9ed62318250eee7e51123da22e0013a635eda9cff29f58002415d06438",
+    "include/upc/rigid_pressure_response3d.hpp": "41282862ecf047ab9cf7c27ebea34314f049658e03bb3bbd4533609a0f41afe1",
+    "include/upc/pressure_wrench_reaction3d.hpp": "84bc1d0f0cbf446153bb92c3ff04db65ed607af0ba39753ce506ebd40aee2737",
+    "tests/p2_pressure_wrench_reaction3d_tests.cpp": "a6c68d6da03c861452b2ea7f06ef53a6c85b236e9ce15c5ab432e2dc115397e3",
+    "scripts/p2_pressure_wrench_reaction_acceptance.py": "1ddf2a71859b428daacb305e2b2bed2be3f40ae4e4716a74230f38d7c74a93ed",
+    "docs/P2_PRESSURE_WRENCH_REACTION_PARTIAL.md": "21dfd5169debf580b0340d930f5e91fac12daa8cee250c5c36a16327568ef87e",
+    "docs/PHASENPLAN.md": "a488757820a580a986723edb41b6b5ea9c401c2fce393f1e5e81c617515fa074",
+    "CMakeLists.txt": "892d90fc79556f54e565f33883c181f5a5b4167b313c7c34b05ad97445efaf65"
+  },
+  "binary_sha256": "78065715b0ebc0925c72c067a0cd870d03497708e8e22f1b52ab45732e078be7",
+  "ctest_log_path": "D:\\Projekt Engine\\ENGINE TEST STUBE\\runs\\p2_pressure_wrench_reaction_ctest_20261027.txt",
+  "ctest_log_sha256": "86eadd20045f2e2a6bf3715430d1b6dacd1281ad9bf11e9e9411b7a9c8eb4fa1",
+  "limitation": "Frozen body and fixed occupancy; discrete face momentum proxy only before projection, not physical full FSI, no full post-projection conservation, no 3D measured CFD references or UE5.8 Native E2E. P2-P8 remain partial."
+}

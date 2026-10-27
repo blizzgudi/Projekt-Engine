@@ -209,3 +209,9 @@ add_test(NAME physics_p2_frozen_pressure_rigid_response_partial COMMAND upc_p2_r
 add_executable(upc_p2_pressure_reaction_transfer_tests tests/p2_pressure_reaction_transfer3d_tests.cpp)
 target_link_libraries(upc_p2_pressure_reaction_transfer_tests PRIVATE upc)
 add_test(NAME physics_p2_applied_fluid_face_reaction_partial COMMAND upc_p2_pressure_reaction_transfer_tests)
+
+# P2 partial: six-component frozen-pressure face reaction (linear AND angular).
+# Pre-projection discrete MAC-face proxy only; NOT moving-body FSI.
+add_executable(upc_p2_pressure_wrench_reaction_tests tests/p2_pressure_wrench_reaction3d_tests.cpp)
+target_link_libraries(upc_p2_pressure_wrench_reaction_tests PRIVATE upc)
+add_test(NAME physics_p2_applied_six_component_face_wrench_partial COMMAND upc_p2_pressure_wrench_reaction_tests)
