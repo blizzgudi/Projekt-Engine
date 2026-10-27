@@ -475,3 +475,23 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
 - **P2 bleibt PARTIAL; P3-P8 ebenfalls.** Keine bewegte Maske,
   keine dynamische Zweiwege-FSI, keine externe 3D-CFD-Messvalidierung,
   keine globale Energie-/Impulsbilanz und kein neues UE5.8 Native-E2E.
+
+## P2 Teilfortschritt: kinematischer Druck zu traegem Starrkoerper-Praediktor (27.10.2026)
+
+- Neuer CPU-Adapter LaggedKinematicPressureBody3D: reale konvergierte
+  3D-MAC-Projektion der alten starren Wandgeschwindigkeit, Drucktraktion
+  und Drehmoment -> aktualisierter Starrkoerper-Zustand. Die MAC-Berechnung
+  ist bis zum erfolgreichen Abschluss aller Schritte atomar gekapselt.
+- Drei Gitter (8^3/12^3/16^3), beide Bewegungsrichtungen und Nullfall;
+  analytische Druck-, Kraft-, Drehmoment-, Impuls- und Geschwindigkeitswerte.
+  Der explizite Energie-Lag zwischen alter Wandarbeit und mittlerer
+  Starrkoerperarbeit ist +0.0004869586944 J bei +0.12 m/s und wird
+  nicht als Fluidenergieerhaltung ausgegeben.
+- MSVC Release, 51/51 CTest PASS, 190 native Assertions;
+  unabhängiges Gate scripts/p2_lagged_pressure_body_acceptance.py,
+  Bericht ENGINE TEST STUBE/runs/p2_lagged_pressure_body_partial.json,
+  Details docs/P2_LAGGED_KINEMATIC_PRESSURE_BODY_PARTIAL.md.
+- **P2 bleibt PARTIAL, P3-P8 ebenfalls.** Die Koerpermaske bewegt sich
+  nicht, der Fluid-Gegenimpuls wird nicht auf MAC-Faces angewandt.
+  Keine bidirektionale dynamische FSI, keine globale Impuls-/Energie-
+  Erhaltung, keine externen 3D-CFD-Messdaten oder neue UE5.8 Native-E2E.

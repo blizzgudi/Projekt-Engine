@@ -245,3 +245,9 @@ add_test(NAME physics_p2_kinematic_wall_pressure_work_partial COMMAND upc_p2_kin
 add_executable(upc_p2_kinematic_convergence_tests tests/p2_kinematic_projection_convergence3d_tests.cpp)
 target_link_libraries(upc_p2_kinematic_convergence_tests PRIVATE upc)
 add_test(NAME physics_p2_kinematic_projection_atomic_convergence_partial COMMAND upc_p2_kinematic_convergence_tests)
+
+# P2 partial: real kinematic MAC pressure drives a lagged rigid-body predictor.
+# Frozen occupancy and no fluid reaction: NOT bidirectional FSI.
+add_executable(upc_p2_lagged_pressure_body_tests tests/p2_lagged_kinematic_pressure_body3d_tests.cpp)
+target_link_libraries(upc_p2_lagged_pressure_body_tests PRIVATE upc)
+add_test(NAME physics_p2_lagged_kinematic_pressure_body_partial COMMAND upc_p2_lagged_pressure_body_tests)
