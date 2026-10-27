@@ -1,0 +1,1661 @@
+{
+  "schema_version": 1,
+  "phase": "P2",
+  "milestone": "post_projection_six_component_face_wrench_audit_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "generated_utc": "2026-10-27T05:05:34.419433+00:00",
+  "scope": "12 real 3D MAC projections; read-only before/reaction/after projection face momentum, torque and energy; independent negative conservation diagnostics",
+  "native_assertions": 746,
+  "native_stdout": "mode,n,offset_pa,divergence_post,reaction_x_Ns,reaction_y_Ns,reaction_z_Ns,projection_x_Ns,projection_y_Ns,projection_z_Ns,residual_x_Ns,residual_y_Ns,residual_z_Ns,reaction_tx_Nms,reaction_ty_Nms,reaction_tz_Nms,projection_tx_Nms,projection_ty_Nms,projection_tz_Nms,residual_tx_Nms,residual_ty_Nms,residual_tz_Nms,energy_reaction_J,energy_projection_J,energy_total_J,wetwet_faces,wetair_faces\nair,8,150,9.0213619875837954e-11,0.026880000275460215,-0.042239999992578665,0.019200000009485824,-0.026879999136335469,0.02347730035822191,-0.012965831113916491,-0.026879999136335486,0.023477300358221903,-0.012965831113916495,-0.00013823999975742278,-4.6080002919534053e-05,9.2159995225630554e-05,-0.00047384808793924331,-2.1534573453050956e-05,0.0019056546640892607,-0.00047384808793924434,-2.1534573453052616e-05,0.0019056546640892581,0.00010242857158141668,-3.7272381364213624e-05,6.5156190217203057e-05,199,20\nair,8,1200,9.0213602257552651e-11,0.026880000278011185,-0.042239999992509922,0.019200000009573556,-0.026879999133672675,0.023477300358193242,-0.012965831113763603,-0.026879999133672665,0.023477300358193249,-0.012965831113763602,-0.00013823999975518116,-4.6080002946569901e-05,9.2159995181424732e-05,-0.00047384808792970054,-2.1534573468978109e-05,0.0019056546639334311,-0.00047384808792970163,-2.153457346897901e-05,0.0019056546639334318,0.00010242857158283196,-3.7272381363310138e-05,6.5156190219521813e-05,199,20\nair,12,150,9.2195033100318162e-11,0.026880000580781473,-0.042239999990139956,0.019200000011606721,-0.026879984172401034,0.027831408924608086,-0.014218547059316721,-0.026879984172401047,0.027831408924608086,-0.01421854705931673,-0.00013823999969426825,-4.6080006249464873e-05,9.2159990009033814e-05,-0.00039281632684724533,4.8862862900585276e-05,0.001698986797441825,-0.00039281632684724549,4.8862862900585838e-05,0.0016989867974418237,8.7750000198542102e-05,-2.5680794192437951e-05,6.2069206006104121e-05,1683,72\nair,12,1200,9.2195035556713709e-11,0.02688000058200294,-0.04223999999011914,0.019200000011630844,-0.026879984156374204,0.02783140892499622,-0.014218547058884021,-0.02687998415637426,0.027831408924996207,-0.014218547058884026,-0.0001382399996936248,-4.6080006262593382e-05,9.2159989988017843e-05,-0.00039281632681807471,4.8862862751963513e-05,0.0016989867964979951,-0.00039281632681807536,4.8862862751964163e-05,0.0016989867964979986,8.7750000198959425e-05,-2.5680794191473346e-05,6.2069206007485977e-05,1683,72\nair,16,150,9.3031705722896799e-11,0.026880000865366488,-0.042239999989029005,0.019200000012264073,-0.026879923424854919,0.028681018893677183,-0.014099981538120178,-0.026879923424854939,0.028681018893677187,-0.014099981538120213,-0.00013823999967084674,-4.6080009368010388e-05,9.2159985154426918e-05,-0.00041554674091042821,0.00015475679443650273,0.001906198107790146,-0.00041554674091042295,0.00015475679443649896,0.0019061981077901351,8.775000028802189e-05,-2.4428186655671361e-05,6.3321813632350729e-05,5567,156\nair,16,1200,9.3031706633457217e-11,0.026880000868335724,-0.042239999988991361,0.01920000001230604,-0.026879923295110807,0.028681018896065461,-0.014099981535661152,-0.026879923295110721,0.028681018896065429,-0.014099981535661124,-0.00013823999966972354,-4.608000940014797e-05,9.2159985103484743e-05,-0.00041554674074410747,0.00015475679316414732,0.0019061981002592046,-0.0004155467407441078,0.00015475679316415209,0.0019061981002592055,8.7750000289009585e-05,-2.4428186653193976e-05,6.3321813635815839e-05,5567,156\nclosed,8,150,8.467636449871821e-11,0.026879999823687398,-0.042240000000113034,0.019199999999907014,-0.026879999813215434,0.042240000000245165,-0.019199999999820656,-0.026879999813215451,0.042240000000245179,-0.019199999999820659,-0.00013824000000282844,-4.6079998038686157e-05,9.2160002976711121e-05,-0.00059844205119188843,4.6079998027398589e-05,0.0013862905465540744,-0.00059844205119188973,4.6079998027397193e-05,0.0013862905465540747,9.9278571343424361e-05,-5.2528907779640618e-05,4.6749663563783737e-05,250,0\nclosed,8,1200,8.467636449871821e-11,0.026879999823687398,-0.042240000000113034,0.019199999999907014,-0.026879999813215434,0.042240000000245165,-0.019199999999820656,-0.026879999813215451,0.042240000000245179,-0.019199999999820659,-0.00013824000000282844,-4.6079998038686157e-05,9.2160002976711121e-05,-0.00059844205119188843,4.6079998027398589e-05,0.0013862905465540744,-0.00059844205119188973,4.6079998027397193e-05,0.0013862905465540747,9.9278571343424361e-05,-5.2528907779640618e-05,4.6749663563783737e-05,250,0\nclosed,12,150,9.0333111025465355e-11,0.026879999629586419,-0.042239999993659447,0.019200000000023323,-0.026879999487493748,0.042239999927331767,-0.019199999999603076,-0.026879999487493773,0.042239999927331767,-0.019199999999603076,-0.00013823999992938288,-4.6079995901971835e-05,9.216000619154478e-05,-0.0005033303703067517,4.6079995163118073e-05,0.0011510909444483628,-0.00050333037030674921,4.6079995163117626e-05,0.0011510909444483618,8.7749999852541368e-05,-2.7197842764320777e-05,6.0552157088220428e-05,1882,0\nclosed,12,1200,9.0333111025465355e-11,0.026879999629586419,-0.042239999993659447,0.019200000000023323,-0.026879999487493748,0.042239999927331767,-0.019199999999603076,-0.026879999487493773,0.042239999927331767,-0.019199999999603076,-0.00013823999992938288,-4.6079995901971835e-05,9.216000619154478e-05,-0.0005033303703067517,4.6079995163118073e-05,0.0011510909444483628,-0.00050333037030674921,4.6079995163117626e-05,0.0011510909444483618,8.7749999852541368e-05,-2.7197842764320777e-05,6.0552157088220428e-05,1882,0\nclosed,16,150,9.0750666102385553e-11,0.026879999432867452,-0.042239999953654662,0.019199999999656724,-0.026880000681746324,0.042239998877220165,-0.01919999995834077,-0.026880000681746376,0.042239998877220138,-0.019199999958340805,-0.00013823999949426108,-4.607999374725788e-05,9.2160009018255813e-05,-0.00054597523575266314,4.608000229072137e-05,0.0011005561043686933,-0.00054597523575267354,4.6080002290725253e-05,0.0011005561043686972,8.7749999770439426e-05,-2.4849626782437088e-05,6.2900372988002244e-05,6010,0\nclosed,16,1200,9.0750666102385553e-11,0.026879999432867452,-0.042239999953654662,0.019199999999656724,-0.026880000681746324,0.042239998877220165,-0.01919999995834077,-0.026880000681746376,0.042239998877220138,-0.019199999958340805,-0.00013823999949426108,-4.607999374725788e-05,9.2160009018255813e-05,-0.00054597523575266314,4.608000229072137e-05,0.0011005561043686933,-0.00054597523575267354,4.6080002290725253e-05,0.0011005561043686972,8.7749999770439426e-05,-2.4849626782437088e-05,6.2900372988002244e-05,6010,0\nPASS: P2 post-projection face-wrench audit assertions=746 phase_complete=false\n",
+  "checks": [
+    {
+      "name": "native_assertions",
+      "pass": true,
+      "value": 746,
+      "expected": ">=700"
+    },
+    {
+      "name": "air_8_150_mode",
+      "pass": true,
+      "value": "air",
+      "expected": "air"
+    },
+    {
+      "name": "air_8_150_n",
+      "pass": true,
+      "value": 8,
+      "expected": 8
+    },
+    {
+      "name": "air_8_150_offset",
+      "pass": true,
+      "value": 150.0,
+      "expected": 150.0
+    },
+    {
+      "name": "air_8_150_divergence",
+      "pass": true,
+      "value": 9.021361987583795e-11,
+      "expected": "<2e-8"
+    },
+    {
+      "name": "air_8_150_wetwet_count",
+      "pass": true,
+      "value": 199,
+      "expected": 199
+    },
+    {
+      "name": "air_8_150_wetair_count",
+      "pass": true,
+      "value": 20,
+      "expected": 20
+    },
+    {
+      "name": "air_8_150_reaction_linear_x",
+      "pass": true,
+      "value": 0.026880000275460215,
+      "expected": 0.026880000000000005
+    },
+    {
+      "name": "air_8_150_reaction_angular_x",
+      "pass": true,
+      "value": -0.00013823999975742278,
+      "expected": -0.0001382399999999999
+    },
+    {
+      "name": "air_8_150_projection_linear_residual_x",
+      "pass": true,
+      "value": -1.734723475976807e-17,
+      "expected": 0.0
+    },
+    {
+      "name": "air_8_150_projection_angular_residual_x",
+      "pass": true,
+      "value": -1.0299920638612292e-18,
+      "expected": 0.0
+    },
+    {
+      "name": "air_8_150_reaction_linear_y",
+      "pass": true,
+      "value": -0.042239999992578665,
+      "expected": -0.04224
+    },
+    {
+      "name": "air_8_150_reaction_angular_y",
+      "pass": true,
+      "value": -4.608000291953405e-05,
+      "expected": -4.608000000000004e-05
+    },
+    {
+      "name": "air_8_150_projection_linear_residual_y",
+      "pass": true,
+      "value": -6.938893903907228e-18,
+      "expected": 0.0
+    },
+    {
+      "name": "air_8_150_projection_angular_residual_y",
+      "pass": true,
+      "value": -1.6601845766184287e-18,
+      "expected": 0.0
+    },
+    {
+      "name": "air_8_150_reaction_linear_z",
+      "pass": true,
+      "value": 0.019200000009485824,
+      "expected": 0.019200000000000002
+    },
+    {
+      "name": "air_8_150_reaction_angular_z",
+      "pass": true,
+      "value": 9.215999522563055e-05,
+      "expected": 9.21599999999999e-05
+    },
+    {
+      "name": "air_8_150_projection_linear_residual_z",
+      "pass": true,
+      "value": -3.469446951953614e-18,
+      "expected": 0.0
+    },
+    {
+      "name": "air_8_150_projection_angular_residual_z",
+      "pass": true,
+      "value": -2.6020852139652106e-18,
+      "expected": 0.0
+    },
+    {
+      "name": "air_8_150_energy_telescope",
+      "pass": true,
+      "value": 0.0,
+      "expected": 0.0
+    },
+    {
+      "name": "air_8_150_projection_dissipation_proxy",
+      "pass": true,
+      "value": -3.7272381364213624e-05,
+      "expected": "<0"
+    },
+    {
+      "name": "air_8_150_open_linear_not_conserved",
+      "pass": true,
+      "value": 0.026879999136335486,
+      "expected": ">0.01"
+    },
+    {
+      "name": "air_8_150_open_angular_not_conserved",
+      "pass": true,
+      "value": 0.001905654664089258,
+      "expected": ">0.001"
+    },
+    {
+      "name": "air_8_1200_mode",
+      "pass": true,
+      "value": "air",
+      "expected": "air"
+    },
+    {
+      "name": "air_8_1200_n",
+      "pass": true,
+      "value": 8,
+      "expected": 8
+    },
+    {
+      "name": "air_8_1200_offset",
+      "pass": true,
+      "value": 1200.0,
+      "expected": 1200.0
+    },
+    {
+      "name": "air_8_1200_divergence",
+      "pass": true,
+      "value": 9.021360225755265e-11,
+      "expected": "<2e-8"
+    },
+    {
+      "name": "air_8_1200_wetwet_count",
+      "pass": true,
+      "value": 199,
+      "expected": 199
+    },
+    {
+      "name": "air_8_1200_wetair_count",
+      "pass": true,
+      "value": 20,
+      "expected": 20
+    },
+    {
+      "name": "air_8_1200_reaction_linear_x",
+      "pass": true,
+      "value": 0.026880000278011185,
+      "expected": 0.026880000000000005
+    },
+    {
+      "name": "air_8_1200_reaction_angular_x",
+      "pass": true,
+      "value": -0.00013823999975518116,
+      "expected": -0.0001382399999999999
+    },
+    {
+      "name": "air_8_1200_projection_linear_residual_x",
+      "pass": true,
+      "value": 1.0408340855860843e-17,
+      "expected": 0.0
+    },
+    {
+      "name": "air_8_1200_projection_angular_residual_x",
+      "pass": true,
+      "value": -1.0842021724855044e-18,
+      "expected": 0.0
+    },
+    {
+      "name": "air_8_1200_reaction_linear_y",
+      "pass": true,
+      "value": -0.04223999999250992,
+      "expected": -0.04224
+    },
+    {
+      "name": "air_8_1200_reaction_angular_y",
+      "pass": true,
+      "value": -4.60800029465699e-05,
+      "expected": -4.608000000000004e-05
+    },
+    {
+      "name": "air_8_1200_projection_linear_residual_y",
+      "pass": true,
+      "value": 6.938893903907228e-18,
+      "expected": 0.0
+    },
+    {
+      "name": "air_8_1200_projection_angular_residual_y",
+      "pass": true,
+      "value": -9.012430558785756e-19,
+      "expected": 0.0
+    },
+    {
+      "name": "air_8_1200_reaction_linear_z",
+      "pass": true,
+      "value": 0.019200000009573556,
+      "expected": 0.019200000000000002
+    },
+    {
+      "name": "air_8_1200_reaction_angular_z",
+      "pass": true,
+      "value": 9.215999518142473e-05,
+      "expected": 9.21599999999999e-05
+    },
+    {
+      "name": "air_8_1200_projection_linear_residual_z",
+      "pass": true,
+      "value": 1.734723475976807e-18,
+      "expected": 0.0
+    },
+    {
+      "name": "air_8_1200_projection_angular_residual_z",
+      "pass": true,
+      "value": 6.505213034913027e-19,
+      "expected": 0.0
+    },
+    {
+      "name": "air_8_1200_energy_telescope",
+      "pass": true,
+      "value": 1.3552527156068805e-20,
+      "expected": 0.0
+    },
+    {
+      "name": "air_8_1200_projection_dissipation_proxy",
+      "pass": true,
+      "value": -3.727238136331014e-05,
+      "expected": "<0"
+    },
+    {
+      "name": "air_8_1200_open_linear_not_conserved",
+      "pass": true,
+      "value": 0.026879999133672665,
+      "expected": ">0.01"
+    },
+    {
+      "name": "air_8_1200_open_angular_not_conserved",
+      "pass": true,
+      "value": 0.0019056546639334318,
+      "expected": ">0.001"
+    },
+    {
+      "name": "air_12_150_mode",
+      "pass": true,
+      "value": "air",
+      "expected": "air"
+    },
+    {
+      "name": "air_12_150_n",
+      "pass": true,
+      "value": 12,
+      "expected": 12
+    },
+    {
+      "name": "air_12_150_offset",
+      "pass": true,
+      "value": 150.0,
+      "expected": 150.0
+    },
+    {
+      "name": "air_12_150_divergence",
+      "pass": true,
+      "value": 9.219503310031816e-11,
+      "expected": "<2e-8"
+    },
+    {
+      "name": "air_12_150_wetwet_count",
+      "pass": true,
+      "value": 1683,
+      "expected": 1683
+    },
+    {
+      "name": "air_12_150_wetair_count",
+      "pass": true,
+      "value": 72,
+      "expected": 72
+    },
+    {
+      "name": "air_12_150_reaction_linear_x",
+      "pass": true,
+      "value": 0.026880000580781473,
+      "expected": 0.026880000000000005
+    },
+    {
+      "name": "air_12_150_reaction_angular_x",
+      "pass": true,
+      "value": -0.00013823999969426825,
+      "expected": -0.0001382399999999999
+    },
+    {
+      "name": "air_12_150_projection_linear_residual_x",
+      "pass": true,
+      "value": -1.3877787807814457e-17,
+      "expected": 0.0
+    },
+    {
+      "name": "air_12_150_projection_angular_residual_x",
+      "pass": true,
+      "value": -1.6263032587282567e-19,
+      "expected": 0.0
+    },
+    {
+      "name": "air_12_150_reaction_linear_y",
+      "pass": true,
+      "value": -0.042239999990139956,
+      "expected": -0.04224
+    },
+    {
+      "name": "air_12_150_reaction_angular_y",
+      "pass": true,
+      "value": -4.608000624946487e-05,
+      "expected": -4.608000000000004e-05
+    },
+    {
+      "name": "air_12_150_projection_linear_residual_y",
+      "pass": true,
+      "value": 0.0,
+      "expected": 0.0
+    },
+    {
+      "name": "air_12_150_projection_angular_residual_y",
+      "pass": true,
+      "value": 5.624298769768554e-19,
+      "expected": 0.0
+    },
+    {
+      "name": "air_12_150_reaction_linear_z",
+      "pass": true,
+      "value": 0.01920000001160672,
+      "expected": 0.019200000000000002
+    },
+    {
+      "name": "air_12_150_reaction_angular_z",
+      "pass": true,
+      "value": 9.215999000903381e-05,
+      "expected": 9.21599999999999e-05
+    },
+    {
+      "name": "air_12_150_projection_linear_residual_z",
+      "pass": true,
+      "value": -8.673617379884035e-18,
+      "expected": 0.0
+    },
+    {
+      "name": "air_12_150_projection_angular_residual_z",
+      "pass": true,
+      "value": -1.3010426069826053e-18,
+      "expected": 0.0
+    },
+    {
+      "name": "air_12_150_energy_telescope",
+      "pass": true,
+      "value": 2.710505431213761e-20,
+      "expected": 0.0
+    },
+    {
+      "name": "air_12_150_projection_dissipation_proxy",
+      "pass": true,
+      "value": -2.568079419243795e-05,
+      "expected": "<0"
+    },
+    {
+      "name": "air_12_150_open_linear_not_conserved",
+      "pass": true,
+      "value": 0.027831408924608086,
+      "expected": ">0.01"
+    },
+    {
+      "name": "air_12_150_open_angular_not_conserved",
+      "pass": true,
+      "value": 0.0016989867974418237,
+      "expected": ">0.001"
+    },
+    {
+      "name": "air_12_1200_mode",
+      "pass": true,
+      "value": "air",
+      "expected": "air"
+    },
+    {
+      "name": "air_12_1200_n",
+      "pass": true,
+      "value": 12,
+      "expected": 12
+    },
+    {
+      "name": "air_12_1200_offset",
+      "pass": true,
+      "value": 1200.0,
+      "expected": 1200.0
+    },
+    {
+      "name": "air_12_1200_divergence",
+      "pass": true,
+      "value": 9.219503555671371e-11,
+      "expected": "<2e-8"
+    },
+    {
+      "name": "air_12_1200_wetwet_count",
+      "pass": true,
+      "value": 1683,
+      "expected": 1683
+    },
+    {
+      "name": "air_12_1200_wetair_count",
+      "pass": true,
+      "value": 72,
+      "expected": 72
+    },
+    {
+      "name": "air_12_1200_reaction_linear_x",
+      "pass": true,
+      "value": 0.02688000058200294,
+      "expected": 0.026880000000000005
+    },
+    {
+      "name": "air_12_1200_reaction_angular_x",
+      "pass": true,
+      "value": -0.0001382399996936248,
+      "expected": -0.0001382399999999999
+    },
+    {
+      "name": "air_12_1200_projection_linear_residual_x",
+      "pass": true,
+      "value": -5.551115123125783e-17,
+      "expected": 0.0
+    },
+    {
+      "name": "air_12_1200_projection_angular_residual_x",
+      "pass": true,
+      "value": -6.505213034913027e-19,
+      "expected": 0.0
+    },
+    {
+      "name": "air_12_1200_reaction_linear_y",
+      "pass": true,
+      "value": -0.04223999999011914,
+      "expected": -0.04224
+    },
+    {
+      "name": "air_12_1200_reaction_angular_y",
+      "pass": true,
+      "value": -4.608000626259338e-05,
+      "expected": -4.608000000000004e-05
+    },
+    {
+      "name": "air_12_1200_projection_linear_residual_y",
+      "pass": true,
+      "value": -1.3877787807814457e-17,
+      "expected": 0.0
+    },
+    {
+      "name": "air_12_1200_projection_angular_residual_y",
+      "pass": true,
+      "value": 6.505213034913027e-19,
+      "expected": 0.0
+    },
+    {
+      "name": "air_12_1200_reaction_linear_z",
+      "pass": true,
+      "value": 0.019200000011630844,
+      "expected": 0.019200000000000002
+    },
+    {
+      "name": "air_12_1200_reaction_angular_z",
+      "pass": true,
+      "value": 9.215998998801784e-05,
+      "expected": 9.21599999999999e-05
+    },
+    {
+      "name": "air_12_1200_projection_linear_residual_z",
+      "pass": true,
+      "value": -5.204170427930421e-18,
+      "expected": 0.0
+    },
+    {
+      "name": "air_12_1200_projection_angular_residual_z",
+      "pass": true,
+      "value": 3.469446951953614e-18,
+      "expected": 0.0
+    },
+    {
+      "name": "air_12_1200_energy_telescope",
+      "pass": true,
+      "value": 9.486769009248164e-20,
+      "expected": 0.0
+    },
+    {
+      "name": "air_12_1200_projection_dissipation_proxy",
+      "pass": true,
+      "value": -2.5680794191473346e-05,
+      "expected": "<0"
+    },
+    {
+      "name": "air_12_1200_open_linear_not_conserved",
+      "pass": true,
+      "value": 0.027831408924996207,
+      "expected": ">0.01"
+    },
+    {
+      "name": "air_12_1200_open_angular_not_conserved",
+      "pass": true,
+      "value": 0.0016989867964979986,
+      "expected": ">0.001"
+    },
+    {
+      "name": "air_16_150_mode",
+      "pass": true,
+      "value": "air",
+      "expected": "air"
+    },
+    {
+      "name": "air_16_150_n",
+      "pass": true,
+      "value": 16,
+      "expected": 16
+    },
+    {
+      "name": "air_16_150_offset",
+      "pass": true,
+      "value": 150.0,
+      "expected": 150.0
+    },
+    {
+      "name": "air_16_150_divergence",
+      "pass": true,
+      "value": 9.30317057228968e-11,
+      "expected": "<2e-8"
+    },
+    {
+      "name": "air_16_150_wetwet_count",
+      "pass": true,
+      "value": 5567,
+      "expected": 5567
+    },
+    {
+      "name": "air_16_150_wetair_count",
+      "pass": true,
+      "value": 156,
+      "expected": 156
+    },
+    {
+      "name": "air_16_150_reaction_linear_x",
+      "pass": true,
+      "value": 0.026880000865366488,
+      "expected": 0.026880000000000005
+    },
+    {
+      "name": "air_16_150_reaction_angular_x",
+      "pass": true,
+      "value": -0.00013823999967084674,
+      "expected": -0.0001382399999999999
+    },
+    {
+      "name": "air_16_150_projection_linear_residual_x",
+      "pass": true,
+      "value": -2.0816681711721685e-17,
+      "expected": 0.0
+    },
+    {
+      "name": "air_16_150_projection_angular_residual_x",
+      "pass": true,
+      "value": 5.2583805365546965e-18,
+      "expected": 0.0
+    },
+    {
+      "name": "air_16_150_reaction_linear_y",
+      "pass": true,
+      "value": -0.042239999989029005,
+      "expected": -0.04224
+    },
+    {
+      "name": "air_16_150_reaction_angular_y",
+      "pass": true,
+      "value": -4.608000936801039e-05,
+      "expected": -4.608000000000004e-05
+    },
+    {
+      "name": "air_16_150_projection_linear_residual_y",
+      "pass": true,
+      "value": 3.469446951953614e-18,
+      "expected": 0.0
+    },
+    {
+      "name": "air_16_150_projection_angular_residual_y",
+      "pass": true,
+      "value": -3.767602549387128e-18,
+      "expected": 0.0
+    },
+    {
+      "name": "air_16_150_reaction_linear_z",
+      "pass": true,
+      "value": 0.019200000012264073,
+      "expected": 0.019200000000000002
+    },
+    {
+      "name": "air_16_150_reaction_angular_z",
+      "pass": true,
+      "value": 9.215998515442692e-05,
+      "expected": 9.21599999999999e-05
+    },
+    {
+      "name": "air_16_150_projection_linear_residual_z",
+      "pass": true,
+      "value": -3.469446951953614e-17,
+      "expected": 0.0
+    },
+    {
+      "name": "air_16_150_projection_angular_residual_z",
+      "pass": true,
+      "value": -1.0842021724855044e-17,
+      "expected": 0.0
+    },
+    {
+      "name": "air_16_150_energy_telescope",
+      "pass": true,
+      "value": -2.0328790734103208e-19,
+      "expected": 0.0
+    },
+    {
+      "name": "air_16_150_projection_dissipation_proxy",
+      "pass": true,
+      "value": -2.442818665567136e-05,
+      "expected": "<0"
+    },
+    {
+      "name": "air_16_150_open_linear_not_conserved",
+      "pass": true,
+      "value": 0.028681018893677187,
+      "expected": ">0.01"
+    },
+    {
+      "name": "air_16_150_open_angular_not_conserved",
+      "pass": true,
+      "value": 0.0019061981077901351,
+      "expected": ">0.001"
+    },
+    {
+      "name": "air_16_1200_mode",
+      "pass": true,
+      "value": "air",
+      "expected": "air"
+    },
+    {
+      "name": "air_16_1200_n",
+      "pass": true,
+      "value": 16,
+      "expected": 16
+    },
+    {
+      "name": "air_16_1200_offset",
+      "pass": true,
+      "value": 1200.0,
+      "expected": 1200.0
+    },
+    {
+      "name": "air_16_1200_divergence",
+      "pass": true,
+      "value": 9.303170663345722e-11,
+      "expected": "<2e-8"
+    },
+    {
+      "name": "air_16_1200_wetwet_count",
+      "pass": true,
+      "value": 5567,
+      "expected": 5567
+    },
+    {
+      "name": "air_16_1200_wetair_count",
+      "pass": true,
+      "value": 156,
+      "expected": 156
+    },
+    {
+      "name": "air_16_1200_reaction_linear_x",
+      "pass": true,
+      "value": 0.026880000868335724,
+      "expected": 0.026880000000000005
+    },
+    {
+      "name": "air_16_1200_reaction_angular_x",
+      "pass": true,
+      "value": -0.00013823999966972354,
+      "expected": -0.0001382399999999999
+    },
+    {
+      "name": "air_16_1200_projection_linear_residual_x",
+      "pass": true,
+      "value": 8.673617379884035e-17,
+      "expected": 0.0
+    },
+    {
+      "name": "air_16_1200_projection_angular_residual_x",
+      "pass": true,
+      "value": -3.2526065174565133e-19,
+      "expected": 0.0
+    },
+    {
+      "name": "air_16_1200_reaction_linear_y",
+      "pass": true,
+      "value": -0.04223999998899136,
+      "expected": -0.04224
+    },
+    {
+      "name": "air_16_1200_reaction_angular_y",
+      "pass": true,
+      "value": -4.608000940014797e-05,
+      "expected": -4.608000000000004e-05
+    },
+    {
+      "name": "air_16_1200_projection_linear_residual_y",
+      "pass": true,
+      "value": -3.122502256758253e-17,
+      "expected": 0.0
+    },
+    {
+      "name": "air_16_1200_projection_angular_residual_y",
+      "pass": true,
+      "value": 4.7704895589362195e-18,
+      "expected": 0.0
+    },
+    {
+      "name": "air_16_1200_reaction_linear_z",
+      "pass": true,
+      "value": 0.01920000001230604,
+      "expected": 0.019200000000000002
+    },
+    {
+      "name": "air_16_1200_reaction_angular_z",
+      "pass": true,
+      "value": 9.215998510348474e-05,
+      "expected": 9.21599999999999e-05
+    },
+    {
+      "name": "air_16_1200_projection_linear_residual_z",
+      "pass": true,
+      "value": 2.7755575615628914e-17,
+      "expected": 0.0
+    },
+    {
+      "name": "air_16_1200_projection_angular_residual_z",
+      "pass": true,
+      "value": 8.673617379884035e-19,
+      "expected": 0.0
+    },
+    {
+      "name": "air_16_1200_energy_telescope",
+      "pass": true,
+      "value": -2.303929616531697e-19,
+      "expected": 0.0
+    },
+    {
+      "name": "air_16_1200_projection_dissipation_proxy",
+      "pass": true,
+      "value": -2.4428186653193976e-05,
+      "expected": "<0"
+    },
+    {
+      "name": "air_16_1200_open_linear_not_conserved",
+      "pass": true,
+      "value": 0.02868101889606543,
+      "expected": ">0.01"
+    },
+    {
+      "name": "air_16_1200_open_angular_not_conserved",
+      "pass": true,
+      "value": 0.0019061981002592055,
+      "expected": ">0.001"
+    },
+    {
+      "name": "closed_8_150_mode",
+      "pass": true,
+      "value": "closed",
+      "expected": "closed"
+    },
+    {
+      "name": "closed_8_150_n",
+      "pass": true,
+      "value": 8,
+      "expected": 8
+    },
+    {
+      "name": "closed_8_150_offset",
+      "pass": true,
+      "value": 150.0,
+      "expected": 150.0
+    },
+    {
+      "name": "closed_8_150_divergence",
+      "pass": true,
+      "value": 8.467636449871821e-11,
+      "expected": "<2e-8"
+    },
+    {
+      "name": "closed_8_150_wetwet_count",
+      "pass": true,
+      "value": 250,
+      "expected": 250
+    },
+    {
+      "name": "closed_8_150_wetair_count",
+      "pass": true,
+      "value": 0,
+      "expected": 0
+    },
+    {
+      "name": "closed_8_150_reaction_linear_x",
+      "pass": true,
+      "value": 0.026879999823687398,
+      "expected": 0.026880000000000005
+    },
+    {
+      "name": "closed_8_150_reaction_angular_x",
+      "pass": true,
+      "value": -0.00013824000000282844,
+      "expected": -0.0001382399999999999
+    },
+    {
+      "name": "closed_8_150_projection_linear_residual_x",
+      "pass": true,
+      "value": -1.734723475976807e-17,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_8_150_projection_angular_residual_x",
+      "pass": true,
+      "value": -1.3010426069826053e-18,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_8_150_reaction_linear_y",
+      "pass": true,
+      "value": -0.042240000000113034,
+      "expected": -0.04224
+    },
+    {
+      "name": "closed_8_150_reaction_angular_y",
+      "pass": true,
+      "value": -4.607999803868616e-05,
+      "expected": -4.608000000000004e-05
+    },
+    {
+      "name": "closed_8_150_projection_linear_residual_y",
+      "pass": true,
+      "value": 1.3877787807814457e-17,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_8_150_projection_angular_residual_y",
+      "pass": true,
+      "value": -1.395910297075087e-18,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_8_150_reaction_linear_z",
+      "pass": true,
+      "value": 0.019199999999907014,
+      "expected": 0.019200000000000002
+    },
+    {
+      "name": "closed_8_150_reaction_angular_z",
+      "pass": true,
+      "value": 9.216000297671112e-05,
+      "expected": 9.21599999999999e-05
+    },
+    {
+      "name": "closed_8_150_projection_linear_residual_z",
+      "pass": true,
+      "value": -3.469446951953614e-18,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_8_150_projection_angular_residual_z",
+      "pass": true,
+      "value": 2.168404344971009e-19,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_8_150_energy_telescope",
+      "pass": true,
+      "value": 6.776263578034403e-21,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_8_150_projection_dissipation_proxy",
+      "pass": true,
+      "value": -5.252890777964062e-05,
+      "expected": "<0"
+    },
+    {
+      "name": "closed_8_150_closed_linear_reaction_cancelled_by_projection",
+      "pass": true,
+      "value": 0.04224000000024518,
+      "expected": "body impulse remains after projection"
+    },
+    {
+      "name": "closed_8_150_closed_angular_not_conserved",
+      "pass": true,
+      "value": 0.0013862905465540747,
+      "expected": ">0.001"
+    },
+    {
+      "name": "closed_8_1200_mode",
+      "pass": true,
+      "value": "closed",
+      "expected": "closed"
+    },
+    {
+      "name": "closed_8_1200_n",
+      "pass": true,
+      "value": 8,
+      "expected": 8
+    },
+    {
+      "name": "closed_8_1200_offset",
+      "pass": true,
+      "value": 1200.0,
+      "expected": 1200.0
+    },
+    {
+      "name": "closed_8_1200_divergence",
+      "pass": true,
+      "value": 8.467636449871821e-11,
+      "expected": "<2e-8"
+    },
+    {
+      "name": "closed_8_1200_wetwet_count",
+      "pass": true,
+      "value": 250,
+      "expected": 250
+    },
+    {
+      "name": "closed_8_1200_wetair_count",
+      "pass": true,
+      "value": 0,
+      "expected": 0
+    },
+    {
+      "name": "closed_8_1200_reaction_linear_x",
+      "pass": true,
+      "value": 0.026879999823687398,
+      "expected": 0.026880000000000005
+    },
+    {
+      "name": "closed_8_1200_reaction_angular_x",
+      "pass": true,
+      "value": -0.00013824000000282844,
+      "expected": -0.0001382399999999999
+    },
+    {
+      "name": "closed_8_1200_projection_linear_residual_x",
+      "pass": true,
+      "value": -1.734723475976807e-17,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_8_1200_projection_angular_residual_x",
+      "pass": true,
+      "value": -1.3010426069826053e-18,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_8_1200_reaction_linear_y",
+      "pass": true,
+      "value": -0.042240000000113034,
+      "expected": -0.04224
+    },
+    {
+      "name": "closed_8_1200_reaction_angular_y",
+      "pass": true,
+      "value": -4.607999803868616e-05,
+      "expected": -4.608000000000004e-05
+    },
+    {
+      "name": "closed_8_1200_projection_linear_residual_y",
+      "pass": true,
+      "value": 1.3877787807814457e-17,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_8_1200_projection_angular_residual_y",
+      "pass": true,
+      "value": -1.395910297075087e-18,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_8_1200_reaction_linear_z",
+      "pass": true,
+      "value": 0.019199999999907014,
+      "expected": 0.019200000000000002
+    },
+    {
+      "name": "closed_8_1200_reaction_angular_z",
+      "pass": true,
+      "value": 9.216000297671112e-05,
+      "expected": 9.21599999999999e-05
+    },
+    {
+      "name": "closed_8_1200_projection_linear_residual_z",
+      "pass": true,
+      "value": -3.469446951953614e-18,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_8_1200_projection_angular_residual_z",
+      "pass": true,
+      "value": 2.168404344971009e-19,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_8_1200_energy_telescope",
+      "pass": true,
+      "value": 6.776263578034403e-21,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_8_1200_projection_dissipation_proxy",
+      "pass": true,
+      "value": -5.252890777964062e-05,
+      "expected": "<0"
+    },
+    {
+      "name": "closed_8_1200_closed_linear_reaction_cancelled_by_projection",
+      "pass": true,
+      "value": 0.04224000000024518,
+      "expected": "body impulse remains after projection"
+    },
+    {
+      "name": "closed_8_1200_closed_angular_not_conserved",
+      "pass": true,
+      "value": 0.0013862905465540747,
+      "expected": ">0.001"
+    },
+    {
+      "name": "closed_12_150_mode",
+      "pass": true,
+      "value": "closed",
+      "expected": "closed"
+    },
+    {
+      "name": "closed_12_150_n",
+      "pass": true,
+      "value": 12,
+      "expected": 12
+    },
+    {
+      "name": "closed_12_150_offset",
+      "pass": true,
+      "value": 150.0,
+      "expected": 150.0
+    },
+    {
+      "name": "closed_12_150_divergence",
+      "pass": true,
+      "value": 9.033311102546536e-11,
+      "expected": "<2e-8"
+    },
+    {
+      "name": "closed_12_150_wetwet_count",
+      "pass": true,
+      "value": 1882,
+      "expected": 1882
+    },
+    {
+      "name": "closed_12_150_wetair_count",
+      "pass": true,
+      "value": 0,
+      "expected": 0
+    },
+    {
+      "name": "closed_12_150_reaction_linear_x",
+      "pass": true,
+      "value": 0.02687999962958642,
+      "expected": 0.026880000000000005
+    },
+    {
+      "name": "closed_12_150_reaction_angular_x",
+      "pass": true,
+      "value": -0.00013823999992938288,
+      "expected": -0.0001382399999999999
+    },
+    {
+      "name": "closed_12_150_projection_linear_residual_x",
+      "pass": true,
+      "value": -2.42861286636753e-17,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_12_150_projection_angular_residual_x",
+      "pass": true,
+      "value": 2.4936649967166602e-18,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_12_150_reaction_linear_y",
+      "pass": true,
+      "value": -0.04223999999365945,
+      "expected": -0.04224
+    },
+    {
+      "name": "closed_12_150_reaction_angular_y",
+      "pass": true,
+      "value": -4.6079995901971835e-05,
+      "expected": -4.608000000000004e-05
+    },
+    {
+      "name": "closed_12_150_projection_linear_residual_y",
+      "pass": true,
+      "value": 0.0,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_12_150_projection_angular_residual_y",
+      "pass": true,
+      "value": -4.472333961502706e-19,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_12_150_reaction_linear_z",
+      "pass": true,
+      "value": 0.019200000000023323,
+      "expected": 0.019200000000000002
+    },
+    {
+      "name": "closed_12_150_reaction_angular_z",
+      "pass": true,
+      "value": 9.216000619154478e-05,
+      "expected": 9.21599999999999e-05
+    },
+    {
+      "name": "closed_12_150_projection_linear_residual_z",
+      "pass": true,
+      "value": 0.0,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_12_150_projection_angular_residual_z",
+      "pass": true,
+      "value": -1.0842021724855044e-18,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_12_150_energy_telescope",
+      "pass": true,
+      "value": 1.6263032587282567e-19,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_12_150_projection_dissipation_proxy",
+      "pass": true,
+      "value": -2.7197842764320777e-05,
+      "expected": "<0"
+    },
+    {
+      "name": "closed_12_150_closed_linear_reaction_cancelled_by_projection",
+      "pass": true,
+      "value": 0.04223999992733177,
+      "expected": "body impulse remains after projection"
+    },
+    {
+      "name": "closed_12_150_closed_angular_not_conserved",
+      "pass": true,
+      "value": 0.0011510909444483618,
+      "expected": ">0.001"
+    },
+    {
+      "name": "closed_12_1200_mode",
+      "pass": true,
+      "value": "closed",
+      "expected": "closed"
+    },
+    {
+      "name": "closed_12_1200_n",
+      "pass": true,
+      "value": 12,
+      "expected": 12
+    },
+    {
+      "name": "closed_12_1200_offset",
+      "pass": true,
+      "value": 1200.0,
+      "expected": 1200.0
+    },
+    {
+      "name": "closed_12_1200_divergence",
+      "pass": true,
+      "value": 9.033311102546536e-11,
+      "expected": "<2e-8"
+    },
+    {
+      "name": "closed_12_1200_wetwet_count",
+      "pass": true,
+      "value": 1882,
+      "expected": 1882
+    },
+    {
+      "name": "closed_12_1200_wetair_count",
+      "pass": true,
+      "value": 0,
+      "expected": 0
+    },
+    {
+      "name": "closed_12_1200_reaction_linear_x",
+      "pass": true,
+      "value": 0.02687999962958642,
+      "expected": 0.026880000000000005
+    },
+    {
+      "name": "closed_12_1200_reaction_angular_x",
+      "pass": true,
+      "value": -0.00013823999992938288,
+      "expected": -0.0001382399999999999
+    },
+    {
+      "name": "closed_12_1200_projection_linear_residual_x",
+      "pass": true,
+      "value": -2.42861286636753e-17,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_12_1200_projection_angular_residual_x",
+      "pass": true,
+      "value": 2.4936649967166602e-18,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_12_1200_reaction_linear_y",
+      "pass": true,
+      "value": -0.04223999999365945,
+      "expected": -0.04224
+    },
+    {
+      "name": "closed_12_1200_reaction_angular_y",
+      "pass": true,
+      "value": -4.6079995901971835e-05,
+      "expected": -4.608000000000004e-05
+    },
+    {
+      "name": "closed_12_1200_projection_linear_residual_y",
+      "pass": true,
+      "value": 0.0,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_12_1200_projection_angular_residual_y",
+      "pass": true,
+      "value": -4.472333961502706e-19,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_12_1200_reaction_linear_z",
+      "pass": true,
+      "value": 0.019200000000023323,
+      "expected": 0.019200000000000002
+    },
+    {
+      "name": "closed_12_1200_reaction_angular_z",
+      "pass": true,
+      "value": 9.216000619154478e-05,
+      "expected": 9.21599999999999e-05
+    },
+    {
+      "name": "closed_12_1200_projection_linear_residual_z",
+      "pass": true,
+      "value": 0.0,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_12_1200_projection_angular_residual_z",
+      "pass": true,
+      "value": -1.0842021724855044e-18,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_12_1200_energy_telescope",
+      "pass": true,
+      "value": 1.6263032587282567e-19,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_12_1200_projection_dissipation_proxy",
+      "pass": true,
+      "value": -2.7197842764320777e-05,
+      "expected": "<0"
+    },
+    {
+      "name": "closed_12_1200_closed_linear_reaction_cancelled_by_projection",
+      "pass": true,
+      "value": 0.04223999992733177,
+      "expected": "body impulse remains after projection"
+    },
+    {
+      "name": "closed_12_1200_closed_angular_not_conserved",
+      "pass": true,
+      "value": 0.0011510909444483618,
+      "expected": ">0.001"
+    },
+    {
+      "name": "closed_16_150_mode",
+      "pass": true,
+      "value": "closed",
+      "expected": "closed"
+    },
+    {
+      "name": "closed_16_150_n",
+      "pass": true,
+      "value": 16,
+      "expected": 16
+    },
+    {
+      "name": "closed_16_150_offset",
+      "pass": true,
+      "value": 150.0,
+      "expected": 150.0
+    },
+    {
+      "name": "closed_16_150_divergence",
+      "pass": true,
+      "value": 9.075066610238555e-11,
+      "expected": "<2e-8"
+    },
+    {
+      "name": "closed_16_150_wetwet_count",
+      "pass": true,
+      "value": 6010,
+      "expected": 6010
+    },
+    {
+      "name": "closed_16_150_wetair_count",
+      "pass": true,
+      "value": 0,
+      "expected": 0
+    },
+    {
+      "name": "closed_16_150_reaction_linear_x",
+      "pass": true,
+      "value": 0.026879999432867452,
+      "expected": 0.026880000000000005
+    },
+    {
+      "name": "closed_16_150_reaction_angular_x",
+      "pass": true,
+      "value": -0.00013823999949426108,
+      "expected": -0.0001382399999999999
+    },
+    {
+      "name": "closed_16_150_projection_linear_residual_x",
+      "pass": true,
+      "value": -5.204170427930421e-17,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_16_150_projection_angular_residual_x",
+      "pass": true,
+      "value": -1.0408340855860843e-17,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_16_150_reaction_linear_y",
+      "pass": true,
+      "value": -0.04223999995365466,
+      "expected": -0.04224
+    },
+    {
+      "name": "closed_16_150_reaction_angular_y",
+      "pass": true,
+      "value": -4.607999374725788e-05,
+      "expected": -4.608000000000004e-05
+    },
+    {
+      "name": "closed_16_150_projection_linear_residual_y",
+      "pass": true,
+      "value": -2.7755575615628914e-17,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_16_150_projection_angular_residual_y",
+      "pass": true,
+      "value": 3.882799030213713e-18,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_16_150_reaction_linear_z",
+      "pass": true,
+      "value": 0.019199999999656724,
+      "expected": 0.019200000000000002
+    },
+    {
+      "name": "closed_16_150_reaction_angular_z",
+      "pass": true,
+      "value": 9.216000901825581e-05,
+      "expected": 9.21599999999999e-05
+    },
+    {
+      "name": "closed_16_150_projection_linear_residual_z",
+      "pass": true,
+      "value": -3.469446951953614e-17,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_16_150_projection_angular_residual_z",
+      "pass": true,
+      "value": 3.903127820947816e-18,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_16_150_energy_telescope",
+      "pass": true,
+      "value": 9.486769009248164e-20,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_16_150_projection_dissipation_proxy",
+      "pass": true,
+      "value": -2.4849626782437088e-05,
+      "expected": "<0"
+    },
+    {
+      "name": "closed_16_150_closed_linear_reaction_cancelled_by_projection",
+      "pass": true,
+      "value": 0.04223999887722014,
+      "expected": "body impulse remains after projection"
+    },
+    {
+      "name": "closed_16_150_closed_angular_not_conserved",
+      "pass": true,
+      "value": 0.0011005561043686972,
+      "expected": ">0.001"
+    },
+    {
+      "name": "closed_16_1200_mode",
+      "pass": true,
+      "value": "closed",
+      "expected": "closed"
+    },
+    {
+      "name": "closed_16_1200_n",
+      "pass": true,
+      "value": 16,
+      "expected": 16
+    },
+    {
+      "name": "closed_16_1200_offset",
+      "pass": true,
+      "value": 1200.0,
+      "expected": 1200.0
+    },
+    {
+      "name": "closed_16_1200_divergence",
+      "pass": true,
+      "value": 9.075066610238555e-11,
+      "expected": "<2e-8"
+    },
+    {
+      "name": "closed_16_1200_wetwet_count",
+      "pass": true,
+      "value": 6010,
+      "expected": 6010
+    },
+    {
+      "name": "closed_16_1200_wetair_count",
+      "pass": true,
+      "value": 0,
+      "expected": 0
+    },
+    {
+      "name": "closed_16_1200_reaction_linear_x",
+      "pass": true,
+      "value": 0.026879999432867452,
+      "expected": 0.026880000000000005
+    },
+    {
+      "name": "closed_16_1200_reaction_angular_x",
+      "pass": true,
+      "value": -0.00013823999949426108,
+      "expected": -0.0001382399999999999
+    },
+    {
+      "name": "closed_16_1200_projection_linear_residual_x",
+      "pass": true,
+      "value": -5.204170427930421e-17,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_16_1200_projection_angular_residual_x",
+      "pass": true,
+      "value": -1.0408340855860843e-17,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_16_1200_reaction_linear_y",
+      "pass": true,
+      "value": -0.04223999995365466,
+      "expected": -0.04224
+    },
+    {
+      "name": "closed_16_1200_reaction_angular_y",
+      "pass": true,
+      "value": -4.607999374725788e-05,
+      "expected": -4.608000000000004e-05
+    },
+    {
+      "name": "closed_16_1200_projection_linear_residual_y",
+      "pass": true,
+      "value": -2.7755575615628914e-17,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_16_1200_projection_angular_residual_y",
+      "pass": true,
+      "value": 3.882799030213713e-18,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_16_1200_reaction_linear_z",
+      "pass": true,
+      "value": 0.019199999999656724,
+      "expected": 0.019200000000000002
+    },
+    {
+      "name": "closed_16_1200_reaction_angular_z",
+      "pass": true,
+      "value": 9.216000901825581e-05,
+      "expected": 9.21599999999999e-05
+    },
+    {
+      "name": "closed_16_1200_projection_linear_residual_z",
+      "pass": true,
+      "value": -3.469446951953614e-17,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_16_1200_projection_angular_residual_z",
+      "pass": true,
+      "value": 3.903127820947816e-18,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_16_1200_energy_telescope",
+      "pass": true,
+      "value": 9.486769009248164e-20,
+      "expected": 0.0
+    },
+    {
+      "name": "closed_16_1200_projection_dissipation_proxy",
+      "pass": true,
+      "value": -2.4849626782437088e-05,
+      "expected": "<0"
+    },
+    {
+      "name": "closed_16_1200_closed_linear_reaction_cancelled_by_projection",
+      "pass": true,
+      "value": 0.04223999887722014,
+      "expected": "body impulse remains after projection"
+    },
+    {
+      "name": "closed_16_1200_closed_angular_not_conserved",
+      "pass": true,
+      "value": 0.0011005561043686972,
+      "expected": ">0.001"
+    },
+    {
+      "name": "air_8_gauge_invariance",
+      "pass": true,
+      "value": 2.6628213523061106e-12,
+      "expected": "<1e-5 and face counts equal"
+    },
+    {
+      "name": "air_12_gauge_invariance",
+      "pass": true,
+      "value": 1.6026829169346613e-11,
+      "expected": "<1e-5 and face counts equal"
+    },
+    {
+      "name": "air_16_gauge_invariance",
+      "pass": true,
+      "value": 1.2974421884082155e-10,
+      "expected": "<1e-5 and face counts equal"
+    },
+    {
+      "name": "closed_8_gauge_invariance",
+      "pass": true,
+      "value": 0.0,
+      "expected": "<1e-5 and face counts equal"
+    },
+    {
+      "name": "closed_12_gauge_invariance",
+      "pass": true,
+      "value": 0.0,
+      "expected": "<1e-5 and face counts equal"
+    },
+    {
+      "name": "closed_16_gauge_invariance",
+      "pass": true,
+      "value": 0.0,
+      "expected": "<1e-5 and face counts equal"
+    },
+    {
+      "name": "full_ctest_46",
+      "pass": true,
+      "value": "46/46",
+      "expected": "46/46"
+    }
+  ],
+  "source_sha256": {
+    "include/upc/mac3d.hpp": "9bb4659c5b6e6fd3a512301ae4a3a083fa96b1e67d50363ec8f5634e1038fdc5",
+    "include/upc/static_pressure_load3d.hpp": "a3c32e9ed62318250eee7e51123da22e0013a635eda9cff29f58002415d06438",
+    "include/upc/rigid_pressure_response3d.hpp": "41282862ecf047ab9cf7c27ebea34314f049658e03bb3bbd4533609a0f41afe1",
+    "include/upc/pressure_wrench_reaction3d.hpp": "84bc1d0f0cbf446153bb92c3ff04db65ed607af0ba39753ce506ebd40aee2737",
+    "include/upc/post_projection_wrench_audit3d.hpp": "4bcc316bd0810037f4c29e78ca28c674a4d26f1e9392aa0ac03608288dc4093f",
+    "tests/p2_post_projection_wrench_audit3d_tests.cpp": "38558283b7bd759341918006741c0e24fe57f05dfda1a625875defaaa6a39d01",
+    "scripts/p2_post_projection_audit_acceptance.py": "24fee8c91fcbd4f6c7bdbec0eac303ba09d55a3e09d347ccf5e406eb80af114c",
+    "docs/P2_POST_PROJECTION_WRENCH_AUDIT_PARTIAL.md": "cf62b1e409dd51bac49bb8610f82509cb0b84c9fdbcd6269ab239dfe7a25545f",
+    "docs/PHASENPLAN.md": "f8288d58c9b98b40f068c514e050c5e431e0046199380693beb3067a2c792485",
+    "CMakeLists.txt": "0097000091fb47896609a8ddc05f8c6bd3d3f8563c9067add5d7c74b12e1ba24"
+  },
+  "binary_sha256": "033af94f6923c73e79b0030b616d5f6d82f49048f0551c70d60c46a2c9dac967",
+  "ctest_log_path": "D:\\Projekt Engine\\ENGINE TEST STUBE\\runs\\p2_post_projection_audit_ctest_20261027.txt",
+  "ctest_log_sha256": "1d63daea6a50db3fa872e975e5d73f560260b6c74abf126cb16403b86f9e1238",
+  "limitation": "Post-projection body+face momentum and torque do NOT generally close; staggered-face proxies only, fixed body occupancy, no physical FSI conservation, external CFD measurement, moving free surface stress or UE5.8 Native E2E."
+}

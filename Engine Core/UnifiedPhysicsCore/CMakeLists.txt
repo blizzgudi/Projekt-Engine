@@ -215,3 +215,9 @@ add_test(NAME physics_p2_applied_fluid_face_reaction_partial COMMAND upc_p2_pres
 add_executable(upc_p2_pressure_wrench_reaction_tests tests/p2_pressure_wrench_reaction3d_tests.cpp)
 target_link_libraries(upc_p2_pressure_wrench_reaction_tests PRIVATE upc)
 add_test(NAME physics_p2_applied_six_component_face_wrench_partial COMMAND upc_p2_pressure_wrench_reaction_tests)
+
+# P2 partial: read-only face impulse/torque/energy audit AFTER a second
+# pressure projection, including wet-air faces. NOT global FSI conservation.
+add_executable(upc_p2_post_projection_audit_tests tests/p2_post_projection_wrench_audit3d_tests.cpp)
+target_link_libraries(upc_p2_post_projection_audit_tests PRIVATE upc)
+add_test(NAME physics_p2_post_projection_wrench_audit_partial COMMAND upc_p2_post_projection_audit_tests)

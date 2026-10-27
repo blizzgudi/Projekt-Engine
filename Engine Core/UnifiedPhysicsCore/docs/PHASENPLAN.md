@@ -379,3 +379,29 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
   Reprojektion; feste Koerpermaske, keine vollstaendige dynamische
   FSI-Energie-/Impulserhaltung, keine externen 3D-CFD-Referenzen,
   keine erneute UE5.8-Native-E2E-Abnahme.
+
+## P2 Teilfortschritt: Messung der Wrench-Residuen nach MAC-Reprojektion (27.10.2026)
+
+- Neue read-only-Diagnose FrozenMacPostProjectionAudit3D erfasst
+  echte Geschwindigkeitsaenderungen an allen internen wet-wet- und
+  wet-air-Faces fuer Gegenimpuls, zweite Druckprojektion und Gesamtschritt.
+  Lineare/angularen Impulsproxies, Face-Energie und Divergenz werden
+  getrennt ausgewiesen. Keine Solver-Aenderung, keine Maske bewegt.
+- 12 echte 3D-MAC-Szenarien (3 Gitter, 2 Grenztypen, 2 Druck-Offsets)
+  mit analytischem Druckgradienten und sechsachsiger Koerperreaktion.
+  Unabhaengige Face-Summation und Teleskopgleichungen geprueft.
+- **Wichtiger negativer Befund:** Bei n=8 mit offener Wasser-Luft-Grenze
+  bleibt nach Reprojektion ein Koerper-plus-Face-Linearresiduum von
+  (-0.026880,+0.0234773,-0.0129658) Ns. Bei geschlossener Geometrie
+  hebt die Projektion den angewandten linearen Fluid-Gegenimpuls fast
+  vollstaendig wieder auf: Koerper-plus-Face-Linearresiduum bleibt
+  (-0.026880,+0.0422400,-0.0192000) Ns; auch das Drehmomentresiduum
+  bleibt (-0.0005984,+0.00004608,+0.0013863) Nms.
+  Divergenz nach Projektion <9.31e-11 1/s.
+- Dokumentation: docs/P2_POST_PROJECTION_WRENCH_AUDIT_PARTIAL.md;
+  Gate: scripts/p2_post_projection_audit_acceptance.py;
+  Report: ENGINE TEST STUBE/runs/p2_post_projection_audit_partial.json.
+- **P2 weiterhin PARTIAL; P3-P8 offen.** Reprojektion ist keine
+  nachgewiesene konservative bewegliche FSI-Kopplung. Externe 3D-
+  Messreferenzen, physikalische Gesamtenergie, stresskonsistente
+  freie Oberflaechen und UE5.8-Native-E2E bleiben offen.
