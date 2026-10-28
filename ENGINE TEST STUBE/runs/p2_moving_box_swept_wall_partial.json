@@ -1,0 +1,535 @@
+{
+  "phase": "P2",
+  "milestone": "translating_box_exact_swept_solid_mac_gcl_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "accepted": false,
+  "full_ctest_suites": 59,
+  "native_assertions": 1816807,
+  "independent_numerical_checks": 72,
+  "checks": [
+    {
+      "name": "axis_(8, 0, -1)_near",
+      "actual": -0.75,
+      "expected": -0.75,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "axis_(8, 0, -1)_far",
+      "actual": -0.25,
+      "expected": -0.25,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "axis_(8, 0, -1)_gcl",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "axis_(8, 0, 1)_near",
+      "actual": 0.75,
+      "expected": 0.75,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "axis_(8, 0, 1)_far",
+      "actual": 0.25,
+      "expected": 0.25,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "axis_(8, 0, 1)_gcl",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "diagonal_(8, 0)_polynomial",
+      "actual": 0.3515625,
+      "expected": 0.3515625,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "diagonal_(8, 0)_gcl",
+      "actual": 1.1102230246251565e-16,
+      "expected": 0.0,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "axis_(8, 1, -1)_near",
+      "actual": -0.75,
+      "expected": -0.75,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "axis_(8, 1, -1)_far",
+      "actual": -0.25,
+      "expected": -0.25,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "axis_(8, 1, -1)_gcl",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "axis_(8, 1, 1)_near",
+      "actual": 0.75,
+      "expected": 0.75,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "axis_(8, 1, 1)_far",
+      "actual": 0.25,
+      "expected": 0.25,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "axis_(8, 1, 1)_gcl",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "diagonal_(8, 1)_polynomial",
+      "actual": 0.3515625,
+      "expected": 0.3515625,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "diagonal_(8, 1)_gcl",
+      "actual": 1.1102230246251565e-16,
+      "expected": 0.0,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "axis_(8, 2, -1)_near",
+      "actual": -0.75,
+      "expected": -0.75,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "axis_(8, 2, -1)_far",
+      "actual": -0.25,
+      "expected": -0.25,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "axis_(8, 2, -1)_gcl",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "axis_(8, 2, 1)_near",
+      "actual": 0.75,
+      "expected": 0.75,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "axis_(8, 2, 1)_far",
+      "actual": 0.25,
+      "expected": 0.25,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "axis_(8, 2, 1)_gcl",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "diagonal_(8, 2)_polynomial",
+      "actual": 0.3515625,
+      "expected": 0.3515625,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "diagonal_(8, 2)_gcl",
+      "actual": 1.1102230246251565e-16,
+      "expected": 0.0,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "axis_(12, 0, -1)_near",
+      "actual": -0.75,
+      "expected": -0.75,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "axis_(12, 0, -1)_far",
+      "actual": -0.25,
+      "expected": -0.25,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "axis_(12, 0, -1)_gcl",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "axis_(12, 0, 1)_near",
+      "actual": 0.75,
+      "expected": 0.75,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "axis_(12, 0, 1)_far",
+      "actual": 0.25,
+      "expected": 0.25,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "axis_(12, 0, 1)_gcl",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "diagonal_(12, 0)_polynomial",
+      "actual": 0.3515625,
+      "expected": 0.3515625,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "diagonal_(12, 0)_gcl",
+      "actual": 1.1102230246251565e-16,
+      "expected": 0.0,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "axis_(12, 1, -1)_near",
+      "actual": -0.75,
+      "expected": -0.75,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "axis_(12, 1, -1)_far",
+      "actual": -0.25,
+      "expected": -0.25,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "axis_(12, 1, -1)_gcl",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "axis_(12, 1, 1)_near",
+      "actual": 0.75,
+      "expected": 0.75,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "axis_(12, 1, 1)_far",
+      "actual": 0.25,
+      "expected": 0.25,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "axis_(12, 1, 1)_gcl",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "diagonal_(12, 1)_polynomial",
+      "actual": 0.3515625,
+      "expected": 0.3515625,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "diagonal_(12, 1)_gcl",
+      "actual": 1.1102230246251565e-16,
+      "expected": 0.0,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "axis_(12, 2, -1)_near",
+      "actual": -0.75,
+      "expected": -0.75,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "axis_(12, 2, -1)_far",
+      "actual": -0.25,
+      "expected": -0.25,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "axis_(12, 2, -1)_gcl",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "axis_(12, 2, 1)_near",
+      "actual": 0.75,
+      "expected": 0.75,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "axis_(12, 2, 1)_far",
+      "actual": 0.25,
+      "expected": 0.25,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "axis_(12, 2, 1)_gcl",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "diagonal_(12, 2)_polynomial",
+      "actual": 0.3515625,
+      "expected": 0.3515625,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "diagonal_(12, 2)_gcl",
+      "actual": 1.1102230246251565e-16,
+      "expected": 0.0,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "axis_(16, 0, -1)_near",
+      "actual": -0.75,
+      "expected": -0.75,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "axis_(16, 0, -1)_far",
+      "actual": -0.25,
+      "expected": -0.25,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "axis_(16, 0, -1)_gcl",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "axis_(16, 0, 1)_near",
+      "actual": 0.75,
+      "expected": 0.75,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "axis_(16, 0, 1)_far",
+      "actual": 0.25,
+      "expected": 0.25,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "axis_(16, 0, 1)_gcl",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "diagonal_(16, 0)_polynomial",
+      "actual": 0.3515625,
+      "expected": 0.3515625,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "diagonal_(16, 0)_gcl",
+      "actual": 1.1102230246251565e-16,
+      "expected": 0.0,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "axis_(16, 1, -1)_near",
+      "actual": -0.75,
+      "expected": -0.75,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "axis_(16, 1, -1)_far",
+      "actual": -0.25,
+      "expected": -0.25,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "axis_(16, 1, -1)_gcl",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "axis_(16, 1, 1)_near",
+      "actual": 0.75,
+      "expected": 0.75,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "axis_(16, 1, 1)_far",
+      "actual": 0.25,
+      "expected": 0.25,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "axis_(16, 1, 1)_gcl",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "diagonal_(16, 1)_polynomial",
+      "actual": 0.3515625,
+      "expected": 0.3515625,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "diagonal_(16, 1)_gcl",
+      "actual": 1.1102230246251565e-16,
+      "expected": 0.0,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "axis_(16, 2, -1)_near",
+      "actual": -0.75,
+      "expected": -0.75,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "axis_(16, 2, -1)_far",
+      "actual": -0.25,
+      "expected": -0.25,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "axis_(16, 2, -1)_gcl",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "axis_(16, 2, 1)_near",
+      "actual": 0.75,
+      "expected": 0.75,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "axis_(16, 2, 1)_far",
+      "actual": 0.25,
+      "expected": 0.25,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "axis_(16, 2, 1)_gcl",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "diagonal_(16, 2)_polynomial",
+      "actual": 0.3515625,
+      "expected": 0.3515625,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "diagonal_(16, 2)_gcl",
+      "actual": 1.1102230246251565e-16,
+      "expected": 0.0,
+      "tolerance": 2e-12,
+      "pass": true
+    }
+  ],
+  "native_stdout": "axis,8,0,-1,-0.75,-0.25,0\naxis,8,0,1,0.75,0.25,0\ndiagonal,8,0,0.3515625,1.1102230246251565e-16\naxis,8,1,-1,-0.75,-0.25,0\naxis,8,1,1,0.75,0.25,0\ndiagonal,8,1,0.3515625,1.1102230246251565e-16\naxis,8,2,-1,-0.75,-0.25,0\naxis,8,2,1,0.75,0.25,0\ndiagonal,8,2,0.3515625,1.1102230246251565e-16\naxis,12,0,-1,-0.75,-0.25,0\naxis,12,0,1,0.75,0.25,0\ndiagonal,12,0,0.3515625,1.1102230246251565e-16\naxis,12,1,-1,-0.75,-0.25,0\naxis,12,1,1,0.75,0.25,0\ndiagonal,12,1,0.3515625,1.1102230246251565e-16\naxis,12,2,-1,-0.75,-0.25,0\naxis,12,2,1,0.75,0.25,0\ndiagonal,12,2,0.3515625,1.1102230246251565e-16\naxis,16,0,-1,-0.75,-0.25,0\naxis,16,0,1,0.75,0.25,0\ndiagonal,16,0,0.3515625,1.1102230246251565e-16\naxis,16,1,-1,-0.75,-0.25,0\naxis,16,1,1,0.75,0.25,0\ndiagonal,16,1,0.3515625,1.1102230246251565e-16\naxis,16,2,-1,-0.75,-0.25,0\naxis,16,2,1,0.75,0.25,0\ndiagonal,16,2,0.3515625,1.1102230246251565e-16\nPASS: moving-box swept-wall GCL assertions=1816807 phase_complete=false\n",
+  "ctest_log_sha256": "093f51c682dee559335337b0faf53a5278e5cb9ada7f17d467bbd0fbab944195",
+  "source_sha256": {
+    "include/upc/p2_moving_box_open_volume3d.hpp": "270ecc419fa312212e47dbcfbd7fa8f2b172fde153b6d66e19f226be5cbedbb2",
+    "include/upc/p2_moving_box_mac_apertures3d.hpp": "c5fbdae598166771f6a28359c31960178239d3a59e0ccbb60f89f47b38f29ad3",
+    "include/upc/p2_moving_box_swept_wall_flux3d.hpp": "80d299136f57df0b479d598468c39bf67675524942557701f99b40fe897a656e",
+    "tests/p2_moving_box_swept_wall_flux3d_tests.cpp": "2f8c8d3c560b9987b8ed944fbcc288583daaefa2afbdd78916fa48370ed7e2f7",
+    "scripts/p2_moving_box_swept_wall_acceptance.py": "53c87ffe7b18a44bc9ca2347d1508714e29d3f44de39cd01218d3caf7fa428c5",
+    "docs/P2_MOVING_BOX_SWEPT_WALL_GCL_PARTIAL.md": "77269e7e49638b8bb13f0b8880667c0bdba74915a322298b97b5e1ecaf1ec6a9",
+    "docs/PHASENPLAN.md": "e698ab2cac1d94c7f44d845a4521cdca57c1bbdb3cddeafbad4cc7c70a9660fb",
+    "CMakeLists.txt": "94b3ff114b0003ce4cb0df5223ee00488e2411ddc213b04a72bf108f24c2f479"
+  },
+  "generated_utc": "2026-10-28T03:43:08.537001+00:00",
+  "limitations": [
+    "Signed swept solid volume is a geometric source, not fluid MAC flux",
+    "No cut-cell pressure projection, VOF positivity or dynamic FSI",
+    "Axis-aligned linear translation only, no rotation/deformation",
+    "No independent measured 3D CFD or new UE5.8 Native-E2E"
+  ]
+}

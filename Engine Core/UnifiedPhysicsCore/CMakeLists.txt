@@ -294,3 +294,9 @@ add_test(NAME physics_p2_moving_box_cut_cell_geometry_partial COMMAND upc_p2_mov
 add_executable(upc_p2_moving_box_apertures_tests tests/p2_moving_box_mac_apertures3d_tests.cpp)
 target_link_libraries(upc_p2_moving_box_apertures_tests PRIVATE upc)
 add_test(NAME physics_p2_moving_box_mac_face_apertures_partial COMMAND upc_p2_moving_box_apertures_tests)
+
+# P2 partial: signed time-integrated geometric solid wall flux on 3D MAC
+# faces with local cut-cell GCL, NOT pressure/VOF/impulse/FSI closure.
+add_executable(upc_p2_moving_box_swept_wall_flux_tests tests/p2_moving_box_swept_wall_flux3d_tests.cpp)
+target_link_libraries(upc_p2_moving_box_swept_wall_flux_tests PRIVATE upc)
+add_test(NAME physics_p2_moving_box_swept_wall_gcl_partial COMMAND upc_p2_moving_box_swept_wall_flux_tests)

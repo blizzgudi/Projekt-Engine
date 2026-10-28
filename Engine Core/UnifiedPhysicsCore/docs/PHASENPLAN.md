@@ -636,3 +636,27 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
   neues UE5.8-Native-E2E bleiben offen. Naechster P2-Schritt:
   Aperturen mit bewegter Wandgeschwindigkeit in einen
   konservativen Cut-Cell-Kontinuitaets-/Druckoperator integrieren.
+
+## P2 Teilfortschritt: geometrischer bewegter 3D-Wand-Sweep und lokale GCL (28.10.2026)
+
+- Neuer optionaler `P2MovingBoxSweptWallFlux3DBuilder` erzeugt aus
+  exakten zeitgemittelten MAC-Face-Blockierungen und konstanter
+  Starrkoerper-Translation die **signierten geometrischen
+  Festkoerper-Sweep-Volumina** pro Face. Er verifiziert je Zelle
+  `(alpha_new-alpha_old)*dx^3 = div(Q_solid)` und die
+  geschlossene Gesamt-/Aussenrand-Volumenbilanz.
+- MSVC Release, **59/59 CTest PASS**, **1.816.807 native Assertions**,
+  **72/72 unabhaengige analytische Python-Pruefungen** auf 8^3,
+  12^3 und 16^3, allen Achsen und beiden Richtungen. Referenzen:
+  signierte 3/4- und 1/4-m^3-Sweeps sowie diagonales 45/128-m^3-
+  Face-Integral, Zeitumkehr und stationaere/ungueltige Geometrie.
+- Nachweis: `docs/P2_MOVING_BOX_SWEPT_WALL_GCL_PARTIAL.md`,
+  `scripts/p2_moving_box_swept_wall_acceptance.py`,
+  `ENGINE TEST STUBE/runs/p2_moving_box_swept_wall_partial.json`,
+  `ENGINE TEST STUBE/runs/p2_swept_wall_full_ctest_20261028.txt`.
+- **P2 bleibt PARTIAL; P3-P8 bleiben offen.** Dies sind reine
+  geometrische Festkoerper-Sweep-Volumina, noch keine
+  physikalischen Fluessigkeitsfluesse. Die Integration in
+  fraktionale VOF-/MAC-Kontinuitaet und Cut-Cell-Druckprojektion,
+  bidirektionaler Impuls, Gesamtenergie, externe 3D-CFD-Messung
+  und neues UE5.8-Native-E2E stehen aus.
