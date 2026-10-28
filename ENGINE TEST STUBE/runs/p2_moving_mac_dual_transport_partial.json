@@ -1,0 +1,6405 @@
+{
+  "phase": "P2",
+  "milestone": "moving_mac_dual_conservative_transport",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "ctest_suites": 72,
+  "native_assertions": 459472,
+  "checks": [
+    {
+      "name": "full CTest 72/72",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "new dual transport in CTest",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "native checks >= 400000",
+      "pass": true,
+      "detail": 459472
+    },
+    {
+      "name": "216 dual transport cases",
+      "pass": true,
+      "detail": 216
+    },
+    {
+      "name": "unique (8, 0, -1, 0.25, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (8, 0, -1, 0.25, 0, 0)",
+      "pass": true,
+      "detail": {
+        "integral_error": 3.552713678800501e-14,
+        "gcl": 8.162359677044151e-13,
+        "cfl": 0.6428571428566757,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 0, -1, 0.25, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (8, 0, -1, 0.25, 0, 1)",
+      "pass": true,
+      "detail": {
+        "integral_error": 8.526512829121202e-14,
+        "gcl": 8.162359677044151e-13,
+        "cfl": 0.6428571428566757,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 0, -1, 0.25, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (8, 0, -1, 0.25, 0, 2)",
+      "pass": true,
+      "detail": {
+        "integral_error": 5.684341886080802e-14,
+        "gcl": 8.162359677044151e-13,
+        "cfl": 0.6428571428566757,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 0, -1, 0.25, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (8, 0, -1, 0.25, 1, 0)",
+      "pass": true,
+      "detail": {
+        "integral_error": 2.1316282072803006e-14,
+        "gcl": 9.490186414495838e-13,
+        "cfl": 0.2980132450335187,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 0, -1, 0.25, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (8, 0, -1, 0.25, 1, 1)",
+      "pass": true,
+      "detail": {
+        "integral_error": 1.4210854715202004e-13,
+        "gcl": 9.490186414495838e-13,
+        "cfl": 0.2980132450335187,
+        "active": 1167
+      }
+    },
+    {
+      "name": "unique (8, 0, -1, 0.25, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (8, 0, -1, 0.25, 1, 2)",
+      "pass": true,
+      "detail": {
+        "integral_error": 8.526512829121202e-14,
+        "gcl": 9.490186414495838e-13,
+        "cfl": 0.2980132450335187,
+        "active": 1167
+      }
+    },
+    {
+      "name": "unique (8, 0, -1, 0.5, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (8, 0, -1, 0.5, 0, 0)",
+      "pass": true,
+      "detail": {
+        "integral_error": 1.4210854715202004e-14,
+        "gcl": 9.811040868612508e-13,
+        "cfl": 0.6428571428567206,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 0, -1, 0.5, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (8, 0, -1, 0.5, 0, 1)",
+      "pass": true,
+      "detail": {
+        "integral_error": 4.263256414560601e-14,
+        "gcl": 9.811040868612508e-13,
+        "cfl": 0.6428571428567206,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 0, -1, 0.5, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (8, 0, -1, 0.5, 0, 2)",
+      "pass": true,
+      "detail": {
+        "integral_error": 2.842170943040401e-14,
+        "gcl": 9.811040868612508e-13,
+        "cfl": 0.6428571428567206,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 0, -1, 0.5, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (8, 0, -1, 0.5, 1, 0)",
+      "pass": true,
+      "detail": {
+        "integral_error": 2.842170943040401e-14,
+        "gcl": 9.741096818061123e-13,
+        "cfl": 0.6164383561645934,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 0, -1, 0.5, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (8, 0, -1, 0.5, 1, 1)",
+      "pass": true,
+      "detail": {
+        "integral_error": 8.526512829121202e-14,
+        "gcl": 9.741096818061123e-13,
+        "cfl": 0.6164383561645934,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 0, -1, 0.5, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (8, 0, -1, 0.5, 1, 2)",
+      "pass": true,
+      "detail": {
+        "integral_error": 8.526512829121202e-14,
+        "gcl": 9.741096818061123e-13,
+        "cfl": 0.6164383561645934,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 0, 1, 0.25, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (8, 0, 1, 0.25, 0, 0)",
+      "pass": true,
+      "detail": {
+        "integral_error": 7.815970093361102e-14,
+        "gcl": 6.841194277740215e-13,
+        "cfl": 0.6081081081085539,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 0, 1, 0.25, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (8, 0, 1, 0.25, 0, 1)",
+      "pass": true,
+      "detail": {
+        "integral_error": 7.105427357601002e-14,
+        "gcl": 6.841194277740215e-13,
+        "cfl": 0.6081081081085539,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 0, 1, 0.25, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (8, 0, 1, 0.25, 0, 2)",
+      "pass": true,
+      "detail": {
+        "integral_error": 1.4210854715202004e-13,
+        "gcl": 6.841194277740215e-13,
+        "cfl": 0.6081081081085539,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 0, 1, 0.25, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (8, 0, 1, 0.25, 1, 0)",
+      "pass": true,
+      "detail": {
+        "integral_error": 2.1316282072803006e-14,
+        "gcl": 9.985345883478658e-13,
+        "cfl": 0.36758543376696556,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 0, 1, 0.25, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (8, 0, 1, 0.25, 1, 1)",
+      "pass": true,
+      "detail": {
+        "integral_error": 9.947598300641403e-14,
+        "gcl": 9.985345883478658e-13,
+        "cfl": 0.36758543376696556,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 0, 1, 0.25, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (8, 0, 1, 0.25, 1, 2)",
+      "pass": true,
+      "detail": {
+        "integral_error": 8.526512829121202e-14,
+        "gcl": 9.985345883478658e-13,
+        "cfl": 0.36758543376696556,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 0, 1, 0.5, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (8, 0, 1, 0.5, 0, 0)",
+      "pass": true,
+      "detail": {
+        "integral_error": 4.263256414560601e-14,
+        "gcl": 9.0427665355719e-13,
+        "cfl": 0.7297297297294039,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 0, 1, 0.5, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (8, 0, 1, 0.5, 0, 1)",
+      "pass": true,
+      "detail": {
+        "integral_error": 5.684341886080802e-14,
+        "gcl": 9.0427665355719e-13,
+        "cfl": 0.7297297297294039,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 0, 1, 0.5, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (8, 0, 1, 0.5, 0, 2)",
+      "pass": true,
+      "detail": {
+        "integral_error": 2.842170943040401e-14,
+        "gcl": 9.0427665355719e-13,
+        "cfl": 0.7297297297294039,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 0, 1, 0.5, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (8, 0, 1, 0.5, 1, 0)",
+      "pass": true,
+      "detail": {
+        "integral_error": 0.0,
+        "gcl": 8.497647030480948e-13,
+        "cfl": 0.5487804878050817,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 0, 1, 0.5, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (8, 0, 1, 0.5, 1, 1)",
+      "pass": true,
+      "detail": {
+        "integral_error": 2.842170943040401e-14,
+        "gcl": 8.497647030480948e-13,
+        "cfl": 0.5487804878050817,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 0, 1, 0.5, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (8, 0, 1, 0.5, 1, 2)",
+      "pass": true,
+      "detail": {
+        "integral_error": 2.842170943040401e-14,
+        "gcl": 8.497647030480948e-13,
+        "cfl": 0.5487804878050817,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 1, -1, 0.25, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (8, 1, -1, 0.25, 0, 0)",
+      "pass": true,
+      "detail": {
+        "integral_error": 0.0,
+        "gcl": 6.001865671123596e-13,
+        "cfl": 0.29299333305360736,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 1, -1, 0.25, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (8, 1, -1, 0.25, 0, 1)",
+      "pass": true,
+      "detail": {
+        "integral_error": 5.684341886080802e-14,
+        "gcl": 6.001865671123596e-13,
+        "cfl": 0.29299333305360736,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 1, -1, 0.25, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (8, 1, -1, 0.25, 0, 2)",
+      "pass": true,
+      "detail": {
+        "integral_error": 0.0,
+        "gcl": 6.001865671123596e-13,
+        "cfl": 0.29299333305360736,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 1, -1, 0.25, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (8, 1, -1, 0.25, 1, 0)",
+      "pass": true,
+      "detail": {
+        "integral_error": 4.263256414560601e-14,
+        "gcl": 9.541256673628595e-13,
+        "cfl": 0.2739726027393553,
+        "active": 1167
+      }
+    },
+    {
+      "name": "unique (8, 1, -1, 0.25, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (8, 1, -1, 0.25, 1, 1)",
+      "pass": true,
+      "detail": {
+        "integral_error": 7.105427357601002e-14,
+        "gcl": 9.541256673628595e-13,
+        "cfl": 0.2739726027393553,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 1, -1, 0.25, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (8, 1, -1, 0.25, 1, 2)",
+      "pass": true,
+      "detail": {
+        "integral_error": 8.526512829121202e-14,
+        "gcl": 9.541256673628595e-13,
+        "cfl": 0.2739726027393553,
+        "active": 1167
+      }
+    },
+    {
+      "name": "unique (8, 1, -1, 0.5, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (8, 1, -1, 0.5, 0, 0)",
+      "pass": true,
+      "detail": {
+        "integral_error": 8.526512829121202e-14,
+        "gcl": 9.806599976514008e-13,
+        "cfl": 0.4301075268813819,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 1, -1, 0.5, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (8, 1, -1, 0.5, 0, 1)",
+      "pass": true,
+      "detail": {
+        "integral_error": 1.4210854715202004e-13,
+        "gcl": 9.806599976514008e-13,
+        "cfl": 0.4301075268813819,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 1, -1, 0.5, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (8, 1, -1, 0.5, 0, 2)",
+      "pass": true,
+      "detail": {
+        "integral_error": 8.526512829121202e-14,
+        "gcl": 9.806599976514008e-13,
+        "cfl": 0.4301075268813819,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 1, -1, 0.5, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (8, 1, -1, 0.5, 1, 0)",
+      "pass": true,
+      "detail": {
+        "integral_error": 8.526512829121202e-14,
+        "gcl": 9.541256673628595e-13,
+        "cfl": 0.5882352941176835,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 1, -1, 0.5, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (8, 1, -1, 0.5, 1, 1)",
+      "pass": true,
+      "detail": {
+        "integral_error": 2.2737367544323206e-13,
+        "gcl": 9.541256673628595e-13,
+        "cfl": 0.5882352941176835,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 1, -1, 0.5, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (8, 1, -1, 0.5, 1, 2)",
+      "pass": true,
+      "detail": {
+        "integral_error": 5.684341886080802e-14,
+        "gcl": 9.541256673628595e-13,
+        "cfl": 0.5882352941176835,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 1, 1, 0.25, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (8, 1, 1, 0.25, 0, 0)",
+      "pass": true,
+      "detail": {
+        "integral_error": 7.815970093361102e-14,
+        "gcl": 8.979483823168266e-13,
+        "cfl": 0.3846153846156946,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 1, 1, 0.25, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (8, 1, 1, 0.25, 0, 1)",
+      "pass": true,
+      "detail": {
+        "integral_error": 2.842170943040401e-14,
+        "gcl": 8.979483823168266e-13,
+        "cfl": 0.3846153846156946,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 1, 1, 0.25, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (8, 1, 1, 0.25, 0, 2)",
+      "pass": true,
+      "detail": {
+        "integral_error": 1.7053025658242404e-13,
+        "gcl": 8.979483823168266e-13,
+        "cfl": 0.3846153846156946,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 1, 1, 0.25, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (8, 1, 1, 0.25, 1, 0)",
+      "pass": true,
+      "detail": {
+        "integral_error": 6.394884621840902e-14,
+        "gcl": 5.56776846849516e-13,
+        "cfl": 0.3749999999994638,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 1, 1, 0.25, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (8, 1, 1, 0.25, 1, 1)",
+      "pass": true,
+      "detail": {
+        "integral_error": 2.842170943040401e-14,
+        "gcl": 5.56776846849516e-13,
+        "cfl": 0.3749999999994638,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 1, 1, 0.25, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (8, 1, 1, 0.25, 1, 2)",
+      "pass": true,
+      "detail": {
+        "integral_error": 8.526512829121202e-14,
+        "gcl": 5.56776846849516e-13,
+        "cfl": 0.3749999999994638,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 1, 1, 0.5, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (8, 1, 1, 0.5, 0, 0)",
+      "pass": true,
+      "detail": {
+        "integral_error": 4.973799150320701e-14,
+        "gcl": 7.609468610780823e-13,
+        "cfl": 0.615384615384272,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 1, 1, 0.5, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (8, 1, 1, 0.5, 0, 1)",
+      "pass": true,
+      "detail": {
+        "integral_error": 1.4210854715202004e-14,
+        "gcl": 7.609468610780823e-13,
+        "cfl": 0.615384615384272,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 1, 1, 0.5, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (8, 1, 1, 0.5, 0, 2)",
+      "pass": true,
+      "detail": {
+        "integral_error": 2.842170943040401e-14,
+        "gcl": 7.609468610780823e-13,
+        "cfl": 0.615384615384272,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 1, 1, 0.5, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (8, 1, 1, 0.5, 1, 0)",
+      "pass": true,
+      "detail": {
+        "integral_error": 0.0,
+        "gcl": 9.749978602258125e-13,
+        "cfl": 0.4347826086954526,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 1, 1, 0.5, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (8, 1, 1, 0.5, 1, 1)",
+      "pass": true,
+      "detail": {
+        "integral_error": 8.526512829121202e-14,
+        "gcl": 9.749978602258125e-13,
+        "cfl": 0.4347826086954526,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 1, 1, 0.5, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (8, 1, 1, 0.5, 1, 2)",
+      "pass": true,
+      "detail": {
+        "integral_error": 2.842170943040401e-14,
+        "gcl": 9.749978602258125e-13,
+        "cfl": 0.4347826086954526,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 2, -1, 0.25, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (8, 2, -1, 0.25, 0, 0)",
+      "pass": true,
+      "detail": {
+        "integral_error": 5.684341886080802e-14,
+        "gcl": 6.841194277740215e-13,
+        "cfl": 0.6081081081085536,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 2, -1, 0.25, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (8, 2, -1, 0.25, 0, 1)",
+      "pass": true,
+      "detail": {
+        "integral_error": 1.4210854715202004e-14,
+        "gcl": 6.841194277740215e-13,
+        "cfl": 0.6081081081085536,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 2, -1, 0.25, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (8, 2, -1, 0.25, 0, 2)",
+      "pass": true,
+      "detail": {
+        "integral_error": 8.526512829121202e-14,
+        "gcl": 6.841194277740215e-13,
+        "cfl": 0.6081081081085536,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 2, -1, 0.25, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (8, 2, -1, 0.25, 1, 0)",
+      "pass": true,
+      "detail": {
+        "integral_error": 1.4210854715202004e-14,
+        "gcl": 9.985345883478658e-13,
+        "cfl": 0.36758543376696556,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 2, -1, 0.25, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (8, 2, -1, 0.25, 1, 1)",
+      "pass": true,
+      "detail": {
+        "integral_error": 7.105427357601002e-14,
+        "gcl": 9.985345883478658e-13,
+        "cfl": 0.36758543376696556,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 2, -1, 0.25, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (8, 2, -1, 0.25, 1, 2)",
+      "pass": true,
+      "detail": {
+        "integral_error": 5.684341886080802e-14,
+        "gcl": 9.985345883478658e-13,
+        "cfl": 0.36758543376696556,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 2, -1, 0.5, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (8, 2, -1, 0.5, 0, 0)",
+      "pass": true,
+      "detail": {
+        "integral_error": 2.842170943040401e-14,
+        "gcl": 9.0427665355719e-13,
+        "cfl": 0.729729729729404,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 2, -1, 0.5, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (8, 2, -1, 0.5, 0, 1)",
+      "pass": true,
+      "detail": {
+        "integral_error": 4.263256414560601e-14,
+        "gcl": 9.0427665355719e-13,
+        "cfl": 0.729729729729404,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 2, -1, 0.5, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (8, 2, -1, 0.5, 0, 2)",
+      "pass": true,
+      "detail": {
+        "integral_error": 8.526512829121202e-14,
+        "gcl": 9.0427665355719e-13,
+        "cfl": 0.729729729729404,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 2, -1, 0.5, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (8, 2, -1, 0.5, 1, 0)",
+      "pass": true,
+      "detail": {
+        "integral_error": 4.263256414560601e-14,
+        "gcl": 8.497647030480948e-13,
+        "cfl": 0.5487804878050816,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 2, -1, 0.5, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (8, 2, -1, 0.5, 1, 1)",
+      "pass": true,
+      "detail": {
+        "integral_error": 1.1368683772161603e-13,
+        "gcl": 8.497647030480948e-13,
+        "cfl": 0.5487804878050816,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 2, -1, 0.5, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (8, 2, -1, 0.5, 1, 2)",
+      "pass": true,
+      "detail": {
+        "integral_error": 1.1368683772161603e-13,
+        "gcl": 8.497647030480948e-13,
+        "cfl": 0.5487804878050816,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 2, 1, 0.25, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (8, 2, 1, 0.25, 0, 0)",
+      "pass": true,
+      "detail": {
+        "integral_error": 0.0,
+        "gcl": 8.162359677044151e-13,
+        "cfl": 0.642857142856676,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 2, 1, 0.25, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (8, 2, 1, 0.25, 0, 1)",
+      "pass": true,
+      "detail": {
+        "integral_error": 2.842170943040401e-14,
+        "gcl": 8.162359677044151e-13,
+        "cfl": 0.642857142856676,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 2, 1, 0.25, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (8, 2, 1, 0.25, 0, 2)",
+      "pass": true,
+      "detail": {
+        "integral_error": 0.0,
+        "gcl": 8.162359677044151e-13,
+        "cfl": 0.642857142856676,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 2, 1, 0.25, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (8, 2, 1, 0.25, 1, 0)",
+      "pass": true,
+      "detail": {
+        "integral_error": 6.394884621840902e-14,
+        "gcl": 9.490186414495838e-13,
+        "cfl": 0.2980132450335188,
+        "active": 1167
+      }
+    },
+    {
+      "name": "unique (8, 2, 1, 0.25, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (8, 2, 1, 0.25, 1, 1)",
+      "pass": true,
+      "detail": {
+        "integral_error": 2.842170943040401e-14,
+        "gcl": 9.490186414495838e-13,
+        "cfl": 0.2980132450335188,
+        "active": 1167
+      }
+    },
+    {
+      "name": "unique (8, 2, 1, 0.25, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (8, 2, 1, 0.25, 1, 2)",
+      "pass": true,
+      "detail": {
+        "integral_error": 5.684341886080802e-14,
+        "gcl": 9.490186414495838e-13,
+        "cfl": 0.2980132450335188,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 2, 1, 0.5, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (8, 2, 1, 0.5, 0, 0)",
+      "pass": true,
+      "detail": {
+        "integral_error": 7.105427357601002e-14,
+        "gcl": 9.811040868612508e-13,
+        "cfl": 0.6428571428567202,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 2, 1, 0.5, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (8, 2, 1, 0.5, 0, 1)",
+      "pass": true,
+      "detail": {
+        "integral_error": 1.5631940186722204e-13,
+        "gcl": 9.811040868612508e-13,
+        "cfl": 0.6428571428567202,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 2, 1, 0.5, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (8, 2, 1, 0.5, 0, 2)",
+      "pass": true,
+      "detail": {
+        "integral_error": 1.4210854715202004e-13,
+        "gcl": 9.811040868612508e-13,
+        "cfl": 0.6428571428567202,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 2, 1, 0.5, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (8, 2, 1, 0.5, 1, 0)",
+      "pass": true,
+      "detail": {
+        "integral_error": 2.842170943040401e-14,
+        "gcl": 9.742207041085749e-13,
+        "cfl": 0.6164383561645935,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 2, 1, 0.5, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (8, 2, 1, 0.5, 1, 1)",
+      "pass": true,
+      "detail": {
+        "integral_error": 1.5631940186722204e-13,
+        "gcl": 9.742207041085749e-13,
+        "cfl": 0.6164383561645935,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 2, 1, 0.5, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (8, 2, 1, 0.5, 1, 2)",
+      "pass": true,
+      "detail": {
+        "integral_error": 2.842170943040401e-14,
+        "gcl": 9.742207041085749e-13,
+        "cfl": 0.6164383561645935,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (12, 0, -1, 0.25, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (12, 0, -1, 0.25, 0, 0)",
+      "pass": true,
+      "detail": {
+        "integral_error": 1.4210854715202004e-13,
+        "gcl": 9.737766148987248e-13,
+        "cfl": 0.6428571428570315,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 0, -1, 0.25, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (12, 0, -1, 0.25, 0, 1)",
+      "pass": true,
+      "detail": {
+        "integral_error": 1.7053025658242404e-13,
+        "gcl": 9.737766148987248e-13,
+        "cfl": 0.6428571428570315,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 0, -1, 0.25, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (12, 0, -1, 0.25, 0, 2)",
+      "pass": true,
+      "detail": {
+        "integral_error": 9.094947017729282e-13,
+        "gcl": 9.737766148987248e-13,
+        "cfl": 0.6428571428570315,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 0, -1, 0.25, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (12, 0, -1, 0.25, 1, 0)",
+      "pass": true,
+      "detail": {
+        "integral_error": 1.1368683772161603e-13,
+        "gcl": 9.174883075502294e-13,
+        "cfl": 0.2980132450333773,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 0, -1, 0.25, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (12, 0, -1, 0.25, 1, 1)",
+      "pass": true,
+      "detail": {
+        "integral_error": 9.094947017729282e-13,
+        "gcl": 9.174883075502294e-13,
+        "cfl": 0.2980132450333773,
+        "active": 4343
+      }
+    },
+    {
+      "name": "unique (12, 0, -1, 0.25, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (12, 0, -1, 0.25, 1, 2)",
+      "pass": true,
+      "detail": {
+        "integral_error": 3.410605131648481e-13,
+        "gcl": 9.174883075502294e-13,
+        "cfl": 0.2980132450333773,
+        "active": 4343
+      }
+    },
+    {
+      "name": "unique (12, 0, -1, 0.5, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (12, 0, -1, 0.5, 0, 0)",
+      "pass": true,
+      "detail": {
+        "integral_error": 8.526512829121202e-14,
+        "gcl": 7.753797603982093e-13,
+        "cfl": 0.6428571428566501,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 0, -1, 0.5, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (12, 0, -1, 0.5, 0, 1)",
+      "pass": true,
+      "detail": {
+        "integral_error": 9.663381206337363e-13,
+        "gcl": 7.753797603982093e-13,
+        "cfl": 0.6428571428566501,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 0, -1, 0.5, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (12, 0, -1, 0.5, 0, 2)",
+      "pass": true,
+      "detail": {
+        "integral_error": 2.0463630789890885e-12,
+        "gcl": 7.753797603982093e-13,
+        "cfl": 0.6428571428566501,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 0, -1, 0.5, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (12, 0, -1, 0.5, 1, 0)",
+      "pass": true,
+      "detail": {
+        "integral_error": 3.126388037344441e-13,
+        "gcl": 9.316991622654314e-13,
+        "cfl": 0.6164383561643663,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 0, -1, 0.5, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (12, 0, -1, 0.5, 1, 1)",
+      "pass": true,
+      "detail": {
+        "integral_error": 5.684341886080801e-13,
+        "gcl": 9.316991622654314e-13,
+        "cfl": 0.6164383561643663,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 0, -1, 0.5, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (12, 0, -1, 0.5, 1, 2)",
+      "pass": true,
+      "detail": {
+        "integral_error": 1.2505552149377763e-12,
+        "gcl": 9.316991622654314e-13,
+        "cfl": 0.6164383561643663,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 0, 1, 0.25, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (12, 0, 1, 0.25, 0, 0)",
+      "pass": true,
+      "detail": {
+        "integral_error": 8.526512829121202e-14,
+        "gcl": 8.554268404736831e-13,
+        "cfl": 0.6081081081083732,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 0, 1, 0.25, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (12, 0, 1, 0.25, 0, 1)",
+      "pass": true,
+      "detail": {
+        "integral_error": 6.252776074688882e-13,
+        "gcl": 8.554268404736831e-13,
+        "cfl": 0.6081081081083732,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 0, 1, 0.25, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (12, 0, 1, 0.25, 0, 2)",
+      "pass": true,
+      "detail": {
+        "integral_error": 1.1368683772161603e-13,
+        "gcl": 8.554268404736831e-13,
+        "cfl": 0.6081081081083732,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 0, 1, 0.25, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (12, 0, 1, 0.25, 1, 0)",
+      "pass": true,
+      "detail": {
+        "integral_error": 3.410605131648481e-13,
+        "gcl": 8.388845174067683e-13,
+        "cfl": 0.36488322049619015,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 0, 1, 0.25, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (12, 0, 1, 0.25, 1, 1)",
+      "pass": true,
+      "detail": {
+        "integral_error": 5.684341886080802e-14,
+        "gcl": 8.388845174067683e-13,
+        "cfl": 0.36488322049619015,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 0, 1, 0.25, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (12, 0, 1, 0.25, 1, 2)",
+      "pass": true,
+      "detail": {
+        "integral_error": 9.094947017729282e-13,
+        "gcl": 8.388845174067683e-13,
+        "cfl": 0.36488322049619015,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 0, 1, 0.5, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (12, 0, 1, 0.5, 0, 0)",
+      "pass": true,
+      "detail": {
+        "integral_error": 2.5579538487363607e-13,
+        "gcl": 8.598677325721837e-13,
+        "cfl": 0.7297297297295188,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 0, 1, 0.5, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (12, 0, 1, 0.5, 0, 1)",
+      "pass": true,
+      "detail": {
+        "integral_error": 1.7053025658242404e-13,
+        "gcl": 8.598677325721837e-13,
+        "cfl": 0.7297297297295188,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 0, 1, 0.5, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (12, 0, 1, 0.5, 0, 2)",
+      "pass": true,
+      "detail": {
+        "integral_error": 2.2737367544323206e-13,
+        "gcl": 8.598677325721837e-13,
+        "cfl": 0.7297297297295188,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 0, 1, 0.5, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (12, 0, 1, 0.5, 1, 0)",
+      "pass": true,
+      "detail": {
+        "integral_error": 2.842170943040401e-14,
+        "gcl": 9.011680290882396e-13,
+        "cfl": 0.5487804878049235,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 0, 1, 0.5, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (12, 0, 1, 0.5, 1, 1)",
+      "pass": true,
+      "detail": {
+        "integral_error": 4.547473508864641e-13,
+        "gcl": 9.011680290882396e-13,
+        "cfl": 0.5487804878049235,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 0, 1, 0.5, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (12, 0, 1, 0.5, 1, 2)",
+      "pass": true,
+      "detail": {
+        "integral_error": 6.821210263296962e-13,
+        "gcl": 9.011680290882396e-13,
+        "cfl": 0.5487804878049235,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 1, -1, 0.25, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (12, 1, -1, 0.25, 0, 0)",
+      "pass": true,
+      "detail": {
+        "integral_error": 5.684341886080802e-14,
+        "gcl": 9.108269694024784e-13,
+        "cfl": 0.29145208868679573,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 1, -1, 0.25, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (12, 1, -1, 0.25, 0, 1)",
+      "pass": true,
+      "detail": {
+        "integral_error": 5.115907697472721e-13,
+        "gcl": 9.108269694024784e-13,
+        "cfl": 0.29145208868679573,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 1, -1, 0.25, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (12, 1, -1, 0.25, 0, 2)",
+      "pass": true,
+      "detail": {
+        "integral_error": 4.547473508864641e-13,
+        "gcl": 9.108269694024784e-13,
+        "cfl": 0.29145208868679573,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 1, -1, 0.25, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (12, 1, -1, 0.25, 1, 0)",
+      "pass": true,
+      "detail": {
+        "integral_error": 1.9895196601282805e-13,
+        "gcl": 7.820410985459603e-13,
+        "cfl": 0.2739726027400848,
+        "active": 4343
+      }
+    },
+    {
+      "name": "unique (12, 1, -1, 0.25, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (12, 1, -1, 0.25, 1, 1)",
+      "pass": true,
+      "detail": {
+        "integral_error": 4.547473508864641e-13,
+        "gcl": 7.820410985459603e-13,
+        "cfl": 0.2739726027400848,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 1, -1, 0.25, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (12, 1, -1, 0.25, 1, 2)",
+      "pass": true,
+      "detail": {
+        "integral_error": 2.2737367544323206e-13,
+        "gcl": 7.820410985459603e-13,
+        "cfl": 0.2739726027400848,
+        "active": 4343
+      }
+    },
+    {
+      "name": "unique (12, 1, -1, 0.5, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (12, 1, -1, 0.5, 0, 0)",
+      "pass": true,
+      "detail": {
+        "integral_error": 3.410605131648481e-13,
+        "gcl": 8.963940700823514e-13,
+        "cfl": 0.4301075268817043,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 1, -1, 0.5, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (12, 1, -1, 0.5, 0, 1)",
+      "pass": true,
+      "detail": {
+        "integral_error": 1.1368683772161603e-12,
+        "gcl": 8.963940700823514e-13,
+        "cfl": 0.4301075268817043,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 1, -1, 0.5, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (12, 1, -1, 0.5, 0, 2)",
+      "pass": true,
+      "detail": {
+        "integral_error": 5.684341886080801e-13,
+        "gcl": 8.963940700823514e-13,
+        "cfl": 0.4301075268817043,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 1, -1, 0.5, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (12, 1, -1, 0.5, 1, 0)",
+      "pass": true,
+      "detail": {
+        "integral_error": 5.115907697472721e-13,
+        "gcl": 9.597878047884478e-13,
+        "cfl": 0.58823529411759,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 1, -1, 0.5, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (12, 1, -1, 0.5, 1, 1)",
+      "pass": true,
+      "detail": {
+        "integral_error": 1.7053025658242404e-12,
+        "gcl": 9.597878047884478e-13,
+        "cfl": 0.58823529411759,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 1, -1, 0.5, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (12, 1, -1, 0.5, 1, 2)",
+      "pass": true,
+      "detail": {
+        "integral_error": 7.958078640513122e-13,
+        "gcl": 9.597878047884478e-13,
+        "cfl": 0.58823529411759,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 1, 1, 0.25, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (12, 1, 1, 0.25, 0, 0)",
+      "pass": true,
+      "detail": {
+        "integral_error": 2.842170943040401e-14,
+        "gcl": 9.887646257311644e-13,
+        "cfl": 0.38461538461602096,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 1, 1, 0.25, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (12, 1, 1, 0.25, 0, 1)",
+      "pass": true,
+      "detail": {
+        "integral_error": 3.410605131648481e-13,
+        "gcl": 9.887646257311644e-13,
+        "cfl": 0.38461538461602096,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 1, 1, 0.25, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (12, 1, 1, 0.25, 0, 2)",
+      "pass": true,
+      "detail": {
+        "integral_error": 3.410605131648481e-13,
+        "gcl": 9.887646257311644e-13,
+        "cfl": 0.38461538461602096,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 1, 1, 0.25, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (12, 1, 1, 0.25, 1, 0)",
+      "pass": true,
+      "detail": {
+        "integral_error": 1.4210854715202004e-13,
+        "gcl": 9.864331573794516e-13,
+        "cfl": 0.3749999999998162,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 1, 1, 0.25, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (12, 1, 1, 0.25, 1, 1)",
+      "pass": true,
+      "detail": {
+        "integral_error": 3.410605131648481e-13,
+        "gcl": 9.864331573794516e-13,
+        "cfl": 0.3749999999998162,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 1, 1, 0.25, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (12, 1, 1, 0.25, 1, 2)",
+      "pass": true,
+      "detail": {
+        "integral_error": 4.547473508864641e-13,
+        "gcl": 9.864331573794516e-13,
+        "cfl": 0.3749999999998162,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 1, 1, 0.5, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (12, 1, 1, 0.5, 0, 0)",
+      "pass": true,
+      "detail": {
+        "integral_error": 4.263256414560601e-13,
+        "gcl": 9.88875648033627e-13,
+        "cfl": 0.6153846153847209,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 1, 1, 0.5, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (12, 1, 1, 0.5, 0, 1)",
+      "pass": true,
+      "detail": {
+        "integral_error": 1.0231815394945443e-12,
+        "gcl": 9.88875648033627e-13,
+        "cfl": 0.6153846153847209,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 1, 1, 0.5, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (12, 1, 1, 0.5, 0, 2)",
+      "pass": true,
+      "detail": {
+        "integral_error": 4.547473508864641e-13,
+        "gcl": 9.88875648033627e-13,
+        "cfl": 0.6153846153847209,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 1, 1, 0.5, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (12, 1, 1, 0.5, 1, 0)",
+      "pass": true,
+      "detail": {
+        "integral_error": 4.831690603168681e-13,
+        "gcl": 8.126832540256146e-13,
+        "cfl": 0.4347826086957619,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 1, 1, 0.5, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (12, 1, 1, 0.5, 1, 1)",
+      "pass": true,
+      "detail": {
+        "integral_error": 6.252776074688882e-13,
+        "gcl": 8.126832540256146e-13,
+        "cfl": 0.4347826086957619,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 1, 1, 0.5, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (12, 1, 1, 0.5, 1, 2)",
+      "pass": true,
+      "detail": {
+        "integral_error": 4.547473508864641e-13,
+        "gcl": 8.126832540256146e-13,
+        "cfl": 0.4347826086957619,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 2, -1, 0.25, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (12, 2, -1, 0.25, 0, 0)",
+      "pass": true,
+      "detail": {
+        "integral_error": 0.0,
+        "gcl": 9.82436354490801e-13,
+        "cfl": 0.608108108107924,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 2, -1, 0.25, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (12, 2, -1, 0.25, 0, 1)",
+      "pass": true,
+      "detail": {
+        "integral_error": 7.389644451905042e-13,
+        "gcl": 9.82436354490801e-13,
+        "cfl": 0.608108108107924,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 2, -1, 0.25, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (12, 2, -1, 0.25, 0, 2)",
+      "pass": true,
+      "detail": {
+        "integral_error": 1.1368683772161603e-13,
+        "gcl": 9.82436354490801e-13,
+        "cfl": 0.608108108107924,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 2, -1, 0.25, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (12, 2, -1, 0.25, 1, 0)",
+      "pass": true,
+      "detail": {
+        "integral_error": 1.7053025658242404e-13,
+        "gcl": 9.316991622654314e-13,
+        "cfl": 0.3655478122998267,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 2, -1, 0.25, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (12, 2, -1, 0.25, 1, 1)",
+      "pass": true,
+      "detail": {
+        "integral_error": 5.115907697472721e-13,
+        "gcl": 9.316991622654314e-13,
+        "cfl": 0.3655478122998267,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 2, -1, 0.25, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (12, 2, -1, 0.25, 1, 2)",
+      "pass": true,
+      "detail": {
+        "integral_error": 1.2505552149377763e-12,
+        "gcl": 9.316991622654314e-13,
+        "cfl": 0.3655478122998267,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 2, -1, 0.5, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (12, 2, -1, 0.5, 0, 0)",
+      "pass": true,
+      "detail": {
+        "integral_error": 2.5579538487363607e-13,
+        "gcl": 8.992806499463768e-13,
+        "cfl": 0.729729729729807,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 2, -1, 0.5, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (12, 2, -1, 0.5, 0, 1)",
+      "pass": true,
+      "detail": {
+        "integral_error": 2.8421709430404007e-13,
+        "gcl": 8.992806499463768e-13,
+        "cfl": 0.729729729729807,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 2, -1, 0.5, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (12, 2, -1, 0.5, 0, 2)",
+      "pass": true,
+      "detail": {
+        "integral_error": 0.0,
+        "gcl": 8.992806499463768e-13,
+        "cfl": 0.729729729729807,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 2, -1, 0.5, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (12, 2, -1, 0.5, 1, 0)",
+      "pass": true,
+      "detail": {
+        "integral_error": 2.8421709430404007e-13,
+        "gcl": 8.844036614163997e-13,
+        "cfl": 0.548780487804926,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 2, -1, 0.5, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (12, 2, -1, 0.5, 1, 1)",
+      "pass": true,
+      "detail": {
+        "integral_error": 6.252776074688882e-13,
+        "gcl": 8.844036614163997e-13,
+        "cfl": 0.548780487804926,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 2, -1, 0.5, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (12, 2, -1, 0.5, 1, 2)",
+      "pass": true,
+      "detail": {
+        "integral_error": 5.684341886080801e-13,
+        "gcl": 8.844036614163997e-13,
+        "cfl": 0.548780487804926,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 2, 1, 0.25, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (12, 2, 1, 0.25, 0, 0)",
+      "pass": true,
+      "detail": {
+        "integral_error": 1.4210854715202004e-13,
+        "gcl": 8.824052599720744e-13,
+        "cfl": 0.6428571428574957,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 2, 1, 0.25, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (12, 2, 1, 0.25, 0, 1)",
+      "pass": true,
+      "detail": {
+        "integral_error": 2.2737367544323206e-13,
+        "gcl": 8.824052599720744e-13,
+        "cfl": 0.6428571428574957,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 2, 1, 0.25, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (12, 2, 1, 0.25, 0, 2)",
+      "pass": true,
+      "detail": {
+        "integral_error": 7.958078640513122e-13,
+        "gcl": 8.824052599720744e-13,
+        "cfl": 0.6428571428574957,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 2, 1, 0.25, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (12, 2, 1, 0.25, 1, 0)",
+      "pass": true,
+      "detail": {
+        "integral_error": 2.842170943040401e-14,
+        "gcl": 9.212630658339549e-13,
+        "cfl": 0.29801324503293486,
+        "active": 4343
+      }
+    },
+    {
+      "name": "unique (12, 2, 1, 0.25, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (12, 2, 1, 0.25, 1, 1)",
+      "pass": true,
+      "detail": {
+        "integral_error": 3.979039320256561e-13,
+        "gcl": 9.212630658339549e-13,
+        "cfl": 0.29801324503293486,
+        "active": 4343
+      }
+    },
+    {
+      "name": "unique (12, 2, 1, 0.25, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (12, 2, 1, 0.25, 1, 2)",
+      "pass": true,
+      "detail": {
+        "integral_error": 9.094947017729282e-13,
+        "gcl": 9.212630658339549e-13,
+        "cfl": 0.29801324503293486,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 2, 1, 0.5, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (12, 2, 1, 0.5, 0, 0)",
+      "pass": true,
+      "detail": {
+        "integral_error": 8.526512829121202e-14,
+        "gcl": 8.761880110341735e-13,
+        "cfl": 0.642857142856943,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 2, 1, 0.5, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (12, 2, 1, 0.5, 0, 1)",
+      "pass": true,
+      "detail": {
+        "integral_error": 1.1368683772161603e-13,
+        "gcl": 8.761880110341735e-13,
+        "cfl": 0.642857142856943,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 2, 1, 0.5, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (12, 2, 1, 0.5, 0, 2)",
+      "pass": true,
+      "detail": {
+        "integral_error": 1.1368683772161603e-13,
+        "gcl": 8.761880110341735e-13,
+        "cfl": 0.642857142856943,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 2, 1, 0.5, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (12, 2, 1, 0.5, 1, 0)",
+      "pass": true,
+      "detail": {
+        "integral_error": 3.126388037344441e-13,
+        "gcl": 8.841816168114747e-13,
+        "cfl": 0.616438356164311,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 2, 1, 0.5, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (12, 2, 1, 0.5, 1, 1)",
+      "pass": true,
+      "detail": {
+        "integral_error": 6.252776074688882e-13,
+        "gcl": 8.841816168114747e-13,
+        "cfl": 0.616438356164311,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 2, 1, 0.5, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (12, 2, 1, 0.5, 1, 2)",
+      "pass": true,
+      "detail": {
+        "integral_error": 1.4779288903810084e-12,
+        "gcl": 8.841816168114747e-13,
+        "cfl": 0.616438356164311,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (16, 0, -1, 0.25, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (16, 0, -1, 0.25, 0, 0)",
+      "pass": true,
+      "detail": {
+        "integral_error": 1.4779288903810084e-12,
+        "gcl": 8.959499808725013e-13,
+        "cfl": 0.6428571428570884,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 0, -1, 0.25, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (16, 0, -1, 0.25, 0, 1)",
+      "pass": true,
+      "detail": {
+        "integral_error": 4.092726157978177e-12,
+        "gcl": 8.959499808725013e-13,
+        "cfl": 0.6428571428570884,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 0, -1, 0.25, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (16, 0, -1, 0.25, 0, 2)",
+      "pass": true,
+      "detail": {
+        "integral_error": 4.547473508864641e-12,
+        "gcl": 8.959499808725013e-13,
+        "cfl": 0.6428571428570884,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 0, -1, 0.25, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (16, 0, -1, 0.25, 1, 0)",
+      "pass": true,
+      "detail": {
+        "integral_error": 1.0231815394945443e-12,
+        "gcl": 9.874323581016142e-13,
+        "cfl": 0.2980132450330869,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 0, -1, 0.25, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (16, 0, -1, 0.25, 1, 1)",
+      "pass": true,
+      "detail": {
+        "integral_error": 3.865352482534945e-12,
+        "gcl": 9.874323581016142e-13,
+        "cfl": 0.2980132450330869,
+        "active": 10783
+      }
+    },
+    {
+      "name": "unique (16, 0, -1, 0.25, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (16, 0, -1, 0.25, 1, 2)",
+      "pass": true,
+      "detail": {
+        "integral_error": 1.1368683772161603e-12,
+        "gcl": 9.874323581016142e-13,
+        "cfl": 0.2980132450330869,
+        "active": 10783
+      }
+    },
+    {
+      "name": "unique (16, 0, -1, 0.5, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (16, 0, -1, 0.5, 0, 0)",
+      "pass": true,
+      "detail": {
+        "integral_error": 1.1368683772161603e-13,
+        "gcl": 9.900968933607146e-13,
+        "cfl": 0.6428571428572879,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 0, -1, 0.5, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (16, 0, -1, 0.5, 0, 1)",
+      "pass": true,
+      "detail": {
+        "integral_error": 4.547473508864641e-13,
+        "gcl": 9.900968933607146e-13,
+        "cfl": 0.6428571428572879,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 0, -1, 0.5, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (16, 0, -1, 0.5, 0, 2)",
+      "pass": true,
+      "detail": {
+        "integral_error": 2.0463630789890885e-12,
+        "gcl": 9.900968933607146e-13,
+        "cfl": 0.6428571428572879,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 0, -1, 0.5, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (16, 0, -1, 0.5, 1, 0)",
+      "pass": true,
+      "detail": {
+        "integral_error": 1.0231815394945443e-12,
+        "gcl": 9.745537710159624e-13,
+        "cfl": 0.6164383561643844,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 0, -1, 0.5, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (16, 0, -1, 0.5, 1, 1)",
+      "pass": true,
+      "detail": {
+        "integral_error": 2.2737367544323206e-13,
+        "gcl": 9.745537710159624e-13,
+        "cfl": 0.6164383561643844,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 0, -1, 0.5, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (16, 0, -1, 0.5, 1, 2)",
+      "pass": true,
+      "detail": {
+        "integral_error": 4.547473508864641e-12,
+        "gcl": 9.745537710159624e-13,
+        "cfl": 0.6164383561643844,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 0, 1, 0.25, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (16, 0, 1, 0.25, 0, 0)",
+      "pass": true,
+      "detail": {
+        "integral_error": 1.1368683772161603e-13,
+        "gcl": 9.07718344933528e-13,
+        "cfl": 0.6081081081079417,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 0, 1, 0.25, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (16, 0, 1, 0.25, 0, 1)",
+      "pass": true,
+      "detail": {
+        "integral_error": 6.821210263296962e-13,
+        "gcl": 9.07718344933528e-13,
+        "cfl": 0.6081081081079417,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 0, 1, 0.25, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (16, 0, 1, 0.25, 0, 2)",
+      "pass": true,
+      "detail": {
+        "integral_error": 6.821210263296962e-12,
+        "gcl": 9.07718344933528e-13,
+        "cfl": 0.6081081081079417,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 0, 1, 0.25, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (16, 0, 1, 0.25, 1, 0)",
+      "pass": true,
+      "detail": {
+        "integral_error": 1.1368683772161603e-13,
+        "gcl": 9.889866703360894e-13,
+        "cfl": 0.36464085612379954,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 0, 1, 0.25, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (16, 0, 1, 0.25, 1, 1)",
+      "pass": true,
+      "detail": {
+        "integral_error": 6.821210263296962e-13,
+        "gcl": 9.889866703360894e-13,
+        "cfl": 0.36464085612379954,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 0, 1, 0.25, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (16, 0, 1, 0.25, 1, 2)",
+      "pass": true,
+      "detail": {
+        "integral_error": 3.637978807091713e-12,
+        "gcl": 9.889866703360894e-13,
+        "cfl": 0.36464085612379954,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 0, 1, 0.5, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (16, 0, 1, 0.5, 0, 0)",
+      "pass": true,
+      "detail": {
+        "integral_error": 2.2737367544323206e-13,
+        "gcl": 9.066081219089028e-13,
+        "cfl": 0.7297297297297969,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 0, 1, 0.5, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (16, 0, 1, 0.5, 0, 1)",
+      "pass": true,
+      "detail": {
+        "integral_error": 1.1368683772161603e-12,
+        "gcl": 9.066081219089028e-13,
+        "cfl": 0.7297297297297969,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 0, 1, 0.5, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (16, 0, 1, 0.5, 0, 2)",
+      "pass": true,
+      "detail": {
+        "integral_error": 5.002220859751105e-12,
+        "gcl": 9.066081219089028e-13,
+        "cfl": 0.7297297297297969,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 0, 1, 0.5, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (16, 0, 1, 0.5, 1, 0)",
+      "pass": true,
+      "detail": {
+        "integral_error": 7.958078640513122e-13,
+        "gcl": 9.774403508799878e-13,
+        "cfl": 0.5487804878048446,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 0, 1, 0.5, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (16, 0, 1, 0.5, 1, 1)",
+      "pass": true,
+      "detail": {
+        "integral_error": 2.2737367544323206e-13,
+        "gcl": 9.774403508799878e-13,
+        "cfl": 0.5487804878048446,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 0, 1, 0.5, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (16, 0, 1, 0.5, 1, 2)",
+      "pass": true,
+      "detail": {
+        "integral_error": 1.8189894035458565e-12,
+        "gcl": 9.774403508799878e-13,
+        "cfl": 0.5487804878048446,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 1, -1, 0.25, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (16, 1, -1, 0.25, 0, 0)",
+      "pass": true,
+      "detail": {
+        "integral_error": 2.2737367544323206e-13,
+        "gcl": 9.96425164601078e-13,
+        "cfl": 0.29135016164522803,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 1, -1, 0.25, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (16, 1, -1, 0.25, 0, 1)",
+      "pass": true,
+      "detail": {
+        "integral_error": 4.547473508864641e-13,
+        "gcl": 9.96425164601078e-13,
+        "cfl": 0.29135016164522803,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 1, -1, 0.25, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (16, 1, -1, 0.25, 0, 2)",
+      "pass": true,
+      "detail": {
+        "integral_error": 2.2737367544323206e-13,
+        "gcl": 9.96425164601078e-13,
+        "cfl": 0.29135016164522803,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 1, -1, 0.25, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (16, 1, -1, 0.25, 1, 0)",
+      "pass": true,
+      "detail": {
+        "integral_error": 1.4779288903810084e-12,
+        "gcl": 9.556799795973347e-13,
+        "cfl": 0.2739726027395128,
+        "active": 10783
+      }
+    },
+    {
+      "name": "unique (16, 1, -1, 0.25, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (16, 1, -1, 0.25, 1, 1)",
+      "pass": true,
+      "detail": {
+        "integral_error": 6.821210263296962e-13,
+        "gcl": 9.556799795973347e-13,
+        "cfl": 0.2739726027395128,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 1, -1, 0.25, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (16, 1, -1, 0.25, 1, 2)",
+      "pass": true,
+      "detail": {
+        "integral_error": 2.2737367544323206e-13,
+        "gcl": 9.556799795973347e-13,
+        "cfl": 0.2739726027395128,
+        "active": 10783
+      }
+    },
+    {
+      "name": "unique (16, 1, -1, 0.5, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (16, 1, -1, 0.5, 0, 0)",
+      "pass": true,
+      "detail": {
+        "integral_error": 0.0,
+        "gcl": 8.631984016460592e-13,
+        "cfl": 0.43010752688170517,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 1, -1, 0.5, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (16, 1, -1, 0.5, 0, 1)",
+      "pass": true,
+      "detail": {
+        "integral_error": 1.5916157281026244e-12,
+        "gcl": 8.631984016460592e-13,
+        "cfl": 0.43010752688170517,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 1, -1, 0.5, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (16, 1, -1, 0.5, 0, 2)",
+      "pass": true,
+      "detail": {
+        "integral_error": 6.821210263296962e-13,
+        "gcl": 8.631984016460592e-13,
+        "cfl": 0.43010752688170517,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 1, -1, 0.5, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (16, 1, -1, 0.5, 1, 0)",
+      "pass": true,
+      "detail": {
+        "integral_error": 4.547473508864641e-13,
+        "gcl": 8.981704269217516e-13,
+        "cfl": 0.5882352941175838,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 1, -1, 0.5, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (16, 1, -1, 0.5, 1, 1)",
+      "pass": true,
+      "detail": {
+        "integral_error": 2.9558577807620168e-12,
+        "gcl": 8.981704269217516e-13,
+        "cfl": 0.5882352941175838,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 1, -1, 0.5, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (16, 1, -1, 0.5, 1, 2)",
+      "pass": true,
+      "detail": {
+        "integral_error": 1.5916157281026244e-12,
+        "gcl": 8.981704269217516e-13,
+        "cfl": 0.5882352941175838,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 1, 1, 0.25, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (16, 1, 1, 0.25, 0, 0)",
+      "pass": true,
+      "detail": {
+        "integral_error": 2.2737367544323206e-13,
+        "gcl": 9.530154443382344e-13,
+        "cfl": 0.3846153846153649,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 1, 1, 0.25, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (16, 1, 1, 0.25, 0, 1)",
+      "pass": true,
+      "detail": {
+        "integral_error": 0.0,
+        "gcl": 9.530154443382344e-13,
+        "cfl": 0.3846153846153649,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 1, 1, 0.25, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (16, 1, 1, 0.25, 0, 2)",
+      "pass": true,
+      "detail": {
+        "integral_error": 2.5011104298755527e-12,
+        "gcl": 9.530154443382344e-13,
+        "cfl": 0.3846153846153649,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 1, 1, 0.25, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (16, 1, 1, 0.25, 1, 0)",
+      "pass": true,
+      "detail": {
+        "integral_error": 6.821210263296962e-13,
+        "gcl": 9.019451852054772e-13,
+        "cfl": 0.3750000000002945,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 1, 1, 0.25, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (16, 1, 1, 0.25, 1, 1)",
+      "pass": true,
+      "detail": {
+        "integral_error": 6.821210263296962e-13,
+        "gcl": 9.019451852054772e-13,
+        "cfl": 0.3750000000002945,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 1, 1, 0.25, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (16, 1, 1, 0.25, 1, 2)",
+      "pass": true,
+      "detail": {
+        "integral_error": 5.6843418860808015e-12,
+        "gcl": 9.019451852054772e-13,
+        "cfl": 0.3750000000002945,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 1, 1, 0.5, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (16, 1, 1, 0.5, 0, 0)",
+      "pass": true,
+      "detail": {
+        "integral_error": 9.094947017729282e-13,
+        "gcl": 8.570921750106208e-13,
+        "cfl": 0.6153846153846443,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 1, 1, 0.5, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (16, 1, 1, 0.5, 0, 1)",
+      "pass": true,
+      "detail": {
+        "integral_error": 6.139089236967266e-12,
+        "gcl": 8.570921750106208e-13,
+        "cfl": 0.6153846153846443,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 1, 1, 0.5, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (16, 1, 1, 0.5, 0, 2)",
+      "pass": true,
+      "detail": {
+        "integral_error": 3.637978807091713e-12,
+        "gcl": 8.570921750106208e-13,
+        "cfl": 0.6153846153846443,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 1, 1, 0.5, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (16, 1, 1, 0.5, 1, 0)",
+      "pass": true,
+      "detail": {
+        "integral_error": 3.410605131648481e-13,
+        "gcl": 9.379164112033322e-13,
+        "cfl": 0.43478260869564817,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 1, 1, 0.5, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (16, 1, 1, 0.5, 1, 1)",
+      "pass": true,
+      "detail": {
+        "integral_error": 5.229594535194337e-12,
+        "gcl": 9.379164112033322e-13,
+        "cfl": 0.43478260869564817,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 1, 1, 0.5, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (16, 1, 1, 0.5, 1, 2)",
+      "pass": true,
+      "detail": {
+        "integral_error": 1.1368683772161603e-12,
+        "gcl": 9.379164112033322e-13,
+        "cfl": 0.43478260869564817,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 2, -1, 0.25, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (16, 2, -1, 0.25, 0, 0)",
+      "pass": true,
+      "detail": {
+        "integral_error": 9.094947017729282e-13,
+        "gcl": 9.89985871058252e-13,
+        "cfl": 0.6081081081080991,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 2, -1, 0.25, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (16, 2, -1, 0.25, 0, 1)",
+      "pass": true,
+      "detail": {
+        "integral_error": 6.821210263296962e-13,
+        "gcl": 9.89985871058252e-13,
+        "cfl": 0.6081081081080991,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 2, -1, 0.25, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (16, 2, -1, 0.25, 0, 2)",
+      "pass": true,
+      "detail": {
+        "integral_error": 6.821210263296962e-13,
+        "gcl": 9.89985871058252e-13,
+        "cfl": 0.6081081081080991,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 2, -1, 0.25, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (16, 2, -1, 0.25, 1, 0)",
+      "pass": true,
+      "detail": {
+        "integral_error": 1.3642420526593924e-12,
+        "gcl": 9.857670235646765e-13,
+        "cfl": 0.365352762239806,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 2, -1, 0.25, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (16, 2, -1, 0.25, 1, 1)",
+      "pass": true,
+      "detail": {
+        "integral_error": 2.5011104298755527e-12,
+        "gcl": 9.857670235646765e-13,
+        "cfl": 0.365352762239806,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 2, -1, 0.25, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (16, 2, -1, 0.25, 1, 2)",
+      "pass": true,
+      "detail": {
+        "integral_error": 2.5011104298755527e-12,
+        "gcl": 9.857670235646765e-13,
+        "cfl": 0.365352762239806,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 2, -1, 0.5, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (16, 2, -1, 0.5, 0, 0)",
+      "pass": true,
+      "detail": {
+        "integral_error": 7.958078640513122e-13,
+        "gcl": 9.939826739469027e-13,
+        "cfl": 0.7297297297298543,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 2, -1, 0.5, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (16, 2, -1, 0.5, 0, 1)",
+      "pass": true,
+      "detail": {
+        "integral_error": 1.8189894035458565e-12,
+        "gcl": 9.939826739469027e-13,
+        "cfl": 0.7297297297298543,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 2, -1, 0.5, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (16, 2, -1, 0.5, 0, 2)",
+      "pass": true,
+      "detail": {
+        "integral_error": 0.0,
+        "gcl": 9.939826739469027e-13,
+        "cfl": 0.7297297297298543,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 2, -1, 0.5, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (16, 2, -1, 0.5, 1, 0)",
+      "pass": true,
+      "detail": {
+        "integral_error": 1.1368683772161603e-13,
+        "gcl": 9.838796444228137e-13,
+        "cfl": 0.5487804878048919,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 2, -1, 0.5, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (16, 2, -1, 0.5, 1, 1)",
+      "pass": true,
+      "detail": {
+        "integral_error": 5.4569682106375694e-12,
+        "gcl": 9.838796444228137e-13,
+        "cfl": 0.5487804878048919,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 2, -1, 0.5, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (16, 2, -1, 0.5, 1, 2)",
+      "pass": true,
+      "detail": {
+        "integral_error": 9.094947017729282e-13,
+        "gcl": 9.838796444228137e-13,
+        "cfl": 0.5487804878048919,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 2, 1, 0.25, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (16, 2, 1, 0.25, 0, 0)",
+      "pass": true,
+      "detail": {
+        "integral_error": 0.0,
+        "gcl": 9.664491429361988e-13,
+        "cfl": 0.6428571428572293,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 2, 1, 0.25, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (16, 2, 1, 0.25, 0, 1)",
+      "pass": true,
+      "detail": {
+        "integral_error": 1.1368683772161603e-12,
+        "gcl": 9.664491429361988e-13,
+        "cfl": 0.6428571428572293,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 2, 1, 0.25, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (16, 2, 1, 0.25, 0, 2)",
+      "pass": true,
+      "detail": {
+        "integral_error": 2.0463630789890885e-12,
+        "gcl": 9.664491429361988e-13,
+        "cfl": 0.6428571428572293,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 2, 1, 0.25, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (16, 2, 1, 0.25, 1, 0)",
+      "pass": true,
+      "detail": {
+        "integral_error": 1.1368683772161603e-13,
+        "gcl": 9.213740881364174e-13,
+        "cfl": 0.2980132450331751,
+        "active": 10783
+      }
+    },
+    {
+      "name": "unique (16, 2, 1, 0.25, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (16, 2, 1, 0.25, 1, 1)",
+      "pass": true,
+      "detail": {
+        "integral_error": 9.094947017729282e-13,
+        "gcl": 9.213740881364174e-13,
+        "cfl": 0.2980132450331751,
+        "active": 10783
+      }
+    },
+    {
+      "name": "unique (16, 2, 1, 0.25, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (16, 2, 1, 0.25, 1, 2)",
+      "pass": true,
+      "detail": {
+        "integral_error": 3.410605131648481e-12,
+        "gcl": 9.213740881364174e-13,
+        "cfl": 0.2980132450331751,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 2, 1, 0.5, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (16, 2, 1, 0.5, 0, 0)",
+      "pass": true,
+      "detail": {
+        "integral_error": 0.0,
+        "gcl": 8.881784197001252e-13,
+        "cfl": 0.6428571428571468,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 2, 1, 0.5, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (16, 2, 1, 0.5, 0, 1)",
+      "pass": true,
+      "detail": {
+        "integral_error": 2.2737367544323206e-13,
+        "gcl": 8.881784197001252e-13,
+        "cfl": 0.6428571428571468,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 2, 1, 0.5, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (16, 2, 1, 0.5, 0, 2)",
+      "pass": true,
+      "detail": {
+        "integral_error": 5.229594535194337e-12,
+        "gcl": 8.881784197001252e-13,
+        "cfl": 0.6428571428571468,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 2, 1, 0.5, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (16, 2, 1, 0.5, 1, 0)",
+      "pass": true,
+      "detail": {
+        "integral_error": 1.4779288903810084e-12,
+        "gcl": 9.259260025373806e-13,
+        "cfl": 0.616438356164307,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 2, 1, 0.5, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (16, 2, 1, 0.5, 1, 1)",
+      "pass": true,
+      "detail": {
+        "integral_error": 2.2737367544323206e-13,
+        "gcl": 9.259260025373806e-13,
+        "cfl": 0.616438356164307,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 2, 1, 0.5, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservative dual (16, 2, 1, 0.5, 1, 2)",
+      "pass": true,
+      "detail": {
+        "integral_error": 7.958078640513122e-12,
+        "gcl": 9.259260025373806e-13,
+        "cfl": 0.616438356164307,
+        "active": 10784
+      }
+    },
+    {
+      "name": "complete Cartesian coverage",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "nine uniform dual references",
+      "pass": true,
+      "detail": 9
+    },
+    {
+      "name": "analytic uniform dual volume 8,0",
+      "pass": true,
+      "detail": {
+        "expected": 177.85000000000002,
+        "before": 177.85000000000136,
+        "after": 177.85000000000005
+      }
+    },
+    {
+      "name": "analytic uniform dual volume 8,1",
+      "pass": true,
+      "detail": {
+        "expected": 355.70000000000005,
+        "before": 355.7000000000028,
+        "after": 355.70000000000016
+      }
+    },
+    {
+      "name": "analytic uniform dual volume 8,2",
+      "pass": true,
+      "detail": {
+        "expected": 533.5500000000001,
+        "before": 533.5499999999976,
+        "after": 533.5499999999995
+      }
+    },
+    {
+      "name": "analytic uniform dual volume 12,0",
+      "pass": true,
+      "detail": {
+        "expected": 632.25,
+        "before": 632.2499999999811,
+        "after": 632.2500000000001
+      }
+    },
+    {
+      "name": "analytic uniform dual volume 12,1",
+      "pass": true,
+      "detail": {
+        "expected": 1264.5,
+        "before": 1264.4999999999623,
+        "after": 1264.5000000000007
+      }
+    },
+    {
+      "name": "analytic uniform dual volume 12,2",
+      "pass": true,
+      "detail": {
+        "expected": 1896.75,
+        "before": 1896.7500000000489,
+        "after": 1896.7499999999998
+      }
+    },
+    {
+      "name": "analytic uniform dual volume 16,0",
+      "pass": true,
+      "detail": {
+        "expected": 1534.65,
+        "before": 1534.6500000000754,
+        "after": 1534.6500000000062
+      }
+    },
+    {
+      "name": "analytic uniform dual volume 16,1",
+      "pass": true,
+      "detail": {
+        "expected": 3069.3,
+        "before": 3069.3000000001502,
+        "after": 3069.300000000013
+      }
+    },
+    {
+      "name": "analytic uniform dual volume 16,2",
+      "pass": true,
+      "detail": {
+        "expected": 4603.950000000001,
+        "before": 4603.949999999667,
+        "after": 4603.949999999951
+      }
+    }
+  ],
+  "reference": [
+    {
+      "grid": 8,
+      "axis": 0,
+      "sign": -1,
+      "fraction": 0.25,
+      "step": 0,
+      "component": 0,
+      "integral_before": 44.21864697548378,
+      "integral_after": 44.218646975483814,
+      "integral_error": 3.552713678800501e-14,
+      "max_gcl": 8.162359677044151e-13,
+      "max_donor_cfl": 0.6428571428566757,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 0,
+      "sign": -1,
+      "fraction": 0.25,
+      "step": 0,
+      "component": 1,
+      "integral_before": 120.0765490878764,
+      "integral_after": 120.07654908787632,
+      "integral_error": 8.526512829121202e-14,
+      "max_gcl": 8.162359677044151e-13,
+      "max_donor_cfl": 0.6428571428566757,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 0,
+      "sign": -1,
+      "fraction": 0.25,
+      "step": 0,
+      "component": 2,
+      "integral_before": 167.6206022168261,
+      "integral_after": 167.62060221682603,
+      "integral_error": 5.684341886080802e-14,
+      "max_gcl": 8.162359677044151e-13,
+      "max_donor_cfl": 0.6428571428566757,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 0,
+      "sign": -1,
+      "fraction": 0.25,
+      "step": 1,
+      "component": 0,
+      "integral_before": 44.218646975483814,
+      "integral_after": 44.21864697548379,
+      "integral_error": 2.1316282072803006e-14,
+      "max_gcl": 9.490186414495838e-13,
+      "max_donor_cfl": 0.2980132450335187,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 0,
+      "sign": -1,
+      "fraction": 0.25,
+      "step": 1,
+      "component": 1,
+      "integral_before": 120.07654908787632,
+      "integral_after": 120.07654908787646,
+      "integral_error": 1.4210854715202004e-13,
+      "max_gcl": 9.490186414495838e-13,
+      "max_donor_cfl": 0.2980132450335187,
+      "active_faces": 1167
+    },
+    {
+      "grid": 8,
+      "axis": 0,
+      "sign": -1,
+      "fraction": 0.25,
+      "step": 1,
+      "component": 2,
+      "integral_before": 167.62060221682603,
+      "integral_after": 167.62060221682594,
+      "integral_error": 8.526512829121202e-14,
+      "max_gcl": 9.490186414495838e-13,
+      "max_donor_cfl": 0.2980132450335187,
+      "active_faces": 1167
+    },
+    {
+      "grid": 8,
+      "axis": 0,
+      "sign": -1,
+      "fraction": 0.5,
+      "step": 0,
+      "component": 0,
+      "integral_before": 44.21864697548378,
+      "integral_after": 44.21864697548379,
+      "integral_error": 1.4210854715202004e-14,
+      "max_gcl": 9.811040868612508e-13,
+      "max_donor_cfl": 0.6428571428567206,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 0,
+      "sign": -1,
+      "fraction": 0.5,
+      "step": 0,
+      "component": 1,
+      "integral_before": 120.0765490878764,
+      "integral_after": 120.07654908787644,
+      "integral_error": 4.263256414560601e-14,
+      "max_gcl": 9.811040868612508e-13,
+      "max_donor_cfl": 0.6428571428567206,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 0,
+      "sign": -1,
+      "fraction": 0.5,
+      "step": 0,
+      "component": 2,
+      "integral_before": 167.6206022168261,
+      "integral_after": 167.62060221682606,
+      "integral_error": 2.842170943040401e-14,
+      "max_gcl": 9.811040868612508e-13,
+      "max_donor_cfl": 0.6428571428567206,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 0,
+      "sign": -1,
+      "fraction": 0.5,
+      "step": 1,
+      "component": 0,
+      "integral_before": 44.21864697548379,
+      "integral_after": 44.21864697548382,
+      "integral_error": 2.842170943040401e-14,
+      "max_gcl": 9.741096818061123e-13,
+      "max_donor_cfl": 0.6164383561645934,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 0,
+      "sign": -1,
+      "fraction": 0.5,
+      "step": 1,
+      "component": 1,
+      "integral_before": 120.07654908787644,
+      "integral_after": 120.07654908787636,
+      "integral_error": 8.526512829121202e-14,
+      "max_gcl": 9.741096818061123e-13,
+      "max_donor_cfl": 0.6164383561645934,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 0,
+      "sign": -1,
+      "fraction": 0.5,
+      "step": 1,
+      "component": 2,
+      "integral_before": 167.62060221682606,
+      "integral_after": 167.62060221682614,
+      "integral_error": 8.526512829121202e-14,
+      "max_gcl": 9.741096818061123e-13,
+      "max_donor_cfl": 0.6164383561645934,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 0,
+      "sign": 1,
+      "fraction": 0.25,
+      "step": 0,
+      "component": 0,
+      "integral_before": 44.21864697548378,
+      "integral_after": 44.21864697548386,
+      "integral_error": 7.815970093361102e-14,
+      "max_gcl": 6.841194277740215e-13,
+      "max_donor_cfl": 0.6081081081085539,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 0,
+      "sign": 1,
+      "fraction": 0.25,
+      "step": 0,
+      "component": 1,
+      "integral_before": 120.0765490878764,
+      "integral_after": 120.07654908787633,
+      "integral_error": 7.105427357601002e-14,
+      "max_gcl": 6.841194277740215e-13,
+      "max_donor_cfl": 0.6081081081085539,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 0,
+      "sign": 1,
+      "fraction": 0.25,
+      "step": 0,
+      "component": 2,
+      "integral_before": 167.6206022168261,
+      "integral_after": 167.62060221682594,
+      "integral_error": 1.4210854715202004e-13,
+      "max_gcl": 6.841194277740215e-13,
+      "max_donor_cfl": 0.6081081081085539,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 0,
+      "sign": 1,
+      "fraction": 0.25,
+      "step": 1,
+      "component": 0,
+      "integral_before": 44.21864697548386,
+      "integral_after": 44.218646975483836,
+      "integral_error": 2.1316282072803006e-14,
+      "max_gcl": 9.985345883478658e-13,
+      "max_donor_cfl": 0.36758543376696556,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 0,
+      "sign": 1,
+      "fraction": 0.25,
+      "step": 1,
+      "component": 1,
+      "integral_before": 120.07654908787633,
+      "integral_after": 120.07654908787623,
+      "integral_error": 9.947598300641403e-14,
+      "max_gcl": 9.985345883478658e-13,
+      "max_donor_cfl": 0.36758543376696556,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 0,
+      "sign": 1,
+      "fraction": 0.25,
+      "step": 1,
+      "component": 2,
+      "integral_before": 167.62060221682594,
+      "integral_after": 167.62060221682603,
+      "integral_error": 8.526512829121202e-14,
+      "max_gcl": 9.985345883478658e-13,
+      "max_donor_cfl": 0.36758543376696556,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 0,
+      "sign": 1,
+      "fraction": 0.5,
+      "step": 0,
+      "component": 0,
+      "integral_before": 44.21864697548378,
+      "integral_after": 44.21864697548382,
+      "integral_error": 4.263256414560601e-14,
+      "max_gcl": 9.0427665355719e-13,
+      "max_donor_cfl": 0.7297297297294039,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 0,
+      "sign": 1,
+      "fraction": 0.5,
+      "step": 0,
+      "component": 1,
+      "integral_before": 120.0765490878764,
+      "integral_after": 120.07654908787634,
+      "integral_error": 5.684341886080802e-14,
+      "max_gcl": 9.0427665355719e-13,
+      "max_donor_cfl": 0.7297297297294039,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 0,
+      "sign": 1,
+      "fraction": 0.5,
+      "step": 0,
+      "component": 2,
+      "integral_before": 167.6206022168261,
+      "integral_after": 167.62060221682606,
+      "integral_error": 2.842170943040401e-14,
+      "max_gcl": 9.0427665355719e-13,
+      "max_donor_cfl": 0.7297297297294039,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 0,
+      "sign": 1,
+      "fraction": 0.5,
+      "step": 1,
+      "component": 0,
+      "integral_before": 44.21864697548382,
+      "integral_after": 44.21864697548382,
+      "integral_error": 0.0,
+      "max_gcl": 8.497647030480948e-13,
+      "max_donor_cfl": 0.5487804878050817,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 0,
+      "sign": 1,
+      "fraction": 0.5,
+      "step": 1,
+      "component": 1,
+      "integral_before": 120.07654908787634,
+      "integral_after": 120.07654908787637,
+      "integral_error": 2.842170943040401e-14,
+      "max_gcl": 8.497647030480948e-13,
+      "max_donor_cfl": 0.5487804878050817,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 0,
+      "sign": 1,
+      "fraction": 0.5,
+      "step": 1,
+      "component": 2,
+      "integral_before": 167.62060221682606,
+      "integral_after": 167.62060221682603,
+      "integral_error": 2.842170943040401e-14,
+      "max_gcl": 8.497647030480948e-13,
+      "max_donor_cfl": 0.5487804878050817,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 1,
+      "sign": -1,
+      "fraction": 0.25,
+      "step": 0,
+      "component": 0,
+      "integral_before": 44.21864697548378,
+      "integral_after": 44.21864697548378,
+      "integral_error": 0.0,
+      "max_gcl": 6.001865671123596e-13,
+      "max_donor_cfl": 0.29299333305360736,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 1,
+      "sign": -1,
+      "fraction": 0.25,
+      "step": 0,
+      "component": 1,
+      "integral_before": 120.0765490878764,
+      "integral_after": 120.07654908787634,
+      "integral_error": 5.684341886080802e-14,
+      "max_gcl": 6.001865671123596e-13,
+      "max_donor_cfl": 0.29299333305360736,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 1,
+      "sign": -1,
+      "fraction": 0.25,
+      "step": 0,
+      "component": 2,
+      "integral_before": 167.6206022168261,
+      "integral_after": 167.6206022168261,
+      "integral_error": 0.0,
+      "max_gcl": 6.001865671123596e-13,
+      "max_donor_cfl": 0.29299333305360736,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 1,
+      "sign": -1,
+      "fraction": 0.25,
+      "step": 1,
+      "component": 0,
+      "integral_before": 44.21864697548378,
+      "integral_after": 44.21864697548382,
+      "integral_error": 4.263256414560601e-14,
+      "max_gcl": 9.541256673628595e-13,
+      "max_donor_cfl": 0.2739726027393553,
+      "active_faces": 1167
+    },
+    {
+      "grid": 8,
+      "axis": 1,
+      "sign": -1,
+      "fraction": 0.25,
+      "step": 1,
+      "component": 1,
+      "integral_before": 120.07654908787634,
+      "integral_after": 120.07654908787627,
+      "integral_error": 7.105427357601002e-14,
+      "max_gcl": 9.541256673628595e-13,
+      "max_donor_cfl": 0.2739726027393553,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 1,
+      "sign": -1,
+      "fraction": 0.25,
+      "step": 1,
+      "component": 2,
+      "integral_before": 167.6206022168261,
+      "integral_after": 167.620602216826,
+      "integral_error": 8.526512829121202e-14,
+      "max_gcl": 9.541256673628595e-13,
+      "max_donor_cfl": 0.2739726027393553,
+      "active_faces": 1167
+    },
+    {
+      "grid": 8,
+      "axis": 1,
+      "sign": -1,
+      "fraction": 0.5,
+      "step": 0,
+      "component": 0,
+      "integral_before": 44.21864697548378,
+      "integral_after": 44.218646975483864,
+      "integral_error": 8.526512829121202e-14,
+      "max_gcl": 9.806599976514008e-13,
+      "max_donor_cfl": 0.4301075268813819,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 1,
+      "sign": -1,
+      "fraction": 0.5,
+      "step": 0,
+      "component": 1,
+      "integral_before": 120.0765490878764,
+      "integral_after": 120.07654908787654,
+      "integral_error": 1.4210854715202004e-13,
+      "max_gcl": 9.806599976514008e-13,
+      "max_donor_cfl": 0.4301075268813819,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 1,
+      "sign": -1,
+      "fraction": 0.5,
+      "step": 0,
+      "component": 2,
+      "integral_before": 167.6206022168261,
+      "integral_after": 167.620602216826,
+      "integral_error": 8.526512829121202e-14,
+      "max_gcl": 9.806599976514008e-13,
+      "max_donor_cfl": 0.4301075268813819,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 1,
+      "sign": -1,
+      "fraction": 0.5,
+      "step": 1,
+      "component": 0,
+      "integral_before": 44.218646975483864,
+      "integral_after": 44.21864697548378,
+      "integral_error": 8.526512829121202e-14,
+      "max_gcl": 9.541256673628595e-13,
+      "max_donor_cfl": 0.5882352941176835,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 1,
+      "sign": -1,
+      "fraction": 0.5,
+      "step": 1,
+      "component": 1,
+      "integral_before": 120.07654908787654,
+      "integral_after": 120.07654908787632,
+      "integral_error": 2.2737367544323206e-13,
+      "max_gcl": 9.541256673628595e-13,
+      "max_donor_cfl": 0.5882352941176835,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 1,
+      "sign": -1,
+      "fraction": 0.5,
+      "step": 1,
+      "component": 2,
+      "integral_before": 167.620602216826,
+      "integral_after": 167.62060221682606,
+      "integral_error": 5.684341886080802e-14,
+      "max_gcl": 9.541256673628595e-13,
+      "max_donor_cfl": 0.5882352941176835,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 1,
+      "sign": 1,
+      "fraction": 0.25,
+      "step": 0,
+      "component": 0,
+      "integral_before": 44.21864697548378,
+      "integral_after": 44.21864697548386,
+      "integral_error": 7.815970093361102e-14,
+      "max_gcl": 8.979483823168266e-13,
+      "max_donor_cfl": 0.3846153846156946,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 1,
+      "sign": 1,
+      "fraction": 0.25,
+      "step": 0,
+      "component": 1,
+      "integral_before": 120.0765490878764,
+      "integral_after": 120.07654908787637,
+      "integral_error": 2.842170943040401e-14,
+      "max_gcl": 8.979483823168266e-13,
+      "max_donor_cfl": 0.3846153846156946,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 1,
+      "sign": 1,
+      "fraction": 0.25,
+      "step": 0,
+      "component": 2,
+      "integral_before": 167.6206022168261,
+      "integral_after": 167.62060221682592,
+      "integral_error": 1.7053025658242404e-13,
+      "max_gcl": 8.979483823168266e-13,
+      "max_donor_cfl": 0.3846153846156946,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 1,
+      "sign": 1,
+      "fraction": 0.25,
+      "step": 1,
+      "component": 0,
+      "integral_before": 44.21864697548386,
+      "integral_after": 44.21864697548379,
+      "integral_error": 6.394884621840902e-14,
+      "max_gcl": 5.56776846849516e-13,
+      "max_donor_cfl": 0.3749999999994638,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 1,
+      "sign": 1,
+      "fraction": 0.25,
+      "step": 1,
+      "component": 1,
+      "integral_before": 120.07654908787637,
+      "integral_after": 120.07654908787634,
+      "integral_error": 2.842170943040401e-14,
+      "max_gcl": 5.56776846849516e-13,
+      "max_donor_cfl": 0.3749999999994638,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 1,
+      "sign": 1,
+      "fraction": 0.25,
+      "step": 1,
+      "component": 2,
+      "integral_before": 167.62060221682592,
+      "integral_after": 167.620602216826,
+      "integral_error": 8.526512829121202e-14,
+      "max_gcl": 5.56776846849516e-13,
+      "max_donor_cfl": 0.3749999999994638,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 1,
+      "sign": 1,
+      "fraction": 0.5,
+      "step": 0,
+      "component": 0,
+      "integral_before": 44.21864697548378,
+      "integral_after": 44.21864697548383,
+      "integral_error": 4.973799150320701e-14,
+      "max_gcl": 7.609468610780823e-13,
+      "max_donor_cfl": 0.615384615384272,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 1,
+      "sign": 1,
+      "fraction": 0.5,
+      "step": 0,
+      "component": 1,
+      "integral_before": 120.0765490878764,
+      "integral_after": 120.07654908787639,
+      "integral_error": 1.4210854715202004e-14,
+      "max_gcl": 7.609468610780823e-13,
+      "max_donor_cfl": 0.615384615384272,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 1,
+      "sign": 1,
+      "fraction": 0.5,
+      "step": 0,
+      "component": 2,
+      "integral_before": 167.6206022168261,
+      "integral_after": 167.62060221682606,
+      "integral_error": 2.842170943040401e-14,
+      "max_gcl": 7.609468610780823e-13,
+      "max_donor_cfl": 0.615384615384272,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 1,
+      "sign": 1,
+      "fraction": 0.5,
+      "step": 1,
+      "component": 0,
+      "integral_before": 44.21864697548383,
+      "integral_after": 44.21864697548383,
+      "integral_error": 0.0,
+      "max_gcl": 9.749978602258125e-13,
+      "max_donor_cfl": 0.4347826086954526,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 1,
+      "sign": 1,
+      "fraction": 0.5,
+      "step": 1,
+      "component": 1,
+      "integral_before": 120.07654908787639,
+      "integral_after": 120.0765490878763,
+      "integral_error": 8.526512829121202e-14,
+      "max_gcl": 9.749978602258125e-13,
+      "max_donor_cfl": 0.4347826086954526,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 1,
+      "sign": 1,
+      "fraction": 0.5,
+      "step": 1,
+      "component": 2,
+      "integral_before": 167.62060221682606,
+      "integral_after": 167.62060221682603,
+      "integral_error": 2.842170943040401e-14,
+      "max_gcl": 9.749978602258125e-13,
+      "max_donor_cfl": 0.4347826086954526,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 2,
+      "sign": -1,
+      "fraction": 0.25,
+      "step": 0,
+      "component": 0,
+      "integral_before": 44.21864697548378,
+      "integral_after": 44.218646975483836,
+      "integral_error": 5.684341886080802e-14,
+      "max_gcl": 6.841194277740215e-13,
+      "max_donor_cfl": 0.6081081081085536,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 2,
+      "sign": -1,
+      "fraction": 0.25,
+      "step": 0,
+      "component": 1,
+      "integral_before": 120.0765490878764,
+      "integral_after": 120.07654908787639,
+      "integral_error": 1.4210854715202004e-14,
+      "max_gcl": 6.841194277740215e-13,
+      "max_donor_cfl": 0.6081081081085536,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 2,
+      "sign": -1,
+      "fraction": 0.25,
+      "step": 0,
+      "component": 2,
+      "integral_before": 167.6206022168261,
+      "integral_after": 167.62060221682617,
+      "integral_error": 8.526512829121202e-14,
+      "max_gcl": 6.841194277740215e-13,
+      "max_donor_cfl": 0.6081081081085536,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 2,
+      "sign": -1,
+      "fraction": 0.25,
+      "step": 1,
+      "component": 0,
+      "integral_before": 44.218646975483836,
+      "integral_after": 44.21864697548382,
+      "integral_error": 1.4210854715202004e-14,
+      "max_gcl": 9.985345883478658e-13,
+      "max_donor_cfl": 0.36758543376696556,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 2,
+      "sign": -1,
+      "fraction": 0.25,
+      "step": 1,
+      "component": 1,
+      "integral_before": 120.07654908787639,
+      "integral_after": 120.07654908787632,
+      "integral_error": 7.105427357601002e-14,
+      "max_gcl": 9.985345883478658e-13,
+      "max_donor_cfl": 0.36758543376696556,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 2,
+      "sign": -1,
+      "fraction": 0.25,
+      "step": 1,
+      "component": 2,
+      "integral_before": 167.62060221682617,
+      "integral_after": 167.62060221682623,
+      "integral_error": 5.684341886080802e-14,
+      "max_gcl": 9.985345883478658e-13,
+      "max_donor_cfl": 0.36758543376696556,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 2,
+      "sign": -1,
+      "fraction": 0.5,
+      "step": 0,
+      "component": 0,
+      "integral_before": 44.21864697548378,
+      "integral_after": 44.21864697548381,
+      "integral_error": 2.842170943040401e-14,
+      "max_gcl": 9.0427665355719e-13,
+      "max_donor_cfl": 0.729729729729404,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 2,
+      "sign": -1,
+      "fraction": 0.5,
+      "step": 0,
+      "component": 1,
+      "integral_before": 120.0765490878764,
+      "integral_after": 120.07654908787636,
+      "integral_error": 4.263256414560601e-14,
+      "max_gcl": 9.0427665355719e-13,
+      "max_donor_cfl": 0.729729729729404,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 2,
+      "sign": -1,
+      "fraction": 0.5,
+      "step": 0,
+      "component": 2,
+      "integral_before": 167.6206022168261,
+      "integral_after": 167.620602216826,
+      "integral_error": 8.526512829121202e-14,
+      "max_gcl": 9.0427665355719e-13,
+      "max_donor_cfl": 0.729729729729404,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 2,
+      "sign": -1,
+      "fraction": 0.5,
+      "step": 1,
+      "component": 0,
+      "integral_before": 44.21864697548381,
+      "integral_after": 44.21864697548385,
+      "integral_error": 4.263256414560601e-14,
+      "max_gcl": 8.497647030480948e-13,
+      "max_donor_cfl": 0.5487804878050816,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 2,
+      "sign": -1,
+      "fraction": 0.5,
+      "step": 1,
+      "component": 1,
+      "integral_before": 120.07654908787636,
+      "integral_after": 120.07654908787624,
+      "integral_error": 1.1368683772161603e-13,
+      "max_gcl": 8.497647030480948e-13,
+      "max_donor_cfl": 0.5487804878050816,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 2,
+      "sign": -1,
+      "fraction": 0.5,
+      "step": 1,
+      "component": 2,
+      "integral_before": 167.620602216826,
+      "integral_after": 167.62060221682611,
+      "integral_error": 1.1368683772161603e-13,
+      "max_gcl": 8.497647030480948e-13,
+      "max_donor_cfl": 0.5487804878050816,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 2,
+      "sign": 1,
+      "fraction": 0.25,
+      "step": 0,
+      "component": 0,
+      "integral_before": 44.21864697548378,
+      "integral_after": 44.21864697548378,
+      "integral_error": 0.0,
+      "max_gcl": 8.162359677044151e-13,
+      "max_donor_cfl": 0.642857142856676,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 2,
+      "sign": 1,
+      "fraction": 0.25,
+      "step": 0,
+      "component": 1,
+      "integral_before": 120.0765490878764,
+      "integral_after": 120.07654908787643,
+      "integral_error": 2.842170943040401e-14,
+      "max_gcl": 8.162359677044151e-13,
+      "max_donor_cfl": 0.642857142856676,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 2,
+      "sign": 1,
+      "fraction": 0.25,
+      "step": 0,
+      "component": 2,
+      "integral_before": 167.6206022168261,
+      "integral_after": 167.6206022168261,
+      "integral_error": 0.0,
+      "max_gcl": 8.162359677044151e-13,
+      "max_donor_cfl": 0.642857142856676,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 2,
+      "sign": 1,
+      "fraction": 0.25,
+      "step": 1,
+      "component": 0,
+      "integral_before": 44.21864697548378,
+      "integral_after": 44.21864697548384,
+      "integral_error": 6.394884621840902e-14,
+      "max_gcl": 9.490186414495838e-13,
+      "max_donor_cfl": 0.2980132450335188,
+      "active_faces": 1167
+    },
+    {
+      "grid": 8,
+      "axis": 2,
+      "sign": 1,
+      "fraction": 0.25,
+      "step": 1,
+      "component": 1,
+      "integral_before": 120.07654908787643,
+      "integral_after": 120.07654908787646,
+      "integral_error": 2.842170943040401e-14,
+      "max_gcl": 9.490186414495838e-13,
+      "max_donor_cfl": 0.2980132450335188,
+      "active_faces": 1167
+    },
+    {
+      "grid": 8,
+      "axis": 2,
+      "sign": 1,
+      "fraction": 0.25,
+      "step": 1,
+      "component": 2,
+      "integral_before": 167.6206022168261,
+      "integral_after": 167.62060221682603,
+      "integral_error": 5.684341886080802e-14,
+      "max_gcl": 9.490186414495838e-13,
+      "max_donor_cfl": 0.2980132450335188,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 2,
+      "sign": 1,
+      "fraction": 0.5,
+      "step": 0,
+      "component": 0,
+      "integral_before": 44.21864697548378,
+      "integral_after": 44.21864697548385,
+      "integral_error": 7.105427357601002e-14,
+      "max_gcl": 9.811040868612508e-13,
+      "max_donor_cfl": 0.6428571428567202,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 2,
+      "sign": 1,
+      "fraction": 0.5,
+      "step": 0,
+      "component": 1,
+      "integral_before": 120.0765490878764,
+      "integral_after": 120.07654908787624,
+      "integral_error": 1.5631940186722204e-13,
+      "max_gcl": 9.811040868612508e-13,
+      "max_donor_cfl": 0.6428571428567202,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 2,
+      "sign": 1,
+      "fraction": 0.5,
+      "step": 0,
+      "component": 2,
+      "integral_before": 167.6206022168261,
+      "integral_after": 167.62060221682594,
+      "integral_error": 1.4210854715202004e-13,
+      "max_gcl": 9.811040868612508e-13,
+      "max_donor_cfl": 0.6428571428567202,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 2,
+      "sign": 1,
+      "fraction": 0.5,
+      "step": 1,
+      "component": 0,
+      "integral_before": 44.21864697548385,
+      "integral_after": 44.21864697548382,
+      "integral_error": 2.842170943040401e-14,
+      "max_gcl": 9.742207041085749e-13,
+      "max_donor_cfl": 0.6164383561645935,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 2,
+      "sign": 1,
+      "fraction": 0.5,
+      "step": 1,
+      "component": 1,
+      "integral_before": 120.07654908787624,
+      "integral_after": 120.0765490878764,
+      "integral_error": 1.5631940186722204e-13,
+      "max_gcl": 9.742207041085749e-13,
+      "max_donor_cfl": 0.6164383561645935,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 2,
+      "sign": 1,
+      "fraction": 0.5,
+      "step": 1,
+      "component": 2,
+      "integral_before": 167.62060221682594,
+      "integral_after": 167.62060221682597,
+      "integral_error": 2.842170943040401e-14,
+      "max_gcl": 9.742207041085749e-13,
+      "max_donor_cfl": 0.6164383561645935,
+      "active_faces": 1168
+    },
+    {
+      "grid": 12,
+      "axis": 0,
+      "sign": -1,
+      "fraction": 0.25,
+      "step": 0,
+      "component": 0,
+      "integral_before": 203.73345443668615,
+      "integral_after": 203.7334544366863,
+      "integral_error": 1.4210854715202004e-13,
+      "max_gcl": 9.737766148987248e-13,
+      "max_donor_cfl": 0.6428571428570315,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 0,
+      "sign": -1,
+      "fraction": 0.25,
+      "step": 0,
+      "component": 1,
+      "integral_before": 452.0944261199426,
+      "integral_after": 452.0944261199428,
+      "integral_error": 1.7053025658242404e-13,
+      "max_gcl": 9.737766148987248e-13,
+      "max_donor_cfl": 0.6428571428570315,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 0,
+      "sign": -1,
+      "fraction": 0.25,
+      "step": 0,
+      "component": 2,
+      "integral_before": 660.1002983806051,
+      "integral_after": 660.100298380606,
+      "integral_error": 9.094947017729282e-13,
+      "max_gcl": 9.737766148987248e-13,
+      "max_donor_cfl": 0.6428571428570315,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 0,
+      "sign": -1,
+      "fraction": 0.25,
+      "step": 1,
+      "component": 0,
+      "integral_before": 203.7334544366863,
+      "integral_after": 203.7334544366864,
+      "integral_error": 1.1368683772161603e-13,
+      "max_gcl": 9.174883075502294e-13,
+      "max_donor_cfl": 0.2980132450333773,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 0,
+      "sign": -1,
+      "fraction": 0.25,
+      "step": 1,
+      "component": 1,
+      "integral_before": 452.0944261199428,
+      "integral_after": 452.0944261199419,
+      "integral_error": 9.094947017729282e-13,
+      "max_gcl": 9.174883075502294e-13,
+      "max_donor_cfl": 0.2980132450333773,
+      "active_faces": 4343
+    },
+    {
+      "grid": 12,
+      "axis": 0,
+      "sign": -1,
+      "fraction": 0.25,
+      "step": 1,
+      "component": 2,
+      "integral_before": 660.100298380606,
+      "integral_after": 660.1002983806063,
+      "integral_error": 3.410605131648481e-13,
+      "max_gcl": 9.174883075502294e-13,
+      "max_donor_cfl": 0.2980132450333773,
+      "active_faces": 4343
+    },
+    {
+      "grid": 12,
+      "axis": 0,
+      "sign": -1,
+      "fraction": 0.5,
+      "step": 0,
+      "component": 0,
+      "integral_before": 203.73345443668615,
+      "integral_after": 203.73345443668606,
+      "integral_error": 8.526512829121202e-14,
+      "max_gcl": 7.753797603982093e-13,
+      "max_donor_cfl": 0.6428571428566501,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 0,
+      "sign": -1,
+      "fraction": 0.5,
+      "step": 0,
+      "component": 1,
+      "integral_before": 452.0944261199426,
+      "integral_after": 452.09442611994166,
+      "integral_error": 9.663381206337363e-13,
+      "max_gcl": 7.753797603982093e-13,
+      "max_donor_cfl": 0.6428571428566501,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 0,
+      "sign": -1,
+      "fraction": 0.5,
+      "step": 0,
+      "component": 2,
+      "integral_before": 660.1002983806051,
+      "integral_after": 660.100298380603,
+      "integral_error": 2.0463630789890885e-12,
+      "max_gcl": 7.753797603982093e-13,
+      "max_donor_cfl": 0.6428571428566501,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 0,
+      "sign": -1,
+      "fraction": 0.5,
+      "step": 1,
+      "component": 0,
+      "integral_before": 203.73345443668606,
+      "integral_after": 203.73345443668575,
+      "integral_error": 3.126388037344441e-13,
+      "max_gcl": 9.316991622654314e-13,
+      "max_donor_cfl": 0.6164383561643663,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 0,
+      "sign": -1,
+      "fraction": 0.5,
+      "step": 1,
+      "component": 1,
+      "integral_before": 452.09442611994166,
+      "integral_after": 452.0944261199411,
+      "integral_error": 5.684341886080801e-13,
+      "max_gcl": 9.316991622654314e-13,
+      "max_donor_cfl": 0.6164383561643663,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 0,
+      "sign": -1,
+      "fraction": 0.5,
+      "step": 1,
+      "component": 2,
+      "integral_before": 660.100298380603,
+      "integral_after": 660.1002983806043,
+      "integral_error": 1.2505552149377763e-12,
+      "max_gcl": 9.316991622654314e-13,
+      "max_donor_cfl": 0.6164383561643663,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 0,
+      "sign": 1,
+      "fraction": 0.25,
+      "step": 0,
+      "component": 0,
+      "integral_before": 203.73345443668615,
+      "integral_after": 203.73345443668623,
+      "integral_error": 8.526512829121202e-14,
+      "max_gcl": 8.554268404736831e-13,
+      "max_donor_cfl": 0.6081081081083732,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 0,
+      "sign": 1,
+      "fraction": 0.25,
+      "step": 0,
+      "component": 1,
+      "integral_before": 452.0944261199426,
+      "integral_after": 452.094426119942,
+      "integral_error": 6.252776074688882e-13,
+      "max_gcl": 8.554268404736831e-13,
+      "max_donor_cfl": 0.6081081081083732,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 0,
+      "sign": 1,
+      "fraction": 0.25,
+      "step": 0,
+      "component": 2,
+      "integral_before": 660.1002983806051,
+      "integral_after": 660.100298380605,
+      "integral_error": 1.1368683772161603e-13,
+      "max_gcl": 8.554268404736831e-13,
+      "max_donor_cfl": 0.6081081081083732,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 0,
+      "sign": 1,
+      "fraction": 0.25,
+      "step": 1,
+      "component": 0,
+      "integral_before": 203.73345443668623,
+      "integral_after": 203.7334544366859,
+      "integral_error": 3.410605131648481e-13,
+      "max_gcl": 8.388845174067683e-13,
+      "max_donor_cfl": 0.36488322049619015,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 0,
+      "sign": 1,
+      "fraction": 0.25,
+      "step": 1,
+      "component": 1,
+      "integral_before": 452.094426119942,
+      "integral_after": 452.09442611994206,
+      "integral_error": 5.684341886080802e-14,
+      "max_gcl": 8.388845174067683e-13,
+      "max_donor_cfl": 0.36488322049619015,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 0,
+      "sign": 1,
+      "fraction": 0.25,
+      "step": 1,
+      "component": 2,
+      "integral_before": 660.100298380605,
+      "integral_after": 660.1002983806059,
+      "integral_error": 9.094947017729282e-13,
+      "max_gcl": 8.388845174067683e-13,
+      "max_donor_cfl": 0.36488322049619015,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 0,
+      "sign": 1,
+      "fraction": 0.5,
+      "step": 0,
+      "component": 0,
+      "integral_before": 203.73345443668615,
+      "integral_after": 203.7334544366859,
+      "integral_error": 2.5579538487363607e-13,
+      "max_gcl": 8.598677325721837e-13,
+      "max_donor_cfl": 0.7297297297295188,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 0,
+      "sign": 1,
+      "fraction": 0.5,
+      "step": 0,
+      "component": 1,
+      "integral_before": 452.0944261199426,
+      "integral_after": 452.09442611994245,
+      "integral_error": 1.7053025658242404e-13,
+      "max_gcl": 8.598677325721837e-13,
+      "max_donor_cfl": 0.7297297297295188,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 0,
+      "sign": 1,
+      "fraction": 0.5,
+      "step": 0,
+      "component": 2,
+      "integral_before": 660.1002983806051,
+      "integral_after": 660.1002983806053,
+      "integral_error": 2.2737367544323206e-13,
+      "max_gcl": 8.598677325721837e-13,
+      "max_donor_cfl": 0.7297297297295188,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 0,
+      "sign": 1,
+      "fraction": 0.5,
+      "step": 1,
+      "component": 0,
+      "integral_before": 203.7334544366859,
+      "integral_after": 203.73345443668586,
+      "integral_error": 2.842170943040401e-14,
+      "max_gcl": 9.011680290882396e-13,
+      "max_donor_cfl": 0.5487804878049235,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 0,
+      "sign": 1,
+      "fraction": 0.5,
+      "step": 1,
+      "component": 1,
+      "integral_before": 452.09442611994245,
+      "integral_after": 452.0944261199429,
+      "integral_error": 4.547473508864641e-13,
+      "max_gcl": 9.011680290882396e-13,
+      "max_donor_cfl": 0.5487804878049235,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 0,
+      "sign": 1,
+      "fraction": 0.5,
+      "step": 1,
+      "component": 2,
+      "integral_before": 660.1002983806053,
+      "integral_after": 660.1002983806046,
+      "integral_error": 6.821210263296962e-13,
+      "max_gcl": 9.011680290882396e-13,
+      "max_donor_cfl": 0.5487804878049235,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 1,
+      "sign": -1,
+      "fraction": 0.25,
+      "step": 0,
+      "component": 0,
+      "integral_before": 203.73345443668615,
+      "integral_after": 203.7334544366862,
+      "integral_error": 5.684341886080802e-14,
+      "max_gcl": 9.108269694024784e-13,
+      "max_donor_cfl": 0.29145208868679573,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 1,
+      "sign": -1,
+      "fraction": 0.25,
+      "step": 0,
+      "component": 1,
+      "integral_before": 452.0944261199426,
+      "integral_after": 452.0944261199421,
+      "integral_error": 5.115907697472721e-13,
+      "max_gcl": 9.108269694024784e-13,
+      "max_donor_cfl": 0.29145208868679573,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 1,
+      "sign": -1,
+      "fraction": 0.25,
+      "step": 0,
+      "component": 2,
+      "integral_before": 660.1002983806051,
+      "integral_after": 660.1002983806046,
+      "integral_error": 4.547473508864641e-13,
+      "max_gcl": 9.108269694024784e-13,
+      "max_donor_cfl": 0.29145208868679573,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 1,
+      "sign": -1,
+      "fraction": 0.25,
+      "step": 1,
+      "component": 0,
+      "integral_before": 203.7334544366862,
+      "integral_after": 203.7334544366864,
+      "integral_error": 1.9895196601282805e-13,
+      "max_gcl": 7.820410985459603e-13,
+      "max_donor_cfl": 0.2739726027400848,
+      "active_faces": 4343
+    },
+    {
+      "grid": 12,
+      "axis": 1,
+      "sign": -1,
+      "fraction": 0.25,
+      "step": 1,
+      "component": 1,
+      "integral_before": 452.0944261199421,
+      "integral_after": 452.09442611994166,
+      "integral_error": 4.547473508864641e-13,
+      "max_gcl": 7.820410985459603e-13,
+      "max_donor_cfl": 0.2739726027400848,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 1,
+      "sign": -1,
+      "fraction": 0.25,
+      "step": 1,
+      "component": 2,
+      "integral_before": 660.1002983806046,
+      "integral_after": 660.1002983806044,
+      "integral_error": 2.2737367544323206e-13,
+      "max_gcl": 7.820410985459603e-13,
+      "max_donor_cfl": 0.2739726027400848,
+      "active_faces": 4343
+    },
+    {
+      "grid": 12,
+      "axis": 1,
+      "sign": -1,
+      "fraction": 0.5,
+      "step": 0,
+      "component": 0,
+      "integral_before": 203.73345443668615,
+      "integral_after": 203.7334544366858,
+      "integral_error": 3.410605131648481e-13,
+      "max_gcl": 8.963940700823514e-13,
+      "max_donor_cfl": 0.4301075268817043,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 1,
+      "sign": -1,
+      "fraction": 0.5,
+      "step": 0,
+      "component": 1,
+      "integral_before": 452.0944261199426,
+      "integral_after": 452.0944261199415,
+      "integral_error": 1.1368683772161603e-12,
+      "max_gcl": 8.963940700823514e-13,
+      "max_donor_cfl": 0.4301075268817043,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 1,
+      "sign": -1,
+      "fraction": 0.5,
+      "step": 0,
+      "component": 2,
+      "integral_before": 660.1002983806051,
+      "integral_after": 660.1002983806045,
+      "integral_error": 5.684341886080801e-13,
+      "max_gcl": 8.963940700823514e-13,
+      "max_donor_cfl": 0.4301075268817043,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 1,
+      "sign": -1,
+      "fraction": 0.5,
+      "step": 1,
+      "component": 0,
+      "integral_before": 203.7334544366858,
+      "integral_after": 203.73345443668632,
+      "integral_error": 5.115907697472721e-13,
+      "max_gcl": 9.597878047884478e-13,
+      "max_donor_cfl": 0.58823529411759,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 1,
+      "sign": -1,
+      "fraction": 0.5,
+      "step": 1,
+      "component": 1,
+      "integral_before": 452.0944261199415,
+      "integral_after": 452.0944261199432,
+      "integral_error": 1.7053025658242404e-12,
+      "max_gcl": 9.597878047884478e-13,
+      "max_donor_cfl": 0.58823529411759,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 1,
+      "sign": -1,
+      "fraction": 0.5,
+      "step": 1,
+      "component": 2,
+      "integral_before": 660.1002983806045,
+      "integral_after": 660.1002983806037,
+      "integral_error": 7.958078640513122e-13,
+      "max_gcl": 9.597878047884478e-13,
+      "max_donor_cfl": 0.58823529411759,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 1,
+      "sign": 1,
+      "fraction": 0.25,
+      "step": 0,
+      "component": 0,
+      "integral_before": 203.73345443668615,
+      "integral_after": 203.73345443668617,
+      "integral_error": 2.842170943040401e-14,
+      "max_gcl": 9.887646257311644e-13,
+      "max_donor_cfl": 0.38461538461602096,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 1,
+      "sign": 1,
+      "fraction": 0.25,
+      "step": 0,
+      "component": 1,
+      "integral_before": 452.0944261199426,
+      "integral_after": 452.0944261199423,
+      "integral_error": 3.410605131648481e-13,
+      "max_gcl": 9.887646257311644e-13,
+      "max_donor_cfl": 0.38461538461602096,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 1,
+      "sign": 1,
+      "fraction": 0.25,
+      "step": 0,
+      "component": 2,
+      "integral_before": 660.1002983806051,
+      "integral_after": 660.1002983806047,
+      "integral_error": 3.410605131648481e-13,
+      "max_gcl": 9.887646257311644e-13,
+      "max_donor_cfl": 0.38461538461602096,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 1,
+      "sign": 1,
+      "fraction": 0.25,
+      "step": 1,
+      "component": 0,
+      "integral_before": 203.73345443668617,
+      "integral_after": 203.73345443668603,
+      "integral_error": 1.4210854715202004e-13,
+      "max_gcl": 9.864331573794516e-13,
+      "max_donor_cfl": 0.3749999999998162,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 1,
+      "sign": 1,
+      "fraction": 0.25,
+      "step": 1,
+      "component": 1,
+      "integral_before": 452.0944261199423,
+      "integral_after": 452.09442611994194,
+      "integral_error": 3.410605131648481e-13,
+      "max_gcl": 9.864331573794516e-13,
+      "max_donor_cfl": 0.3749999999998162,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 1,
+      "sign": 1,
+      "fraction": 0.25,
+      "step": 1,
+      "component": 2,
+      "integral_before": 660.1002983806047,
+      "integral_after": 660.1002983806043,
+      "integral_error": 4.547473508864641e-13,
+      "max_gcl": 9.864331573794516e-13,
+      "max_donor_cfl": 0.3749999999998162,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 1,
+      "sign": 1,
+      "fraction": 0.5,
+      "step": 0,
+      "component": 0,
+      "integral_before": 203.73345443668615,
+      "integral_after": 203.73345443668572,
+      "integral_error": 4.263256414560601e-13,
+      "max_gcl": 9.88875648033627e-13,
+      "max_donor_cfl": 0.6153846153847209,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 1,
+      "sign": 1,
+      "fraction": 0.5,
+      "step": 0,
+      "component": 1,
+      "integral_before": 452.0944261199426,
+      "integral_after": 452.0944261199416,
+      "integral_error": 1.0231815394945443e-12,
+      "max_gcl": 9.88875648033627e-13,
+      "max_donor_cfl": 0.6153846153847209,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 1,
+      "sign": 1,
+      "fraction": 0.5,
+      "step": 0,
+      "component": 2,
+      "integral_before": 660.1002983806051,
+      "integral_after": 660.1002983806055,
+      "integral_error": 4.547473508864641e-13,
+      "max_gcl": 9.88875648033627e-13,
+      "max_donor_cfl": 0.6153846153847209,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 1,
+      "sign": 1,
+      "fraction": 0.5,
+      "step": 1,
+      "component": 0,
+      "integral_before": 203.73345443668572,
+      "integral_after": 203.7334544366862,
+      "integral_error": 4.831690603168681e-13,
+      "max_gcl": 8.126832540256146e-13,
+      "max_donor_cfl": 0.4347826086957619,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 1,
+      "sign": 1,
+      "fraction": 0.5,
+      "step": 1,
+      "component": 1,
+      "integral_before": 452.0944261199416,
+      "integral_after": 452.0944261199422,
+      "integral_error": 6.252776074688882e-13,
+      "max_gcl": 8.126832540256146e-13,
+      "max_donor_cfl": 0.4347826086957619,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 1,
+      "sign": 1,
+      "fraction": 0.5,
+      "step": 1,
+      "component": 2,
+      "integral_before": 660.1002983806055,
+      "integral_after": 660.1002983806051,
+      "integral_error": 4.547473508864641e-13,
+      "max_gcl": 8.126832540256146e-13,
+      "max_donor_cfl": 0.4347826086957619,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 2,
+      "sign": -1,
+      "fraction": 0.25,
+      "step": 0,
+      "component": 0,
+      "integral_before": 203.73345443668615,
+      "integral_after": 203.73345443668615,
+      "integral_error": 0.0,
+      "max_gcl": 9.82436354490801e-13,
+      "max_donor_cfl": 0.608108108107924,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 2,
+      "sign": -1,
+      "fraction": 0.25,
+      "step": 0,
+      "component": 1,
+      "integral_before": 452.0944261199426,
+      "integral_after": 452.0944261199419,
+      "integral_error": 7.389644451905042e-13,
+      "max_gcl": 9.82436354490801e-13,
+      "max_donor_cfl": 0.608108108107924,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 2,
+      "sign": -1,
+      "fraction": 0.25,
+      "step": 0,
+      "component": 2,
+      "integral_before": 660.1002983806051,
+      "integral_after": 660.100298380605,
+      "integral_error": 1.1368683772161603e-13,
+      "max_gcl": 9.82436354490801e-13,
+      "max_donor_cfl": 0.608108108107924,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 2,
+      "sign": -1,
+      "fraction": 0.25,
+      "step": 1,
+      "component": 0,
+      "integral_before": 203.73345443668615,
+      "integral_after": 203.73345443668597,
+      "integral_error": 1.7053025658242404e-13,
+      "max_gcl": 9.316991622654314e-13,
+      "max_donor_cfl": 0.3655478122998267,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 2,
+      "sign": -1,
+      "fraction": 0.25,
+      "step": 1,
+      "component": 1,
+      "integral_before": 452.0944261199419,
+      "integral_after": 452.0944261199414,
+      "integral_error": 5.115907697472721e-13,
+      "max_gcl": 9.316991622654314e-13,
+      "max_donor_cfl": 0.3655478122998267,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 2,
+      "sign": -1,
+      "fraction": 0.25,
+      "step": 1,
+      "component": 2,
+      "integral_before": 660.100298380605,
+      "integral_after": 660.1002983806037,
+      "integral_error": 1.2505552149377763e-12,
+      "max_gcl": 9.316991622654314e-13,
+      "max_donor_cfl": 0.3655478122998267,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 2,
+      "sign": -1,
+      "fraction": 0.5,
+      "step": 0,
+      "component": 0,
+      "integral_before": 203.73345443668615,
+      "integral_after": 203.7334544366864,
+      "integral_error": 2.5579538487363607e-13,
+      "max_gcl": 8.992806499463768e-13,
+      "max_donor_cfl": 0.729729729729807,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 2,
+      "sign": -1,
+      "fraction": 0.5,
+      "step": 0,
+      "component": 1,
+      "integral_before": 452.0944261199426,
+      "integral_after": 452.09442611994234,
+      "integral_error": 2.8421709430404007e-13,
+      "max_gcl": 8.992806499463768e-13,
+      "max_donor_cfl": 0.729729729729807,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 2,
+      "sign": -1,
+      "fraction": 0.5,
+      "step": 0,
+      "component": 2,
+      "integral_before": 660.1002983806051,
+      "integral_after": 660.1002983806051,
+      "integral_error": 0.0,
+      "max_gcl": 8.992806499463768e-13,
+      "max_donor_cfl": 0.729729729729807,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 2,
+      "sign": -1,
+      "fraction": 0.5,
+      "step": 1,
+      "component": 0,
+      "integral_before": 203.7334544366864,
+      "integral_after": 203.73345443668612,
+      "integral_error": 2.8421709430404007e-13,
+      "max_gcl": 8.844036614163997e-13,
+      "max_donor_cfl": 0.548780487804926,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 2,
+      "sign": -1,
+      "fraction": 0.5,
+      "step": 1,
+      "component": 1,
+      "integral_before": 452.09442611994234,
+      "integral_after": 452.0944261199417,
+      "integral_error": 6.252776074688882e-13,
+      "max_gcl": 8.844036614163997e-13,
+      "max_donor_cfl": 0.548780487804926,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 2,
+      "sign": -1,
+      "fraction": 0.5,
+      "step": 1,
+      "component": 2,
+      "integral_before": 660.1002983806051,
+      "integral_after": 660.1002983806045,
+      "integral_error": 5.684341886080801e-13,
+      "max_gcl": 8.844036614163997e-13,
+      "max_donor_cfl": 0.548780487804926,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 2,
+      "sign": 1,
+      "fraction": 0.25,
+      "step": 0,
+      "component": 0,
+      "integral_before": 203.73345443668615,
+      "integral_after": 203.733454436686,
+      "integral_error": 1.4210854715202004e-13,
+      "max_gcl": 8.824052599720744e-13,
+      "max_donor_cfl": 0.6428571428574957,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 2,
+      "sign": 1,
+      "fraction": 0.25,
+      "step": 0,
+      "component": 1,
+      "integral_before": 452.0944261199426,
+      "integral_after": 452.0944261199424,
+      "integral_error": 2.2737367544323206e-13,
+      "max_gcl": 8.824052599720744e-13,
+      "max_donor_cfl": 0.6428571428574957,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 2,
+      "sign": 1,
+      "fraction": 0.25,
+      "step": 0,
+      "component": 2,
+      "integral_before": 660.1002983806051,
+      "integral_after": 660.1002983806043,
+      "integral_error": 7.958078640513122e-13,
+      "max_gcl": 8.824052599720744e-13,
+      "max_donor_cfl": 0.6428571428574957,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 2,
+      "sign": 1,
+      "fraction": 0.25,
+      "step": 1,
+      "component": 0,
+      "integral_before": 203.733454436686,
+      "integral_after": 203.73345443668603,
+      "integral_error": 2.842170943040401e-14,
+      "max_gcl": 9.212630658339549e-13,
+      "max_donor_cfl": 0.29801324503293486,
+      "active_faces": 4343
+    },
+    {
+      "grid": 12,
+      "axis": 2,
+      "sign": 1,
+      "fraction": 0.25,
+      "step": 1,
+      "component": 1,
+      "integral_before": 452.0944261199424,
+      "integral_after": 452.0944261199428,
+      "integral_error": 3.979039320256561e-13,
+      "max_gcl": 9.212630658339549e-13,
+      "max_donor_cfl": 0.29801324503293486,
+      "active_faces": 4343
+    },
+    {
+      "grid": 12,
+      "axis": 2,
+      "sign": 1,
+      "fraction": 0.25,
+      "step": 1,
+      "component": 2,
+      "integral_before": 660.1002983806043,
+      "integral_after": 660.1002983806052,
+      "integral_error": 9.094947017729282e-13,
+      "max_gcl": 9.212630658339549e-13,
+      "max_donor_cfl": 0.29801324503293486,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 2,
+      "sign": 1,
+      "fraction": 0.5,
+      "step": 0,
+      "component": 0,
+      "integral_before": 203.73345443668615,
+      "integral_after": 203.73345443668606,
+      "integral_error": 8.526512829121202e-14,
+      "max_gcl": 8.761880110341735e-13,
+      "max_donor_cfl": 0.642857142856943,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 2,
+      "sign": 1,
+      "fraction": 0.5,
+      "step": 0,
+      "component": 1,
+      "integral_before": 452.0944261199426,
+      "integral_after": 452.09442611994274,
+      "integral_error": 1.1368683772161603e-13,
+      "max_gcl": 8.761880110341735e-13,
+      "max_donor_cfl": 0.642857142856943,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 2,
+      "sign": 1,
+      "fraction": 0.5,
+      "step": 0,
+      "component": 2,
+      "integral_before": 660.1002983806051,
+      "integral_after": 660.100298380605,
+      "integral_error": 1.1368683772161603e-13,
+      "max_gcl": 8.761880110341735e-13,
+      "max_donor_cfl": 0.642857142856943,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 2,
+      "sign": 1,
+      "fraction": 0.5,
+      "step": 1,
+      "component": 0,
+      "integral_before": 203.73345443668606,
+      "integral_after": 203.73345443668637,
+      "integral_error": 3.126388037344441e-13,
+      "max_gcl": 8.841816168114747e-13,
+      "max_donor_cfl": 0.616438356164311,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 2,
+      "sign": 1,
+      "fraction": 0.5,
+      "step": 1,
+      "component": 1,
+      "integral_before": 452.09442611994274,
+      "integral_after": 452.0944261199421,
+      "integral_error": 6.252776074688882e-13,
+      "max_gcl": 8.841816168114747e-13,
+      "max_donor_cfl": 0.616438356164311,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 2,
+      "sign": 1,
+      "fraction": 0.5,
+      "step": 1,
+      "component": 2,
+      "integral_before": 660.100298380605,
+      "integral_after": 660.1002983806064,
+      "integral_error": 1.4779288903810084e-12,
+      "max_gcl": 8.841816168114747e-13,
+      "max_donor_cfl": 0.616438356164311,
+      "active_faces": 4344
+    },
+    {
+      "grid": 16,
+      "axis": 0,
+      "sign": -1,
+      "fraction": 0.25,
+      "step": 0,
+      "component": 0,
+      "integral_before": 556.6537745354901,
+      "integral_after": 556.6537745354916,
+      "integral_error": 1.4779288903810084e-12,
+      "max_gcl": 8.959499808725013e-13,
+      "max_donor_cfl": 0.6428571428570884,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 0,
+      "sign": -1,
+      "fraction": 0.25,
+      "step": 0,
+      "component": 1,
+      "integral_before": 1153.499403079569,
+      "integral_after": 1153.499403079565,
+      "integral_error": 4.092726157978177e-12,
+      "max_gcl": 8.959499808725013e-13,
+      "max_donor_cfl": 0.6428571428570884,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 0,
+      "sign": -1,
+      "fraction": 0.25,
+      "step": 0,
+      "component": 2,
+      "integral_before": 1718.3182902222975,
+      "integral_after": 1718.318290222302,
+      "integral_error": 4.547473508864641e-12,
+      "max_gcl": 8.959499808725013e-13,
+      "max_donor_cfl": 0.6428571428570884,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 0,
+      "sign": -1,
+      "fraction": 0.25,
+      "step": 1,
+      "component": 0,
+      "integral_before": 556.6537745354916,
+      "integral_after": 556.6537745354906,
+      "integral_error": 1.0231815394945443e-12,
+      "max_gcl": 9.874323581016142e-13,
+      "max_donor_cfl": 0.2980132450330869,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 0,
+      "sign": -1,
+      "fraction": 0.25,
+      "step": 1,
+      "component": 1,
+      "integral_before": 1153.499403079565,
+      "integral_after": 1153.4994030795688,
+      "integral_error": 3.865352482534945e-12,
+      "max_gcl": 9.874323581016142e-13,
+      "max_donor_cfl": 0.2980132450330869,
+      "active_faces": 10783
+    },
+    {
+      "grid": 16,
+      "axis": 0,
+      "sign": -1,
+      "fraction": 0.25,
+      "step": 1,
+      "component": 2,
+      "integral_before": 1718.318290222302,
+      "integral_after": 1718.318290222301,
+      "integral_error": 1.1368683772161603e-12,
+      "max_gcl": 9.874323581016142e-13,
+      "max_donor_cfl": 0.2980132450330869,
+      "active_faces": 10783
+    },
+    {
+      "grid": 16,
+      "axis": 0,
+      "sign": -1,
+      "fraction": 0.5,
+      "step": 0,
+      "component": 0,
+      "integral_before": 556.6537745354901,
+      "integral_after": 556.6537745354902,
+      "integral_error": 1.1368683772161603e-13,
+      "max_gcl": 9.900968933607146e-13,
+      "max_donor_cfl": 0.6428571428572879,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 0,
+      "sign": -1,
+      "fraction": 0.5,
+      "step": 0,
+      "component": 1,
+      "integral_before": 1153.499403079569,
+      "integral_after": 1153.4994030795685,
+      "integral_error": 4.547473508864641e-13,
+      "max_gcl": 9.900968933607146e-13,
+      "max_donor_cfl": 0.6428571428572879,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 0,
+      "sign": -1,
+      "fraction": 0.5,
+      "step": 0,
+      "component": 2,
+      "integral_before": 1718.3182902222975,
+      "integral_after": 1718.3182902222995,
+      "integral_error": 2.0463630789890885e-12,
+      "max_gcl": 9.900968933607146e-13,
+      "max_donor_cfl": 0.6428571428572879,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 0,
+      "sign": -1,
+      "fraction": 0.5,
+      "step": 1,
+      "component": 0,
+      "integral_before": 556.6537745354902,
+      "integral_after": 556.6537745354892,
+      "integral_error": 1.0231815394945443e-12,
+      "max_gcl": 9.745537710159624e-13,
+      "max_donor_cfl": 0.6164383561643844,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 0,
+      "sign": -1,
+      "fraction": 0.5,
+      "step": 1,
+      "component": 1,
+      "integral_before": 1153.4994030795685,
+      "integral_after": 1153.4994030795688,
+      "integral_error": 2.2737367544323206e-13,
+      "max_gcl": 9.745537710159624e-13,
+      "max_donor_cfl": 0.6164383561643844,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 0,
+      "sign": -1,
+      "fraction": 0.5,
+      "step": 1,
+      "component": 2,
+      "integral_before": 1718.3182902222995,
+      "integral_after": 1718.318290222304,
+      "integral_error": 4.547473508864641e-12,
+      "max_gcl": 9.745537710159624e-13,
+      "max_donor_cfl": 0.6164383561643844,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 0,
+      "sign": 1,
+      "fraction": 0.25,
+      "step": 0,
+      "component": 0,
+      "integral_before": 556.6537745354901,
+      "integral_after": 556.6537745354902,
+      "integral_error": 1.1368683772161603e-13,
+      "max_gcl": 9.07718344933528e-13,
+      "max_donor_cfl": 0.6081081081079417,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 0,
+      "sign": 1,
+      "fraction": 0.25,
+      "step": 0,
+      "component": 1,
+      "integral_before": 1153.499403079569,
+      "integral_after": 1153.4994030795697,
+      "integral_error": 6.821210263296962e-13,
+      "max_gcl": 9.07718344933528e-13,
+      "max_donor_cfl": 0.6081081081079417,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 0,
+      "sign": 1,
+      "fraction": 0.25,
+      "step": 0,
+      "component": 2,
+      "integral_before": 1718.3182902222975,
+      "integral_after": 1718.3182902223043,
+      "integral_error": 6.821210263296962e-12,
+      "max_gcl": 9.07718344933528e-13,
+      "max_donor_cfl": 0.6081081081079417,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 0,
+      "sign": 1,
+      "fraction": 0.25,
+      "step": 1,
+      "component": 0,
+      "integral_before": 556.6537745354902,
+      "integral_after": 556.6537745354904,
+      "integral_error": 1.1368683772161603e-13,
+      "max_gcl": 9.889866703360894e-13,
+      "max_donor_cfl": 0.36464085612379954,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 0,
+      "sign": 1,
+      "fraction": 0.25,
+      "step": 1,
+      "component": 1,
+      "integral_before": 1153.4994030795697,
+      "integral_after": 1153.4994030795704,
+      "integral_error": 6.821210263296962e-13,
+      "max_gcl": 9.889866703360894e-13,
+      "max_donor_cfl": 0.36464085612379954,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 0,
+      "sign": 1,
+      "fraction": 0.25,
+      "step": 1,
+      "component": 2,
+      "integral_before": 1718.3182902223043,
+      "integral_after": 1718.3182902223007,
+      "integral_error": 3.637978807091713e-12,
+      "max_gcl": 9.889866703360894e-13,
+      "max_donor_cfl": 0.36464085612379954,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 0,
+      "sign": 1,
+      "fraction": 0.5,
+      "step": 0,
+      "component": 0,
+      "integral_before": 556.6537745354901,
+      "integral_after": 556.6537745354899,
+      "integral_error": 2.2737367544323206e-13,
+      "max_gcl": 9.066081219089028e-13,
+      "max_donor_cfl": 0.7297297297297969,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 0,
+      "sign": 1,
+      "fraction": 0.5,
+      "step": 0,
+      "component": 1,
+      "integral_before": 1153.499403079569,
+      "integral_after": 1153.4994030795679,
+      "integral_error": 1.1368683772161603e-12,
+      "max_gcl": 9.066081219089028e-13,
+      "max_donor_cfl": 0.7297297297297969,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 0,
+      "sign": 1,
+      "fraction": 0.5,
+      "step": 0,
+      "component": 2,
+      "integral_before": 1718.3182902222975,
+      "integral_after": 1718.3182902223025,
+      "integral_error": 5.002220859751105e-12,
+      "max_gcl": 9.066081219089028e-13,
+      "max_donor_cfl": 0.7297297297297969,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 0,
+      "sign": 1,
+      "fraction": 0.5,
+      "step": 1,
+      "component": 0,
+      "integral_before": 556.6537745354899,
+      "integral_after": 556.6537745354907,
+      "integral_error": 7.958078640513122e-13,
+      "max_gcl": 9.774403508799878e-13,
+      "max_donor_cfl": 0.5487804878048446,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 0,
+      "sign": 1,
+      "fraction": 0.5,
+      "step": 1,
+      "component": 1,
+      "integral_before": 1153.4994030795679,
+      "integral_after": 1153.499403079568,
+      "integral_error": 2.2737367544323206e-13,
+      "max_gcl": 9.774403508799878e-13,
+      "max_donor_cfl": 0.5487804878048446,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 0,
+      "sign": 1,
+      "fraction": 0.5,
+      "step": 1,
+      "component": 2,
+      "integral_before": 1718.3182902223025,
+      "integral_after": 1718.3182902223007,
+      "integral_error": 1.8189894035458565e-12,
+      "max_gcl": 9.774403508799878e-13,
+      "max_donor_cfl": 0.5487804878048446,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 1,
+      "sign": -1,
+      "fraction": 0.25,
+      "step": 0,
+      "component": 0,
+      "integral_before": 556.6537745354901,
+      "integral_after": 556.6537745354899,
+      "integral_error": 2.2737367544323206e-13,
+      "max_gcl": 9.96425164601078e-13,
+      "max_donor_cfl": 0.29135016164522803,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 1,
+      "sign": -1,
+      "fraction": 0.25,
+      "step": 0,
+      "component": 1,
+      "integral_before": 1153.499403079569,
+      "integral_after": 1153.4994030795694,
+      "integral_error": 4.547473508864641e-13,
+      "max_gcl": 9.96425164601078e-13,
+      "max_donor_cfl": 0.29135016164522803,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 1,
+      "sign": -1,
+      "fraction": 0.25,
+      "step": 0,
+      "component": 2,
+      "integral_before": 1718.3182902222975,
+      "integral_after": 1718.3182902222973,
+      "integral_error": 2.2737367544323206e-13,
+      "max_gcl": 9.96425164601078e-13,
+      "max_donor_cfl": 0.29135016164522803,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 1,
+      "sign": -1,
+      "fraction": 0.25,
+      "step": 1,
+      "component": 0,
+      "integral_before": 556.6537745354899,
+      "integral_after": 556.6537745354914,
+      "integral_error": 1.4779288903810084e-12,
+      "max_gcl": 9.556799795973347e-13,
+      "max_donor_cfl": 0.2739726027395128,
+      "active_faces": 10783
+    },
+    {
+      "grid": 16,
+      "axis": 1,
+      "sign": -1,
+      "fraction": 0.25,
+      "step": 1,
+      "component": 1,
+      "integral_before": 1153.4994030795694,
+      "integral_after": 1153.4994030795701,
+      "integral_error": 6.821210263296962e-13,
+      "max_gcl": 9.556799795973347e-13,
+      "max_donor_cfl": 0.2739726027395128,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 1,
+      "sign": -1,
+      "fraction": 0.25,
+      "step": 1,
+      "component": 2,
+      "integral_before": 1718.3182902222973,
+      "integral_after": 1718.318290222297,
+      "integral_error": 2.2737367544323206e-13,
+      "max_gcl": 9.556799795973347e-13,
+      "max_donor_cfl": 0.2739726027395128,
+      "active_faces": 10783
+    },
+    {
+      "grid": 16,
+      "axis": 1,
+      "sign": -1,
+      "fraction": 0.5,
+      "step": 0,
+      "component": 0,
+      "integral_before": 556.6537745354901,
+      "integral_after": 556.6537745354901,
+      "integral_error": 0.0,
+      "max_gcl": 8.631984016460592e-13,
+      "max_donor_cfl": 0.43010752688170517,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 1,
+      "sign": -1,
+      "fraction": 0.5,
+      "step": 0,
+      "component": 1,
+      "integral_before": 1153.499403079569,
+      "integral_after": 1153.4994030795674,
+      "integral_error": 1.5916157281026244e-12,
+      "max_gcl": 8.631984016460592e-13,
+      "max_donor_cfl": 0.43010752688170517,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 1,
+      "sign": -1,
+      "fraction": 0.5,
+      "step": 0,
+      "component": 2,
+      "integral_before": 1718.3182902222975,
+      "integral_after": 1718.3182902222968,
+      "integral_error": 6.821210263296962e-13,
+      "max_gcl": 8.631984016460592e-13,
+      "max_donor_cfl": 0.43010752688170517,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 1,
+      "sign": -1,
+      "fraction": 0.5,
+      "step": 1,
+      "component": 0,
+      "integral_before": 556.6537745354901,
+      "integral_after": 556.6537745354897,
+      "integral_error": 4.547473508864641e-13,
+      "max_gcl": 8.981704269217516e-13,
+      "max_donor_cfl": 0.5882352941175838,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 1,
+      "sign": -1,
+      "fraction": 0.5,
+      "step": 1,
+      "component": 1,
+      "integral_before": 1153.4994030795674,
+      "integral_after": 1153.4994030795704,
+      "integral_error": 2.9558577807620168e-12,
+      "max_gcl": 8.981704269217516e-13,
+      "max_donor_cfl": 0.5882352941175838,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 1,
+      "sign": -1,
+      "fraction": 0.5,
+      "step": 1,
+      "component": 2,
+      "integral_before": 1718.3182902222968,
+      "integral_after": 1718.3182902222984,
+      "integral_error": 1.5916157281026244e-12,
+      "max_gcl": 8.981704269217516e-13,
+      "max_donor_cfl": 0.5882352941175838,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 1,
+      "sign": 1,
+      "fraction": 0.25,
+      "step": 0,
+      "component": 0,
+      "integral_before": 556.6537745354901,
+      "integral_after": 556.6537745354899,
+      "integral_error": 2.2737367544323206e-13,
+      "max_gcl": 9.530154443382344e-13,
+      "max_donor_cfl": 0.3846153846153649,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 1,
+      "sign": 1,
+      "fraction": 0.25,
+      "step": 0,
+      "component": 1,
+      "integral_before": 1153.499403079569,
+      "integral_after": 1153.499403079569,
+      "integral_error": 0.0,
+      "max_gcl": 9.530154443382344e-13,
+      "max_donor_cfl": 0.3846153846153649,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 1,
+      "sign": 1,
+      "fraction": 0.25,
+      "step": 0,
+      "component": 2,
+      "integral_before": 1718.3182902222975,
+      "integral_after": 1718.3182902223,
+      "integral_error": 2.5011104298755527e-12,
+      "max_gcl": 9.530154443382344e-13,
+      "max_donor_cfl": 0.3846153846153649,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 1,
+      "sign": 1,
+      "fraction": 0.25,
+      "step": 1,
+      "component": 0,
+      "integral_before": 556.6537745354899,
+      "integral_after": 556.6537745354892,
+      "integral_error": 6.821210263296962e-13,
+      "max_gcl": 9.019451852054772e-13,
+      "max_donor_cfl": 0.3750000000002945,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 1,
+      "sign": 1,
+      "fraction": 0.25,
+      "step": 1,
+      "component": 1,
+      "integral_before": 1153.499403079569,
+      "integral_after": 1153.4994030795697,
+      "integral_error": 6.821210263296962e-13,
+      "max_gcl": 9.019451852054772e-13,
+      "max_donor_cfl": 0.3750000000002945,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 1,
+      "sign": 1,
+      "fraction": 0.25,
+      "step": 1,
+      "component": 2,
+      "integral_before": 1718.3182902223,
+      "integral_after": 1718.3182902222943,
+      "integral_error": 5.6843418860808015e-12,
+      "max_gcl": 9.019451852054772e-13,
+      "max_donor_cfl": 0.3750000000002945,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 1,
+      "sign": 1,
+      "fraction": 0.5,
+      "step": 0,
+      "component": 0,
+      "integral_before": 556.6537745354901,
+      "integral_after": 556.6537745354892,
+      "integral_error": 9.094947017729282e-13,
+      "max_gcl": 8.570921750106208e-13,
+      "max_donor_cfl": 0.6153846153846443,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 1,
+      "sign": 1,
+      "fraction": 0.5,
+      "step": 0,
+      "component": 1,
+      "integral_before": 1153.499403079569,
+      "integral_after": 1153.4994030795629,
+      "integral_error": 6.139089236967266e-12,
+      "max_gcl": 8.570921750106208e-13,
+      "max_donor_cfl": 0.6153846153846443,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 1,
+      "sign": 1,
+      "fraction": 0.5,
+      "step": 0,
+      "component": 2,
+      "integral_before": 1718.3182902222975,
+      "integral_after": 1718.3182902223011,
+      "integral_error": 3.637978807091713e-12,
+      "max_gcl": 8.570921750106208e-13,
+      "max_donor_cfl": 0.6153846153846443,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 1,
+      "sign": 1,
+      "fraction": 0.5,
+      "step": 1,
+      "component": 0,
+      "integral_before": 556.6537745354892,
+      "integral_after": 556.6537745354896,
+      "integral_error": 3.410605131648481e-13,
+      "max_gcl": 9.379164112033322e-13,
+      "max_donor_cfl": 0.43478260869564817,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 1,
+      "sign": 1,
+      "fraction": 0.5,
+      "step": 1,
+      "component": 1,
+      "integral_before": 1153.4994030795629,
+      "integral_after": 1153.499403079568,
+      "integral_error": 5.229594535194337e-12,
+      "max_gcl": 9.379164112033322e-13,
+      "max_donor_cfl": 0.43478260869564817,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 1,
+      "sign": 1,
+      "fraction": 0.5,
+      "step": 1,
+      "component": 2,
+      "integral_before": 1718.3182902223011,
+      "integral_after": 1718.3182902223023,
+      "integral_error": 1.1368683772161603e-12,
+      "max_gcl": 9.379164112033322e-13,
+      "max_donor_cfl": 0.43478260869564817,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 2,
+      "sign": -1,
+      "fraction": 0.25,
+      "step": 0,
+      "component": 0,
+      "integral_before": 556.6537745354901,
+      "integral_after": 556.6537745354892,
+      "integral_error": 9.094947017729282e-13,
+      "max_gcl": 9.89985871058252e-13,
+      "max_donor_cfl": 0.6081081081080991,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 2,
+      "sign": -1,
+      "fraction": 0.25,
+      "step": 0,
+      "component": 1,
+      "integral_before": 1153.499403079569,
+      "integral_after": 1153.4994030795697,
+      "integral_error": 6.821210263296962e-13,
+      "max_gcl": 9.89985871058252e-13,
+      "max_donor_cfl": 0.6081081081080991,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 2,
+      "sign": -1,
+      "fraction": 0.25,
+      "step": 0,
+      "component": 2,
+      "integral_before": 1718.3182902222975,
+      "integral_after": 1718.3182902222982,
+      "integral_error": 6.821210263296962e-13,
+      "max_gcl": 9.89985871058252e-13,
+      "max_donor_cfl": 0.6081081081080991,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 2,
+      "sign": -1,
+      "fraction": 0.25,
+      "step": 1,
+      "component": 0,
+      "integral_before": 556.6537745354892,
+      "integral_after": 556.6537745354906,
+      "integral_error": 1.3642420526593924e-12,
+      "max_gcl": 9.857670235646765e-13,
+      "max_donor_cfl": 0.365352762239806,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 2,
+      "sign": -1,
+      "fraction": 0.25,
+      "step": 1,
+      "component": 1,
+      "integral_before": 1153.4994030795697,
+      "integral_after": 1153.4994030795722,
+      "integral_error": 2.5011104298755527e-12,
+      "max_gcl": 9.857670235646765e-13,
+      "max_donor_cfl": 0.365352762239806,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 2,
+      "sign": -1,
+      "fraction": 0.25,
+      "step": 1,
+      "component": 2,
+      "integral_before": 1718.3182902222982,
+      "integral_after": 1718.3182902222957,
+      "integral_error": 2.5011104298755527e-12,
+      "max_gcl": 9.857670235646765e-13,
+      "max_donor_cfl": 0.365352762239806,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 2,
+      "sign": -1,
+      "fraction": 0.5,
+      "step": 0,
+      "component": 0,
+      "integral_before": 556.6537745354901,
+      "integral_after": 556.6537745354909,
+      "integral_error": 7.958078640513122e-13,
+      "max_gcl": 9.939826739469027e-13,
+      "max_donor_cfl": 0.7297297297298543,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 2,
+      "sign": -1,
+      "fraction": 0.5,
+      "step": 0,
+      "component": 1,
+      "integral_before": 1153.499403079569,
+      "integral_after": 1153.4994030795672,
+      "integral_error": 1.8189894035458565e-12,
+      "max_gcl": 9.939826739469027e-13,
+      "max_donor_cfl": 0.7297297297298543,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 2,
+      "sign": -1,
+      "fraction": 0.5,
+      "step": 0,
+      "component": 2,
+      "integral_before": 1718.3182902222975,
+      "integral_after": 1718.3182902222975,
+      "integral_error": 0.0,
+      "max_gcl": 9.939826739469027e-13,
+      "max_donor_cfl": 0.7297297297298543,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 2,
+      "sign": -1,
+      "fraction": 0.5,
+      "step": 1,
+      "component": 0,
+      "integral_before": 556.6537745354909,
+      "integral_after": 556.6537745354908,
+      "integral_error": 1.1368683772161603e-13,
+      "max_gcl": 9.838796444228137e-13,
+      "max_donor_cfl": 0.5487804878048919,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 2,
+      "sign": -1,
+      "fraction": 0.5,
+      "step": 1,
+      "component": 1,
+      "integral_before": 1153.4994030795672,
+      "integral_after": 1153.4994030795726,
+      "integral_error": 5.4569682106375694e-12,
+      "max_gcl": 9.838796444228137e-13,
+      "max_donor_cfl": 0.5487804878048919,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 2,
+      "sign": -1,
+      "fraction": 0.5,
+      "step": 1,
+      "component": 2,
+      "integral_before": 1718.3182902222975,
+      "integral_after": 1718.3182902222966,
+      "integral_error": 9.094947017729282e-13,
+      "max_gcl": 9.838796444228137e-13,
+      "max_donor_cfl": 0.5487804878048919,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 2,
+      "sign": 1,
+      "fraction": 0.25,
+      "step": 0,
+      "component": 0,
+      "integral_before": 556.6537745354901,
+      "integral_after": 556.6537745354901,
+      "integral_error": 0.0,
+      "max_gcl": 9.664491429361988e-13,
+      "max_donor_cfl": 0.6428571428572293,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 2,
+      "sign": 1,
+      "fraction": 0.25,
+      "step": 0,
+      "component": 1,
+      "integral_before": 1153.499403079569,
+      "integral_after": 1153.4994030795679,
+      "integral_error": 1.1368683772161603e-12,
+      "max_gcl": 9.664491429361988e-13,
+      "max_donor_cfl": 0.6428571428572293,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 2,
+      "sign": 1,
+      "fraction": 0.25,
+      "step": 0,
+      "component": 2,
+      "integral_before": 1718.3182902222975,
+      "integral_after": 1718.3182902222995,
+      "integral_error": 2.0463630789890885e-12,
+      "max_gcl": 9.664491429361988e-13,
+      "max_donor_cfl": 0.6428571428572293,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 2,
+      "sign": 1,
+      "fraction": 0.25,
+      "step": 1,
+      "component": 0,
+      "integral_before": 556.6537745354901,
+      "integral_after": 556.6537745354902,
+      "integral_error": 1.1368683772161603e-13,
+      "max_gcl": 9.213740881364174e-13,
+      "max_donor_cfl": 0.2980132450331751,
+      "active_faces": 10783
+    },
+    {
+      "grid": 16,
+      "axis": 2,
+      "sign": 1,
+      "fraction": 0.25,
+      "step": 1,
+      "component": 1,
+      "integral_before": 1153.4994030795679,
+      "integral_after": 1153.499403079567,
+      "integral_error": 9.094947017729282e-13,
+      "max_gcl": 9.213740881364174e-13,
+      "max_donor_cfl": 0.2980132450331751,
+      "active_faces": 10783
+    },
+    {
+      "grid": 16,
+      "axis": 2,
+      "sign": 1,
+      "fraction": 0.25,
+      "step": 1,
+      "component": 2,
+      "integral_before": 1718.3182902222995,
+      "integral_after": 1718.3182902222961,
+      "integral_error": 3.410605131648481e-12,
+      "max_gcl": 9.213740881364174e-13,
+      "max_donor_cfl": 0.2980132450331751,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 2,
+      "sign": 1,
+      "fraction": 0.5,
+      "step": 0,
+      "component": 0,
+      "integral_before": 556.6537745354901,
+      "integral_after": 556.6537745354901,
+      "integral_error": 0.0,
+      "max_gcl": 8.881784197001252e-13,
+      "max_donor_cfl": 0.6428571428571468,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 2,
+      "sign": 1,
+      "fraction": 0.5,
+      "step": 0,
+      "component": 1,
+      "integral_before": 1153.499403079569,
+      "integral_after": 1153.4994030795688,
+      "integral_error": 2.2737367544323206e-13,
+      "max_gcl": 8.881784197001252e-13,
+      "max_donor_cfl": 0.6428571428571468,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 2,
+      "sign": 1,
+      "fraction": 0.5,
+      "step": 0,
+      "component": 2,
+      "integral_before": 1718.3182902222975,
+      "integral_after": 1718.3182902223027,
+      "integral_error": 5.229594535194337e-12,
+      "max_gcl": 8.881784197001252e-13,
+      "max_donor_cfl": 0.6428571428571468,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 2,
+      "sign": 1,
+      "fraction": 0.5,
+      "step": 1,
+      "component": 0,
+      "integral_before": 556.6537745354901,
+      "integral_after": 556.6537745354887,
+      "integral_error": 1.4779288903810084e-12,
+      "max_gcl": 9.259260025373806e-13,
+      "max_donor_cfl": 0.616438356164307,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 2,
+      "sign": 1,
+      "fraction": 0.5,
+      "step": 1,
+      "component": 1,
+      "integral_before": 1153.4994030795688,
+      "integral_after": 1153.499403079569,
+      "integral_error": 2.2737367544323206e-13,
+      "max_gcl": 9.259260025373806e-13,
+      "max_donor_cfl": 0.616438356164307,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 2,
+      "sign": 1,
+      "fraction": 0.5,
+      "step": 1,
+      "component": 2,
+      "integral_before": 1718.3182902223027,
+      "integral_after": 1718.3182902222948,
+      "integral_error": 7.958078640513122e-12,
+      "max_gcl": 9.259260025373806e-13,
+      "max_donor_cfl": 0.616438356164307,
+      "active_faces": 10784
+    }
+  ],
+  "source_sha256": {
+    "CMakeLists.txt": "af72e72baad19275221a1556daee7ee17675178a290778914212ccbd266b6a20",
+    "docs/P2_MOVING_MAC_DUAL_TRANSPORT_PARTIAL.md": "3f549b0270b66ca46fb86a79755c52d8ad3c27ab5bc89a576c0b1d7c1d27af94",
+    "include/upc/p2_moving_mac_dual_transport3d.hpp": "0321d87bbc3898b4a6ff6ed7d8f16578cb3ff41da5c5cbe5d4173b4698b7671a",
+    "include/upc/p2_moving_mac_dual_volumes3d.hpp": "b6dcf0444be679dd2bb74d1846e74686c21a33870f50724912dce3a497c83bfa",
+    "include/upc/p2_moving_box_cut_cell_projection3d.hpp": "7ec9aaaed69aae85be1b26d32460c03de81b95f7ffb26e1f6b18e1185aee3fb6",
+    "include/upc/p2_moving_cut_cell_scalar_transport3d.hpp": "9e3e57855fc2387d076a11a116ee1f80220b813e99542b55065661a6b2c5d206",
+    "tests/p2_moving_mac_dual_transport3d_tests.cpp": "ca0a6f61af59ac2ec0e97a848bd0747ddb2d76d8dc6c8c20a9ba4e022bb0bccc",
+    "scripts/p2_moving_mac_dual_transport_full_build.cmd": "b68b4b0cc0973425822d50c9191d384b46a0282874a69d2f9b782abebe40b423",
+    "scripts/p2_moving_mac_dual_transport_acceptance.py": "c1086e624fb7c71770662449ede150806261ec4cd0cefb277835a88f93d1ffd3"
+  },
+  "ctest_log_sha256": "de83ca78b9faf04980c3dfffe2cc8a99af0f037aa9ad7199a119941273bc0c74",
+  "unproven": [
+    "single physically consistent nonlinear MAC dual momentum flux",
+    "dynamic bidirectional fluid-solid impulse and energy",
+    "free-surface stress, variable density, measured 3D CFD",
+    "live CoupledMacWater3D and UE5.8 Native E2E integration"
+  ]
+}
