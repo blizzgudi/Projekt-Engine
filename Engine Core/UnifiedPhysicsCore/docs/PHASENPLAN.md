@@ -587,3 +587,25 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
   bewegten 3D-Koerperoberflaeche und einem Druck-/Impuls-Solver abgeleitet.
   Keine globale Energie-/Impulsbilanz, externe 3D-CFD-Messvalidierung
   oder neue UE5.8-Native-E2E-Abnahme fuer diesen Operator.
+
+
+## P2 Teilfortschritt: exakte bewegte Quader-/Voxel-Schnittvolumina (28.10.2026)
+
+- Neue optionale C++-Geometrie `P2MovingBoxOpenVolumes3D` berechnet
+  `alpha_old` und `alpha_new` aus zwei tatsaechlichen starren,
+  achsparallelen 3D-Quaderpositionen. Sie prueft die volumetrische
+  Subzellenueberlappung, konstantes Festkoerpervolumen, Domain-Grenzen,
+  starre Translation und Geometrie-CFL.
+- MSVC Release und **57/57 CTest PASS**, neuer nativer Test mit
+  **76.419 Assertions**, unabhaengiges Python-Gate **120/120**
+  numerische Referenzpruefungen (8^3/12^3/16^3, drei Achsen,
+  beide Richtungen, 0.25/0.5 Zellverschiebungen, echte
+  nicht-gitterausgerichtete Schnittvolumina und Negativfaelle).
+- Nachweis: `docs/P2_MOVING_BOX_CUT_CELL_GEOMETRY_PARTIAL.md`,
+  `scripts/p2_moving_box_geometry_acceptance.py`,
+  `ENGINE TEST STUBE/runs/p2_moving_box_geometry_partial.json`,
+  `ENGINE TEST STUBE/runs/p2_box_geometry_full_ctest_20261028.txt`.
+- **P2 bleibt PARTIAL, P3-P8 ebenfalls.** Das ist ausschliesslich
+  Geometrie: Es werden keine MAC-Face-Fluesse, keine Druckprojektion,
+  kein Fluid-Gegenimpuls und keine Gesamtenergie erzeugt. Keine
+  externen 3D-CFD-Messreferenzen oder neue UE5.8-Native-E2E-Abnahme.

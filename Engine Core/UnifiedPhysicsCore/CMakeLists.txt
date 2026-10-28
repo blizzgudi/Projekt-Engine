@@ -282,3 +282,9 @@ add_test(NAME physics_p2_moving_boundary_gcl_vof_flux_partial COMMAND upc_p2_mov
 add_executable(upc_p2_fractional_boundary_vof_tests tests/p2_fractional_boundary_vof_flux3d_tests.cpp)
 target_link_libraries(upc_p2_fractional_boundary_vof_tests PRIVATE upc)
 add_test(NAME physics_p2_fractional_moving_boundary_gcl_vof_partial COMMAND upc_p2_fractional_boundary_vof_tests)
+
+# P2 partial: exact moving axis-aligned box/voxel cut-volume geometry.
+# Generates subcell alpha only, NOT MAC flux, pressure or two-way FSI.
+add_executable(upc_p2_moving_box_geometry_tests tests/p2_moving_box_open_volume3d_tests.cpp)
+target_link_libraries(upc_p2_moving_box_geometry_tests PRIVATE upc)
+add_test(NAME physics_p2_moving_box_cut_cell_geometry_partial COMMAND upc_p2_moving_box_geometry_tests)

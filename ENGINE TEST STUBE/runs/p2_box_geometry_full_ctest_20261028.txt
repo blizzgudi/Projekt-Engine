@@ -1,0 +1,119 @@
+Test project D:/Projekt Engine/Engine Core/UnifiedPhysicsCore/build
+      Start  1: physics_core_tests
+ 1/57 Test  #1: physics_core_tests ...........................................   Passed    0.02 sec
+      Start  2: physics_materials_tests
+ 2/57 Test  #2: physics_materials_tests ......................................   Passed    0.01 sec
+      Start  3: physics_3d_transport_tests
+ 3/57 Test  #3: physics_3d_transport_tests ...................................   Passed    0.01 sec
+      Start  4: physics_solid_tests
+ 4/57 Test  #4: physics_solid_tests ..........................................   Passed    0.01 sec
+      Start  5: physics_p5_plane_contact_partial
+ 5/57 Test  #5: physics_p5_plane_contact_partial .............................   Passed    0.01 sec
+      Start  6: physics_mac3d_tests
+ 6/57 Test  #6: physics_mac3d_tests ..........................................   Passed    0.01 sec
+      Start  7: physics_ritter_analytical_reference
+ 7/57 Test  #7: physics_ritter_analytical_reference ..........................   Passed    0.02 sec
+      Start  8: physics_coupled_3d_water
+ 8/57 Test  #8: physics_coupled_3d_water .....................................   Passed    0.28 sec
+      Start  9: physics_3d_reference_and_memory
+ 9/57 Test  #9: physics_3d_reference_and_memory ..............................   Passed    1.51 sec
+      Start 10: physics_unified_3d_runtime
+10/57 Test #10: physics_unified_3d_runtime ...................................   Passed    0.01 sec
+      Start 11: physics_stoker_wet_bed_analytical
+11/57 Test #11: physics_stoker_wet_bed_analytical ............................   Passed    0.02 sec
+      Start 12: physics_2d_extended_invariants
+12/57 Test #12: physics_2d_extended_invariants ...............................   Passed    0.03 sec
+      Start 13: physics_p3_material_volume_coupling
+13/57 Test #13: physics_p3_material_volume_coupling ..........................   Passed    0.04 sec
+      Start 14: physics_p3_darcy_energy_reference
+14/57 Test #14: physics_p3_darcy_energy_reference ............................   Passed    0.16 sec
+      Start 15: physics_p4_thermal_conduction_and_phase
+15/57 Test #15: physics_p4_thermal_conduction_and_phase ......................   Passed    0.01 sec
+      Start 16: physics_p4_neumann_heat_reference
+16/57 Test #16: physics_p4_neumann_heat_reference ............................   Passed    0.11 sec
+      Start 17: physics_p4_phase_mac_voxel_bridge
+17/57 Test #17: physics_p4_phase_mac_voxel_bridge ............................   Passed    0.02 sec
+      Start 18: physics_p4_live_mac_enthalpy_advection
+18/57 Test #18: physics_p4_live_mac_enthalpy_advection .......................   Passed    0.03 sec
+      Start 19: physics_p4_p3_porous_heat_gravity_bridge
+19/57 Test #19: physics_p4_p3_porous_heat_gravity_bridge .....................   Passed    0.02 sec
+      Start 20: physics_p5_granular_3d_contacts
+20/57 Test #20: physics_p5_granular_3d_contacts ..............................   Passed    0.03 sec
+      Start 21: physics_p5_lattice_3d_fracture
+21/57 Test #21: physics_p5_lattice_3d_fracture ...............................   Passed    0.01 sec
+      Start 22: physics_p5_granular_fracture_reference
+22/57 Test #22: physics_p5_granular_fracture_reference .......................   Passed    0.02 sec
+      Start 23: physics_p5_deformable_self_and_multibody_contact
+23/57 Test #23: physics_p5_deformable_self_and_multibody_contact .............   Passed    0.02 sec
+      Start 24: physics_p5_affine_lattice_constitutive_reference
+24/57 Test #24: physics_p5_affine_lattice_constitutive_reference .............   Passed    0.01 sec
+      Start 25: physics_p6_conservative_3d_mixtures_reactions
+25/57 Test #25: physics_p6_conservative_3d_mixtures_reactions ................   Passed    0.03 sec
+      Start 26: physics_p6_arrhenius_fick_numeric_reference
+26/57 Test #26: physics_p6_arrhenius_fick_numeric_reference ..................   Passed    0.05 sec
+      Start 27: physics_p6_p4_exothermic_energy_coupling
+27/57 Test #27: physics_p6_p4_exothermic_energy_coupling .....................   Passed    0.02 sec
+      Start 28: physics_p7_sparse_3d_mac_render_lod
+28/57 Test #28: physics_p7_sparse_3d_mac_render_lod ..........................   Passed    0.07 sec
+      Start 29: physics_p7_sparse_lod_memory_and_volume_reference
+29/57 Test #29: physics_p7_sparse_lod_memory_and_volume_reference ............   Passed    0.02 sec
+      Start 30: physics_p7_hardware_d3d11_cpu_parity
+30/57 Test #30: physics_p7_hardware_d3d11_cpu_parity .........................   Passed    0.55 sec
+      Start 31: physics_p7_hardware_d3d11_brick_residency
+31/57 Test #31: physics_p7_hardware_d3d11_brick_residency ....................   Passed    0.20 sec
+      Start 32: physics_p7_resident_streaming_lod_bounds
+32/57 Test #32: physics_p7_resident_streaming_lod_bounds .....................   Passed    0.02 sec
+      Start 33: physics_p2_viscous_mac3d_analytic_reference
+33/57 Test #33: physics_p2_viscous_mac3d_analytic_reference ..................   Passed    0.02 sec
+      Start 34: physics_p2_viscous_mac3d_masked_boundaries
+34/57 Test #34: physics_p2_viscous_mac3d_masked_boundaries ...................   Passed    0.02 sec
+      Start 35: physics_p2_live_viscous_3d_mac_vof
+35/57 Test #35: physics_p2_live_viscous_3d_mac_vof ...........................   Passed    0.19 sec
+      Start 36: physics_p2_masked_viscous_face_momentum_ledger
+36/57 Test #36: physics_p2_masked_viscous_face_momentum_ledger ...............   Passed    0.02 sec
+      Start 37: physics_p2_masked_viscous_face_energy_ledger
+37/57 Test #37: physics_p2_masked_viscous_face_energy_ledger .................   Passed    0.02 sec
+      Start 38: physics_p2_live_viscous_energy_ledger_partial
+38/57 Test #38: physics_p2_live_viscous_energy_ledger_partial ................   Passed    0.07 sec
+      Start 39: physics_p2_masked_mixed_bc_3d_eigenmode_partial
+39/57 Test #39: physics_p2_masked_mixed_bc_3d_eigenmode_partial ..............   Passed    0.18 sec
+      Start 40: physics_p2_3d_manufactured_pressure_projection_partial
+40/57 Test #40: physics_p2_3d_manufactured_pressure_projection_partial .......   Passed    0.17 sec
+      Start 41: physics_p2_static_voxel_pressure_traction_partial
+41/57 Test #41: physics_p2_static_voxel_pressure_traction_partial ............   Passed    0.33 sec
+      Start 42: physics_p2_static_3d_body_force_torque_partial
+42/57 Test #42: physics_p2_static_3d_body_force_torque_partial ...............   Passed    0.33 sec
+      Start 43: physics_p2_frozen_pressure_rigid_response_partial
+43/57 Test #43: physics_p2_frozen_pressure_rigid_response_partial ............   Passed    0.33 sec
+      Start 44: physics_p2_applied_fluid_face_reaction_partial
+44/57 Test #44: physics_p2_applied_fluid_face_reaction_partial ...............   Passed    0.56 sec
+      Start 45: physics_p2_applied_six_component_face_wrench_partial
+45/57 Test #45: physics_p2_applied_six_component_face_wrench_partial .........   Passed    0.59 sec
+      Start 46: physics_p2_post_projection_wrench_audit_partial
+46/57 Test #46: physics_p2_post_projection_wrench_audit_partial ..............   Passed    0.59 sec
+      Start 47: physics_p2_kinematic_solid_wall_projection_partial
+47/57 Test #47: physics_p2_kinematic_solid_wall_projection_partial ...........   Passed    2.02 sec
+      Start 48: physics_p2_kinematic_disconnected_wet_component_partial
+48/57 Test #48: physics_p2_kinematic_disconnected_wet_component_partial ......   Passed    0.02 sec
+      Start 49: physics_p2_kinematic_wall_pressure_work_partial
+49/57 Test #49: physics_p2_kinematic_wall_pressure_work_partial ..............   Passed    0.02 sec
+      Start 50: physics_p2_kinematic_projection_atomic_convergence_partial
+50/57 Test #50: physics_p2_kinematic_projection_atomic_convergence_partial ...   Passed    0.77 sec
+      Start 51: physics_p2_lagged_kinematic_pressure_body_partial
+51/57 Test #51: physics_p2_lagged_kinematic_pressure_body_partial ............   Passed    0.02 sec
+      Start 52: physics_p2_voxel_sweep_mass_remap_partial
+52/57 Test #52: physics_p2_voxel_sweep_mass_remap_partial ....................   Passed    0.02 sec
+      Start 53: physics_p2_exterior_vof_face_route_partial
+53/57 Test #53: physics_p2_exterior_vof_face_route_partial ...................   Passed    0.02 sec
+      Start 54: physics_p2_conservative_3d_mac_vof_face_flux_partial
+54/57 Test #54: physics_p2_conservative_3d_mac_vof_face_flux_partial .........   Passed    0.02 sec
+      Start 55: physics_p2_moving_boundary_gcl_vof_flux_partial
+55/57 Test #55: physics_p2_moving_boundary_gcl_vof_flux_partial ..............   Passed    0.02 sec
+      Start 56: physics_p2_fractional_moving_boundary_gcl_vof_partial
+56/57 Test #56: physics_p2_fractional_moving_boundary_gcl_vof_partial ........   Passed    0.02 sec
+      Start 57: physics_p2_moving_box_cut_cell_geometry_partial
+57/57 Test #57: physics_p2_moving_box_cut_cell_geometry_partial ..............   Passed    0.02 sec
+
+100% tests passed, 0 tests failed out of 57
+
+Total Test time (real) =   9.83 sec

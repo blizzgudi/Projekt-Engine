@@ -1,0 +1,868 @@
+{
+  "phase": "P2",
+  "milestone": "rigid_axis_aligned_moving_box_cut_cell_geometry_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "accepted": false,
+  "full_ctest_suites": 57,
+  "native_assertions": 76419,
+  "independent_numerical_checks": 120,
+  "checks": [
+    {
+      "name": "aligned_(8, 0, -1, 0.25)_col5",
+      "actual": 16.0,
+      "expected": 16.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(8, 0, -1, 0.25)_col6",
+      "actual": 0.5,
+      "expected": 0.5,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(8, 0, -1, 0.25)_col7",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(8, 0, -1, 0.5)_col5",
+      "actual": 16.0,
+      "expected": 16.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(8, 0, -1, 0.5)_col6",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(8, 0, -1, 0.5)_col7",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(8, 0, 1, 0.25)_col5",
+      "actual": 16.0,
+      "expected": 16.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(8, 0, 1, 0.25)_col6",
+      "actual": 0.5,
+      "expected": 0.5,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(8, 0, 1, 0.25)_col7",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(8, 0, 1, 0.5)_col5",
+      "actual": 16.0,
+      "expected": 16.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(8, 0, 1, 0.5)_col6",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(8, 0, 1, 0.5)_col7",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(8, 1, -1, 0.25)_col5",
+      "actual": 16.0,
+      "expected": 16.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(8, 1, -1, 0.25)_col6",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(8, 1, -1, 0.25)_col7",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(8, 1, -1, 0.5)_col5",
+      "actual": 16.0,
+      "expected": 16.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(8, 1, -1, 0.5)_col6",
+      "actual": 2.0,
+      "expected": 2.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(8, 1, -1, 0.5)_col7",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(8, 1, 1, 0.25)_col5",
+      "actual": 16.0,
+      "expected": 16.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(8, 1, 1, 0.25)_col6",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(8, 1, 1, 0.25)_col7",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(8, 1, 1, 0.5)_col5",
+      "actual": 16.0,
+      "expected": 16.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(8, 1, 1, 0.5)_col6",
+      "actual": 2.0,
+      "expected": 2.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(8, 1, 1, 0.5)_col7",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(8, 2, -1, 0.25)_col5",
+      "actual": 16.0,
+      "expected": 16.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(8, 2, -1, 0.25)_col6",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(8, 2, -1, 0.25)_col7",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(8, 2, -1, 0.5)_col5",
+      "actual": 16.0,
+      "expected": 16.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(8, 2, -1, 0.5)_col6",
+      "actual": 2.0,
+      "expected": 2.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(8, 2, -1, 0.5)_col7",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(8, 2, 1, 0.25)_col5",
+      "actual": 16.0,
+      "expected": 16.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(8, 2, 1, 0.25)_col6",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(8, 2, 1, 0.25)_col7",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(8, 2, 1, 0.5)_col5",
+      "actual": 16.0,
+      "expected": 16.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(8, 2, 1, 0.5)_col6",
+      "actual": 2.0,
+      "expected": 2.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(8, 2, 1, 0.5)_col7",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "subcell_8_col2",
+      "actual": 0.90625,
+      "expected": 0.90625,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "subcell_8_col3",
+      "actual": 0.9375,
+      "expected": 0.9375,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "subcell_8_col4",
+      "actual": 0.625,
+      "expected": 0.625,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "subcell_8_col5",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(12, 0, -1, 0.25)_col5",
+      "actual": 16.0,
+      "expected": 16.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(12, 0, -1, 0.25)_col6",
+      "actual": 0.5,
+      "expected": 0.5,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(12, 0, -1, 0.25)_col7",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(12, 0, -1, 0.5)_col5",
+      "actual": 16.0,
+      "expected": 16.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(12, 0, -1, 0.5)_col6",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(12, 0, -1, 0.5)_col7",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(12, 0, 1, 0.25)_col5",
+      "actual": 16.0,
+      "expected": 16.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(12, 0, 1, 0.25)_col6",
+      "actual": 0.5,
+      "expected": 0.5,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(12, 0, 1, 0.25)_col7",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(12, 0, 1, 0.5)_col5",
+      "actual": 16.0,
+      "expected": 16.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(12, 0, 1, 0.5)_col6",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(12, 0, 1, 0.5)_col7",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(12, 1, -1, 0.25)_col5",
+      "actual": 16.0,
+      "expected": 16.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(12, 1, -1, 0.25)_col6",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(12, 1, -1, 0.25)_col7",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(12, 1, -1, 0.5)_col5",
+      "actual": 16.0,
+      "expected": 16.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(12, 1, -1, 0.5)_col6",
+      "actual": 2.0,
+      "expected": 2.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(12, 1, -1, 0.5)_col7",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(12, 1, 1, 0.25)_col5",
+      "actual": 16.0,
+      "expected": 16.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(12, 1, 1, 0.25)_col6",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(12, 1, 1, 0.25)_col7",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(12, 1, 1, 0.5)_col5",
+      "actual": 16.0,
+      "expected": 16.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(12, 1, 1, 0.5)_col6",
+      "actual": 2.0,
+      "expected": 2.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(12, 1, 1, 0.5)_col7",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(12, 2, -1, 0.25)_col5",
+      "actual": 16.0,
+      "expected": 16.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(12, 2, -1, 0.25)_col6",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(12, 2, -1, 0.25)_col7",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(12, 2, -1, 0.5)_col5",
+      "actual": 16.0,
+      "expected": 16.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(12, 2, -1, 0.5)_col6",
+      "actual": 2.0,
+      "expected": 2.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(12, 2, -1, 0.5)_col7",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(12, 2, 1, 0.25)_col5",
+      "actual": 16.0,
+      "expected": 16.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(12, 2, 1, 0.25)_col6",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(12, 2, 1, 0.25)_col7",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(12, 2, 1, 0.5)_col5",
+      "actual": 16.0,
+      "expected": 16.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(12, 2, 1, 0.5)_col6",
+      "actual": 2.0,
+      "expected": 2.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(12, 2, 1, 0.5)_col7",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "subcell_12_col2",
+      "actual": 0.90625,
+      "expected": 0.90625,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "subcell_12_col3",
+      "actual": 0.9375,
+      "expected": 0.9375,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "subcell_12_col4",
+      "actual": 0.625,
+      "expected": 0.625,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "subcell_12_col5",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(16, 0, -1, 0.25)_col5",
+      "actual": 16.0,
+      "expected": 16.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(16, 0, -1, 0.25)_col6",
+      "actual": 0.5,
+      "expected": 0.5,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(16, 0, -1, 0.25)_col7",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(16, 0, -1, 0.5)_col5",
+      "actual": 16.0,
+      "expected": 16.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(16, 0, -1, 0.5)_col6",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(16, 0, -1, 0.5)_col7",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(16, 0, 1, 0.25)_col5",
+      "actual": 16.0,
+      "expected": 16.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(16, 0, 1, 0.25)_col6",
+      "actual": 0.5,
+      "expected": 0.5,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(16, 0, 1, 0.25)_col7",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(16, 0, 1, 0.5)_col5",
+      "actual": 16.0,
+      "expected": 16.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(16, 0, 1, 0.5)_col6",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(16, 0, 1, 0.5)_col7",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(16, 1, -1, 0.25)_col5",
+      "actual": 16.0,
+      "expected": 16.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(16, 1, -1, 0.25)_col6",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(16, 1, -1, 0.25)_col7",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(16, 1, -1, 0.5)_col5",
+      "actual": 16.0,
+      "expected": 16.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(16, 1, -1, 0.5)_col6",
+      "actual": 2.0,
+      "expected": 2.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(16, 1, -1, 0.5)_col7",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(16, 1, 1, 0.25)_col5",
+      "actual": 16.0,
+      "expected": 16.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(16, 1, 1, 0.25)_col6",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(16, 1, 1, 0.25)_col7",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(16, 1, 1, 0.5)_col5",
+      "actual": 16.0,
+      "expected": 16.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(16, 1, 1, 0.5)_col6",
+      "actual": 2.0,
+      "expected": 2.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(16, 1, 1, 0.5)_col7",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(16, 2, -1, 0.25)_col5",
+      "actual": 16.0,
+      "expected": 16.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(16, 2, -1, 0.25)_col6",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(16, 2, -1, 0.25)_col7",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(16, 2, -1, 0.5)_col5",
+      "actual": 16.0,
+      "expected": 16.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(16, 2, -1, 0.5)_col6",
+      "actual": 2.0,
+      "expected": 2.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(16, 2, -1, 0.5)_col7",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(16, 2, 1, 0.25)_col5",
+      "actual": 16.0,
+      "expected": 16.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(16, 2, 1, 0.25)_col6",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(16, 2, 1, 0.25)_col7",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(16, 2, 1, 0.5)_col5",
+      "actual": 16.0,
+      "expected": 16.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(16, 2, 1, 0.5)_col6",
+      "actual": 2.0,
+      "expected": 2.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "aligned_(16, 2, 1, 0.5)_col7",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "subcell_16_col2",
+      "actual": 0.90625,
+      "expected": 0.90625,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "subcell_16_col3",
+      "actual": 0.9375,
+      "expected": 0.9375,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "subcell_16_col4",
+      "actual": 0.625,
+      "expected": 0.625,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "subcell_16_col5",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-11,
+      "pass": true
+    }
+  ],
+  "native_stdout": "aligned,8,0,-1,0.25,16,0.5,0\naligned,8,0,-1,0.5,16,1,0\naligned,8,0,1,0.25,16,0.5,0\naligned,8,0,1,0.5,16,1,0\naligned,8,1,-1,0.25,16,1,0\naligned,8,1,-1,0.5,16,2,0\naligned,8,1,1,0.25,16,1,0\naligned,8,1,1,0.5,16,2,0\naligned,8,2,-1,0.25,16,1,0\naligned,8,2,-1,0.5,16,2,0\naligned,8,2,1,0.25,16,1,0\naligned,8,2,1,0.5,16,2,0\nsubcell,8,0.90625,0.9375,0.625,0\naligned,12,0,-1,0.25,16,0.5,0\naligned,12,0,-1,0.5,16,1,0\naligned,12,0,1,0.25,16,0.5,0\naligned,12,0,1,0.5,16,1,0\naligned,12,1,-1,0.25,16,1,0\naligned,12,1,-1,0.5,16,2,0\naligned,12,1,1,0.25,16,1,0\naligned,12,1,1,0.5,16,2,0\naligned,12,2,-1,0.25,16,1,0\naligned,12,2,-1,0.5,16,2,0\naligned,12,2,1,0.25,16,1,0\naligned,12,2,1,0.5,16,2,0\nsubcell,12,0.90625,0.9375,0.625,0\naligned,16,0,-1,0.25,16,0.5,0\naligned,16,0,-1,0.5,16,1,0\naligned,16,0,1,0.25,16,0.5,0\naligned,16,0,1,0.5,16,1,0\naligned,16,1,-1,0.25,16,1,0\naligned,16,1,-1,0.5,16,2,0\naligned,16,1,1,0.25,16,1,0\naligned,16,1,1,0.5,16,2,0\naligned,16,2,-1,0.25,16,1,0\naligned,16,2,-1,0.5,16,2,0\naligned,16,2,1,0.25,16,1,0\naligned,16,2,1,0.5,16,2,0\nsubcell,16,0.90625,0.9375,0.625,0\nPASS: moving box geometry assertions=76419 phase_complete=false\n",
+  "ctest_log_sha256": "8e62e18f1ce5419e94fe8c820676c4504ef06db0632ef1152fd1c21e49e7c06e",
+  "source_sha256": {
+    "include/upc/p2_moving_box_open_volume3d.hpp": "270ecc419fa312212e47dbcfbd7fa8f2b172fde153b6d66e19f226be5cbedbb2",
+    "tests/p2_moving_box_open_volume3d_tests.cpp": "34fbed7f9596cdf99dc78beb02a31896440d5b72cdb32439873893f390e6a33d",
+    "scripts/p2_moving_box_geometry_acceptance.py": "5fa157c4b89919ecaaceac5f56fe1e4e46004391f60d6f9f91900673efecfcbe",
+    "docs/P2_MOVING_BOX_CUT_CELL_GEOMETRY_PARTIAL.md": "e6f6d2d2ec7d268e5bc3021d872e9652697fd25d17bad763cae65255f83d4dd8",
+    "CMakeLists.txt": "361accc99660b73309427fc3ad05ad9644633020acde9001997d009c0193fd9d"
+  },
+  "generated_utc": "2026-10-28T01:41:51.431998+00:00",
+  "limitations": [
+    "Axis-aligned rigid box only, no rotation/deformation",
+    "No physical swept MAC face fluxes or coupled pressure projection",
+    "No water mass, fluid/solid impulse or global energy closure",
+    "No independent 3D CFD measurement or Unreal 5.8 native E2E"
+  ]
+}
