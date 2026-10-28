@@ -312,3 +312,9 @@ add_test(NAME physics_p2_moving_box_cut_cell_pressure_partial COMMAND upc_p2_mov
 add_executable(upc_p2_moving_box_predictor_projection_tests tests/p2_moving_box_predictor_projection3d_tests.cpp)
 target_link_libraries(upc_p2_moving_box_predictor_projection_tests PRIVATE upc)
 add_test(NAME physics_p2_moving_box_predicted_mac_projection_partial COMMAND upc_p2_moving_box_predictor_projection_tests)
+
+# P2 partial: sequential prescribed moving-box MAC projection + fractional
+# VOF with transactional rollback. No free surface or two-way FSI.
+add_executable(upc_p2_prescribed_box_mac_vof_tests tests/p2_prescribed_box_mac_vof3d_tests.cpp)
+target_link_libraries(upc_p2_prescribed_box_mac_vof_tests PRIVATE upc)
+add_test(NAME physics_p2_prescribed_box_sequential_mac_vof_partial COMMAND upc_p2_prescribed_box_mac_vof_tests)

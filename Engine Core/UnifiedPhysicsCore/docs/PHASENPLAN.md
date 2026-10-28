@@ -704,3 +704,23 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
   keine physikalisch validierte Körper-Gegenreaktion, globale Energie-/
   Impulsbilanz, unabhängigen 3D-CFD-Messdaten oder neue UE5.8-Native-E2E.
   P3–P8 bleiben ebenfalls Vollphasen-offen.
+
+## P2 Teilfortschritt: sequentielle vorgeschriebene Cut-Cell-MAC/VOF-Schritte (28.10.2026)
+
+- Neuer optionaler `P2PrescribedBoxMacVof3D` verbindet die vorhandene
+  Druckprojektion fuer eine bewegte achsparallele Box mit dem
+  fraktionalen 3D-VOF-Operator ueber mehrere Zeitschritte. Die
+  Wasseranteile und subzellgenauen offenen Volumina werden weitergereicht;
+  fehlerhafte Schritte hinterlassen keinen geaenderten Zustand.
+- Native Tests: 8^3/12^3/16^3, alle Bewegungsachsen und Vorzeichen,
+  50/100 Prozent Saettigung, zwei Zeitschritte, synthetischer
+  Gradient/Curl-Praediktor, unabhaengige Wasserreferenz
+  `saturation*(n^3-1.5^3)` und Rollback-Negativfaelle.
+- Dokumentation: `docs/P2_PRESCRIBED_SEQUENCE_PARTIAL.md`;
+  Gate: `scripts/p2_prescribed_sequence_acceptance.py`;
+  Report: `ENGINE TEST STUBE/runs/p2_prescribed_sequence_partial.json`.
+- **P2 bleibt PARTIAL, P3-P8 ebenfalls:** vorgeschriebene Koerperbahn
+  und externer Praediktor, keine Einbindung in den allgemeinen
+  CoupledMacWater3D-Live-Solver, keine freie Oberflaeche, keine
+  bidirektionale FSI, keine globale Energie-/Impulsabnahme,
+  keine externen CFD-Messdaten und keine neue UE5.8-Native-E2E.
