@@ -337,3 +337,9 @@ add_test(NAME physics_p2_variable_mac_flux_transport_partial COMMAND upc_p2_vari
 add_executable(upc_p2_periodic_mac_projection_tests tests/p2_periodic_mac_projection3d_tests.cpp)
 target_link_libraries(upc_p2_periodic_mac_projection_tests PRIVATE upc)
 add_test(NAME physics_p2_periodic_nonlinear_mac_projection_partial COMMAND upc_p2_periodic_mac_projection_tests)
+
+# P2 partial: nonlinear periodic MAC projection coupled to conservative
+# cell-centered passive VOF fraction transport (not free-surface CFD).
+add_executable(upc_p2_periodic_mac_vof_tests tests/p2_periodic_mac_vof3d_tests.cpp)
+target_link_libraries(upc_p2_periodic_mac_vof_tests PRIVATE upc)
+add_test(NAME physics_p2_periodic_projected_mac_vof_partial COMMAND upc_p2_periodic_mac_vof_tests)

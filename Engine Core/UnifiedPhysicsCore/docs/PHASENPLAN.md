@@ -778,3 +778,10 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
   konstantdichte Testdomain; keine freien Oberflaechen, bewegten
   Cut-Cells, bidirektionale FSI, globale physikalische Impuls-/
   Energiebilanz, externe 3D-CFD-Messdaten oder neues UE5.8 Native-E2E.
+
+## P2 Teilfortschritt: periodische nichtlineare 3D-MAC/VOF-Kopplung (28.10.2026)
+
+- Opt-in `P2PeriodicMacVof3D`: nichtlineare MAC-Selbstadvektion, PCG-Druckprojektion und konservativer passiver Wasserfraktions-Transport mit den **projizierten** 3D-MAC-Face-Geschwindigkeiten.
+- MSVC Release **67/67 CTest PASS**, **65.804 native Assertions**, drei nichtkubische Gitter, beide konstanten Flussrichtungen, vier Zeitschritte, drei nichtlineare Scherfeldfaelle mit vier Schritten, zellweise unabhaengige Upwind-Referenz und 7 Negativtests.
+- Maschinenlesbares Teil-Gate: `scripts/p2_periodic_mac_vof_acceptance.py`, `ENGINE TEST STUBE/runs/p2_periodic_mac_vof_partial.json`, 21 unabhaengige numerische Kontrollen, Source-/CTest-Hashes, `phase_complete=false`. Details: `docs/P2_PERIODIC_PROJECTED_MAC_VOF_PARTIAL.md`.
+- **P2 bleibt PARTIAL**: periodischer, konstantdichter passiver VOF-Marker ist keine physikalische freie Wasseroberflaeche; keine bewegten Cut-Cells, keine dynamische FSI, keine unabhaengigen 3D-Messreferenzen und kein neues UE5.8-Native-E2E. P3-P8 bleiben ebenfalls PARTIAL.

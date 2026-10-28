@@ -1,0 +1,179 @@
+{
+  "phase": "P2",
+  "milestone": "periodic_nonlinear_projected_mac_passive_vof_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "timestamp_utc": "2026-10-28T12:26:52.030764+00:00",
+  "scope": "constant-density periodic 3D MAC nonlinear self-advection + PCG + passive bounded conservative VOF",
+  "limits": [
+    "no physical free-surface stress or density contrast",
+    "no moving cut cells, pressure/solid impulse or FSI",
+    "not integrated into general CoupledMacWater3D",
+    "no independent measured 3D CFD or Unreal 5.8 native E2E for this new path"
+  ],
+  "ctest_suites": 67,
+  "native_assertions": 65804,
+  "native_cases": 9,
+  "checks": [
+    {
+      "name": "('CONSTANT', 6, 7, 8, 1) initial mass",
+      "actual": 151.19999999999976,
+      "expected": 151.20000000000002,
+      "tolerance": 1e-08,
+      "pass": true
+    },
+    {
+      "name": "('CONSTANT', 6, 7, 8, 1) final mass",
+      "actual": 151.19999999999996,
+      "expected": 151.20000000000002,
+      "tolerance": 1e-08,
+      "pass": true
+    },
+    {
+      "name": "('CONSTANT', 6, 7, 8, -1) initial mass",
+      "actual": 151.19999999999976,
+      "expected": 151.20000000000002,
+      "tolerance": 1e-08,
+      "pass": true
+    },
+    {
+      "name": "('CONSTANT', 6, 7, 8, -1) final mass",
+      "actual": 151.20000000000007,
+      "expected": 151.20000000000002,
+      "tolerance": 1e-08,
+      "pass": true
+    },
+    {
+      "name": "('NONLINEAR', 6, 7, 8, 0) initial mass",
+      "actual": 151.19999999999976,
+      "expected": 151.20000000000002,
+      "tolerance": 1e-08,
+      "pass": true
+    },
+    {
+      "name": "('NONLINEAR', 6, 7, 8, 0) final mass",
+      "actual": 151.19999999999996,
+      "expected": 151.20000000000002,
+      "tolerance": 1e-08,
+      "pass": true
+    },
+    {
+      "name": "('NONLINEAR', 6, 7, 8, 0) divergence bound",
+      "actual": 1.1934897514720433e-15,
+      "expected": 0.0,
+      "tolerance": 1e-10,
+      "pass": true
+    },
+    {
+      "name": "('CONSTANT', 8, 9, 10, 1) initial mass",
+      "actual": 323.9999999999997,
+      "expected": 324.0,
+      "tolerance": 1e-08,
+      "pass": true
+    },
+    {
+      "name": "('CONSTANT', 8, 9, 10, 1) final mass",
+      "actual": 324.0000000000002,
+      "expected": 324.0,
+      "tolerance": 1e-08,
+      "pass": true
+    },
+    {
+      "name": "('CONSTANT', 8, 9, 10, -1) initial mass",
+      "actual": 323.9999999999997,
+      "expected": 324.0,
+      "tolerance": 1e-08,
+      "pass": true
+    },
+    {
+      "name": "('CONSTANT', 8, 9, 10, -1) final mass",
+      "actual": 323.9999999999997,
+      "expected": 324.0,
+      "tolerance": 1e-08,
+      "pass": true
+    },
+    {
+      "name": "('NONLINEAR', 8, 9, 10, 0) initial mass",
+      "actual": 323.9999999999997,
+      "expected": 324.0,
+      "tolerance": 1e-08,
+      "pass": true
+    },
+    {
+      "name": "('NONLINEAR', 8, 9, 10, 0) final mass",
+      "actual": 324.0000000000001,
+      "expected": 324.0,
+      "tolerance": 1e-08,
+      "pass": true
+    },
+    {
+      "name": "('NONLINEAR', 8, 9, 10, 0) divergence bound",
+      "actual": 8.604228440844963e-16,
+      "expected": 0.0,
+      "tolerance": 1e-10,
+      "pass": true
+    },
+    {
+      "name": "('CONSTANT', 10, 12, 14, 1) initial mass",
+      "actual": 755.9999999999982,
+      "expected": 756.0,
+      "tolerance": 1e-08,
+      "pass": true
+    },
+    {
+      "name": "('CONSTANT', 10, 12, 14, 1) final mass",
+      "actual": 755.9999999999997,
+      "expected": 756.0,
+      "tolerance": 1e-08,
+      "pass": true
+    },
+    {
+      "name": "('CONSTANT', 10, 12, 14, -1) initial mass",
+      "actual": 755.9999999999982,
+      "expected": 756.0,
+      "tolerance": 1e-08,
+      "pass": true
+    },
+    {
+      "name": "('CONSTANT', 10, 12, 14, -1) final mass",
+      "actual": 755.9999999999998,
+      "expected": 756.0,
+      "tolerance": 1e-08,
+      "pass": true
+    },
+    {
+      "name": "('NONLINEAR', 10, 12, 14, 0) initial mass",
+      "actual": 755.9999999999982,
+      "expected": 756.0,
+      "tolerance": 1e-08,
+      "pass": true
+    },
+    {
+      "name": "('NONLINEAR', 10, 12, 14, 0) final mass",
+      "actual": 755.9999999999992,
+      "expected": 756.0,
+      "tolerance": 1e-08,
+      "pass": true
+    },
+    {
+      "name": "('NONLINEAR', 10, 12, 14, 0) divergence bound",
+      "actual": 5.412337245047638e-16,
+      "expected": 0.0,
+      "tolerance": 1e-10,
+      "pass": true
+    }
+  ],
+  "source_sha256": {
+    "CMakeLists.txt": "add0de1f7a223bf7cb6341c106f89a529d5bbbed73e318bb5e8d2f69c6f28bd2",
+    "docs/PHASENPLAN.md": "99e0e8f4c0b4ba3faa58c583eb3936a7ac942ee1c61a2b3fe271758b654b9e6b",
+    "docs/P2_PERIODIC_PROJECTED_MAC_VOF_PARTIAL.md": "d2cb69a2d492fe1754b411349382bfe87caeb45d551ca5a49fd94321b25ba39f",
+    "include/upc/p2_periodic_mac_vof3d.hpp": "f4205d4d29fa7e73071370e7b7cf2c44acde9b7daab513de870a376ca28fd370",
+    "include/upc/p2_periodic_mac_projection3d.hpp": "58073fb6a98ea88fe9f81e6dabb0c3d132f283e9346d1771a4818e5890ceb917",
+    "include/upc/p2_variable_mac_transport3d.hpp": "b0a82555c95656d1493dd33a3ae3c6bb0ca187a4a4d2846573d0da2c16ba5d73",
+    "tests/p2_periodic_mac_vof3d_tests.cpp": "54d2c8b6c4e8a3826ef8d286085b701e342a9683fecc427458d12acf2510ecd0",
+    "scripts/p2_periodic_mac_vof_full_build.cmd": "b35682fb39bc3a8f95e126d18273c5ca51079615b13c6fafcbb6e816c6866c62",
+    "scripts/p2_periodic_mac_vof_acceptance.py": "27d5c6051e807c7d3ec3decd9f6692a605897c695e42f4a49ebca494fbb9e2ae"
+  },
+  "ctest_log_sha256": "cb5c36b034e783faed0c123c5bbcfbd556547b94fe98c418f1b2b00faae4ce4b",
+  "native_stdout_sha256": "14425a7dc978a7a33ac3d7416064c5cbc329ddff06a6be970415242f03d2cc70"
+}
