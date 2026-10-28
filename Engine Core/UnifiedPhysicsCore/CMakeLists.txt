@@ -321,3 +321,9 @@ add_test(NAME physics_p2_prescribed_box_sequential_mac_vof_partial COMMAND upc_p
 add_executable(upc_p2_projected_mac_feedback_tests tests/p2_projected_mac_feedback3d_tests.cpp)
 target_link_libraries(upc_p2_projected_mac_feedback_tests PRIVATE upc)
 add_test(NAME physics_p2_projected_mac_feedback_partial COMMAND upc_p2_projected_mac_feedback_tests)
+
+# P2 partial: conservative periodic 3D staggered-MAC constant-velocity
+# linear transport; NOT cut-cell, free-surface or nonlinear FSI advection.
+add_executable(upc_p2_periodic_mac_transport_tests tests/p2_periodic_mac_transport3d_tests.cpp)
+target_link_libraries(upc_p2_periodic_mac_transport_tests PRIVATE upc)
+add_test(NAME physics_p2_periodic_mac_linear_transport_partial COMMAND upc_p2_periodic_mac_transport_tests)

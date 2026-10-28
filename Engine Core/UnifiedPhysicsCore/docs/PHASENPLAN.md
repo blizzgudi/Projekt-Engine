@@ -724,3 +724,24 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
   CoupledMacWater3D-Live-Solver, keine freie Oberflaeche, keine
   bidirektionale FSI, keine globale Energie-/Impulsabnahme,
   keine externen CFD-Messdaten und keine neue UE5.8-Native-E2E.
+
+## P2 Teilfortschritt: konservativer periodischer 3D-MAC-Lineartransport (28.10.2026)
+
+- Neuer isolierter `P2PeriodicMacTransport3D`: konservativer expliziter
+  3D-Upwind-Transport aller drei gestaffelten MAC-Komponenten mit konstanter,
+  extern vorgeschriebener Transportgeschwindigkeit und periodischen Grenzen.
+  Redundante MAC-Grenzflächen werden korrekt gespiegelt; Eingaben bleiben
+  bei CFL-/Form-/Seam-Fehlern unverändert.
+- Diskrete unabhängige Referenz: dreidimensionale alternierende Eigenmode
+  mit `G=0.38` pro Schritt, Mittelwert-/Summenerhaltung und quadratischer
+  Dissipation `G^(2k)` auf drei nichtkubischen Gittern, acht
+  Transportrichtungen und fünf Schritten.
+- Native MSVC Release, CTest und unabhängiges Python-Gate:
+  `docs/P2_PERIODIC_MAC_LINEAR_TRANSPORT_PARTIAL.md`,
+  `scripts/p2_periodic_mac_transport_acceptance.py`,
+  `ENGINE TEST STUBE/runs/p2_periodic_mac_transport_partial.json`.
+- **P2 bleibt PARTIAL, P3–P8 ebenfalls offen.** Nur lineare periodische
+  Advektion, noch keine nichtlineare lokale MAC-Impulsadvektion,
+  bewegte Cut-Cell-Wände, freie Oberflächen, Zweiwege-FSI,
+  unabhängigen CFD-Messdaten oder neue UE5.8-Native-E2E-Abnahme.
+
