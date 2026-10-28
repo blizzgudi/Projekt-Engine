@@ -23,6 +23,28 @@ class P2PrescribedBoxMacVof3D {
     double dx_,rho_;
     P2Box3D box_;
     std::vector<double> alpha_,water_;
+    // Previous corrected OPEN-face MAC velocity, not aperture-weighted VOF flux.
+    // Feedback is opt-in and does not supply momentum advection or FSI.
+    std::vector<double> last_u_,last_v_,last_w_;
+    bool has_corrected_mac_=false;
+    static std::vector<double> corrected_open_face_velocity(
+        const std::vector<double>& swept_m3,
+        const std::vector<double>& aperture,double dt,double dx) {
+        const double area_time=dt*dx*dx;
+        if(!std::isfinite(area_time)||area_time<=0.0||
+           swept_m3.size()!=aperture.size())
+            throw std::invalid_argument("Invalid corrected MAC face geometry");
+        std::vector<double> out(swept_m3.size(),0.0);
+        for(std::size_t i=0;i<out.size();++i) {
+            if(aperture[i]>1e-12)
+                out[i]=swept_m3[i]/(area_time*aperture[i]);
+            else if(swept_m3[i]!=0.0)
+                throw std::logic_error("Closed face has fluid flux");
+            if(!std::isfinite(out[i]))
+                throw std::invalid_argument("Nonfinite corrected MAC face velocity");
+        }
+        return out;
+    }
     static std::vector<double> effective_face_velocity(
         const std::vector<double>& swept_m3,double dt,double dx) {
         const double denom=dt*dx*dx;
@@ -65,6 +87,35 @@ public:
     const std::vector<double>& water_fraction() const noexcept {return water_;}
     const std::vector<double>& open_fraction() const noexcept {return alpha_;}
     std::size_t step_count() const noexcept {return steps_;}
+    bool has_corrected_mac() const noexcept {return has_corrected_mac_;}
+    const std::vector<double>& corrected_u_m_s() const noexcept {return last_u_;}
+    const std::vector<double>& corrected_v_m_s() const noexcept {return last_v_;}
+    const std::vector<double>& corrected_w_m_s() const noexcept {return last_w_;}
+
+    // Feedback-only predictor: retain previous projected open-face velocities.
+    // Zero faces that became closed in the new swept geometry. This is a
+    // kinematic remask, NOT conservative momentum remapping/advection.
+    // First call must use advance() with a supplied predictor.
+    P2PrescribedBoxMacVofStep3D advance_reusing_projected_mac(
+        const P2Box3D& next_box,double dt_s,
+        std::size_t max_iterations=4000) {
+        if(!has_corrected_mac_)
+            throw std::logic_error("No corrected MAC state for feedback");
+        const auto wall=P2MovingBoxSweptWallFlux3DBuilder::sample(
+            nx_,ny_,nz_,dx_,dt_s,box_,next_box);
+        auto u=last_u_,v=last_v_,w=last_w_;
+        const auto remask=[](std::vector<double>& velocities,
+                             const std::vector<double>& open) {
+            if(velocities.size()!=open.size())
+                throw std::logic_error("Feedback MAC face shape mismatch");
+            for(std::size_t i=0;i<velocities.size();++i)
+                if(open[i]<=1e-12)velocities[i]=0.0;
+        };
+        remask(u,wall.geometry.u_open);
+        remask(v,wall.geometry.v_open);
+        remask(w,wall.geometry.w_open);
+        return advance(next_box,dt_s,u,v,w,max_iterations);
+    }
 
     // Predictor is externally supplied every step (not inferred from the
     // previous step). All state changes are transactional: failures in
@@ -87,12 +138,25 @@ public:
         auto w=effective_face_velocity(projection.w_fluid_m3,dt_s,dx_);
         auto vof=FractionalBoundaryVofFlux3D::step(
             nx_,ny_,nz_,dx_,dt_s,alpha_,geom.alpha_new,water_,u,v,w);
+        // Extract true corrected MAC velocities on the time-averaged open
+        // face area. Do not feed aperture-weighted effective VOF speeds back
+        // into the pressure predictor; that would double-apply apertures.
+        auto next_u=corrected_open_face_velocity(
+            projection.u_fluid_m3,projection.wall.geometry.u_open,dt_s,dx_);
+        auto next_v=corrected_open_face_velocity(
+            projection.v_fluid_m3,projection.wall.geometry.v_open,dt_s,dx_);
+        auto next_w=corrected_open_face_velocity(
+            projection.w_fluid_m3,projection.wall.geometry.w_open,dt_s,dx_);
         auto next_alpha=geom.alpha_new;
         auto next_water=vof.water_cell_fraction;
         P2PrescribedBoxMacVofStep3D result{
             std::move(projection),std::move(vof),steps_+1};
         alpha_.swap(next_alpha);
         water_.swap(next_water);
+        last_u_.swap(next_u);
+        last_v_.swap(next_v);
+        last_w_.swap(next_w);
+        has_corrected_mac_=true;
         box_=next_box;
         ++steps_;
         return result;
