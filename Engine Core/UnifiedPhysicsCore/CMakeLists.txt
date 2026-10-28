@@ -403,3 +403,9 @@ add_test(NAME physics_p2_moving_mac_dual_pressure_work_partial COMMAND upc_p2_mo
 add_executable(upc_p2_moving_box_pressure_traction_tests tests/p2_moving_box_pressure_traction3d_tests.cpp)
 target_link_libraries(upc_p2_moving_box_pressure_traction_tests PRIVATE upc)
 add_test(NAME physics_p2_moving_box_pressure_traction_partial COMMAND upc_p2_moving_box_pressure_traction_tests)
+
+# P2 partial: frozen-pressure rigid-box translation, analytic force/work and
+# diagnostic (UNAPPLIED) fluid reaction. Not two-way MAC/VOF FSI.
+add_executable(upc_p2_moving_box_dynamic_pressure_tests tests/p2_moving_box_dynamic_pressure3d_tests.cpp)
+target_link_libraries(upc_p2_moving_box_dynamic_pressure_tests PRIVATE upc)
+add_test(NAME physics_p2_moving_box_dynamic_pressure_partial COMMAND upc_p2_moving_box_dynamic_pressure_tests)

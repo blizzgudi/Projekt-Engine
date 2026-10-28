@@ -978,3 +978,22 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
   Gegenimpuls wird NICHT angewendet, keine dynamische FSI, keine
   vollstaendige physikalische Energie-/Impulsbilanz, freie Oberflaeche,
   externe 3D-CFD-Messvalidierung oder neues UE5.8-Native-E2E.
+
+## P2 Teilfortschritt: Druckgetriebene dynamische Quadertranslation (29.10.2026)
+
+- `P2MovingBoxDynamicPressure3D` integriert die an der alten Cut-Cell-
+  Boxoberflaeche gemessene Druckkraft tatsaechlich in die lineare
+  Geschwindigkeit und den Schwerpunkt eines starren Quaders.
+  Aktualisierte Geometrie und Druckarbeit werden separat geprueft.
+- 12 zweischrittige analytische 3D-Faelle: 8^3/12^3, alle Achsen und
+  Druckgradient-Vorzeichen; Kraft +/-25.6 N, Endgeschwindigkeit
+  +/-0.512 m/s, kinetische Energie 1.31072 J. Gauge-, Ballistik-,
+  Drehmoment-Ablehnungs- und Transaktions-Tests.
+- MSVC Release und 78/78 CTest PASS. Belege:
+  docs/P2_MOVING_BOX_DYNAMIC_PRESSURE_PARTIAL.md,
+  scripts/p2_moving_box_dynamic_pressure_acceptance.py,
+  ENGINE TEST STUBE/runs/p2_moving_box_dynamic_pressure_partial.json.
+- **P2 weiterhin PARTIAL, P3-P8 PARTIAL, ALL_COMPLETE=False.**
+  Fluid-Gegenimpuls ist NUR ein Ledger, nicht auf MAC/VOF angewendet.
+  Keine vollstaendige bidirektionale FSI, keine globale Energie-/
+  Impulserhaltung, keine externe CFD-Messvalidierung oder neues UE-E2E.

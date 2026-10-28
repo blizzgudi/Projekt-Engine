@@ -1,0 +1,524 @@
+{
+  "phase": "P2",
+  "milestone": "frozen_pressure_dynamic_box_translation_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "ctest_suites": 78,
+  "native_assertions": 591,
+  "checks": [
+    {
+      "name": "full 78/78 CTest",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "new native CTest present",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "native assertions >= 300",
+      "pass": true,
+      "detail": 591
+    },
+    {
+      "name": "12 analytic 3D two-step cases",
+      "pass": true,
+      "detail": 12
+    },
+    {
+      "name": "unique (8, 0, -1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite (8, 0, -1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent velocity (8, 0, -1)",
+      "pass": true,
+      "detail": 0.5119999999999997
+    },
+    {
+      "name": "independent displacement (8, 0, -1)",
+      "pass": true,
+      "detail": 4.051200000000001
+    },
+    {
+      "name": "independent kinetic work (8, 0, -1)",
+      "pass": true,
+      "detail": 1.3107199999999983
+    },
+    {
+      "name": "diagnostic opposite impulse (8, 0, -1)",
+      "pass": true,
+      "detail": -5.1199999999999966
+    },
+    {
+      "name": "unique (8, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite (8, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent velocity (8, 0, 1)",
+      "pass": true,
+      "detail": -0.5119999999999993
+    },
+    {
+      "name": "independent displacement (8, 0, 1)",
+      "pass": true,
+      "detail": 3.9488000000000003
+    },
+    {
+      "name": "independent kinetic work (8, 0, 1)",
+      "pass": true,
+      "detail": 1.3107199999999968
+    },
+    {
+      "name": "diagnostic opposite impulse (8, 0, 1)",
+      "pass": true,
+      "detail": 5.119999999999994
+    },
+    {
+      "name": "unique (8, 1, -1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite (8, 1, -1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent velocity (8, 1, -1)",
+      "pass": true,
+      "detail": 0.5119999999999997
+    },
+    {
+      "name": "independent displacement (8, 1, -1)",
+      "pass": true,
+      "detail": 4.051200000000001
+    },
+    {
+      "name": "independent kinetic work (8, 1, -1)",
+      "pass": true,
+      "detail": 1.3107199999999983
+    },
+    {
+      "name": "diagnostic opposite impulse (8, 1, -1)",
+      "pass": true,
+      "detail": -5.1199999999999966
+    },
+    {
+      "name": "unique (8, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite (8, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent velocity (8, 1, 1)",
+      "pass": true,
+      "detail": -0.5119999999999993
+    },
+    {
+      "name": "independent displacement (8, 1, 1)",
+      "pass": true,
+      "detail": 3.9488000000000003
+    },
+    {
+      "name": "independent kinetic work (8, 1, 1)",
+      "pass": true,
+      "detail": 1.3107199999999968
+    },
+    {
+      "name": "diagnostic opposite impulse (8, 1, 1)",
+      "pass": true,
+      "detail": 5.119999999999994
+    },
+    {
+      "name": "unique (8, 2, -1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite (8, 2, -1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent velocity (8, 2, -1)",
+      "pass": true,
+      "detail": 0.5119999999999997
+    },
+    {
+      "name": "independent displacement (8, 2, -1)",
+      "pass": true,
+      "detail": 4.051200000000001
+    },
+    {
+      "name": "independent kinetic work (8, 2, -1)",
+      "pass": true,
+      "detail": 1.3107199999999983
+    },
+    {
+      "name": "diagnostic opposite impulse (8, 2, -1)",
+      "pass": true,
+      "detail": -5.1199999999999966
+    },
+    {
+      "name": "unique (8, 2, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite (8, 2, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent velocity (8, 2, 1)",
+      "pass": true,
+      "detail": -0.5119999999999993
+    },
+    {
+      "name": "independent displacement (8, 2, 1)",
+      "pass": true,
+      "detail": 3.9488000000000003
+    },
+    {
+      "name": "independent kinetic work (8, 2, 1)",
+      "pass": true,
+      "detail": 1.3107199999999968
+    },
+    {
+      "name": "diagnostic opposite impulse (8, 2, 1)",
+      "pass": true,
+      "detail": 5.119999999999994
+    },
+    {
+      "name": "unique (12, 0, -1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite (12, 0, -1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent velocity (12, 0, -1)",
+      "pass": true,
+      "detail": 0.5119999999999997
+    },
+    {
+      "name": "independent displacement (12, 0, -1)",
+      "pass": true,
+      "detail": 4.051200000000001
+    },
+    {
+      "name": "independent kinetic work (12, 0, -1)",
+      "pass": true,
+      "detail": 1.3107199999999983
+    },
+    {
+      "name": "diagnostic opposite impulse (12, 0, -1)",
+      "pass": true,
+      "detail": -5.1199999999999966
+    },
+    {
+      "name": "unique (12, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite (12, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent velocity (12, 0, 1)",
+      "pass": true,
+      "detail": -0.5119999999999993
+    },
+    {
+      "name": "independent displacement (12, 0, 1)",
+      "pass": true,
+      "detail": 3.9488000000000003
+    },
+    {
+      "name": "independent kinetic work (12, 0, 1)",
+      "pass": true,
+      "detail": 1.3107199999999968
+    },
+    {
+      "name": "diagnostic opposite impulse (12, 0, 1)",
+      "pass": true,
+      "detail": 5.119999999999994
+    },
+    {
+      "name": "unique (12, 1, -1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite (12, 1, -1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent velocity (12, 1, -1)",
+      "pass": true,
+      "detail": 0.5119999999999997
+    },
+    {
+      "name": "independent displacement (12, 1, -1)",
+      "pass": true,
+      "detail": 4.051200000000001
+    },
+    {
+      "name": "independent kinetic work (12, 1, -1)",
+      "pass": true,
+      "detail": 1.3107199999999983
+    },
+    {
+      "name": "diagnostic opposite impulse (12, 1, -1)",
+      "pass": true,
+      "detail": -5.1199999999999966
+    },
+    {
+      "name": "unique (12, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite (12, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent velocity (12, 1, 1)",
+      "pass": true,
+      "detail": -0.5119999999999993
+    },
+    {
+      "name": "independent displacement (12, 1, 1)",
+      "pass": true,
+      "detail": 3.9488000000000003
+    },
+    {
+      "name": "independent kinetic work (12, 1, 1)",
+      "pass": true,
+      "detail": 1.3107199999999968
+    },
+    {
+      "name": "diagnostic opposite impulse (12, 1, 1)",
+      "pass": true,
+      "detail": 5.119999999999994
+    },
+    {
+      "name": "unique (12, 2, -1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite (12, 2, -1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent velocity (12, 2, -1)",
+      "pass": true,
+      "detail": 0.5119999999999997
+    },
+    {
+      "name": "independent displacement (12, 2, -1)",
+      "pass": true,
+      "detail": 4.051200000000001
+    },
+    {
+      "name": "independent kinetic work (12, 2, -1)",
+      "pass": true,
+      "detail": 1.3107199999999983
+    },
+    {
+      "name": "diagnostic opposite impulse (12, 2, -1)",
+      "pass": true,
+      "detail": -5.1199999999999966
+    },
+    {
+      "name": "unique (12, 2, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite (12, 2, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent velocity (12, 2, 1)",
+      "pass": true,
+      "detail": -0.5119999999999993
+    },
+    {
+      "name": "independent displacement (12, 2, 1)",
+      "pass": true,
+      "detail": 3.9488000000000003
+    },
+    {
+      "name": "independent kinetic work (12, 2, 1)",
+      "pass": true,
+      "detail": 1.3107199999999968
+    },
+    {
+      "name": "diagnostic opposite impulse (12, 2, 1)",
+      "pass": true,
+      "detail": 5.119999999999994
+    },
+    {
+      "name": "complete axis/gradient/grid coverage",
+      "pass": true,
+      "detail": null
+    }
+  ],
+  "analytic_reference": [
+    {
+      "grid": 8,
+      "axis": 0,
+      "gradient_sign": -1,
+      "velocity_m_s": 0.5119999999999997,
+      "centre_m": 4.051200000000001,
+      "frozen_pressure_work_J": 1.3107199999999983,
+      "unapplied_fluid_counter_impulse_Ns": -5.1199999999999966
+    },
+    {
+      "grid": 8,
+      "axis": 0,
+      "gradient_sign": 1,
+      "velocity_m_s": -0.5119999999999993,
+      "centre_m": 3.9488000000000003,
+      "frozen_pressure_work_J": 1.3107199999999968,
+      "unapplied_fluid_counter_impulse_Ns": 5.119999999999994
+    },
+    {
+      "grid": 8,
+      "axis": 1,
+      "gradient_sign": -1,
+      "velocity_m_s": 0.5119999999999997,
+      "centre_m": 4.051200000000001,
+      "frozen_pressure_work_J": 1.3107199999999983,
+      "unapplied_fluid_counter_impulse_Ns": -5.1199999999999966
+    },
+    {
+      "grid": 8,
+      "axis": 1,
+      "gradient_sign": 1,
+      "velocity_m_s": -0.5119999999999993,
+      "centre_m": 3.9488000000000003,
+      "frozen_pressure_work_J": 1.3107199999999968,
+      "unapplied_fluid_counter_impulse_Ns": 5.119999999999994
+    },
+    {
+      "grid": 8,
+      "axis": 2,
+      "gradient_sign": -1,
+      "velocity_m_s": 0.5119999999999997,
+      "centre_m": 4.051200000000001,
+      "frozen_pressure_work_J": 1.3107199999999983,
+      "unapplied_fluid_counter_impulse_Ns": -5.1199999999999966
+    },
+    {
+      "grid": 8,
+      "axis": 2,
+      "gradient_sign": 1,
+      "velocity_m_s": -0.5119999999999993,
+      "centre_m": 3.9488000000000003,
+      "frozen_pressure_work_J": 1.3107199999999968,
+      "unapplied_fluid_counter_impulse_Ns": 5.119999999999994
+    },
+    {
+      "grid": 12,
+      "axis": 0,
+      "gradient_sign": -1,
+      "velocity_m_s": 0.5119999999999997,
+      "centre_m": 4.051200000000001,
+      "frozen_pressure_work_J": 1.3107199999999983,
+      "unapplied_fluid_counter_impulse_Ns": -5.1199999999999966
+    },
+    {
+      "grid": 12,
+      "axis": 0,
+      "gradient_sign": 1,
+      "velocity_m_s": -0.5119999999999993,
+      "centre_m": 3.9488000000000003,
+      "frozen_pressure_work_J": 1.3107199999999968,
+      "unapplied_fluid_counter_impulse_Ns": 5.119999999999994
+    },
+    {
+      "grid": 12,
+      "axis": 1,
+      "gradient_sign": -1,
+      "velocity_m_s": 0.5119999999999997,
+      "centre_m": 4.051200000000001,
+      "frozen_pressure_work_J": 1.3107199999999983,
+      "unapplied_fluid_counter_impulse_Ns": -5.1199999999999966
+    },
+    {
+      "grid": 12,
+      "axis": 1,
+      "gradient_sign": 1,
+      "velocity_m_s": -0.5119999999999993,
+      "centre_m": 3.9488000000000003,
+      "frozen_pressure_work_J": 1.3107199999999968,
+      "unapplied_fluid_counter_impulse_Ns": 5.119999999999994
+    },
+    {
+      "grid": 12,
+      "axis": 2,
+      "gradient_sign": -1,
+      "velocity_m_s": 0.5119999999999997,
+      "centre_m": 4.051200000000001,
+      "frozen_pressure_work_J": 1.3107199999999983,
+      "unapplied_fluid_counter_impulse_Ns": -5.1199999999999966
+    },
+    {
+      "grid": 12,
+      "axis": 2,
+      "gradient_sign": 1,
+      "velocity_m_s": -0.5119999999999993,
+      "centre_m": 3.9488000000000003,
+      "frozen_pressure_work_J": 1.3107199999999968,
+      "unapplied_fluid_counter_impulse_Ns": 5.119999999999994
+    }
+  ],
+  "source_sha256": {
+    "CMakeLists.txt": "a1d5496de2423341e06fb811320104ee5dcad936fe368f538b4b241db45859c0",
+    "docs/PHASENPLAN.md": "9134abc0d8cae1594717a4601a0ab57e1ed75cda757bf82f9fe66c7afeed5120",
+    "docs/P2_MOVING_BOX_DYNAMIC_PRESSURE_PARTIAL.md": "dd523d095c732e897df546aa1b55b53a90085dd2254c5486c69bcd32b884c425",
+    "include/upc/p2_moving_box_dynamic_pressure3d.hpp": "0542c4c40eb5f4ea855c105ad639437d15a0936a6025de8614d910780d6c57be",
+    "include/upc/p2_moving_box_pressure_traction3d.hpp": "261ed5769c7fe24d078802592b8db55df076ccc3015634ed818b301dbaa9fa53",
+    "include/upc/p2_moving_box_open_volume3d.hpp": "270ecc419fa312212e47dbcfbd7fa8f2b172fde153b6d66e19f226be5cbedbb2",
+    "include/upc/rigid_pressure_response3d.hpp": "41282862ecf047ab9cf7c27ebea34314f049658e03bb3bbd4533609a0f41afe1",
+    "tests/p2_moving_box_dynamic_pressure3d_tests.cpp": "a446ab0b91fb37ca9cd349fb61e08bc67a080b0986ce1c1b89afdbb4540c140f",
+    "scripts/p2_moving_box_dynamic_pressure_full_build.cmd": "7713f59b8774cd8a5a5fae95c42da04b79bbc27ac7ce6b105fbb10502cc36b8a",
+    "scripts/p2_moving_box_dynamic_pressure_acceptance.py": "ea2bfd48b93b5a4dcd05e89eaafedb6962a43c8b1b71abb2f9c01ea348a35d91"
+  },
+  "ctest_log_sha256": "5a3357126dc064fd0842f3a436af719e39aef9f8da838d65e3d4ccca5802c10d",
+  "unproven": [
+    "opposite impulse is NOT applied to fluid MAC faces",
+    "no bidirectional dynamic FSI or common momentum tensor",
+    "no full fluid/solid energy conservation or free-surface stress",
+    "no independent measured 3D CFD or UE5.8 native E2E"
+  ]
+}
