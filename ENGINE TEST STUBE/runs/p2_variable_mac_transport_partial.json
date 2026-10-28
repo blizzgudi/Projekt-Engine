@@ -1,0 +1,2111 @@
+{
+  "phase": "P2",
+  "milestone": "variable_solenoidal_periodic_mac_flux_transport_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "accepted": false,
+  "full_ctest_suites": 65,
+  "native_assertions": 243900,
+  "independent_numerical_checks": 297,
+  "checks": [
+    {
+      "name": "shear_fourier_(8, 10, 12, -1, 1, 0, 0)",
+      "actual": 0.24720000000000003,
+      "expected": 0.2472,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(8, 10, 12, -1, 1, 0, 3)",
+      "actual": 0.13395015528100077,
+      "expected": 0.13395015528100077,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(8, 10, 12, -1, 1, 0, 9)",
+      "actual": 0.15004984471899926,
+      "expected": 0.15004984471899924,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(8, 10, 12, -1, 1, 1, 0)",
+      "actual": -0.26113993788759965,
+      "expected": -0.2611399378875997,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(8, 10, 12, -1, 1, 1, 3)",
+      "actual": -0.34928,
+      "expected": -0.34928,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(8, 10, 12, -1, 1, 1, 9)",
+      "actual": -0.3428401242248006,
+      "expected": -0.3428401242248006,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(8, 10, 12, -1, 1, 2, 0)",
+      "actual": 0.34336,
+      "expected": 0.34336,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(8, 10, 12, -1, 1, 2, 3)",
+      "actual": 0.47925981366279913,
+      "expected": 0.47925981366279913,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(8, 10, 12, -1, 1, 2, 9)",
+      "actual": 0.4599401863372009,
+      "expected": 0.4599401863372009,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_error_(8, 10, 12, -1, 1)",
+      "actual": 5.551115123125783e-17,
+      "expected": 0.0,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_sum_(8, 10, 12, -1, 1)",
+      "actual": 6.252776074688882e-13,
+      "expected": 0.0,
+      "tolerance": 2e-09,
+      "pass": true
+    },
+    {
+      "name": "shear_cfl_(8, 10, 12, -1, 1)",
+      "actual": 0.264,
+      "expected": 0.264,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(8, 10, 12, -1, 2, 0, 0)",
+      "actual": 0.22227840000000004,
+      "expected": 0.22227840000000001,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(8, 10, 12, -1, 2, 0, 3)",
+      "actual": 0.15637418012596088,
+      "expected": 0.15637418012596088,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(8, 10, 12, -1, 2, 0, 9)",
+      "actual": 0.17504981987403914,
+      "expected": 0.17504981987403911,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(8, 10, 12, -1, 2, 1, 0)",
+      "actual": -0.28112369465775483,
+      "expected": -0.2811236946577549,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(8, 10, 12, -1, 2, 1, 3)",
+      "actual": -0.33035648,
+      "expected": -0.33035648,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(8, 10, 12, -1, 2, 1, 9)",
+      "actual": -0.32294095304495435,
+      "expected": -0.32294095304495435,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(8, 10, 12, -1, 2, 2, 0)",
+      "actual": 0.37326592000000003,
+      "expected": 0.37326592000000003,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(8, 10, 12, -1, 2, 2, 3)",
+      "actual": 0.452350983848847,
+      "expected": 0.452350983848847,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(8, 10, 12, -1, 2, 2, 9)",
+      "actual": 0.4299402161511531,
+      "expected": 0.4299402161511531,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_error_(8, 10, 12, -1, 2)",
+      "actual": 5.551115123125783e-17,
+      "expected": 0.0,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_sum_(8, 10, 12, -1, 2)",
+      "actual": 2.5011104298755527e-12,
+      "expected": 0.0,
+      "tolerance": 2e-09,
+      "pass": true
+    },
+    {
+      "name": "shear_cfl_(8, 10, 12, -1, 2)",
+      "actual": 0.264,
+      "expected": 0.264,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(8, 10, 12, -1, 3, 0, 0)",
+      "actual": 0.21051540480000003,
+      "expected": 0.2105154048,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(8, 10, 12, -1, 3, 0, 3)",
+      "actual": 0.17118521371580686,
+      "expected": 0.17118521371580686,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(8, 10, 12, -1, 3, 0, 9)",
+      "actual": 0.18753734628419316,
+      "expected": 0.18753734628419316,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(8, 10, 12, -1, 3, 1, 0)",
+      "actual": -0.29083082002434646,
+      "expected": -0.2908308200243465,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(8, 10, 12, -1, 3, 1, 3)",
+      "actual": -0.31869959168,
+      "expected": -0.31869959168,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(8, 10, 12, -1, 3, 1, 9)",
+      "actual": -0.31228491597851454,
+      "expected": -0.31228491597851454,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(8, 10, 12, -1, 3, 2, 0)",
+      "actual": 0.38738151424,
+      "expected": 0.38738151424,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(8, 10, 12, -1, 3, 2, 3)",
+      "actual": 0.4345777435410318,
+      "expected": 0.4345777435410318,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(8, 10, 12, -1, 3, 2, 9)",
+      "actual": 0.41495518445896823,
+      "expected": 0.41495518445896823,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_error_(8, 10, 12, -1, 3)",
+      "actual": 5.551115123125783e-17,
+      "expected": 0.0,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_sum_(8, 10, 12, -1, 3)",
+      "actual": 3.410605131648481e-13,
+      "expected": 0.0,
+      "tolerance": 2e-09,
+      "pass": true
+    },
+    {
+      "name": "shear_cfl_(8, 10, 12, -1, 3)",
+      "actual": 0.264,
+      "expected": 0.264,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(8, 10, 12, -1, 4, 0, 0)",
+      "actual": 0.20496327106560003,
+      "expected": 0.2049632710656,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(8, 10, 12, -1, 4, 0, 3)",
+      "actual": 0.18096787840317896,
+      "expected": 0.18096787840317896,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(8, 10, 12, -1, 4, 0, 9)",
+      "actual": 0.1937748851168211,
+      "expected": 0.1937748851168211,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(8, 10, 12, -1, 4, 1, 0)",
+      "actual": -0.29554606370782904,
+      "expected": -0.2955460637078291,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(8, 10, 12, -1, 4, 1, 3)",
+      "actual": -0.31151894847488,
+      "expected": -0.31151894847488,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(8, 10, 12, -1, 4, 1, 9)",
+      "actual": -0.306578591582635,
+      "expected": -0.306578591582635,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(8, 10, 12, -1, 4, 2, 0)",
+      "actual": 0.39404407472128,
+      "expected": 0.39404407472128,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(8, 10, 12, -1, 4, 2, 3)",
+      "actual": 0.4228385459161853,
+      "expected": 0.4228385459161853,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(8, 10, 12, -1, 4, 2, 9)",
+      "actual": 0.40747013785981473,
+      "expected": 0.40747013785981473,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_error_(8, 10, 12, -1, 4)",
+      "actual": 5.551115123125783e-17,
+      "expected": 0.0,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_sum_(8, 10, 12, -1, 4)",
+      "actual": 1.2505552149377763e-12,
+      "expected": 0.0,
+      "tolerance": 2e-09,
+      "pass": true
+    },
+    {
+      "name": "shear_cfl_(8, 10, 12, -1, 4)",
+      "actual": 0.264,
+      "expected": 0.264,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(8, 10, 12, 1, 1, 0, 0)",
+      "actual": 0.24720000000000003,
+      "expected": 0.2472,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(8, 10, 12, 1, 1, 0, 3)",
+      "actual": 0.13395015528100077,
+      "expected": 0.13395015528100077,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(8, 10, 12, 1, 1, 0, 9)",
+      "actual": 0.15004984471899926,
+      "expected": 0.15004984471899924,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(8, 10, 12, 1, 1, 1, 0)",
+      "actual": -0.26113993788759965,
+      "expected": -0.2611399378875997,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(8, 10, 12, 1, 1, 1, 3)",
+      "actual": -0.34928,
+      "expected": -0.34928,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(8, 10, 12, 1, 1, 1, 9)",
+      "actual": -0.3428401242248006,
+      "expected": -0.3428401242248006,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(8, 10, 12, 1, 1, 2, 0)",
+      "actual": 0.34336,
+      "expected": 0.34336,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(8, 10, 12, 1, 1, 2, 3)",
+      "actual": 0.47925981366279913,
+      "expected": 0.47925981366279913,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(8, 10, 12, 1, 1, 2, 9)",
+      "actual": 0.4599401863372009,
+      "expected": 0.4599401863372009,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_error_(8, 10, 12, 1, 1)",
+      "actual": 5.551115123125783e-17,
+      "expected": 0.0,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_sum_(8, 10, 12, 1, 1)",
+      "actual": 6.252776074688882e-13,
+      "expected": 0.0,
+      "tolerance": 2e-09,
+      "pass": true
+    },
+    {
+      "name": "shear_cfl_(8, 10, 12, 1, 1)",
+      "actual": 0.264,
+      "expected": 0.264,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(8, 10, 12, 1, 2, 0, 0)",
+      "actual": 0.22227840000000004,
+      "expected": 0.22227840000000001,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(8, 10, 12, 1, 2, 0, 3)",
+      "actual": 0.15637418012596088,
+      "expected": 0.15637418012596088,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(8, 10, 12, 1, 2, 0, 9)",
+      "actual": 0.17504981987403914,
+      "expected": 0.17504981987403911,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(8, 10, 12, 1, 2, 1, 0)",
+      "actual": -0.28112369465775483,
+      "expected": -0.2811236946577549,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(8, 10, 12, 1, 2, 1, 3)",
+      "actual": -0.33035648,
+      "expected": -0.33035648,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(8, 10, 12, 1, 2, 1, 9)",
+      "actual": -0.32294095304495435,
+      "expected": -0.32294095304495435,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(8, 10, 12, 1, 2, 2, 0)",
+      "actual": 0.37326592000000003,
+      "expected": 0.37326592000000003,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(8, 10, 12, 1, 2, 2, 3)",
+      "actual": 0.452350983848847,
+      "expected": 0.452350983848847,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(8, 10, 12, 1, 2, 2, 9)",
+      "actual": 0.4299402161511531,
+      "expected": 0.4299402161511531,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_error_(8, 10, 12, 1, 2)",
+      "actual": 5.551115123125783e-17,
+      "expected": 0.0,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_sum_(8, 10, 12, 1, 2)",
+      "actual": 2.5011104298755527e-12,
+      "expected": 0.0,
+      "tolerance": 2e-09,
+      "pass": true
+    },
+    {
+      "name": "shear_cfl_(8, 10, 12, 1, 2)",
+      "actual": 0.264,
+      "expected": 0.264,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(8, 10, 12, 1, 3, 0, 0)",
+      "actual": 0.21051540480000003,
+      "expected": 0.2105154048,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(8, 10, 12, 1, 3, 0, 3)",
+      "actual": 0.17118521371580686,
+      "expected": 0.17118521371580686,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(8, 10, 12, 1, 3, 0, 9)",
+      "actual": 0.18753734628419316,
+      "expected": 0.18753734628419316,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(8, 10, 12, 1, 3, 1, 0)",
+      "actual": -0.29083082002434646,
+      "expected": -0.2908308200243465,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(8, 10, 12, 1, 3, 1, 3)",
+      "actual": -0.31869959168,
+      "expected": -0.31869959168,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(8, 10, 12, 1, 3, 1, 9)",
+      "actual": -0.31228491597851454,
+      "expected": -0.31228491597851454,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(8, 10, 12, 1, 3, 2, 0)",
+      "actual": 0.38738151424,
+      "expected": 0.38738151424,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(8, 10, 12, 1, 3, 2, 3)",
+      "actual": 0.4345777435410318,
+      "expected": 0.4345777435410318,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(8, 10, 12, 1, 3, 2, 9)",
+      "actual": 0.41495518445896823,
+      "expected": 0.41495518445896823,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_error_(8, 10, 12, 1, 3)",
+      "actual": 5.551115123125783e-17,
+      "expected": 0.0,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_sum_(8, 10, 12, 1, 3)",
+      "actual": 3.410605131648481e-13,
+      "expected": 0.0,
+      "tolerance": 2e-09,
+      "pass": true
+    },
+    {
+      "name": "shear_cfl_(8, 10, 12, 1, 3)",
+      "actual": 0.264,
+      "expected": 0.264,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(8, 10, 12, 1, 4, 0, 0)",
+      "actual": 0.20496327106560003,
+      "expected": 0.2049632710656,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(8, 10, 12, 1, 4, 0, 3)",
+      "actual": 0.18096787840317896,
+      "expected": 0.18096787840317896,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(8, 10, 12, 1, 4, 0, 9)",
+      "actual": 0.1937748851168211,
+      "expected": 0.1937748851168211,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(8, 10, 12, 1, 4, 1, 0)",
+      "actual": -0.29554606370782904,
+      "expected": -0.2955460637078291,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(8, 10, 12, 1, 4, 1, 3)",
+      "actual": -0.31151894847488,
+      "expected": -0.31151894847488,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(8, 10, 12, 1, 4, 1, 9)",
+      "actual": -0.306578591582635,
+      "expected": -0.306578591582635,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(8, 10, 12, 1, 4, 2, 0)",
+      "actual": 0.39404407472128,
+      "expected": 0.39404407472128,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(8, 10, 12, 1, 4, 2, 3)",
+      "actual": 0.4228385459161853,
+      "expected": 0.4228385459161853,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(8, 10, 12, 1, 4, 2, 9)",
+      "actual": 0.40747013785981473,
+      "expected": 0.40747013785981473,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_error_(8, 10, 12, 1, 4)",
+      "actual": 5.551115123125783e-17,
+      "expected": 0.0,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_sum_(8, 10, 12, 1, 4)",
+      "actual": 1.2505552149377763e-12,
+      "expected": 0.0,
+      "tolerance": 2e-09,
+      "pass": true
+    },
+    {
+      "name": "shear_cfl_(8, 10, 12, 1, 4)",
+      "actual": 0.264,
+      "expected": 0.264,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "self_nontrivial_(8, 10, 12)",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "self_integral_(8, 10, 12)",
+      "actual": 3.979039320256561e-13,
+      "expected": 0.0,
+      "tolerance": 2e-09,
+      "pass": true
+    },
+    {
+      "name": "self_divergence_(8, 10, 12)",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(12, 14, 16, -1, 1, 0, 0)",
+      "actual": 0.24720000000000003,
+      "expected": 0.2472,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(12, 14, 16, -1, 1, 0, 4)",
+      "actual": 0.26480430144897094,
+      "expected": 0.26480430144897094,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(12, 14, 16, -1, 1, 0, 13)",
+      "actual": 0.15137395169779486,
+      "expected": 0.15137395169779483,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(12, 14, 16, -1, 1, 1, 0)",
+      "actual": -0.26166958067911794,
+      "expected": -0.26166958067911794,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(12, 14, 16, -1, 1, 1, 4)",
+      "actual": -0.25072,
+      "expected": -0.25072,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(12, 14, 16, -1, 1, 1, 13)",
+      "actual": -0.34049911806217575,
+      "expected": -0.34049911806217575,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(12, 14, 16, -1, 1, 2, 0)",
+      "actual": 0.34336,
+      "expected": 0.34336,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(12, 14, 16, -1, 1, 2, 4)",
+      "actual": 0.3222348382612349,
+      "expected": 0.3222348382612349,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(12, 14, 16, -1, 1, 2, 13)",
+      "actual": 0.4583512579626462,
+      "expected": 0.4583512579626462,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_error_(12, 14, 16, -1, 1)",
+      "actual": 5.551115123125783e-17,
+      "expected": 0.0,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_sum_(12, 14, 16, -1, 1)",
+      "actual": 9.890754881780595e-12,
+      "expected": 0.0,
+      "tolerance": 2e-09,
+      "pass": true
+    },
+    {
+      "name": "shear_cfl_(12, 14, 16, -1, 1)",
+      "actual": 0.264,
+      "expected": 0.264,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(12, 14, 16, -1, 2, 0, 0)",
+      "actual": 0.22227840000000004,
+      "expected": 0.22227840000000001,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(12, 14, 16, -1, 2, 0, 4)",
+      "actual": 0.24199597486289096,
+      "expected": 0.24199597486289096,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(12, 14, 16, -1, 2, 0, 13)",
+      "actual": 0.17635507426511612,
+      "expected": 0.1763550742651161,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(12, 14, 16, -1, 2, 1, 0)",
+      "actual": -0.2816347369335669,
+      "expected": -0.2816347369335669,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(12, 14, 16, -1, 2, 1, 4)",
+      "actual": -0.26964351999999997,
+      "expected": -0.26964351999999997,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(12, 14, 16, -1, 2, 1, 13)",
+      "actual": -0.32050223204767564,
+      "expected": -0.32050223204767564,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(12, 14, 16, -1, 2, 2, 0)",
+      "actual": 0.37326592000000003,
+      "expected": 0.37326592000000003,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(12, 14, 16, -1, 2, 2, 4)",
+      "actual": 0.34960483016453087,
+      "expected": 0.34960483016453087,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(12, 14, 16, -1, 2, 2, 13)",
+      "actual": 0.4283739108818607,
+      "expected": 0.4283739108818607,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_error_(12, 14, 16, -1, 2)",
+      "actual": 5.551115123125783e-17,
+      "expected": 0.0,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_sum_(12, 14, 16, -1, 2)",
+      "actual": 4.433786671143025e-12,
+      "expected": 0.0,
+      "tolerance": 2e-09,
+      "pass": true
+    },
+    {
+      "name": "shear_cfl_(12, 14, 16, -1, 2)",
+      "actual": 0.264,
+      "expected": 0.264,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(12, 14, 16, -1, 3, 0, 0)",
+      "actual": 0.21051540480000003,
+      "expected": 0.2105154048,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(12, 14, 16, -1, 3, 0, 4)",
+      "actual": 0.22721519814658192,
+      "expected": 0.22721519814658192,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(12, 14, 16, -1, 3, 0, 13)",
+      "actual": 0.18850240699113485,
+      "expected": 0.18850240699113482,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(12, 14, 16, -1, 3, 1, 0)",
+      "actual": -0.29120064707156634,
+      "expected": -0.29120064707156634,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(12, 14, 16, -1, 3, 1, 4)",
+      "actual": -0.28130040832,
+      "expected": -0.28130040832,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(12, 14, 16, -1, 3, 1, 13)",
+      "actual": -0.31037902895296177,
+      "expected": -0.3103790289529617,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(12, 14, 16, -1, 3, 2, 0)",
+      "actual": 0.38738151424,
+      "expected": 0.38738151424,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(12, 14, 16, -1, 3, 2, 4)",
+      "actual": 0.36734176222410175,
+      "expected": 0.36734176222410175,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(12, 14, 16, -1, 3, 2, 13)",
+      "actual": 0.41379711161063826,
+      "expected": 0.41379711161063826,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_error_(12, 14, 16, -1, 3)",
+      "actual": 5.551115123125783e-17,
+      "expected": 0.0,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_sum_(12, 14, 16, -1, 3)",
+      "actual": 3.979039320256561e-12,
+      "expected": 0.0,
+      "tolerance": 2e-09,
+      "pass": true
+    },
+    {
+      "name": "shear_cfl_(12, 14, 16, -1, 3)",
+      "actual": 0.264,
+      "expected": 0.264,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(12, 14, 16, -1, 4, 0, 0)",
+      "actual": 0.20496327106560003,
+      "expected": 0.2049632710656,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(12, 14, 16, -1, 4, 0, 4)",
+      "actual": 0.2176366190468457,
+      "expected": 0.2176366190468457,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(12, 14, 16, -1, 4, 0, 13)",
+      "actual": 0.19440917486991827,
+      "expected": 0.19440917486991827,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(12, 14, 16, -1, 4, 1, 0)",
+      "actual": -0.29578396390625883,
+      "expected": -0.29578396390625883,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(12, 14, 16, -1, 4, 1, 4)",
+      "actual": -0.28848105152512,
+      "expected": -0.28848105152512,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(12, 14, 16, -1, 4, 1, 13)",
+      "actual": -0.3052542689867092,
+      "expected": -0.3052542689867092,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(12, 14, 16, -1, 4, 2, 0)",
+      "actual": 0.39404407472128,
+      "expected": 0.39404407472128,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(12, 14, 16, -1, 4, 2, 4)",
+      "actual": 0.3788360571437852,
+      "expected": 0.3788360571437852,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(12, 14, 16, -1, 4, 2, 13)",
+      "actual": 0.4067089901560981,
+      "expected": 0.4067089901560981,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_error_(12, 14, 16, -1, 4)",
+      "actual": 5.551115123125783e-17,
+      "expected": 0.0,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_sum_(12, 14, 16, -1, 4)",
+      "actual": 1.5006662579253316e-11,
+      "expected": 0.0,
+      "tolerance": 2e-09,
+      "pass": true
+    },
+    {
+      "name": "shear_cfl_(12, 14, 16, -1, 4)",
+      "actual": 0.264,
+      "expected": 0.264,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(12, 14, 16, 1, 1, 0, 0)",
+      "actual": 0.24720000000000003,
+      "expected": 0.2472,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(12, 14, 16, 1, 1, 0, 4)",
+      "actual": 0.26480430144897094,
+      "expected": 0.26480430144897094,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(12, 14, 16, 1, 1, 0, 13)",
+      "actual": 0.15137395169779486,
+      "expected": 0.15137395169779483,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(12, 14, 16, 1, 1, 1, 0)",
+      "actual": -0.26166958067911794,
+      "expected": -0.26166958067911794,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(12, 14, 16, 1, 1, 1, 4)",
+      "actual": -0.25072,
+      "expected": -0.25072,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(12, 14, 16, 1, 1, 1, 13)",
+      "actual": -0.34049911806217575,
+      "expected": -0.34049911806217575,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(12, 14, 16, 1, 1, 2, 0)",
+      "actual": 0.34336,
+      "expected": 0.34336,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(12, 14, 16, 1, 1, 2, 4)",
+      "actual": 0.3222348382612349,
+      "expected": 0.3222348382612349,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(12, 14, 16, 1, 1, 2, 13)",
+      "actual": 0.4583512579626462,
+      "expected": 0.4583512579626462,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_error_(12, 14, 16, 1, 1)",
+      "actual": 5.551115123125783e-17,
+      "expected": 0.0,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_sum_(12, 14, 16, 1, 1)",
+      "actual": 9.890754881780595e-12,
+      "expected": 0.0,
+      "tolerance": 2e-09,
+      "pass": true
+    },
+    {
+      "name": "shear_cfl_(12, 14, 16, 1, 1)",
+      "actual": 0.264,
+      "expected": 0.264,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(12, 14, 16, 1, 2, 0, 0)",
+      "actual": 0.22227840000000004,
+      "expected": 0.22227840000000001,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(12, 14, 16, 1, 2, 0, 4)",
+      "actual": 0.24199597486289096,
+      "expected": 0.24199597486289096,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(12, 14, 16, 1, 2, 0, 13)",
+      "actual": 0.17635507426511612,
+      "expected": 0.1763550742651161,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(12, 14, 16, 1, 2, 1, 0)",
+      "actual": -0.2816347369335669,
+      "expected": -0.2816347369335669,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(12, 14, 16, 1, 2, 1, 4)",
+      "actual": -0.26964351999999997,
+      "expected": -0.26964351999999997,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(12, 14, 16, 1, 2, 1, 13)",
+      "actual": -0.32050223204767564,
+      "expected": -0.32050223204767564,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(12, 14, 16, 1, 2, 2, 0)",
+      "actual": 0.37326592000000003,
+      "expected": 0.37326592000000003,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(12, 14, 16, 1, 2, 2, 4)",
+      "actual": 0.34960483016453087,
+      "expected": 0.34960483016453087,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(12, 14, 16, 1, 2, 2, 13)",
+      "actual": 0.4283739108818607,
+      "expected": 0.4283739108818607,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_error_(12, 14, 16, 1, 2)",
+      "actual": 5.551115123125783e-17,
+      "expected": 0.0,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_sum_(12, 14, 16, 1, 2)",
+      "actual": 4.433786671143025e-12,
+      "expected": 0.0,
+      "tolerance": 2e-09,
+      "pass": true
+    },
+    {
+      "name": "shear_cfl_(12, 14, 16, 1, 2)",
+      "actual": 0.264,
+      "expected": 0.264,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(12, 14, 16, 1, 3, 0, 0)",
+      "actual": 0.21051540480000003,
+      "expected": 0.2105154048,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(12, 14, 16, 1, 3, 0, 4)",
+      "actual": 0.22721519814658192,
+      "expected": 0.22721519814658192,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(12, 14, 16, 1, 3, 0, 13)",
+      "actual": 0.18850240699113485,
+      "expected": 0.18850240699113482,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(12, 14, 16, 1, 3, 1, 0)",
+      "actual": -0.29120064707156634,
+      "expected": -0.29120064707156634,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(12, 14, 16, 1, 3, 1, 4)",
+      "actual": -0.28130040832,
+      "expected": -0.28130040832,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(12, 14, 16, 1, 3, 1, 13)",
+      "actual": -0.31037902895296177,
+      "expected": -0.3103790289529617,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(12, 14, 16, 1, 3, 2, 0)",
+      "actual": 0.38738151424,
+      "expected": 0.38738151424,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(12, 14, 16, 1, 3, 2, 4)",
+      "actual": 0.36734176222410175,
+      "expected": 0.36734176222410175,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(12, 14, 16, 1, 3, 2, 13)",
+      "actual": 0.41379711161063826,
+      "expected": 0.41379711161063826,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_error_(12, 14, 16, 1, 3)",
+      "actual": 5.551115123125783e-17,
+      "expected": 0.0,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_sum_(12, 14, 16, 1, 3)",
+      "actual": 3.979039320256561e-12,
+      "expected": 0.0,
+      "tolerance": 2e-09,
+      "pass": true
+    },
+    {
+      "name": "shear_cfl_(12, 14, 16, 1, 3)",
+      "actual": 0.264,
+      "expected": 0.264,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(12, 14, 16, 1, 4, 0, 0)",
+      "actual": 0.20496327106560003,
+      "expected": 0.2049632710656,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(12, 14, 16, 1, 4, 0, 4)",
+      "actual": 0.2176366190468457,
+      "expected": 0.2176366190468457,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(12, 14, 16, 1, 4, 0, 13)",
+      "actual": 0.19440917486991827,
+      "expected": 0.19440917486991827,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(12, 14, 16, 1, 4, 1, 0)",
+      "actual": -0.29578396390625883,
+      "expected": -0.29578396390625883,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(12, 14, 16, 1, 4, 1, 4)",
+      "actual": -0.28848105152512,
+      "expected": -0.28848105152512,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(12, 14, 16, 1, 4, 1, 13)",
+      "actual": -0.3052542689867092,
+      "expected": -0.3052542689867092,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(12, 14, 16, 1, 4, 2, 0)",
+      "actual": 0.39404407472128,
+      "expected": 0.39404407472128,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(12, 14, 16, 1, 4, 2, 4)",
+      "actual": 0.3788360571437852,
+      "expected": 0.3788360571437852,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(12, 14, 16, 1, 4, 2, 13)",
+      "actual": 0.4067089901560981,
+      "expected": 0.4067089901560981,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_error_(12, 14, 16, 1, 4)",
+      "actual": 5.551115123125783e-17,
+      "expected": 0.0,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_sum_(12, 14, 16, 1, 4)",
+      "actual": 1.5006662579253316e-11,
+      "expected": 0.0,
+      "tolerance": 2e-09,
+      "pass": true
+    },
+    {
+      "name": "shear_cfl_(12, 14, 16, 1, 4)",
+      "actual": 0.264,
+      "expected": 0.264,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "self_nontrivial_(12, 14, 16)",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "self_integral_(12, 14, 16)",
+      "actual": 2.1884716261411086e-12,
+      "expected": 0.0,
+      "tolerance": 2e-09,
+      "pass": true
+    },
+    {
+      "name": "self_divergence_(12, 14, 16)",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(16, 18, 20, -1, 1, 0, 0)",
+      "actual": 0.24720000000000003,
+      "expected": 0.2472,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(16, 18, 20, -1, 1, 0, 6)",
+      "actual": 0.26880000000000004,
+      "expected": 0.26880000000000004,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(16, 18, 20, -1, 1, 0, 17)",
+      "actual": 0.1519315737393171,
+      "expected": 0.1519315737393171,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(16, 18, 20, -1, 1, 1, 0)",
+      "actual": -0.26189262949572684,
+      "expected": -0.26189262949572684,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(16, 18, 20, -1, 1, 1, 6)",
+      "actual": -0.24683978649663846,
+      "expected": -0.24683978649663846,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(16, 18, 20, -1, 1, 1, 17)",
+      "actual": -0.3394549545119079,
+      "expected": -0.3394549545119079,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(16, 18, 20, -1, 1, 2, 0)",
+      "actual": 0.34336,
+      "expected": 0.34336,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(16, 18, 20, -1, 1, 2, 6)",
+      "actual": 0.31744000000000006,
+      "expected": 0.31744000000000006,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(16, 18, 20, -1, 1, 2, 17)",
+      "actual": 0.4576821115128195,
+      "expected": 0.4576821115128195,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_error_(16, 18, 20, -1, 1)",
+      "actual": 5.551115123125783e-17,
+      "expected": 0.0,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_sum_(16, 18, 20, -1, 1)",
+      "actual": 4.6838977141305804e-11,
+      "expected": 0.0,
+      "tolerance": 2e-09,
+      "pass": true
+    },
+    {
+      "name": "shear_cfl_(16, 18, 20, -1, 1)",
+      "actual": 0.264,
+      "expected": 0.264,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(16, 18, 20, -1, 2, 0, 0)",
+      "actual": 0.22227840000000004,
+      "expected": 0.22227840000000001,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(16, 18, 20, -1, 2, 0, 6)",
+      "actual": 0.24733440000000004,
+      "expected": 0.2473344,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(16, 18, 20, -1, 2, 0, 17)",
+      "actual": 0.1768942639682129,
+      "expected": 0.1768942639682129,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(16, 18, 20, -1, 2, 1, 0)",
+      "actual": -0.28184785391562567,
+      "expected": -0.2818478539156256,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(16, 18, 20, -1, 2, 1, 6)",
+      "actual": -0.26467489625346274,
+      "expected": -0.26467489625346274,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(16, 18, 20, -1, 2, 1, 17)",
+      "actual": -0.31945866794420896,
+      "expected": -0.31945866794420896,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(16, 18, 20, -1, 2, 2, 0)",
+      "actual": 0.37326592000000003,
+      "expected": 0.37326592000000003,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(16, 18, 20, -1, 2, 2, 6)",
+      "actual": 0.34319872000000007,
+      "expected": 0.34319872,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(16, 18, 20, -1, 2, 2, 17)",
+      "actual": 0.42772688323814456,
+      "expected": 0.42772688323814456,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_error_(16, 18, 20, -1, 2)",
+      "actual": 5.551115123125783e-17,
+      "expected": 0.0,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_sum_(16, 18, 20, -1, 2)",
+      "actual": 3.865352482534945e-11,
+      "expected": 0.0,
+      "tolerance": 2e-09,
+      "pass": true
+    },
+    {
+      "name": "shear_cfl_(16, 18, 20, -1, 2)",
+      "actual": 0.264,
+      "expected": 0.264,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(16, 18, 20, -1, 3, 0, 0)",
+      "actual": 0.21051540480000003,
+      "expected": 0.2105154048,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(16, 18, 20, -1, 3, 0, 6)",
+      "actual": 0.23256606720000003,
+      "expected": 0.2325660672,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(16, 18, 20, -1, 3, 0, 17)",
+      "actual": 0.1888934363135724,
+      "expected": 0.1888934363135724,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(16, 18, 20, -1, 3, 1, 0)",
+      "actual": -0.2913533680464382,
+      "expected": -0.2913533680464382,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(16, 18, 20, -1, 3, 1, 6)",
+      "actual": -0.27652637428507104,
+      "expected": -0.27652637428507104,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(16, 18, 20, -1, 3, 1, 17)",
+      "actual": -0.3095967607325136,
+      "expected": -0.3095967607325136,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(16, 18, 20, -1, 3, 2, 0)",
+      "actual": 0.38738151424,
+      "expected": 0.38738151424,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(16, 18, 20, -1, 3, 2, 6)",
+      "actual": 0.36092071936000003,
+      "expected": 0.36092071936000003,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(16, 18, 20, -1, 3, 2, 17)",
+      "actual": 0.41332787642371316,
+      "expected": 0.41332787642371316,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_error_(16, 18, 20, -1, 3)",
+      "actual": 5.551115123125783e-17,
+      "expected": 0.0,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_sum_(16, 18, 20, -1, 3)",
+      "actual": 3.842615114990622e-11,
+      "expected": 0.0,
+      "tolerance": 2e-09,
+      "pass": true
+    },
+    {
+      "name": "shear_cfl_(16, 18, 20, -1, 3)",
+      "actual": 0.264,
+      "expected": 0.264,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(16, 18, 20, -1, 4, 0, 0)",
+      "actual": 0.20496327106560003,
+      "expected": 0.2049632710656,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(16, 18, 20, -1, 4, 0, 6)",
+      "actual": 0.22240545423360003,
+      "expected": 0.2224054542336,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(16, 18, 20, -1, 4, 0, 17)",
+      "actual": 0.19466124962429376,
+      "expected": 0.19466124962429376,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(16, 18, 20, -1, 4, 1, 0)",
+      "actual": -0.29588124490664414,
+      "expected": -0.29588124490664414,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(16, 18, 20, -1, 4, 1, 6)",
+      "actual": -0.28440171306620476,
+      "expected": -0.2844017130662047,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(16, 18, 20, -1, 4, 1, 17)",
+      "actual": -0.3047329969770373,
+      "expected": -0.3047329969770373,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(16, 18, 20, -1, 4, 2, 0)",
+      "actual": 0.39404407472128,
+      "expected": 0.39404407472128,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(16, 18, 20, -1, 4, 2, 6)",
+      "actual": 0.37311345491968,
+      "expected": 0.37311345491968,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(16, 18, 20, -1, 4, 2, 17)",
+      "actual": 0.40640650045084753,
+      "expected": 0.40640650045084753,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_error_(16, 18, 20, -1, 4)",
+      "actual": 5.551115123125783e-17,
+      "expected": 0.0,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_sum_(16, 18, 20, -1, 4)",
+      "actual": 4.069988790433854e-11,
+      "expected": 0.0,
+      "tolerance": 2e-09,
+      "pass": true
+    },
+    {
+      "name": "shear_cfl_(16, 18, 20, -1, 4)",
+      "actual": 0.264,
+      "expected": 0.264,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(16, 18, 20, 1, 1, 0, 0)",
+      "actual": 0.24720000000000003,
+      "expected": 0.2472,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(16, 18, 20, 1, 1, 0, 6)",
+      "actual": 0.26880000000000004,
+      "expected": 0.26880000000000004,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(16, 18, 20, 1, 1, 0, 17)",
+      "actual": 0.1519315737393171,
+      "expected": 0.1519315737393171,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(16, 18, 20, 1, 1, 1, 0)",
+      "actual": -0.26189262949572684,
+      "expected": -0.26189262949572684,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(16, 18, 20, 1, 1, 1, 6)",
+      "actual": -0.24683978649663846,
+      "expected": -0.24683978649663846,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(16, 18, 20, 1, 1, 1, 17)",
+      "actual": -0.3394549545119079,
+      "expected": -0.3394549545119079,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(16, 18, 20, 1, 1, 2, 0)",
+      "actual": 0.34336,
+      "expected": 0.34336,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(16, 18, 20, 1, 1, 2, 6)",
+      "actual": 0.31744000000000006,
+      "expected": 0.31744000000000006,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(16, 18, 20, 1, 1, 2, 17)",
+      "actual": 0.4576821115128195,
+      "expected": 0.4576821115128195,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_error_(16, 18, 20, 1, 1)",
+      "actual": 5.551115123125783e-17,
+      "expected": 0.0,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_sum_(16, 18, 20, 1, 1)",
+      "actual": 4.6838977141305804e-11,
+      "expected": 0.0,
+      "tolerance": 2e-09,
+      "pass": true
+    },
+    {
+      "name": "shear_cfl_(16, 18, 20, 1, 1)",
+      "actual": 0.264,
+      "expected": 0.264,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(16, 18, 20, 1, 2, 0, 0)",
+      "actual": 0.22227840000000004,
+      "expected": 0.22227840000000001,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(16, 18, 20, 1, 2, 0, 6)",
+      "actual": 0.24733440000000004,
+      "expected": 0.2473344,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(16, 18, 20, 1, 2, 0, 17)",
+      "actual": 0.1768942639682129,
+      "expected": 0.1768942639682129,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(16, 18, 20, 1, 2, 1, 0)",
+      "actual": -0.28184785391562567,
+      "expected": -0.2818478539156256,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(16, 18, 20, 1, 2, 1, 6)",
+      "actual": -0.26467489625346274,
+      "expected": -0.26467489625346274,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(16, 18, 20, 1, 2, 1, 17)",
+      "actual": -0.31945866794420896,
+      "expected": -0.31945866794420896,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(16, 18, 20, 1, 2, 2, 0)",
+      "actual": 0.37326592000000003,
+      "expected": 0.37326592000000003,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(16, 18, 20, 1, 2, 2, 6)",
+      "actual": 0.34319872000000007,
+      "expected": 0.34319872,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(16, 18, 20, 1, 2, 2, 17)",
+      "actual": 0.42772688323814456,
+      "expected": 0.42772688323814456,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_error_(16, 18, 20, 1, 2)",
+      "actual": 5.551115123125783e-17,
+      "expected": 0.0,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_sum_(16, 18, 20, 1, 2)",
+      "actual": 3.865352482534945e-11,
+      "expected": 0.0,
+      "tolerance": 2e-09,
+      "pass": true
+    },
+    {
+      "name": "shear_cfl_(16, 18, 20, 1, 2)",
+      "actual": 0.264,
+      "expected": 0.264,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(16, 18, 20, 1, 3, 0, 0)",
+      "actual": 0.21051540480000003,
+      "expected": 0.2105154048,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(16, 18, 20, 1, 3, 0, 6)",
+      "actual": 0.23256606720000003,
+      "expected": 0.2325660672,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(16, 18, 20, 1, 3, 0, 17)",
+      "actual": 0.1888934363135724,
+      "expected": 0.1888934363135724,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(16, 18, 20, 1, 3, 1, 0)",
+      "actual": -0.2913533680464382,
+      "expected": -0.2913533680464382,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(16, 18, 20, 1, 3, 1, 6)",
+      "actual": -0.27652637428507104,
+      "expected": -0.27652637428507104,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(16, 18, 20, 1, 3, 1, 17)",
+      "actual": -0.3095967607325136,
+      "expected": -0.3095967607325136,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(16, 18, 20, 1, 3, 2, 0)",
+      "actual": 0.38738151424,
+      "expected": 0.38738151424,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(16, 18, 20, 1, 3, 2, 6)",
+      "actual": 0.36092071936000003,
+      "expected": 0.36092071936000003,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(16, 18, 20, 1, 3, 2, 17)",
+      "actual": 0.41332787642371316,
+      "expected": 0.41332787642371316,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_error_(16, 18, 20, 1, 3)",
+      "actual": 5.551115123125783e-17,
+      "expected": 0.0,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_sum_(16, 18, 20, 1, 3)",
+      "actual": 3.842615114990622e-11,
+      "expected": 0.0,
+      "tolerance": 2e-09,
+      "pass": true
+    },
+    {
+      "name": "shear_cfl_(16, 18, 20, 1, 3)",
+      "actual": 0.264,
+      "expected": 0.264,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(16, 18, 20, 1, 4, 0, 0)",
+      "actual": 0.20496327106560003,
+      "expected": 0.2049632710656,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(16, 18, 20, 1, 4, 0, 6)",
+      "actual": 0.22240545423360003,
+      "expected": 0.2224054542336,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(16, 18, 20, 1, 4, 0, 17)",
+      "actual": 0.19466124962429376,
+      "expected": 0.19466124962429376,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(16, 18, 20, 1, 4, 1, 0)",
+      "actual": -0.29588124490664414,
+      "expected": -0.29588124490664414,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(16, 18, 20, 1, 4, 1, 6)",
+      "actual": -0.28440171306620476,
+      "expected": -0.2844017130662047,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(16, 18, 20, 1, 4, 1, 17)",
+      "actual": -0.3047329969770373,
+      "expected": -0.3047329969770373,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(16, 18, 20, 1, 4, 2, 0)",
+      "actual": 0.39404407472128,
+      "expected": 0.39404407472128,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(16, 18, 20, 1, 4, 2, 6)",
+      "actual": 0.37311345491968,
+      "expected": 0.37311345491968,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_fourier_(16, 18, 20, 1, 4, 2, 17)",
+      "actual": 0.40640650045084753,
+      "expected": 0.40640650045084753,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_error_(16, 18, 20, 1, 4)",
+      "actual": 5.551115123125783e-17,
+      "expected": 0.0,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "shear_sum_(16, 18, 20, 1, 4)",
+      "actual": 4.069988790433854e-11,
+      "expected": 0.0,
+      "tolerance": 2e-09,
+      "pass": true
+    },
+    {
+      "name": "shear_cfl_(16, 18, 20, 1, 4)",
+      "actual": 0.264,
+      "expected": 0.264,
+      "tolerance": 1e-13,
+      "pass": true
+    },
+    {
+      "name": "self_nontrivial_(16, 18, 20)",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "self_integral_(16, 18, 20)",
+      "actual": 6.59383658785373e-12,
+      "expected": 0.0,
+      "tolerance": 2e-09,
+      "pass": true
+    },
+    {
+      "name": "self_divergence_(16, 18, 20)",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-13,
+      "pass": true
+    }
+  ],
+  "ctest_log_sha256": "d230f54a2501c613e22c44ff8c3c9bd6ce1028860ae90297f8c2ffbc046d113a",
+  "source_sha256": {
+    "include/upc/p2_variable_mac_transport3d.hpp": "b0a82555c95656d1493dd33a3ae3c6bb0ca187a4a4d2846573d0da2c16ba5d73",
+    "tests/p2_variable_mac_transport3d_tests.cpp": "a8d3cea7201d98d28f0d164deaef39e5dc406d8553752b0b6b12921bb79ffacd",
+    "scripts/p2_variable_mac_transport_acceptance.py": "72bebfb234925b5e64d08321477428ab2a869c8eb1ea2b8fd7ab2646007d8e97",
+    "scripts/p2_variable_mac_full_build.cmd": "3976978e48df7ffa23e0427b8f788b312eaa256fa4493500c90805a5f98454eb",
+    "docs/P2_VARIABLE_MAC_FLUX_TRANSPORT_PARTIAL.md": "505f70542095ddf89cc97cb6be3006cd44d0364d20c35865af23616f30276ecc",
+    "docs/PHASENPLAN.md": "5252a4d90b6ef5692e8847174219d8f46adc3fbef0e272fcbb8e3f416fd78652",
+    "CMakeLists.txt": "7579d0cc2e9daeba60b538bb12f3a93422c544abb1c699f23c34db40cffad24d"
+  },
+  "generated_utc": "2026-10-28T09:58:36.085285+00:00",
+  "limitations": [
+    "Periodic constant-density staggered MAC dual volumes only",
+    "Advector must be discrete divergence-free before each step",
+    "Self-advection alone does not maintain divergence-free output",
+    "No coupled pressure projection, VOF free surface, cut cells, or FSI",
+    "Conserved component sums are not validated total physical momentum/energy",
+    "No independent measured 3D CFD or new Unreal 5.8 Native E2E",
+    "P2-P8 full phases remain open"
+  ]
+}

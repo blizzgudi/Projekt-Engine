@@ -745,3 +745,19 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
   bewegte Cut-Cell-Wände, freie Oberflächen, Zweiwege-FSI,
   unabhängigen CFD-Messdaten oder neue UE5.8-Native-E2E-Abnahme.
 
+
+## P2 Teilfortschritt: variable konservative periodische MAC-Impulsadvektion (28.10.2026)
+
+- Neuer optionaler P2VariableMacTransport3D: ortsvariable, diskret divergenzfreie
+  3D-MAC-Transportgeschwindigkeit auf versetzten Kontrollvolumina; konservativer
+  lokaler Upwind-Fluss, periodische Randbedingungen und lokale ausgehende CFL.
+- Isolierte nichtlineare self_advect-Einzelstufe, ohne Druckprojektion.
+  Analytische Scher-Fourier-Referenz mit vier Schritten und drei nichtkubischen
+  Gittern, Selbstadvektions-Impulssummen, Negativ- und Rollback-Tests.
+- MSVC Release, 65/65 CTest; separates Gate:
+  scripts/p2_variable_mac_transport_acceptance.py,
+  ENGINE TEST STUBE/runs/p2_variable_mac_transport_partial.json.
+  Details: docs/P2_VARIABLE_MAC_FLUX_TRANSPORT_PARTIAL.md.
+- P2 bleibt PARTIAL; P3-P8 bleiben PARTIAL. Keine Einbindung in
+  CoupledMacWater3D, keine bewegten Cut-Cells, freien Oberflaechen,
+  Zweiwege-FSI, externen 3D-Messdaten oder neuen UE5.8 Native-E2E.
