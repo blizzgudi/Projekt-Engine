@@ -343,3 +343,9 @@ add_test(NAME physics_p2_periodic_nonlinear_mac_projection_partial COMMAND upc_p
 add_executable(upc_p2_periodic_mac_vof_tests tests/p2_periodic_mac_vof3d_tests.cpp)
 target_link_libraries(upc_p2_periodic_mac_vof_tests PRIVATE upc)
 add_test(NAME physics_p2_periodic_projected_mac_vof_partial COMMAND upc_p2_periodic_mac_vof_tests)
+
+# P2 partial: exact periodic constant-density MAC pressure-work/kinetic ledger
+# over unique staggered faces; not physical free-surface/FSI energy closure.
+add_executable(upc_p2_periodic_mac_vof_energy_tests tests/p2_periodic_mac_vof_energy3d_tests.cpp)
+target_link_libraries(upc_p2_periodic_mac_vof_energy_tests PRIVATE upc)
+add_test(NAME physics_p2_periodic_mac_vof_energy_partial COMMAND upc_p2_periodic_mac_vof_energy_tests)

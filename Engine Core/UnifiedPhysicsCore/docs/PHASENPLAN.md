@@ -785,3 +785,24 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
 - MSVC Release **67/67 CTest PASS**, **65.804 native Assertions**, drei nichtkubische Gitter, beide konstanten Flussrichtungen, vier Zeitschritte, drei nichtlineare Scherfeldfaelle mit vier Schritten, zellweise unabhaengige Upwind-Referenz und 7 Negativtests.
 - Maschinenlesbares Teil-Gate: `scripts/p2_periodic_mac_vof_acceptance.py`, `ENGINE TEST STUBE/runs/p2_periodic_mac_vof_partial.json`, 21 unabhaengige numerische Kontrollen, Source-/CTest-Hashes, `phase_complete=false`. Details: `docs/P2_PERIODIC_PROJECTED_MAC_VOF_PARTIAL.md`.
 - **P2 bleibt PARTIAL**: periodischer, konstantdichter passiver VOF-Marker ist keine physikalische freie Wasseroberflaeche; keine bewegten Cut-Cells, keine dynamische FSI, keine unabhaengigen 3D-Messreferenzen und kein neues UE5.8-Native-E2E. P3-P8 bleiben ebenfalls PARTIAL.
+
+## P2 Teilfortschritt: periodische MAC/VOF-Druckarbeitsbilanz (28.10.2026)
+
+- Optionaler P2PeriodicMacVofEnergy3D-Audit: konstante Dichte,
+  periodische 3D-MAC-Faces, nichtlineare Upwind-Impulsadvektion,
+  PCG-Druckprojektion und passiver konservativer VOF-Transport.
+- Diskrete kinetische Energien vor/nach Advektion/Projektion,
+  Druckarbeit ueber Zell-Divergenz, positive quadratische
+  Druckkorrekturenergie, Orthogonalitaets- und Gradient-Residuen.
+  Periodische Seam-Kopien werden nur einmal gezaehlt.
+- Native Tests auf 6x7x8, 8x9x10, 10x12x14 mit je vier
+  nichtlinearen Schritten und analytisch hergestellten 3D-Druckfeldern;
+  Negativtests fuer Druckmanipulation, periodische Naht,
+  ungueltige Dichte/Wasserfraktion und vollstaendige Regression.
+- Belege: docs/P2_PERIODIC_MAC_VOF_ENERGY_PARTIAL.md,
+  scripts/p2_periodic_mac_vof_energy_acceptance.py,
+  ENGINE TEST STUBE/runs/p2_periodic_mac_vof_energy_partial.json.
+- **P2 bleibt PARTIAL, P3-P8 ebenso.** Keine freie Oberflaeche,
+  Cut-Cell-Koerperbewegung, echte FSI-Gegenreaktion, globale
+  thermo-mechanische Energiebilanz, externen CFD-Messdaten oder
+  neue UE5.8-Native-E2E-Abnahme fuer diesen Pfad.

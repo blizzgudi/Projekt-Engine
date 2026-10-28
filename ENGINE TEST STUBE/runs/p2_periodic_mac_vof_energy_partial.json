@@ -1,0 +1,138 @@
+{
+  "phase": "P2",
+  "milestone": "periodic_mac_vof_pressure_energy_ledger_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "timestamp_utc": "2026-10-28T12:57:52.068254+00:00",
+  "scope": "periodic constant-density MAC/VOF kinetic pressure-work identity",
+  "limits": [
+    "passive VOF marker, no physical free-surface stress",
+    "no moving cut cells or bidirectional rigid-body impulse",
+    "no global mechanical/thermal energy conservation",
+    "no measured 3D CFD or new UE5.8 Native E2E"
+  ],
+  "ctest_suites": 68,
+  "native_assertions": 47192,
+  "reference_cases": 6,
+  "checks": [
+    {
+      "name": "(6, 7, 8) passive mass",
+      "actual": 168.0,
+      "expected": 168.0,
+      "tolerance": 1e-08,
+      "pass": true
+    },
+    {
+      "name": "(6, 7, 8) pressure identity",
+      "actual": 7.906175714111896e-12,
+      "expected": 0,
+      "tolerance": 1e-08,
+      "pass": true
+    },
+    {
+      "name": "(6, 7, 8) orthogonality",
+      "actual": 9.699543685598444e-14,
+      "expected": 0,
+      "tolerance": 1e-08,
+      "pass": true
+    },
+    {
+      "name": "(6, 7, 8) gradient removal",
+      "actual": 6.449945977805963e-25,
+      "expected": 0,
+      "tolerance": 1e-10,
+      "pass": true
+    },
+    {
+      "name": "(6, 7, 8) gradient pressure identity",
+      "actual": 8.526512829121202e-14,
+      "expected": 0,
+      "tolerance": 1e-10,
+      "pass": true
+    },
+    {
+      "name": "(8, 9, 10) passive mass",
+      "actual": 360.0,
+      "expected": 360.0,
+      "tolerance": 1e-08,
+      "pass": true
+    },
+    {
+      "name": "(8, 9, 10) pressure identity",
+      "actual": 5.107973766182994e-11,
+      "expected": 0,
+      "tolerance": 1e-08,
+      "pass": true
+    },
+    {
+      "name": "(8, 9, 10) orthogonality",
+      "actual": 4.8075048987312324e-14,
+      "expected": 0,
+      "tolerance": 1e-08,
+      "pass": true
+    },
+    {
+      "name": "(8, 9, 10) gradient removal",
+      "actual": 1.0304851618522794e-24,
+      "expected": 0,
+      "tolerance": 1e-10,
+      "pass": true
+    },
+    {
+      "name": "(8, 9, 10) gradient pressure identity",
+      "actual": -1.5631940186722204e-13,
+      "expected": 0,
+      "tolerance": 1e-10,
+      "pass": true
+    },
+    {
+      "name": "(10, 12, 14) passive mass",
+      "actual": 840.0,
+      "expected": 840.0,
+      "tolerance": 1e-08,
+      "pass": true
+    },
+    {
+      "name": "(10, 12, 14) pressure identity",
+      "actual": 1.5510907835913912e-10,
+      "expected": 0,
+      "tolerance": 1e-08,
+      "pass": true
+    },
+    {
+      "name": "(10, 12, 14) orthogonality",
+      "actual": 1.9525125873748328e-13,
+      "expected": 0,
+      "tolerance": 1e-08,
+      "pass": true
+    },
+    {
+      "name": "(10, 12, 14) gradient removal",
+      "actual": 1.9925047878297217e-24,
+      "expected": 0,
+      "tolerance": 1e-10,
+      "pass": true
+    },
+    {
+      "name": "(10, 12, 14) gradient pressure identity",
+      "actual": 1.4210854715202004e-13,
+      "expected": 0,
+      "tolerance": 1e-10,
+      "pass": true
+    }
+  ],
+  "source_sha256": {
+    "CMakeLists.txt": "2e52b4f3964df150c6d39a55b7881bfcf3a55501138825b2a2ef93d7adb2dd3c",
+    "docs/PHASENPLAN.md": "420153cce20dab06c9ebb55d979706f7cc61fe0699a15895bf050b96f3b8e557",
+    "docs/P2_PERIODIC_MAC_VOF_ENERGY_PARTIAL.md": "fb7af16841e67dfa32774244af96b6d6fc65802099f7d1cf600821f8f3229c29",
+    "include/upc/p2_periodic_mac_vof_energy3d.hpp": "29104425d9954b0f75e468386253d1db80a7d3d46f76380a0d8d916a27acc8fe",
+    "include/upc/p2_periodic_mac_vof3d.hpp": "f4205d4d29fa7e73071370e7b7cf2c44acde9b7daab513de870a376ca28fd370",
+    "include/upc/p2_periodic_mac_projection3d.hpp": "58073fb6a98ea88fe9f81e6dabb0c3d132f283e9346d1771a4818e5890ceb917",
+    "include/upc/p2_variable_mac_transport3d.hpp": "b0a82555c95656d1493dd33a3ae3c6bb0ca187a4a4d2846573d0da2c16ba5d73",
+    "tests/p2_periodic_mac_vof_energy3d_tests.cpp": "54337ce1265e4f354b55201315e8f8d2ad41d4edb26be14f43db5431417b9c38",
+    "scripts/p2_periodic_mac_vof_energy_full_build.cmd": "6fd7ddd6c132f950f63492a88d598a89c14f38f694b444795039b4922831a889",
+    "scripts/p2_periodic_mac_vof_energy_acceptance.py": "fe718fde25b93c17a495e2734e7fef6cf4f949ae277094b6bb90cee86e7e0d2c"
+  },
+  "ctest_log_sha256": "da481d3e3ac61ba4660973bbd02f1b30c9006c1639adcf57d4f5f4303e0d787e",
+  "native_stdout_sha256": "93db05142f5a04b1391e749afb94e769722577889d9df1007ee6a6917ff932fc"
+}
