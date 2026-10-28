@@ -1,0 +1,6104 @@
+{
+  "phase": "P2",
+  "milestone": "exact_moving_mac_dual_geometry_gcl",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "native_assertions": 1269737,
+  "ctest_suites": 71,
+  "checks": [
+    {
+      "name": "complete MSVC CTest 71/71",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "dual-volume native suite in full CTest",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "native assertions >= 1,000,000",
+      "pass": true,
+      "detail": 1269737
+    },
+    {
+      "name": "216 dual geometry samples",
+      "pass": true,
+      "detail": 216
+    },
+    {
+      "name": "unique dual case (8, 0, -1, 0.25, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (8, 0, -1, 0.25, 0, 0)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 8.326672684688674e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (8, 0, -1, 0.25, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (8, 0, -1, 0.25, 0, 1)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 5.551115123125783e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (8, 0, -1, 0.25, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (8, 0, -1, 0.25, 0, 2)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 5.551115123125783e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (8, 0, -1, 0.25, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (8, 0, -1, 0.25, 1, 0)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (8, 0, -1, 0.25, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (8, 0, -1, 0.25, 1, 1)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 8.326672684688674e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (8, 0, -1, 0.25, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (8, 0, -1, 0.25, 1, 2)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (8, 0, -1, 0.5, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (8, 0, -1, 0.5, 0, 0)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (8, 0, -1, 0.5, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (8, 0, -1, 0.5, 0, 1)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 5.551115123125783e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (8, 0, -1, 0.5, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (8, 0, -1, 0.5, 0, 2)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (8, 0, -1, 0.5, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (8, 0, -1, 0.5, 1, 0)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (8, 0, -1, 0.5, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (8, 0, -1, 0.5, 1, 1)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 5.551115123125783e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (8, 0, -1, 0.5, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (8, 0, -1, 0.5, 1, 2)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (8, 0, 1, 0.25, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (8, 0, 1, 0.25, 0, 0)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (8, 0, 1, 0.25, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (8, 0, 1, 0.25, 0, 1)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (8, 0, 1, 0.25, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (8, 0, 1, 0.25, 0, 2)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (8, 0, 1, 0.25, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (8, 0, 1, 0.25, 1, 0)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 5.551115123125783e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (8, 0, 1, 0.25, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (8, 0, 1, 0.25, 1, 1)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (8, 0, 1, 0.25, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (8, 0, 1, 0.25, 1, 2)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (8, 0, 1, 0.5, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (8, 0, 1, 0.5, 0, 0)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (8, 0, 1, 0.5, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (8, 0, 1, 0.5, 0, 1)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 5.551115123125783e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (8, 0, 1, 0.5, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (8, 0, 1, 0.5, 0, 2)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (8, 0, 1, 0.5, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (8, 0, 1, 0.5, 1, 0)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (8, 0, 1, 0.5, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (8, 0, 1, 0.5, 1, 1)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 5.551115123125783e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (8, 0, 1, 0.5, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (8, 0, 1, 0.5, 1, 2)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (8, 1, -1, 0.25, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (8, 1, -1, 0.25, 0, 0)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (8, 1, -1, 0.25, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (8, 1, -1, 0.25, 0, 1)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (8, 1, -1, 0.25, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (8, 1, -1, 0.25, 0, 2)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (8, 1, -1, 0.25, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (8, 1, -1, 0.25, 1, 0)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (8, 1, -1, 0.25, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (8, 1, -1, 0.25, 1, 1)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (8, 1, -1, 0.25, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (8, 1, -1, 0.25, 1, 2)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (8, 1, -1, 0.5, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (8, 1, -1, 0.5, 0, 0)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (8, 1, -1, 0.5, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (8, 1, -1, 0.5, 0, 1)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 5.551115123125783e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (8, 1, -1, 0.5, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (8, 1, -1, 0.5, 0, 2)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (8, 1, -1, 0.5, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (8, 1, -1, 0.5, 1, 0)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 5.551115123125783e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (8, 1, -1, 0.5, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (8, 1, -1, 0.5, 1, 1)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (8, 1, -1, 0.5, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (8, 1, -1, 0.5, 1, 2)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 5.551115123125783e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (8, 1, 1, 0.25, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (8, 1, 1, 0.25, 0, 0)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (8, 1, 1, 0.25, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (8, 1, 1, 0.25, 0, 1)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (8, 1, 1, 0.25, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (8, 1, 1, 0.25, 0, 2)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (8, 1, 1, 0.25, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (8, 1, 1, 0.25, 1, 0)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (8, 1, 1, 0.25, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (8, 1, 1, 0.25, 1, 1)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (8, 1, 1, 0.25, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (8, 1, 1, 0.25, 1, 2)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 5.551115123125783e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (8, 1, 1, 0.5, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (8, 1, 1, 0.5, 0, 0)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 5.551115123125783e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (8, 1, 1, 0.5, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (8, 1, 1, 0.5, 0, 1)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (8, 1, 1, 0.5, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (8, 1, 1, 0.5, 0, 2)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 5.551115123125783e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (8, 1, 1, 0.5, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (8, 1, 1, 0.5, 1, 0)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 4.440892098500626e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (8, 1, 1, 0.5, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (8, 1, 1, 0.5, 1, 1)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 2.7755575615628914e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (8, 1, 1, 0.5, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (8, 1, 1, 0.5, 1, 2)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 4.440892098500626e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (8, 2, -1, 0.25, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (8, 2, -1, 0.25, 0, 0)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (8, 2, -1, 0.25, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (8, 2, -1, 0.25, 0, 1)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (8, 2, -1, 0.25, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (8, 2, -1, 0.25, 0, 2)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (8, 2, -1, 0.25, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (8, 2, -1, 0.25, 1, 0)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (8, 2, -1, 0.25, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (8, 2, -1, 0.25, 1, 1)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 8.326672684688674e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (8, 2, -1, 0.25, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (8, 2, -1, 0.25, 1, 2)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 5.551115123125783e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (8, 2, -1, 0.5, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (8, 2, -1, 0.5, 0, 0)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (8, 2, -1, 0.5, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (8, 2, -1, 0.5, 0, 1)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 5.551115123125783e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (8, 2, -1, 0.5, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (8, 2, -1, 0.5, 0, 2)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (8, 2, -1, 0.5, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (8, 2, -1, 0.5, 1, 0)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (8, 2, -1, 0.5, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (8, 2, -1, 0.5, 1, 1)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 5.551115123125783e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (8, 2, -1, 0.5, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (8, 2, -1, 0.5, 1, 2)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (8, 2, 1, 0.25, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (8, 2, 1, 0.25, 0, 0)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 5.551115123125783e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (8, 2, 1, 0.25, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (8, 2, 1, 0.25, 0, 1)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 5.551115123125783e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (8, 2, 1, 0.25, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (8, 2, 1, 0.25, 0, 2)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 8.326672684688674e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (8, 2, 1, 0.25, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (8, 2, 1, 0.25, 1, 0)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (8, 2, 1, 0.25, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (8, 2, 1, 0.25, 1, 1)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 8.326672684688674e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (8, 2, 1, 0.25, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (8, 2, 1, 0.25, 1, 2)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 5.551115123125783e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (8, 2, 1, 0.5, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (8, 2, 1, 0.5, 0, 0)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (8, 2, 1, 0.5, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (8, 2, 1, 0.5, 0, 1)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 5.551115123125783e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (8, 2, 1, 0.5, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (8, 2, 1, 0.5, 0, 2)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (8, 2, 1, 0.5, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (8, 2, 1, 0.5, 1, 0)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (8, 2, 1, 0.5, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (8, 2, 1, 0.5, 1, 1)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 5.551115123125783e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (8, 2, 1, 0.5, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (8, 2, 1, 0.5, 1, 2)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (12, 0, -1, 0.25, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (12, 0, -1, 0.25, 0, 0)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 8.326672684688674e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (12, 0, -1, 0.25, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (12, 0, -1, 0.25, 0, 1)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 5.551115123125783e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (12, 0, -1, 0.25, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (12, 0, -1, 0.25, 0, 2)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 5.551115123125783e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (12, 0, -1, 0.25, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (12, 0, -1, 0.25, 1, 0)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (12, 0, -1, 0.25, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (12, 0, -1, 0.25, 1, 1)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 8.326672684688674e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (12, 0, -1, 0.25, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (12, 0, -1, 0.25, 1, 2)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (12, 0, -1, 0.5, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (12, 0, -1, 0.5, 0, 0)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (12, 0, -1, 0.5, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (12, 0, -1, 0.5, 0, 1)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 5.551115123125783e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (12, 0, -1, 0.5, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (12, 0, -1, 0.5, 0, 2)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (12, 0, -1, 0.5, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (12, 0, -1, 0.5, 1, 0)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (12, 0, -1, 0.5, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (12, 0, -1, 0.5, 1, 1)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 5.551115123125783e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (12, 0, -1, 0.5, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (12, 0, -1, 0.5, 1, 2)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (12, 0, 1, 0.25, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (12, 0, 1, 0.25, 0, 0)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (12, 0, 1, 0.25, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (12, 0, 1, 0.25, 0, 1)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (12, 0, 1, 0.25, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (12, 0, 1, 0.25, 0, 2)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (12, 0, 1, 0.25, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (12, 0, 1, 0.25, 1, 0)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 5.551115123125783e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (12, 0, 1, 0.25, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (12, 0, 1, 0.25, 1, 1)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (12, 0, 1, 0.25, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (12, 0, 1, 0.25, 1, 2)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (12, 0, 1, 0.5, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (12, 0, 1, 0.5, 0, 0)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (12, 0, 1, 0.5, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (12, 0, 1, 0.5, 0, 1)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 5.551115123125783e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (12, 0, 1, 0.5, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (12, 0, 1, 0.5, 0, 2)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (12, 0, 1, 0.5, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (12, 0, 1, 0.5, 1, 0)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (12, 0, 1, 0.5, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (12, 0, 1, 0.5, 1, 1)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 5.551115123125783e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (12, 0, 1, 0.5, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (12, 0, 1, 0.5, 1, 2)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (12, 1, -1, 0.25, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (12, 1, -1, 0.25, 0, 0)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (12, 1, -1, 0.25, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (12, 1, -1, 0.25, 0, 1)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (12, 1, -1, 0.25, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (12, 1, -1, 0.25, 0, 2)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (12, 1, -1, 0.25, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (12, 1, -1, 0.25, 1, 0)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (12, 1, -1, 0.25, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (12, 1, -1, 0.25, 1, 1)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (12, 1, -1, 0.25, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (12, 1, -1, 0.25, 1, 2)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (12, 1, -1, 0.5, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (12, 1, -1, 0.5, 0, 0)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (12, 1, -1, 0.5, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (12, 1, -1, 0.5, 0, 1)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 5.551115123125783e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (12, 1, -1, 0.5, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (12, 1, -1, 0.5, 0, 2)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (12, 1, -1, 0.5, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (12, 1, -1, 0.5, 1, 0)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 5.551115123125783e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (12, 1, -1, 0.5, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (12, 1, -1, 0.5, 1, 1)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (12, 1, -1, 0.5, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (12, 1, -1, 0.5, 1, 2)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 5.551115123125783e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (12, 1, 1, 0.25, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (12, 1, 1, 0.25, 0, 0)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (12, 1, 1, 0.25, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (12, 1, 1, 0.25, 0, 1)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (12, 1, 1, 0.25, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (12, 1, 1, 0.25, 0, 2)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (12, 1, 1, 0.25, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (12, 1, 1, 0.25, 1, 0)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (12, 1, 1, 0.25, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (12, 1, 1, 0.25, 1, 1)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (12, 1, 1, 0.25, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (12, 1, 1, 0.25, 1, 2)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 5.551115123125783e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (12, 1, 1, 0.5, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (12, 1, 1, 0.5, 0, 0)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 5.551115123125783e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (12, 1, 1, 0.5, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (12, 1, 1, 0.5, 0, 1)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (12, 1, 1, 0.5, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (12, 1, 1, 0.5, 0, 2)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 5.551115123125783e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (12, 1, 1, 0.5, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (12, 1, 1, 0.5, 1, 0)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 4.440892098500626e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (12, 1, 1, 0.5, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (12, 1, 1, 0.5, 1, 1)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 2.7755575615628914e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (12, 1, 1, 0.5, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (12, 1, 1, 0.5, 1, 2)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 4.440892098500626e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (12, 2, -1, 0.25, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (12, 2, -1, 0.25, 0, 0)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (12, 2, -1, 0.25, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (12, 2, -1, 0.25, 0, 1)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (12, 2, -1, 0.25, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (12, 2, -1, 0.25, 0, 2)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (12, 2, -1, 0.25, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (12, 2, -1, 0.25, 1, 0)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (12, 2, -1, 0.25, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (12, 2, -1, 0.25, 1, 1)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 8.326672684688674e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (12, 2, -1, 0.25, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (12, 2, -1, 0.25, 1, 2)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 5.551115123125783e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (12, 2, -1, 0.5, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (12, 2, -1, 0.5, 0, 0)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (12, 2, -1, 0.5, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (12, 2, -1, 0.5, 0, 1)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 5.551115123125783e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (12, 2, -1, 0.5, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (12, 2, -1, 0.5, 0, 2)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (12, 2, -1, 0.5, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (12, 2, -1, 0.5, 1, 0)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (12, 2, -1, 0.5, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (12, 2, -1, 0.5, 1, 1)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 5.551115123125783e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (12, 2, -1, 0.5, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (12, 2, -1, 0.5, 1, 2)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (12, 2, 1, 0.25, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (12, 2, 1, 0.25, 0, 0)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 5.551115123125783e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (12, 2, 1, 0.25, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (12, 2, 1, 0.25, 0, 1)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 5.551115123125783e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (12, 2, 1, 0.25, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (12, 2, 1, 0.25, 0, 2)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 8.326672684688674e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (12, 2, 1, 0.25, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (12, 2, 1, 0.25, 1, 0)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (12, 2, 1, 0.25, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (12, 2, 1, 0.25, 1, 1)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 8.326672684688674e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (12, 2, 1, 0.25, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (12, 2, 1, 0.25, 1, 2)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 5.551115123125783e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (12, 2, 1, 0.5, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (12, 2, 1, 0.5, 0, 0)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (12, 2, 1, 0.5, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (12, 2, 1, 0.5, 0, 1)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 5.551115123125783e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (12, 2, 1, 0.5, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (12, 2, 1, 0.5, 0, 2)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (12, 2, 1, 0.5, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (12, 2, 1, 0.5, 1, 0)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (12, 2, 1, 0.5, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (12, 2, 1, 0.5, 1, 1)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 5.551115123125783e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (12, 2, 1, 0.5, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (12, 2, 1, 0.5, 1, 2)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (16, 0, -1, 0.25, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (16, 0, -1, 0.25, 0, 0)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 8.326672684688674e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (16, 0, -1, 0.25, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (16, 0, -1, 0.25, 0, 1)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 5.551115123125783e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (16, 0, -1, 0.25, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (16, 0, -1, 0.25, 0, 2)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 5.551115123125783e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (16, 0, -1, 0.25, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (16, 0, -1, 0.25, 1, 0)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (16, 0, -1, 0.25, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (16, 0, -1, 0.25, 1, 1)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 8.326672684688674e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (16, 0, -1, 0.25, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (16, 0, -1, 0.25, 1, 2)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (16, 0, -1, 0.5, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (16, 0, -1, 0.5, 0, 0)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (16, 0, -1, 0.5, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (16, 0, -1, 0.5, 0, 1)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 5.551115123125783e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (16, 0, -1, 0.5, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (16, 0, -1, 0.5, 0, 2)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (16, 0, -1, 0.5, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (16, 0, -1, 0.5, 1, 0)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (16, 0, -1, 0.5, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (16, 0, -1, 0.5, 1, 1)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 5.551115123125783e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (16, 0, -1, 0.5, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (16, 0, -1, 0.5, 1, 2)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (16, 0, 1, 0.25, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (16, 0, 1, 0.25, 0, 0)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (16, 0, 1, 0.25, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (16, 0, 1, 0.25, 0, 1)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (16, 0, 1, 0.25, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (16, 0, 1, 0.25, 0, 2)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (16, 0, 1, 0.25, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (16, 0, 1, 0.25, 1, 0)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 5.551115123125783e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (16, 0, 1, 0.25, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (16, 0, 1, 0.25, 1, 1)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (16, 0, 1, 0.25, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (16, 0, 1, 0.25, 1, 2)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (16, 0, 1, 0.5, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (16, 0, 1, 0.5, 0, 0)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (16, 0, 1, 0.5, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (16, 0, 1, 0.5, 0, 1)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 5.551115123125783e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (16, 0, 1, 0.5, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (16, 0, 1, 0.5, 0, 2)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (16, 0, 1, 0.5, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (16, 0, 1, 0.5, 1, 0)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (16, 0, 1, 0.5, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (16, 0, 1, 0.5, 1, 1)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 5.551115123125783e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (16, 0, 1, 0.5, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (16, 0, 1, 0.5, 1, 2)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (16, 1, -1, 0.25, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (16, 1, -1, 0.25, 0, 0)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (16, 1, -1, 0.25, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (16, 1, -1, 0.25, 0, 1)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (16, 1, -1, 0.25, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (16, 1, -1, 0.25, 0, 2)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (16, 1, -1, 0.25, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (16, 1, -1, 0.25, 1, 0)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (16, 1, -1, 0.25, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (16, 1, -1, 0.25, 1, 1)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (16, 1, -1, 0.25, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (16, 1, -1, 0.25, 1, 2)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (16, 1, -1, 0.5, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (16, 1, -1, 0.5, 0, 0)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (16, 1, -1, 0.5, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (16, 1, -1, 0.5, 0, 1)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 5.551115123125783e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (16, 1, -1, 0.5, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (16, 1, -1, 0.5, 0, 2)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (16, 1, -1, 0.5, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (16, 1, -1, 0.5, 1, 0)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 5.551115123125783e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (16, 1, -1, 0.5, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (16, 1, -1, 0.5, 1, 1)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (16, 1, -1, 0.5, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (16, 1, -1, 0.5, 1, 2)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 5.551115123125783e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (16, 1, 1, 0.25, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (16, 1, 1, 0.25, 0, 0)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (16, 1, 1, 0.25, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (16, 1, 1, 0.25, 0, 1)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (16, 1, 1, 0.25, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (16, 1, 1, 0.25, 0, 2)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (16, 1, 1, 0.25, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (16, 1, 1, 0.25, 1, 0)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (16, 1, 1, 0.25, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (16, 1, 1, 0.25, 1, 1)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (16, 1, 1, 0.25, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (16, 1, 1, 0.25, 1, 2)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 5.551115123125783e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (16, 1, 1, 0.5, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (16, 1, 1, 0.5, 0, 0)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 5.551115123125783e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (16, 1, 1, 0.5, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (16, 1, 1, 0.5, 0, 1)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (16, 1, 1, 0.5, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (16, 1, 1, 0.5, 0, 2)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 5.551115123125783e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (16, 1, 1, 0.5, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (16, 1, 1, 0.5, 1, 0)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 4.440892098500626e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (16, 1, 1, 0.5, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (16, 1, 1, 0.5, 1, 1)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 2.7755575615628914e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (16, 1, 1, 0.5, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (16, 1, 1, 0.5, 1, 2)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 4.440892098500626e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (16, 2, -1, 0.25, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (16, 2, -1, 0.25, 0, 0)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (16, 2, -1, 0.25, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (16, 2, -1, 0.25, 0, 1)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (16, 2, -1, 0.25, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (16, 2, -1, 0.25, 0, 2)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (16, 2, -1, 0.25, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (16, 2, -1, 0.25, 1, 0)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (16, 2, -1, 0.25, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (16, 2, -1, 0.25, 1, 1)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 8.326672684688674e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (16, 2, -1, 0.25, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (16, 2, -1, 0.25, 1, 2)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 5.551115123125783e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (16, 2, -1, 0.5, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (16, 2, -1, 0.5, 0, 0)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (16, 2, -1, 0.5, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (16, 2, -1, 0.5, 0, 1)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 5.551115123125783e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (16, 2, -1, 0.5, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (16, 2, -1, 0.5, 0, 2)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (16, 2, -1, 0.5, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (16, 2, -1, 0.5, 1, 0)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (16, 2, -1, 0.5, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (16, 2, -1, 0.5, 1, 1)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 5.551115123125783e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (16, 2, -1, 0.5, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (16, 2, -1, 0.5, 1, 2)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (16, 2, 1, 0.25, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (16, 2, 1, 0.25, 0, 0)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 5.551115123125783e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (16, 2, 1, 0.25, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (16, 2, 1, 0.25, 0, 1)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 5.551115123125783e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (16, 2, 1, 0.25, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (16, 2, 1, 0.25, 0, 2)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 8.326672684688674e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (16, 2, 1, 0.25, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (16, 2, 1, 0.25, 1, 0)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (16, 2, 1, 0.25, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (16, 2, 1, 0.25, 1, 1)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 8.326672684688674e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (16, 2, 1, 0.25, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (16, 2, 1, 0.25, 1, 2)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 5.551115123125783e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (16, 2, 1, 0.5, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (16, 2, 1, 0.5, 0, 0)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (16, 2, 1, 0.5, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (16, 2, 1, 0.5, 0, 1)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 5.551115123125783e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (16, 2, 1, 0.5, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (16, 2, 1, 0.5, 0, 2)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (16, 2, 1, 0.5, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (16, 2, 1, 0.5, 1, 0)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (16, 2, 1, 0.5, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (16, 2, 1, 0.5, 1, 1)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 5.551115123125783e-17,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "unique dual case (16, 2, 1, 0.5, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent dual overlap (16, 2, 1, 0.5, 1, 2)",
+      "pass": true,
+      "detail": {
+        "overlap_error": 0.0,
+        "gcl_m3": 1.1102230246251565e-16,
+        "solid_m3": 3.3749999999999987
+      }
+    },
+    {
+      "name": "complete grid/motion/dual product",
+      "pass": true,
+      "detail": null
+    }
+  ],
+  "reference": [
+    {
+      "grid": 8,
+      "move_axis": 0,
+      "direction": -1,
+      "fraction": 0.25,
+      "step": 0,
+      "dual_component": 0,
+      "old_alpha": 0.3699999999999999,
+      "new_alpha": 0.40149999999999975,
+      "reference_old_alpha": 0.3699999999999999,
+      "reference_new_alpha": 0.40149999999999975,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 8.326672684688674e-17
+    },
+    {
+      "grid": 8,
+      "move_axis": 0,
+      "direction": -1,
+      "fraction": 0.25,
+      "step": 0,
+      "dual_component": 1,
+      "old_alpha": 0.43999999999999995,
+      "new_alpha": 0.2999999999999998,
+      "reference_old_alpha": 0.43999999999999995,
+      "reference_new_alpha": 0.2999999999999998,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 5.551115123125783e-17
+    },
+    {
+      "grid": 8,
+      "move_axis": 0,
+      "direction": -1,
+      "fraction": 0.25,
+      "step": 0,
+      "dual_component": 2,
+      "old_alpha": 0.28000000000000025,
+      "new_alpha": 0.10000000000000009,
+      "reference_old_alpha": 0.28000000000000025,
+      "reference_new_alpha": 0.10000000000000009,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 5.551115123125783e-17
+    },
+    {
+      "grid": 8,
+      "move_axis": 0,
+      "direction": -1,
+      "fraction": 0.25,
+      "step": 1,
+      "dual_component": 0,
+      "old_alpha": 0.40149999999999975,
+      "new_alpha": 0.5589999999999998,
+      "reference_old_alpha": 0.40149999999999975,
+      "reference_new_alpha": 0.5589999999999998,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 8,
+      "move_axis": 0,
+      "direction": -1,
+      "fraction": 0.25,
+      "step": 1,
+      "dual_component": 1,
+      "old_alpha": 0.2999999999999998,
+      "new_alpha": 0.2999999999999998,
+      "reference_old_alpha": 0.2999999999999998,
+      "reference_new_alpha": 0.2999999999999998,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 8.326672684688674e-17
+    },
+    {
+      "grid": 8,
+      "move_axis": 0,
+      "direction": -1,
+      "fraction": 0.25,
+      "step": 1,
+      "dual_component": 2,
+      "old_alpha": 0.10000000000000009,
+      "new_alpha": 0.10000000000000009,
+      "reference_old_alpha": 0.10000000000000009,
+      "reference_new_alpha": 0.10000000000000009,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 8,
+      "move_axis": 0,
+      "direction": -1,
+      "fraction": 0.5,
+      "step": 0,
+      "dual_component": 0,
+      "old_alpha": 0.3699999999999999,
+      "new_alpha": 0.5589999999999998,
+      "reference_old_alpha": 0.3699999999999999,
+      "reference_new_alpha": 0.5589999999999998,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 8,
+      "move_axis": 0,
+      "direction": -1,
+      "fraction": 0.5,
+      "step": 0,
+      "dual_component": 1,
+      "old_alpha": 0.43999999999999995,
+      "new_alpha": 0.2999999999999998,
+      "reference_old_alpha": 0.43999999999999995,
+      "reference_new_alpha": 0.2999999999999998,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 5.551115123125783e-17
+    },
+    {
+      "grid": 8,
+      "move_axis": 0,
+      "direction": -1,
+      "fraction": 0.5,
+      "step": 0,
+      "dual_component": 2,
+      "old_alpha": 0.28000000000000025,
+      "new_alpha": 0.10000000000000009,
+      "reference_old_alpha": 0.28000000000000025,
+      "reference_new_alpha": 0.10000000000000009,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 8,
+      "move_axis": 0,
+      "direction": -1,
+      "fraction": 0.5,
+      "step": 1,
+      "dual_component": 0,
+      "old_alpha": 0.5589999999999998,
+      "new_alpha": 0.8739999999999999,
+      "reference_old_alpha": 0.5589999999999998,
+      "reference_new_alpha": 0.8739999999999999,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 8,
+      "move_axis": 0,
+      "direction": -1,
+      "fraction": 0.5,
+      "step": 1,
+      "dual_component": 1,
+      "old_alpha": 0.2999999999999998,
+      "new_alpha": 0.5099999999999998,
+      "reference_old_alpha": 0.2999999999999998,
+      "reference_new_alpha": 0.5099999999999998,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 5.551115123125783e-17
+    },
+    {
+      "grid": 8,
+      "move_axis": 0,
+      "direction": -1,
+      "fraction": 0.5,
+      "step": 1,
+      "dual_component": 2,
+      "old_alpha": 0.10000000000000009,
+      "new_alpha": 0.3699999999999999,
+      "reference_old_alpha": 0.10000000000000009,
+      "reference_new_alpha": 0.3699999999999999,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 8,
+      "move_axis": 0,
+      "direction": 1,
+      "fraction": 0.25,
+      "step": 0,
+      "dual_component": 0,
+      "old_alpha": 0.3699999999999999,
+      "new_alpha": 0.3699999999999999,
+      "reference_old_alpha": 0.3699999999999999,
+      "reference_new_alpha": 0.3699999999999999,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 8,
+      "move_axis": 0,
+      "direction": 1,
+      "fraction": 0.25,
+      "step": 0,
+      "dual_component": 1,
+      "old_alpha": 0.43999999999999995,
+      "new_alpha": 0.615,
+      "reference_old_alpha": 0.43999999999999995,
+      "reference_new_alpha": 0.615,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 8,
+      "move_axis": 0,
+      "direction": 1,
+      "fraction": 0.25,
+      "step": 0,
+      "dual_component": 2,
+      "old_alpha": 0.28000000000000025,
+      "new_alpha": 0.5050000000000002,
+      "reference_old_alpha": 0.28000000000000025,
+      "reference_new_alpha": 0.5050000000000002,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 8,
+      "move_axis": 0,
+      "direction": 1,
+      "fraction": 0.25,
+      "step": 1,
+      "dual_component": 0,
+      "old_alpha": 0.3699999999999999,
+      "new_alpha": 0.496,
+      "reference_old_alpha": 0.3699999999999999,
+      "reference_new_alpha": 0.496,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 5.551115123125783e-17
+    },
+    {
+      "grid": 8,
+      "move_axis": 0,
+      "direction": 1,
+      "fraction": 0.25,
+      "step": 1,
+      "dual_component": 1,
+      "old_alpha": 0.615,
+      "new_alpha": 0.79,
+      "reference_old_alpha": 0.615,
+      "reference_new_alpha": 0.79,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 8,
+      "move_axis": 0,
+      "direction": 1,
+      "fraction": 0.25,
+      "step": 1,
+      "dual_component": 2,
+      "old_alpha": 0.5050000000000002,
+      "new_alpha": 0.7300000000000002,
+      "reference_old_alpha": 0.5050000000000002,
+      "reference_new_alpha": 0.7300000000000002,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 8,
+      "move_axis": 0,
+      "direction": 1,
+      "fraction": 0.5,
+      "step": 0,
+      "dual_component": 0,
+      "old_alpha": 0.3699999999999999,
+      "new_alpha": 0.496,
+      "reference_old_alpha": 0.3699999999999999,
+      "reference_new_alpha": 0.496,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 8,
+      "move_axis": 0,
+      "direction": 1,
+      "fraction": 0.5,
+      "step": 0,
+      "dual_component": 1,
+      "old_alpha": 0.43999999999999995,
+      "new_alpha": 0.79,
+      "reference_old_alpha": 0.43999999999999995,
+      "reference_new_alpha": 0.79,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 5.551115123125783e-17
+    },
+    {
+      "grid": 8,
+      "move_axis": 0,
+      "direction": 1,
+      "fraction": 0.5,
+      "step": 0,
+      "dual_component": 2,
+      "old_alpha": 0.28000000000000025,
+      "new_alpha": 0.7300000000000002,
+      "reference_old_alpha": 0.28000000000000025,
+      "reference_new_alpha": 0.7300000000000002,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 8,
+      "move_axis": 0,
+      "direction": 1,
+      "fraction": 0.5,
+      "step": 1,
+      "dual_component": 0,
+      "old_alpha": 0.496,
+      "new_alpha": 0.811,
+      "reference_old_alpha": 0.496,
+      "reference_new_alpha": 0.811,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 8,
+      "move_axis": 0,
+      "direction": 1,
+      "fraction": 0.5,
+      "step": 1,
+      "dual_component": 1,
+      "old_alpha": 0.79,
+      "new_alpha": 1.0,
+      "reference_old_alpha": 0.79,
+      "reference_new_alpha": 1.0,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 5.551115123125783e-17
+    },
+    {
+      "grid": 8,
+      "move_axis": 0,
+      "direction": 1,
+      "fraction": 0.5,
+      "step": 1,
+      "dual_component": 2,
+      "old_alpha": 0.7300000000000002,
+      "new_alpha": 1.0,
+      "reference_old_alpha": 0.7300000000000002,
+      "reference_new_alpha": 1.0,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 8,
+      "move_axis": 1,
+      "direction": -1,
+      "fraction": 0.25,
+      "step": 0,
+      "dual_component": 0,
+      "old_alpha": 0.3699999999999999,
+      "new_alpha": 0.2999999999999998,
+      "reference_old_alpha": 0.3699999999999999,
+      "reference_new_alpha": 0.2999999999999998,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 8,
+      "move_axis": 1,
+      "direction": -1,
+      "fraction": 0.25,
+      "step": 0,
+      "dual_component": 1,
+      "old_alpha": 0.43999999999999995,
+      "new_alpha": 0.5240000000000001,
+      "reference_old_alpha": 0.43999999999999995,
+      "reference_new_alpha": 0.5240000000000001,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 8,
+      "move_axis": 1,
+      "direction": -1,
+      "fraction": 0.25,
+      "step": 0,
+      "dual_component": 2,
+      "old_alpha": 0.28000000000000025,
+      "new_alpha": 0.20000000000000018,
+      "reference_old_alpha": 0.28000000000000025,
+      "reference_new_alpha": 0.20000000000000018,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 8,
+      "move_axis": 1,
+      "direction": -1,
+      "fraction": 0.25,
+      "step": 1,
+      "dual_component": 0,
+      "old_alpha": 0.2999999999999998,
+      "new_alpha": 0.2999999999999998,
+      "reference_old_alpha": 0.2999999999999998,
+      "reference_new_alpha": 0.2999999999999998,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 8,
+      "move_axis": 1,
+      "direction": -1,
+      "fraction": 0.25,
+      "step": 1,
+      "dual_component": 1,
+      "old_alpha": 0.5240000000000001,
+      "new_alpha": 0.6640000000000001,
+      "reference_old_alpha": 0.5240000000000001,
+      "reference_new_alpha": 0.6640000000000001,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 8,
+      "move_axis": 1,
+      "direction": -1,
+      "fraction": 0.25,
+      "step": 1,
+      "dual_component": 2,
+      "old_alpha": 0.20000000000000018,
+      "new_alpha": 0.20000000000000018,
+      "reference_old_alpha": 0.20000000000000018,
+      "reference_new_alpha": 0.20000000000000018,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 8,
+      "move_axis": 1,
+      "direction": -1,
+      "fraction": 0.5,
+      "step": 0,
+      "dual_component": 0,
+      "old_alpha": 0.3699999999999999,
+      "new_alpha": 0.2999999999999998,
+      "reference_old_alpha": 0.3699999999999999,
+      "reference_new_alpha": 0.2999999999999998,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 8,
+      "move_axis": 1,
+      "direction": -1,
+      "fraction": 0.5,
+      "step": 0,
+      "dual_component": 1,
+      "old_alpha": 0.43999999999999995,
+      "new_alpha": 0.6640000000000001,
+      "reference_old_alpha": 0.43999999999999995,
+      "reference_new_alpha": 0.6640000000000001,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 5.551115123125783e-17
+    },
+    {
+      "grid": 8,
+      "move_axis": 1,
+      "direction": -1,
+      "fraction": 0.5,
+      "step": 0,
+      "dual_component": 2,
+      "old_alpha": 0.28000000000000025,
+      "new_alpha": 0.20000000000000018,
+      "reference_old_alpha": 0.28000000000000025,
+      "reference_new_alpha": 0.20000000000000018,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 8,
+      "move_axis": 1,
+      "direction": -1,
+      "fraction": 0.5,
+      "step": 1,
+      "dual_component": 0,
+      "old_alpha": 0.2999999999999998,
+      "new_alpha": 0.5800000000000001,
+      "reference_old_alpha": 0.2999999999999998,
+      "reference_new_alpha": 0.5800000000000001,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 5.551115123125783e-17
+    },
+    {
+      "grid": 8,
+      "move_axis": 1,
+      "direction": -1,
+      "fraction": 0.5,
+      "step": 1,
+      "dual_component": 1,
+      "old_alpha": 0.6640000000000001,
+      "new_alpha": 0.9440000000000002,
+      "reference_old_alpha": 0.6640000000000001,
+      "reference_new_alpha": 0.9440000000000002,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 8,
+      "move_axis": 1,
+      "direction": -1,
+      "fraction": 0.5,
+      "step": 1,
+      "dual_component": 2,
+      "old_alpha": 0.20000000000000018,
+      "new_alpha": 0.5200000000000005,
+      "reference_old_alpha": 0.20000000000000018,
+      "reference_new_alpha": 0.5200000000000005,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 5.551115123125783e-17
+    },
+    {
+      "grid": 8,
+      "move_axis": 1,
+      "direction": 1,
+      "fraction": 0.25,
+      "step": 0,
+      "dual_component": 0,
+      "old_alpha": 0.3699999999999999,
+      "new_alpha": 0.5449999999999999,
+      "reference_old_alpha": 0.3699999999999999,
+      "reference_new_alpha": 0.5449999999999999,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 8,
+      "move_axis": 1,
+      "direction": 1,
+      "fraction": 0.25,
+      "step": 0,
+      "dual_component": 1,
+      "old_alpha": 0.43999999999999995,
+      "new_alpha": 0.43999999999999995,
+      "reference_old_alpha": 0.43999999999999995,
+      "reference_new_alpha": 0.43999999999999995,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 8,
+      "move_axis": 1,
+      "direction": 1,
+      "fraction": 0.25,
+      "step": 0,
+      "dual_component": 2,
+      "old_alpha": 0.28000000000000025,
+      "new_alpha": 0.4800000000000002,
+      "reference_old_alpha": 0.28000000000000025,
+      "reference_new_alpha": 0.4800000000000002,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 8,
+      "move_axis": 1,
+      "direction": 1,
+      "fraction": 0.25,
+      "step": 1,
+      "dual_component": 0,
+      "old_alpha": 0.5449999999999999,
+      "new_alpha": 0.72,
+      "reference_old_alpha": 0.5449999999999999,
+      "reference_new_alpha": 0.72,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 8,
+      "move_axis": 1,
+      "direction": 1,
+      "fraction": 0.25,
+      "step": 1,
+      "dual_component": 1,
+      "old_alpha": 0.43999999999999995,
+      "new_alpha": 0.496,
+      "reference_old_alpha": 0.43999999999999995,
+      "reference_new_alpha": 0.496,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 8,
+      "move_axis": 1,
+      "direction": 1,
+      "fraction": 0.25,
+      "step": 1,
+      "dual_component": 2,
+      "old_alpha": 0.4800000000000002,
+      "new_alpha": 0.6800000000000002,
+      "reference_old_alpha": 0.4800000000000002,
+      "reference_new_alpha": 0.6800000000000002,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 5.551115123125783e-17
+    },
+    {
+      "grid": 8,
+      "move_axis": 1,
+      "direction": 1,
+      "fraction": 0.5,
+      "step": 0,
+      "dual_component": 0,
+      "old_alpha": 0.3699999999999999,
+      "new_alpha": 0.72,
+      "reference_old_alpha": 0.3699999999999999,
+      "reference_new_alpha": 0.72,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 5.551115123125783e-17
+    },
+    {
+      "grid": 8,
+      "move_axis": 1,
+      "direction": 1,
+      "fraction": 0.5,
+      "step": 0,
+      "dual_component": 1,
+      "old_alpha": 0.43999999999999995,
+      "new_alpha": 0.496,
+      "reference_old_alpha": 0.43999999999999995,
+      "reference_new_alpha": 0.496,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 8,
+      "move_axis": 1,
+      "direction": 1,
+      "fraction": 0.5,
+      "step": 0,
+      "dual_component": 2,
+      "old_alpha": 0.28000000000000025,
+      "new_alpha": 0.6800000000000002,
+      "reference_old_alpha": 0.28000000000000025,
+      "reference_new_alpha": 0.6800000000000002,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 5.551115123125783e-17
+    },
+    {
+      "grid": 8,
+      "move_axis": 1,
+      "direction": 1,
+      "fraction": 0.5,
+      "step": 1,
+      "dual_component": 0,
+      "old_alpha": 0.72,
+      "new_alpha": 1.0,
+      "reference_old_alpha": 0.72,
+      "reference_new_alpha": 1.0,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 4.440892098500626e-16
+    },
+    {
+      "grid": 8,
+      "move_axis": 1,
+      "direction": 1,
+      "fraction": 0.5,
+      "step": 1,
+      "dual_component": 1,
+      "old_alpha": 0.496,
+      "new_alpha": 0.7759999999999998,
+      "reference_old_alpha": 0.496,
+      "reference_new_alpha": 0.7759999999999998,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 2.7755575615628914e-16
+    },
+    {
+      "grid": 8,
+      "move_axis": 1,
+      "direction": 1,
+      "fraction": 0.5,
+      "step": 1,
+      "dual_component": 2,
+      "old_alpha": 0.6800000000000002,
+      "new_alpha": 1.0,
+      "reference_old_alpha": 0.6800000000000002,
+      "reference_new_alpha": 1.0,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 4.440892098500626e-16
+    },
+    {
+      "grid": 8,
+      "move_axis": 2,
+      "direction": -1,
+      "fraction": 0.25,
+      "step": 0,
+      "dual_component": 0,
+      "old_alpha": 0.3699999999999999,
+      "new_alpha": 0.1449999999999999,
+      "reference_old_alpha": 0.3699999999999999,
+      "reference_new_alpha": 0.1449999999999999,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 8,
+      "move_axis": 2,
+      "direction": -1,
+      "fraction": 0.25,
+      "step": 0,
+      "dual_component": 1,
+      "old_alpha": 0.43999999999999995,
+      "new_alpha": 0.24,
+      "reference_old_alpha": 0.43999999999999995,
+      "reference_new_alpha": 0.24,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 8,
+      "move_axis": 2,
+      "direction": -1,
+      "fraction": 0.25,
+      "step": 0,
+      "dual_component": 2,
+      "old_alpha": 0.28000000000000025,
+      "new_alpha": 0.28000000000000025,
+      "reference_old_alpha": 0.28000000000000025,
+      "reference_new_alpha": 0.28000000000000025,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 8,
+      "move_axis": 2,
+      "direction": -1,
+      "fraction": 0.25,
+      "step": 1,
+      "dual_component": 0,
+      "old_alpha": 0.1449999999999999,
+      "new_alpha": 0.10000000000000009,
+      "reference_old_alpha": 0.1449999999999999,
+      "reference_new_alpha": 0.10000000000000009,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 8,
+      "move_axis": 2,
+      "direction": -1,
+      "fraction": 0.25,
+      "step": 1,
+      "dual_component": 1,
+      "old_alpha": 0.24,
+      "new_alpha": 0.20000000000000018,
+      "reference_old_alpha": 0.24,
+      "reference_new_alpha": 0.20000000000000018,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 8.326672684688674e-17
+    },
+    {
+      "grid": 8,
+      "move_axis": 2,
+      "direction": -1,
+      "fraction": 0.25,
+      "step": 1,
+      "dual_component": 2,
+      "old_alpha": 0.28000000000000025,
+      "new_alpha": 0.4240000000000004,
+      "reference_old_alpha": 0.28000000000000025,
+      "reference_new_alpha": 0.4240000000000004,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 5.551115123125783e-17
+    },
+    {
+      "grid": 8,
+      "move_axis": 2,
+      "direction": -1,
+      "fraction": 0.5,
+      "step": 0,
+      "dual_component": 0,
+      "old_alpha": 0.3699999999999999,
+      "new_alpha": 0.10000000000000009,
+      "reference_old_alpha": 0.3699999999999999,
+      "reference_new_alpha": 0.10000000000000009,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 8,
+      "move_axis": 2,
+      "direction": -1,
+      "fraction": 0.5,
+      "step": 0,
+      "dual_component": 1,
+      "old_alpha": 0.43999999999999995,
+      "new_alpha": 0.20000000000000018,
+      "reference_old_alpha": 0.43999999999999995,
+      "reference_new_alpha": 0.20000000000000018,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 5.551115123125783e-17
+    },
+    {
+      "grid": 8,
+      "move_axis": 2,
+      "direction": -1,
+      "fraction": 0.5,
+      "step": 0,
+      "dual_component": 2,
+      "old_alpha": 0.28000000000000025,
+      "new_alpha": 0.4240000000000004,
+      "reference_old_alpha": 0.28000000000000025,
+      "reference_new_alpha": 0.4240000000000004,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 8,
+      "move_axis": 2,
+      "direction": -1,
+      "fraction": 0.5,
+      "step": 1,
+      "dual_component": 0,
+      "old_alpha": 0.10000000000000009,
+      "new_alpha": 0.28000000000000025,
+      "reference_old_alpha": 0.10000000000000009,
+      "reference_new_alpha": 0.28000000000000025,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 8,
+      "move_axis": 2,
+      "direction": -1,
+      "fraction": 0.5,
+      "step": 1,
+      "dual_component": 1,
+      "old_alpha": 0.20000000000000018,
+      "new_alpha": 0.3600000000000003,
+      "reference_old_alpha": 0.20000000000000018,
+      "reference_new_alpha": 0.3600000000000003,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 5.551115123125783e-17
+    },
+    {
+      "grid": 8,
+      "move_axis": 2,
+      "direction": -1,
+      "fraction": 0.5,
+      "step": 1,
+      "dual_component": 2,
+      "old_alpha": 0.4240000000000004,
+      "new_alpha": 0.7840000000000003,
+      "reference_old_alpha": 0.4240000000000004,
+      "reference_new_alpha": 0.7840000000000003,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 8,
+      "move_axis": 2,
+      "direction": 1,
+      "fraction": 0.25,
+      "step": 0,
+      "dual_component": 0,
+      "old_alpha": 0.3699999999999999,
+      "new_alpha": 0.5949999999999999,
+      "reference_old_alpha": 0.3699999999999999,
+      "reference_new_alpha": 0.5949999999999999,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 5.551115123125783e-17
+    },
+    {
+      "grid": 8,
+      "move_axis": 2,
+      "direction": 1,
+      "fraction": 0.25,
+      "step": 0,
+      "dual_component": 1,
+      "old_alpha": 0.43999999999999995,
+      "new_alpha": 0.6399999999999999,
+      "reference_old_alpha": 0.43999999999999995,
+      "reference_new_alpha": 0.6399999999999999,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 5.551115123125783e-17
+    },
+    {
+      "grid": 8,
+      "move_axis": 2,
+      "direction": 1,
+      "fraction": 0.25,
+      "step": 0,
+      "dual_component": 2,
+      "old_alpha": 0.28000000000000025,
+      "new_alpha": 0.31600000000000006,
+      "reference_old_alpha": 0.28000000000000025,
+      "reference_new_alpha": 0.31600000000000006,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 8.326672684688674e-17
+    },
+    {
+      "grid": 8,
+      "move_axis": 2,
+      "direction": 1,
+      "fraction": 0.25,
+      "step": 1,
+      "dual_component": 0,
+      "old_alpha": 0.5949999999999999,
+      "new_alpha": 0.8199999999999998,
+      "reference_old_alpha": 0.5949999999999999,
+      "reference_new_alpha": 0.8199999999999998,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 8,
+      "move_axis": 2,
+      "direction": 1,
+      "fraction": 0.25,
+      "step": 1,
+      "dual_component": 1,
+      "old_alpha": 0.6399999999999999,
+      "new_alpha": 0.8399999999999999,
+      "reference_old_alpha": 0.6399999999999999,
+      "reference_new_alpha": 0.8399999999999999,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 8.326672684688674e-17
+    },
+    {
+      "grid": 8,
+      "move_axis": 2,
+      "direction": 1,
+      "fraction": 0.25,
+      "step": 1,
+      "dual_component": 2,
+      "old_alpha": 0.31600000000000006,
+      "new_alpha": 0.496,
+      "reference_old_alpha": 0.31600000000000006,
+      "reference_new_alpha": 0.496,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 5.551115123125783e-17
+    },
+    {
+      "grid": 8,
+      "move_axis": 2,
+      "direction": 1,
+      "fraction": 0.5,
+      "step": 0,
+      "dual_component": 0,
+      "old_alpha": 0.3699999999999999,
+      "new_alpha": 0.8199999999999998,
+      "reference_old_alpha": 0.3699999999999999,
+      "reference_new_alpha": 0.8199999999999998,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 8,
+      "move_axis": 2,
+      "direction": 1,
+      "fraction": 0.5,
+      "step": 0,
+      "dual_component": 1,
+      "old_alpha": 0.43999999999999995,
+      "new_alpha": 0.8399999999999999,
+      "reference_old_alpha": 0.43999999999999995,
+      "reference_new_alpha": 0.8399999999999999,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 5.551115123125783e-17
+    },
+    {
+      "grid": 8,
+      "move_axis": 2,
+      "direction": 1,
+      "fraction": 0.5,
+      "step": 0,
+      "dual_component": 2,
+      "old_alpha": 0.28000000000000025,
+      "new_alpha": 0.496,
+      "reference_old_alpha": 0.28000000000000025,
+      "reference_new_alpha": 0.496,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 8,
+      "move_axis": 2,
+      "direction": 1,
+      "fraction": 0.5,
+      "step": 1,
+      "dual_component": 0,
+      "old_alpha": 0.8199999999999998,
+      "new_alpha": 1.0,
+      "reference_old_alpha": 0.8199999999999998,
+      "reference_new_alpha": 1.0,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 8,
+      "move_axis": 2,
+      "direction": 1,
+      "fraction": 0.5,
+      "step": 1,
+      "dual_component": 1,
+      "old_alpha": 0.8399999999999999,
+      "new_alpha": 1.0,
+      "reference_old_alpha": 0.8399999999999999,
+      "reference_new_alpha": 1.0,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 5.551115123125783e-17
+    },
+    {
+      "grid": 8,
+      "move_axis": 2,
+      "direction": 1,
+      "fraction": 0.5,
+      "step": 1,
+      "dual_component": 2,
+      "old_alpha": 0.496,
+      "new_alpha": 0.8559999999999999,
+      "reference_old_alpha": 0.496,
+      "reference_new_alpha": 0.8559999999999999,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 12,
+      "move_axis": 0,
+      "direction": -1,
+      "fraction": 0.25,
+      "step": 0,
+      "dual_component": 0,
+      "old_alpha": 0.3699999999999999,
+      "new_alpha": 0.40149999999999975,
+      "reference_old_alpha": 0.3699999999999999,
+      "reference_new_alpha": 0.40149999999999975,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 8.326672684688674e-17
+    },
+    {
+      "grid": 12,
+      "move_axis": 0,
+      "direction": -1,
+      "fraction": 0.25,
+      "step": 0,
+      "dual_component": 1,
+      "old_alpha": 0.43999999999999995,
+      "new_alpha": 0.2999999999999998,
+      "reference_old_alpha": 0.43999999999999995,
+      "reference_new_alpha": 0.2999999999999998,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 5.551115123125783e-17
+    },
+    {
+      "grid": 12,
+      "move_axis": 0,
+      "direction": -1,
+      "fraction": 0.25,
+      "step": 0,
+      "dual_component": 2,
+      "old_alpha": 0.28000000000000025,
+      "new_alpha": 0.10000000000000009,
+      "reference_old_alpha": 0.28000000000000025,
+      "reference_new_alpha": 0.10000000000000009,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 5.551115123125783e-17
+    },
+    {
+      "grid": 12,
+      "move_axis": 0,
+      "direction": -1,
+      "fraction": 0.25,
+      "step": 1,
+      "dual_component": 0,
+      "old_alpha": 0.40149999999999975,
+      "new_alpha": 0.5589999999999998,
+      "reference_old_alpha": 0.40149999999999975,
+      "reference_new_alpha": 0.5589999999999998,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 12,
+      "move_axis": 0,
+      "direction": -1,
+      "fraction": 0.25,
+      "step": 1,
+      "dual_component": 1,
+      "old_alpha": 0.2999999999999998,
+      "new_alpha": 0.2999999999999998,
+      "reference_old_alpha": 0.2999999999999998,
+      "reference_new_alpha": 0.2999999999999998,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 8.326672684688674e-17
+    },
+    {
+      "grid": 12,
+      "move_axis": 0,
+      "direction": -1,
+      "fraction": 0.25,
+      "step": 1,
+      "dual_component": 2,
+      "old_alpha": 0.10000000000000009,
+      "new_alpha": 0.10000000000000009,
+      "reference_old_alpha": 0.10000000000000009,
+      "reference_new_alpha": 0.10000000000000009,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 12,
+      "move_axis": 0,
+      "direction": -1,
+      "fraction": 0.5,
+      "step": 0,
+      "dual_component": 0,
+      "old_alpha": 0.3699999999999999,
+      "new_alpha": 0.5589999999999998,
+      "reference_old_alpha": 0.3699999999999999,
+      "reference_new_alpha": 0.5589999999999998,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 12,
+      "move_axis": 0,
+      "direction": -1,
+      "fraction": 0.5,
+      "step": 0,
+      "dual_component": 1,
+      "old_alpha": 0.43999999999999995,
+      "new_alpha": 0.2999999999999998,
+      "reference_old_alpha": 0.43999999999999995,
+      "reference_new_alpha": 0.2999999999999998,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 5.551115123125783e-17
+    },
+    {
+      "grid": 12,
+      "move_axis": 0,
+      "direction": -1,
+      "fraction": 0.5,
+      "step": 0,
+      "dual_component": 2,
+      "old_alpha": 0.28000000000000025,
+      "new_alpha": 0.10000000000000009,
+      "reference_old_alpha": 0.28000000000000025,
+      "reference_new_alpha": 0.10000000000000009,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 12,
+      "move_axis": 0,
+      "direction": -1,
+      "fraction": 0.5,
+      "step": 1,
+      "dual_component": 0,
+      "old_alpha": 0.5589999999999998,
+      "new_alpha": 0.8739999999999999,
+      "reference_old_alpha": 0.5589999999999998,
+      "reference_new_alpha": 0.8739999999999999,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 12,
+      "move_axis": 0,
+      "direction": -1,
+      "fraction": 0.5,
+      "step": 1,
+      "dual_component": 1,
+      "old_alpha": 0.2999999999999998,
+      "new_alpha": 0.5099999999999998,
+      "reference_old_alpha": 0.2999999999999998,
+      "reference_new_alpha": 0.5099999999999998,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 5.551115123125783e-17
+    },
+    {
+      "grid": 12,
+      "move_axis": 0,
+      "direction": -1,
+      "fraction": 0.5,
+      "step": 1,
+      "dual_component": 2,
+      "old_alpha": 0.10000000000000009,
+      "new_alpha": 0.3699999999999999,
+      "reference_old_alpha": 0.10000000000000009,
+      "reference_new_alpha": 0.3699999999999999,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 12,
+      "move_axis": 0,
+      "direction": 1,
+      "fraction": 0.25,
+      "step": 0,
+      "dual_component": 0,
+      "old_alpha": 0.3699999999999999,
+      "new_alpha": 0.3699999999999999,
+      "reference_old_alpha": 0.3699999999999999,
+      "reference_new_alpha": 0.3699999999999999,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 12,
+      "move_axis": 0,
+      "direction": 1,
+      "fraction": 0.25,
+      "step": 0,
+      "dual_component": 1,
+      "old_alpha": 0.43999999999999995,
+      "new_alpha": 0.615,
+      "reference_old_alpha": 0.43999999999999995,
+      "reference_new_alpha": 0.615,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 12,
+      "move_axis": 0,
+      "direction": 1,
+      "fraction": 0.25,
+      "step": 0,
+      "dual_component": 2,
+      "old_alpha": 0.28000000000000025,
+      "new_alpha": 0.5050000000000002,
+      "reference_old_alpha": 0.28000000000000025,
+      "reference_new_alpha": 0.5050000000000002,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 12,
+      "move_axis": 0,
+      "direction": 1,
+      "fraction": 0.25,
+      "step": 1,
+      "dual_component": 0,
+      "old_alpha": 0.3699999999999999,
+      "new_alpha": 0.496,
+      "reference_old_alpha": 0.3699999999999999,
+      "reference_new_alpha": 0.496,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 5.551115123125783e-17
+    },
+    {
+      "grid": 12,
+      "move_axis": 0,
+      "direction": 1,
+      "fraction": 0.25,
+      "step": 1,
+      "dual_component": 1,
+      "old_alpha": 0.615,
+      "new_alpha": 0.79,
+      "reference_old_alpha": 0.615,
+      "reference_new_alpha": 0.79,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 12,
+      "move_axis": 0,
+      "direction": 1,
+      "fraction": 0.25,
+      "step": 1,
+      "dual_component": 2,
+      "old_alpha": 0.5050000000000002,
+      "new_alpha": 0.7300000000000002,
+      "reference_old_alpha": 0.5050000000000002,
+      "reference_new_alpha": 0.7300000000000002,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 12,
+      "move_axis": 0,
+      "direction": 1,
+      "fraction": 0.5,
+      "step": 0,
+      "dual_component": 0,
+      "old_alpha": 0.3699999999999999,
+      "new_alpha": 0.496,
+      "reference_old_alpha": 0.3699999999999999,
+      "reference_new_alpha": 0.496,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 12,
+      "move_axis": 0,
+      "direction": 1,
+      "fraction": 0.5,
+      "step": 0,
+      "dual_component": 1,
+      "old_alpha": 0.43999999999999995,
+      "new_alpha": 0.79,
+      "reference_old_alpha": 0.43999999999999995,
+      "reference_new_alpha": 0.79,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 5.551115123125783e-17
+    },
+    {
+      "grid": 12,
+      "move_axis": 0,
+      "direction": 1,
+      "fraction": 0.5,
+      "step": 0,
+      "dual_component": 2,
+      "old_alpha": 0.28000000000000025,
+      "new_alpha": 0.7300000000000002,
+      "reference_old_alpha": 0.28000000000000025,
+      "reference_new_alpha": 0.7300000000000002,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 12,
+      "move_axis": 0,
+      "direction": 1,
+      "fraction": 0.5,
+      "step": 1,
+      "dual_component": 0,
+      "old_alpha": 0.496,
+      "new_alpha": 0.811,
+      "reference_old_alpha": 0.496,
+      "reference_new_alpha": 0.811,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 12,
+      "move_axis": 0,
+      "direction": 1,
+      "fraction": 0.5,
+      "step": 1,
+      "dual_component": 1,
+      "old_alpha": 0.79,
+      "new_alpha": 1.0,
+      "reference_old_alpha": 0.79,
+      "reference_new_alpha": 1.0,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 5.551115123125783e-17
+    },
+    {
+      "grid": 12,
+      "move_axis": 0,
+      "direction": 1,
+      "fraction": 0.5,
+      "step": 1,
+      "dual_component": 2,
+      "old_alpha": 0.7300000000000002,
+      "new_alpha": 1.0,
+      "reference_old_alpha": 0.7300000000000002,
+      "reference_new_alpha": 1.0,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 12,
+      "move_axis": 1,
+      "direction": -1,
+      "fraction": 0.25,
+      "step": 0,
+      "dual_component": 0,
+      "old_alpha": 0.3699999999999999,
+      "new_alpha": 0.2999999999999998,
+      "reference_old_alpha": 0.3699999999999999,
+      "reference_new_alpha": 0.2999999999999998,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 12,
+      "move_axis": 1,
+      "direction": -1,
+      "fraction": 0.25,
+      "step": 0,
+      "dual_component": 1,
+      "old_alpha": 0.43999999999999995,
+      "new_alpha": 0.5240000000000001,
+      "reference_old_alpha": 0.43999999999999995,
+      "reference_new_alpha": 0.5240000000000001,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 12,
+      "move_axis": 1,
+      "direction": -1,
+      "fraction": 0.25,
+      "step": 0,
+      "dual_component": 2,
+      "old_alpha": 0.28000000000000025,
+      "new_alpha": 0.20000000000000018,
+      "reference_old_alpha": 0.28000000000000025,
+      "reference_new_alpha": 0.20000000000000018,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 12,
+      "move_axis": 1,
+      "direction": -1,
+      "fraction": 0.25,
+      "step": 1,
+      "dual_component": 0,
+      "old_alpha": 0.2999999999999998,
+      "new_alpha": 0.2999999999999998,
+      "reference_old_alpha": 0.2999999999999998,
+      "reference_new_alpha": 0.2999999999999998,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 12,
+      "move_axis": 1,
+      "direction": -1,
+      "fraction": 0.25,
+      "step": 1,
+      "dual_component": 1,
+      "old_alpha": 0.5240000000000001,
+      "new_alpha": 0.6640000000000001,
+      "reference_old_alpha": 0.5240000000000001,
+      "reference_new_alpha": 0.6640000000000001,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 12,
+      "move_axis": 1,
+      "direction": -1,
+      "fraction": 0.25,
+      "step": 1,
+      "dual_component": 2,
+      "old_alpha": 0.20000000000000018,
+      "new_alpha": 0.20000000000000018,
+      "reference_old_alpha": 0.20000000000000018,
+      "reference_new_alpha": 0.20000000000000018,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 12,
+      "move_axis": 1,
+      "direction": -1,
+      "fraction": 0.5,
+      "step": 0,
+      "dual_component": 0,
+      "old_alpha": 0.3699999999999999,
+      "new_alpha": 0.2999999999999998,
+      "reference_old_alpha": 0.3699999999999999,
+      "reference_new_alpha": 0.2999999999999998,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 12,
+      "move_axis": 1,
+      "direction": -1,
+      "fraction": 0.5,
+      "step": 0,
+      "dual_component": 1,
+      "old_alpha": 0.43999999999999995,
+      "new_alpha": 0.6640000000000001,
+      "reference_old_alpha": 0.43999999999999995,
+      "reference_new_alpha": 0.6640000000000001,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 5.551115123125783e-17
+    },
+    {
+      "grid": 12,
+      "move_axis": 1,
+      "direction": -1,
+      "fraction": 0.5,
+      "step": 0,
+      "dual_component": 2,
+      "old_alpha": 0.28000000000000025,
+      "new_alpha": 0.20000000000000018,
+      "reference_old_alpha": 0.28000000000000025,
+      "reference_new_alpha": 0.20000000000000018,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 12,
+      "move_axis": 1,
+      "direction": -1,
+      "fraction": 0.5,
+      "step": 1,
+      "dual_component": 0,
+      "old_alpha": 0.2999999999999998,
+      "new_alpha": 0.5800000000000001,
+      "reference_old_alpha": 0.2999999999999998,
+      "reference_new_alpha": 0.5800000000000001,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 5.551115123125783e-17
+    },
+    {
+      "grid": 12,
+      "move_axis": 1,
+      "direction": -1,
+      "fraction": 0.5,
+      "step": 1,
+      "dual_component": 1,
+      "old_alpha": 0.6640000000000001,
+      "new_alpha": 0.9440000000000002,
+      "reference_old_alpha": 0.6640000000000001,
+      "reference_new_alpha": 0.9440000000000002,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 12,
+      "move_axis": 1,
+      "direction": -1,
+      "fraction": 0.5,
+      "step": 1,
+      "dual_component": 2,
+      "old_alpha": 0.20000000000000018,
+      "new_alpha": 0.5200000000000005,
+      "reference_old_alpha": 0.20000000000000018,
+      "reference_new_alpha": 0.5200000000000005,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 5.551115123125783e-17
+    },
+    {
+      "grid": 12,
+      "move_axis": 1,
+      "direction": 1,
+      "fraction": 0.25,
+      "step": 0,
+      "dual_component": 0,
+      "old_alpha": 0.3699999999999999,
+      "new_alpha": 0.5449999999999999,
+      "reference_old_alpha": 0.3699999999999999,
+      "reference_new_alpha": 0.5449999999999999,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 12,
+      "move_axis": 1,
+      "direction": 1,
+      "fraction": 0.25,
+      "step": 0,
+      "dual_component": 1,
+      "old_alpha": 0.43999999999999995,
+      "new_alpha": 0.43999999999999995,
+      "reference_old_alpha": 0.43999999999999995,
+      "reference_new_alpha": 0.43999999999999995,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 12,
+      "move_axis": 1,
+      "direction": 1,
+      "fraction": 0.25,
+      "step": 0,
+      "dual_component": 2,
+      "old_alpha": 0.28000000000000025,
+      "new_alpha": 0.4800000000000002,
+      "reference_old_alpha": 0.28000000000000025,
+      "reference_new_alpha": 0.4800000000000002,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 12,
+      "move_axis": 1,
+      "direction": 1,
+      "fraction": 0.25,
+      "step": 1,
+      "dual_component": 0,
+      "old_alpha": 0.5449999999999999,
+      "new_alpha": 0.72,
+      "reference_old_alpha": 0.5449999999999999,
+      "reference_new_alpha": 0.72,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 12,
+      "move_axis": 1,
+      "direction": 1,
+      "fraction": 0.25,
+      "step": 1,
+      "dual_component": 1,
+      "old_alpha": 0.43999999999999995,
+      "new_alpha": 0.496,
+      "reference_old_alpha": 0.43999999999999995,
+      "reference_new_alpha": 0.496,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 12,
+      "move_axis": 1,
+      "direction": 1,
+      "fraction": 0.25,
+      "step": 1,
+      "dual_component": 2,
+      "old_alpha": 0.4800000000000002,
+      "new_alpha": 0.6800000000000002,
+      "reference_old_alpha": 0.4800000000000002,
+      "reference_new_alpha": 0.6800000000000002,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 5.551115123125783e-17
+    },
+    {
+      "grid": 12,
+      "move_axis": 1,
+      "direction": 1,
+      "fraction": 0.5,
+      "step": 0,
+      "dual_component": 0,
+      "old_alpha": 0.3699999999999999,
+      "new_alpha": 0.72,
+      "reference_old_alpha": 0.3699999999999999,
+      "reference_new_alpha": 0.72,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 5.551115123125783e-17
+    },
+    {
+      "grid": 12,
+      "move_axis": 1,
+      "direction": 1,
+      "fraction": 0.5,
+      "step": 0,
+      "dual_component": 1,
+      "old_alpha": 0.43999999999999995,
+      "new_alpha": 0.496,
+      "reference_old_alpha": 0.43999999999999995,
+      "reference_new_alpha": 0.496,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 12,
+      "move_axis": 1,
+      "direction": 1,
+      "fraction": 0.5,
+      "step": 0,
+      "dual_component": 2,
+      "old_alpha": 0.28000000000000025,
+      "new_alpha": 0.6800000000000002,
+      "reference_old_alpha": 0.28000000000000025,
+      "reference_new_alpha": 0.6800000000000002,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 5.551115123125783e-17
+    },
+    {
+      "grid": 12,
+      "move_axis": 1,
+      "direction": 1,
+      "fraction": 0.5,
+      "step": 1,
+      "dual_component": 0,
+      "old_alpha": 0.72,
+      "new_alpha": 1.0,
+      "reference_old_alpha": 0.72,
+      "reference_new_alpha": 1.0,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 4.440892098500626e-16
+    },
+    {
+      "grid": 12,
+      "move_axis": 1,
+      "direction": 1,
+      "fraction": 0.5,
+      "step": 1,
+      "dual_component": 1,
+      "old_alpha": 0.496,
+      "new_alpha": 0.7759999999999998,
+      "reference_old_alpha": 0.496,
+      "reference_new_alpha": 0.7759999999999998,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 2.7755575615628914e-16
+    },
+    {
+      "grid": 12,
+      "move_axis": 1,
+      "direction": 1,
+      "fraction": 0.5,
+      "step": 1,
+      "dual_component": 2,
+      "old_alpha": 0.6800000000000002,
+      "new_alpha": 1.0,
+      "reference_old_alpha": 0.6800000000000002,
+      "reference_new_alpha": 1.0,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 4.440892098500626e-16
+    },
+    {
+      "grid": 12,
+      "move_axis": 2,
+      "direction": -1,
+      "fraction": 0.25,
+      "step": 0,
+      "dual_component": 0,
+      "old_alpha": 0.3699999999999999,
+      "new_alpha": 0.1449999999999999,
+      "reference_old_alpha": 0.3699999999999999,
+      "reference_new_alpha": 0.1449999999999999,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 12,
+      "move_axis": 2,
+      "direction": -1,
+      "fraction": 0.25,
+      "step": 0,
+      "dual_component": 1,
+      "old_alpha": 0.43999999999999995,
+      "new_alpha": 0.24,
+      "reference_old_alpha": 0.43999999999999995,
+      "reference_new_alpha": 0.24,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 12,
+      "move_axis": 2,
+      "direction": -1,
+      "fraction": 0.25,
+      "step": 0,
+      "dual_component": 2,
+      "old_alpha": 0.28000000000000025,
+      "new_alpha": 0.28000000000000025,
+      "reference_old_alpha": 0.28000000000000025,
+      "reference_new_alpha": 0.28000000000000025,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 12,
+      "move_axis": 2,
+      "direction": -1,
+      "fraction": 0.25,
+      "step": 1,
+      "dual_component": 0,
+      "old_alpha": 0.1449999999999999,
+      "new_alpha": 0.10000000000000009,
+      "reference_old_alpha": 0.1449999999999999,
+      "reference_new_alpha": 0.10000000000000009,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 12,
+      "move_axis": 2,
+      "direction": -1,
+      "fraction": 0.25,
+      "step": 1,
+      "dual_component": 1,
+      "old_alpha": 0.24,
+      "new_alpha": 0.20000000000000018,
+      "reference_old_alpha": 0.24,
+      "reference_new_alpha": 0.20000000000000018,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 8.326672684688674e-17
+    },
+    {
+      "grid": 12,
+      "move_axis": 2,
+      "direction": -1,
+      "fraction": 0.25,
+      "step": 1,
+      "dual_component": 2,
+      "old_alpha": 0.28000000000000025,
+      "new_alpha": 0.4240000000000004,
+      "reference_old_alpha": 0.28000000000000025,
+      "reference_new_alpha": 0.4240000000000004,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 5.551115123125783e-17
+    },
+    {
+      "grid": 12,
+      "move_axis": 2,
+      "direction": -1,
+      "fraction": 0.5,
+      "step": 0,
+      "dual_component": 0,
+      "old_alpha": 0.3699999999999999,
+      "new_alpha": 0.10000000000000009,
+      "reference_old_alpha": 0.3699999999999999,
+      "reference_new_alpha": 0.10000000000000009,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 12,
+      "move_axis": 2,
+      "direction": -1,
+      "fraction": 0.5,
+      "step": 0,
+      "dual_component": 1,
+      "old_alpha": 0.43999999999999995,
+      "new_alpha": 0.20000000000000018,
+      "reference_old_alpha": 0.43999999999999995,
+      "reference_new_alpha": 0.20000000000000018,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 5.551115123125783e-17
+    },
+    {
+      "grid": 12,
+      "move_axis": 2,
+      "direction": -1,
+      "fraction": 0.5,
+      "step": 0,
+      "dual_component": 2,
+      "old_alpha": 0.28000000000000025,
+      "new_alpha": 0.4240000000000004,
+      "reference_old_alpha": 0.28000000000000025,
+      "reference_new_alpha": 0.4240000000000004,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 12,
+      "move_axis": 2,
+      "direction": -1,
+      "fraction": 0.5,
+      "step": 1,
+      "dual_component": 0,
+      "old_alpha": 0.10000000000000009,
+      "new_alpha": 0.28000000000000025,
+      "reference_old_alpha": 0.10000000000000009,
+      "reference_new_alpha": 0.28000000000000025,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 12,
+      "move_axis": 2,
+      "direction": -1,
+      "fraction": 0.5,
+      "step": 1,
+      "dual_component": 1,
+      "old_alpha": 0.20000000000000018,
+      "new_alpha": 0.3600000000000003,
+      "reference_old_alpha": 0.20000000000000018,
+      "reference_new_alpha": 0.3600000000000003,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 5.551115123125783e-17
+    },
+    {
+      "grid": 12,
+      "move_axis": 2,
+      "direction": -1,
+      "fraction": 0.5,
+      "step": 1,
+      "dual_component": 2,
+      "old_alpha": 0.4240000000000004,
+      "new_alpha": 0.7840000000000003,
+      "reference_old_alpha": 0.4240000000000004,
+      "reference_new_alpha": 0.7840000000000003,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 12,
+      "move_axis": 2,
+      "direction": 1,
+      "fraction": 0.25,
+      "step": 0,
+      "dual_component": 0,
+      "old_alpha": 0.3699999999999999,
+      "new_alpha": 0.5949999999999999,
+      "reference_old_alpha": 0.3699999999999999,
+      "reference_new_alpha": 0.5949999999999999,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 5.551115123125783e-17
+    },
+    {
+      "grid": 12,
+      "move_axis": 2,
+      "direction": 1,
+      "fraction": 0.25,
+      "step": 0,
+      "dual_component": 1,
+      "old_alpha": 0.43999999999999995,
+      "new_alpha": 0.6399999999999999,
+      "reference_old_alpha": 0.43999999999999995,
+      "reference_new_alpha": 0.6399999999999999,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 5.551115123125783e-17
+    },
+    {
+      "grid": 12,
+      "move_axis": 2,
+      "direction": 1,
+      "fraction": 0.25,
+      "step": 0,
+      "dual_component": 2,
+      "old_alpha": 0.28000000000000025,
+      "new_alpha": 0.31600000000000006,
+      "reference_old_alpha": 0.28000000000000025,
+      "reference_new_alpha": 0.31600000000000006,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 8.326672684688674e-17
+    },
+    {
+      "grid": 12,
+      "move_axis": 2,
+      "direction": 1,
+      "fraction": 0.25,
+      "step": 1,
+      "dual_component": 0,
+      "old_alpha": 0.5949999999999999,
+      "new_alpha": 0.8199999999999998,
+      "reference_old_alpha": 0.5949999999999999,
+      "reference_new_alpha": 0.8199999999999998,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 12,
+      "move_axis": 2,
+      "direction": 1,
+      "fraction": 0.25,
+      "step": 1,
+      "dual_component": 1,
+      "old_alpha": 0.6399999999999999,
+      "new_alpha": 0.8399999999999999,
+      "reference_old_alpha": 0.6399999999999999,
+      "reference_new_alpha": 0.8399999999999999,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 8.326672684688674e-17
+    },
+    {
+      "grid": 12,
+      "move_axis": 2,
+      "direction": 1,
+      "fraction": 0.25,
+      "step": 1,
+      "dual_component": 2,
+      "old_alpha": 0.31600000000000006,
+      "new_alpha": 0.496,
+      "reference_old_alpha": 0.31600000000000006,
+      "reference_new_alpha": 0.496,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 5.551115123125783e-17
+    },
+    {
+      "grid": 12,
+      "move_axis": 2,
+      "direction": 1,
+      "fraction": 0.5,
+      "step": 0,
+      "dual_component": 0,
+      "old_alpha": 0.3699999999999999,
+      "new_alpha": 0.8199999999999998,
+      "reference_old_alpha": 0.3699999999999999,
+      "reference_new_alpha": 0.8199999999999998,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 12,
+      "move_axis": 2,
+      "direction": 1,
+      "fraction": 0.5,
+      "step": 0,
+      "dual_component": 1,
+      "old_alpha": 0.43999999999999995,
+      "new_alpha": 0.8399999999999999,
+      "reference_old_alpha": 0.43999999999999995,
+      "reference_new_alpha": 0.8399999999999999,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 5.551115123125783e-17
+    },
+    {
+      "grid": 12,
+      "move_axis": 2,
+      "direction": 1,
+      "fraction": 0.5,
+      "step": 0,
+      "dual_component": 2,
+      "old_alpha": 0.28000000000000025,
+      "new_alpha": 0.496,
+      "reference_old_alpha": 0.28000000000000025,
+      "reference_new_alpha": 0.496,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 12,
+      "move_axis": 2,
+      "direction": 1,
+      "fraction": 0.5,
+      "step": 1,
+      "dual_component": 0,
+      "old_alpha": 0.8199999999999998,
+      "new_alpha": 1.0,
+      "reference_old_alpha": 0.8199999999999998,
+      "reference_new_alpha": 1.0,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 12,
+      "move_axis": 2,
+      "direction": 1,
+      "fraction": 0.5,
+      "step": 1,
+      "dual_component": 1,
+      "old_alpha": 0.8399999999999999,
+      "new_alpha": 1.0,
+      "reference_old_alpha": 0.8399999999999999,
+      "reference_new_alpha": 1.0,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 5.551115123125783e-17
+    },
+    {
+      "grid": 12,
+      "move_axis": 2,
+      "direction": 1,
+      "fraction": 0.5,
+      "step": 1,
+      "dual_component": 2,
+      "old_alpha": 0.496,
+      "new_alpha": 0.8559999999999999,
+      "reference_old_alpha": 0.496,
+      "reference_new_alpha": 0.8559999999999999,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 16,
+      "move_axis": 0,
+      "direction": -1,
+      "fraction": 0.25,
+      "step": 0,
+      "dual_component": 0,
+      "old_alpha": 0.3699999999999999,
+      "new_alpha": 0.40149999999999975,
+      "reference_old_alpha": 0.3699999999999999,
+      "reference_new_alpha": 0.40149999999999975,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 8.326672684688674e-17
+    },
+    {
+      "grid": 16,
+      "move_axis": 0,
+      "direction": -1,
+      "fraction": 0.25,
+      "step": 0,
+      "dual_component": 1,
+      "old_alpha": 0.43999999999999995,
+      "new_alpha": 0.2999999999999998,
+      "reference_old_alpha": 0.43999999999999995,
+      "reference_new_alpha": 0.2999999999999998,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 5.551115123125783e-17
+    },
+    {
+      "grid": 16,
+      "move_axis": 0,
+      "direction": -1,
+      "fraction": 0.25,
+      "step": 0,
+      "dual_component": 2,
+      "old_alpha": 0.28000000000000025,
+      "new_alpha": 0.10000000000000009,
+      "reference_old_alpha": 0.28000000000000025,
+      "reference_new_alpha": 0.10000000000000009,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 5.551115123125783e-17
+    },
+    {
+      "grid": 16,
+      "move_axis": 0,
+      "direction": -1,
+      "fraction": 0.25,
+      "step": 1,
+      "dual_component": 0,
+      "old_alpha": 0.40149999999999975,
+      "new_alpha": 0.5589999999999998,
+      "reference_old_alpha": 0.40149999999999975,
+      "reference_new_alpha": 0.5589999999999998,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 16,
+      "move_axis": 0,
+      "direction": -1,
+      "fraction": 0.25,
+      "step": 1,
+      "dual_component": 1,
+      "old_alpha": 0.2999999999999998,
+      "new_alpha": 0.2999999999999998,
+      "reference_old_alpha": 0.2999999999999998,
+      "reference_new_alpha": 0.2999999999999998,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 8.326672684688674e-17
+    },
+    {
+      "grid": 16,
+      "move_axis": 0,
+      "direction": -1,
+      "fraction": 0.25,
+      "step": 1,
+      "dual_component": 2,
+      "old_alpha": 0.10000000000000009,
+      "new_alpha": 0.10000000000000009,
+      "reference_old_alpha": 0.10000000000000009,
+      "reference_new_alpha": 0.10000000000000009,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 16,
+      "move_axis": 0,
+      "direction": -1,
+      "fraction": 0.5,
+      "step": 0,
+      "dual_component": 0,
+      "old_alpha": 0.3699999999999999,
+      "new_alpha": 0.5589999999999998,
+      "reference_old_alpha": 0.3699999999999999,
+      "reference_new_alpha": 0.5589999999999998,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 16,
+      "move_axis": 0,
+      "direction": -1,
+      "fraction": 0.5,
+      "step": 0,
+      "dual_component": 1,
+      "old_alpha": 0.43999999999999995,
+      "new_alpha": 0.2999999999999998,
+      "reference_old_alpha": 0.43999999999999995,
+      "reference_new_alpha": 0.2999999999999998,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 5.551115123125783e-17
+    },
+    {
+      "grid": 16,
+      "move_axis": 0,
+      "direction": -1,
+      "fraction": 0.5,
+      "step": 0,
+      "dual_component": 2,
+      "old_alpha": 0.28000000000000025,
+      "new_alpha": 0.10000000000000009,
+      "reference_old_alpha": 0.28000000000000025,
+      "reference_new_alpha": 0.10000000000000009,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 16,
+      "move_axis": 0,
+      "direction": -1,
+      "fraction": 0.5,
+      "step": 1,
+      "dual_component": 0,
+      "old_alpha": 0.5589999999999998,
+      "new_alpha": 0.8739999999999999,
+      "reference_old_alpha": 0.5589999999999998,
+      "reference_new_alpha": 0.8739999999999999,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 16,
+      "move_axis": 0,
+      "direction": -1,
+      "fraction": 0.5,
+      "step": 1,
+      "dual_component": 1,
+      "old_alpha": 0.2999999999999998,
+      "new_alpha": 0.5099999999999998,
+      "reference_old_alpha": 0.2999999999999998,
+      "reference_new_alpha": 0.5099999999999998,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 5.551115123125783e-17
+    },
+    {
+      "grid": 16,
+      "move_axis": 0,
+      "direction": -1,
+      "fraction": 0.5,
+      "step": 1,
+      "dual_component": 2,
+      "old_alpha": 0.10000000000000009,
+      "new_alpha": 0.3699999999999999,
+      "reference_old_alpha": 0.10000000000000009,
+      "reference_new_alpha": 0.3699999999999999,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 16,
+      "move_axis": 0,
+      "direction": 1,
+      "fraction": 0.25,
+      "step": 0,
+      "dual_component": 0,
+      "old_alpha": 0.3699999999999999,
+      "new_alpha": 0.3699999999999999,
+      "reference_old_alpha": 0.3699999999999999,
+      "reference_new_alpha": 0.3699999999999999,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 16,
+      "move_axis": 0,
+      "direction": 1,
+      "fraction": 0.25,
+      "step": 0,
+      "dual_component": 1,
+      "old_alpha": 0.43999999999999995,
+      "new_alpha": 0.615,
+      "reference_old_alpha": 0.43999999999999995,
+      "reference_new_alpha": 0.615,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 16,
+      "move_axis": 0,
+      "direction": 1,
+      "fraction": 0.25,
+      "step": 0,
+      "dual_component": 2,
+      "old_alpha": 0.28000000000000025,
+      "new_alpha": 0.5050000000000002,
+      "reference_old_alpha": 0.28000000000000025,
+      "reference_new_alpha": 0.5050000000000002,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 16,
+      "move_axis": 0,
+      "direction": 1,
+      "fraction": 0.25,
+      "step": 1,
+      "dual_component": 0,
+      "old_alpha": 0.3699999999999999,
+      "new_alpha": 0.496,
+      "reference_old_alpha": 0.3699999999999999,
+      "reference_new_alpha": 0.496,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 5.551115123125783e-17
+    },
+    {
+      "grid": 16,
+      "move_axis": 0,
+      "direction": 1,
+      "fraction": 0.25,
+      "step": 1,
+      "dual_component": 1,
+      "old_alpha": 0.615,
+      "new_alpha": 0.79,
+      "reference_old_alpha": 0.615,
+      "reference_new_alpha": 0.79,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 16,
+      "move_axis": 0,
+      "direction": 1,
+      "fraction": 0.25,
+      "step": 1,
+      "dual_component": 2,
+      "old_alpha": 0.5050000000000002,
+      "new_alpha": 0.7300000000000002,
+      "reference_old_alpha": 0.5050000000000002,
+      "reference_new_alpha": 0.7300000000000002,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 16,
+      "move_axis": 0,
+      "direction": 1,
+      "fraction": 0.5,
+      "step": 0,
+      "dual_component": 0,
+      "old_alpha": 0.3699999999999999,
+      "new_alpha": 0.496,
+      "reference_old_alpha": 0.3699999999999999,
+      "reference_new_alpha": 0.496,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 16,
+      "move_axis": 0,
+      "direction": 1,
+      "fraction": 0.5,
+      "step": 0,
+      "dual_component": 1,
+      "old_alpha": 0.43999999999999995,
+      "new_alpha": 0.79,
+      "reference_old_alpha": 0.43999999999999995,
+      "reference_new_alpha": 0.79,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 5.551115123125783e-17
+    },
+    {
+      "grid": 16,
+      "move_axis": 0,
+      "direction": 1,
+      "fraction": 0.5,
+      "step": 0,
+      "dual_component": 2,
+      "old_alpha": 0.28000000000000025,
+      "new_alpha": 0.7300000000000002,
+      "reference_old_alpha": 0.28000000000000025,
+      "reference_new_alpha": 0.7300000000000002,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 16,
+      "move_axis": 0,
+      "direction": 1,
+      "fraction": 0.5,
+      "step": 1,
+      "dual_component": 0,
+      "old_alpha": 0.496,
+      "new_alpha": 0.811,
+      "reference_old_alpha": 0.496,
+      "reference_new_alpha": 0.811,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 16,
+      "move_axis": 0,
+      "direction": 1,
+      "fraction": 0.5,
+      "step": 1,
+      "dual_component": 1,
+      "old_alpha": 0.79,
+      "new_alpha": 1.0,
+      "reference_old_alpha": 0.79,
+      "reference_new_alpha": 1.0,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 5.551115123125783e-17
+    },
+    {
+      "grid": 16,
+      "move_axis": 0,
+      "direction": 1,
+      "fraction": 0.5,
+      "step": 1,
+      "dual_component": 2,
+      "old_alpha": 0.7300000000000002,
+      "new_alpha": 1.0,
+      "reference_old_alpha": 0.7300000000000002,
+      "reference_new_alpha": 1.0,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 16,
+      "move_axis": 1,
+      "direction": -1,
+      "fraction": 0.25,
+      "step": 0,
+      "dual_component": 0,
+      "old_alpha": 0.3699999999999999,
+      "new_alpha": 0.2999999999999998,
+      "reference_old_alpha": 0.3699999999999999,
+      "reference_new_alpha": 0.2999999999999998,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 16,
+      "move_axis": 1,
+      "direction": -1,
+      "fraction": 0.25,
+      "step": 0,
+      "dual_component": 1,
+      "old_alpha": 0.43999999999999995,
+      "new_alpha": 0.5240000000000001,
+      "reference_old_alpha": 0.43999999999999995,
+      "reference_new_alpha": 0.5240000000000001,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 16,
+      "move_axis": 1,
+      "direction": -1,
+      "fraction": 0.25,
+      "step": 0,
+      "dual_component": 2,
+      "old_alpha": 0.28000000000000025,
+      "new_alpha": 0.20000000000000018,
+      "reference_old_alpha": 0.28000000000000025,
+      "reference_new_alpha": 0.20000000000000018,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 16,
+      "move_axis": 1,
+      "direction": -1,
+      "fraction": 0.25,
+      "step": 1,
+      "dual_component": 0,
+      "old_alpha": 0.2999999999999998,
+      "new_alpha": 0.2999999999999998,
+      "reference_old_alpha": 0.2999999999999998,
+      "reference_new_alpha": 0.2999999999999998,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 16,
+      "move_axis": 1,
+      "direction": -1,
+      "fraction": 0.25,
+      "step": 1,
+      "dual_component": 1,
+      "old_alpha": 0.5240000000000001,
+      "new_alpha": 0.6640000000000001,
+      "reference_old_alpha": 0.5240000000000001,
+      "reference_new_alpha": 0.6640000000000001,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 16,
+      "move_axis": 1,
+      "direction": -1,
+      "fraction": 0.25,
+      "step": 1,
+      "dual_component": 2,
+      "old_alpha": 0.20000000000000018,
+      "new_alpha": 0.20000000000000018,
+      "reference_old_alpha": 0.20000000000000018,
+      "reference_new_alpha": 0.20000000000000018,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 16,
+      "move_axis": 1,
+      "direction": -1,
+      "fraction": 0.5,
+      "step": 0,
+      "dual_component": 0,
+      "old_alpha": 0.3699999999999999,
+      "new_alpha": 0.2999999999999998,
+      "reference_old_alpha": 0.3699999999999999,
+      "reference_new_alpha": 0.2999999999999998,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 16,
+      "move_axis": 1,
+      "direction": -1,
+      "fraction": 0.5,
+      "step": 0,
+      "dual_component": 1,
+      "old_alpha": 0.43999999999999995,
+      "new_alpha": 0.6640000000000001,
+      "reference_old_alpha": 0.43999999999999995,
+      "reference_new_alpha": 0.6640000000000001,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 5.551115123125783e-17
+    },
+    {
+      "grid": 16,
+      "move_axis": 1,
+      "direction": -1,
+      "fraction": 0.5,
+      "step": 0,
+      "dual_component": 2,
+      "old_alpha": 0.28000000000000025,
+      "new_alpha": 0.20000000000000018,
+      "reference_old_alpha": 0.28000000000000025,
+      "reference_new_alpha": 0.20000000000000018,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 16,
+      "move_axis": 1,
+      "direction": -1,
+      "fraction": 0.5,
+      "step": 1,
+      "dual_component": 0,
+      "old_alpha": 0.2999999999999998,
+      "new_alpha": 0.5800000000000001,
+      "reference_old_alpha": 0.2999999999999998,
+      "reference_new_alpha": 0.5800000000000001,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 5.551115123125783e-17
+    },
+    {
+      "grid": 16,
+      "move_axis": 1,
+      "direction": -1,
+      "fraction": 0.5,
+      "step": 1,
+      "dual_component": 1,
+      "old_alpha": 0.6640000000000001,
+      "new_alpha": 0.9440000000000002,
+      "reference_old_alpha": 0.6640000000000001,
+      "reference_new_alpha": 0.9440000000000002,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 16,
+      "move_axis": 1,
+      "direction": -1,
+      "fraction": 0.5,
+      "step": 1,
+      "dual_component": 2,
+      "old_alpha": 0.20000000000000018,
+      "new_alpha": 0.5200000000000005,
+      "reference_old_alpha": 0.20000000000000018,
+      "reference_new_alpha": 0.5200000000000005,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 5.551115123125783e-17
+    },
+    {
+      "grid": 16,
+      "move_axis": 1,
+      "direction": 1,
+      "fraction": 0.25,
+      "step": 0,
+      "dual_component": 0,
+      "old_alpha": 0.3699999999999999,
+      "new_alpha": 0.5449999999999999,
+      "reference_old_alpha": 0.3699999999999999,
+      "reference_new_alpha": 0.5449999999999999,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 16,
+      "move_axis": 1,
+      "direction": 1,
+      "fraction": 0.25,
+      "step": 0,
+      "dual_component": 1,
+      "old_alpha": 0.43999999999999995,
+      "new_alpha": 0.43999999999999995,
+      "reference_old_alpha": 0.43999999999999995,
+      "reference_new_alpha": 0.43999999999999995,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 16,
+      "move_axis": 1,
+      "direction": 1,
+      "fraction": 0.25,
+      "step": 0,
+      "dual_component": 2,
+      "old_alpha": 0.28000000000000025,
+      "new_alpha": 0.4800000000000002,
+      "reference_old_alpha": 0.28000000000000025,
+      "reference_new_alpha": 0.4800000000000002,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 16,
+      "move_axis": 1,
+      "direction": 1,
+      "fraction": 0.25,
+      "step": 1,
+      "dual_component": 0,
+      "old_alpha": 0.5449999999999999,
+      "new_alpha": 0.72,
+      "reference_old_alpha": 0.5449999999999999,
+      "reference_new_alpha": 0.72,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 16,
+      "move_axis": 1,
+      "direction": 1,
+      "fraction": 0.25,
+      "step": 1,
+      "dual_component": 1,
+      "old_alpha": 0.43999999999999995,
+      "new_alpha": 0.496,
+      "reference_old_alpha": 0.43999999999999995,
+      "reference_new_alpha": 0.496,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 16,
+      "move_axis": 1,
+      "direction": 1,
+      "fraction": 0.25,
+      "step": 1,
+      "dual_component": 2,
+      "old_alpha": 0.4800000000000002,
+      "new_alpha": 0.6800000000000002,
+      "reference_old_alpha": 0.4800000000000002,
+      "reference_new_alpha": 0.6800000000000002,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 5.551115123125783e-17
+    },
+    {
+      "grid": 16,
+      "move_axis": 1,
+      "direction": 1,
+      "fraction": 0.5,
+      "step": 0,
+      "dual_component": 0,
+      "old_alpha": 0.3699999999999999,
+      "new_alpha": 0.72,
+      "reference_old_alpha": 0.3699999999999999,
+      "reference_new_alpha": 0.72,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 5.551115123125783e-17
+    },
+    {
+      "grid": 16,
+      "move_axis": 1,
+      "direction": 1,
+      "fraction": 0.5,
+      "step": 0,
+      "dual_component": 1,
+      "old_alpha": 0.43999999999999995,
+      "new_alpha": 0.496,
+      "reference_old_alpha": 0.43999999999999995,
+      "reference_new_alpha": 0.496,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 16,
+      "move_axis": 1,
+      "direction": 1,
+      "fraction": 0.5,
+      "step": 0,
+      "dual_component": 2,
+      "old_alpha": 0.28000000000000025,
+      "new_alpha": 0.6800000000000002,
+      "reference_old_alpha": 0.28000000000000025,
+      "reference_new_alpha": 0.6800000000000002,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 5.551115123125783e-17
+    },
+    {
+      "grid": 16,
+      "move_axis": 1,
+      "direction": 1,
+      "fraction": 0.5,
+      "step": 1,
+      "dual_component": 0,
+      "old_alpha": 0.72,
+      "new_alpha": 1.0,
+      "reference_old_alpha": 0.72,
+      "reference_new_alpha": 1.0,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 4.440892098500626e-16
+    },
+    {
+      "grid": 16,
+      "move_axis": 1,
+      "direction": 1,
+      "fraction": 0.5,
+      "step": 1,
+      "dual_component": 1,
+      "old_alpha": 0.496,
+      "new_alpha": 0.7759999999999998,
+      "reference_old_alpha": 0.496,
+      "reference_new_alpha": 0.7759999999999998,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 2.7755575615628914e-16
+    },
+    {
+      "grid": 16,
+      "move_axis": 1,
+      "direction": 1,
+      "fraction": 0.5,
+      "step": 1,
+      "dual_component": 2,
+      "old_alpha": 0.6800000000000002,
+      "new_alpha": 1.0,
+      "reference_old_alpha": 0.6800000000000002,
+      "reference_new_alpha": 1.0,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 4.440892098500626e-16
+    },
+    {
+      "grid": 16,
+      "move_axis": 2,
+      "direction": -1,
+      "fraction": 0.25,
+      "step": 0,
+      "dual_component": 0,
+      "old_alpha": 0.3699999999999999,
+      "new_alpha": 0.1449999999999999,
+      "reference_old_alpha": 0.3699999999999999,
+      "reference_new_alpha": 0.1449999999999999,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 16,
+      "move_axis": 2,
+      "direction": -1,
+      "fraction": 0.25,
+      "step": 0,
+      "dual_component": 1,
+      "old_alpha": 0.43999999999999995,
+      "new_alpha": 0.24,
+      "reference_old_alpha": 0.43999999999999995,
+      "reference_new_alpha": 0.24,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 16,
+      "move_axis": 2,
+      "direction": -1,
+      "fraction": 0.25,
+      "step": 0,
+      "dual_component": 2,
+      "old_alpha": 0.28000000000000025,
+      "new_alpha": 0.28000000000000025,
+      "reference_old_alpha": 0.28000000000000025,
+      "reference_new_alpha": 0.28000000000000025,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 16,
+      "move_axis": 2,
+      "direction": -1,
+      "fraction": 0.25,
+      "step": 1,
+      "dual_component": 0,
+      "old_alpha": 0.1449999999999999,
+      "new_alpha": 0.10000000000000009,
+      "reference_old_alpha": 0.1449999999999999,
+      "reference_new_alpha": 0.10000000000000009,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 16,
+      "move_axis": 2,
+      "direction": -1,
+      "fraction": 0.25,
+      "step": 1,
+      "dual_component": 1,
+      "old_alpha": 0.24,
+      "new_alpha": 0.20000000000000018,
+      "reference_old_alpha": 0.24,
+      "reference_new_alpha": 0.20000000000000018,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 8.326672684688674e-17
+    },
+    {
+      "grid": 16,
+      "move_axis": 2,
+      "direction": -1,
+      "fraction": 0.25,
+      "step": 1,
+      "dual_component": 2,
+      "old_alpha": 0.28000000000000025,
+      "new_alpha": 0.4240000000000004,
+      "reference_old_alpha": 0.28000000000000025,
+      "reference_new_alpha": 0.4240000000000004,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 5.551115123125783e-17
+    },
+    {
+      "grid": 16,
+      "move_axis": 2,
+      "direction": -1,
+      "fraction": 0.5,
+      "step": 0,
+      "dual_component": 0,
+      "old_alpha": 0.3699999999999999,
+      "new_alpha": 0.10000000000000009,
+      "reference_old_alpha": 0.3699999999999999,
+      "reference_new_alpha": 0.10000000000000009,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 16,
+      "move_axis": 2,
+      "direction": -1,
+      "fraction": 0.5,
+      "step": 0,
+      "dual_component": 1,
+      "old_alpha": 0.43999999999999995,
+      "new_alpha": 0.20000000000000018,
+      "reference_old_alpha": 0.43999999999999995,
+      "reference_new_alpha": 0.20000000000000018,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 5.551115123125783e-17
+    },
+    {
+      "grid": 16,
+      "move_axis": 2,
+      "direction": -1,
+      "fraction": 0.5,
+      "step": 0,
+      "dual_component": 2,
+      "old_alpha": 0.28000000000000025,
+      "new_alpha": 0.4240000000000004,
+      "reference_old_alpha": 0.28000000000000025,
+      "reference_new_alpha": 0.4240000000000004,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 16,
+      "move_axis": 2,
+      "direction": -1,
+      "fraction": 0.5,
+      "step": 1,
+      "dual_component": 0,
+      "old_alpha": 0.10000000000000009,
+      "new_alpha": 0.28000000000000025,
+      "reference_old_alpha": 0.10000000000000009,
+      "reference_new_alpha": 0.28000000000000025,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 16,
+      "move_axis": 2,
+      "direction": -1,
+      "fraction": 0.5,
+      "step": 1,
+      "dual_component": 1,
+      "old_alpha": 0.20000000000000018,
+      "new_alpha": 0.3600000000000003,
+      "reference_old_alpha": 0.20000000000000018,
+      "reference_new_alpha": 0.3600000000000003,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 5.551115123125783e-17
+    },
+    {
+      "grid": 16,
+      "move_axis": 2,
+      "direction": -1,
+      "fraction": 0.5,
+      "step": 1,
+      "dual_component": 2,
+      "old_alpha": 0.4240000000000004,
+      "new_alpha": 0.7840000000000003,
+      "reference_old_alpha": 0.4240000000000004,
+      "reference_new_alpha": 0.7840000000000003,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 16,
+      "move_axis": 2,
+      "direction": 1,
+      "fraction": 0.25,
+      "step": 0,
+      "dual_component": 0,
+      "old_alpha": 0.3699999999999999,
+      "new_alpha": 0.5949999999999999,
+      "reference_old_alpha": 0.3699999999999999,
+      "reference_new_alpha": 0.5949999999999999,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 5.551115123125783e-17
+    },
+    {
+      "grid": 16,
+      "move_axis": 2,
+      "direction": 1,
+      "fraction": 0.25,
+      "step": 0,
+      "dual_component": 1,
+      "old_alpha": 0.43999999999999995,
+      "new_alpha": 0.6399999999999999,
+      "reference_old_alpha": 0.43999999999999995,
+      "reference_new_alpha": 0.6399999999999999,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 5.551115123125783e-17
+    },
+    {
+      "grid": 16,
+      "move_axis": 2,
+      "direction": 1,
+      "fraction": 0.25,
+      "step": 0,
+      "dual_component": 2,
+      "old_alpha": 0.28000000000000025,
+      "new_alpha": 0.31600000000000006,
+      "reference_old_alpha": 0.28000000000000025,
+      "reference_new_alpha": 0.31600000000000006,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 8.326672684688674e-17
+    },
+    {
+      "grid": 16,
+      "move_axis": 2,
+      "direction": 1,
+      "fraction": 0.25,
+      "step": 1,
+      "dual_component": 0,
+      "old_alpha": 0.5949999999999999,
+      "new_alpha": 0.8199999999999998,
+      "reference_old_alpha": 0.5949999999999999,
+      "reference_new_alpha": 0.8199999999999998,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 16,
+      "move_axis": 2,
+      "direction": 1,
+      "fraction": 0.25,
+      "step": 1,
+      "dual_component": 1,
+      "old_alpha": 0.6399999999999999,
+      "new_alpha": 0.8399999999999999,
+      "reference_old_alpha": 0.6399999999999999,
+      "reference_new_alpha": 0.8399999999999999,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 8.326672684688674e-17
+    },
+    {
+      "grid": 16,
+      "move_axis": 2,
+      "direction": 1,
+      "fraction": 0.25,
+      "step": 1,
+      "dual_component": 2,
+      "old_alpha": 0.31600000000000006,
+      "new_alpha": 0.496,
+      "reference_old_alpha": 0.31600000000000006,
+      "reference_new_alpha": 0.496,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 5.551115123125783e-17
+    },
+    {
+      "grid": 16,
+      "move_axis": 2,
+      "direction": 1,
+      "fraction": 0.5,
+      "step": 0,
+      "dual_component": 0,
+      "old_alpha": 0.3699999999999999,
+      "new_alpha": 0.8199999999999998,
+      "reference_old_alpha": 0.3699999999999999,
+      "reference_new_alpha": 0.8199999999999998,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 16,
+      "move_axis": 2,
+      "direction": 1,
+      "fraction": 0.5,
+      "step": 0,
+      "dual_component": 1,
+      "old_alpha": 0.43999999999999995,
+      "new_alpha": 0.8399999999999999,
+      "reference_old_alpha": 0.43999999999999995,
+      "reference_new_alpha": 0.8399999999999999,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 5.551115123125783e-17
+    },
+    {
+      "grid": 16,
+      "move_axis": 2,
+      "direction": 1,
+      "fraction": 0.5,
+      "step": 0,
+      "dual_component": 2,
+      "old_alpha": 0.28000000000000025,
+      "new_alpha": 0.496,
+      "reference_old_alpha": 0.28000000000000025,
+      "reference_new_alpha": 0.496,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 16,
+      "move_axis": 2,
+      "direction": 1,
+      "fraction": 0.5,
+      "step": 1,
+      "dual_component": 0,
+      "old_alpha": 0.8199999999999998,
+      "new_alpha": 1.0,
+      "reference_old_alpha": 0.8199999999999998,
+      "reference_new_alpha": 1.0,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    },
+    {
+      "grid": 16,
+      "move_axis": 2,
+      "direction": 1,
+      "fraction": 0.5,
+      "step": 1,
+      "dual_component": 1,
+      "old_alpha": 0.8399999999999999,
+      "new_alpha": 1.0,
+      "reference_old_alpha": 0.8399999999999999,
+      "reference_new_alpha": 1.0,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 5.551115123125783e-17
+    },
+    {
+      "grid": 16,
+      "move_axis": 2,
+      "direction": 1,
+      "fraction": 0.5,
+      "step": 1,
+      "dual_component": 2,
+      "old_alpha": 0.496,
+      "new_alpha": 0.8559999999999999,
+      "reference_old_alpha": 0.496,
+      "reference_new_alpha": 0.8559999999999999,
+      "overlap_abs_error": 0.0,
+      "gcl_m3": 1.1102230246251565e-16
+    }
+  ],
+  "source_sha256": {
+    "CMakeLists.txt": "6c8a40edf71737d78747820171f9cbde2217b1b6a27505cf6e1b33f3f20973c5",
+    "docs/PHASENPLAN.md": "58f532e17541ea9c840b67eb841a72d9cea985c97e97df6abc2d1cae3ade9ee7",
+    "docs/P2_MOVING_MAC_DUAL_VOLUME_PARTIAL.md": "1c2e5bb8753384c25b362b8c303f75ab862f5425846ba12f244c469697ad0c0e",
+    "include/upc/p2_moving_mac_dual_volumes3d.hpp": "b6dcf0444be679dd2bb74d1846e74686c21a33870f50724912dce3a497c83bfa",
+    "include/upc/p2_moving_box_open_volume3d.hpp": "270ecc419fa312212e47dbcfbd7fa8f2b172fde153b6d66e19f226be5cbedbb2",
+    "include/upc/p2_moving_box_swept_wall_flux3d.hpp": "80d299136f57df0b479d598468c39bf67675524942557701f99b40fe897a656e",
+    "tests/p2_moving_mac_dual_volumes3d_tests.cpp": "d2a41e6c6d509db72212d66681975361df6625cd577f428089a987a07a00338d",
+    "scripts/p2_moving_mac_dual_full_build.cmd": "bef990256a0bc3b8c06d359aca00a490127e0e262896e13b753d995a3d2705fa",
+    "scripts/p2_moving_mac_dual_acceptance.py": "28dc7b66b224d40324cd882c9f07e90c06340b726ad2ddc5bb3063f3ca010bff"
+  },
+  "ctest_log_sha256": "79174a7d81262ea23d14fd873005b6022bd8e1aab88baa1d798316dabec889fd",
+  "unproven": [
+    "conservative staggered dual momentum transport with physical boundary traction",
+    "dynamic fluid-solid impulse reaction and energy conservation",
+    "free-surface stress and variable-density multiphase CFD",
+    "independent measured 3D CFD validation",
+    "CoupledMacWater3D and UE5.8 native E2E integration"
+  ]
+}

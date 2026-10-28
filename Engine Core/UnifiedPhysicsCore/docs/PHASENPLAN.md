@@ -845,3 +845,16 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
 - **P2 weiterhin PARTIAL.** Dies ist noch kein MAC-Dualvolumen-
   Impulstransport und keine physikalische FSI-/Energiekopplung.
   P3-P8 ebenfalls PARTIAL; ALL_COMPLETE=False.
+
+## P2 Teilfortschritt: exakte bewegte MAC-Dualvolumina (28.10.2026)
+
+- Optionaler geometrischer P2MovingMacDualVolumes3DBuilder: echte um
+  dx/2 versetzte u-/v-/w-Kontrollvolumina mit exakten Quader-
+  Schnittvolumina, zeitintegriertem Wand-Sweep und lokalem GCL.
+- Vollstaendiger MSVC-Release-CTest und analytische unabhaengige
+  3D-Dualgeometrie-Referenzen: docs/P2_MOVING_MAC_DUAL_VOLUME_PARTIAL.md.
+- Belege: scripts/p2_moving_mac_dual_acceptance.py und
+  ENGINE TEST STUBE/runs/p2_moving_mac_dual_partial.json.
+- **P2 bleibt PARTIAL**, ebenso P3-P8. Es fehlen physikalische
+  Dual-MAC-Impulsadvektion, Wand-Gegenimpuls, freie Oberflaeche,
+  externe CFD-Messvalidierung und neues UE5.8-Native-E2E.

@@ -361,3 +361,9 @@ add_test(NAME physics_p2_moving_cut_cell_pressure_energy_partial COMMAND upc_p2_
 add_executable(upc_p2_moving_cut_cell_scalar_transport_tests tests/p2_moving_cut_cell_scalar_transport3d_tests.cpp)
 target_link_libraries(upc_p2_moving_cut_cell_scalar_transport_tests PRIVATE upc)
 add_test(NAME physics_p2_moving_cut_cell_signed_scalar_partial COMMAND upc_p2_moving_cut_cell_scalar_transport_tests)
+
+# P2 partial: exact staggered MAC dual-cell open volumes and moving-box
+# swept-wall geometric conservation. No dual momentum transport or FSI yet.
+add_executable(upc_p2_moving_mac_dual_volumes_tests tests/p2_moving_mac_dual_volumes3d_tests.cpp)
+target_link_libraries(upc_p2_moving_mac_dual_volumes_tests PRIVATE upc)
+add_test(NAME physics_p2_moving_mac_dual_volume_gcl_partial COMMAND upc_p2_moving_mac_dual_volumes_tests)
