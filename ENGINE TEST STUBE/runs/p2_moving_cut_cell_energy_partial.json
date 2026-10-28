@@ -1,0 +1,1548 @@
+{
+  "phase": "P2",
+  "milestone": "moving_cut_cell_pressure_work_and_sequential_vof_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "timestamp_utc": "2026-10-28T13:41:04.610419+00:00",
+  "scope": "closed constant-density moving-box 3D cut-cell pressure-work identity and opt-in sequential MAC/VOF audit",
+  "limits": [
+    "time-averaged MAC-face kinetic proxy, not physical total energy",
+    "prescribed box trajectory, no bidirectional fluid/solid impulse",
+    "no conservative cut-cell nonlinear momentum advection",
+    "no stress-correct free surface or independently measured 3D CFD",
+    "no integration into general CoupledMacWater3D or new UE5.8 native E2E"
+  ],
+  "ctest_suites": 69,
+  "native_assertions": 76618,
+  "reference_cases": 36,
+  "sequential_cases": 18,
+  "checks": [
+    {
+      "name": "(8, 0, -1, 0) moving-wall energy identity",
+      "actual": 6.821210263296962e-13,
+      "expected": 0.0,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "(8, 0, -1, 0) cut-cell continuity",
+      "actual": 9.540285228482048e-13,
+      "expected": 0.0,
+      "tolerance": 2e-10,
+      "pass": true
+    },
+    {
+      "name": "(8, 0, -1, 0) predicted kinetic reference",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-09,
+      "pass": true
+    },
+    {
+      "name": "(8, 0, -1, 0) zero-predictor kinetic correction",
+      "actual": 410.8578461493687,
+      "expected": 410.8578461493687,
+      "tolerance": 2e-08,
+      "pass": true
+    },
+    {
+      "name": "(8, 0, -1, 0) independent wall pressure work",
+      "actual": 821.7156922987367,
+      "expected": 821.7156922987374,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "(8, 0, -1, 1) moving-wall energy identity",
+      "actual": 6.252776074688882e-13,
+      "expected": 0.0,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "(8, 0, -1, 1) cut-cell continuity",
+      "actual": 9.92605303506977e-13,
+      "expected": 0.0,
+      "tolerance": 2e-10,
+      "pass": true
+    },
+    {
+      "name": "(8, 0, -1, 1) predicted kinetic reference",
+      "actual": 56.0,
+      "expected": 56.0,
+      "tolerance": 1e-09,
+      "pass": true
+    },
+    {
+      "name": "8/0/-1 sequential step count",
+      "actual": 2.0,
+      "expected": 2.0,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "8/0/-1 saturated water volume",
+      "actual": 508.625,
+      "expected": 508.625,
+      "tolerance": 2e-09,
+      "pass": true
+    },
+    {
+      "name": "(8, 0, 1, 0) moving-wall energy identity",
+      "actual": 5.684341886080801e-13,
+      "expected": 0.0,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "(8, 0, 1, 0) cut-cell continuity",
+      "actual": 6.811773367587648e-13,
+      "expected": 0.0,
+      "tolerance": 2e-10,
+      "pass": true
+    },
+    {
+      "name": "(8, 0, 1, 0) predicted kinetic reference",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-09,
+      "pass": true
+    },
+    {
+      "name": "(8, 0, 1, 0) zero-predictor kinetic correction",
+      "actual": 449.6319644402046,
+      "expected": 449.6319644402046,
+      "tolerance": 2e-08,
+      "pass": true
+    },
+    {
+      "name": "(8, 0, 1, 0) independent wall pressure work",
+      "actual": 899.2639288804087,
+      "expected": 899.2639288804093,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "(8, 0, 1, 1) moving-wall energy identity",
+      "actual": -2.2737367544323206e-12,
+      "expected": 0.0,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "(8, 0, 1, 1) cut-cell continuity",
+      "actual": 6.489695933420414e-13,
+      "expected": 0.0,
+      "tolerance": 2e-10,
+      "pass": true
+    },
+    {
+      "name": "(8, 0, 1, 1) predicted kinetic reference",
+      "actual": 56.0,
+      "expected": 56.0,
+      "tolerance": 1e-09,
+      "pass": true
+    },
+    {
+      "name": "8/0/1 sequential step count",
+      "actual": 2.0,
+      "expected": 2.0,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "8/0/1 saturated water volume",
+      "actual": 508.625,
+      "expected": 508.625,
+      "tolerance": 2e-09,
+      "pass": true
+    },
+    {
+      "name": "(8, 1, -1, 0) moving-wall energy identity",
+      "actual": -3.410605131648481e-13,
+      "expected": 0.0,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "(8, 1, -1, 0) cut-cell continuity",
+      "actual": 5.3105089770078e-13,
+      "expected": 0.0,
+      "tolerance": 2e-10,
+      "pass": true
+    },
+    {
+      "name": "(8, 1, -1, 0) predicted kinetic reference",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-09,
+      "pass": true
+    },
+    {
+      "name": "(8, 1, -1, 0) zero-predictor kinetic correction",
+      "actual": 397.6666028755722,
+      "expected": 397.6666028755722,
+      "tolerance": 2e-08,
+      "pass": true
+    },
+    {
+      "name": "(8, 1, -1, 0) independent wall pressure work",
+      "actual": 795.3332057511448,
+      "expected": 795.3332057511444,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "(8, 1, -1, 1) moving-wall energy identity",
+      "actual": -1.1368683772161603e-13,
+      "expected": 0.0,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "(8, 1, -1, 1) cut-cell continuity",
+      "actual": 9.69792388755275e-13,
+      "expected": 0.0,
+      "tolerance": 2e-10,
+      "pass": true
+    },
+    {
+      "name": "(8, 1, -1, 1) predicted kinetic reference",
+      "actual": 56.0,
+      "expected": 56.0,
+      "tolerance": 1e-09,
+      "pass": true
+    },
+    {
+      "name": "8/1/-1 sequential step count",
+      "actual": 2.0,
+      "expected": 2.0,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "8/1/-1 saturated water volume",
+      "actual": 508.625,
+      "expected": 508.625,
+      "tolerance": 2e-09,
+      "pass": true
+    },
+    {
+      "name": "(8, 1, 1, 0) moving-wall energy identity",
+      "actual": 3.410605131648481e-13,
+      "expected": 0.0,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "(8, 1, 1, 0) cut-cell continuity",
+      "actual": 6.055262628118507e-13,
+      "expected": 0.0,
+      "tolerance": 2e-10,
+      "pass": true
+    },
+    {
+      "name": "(8, 1, 1, 0) predicted kinetic reference",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-09,
+      "pass": true
+    },
+    {
+      "name": "(8, 1, 1, 0) zero-predictor kinetic correction",
+      "actual": 428.7959366766252,
+      "expected": 428.7959366766252,
+      "tolerance": 2e-08,
+      "pass": true
+    },
+    {
+      "name": "(8, 1, 1, 0) independent wall pressure work",
+      "actual": 857.5918733532501,
+      "expected": 857.5918733532504,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "(8, 1, 1, 1) moving-wall energy identity",
+      "actual": -1.7053025658242404e-13,
+      "expected": 0.0,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "(8, 1, 1, 1) cut-cell continuity",
+      "actual": 9.264260365793309e-13,
+      "expected": 0.0,
+      "tolerance": 2e-10,
+      "pass": true
+    },
+    {
+      "name": "(8, 1, 1, 1) predicted kinetic reference",
+      "actual": 56.0,
+      "expected": 56.0,
+      "tolerance": 1e-09,
+      "pass": true
+    },
+    {
+      "name": "8/1/1 sequential step count",
+      "actual": 2.0,
+      "expected": 2.0,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "8/1/1 saturated water volume",
+      "actual": 508.625,
+      "expected": 508.625,
+      "tolerance": 2e-09,
+      "pass": true
+    },
+    {
+      "name": "(8, 2, -1, 0) moving-wall energy identity",
+      "actual": 1.2505552149377763e-12,
+      "expected": 0.0,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "(8, 2, -1, 0) cut-cell continuity",
+      "actual": 6.81163458970957e-13,
+      "expected": 0.0,
+      "tolerance": 2e-10,
+      "pass": true
+    },
+    {
+      "name": "(8, 2, -1, 0) predicted kinetic reference",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-09,
+      "pass": true
+    },
+    {
+      "name": "(8, 2, -1, 0) zero-predictor kinetic correction",
+      "actual": 449.63196444020497,
+      "expected": 449.63196444020497,
+      "tolerance": 2e-08,
+      "pass": true
+    },
+    {
+      "name": "(8, 2, -1, 0) independent wall pressure work",
+      "actual": 899.2639288804087,
+      "expected": 899.2639288804099,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "(8, 2, -1, 1) moving-wall energy identity",
+      "actual": -8.526512829121202e-13,
+      "expected": 0.0,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "(8, 2, -1, 1) cut-cell continuity",
+      "actual": 8.429741280013836e-13,
+      "expected": 0.0,
+      "tolerance": 2e-10,
+      "pass": true
+    },
+    {
+      "name": "(8, 2, -1, 1) predicted kinetic reference",
+      "actual": 56.0,
+      "expected": 56.0,
+      "tolerance": 1e-09,
+      "pass": true
+    },
+    {
+      "name": "8/2/-1 sequential step count",
+      "actual": 2.0,
+      "expected": 2.0,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "8/2/-1 saturated water volume",
+      "actual": 508.625,
+      "expected": 508.625,
+      "tolerance": 2e-09,
+      "pass": true
+    },
+    {
+      "name": "(8, 2, 1, 0) moving-wall energy identity",
+      "actual": 3.410605131648481e-13,
+      "expected": 0.0,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "(8, 2, 1, 0) cut-cell continuity",
+      "actual": 9.540285228482048e-13,
+      "expected": 0.0,
+      "tolerance": 2e-10,
+      "pass": true
+    },
+    {
+      "name": "(8, 2, 1, 0) predicted kinetic reference",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-09,
+      "pass": true
+    },
+    {
+      "name": "(8, 2, 1, 0) zero-predictor kinetic correction",
+      "actual": 410.8578461493686,
+      "expected": 410.8578461493686,
+      "tolerance": 2e-08,
+      "pass": true
+    },
+    {
+      "name": "(8, 2, 1, 0) independent wall pressure work",
+      "actual": 821.7156922987368,
+      "expected": 821.7156922987372,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "(8, 2, 1, 1) moving-wall energy identity",
+      "actual": 1.1368683772161603e-13,
+      "expected": 0.0,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "(8, 2, 1, 1) cut-cell continuity",
+      "actual": 7.213448588450078e-13,
+      "expected": 0.0,
+      "tolerance": 2e-10,
+      "pass": true
+    },
+    {
+      "name": "(8, 2, 1, 1) predicted kinetic reference",
+      "actual": 56.0,
+      "expected": 56.0,
+      "tolerance": 1e-09,
+      "pass": true
+    },
+    {
+      "name": "8/2/1 sequential step count",
+      "actual": 2.0,
+      "expected": 2.0,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "8/2/1 saturated water volume",
+      "actual": 508.625,
+      "expected": 508.625,
+      "tolerance": 2e-09,
+      "pass": true
+    },
+    {
+      "name": "(12, 0, -1, 0) moving-wall energy identity",
+      "actual": -3.751665644813329e-12,
+      "expected": 0.0,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "(12, 0, -1, 0) cut-cell continuity",
+      "actual": 9.367918767100303e-13,
+      "expected": 0.0,
+      "tolerance": 2e-10,
+      "pass": true
+    },
+    {
+      "name": "(12, 0, -1, 0) predicted kinetic reference",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-09,
+      "pass": true
+    },
+    {
+      "name": "(12, 0, -1, 0) zero-predictor kinetic correction",
+      "actual": 406.65016075809444,
+      "expected": 406.65016075809444,
+      "tolerance": 2e-08,
+      "pass": true
+    },
+    {
+      "name": "(12, 0, -1, 0) independent wall pressure work",
+      "actual": 813.3003215161926,
+      "expected": 813.3003215161889,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "(12, 0, -1, 1) moving-wall energy identity",
+      "actual": 2.4442670110147446e-12,
+      "expected": 0.0,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "(12, 0, -1, 1) cut-cell continuity",
+      "actual": 9.615052894498821e-13,
+      "expected": 0.0,
+      "tolerance": 2e-10,
+      "pass": true
+    },
+    {
+      "name": "(12, 0, -1, 1) predicted kinetic reference",
+      "actual": 56.0,
+      "expected": 56.0,
+      "tolerance": 1e-09,
+      "pass": true
+    },
+    {
+      "name": "12/0/-1 sequential step count",
+      "actual": 2.0,
+      "expected": 2.0,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "12/0/-1 saturated water volume",
+      "actual": 1724.625,
+      "expected": 1724.625,
+      "tolerance": 2e-09,
+      "pass": true
+    },
+    {
+      "name": "(12, 0, 1, 0) moving-wall energy identity",
+      "actual": -5.684341886080801e-13,
+      "expected": 0.0,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "(12, 0, 1, 0) cut-cell continuity",
+      "actual": 7.661233843506143e-13,
+      "expected": 0.0,
+      "tolerance": 2e-10,
+      "pass": true
+    },
+    {
+      "name": "(12, 0, 1, 0) predicted kinetic reference",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-09,
+      "pass": true
+    },
+    {
+      "name": "(12, 0, 1, 0) zero-predictor kinetic correction",
+      "actual": 446.1315891158161,
+      "expected": 446.1315891158161,
+      "tolerance": 2e-08,
+      "pass": true
+    },
+    {
+      "name": "(12, 0, 1, 0) independent wall pressure work",
+      "actual": 892.2631782316328,
+      "expected": 892.2631782316322,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "(12, 0, 1, 1) moving-wall energy identity",
+      "actual": -3.979039320256561e-13,
+      "expected": 0.0,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "(12, 0, 1, 1) cut-cell continuity",
+      "actual": 8.849125723636372e-13,
+      "expected": 0.0,
+      "tolerance": 2e-10,
+      "pass": true
+    },
+    {
+      "name": "(12, 0, 1, 1) predicted kinetic reference",
+      "actual": 56.0,
+      "expected": 56.0,
+      "tolerance": 1e-09,
+      "pass": true
+    },
+    {
+      "name": "12/0/1 sequential step count",
+      "actual": 2.0,
+      "expected": 2.0,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "12/0/1 saturated water volume",
+      "actual": 1724.625,
+      "expected": 1724.625,
+      "tolerance": 2e-09,
+      "pass": true
+    },
+    {
+      "name": "(12, 1, -1, 0) moving-wall energy identity",
+      "actual": -2.0463630789890885e-12,
+      "expected": 0.0,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "(12, 1, -1, 0) cut-cell continuity",
+      "actual": 9.268471407031242e-13,
+      "expected": 0.0,
+      "tolerance": 2e-10,
+      "pass": true
+    },
+    {
+      "name": "(12, 1, -1, 0) predicted kinetic reference",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-09,
+      "pass": true
+    },
+    {
+      "name": "(12, 1, -1, 0) zero-predictor kinetic correction",
+      "actual": 391.35683022110766,
+      "expected": 391.35683022110766,
+      "tolerance": 2e-08,
+      "pass": true
+    },
+    {
+      "name": "(12, 1, -1, 0) independent wall pressure work",
+      "actual": 782.7136604422174,
+      "expected": 782.7136604422153,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "(12, 1, -1, 1) moving-wall energy identity",
+      "actual": 2.1600499167107046e-12,
+      "expected": 0.0,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "(12, 1, -1, 1) cut-cell continuity",
+      "actual": 6.346993243477872e-13,
+      "expected": 0.0,
+      "tolerance": 2e-10,
+      "pass": true
+    },
+    {
+      "name": "(12, 1, -1, 1) predicted kinetic reference",
+      "actual": 56.0,
+      "expected": 56.0,
+      "tolerance": 1e-09,
+      "pass": true
+    },
+    {
+      "name": "12/1/-1 sequential step count",
+      "actual": 2.0,
+      "expected": 2.0,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "12/1/-1 saturated water volume",
+      "actual": 1724.625,
+      "expected": 1724.625,
+      "tolerance": 2e-09,
+      "pass": true
+    },
+    {
+      "name": "(12, 1, 1, 0) moving-wall energy identity",
+      "actual": 1.8189894035458565e-12,
+      "expected": 0.0,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "(12, 1, 1, 0) cut-cell continuity",
+      "actual": 8.259794622355807e-13,
+      "expected": 0.0,
+      "tolerance": 2e-10,
+      "pass": true
+    },
+    {
+      "name": "(12, 1, 1, 0) predicted kinetic reference",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-09,
+      "pass": true
+    },
+    {
+      "name": "(12, 1, 1, 0) zero-predictor kinetic correction",
+      "actual": 425.31567056557685,
+      "expected": 425.31567056557685,
+      "tolerance": 2e-08,
+      "pass": true
+    },
+    {
+      "name": "(12, 1, 1, 0) independent wall pressure work",
+      "actual": 850.6313411311519,
+      "expected": 850.6313411311537,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "(12, 1, 1, 1) moving-wall energy identity",
+      "actual": -1.6484591469634324e-12,
+      "expected": 0.0,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "(12, 1, 1, 1) cut-cell continuity",
+      "actual": 8.675894339971527e-13,
+      "expected": 0.0,
+      "tolerance": 2e-10,
+      "pass": true
+    },
+    {
+      "name": "(12, 1, 1, 1) predicted kinetic reference",
+      "actual": 56.0,
+      "expected": 56.0,
+      "tolerance": 1e-09,
+      "pass": true
+    },
+    {
+      "name": "12/1/1 sequential step count",
+      "actual": 2.0,
+      "expected": 2.0,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "12/1/1 saturated water volume",
+      "actual": 1724.625,
+      "expected": 1724.625,
+      "tolerance": 2e-09,
+      "pass": true
+    },
+    {
+      "name": "(12, 2, -1, 0) moving-wall energy identity",
+      "actual": 1.2505552149377763e-12,
+      "expected": 0.0,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "(12, 2, -1, 0) cut-cell continuity",
+      "actual": 7.369826320394179e-13,
+      "expected": 0.0,
+      "tolerance": 2e-10,
+      "pass": true
+    },
+    {
+      "name": "(12, 2, -1, 0) predicted kinetic reference",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-09,
+      "pass": true
+    },
+    {
+      "name": "(12, 2, -1, 0) zero-predictor kinetic correction",
+      "actual": 446.2423201518683,
+      "expected": 446.2423201518683,
+      "tolerance": 2e-08,
+      "pass": true
+    },
+    {
+      "name": "(12, 2, -1, 0) independent wall pressure work",
+      "actual": 892.4846403037353,
+      "expected": 892.4846403037366,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "(12, 2, -1, 1) moving-wall energy identity",
+      "actual": -1.1937117960769683e-12,
+      "expected": 0.0,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "(12, 2, -1, 1) cut-cell continuity",
+      "actual": 7.348741840745854e-13,
+      "expected": 0.0,
+      "tolerance": 2e-10,
+      "pass": true
+    },
+    {
+      "name": "(12, 2, -1, 1) predicted kinetic reference",
+      "actual": 56.0,
+      "expected": 56.0,
+      "tolerance": 1e-09,
+      "pass": true
+    },
+    {
+      "name": "12/2/-1 sequential step count",
+      "actual": 2.0,
+      "expected": 2.0,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "12/2/-1 saturated water volume",
+      "actual": 1724.625,
+      "expected": 1724.625,
+      "tolerance": 2e-09,
+      "pass": true
+    },
+    {
+      "name": "(12, 2, 1, 0) moving-wall energy identity",
+      "actual": -3.410605131648481e-13,
+      "expected": 0.0,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "(12, 2, 1, 0) cut-cell continuity",
+      "actual": 7.585531595216688e-13,
+      "expected": 0.0,
+      "tolerance": 2e-10,
+      "pass": true
+    },
+    {
+      "name": "(12, 2, 1, 0) predicted kinetic reference",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-09,
+      "pass": true
+    },
+    {
+      "name": "(12, 2, 1, 0) zero-predictor kinetic correction",
+      "actual": 406.4678993127324,
+      "expected": 406.4678993127324,
+      "tolerance": 2e-08,
+      "pass": true
+    },
+    {
+      "name": "(12, 2, 1, 0) independent wall pressure work",
+      "actual": 812.9357986254652,
+      "expected": 812.9357986254648,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "(12, 2, 1, 1) moving-wall energy identity",
+      "actual": 1.5347723092418164e-12,
+      "expected": 0.0,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "(12, 2, 1, 1) cut-cell continuity",
+      "actual": 8.13196840594721e-13,
+      "expected": 0.0,
+      "tolerance": 2e-10,
+      "pass": true
+    },
+    {
+      "name": "(12, 2, 1, 1) predicted kinetic reference",
+      "actual": 56.0,
+      "expected": 56.0,
+      "tolerance": 1e-09,
+      "pass": true
+    },
+    {
+      "name": "12/2/1 sequential step count",
+      "actual": 2.0,
+      "expected": 2.0,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "12/2/1 saturated water volume",
+      "actual": 1724.625,
+      "expected": 1724.625,
+      "tolerance": 2e-09,
+      "pass": true
+    },
+    {
+      "name": "(16, 0, -1, 0) moving-wall energy identity",
+      "actual": -2.5011104298755527e-12,
+      "expected": 0.0,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "(16, 0, -1, 0) cut-cell continuity",
+      "actual": 6.061736941391505e-13,
+      "expected": 0.0,
+      "tolerance": 2e-10,
+      "pass": true
+    },
+    {
+      "name": "(16, 0, -1, 0) predicted kinetic reference",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-09,
+      "pass": true
+    },
+    {
+      "name": "(16, 0, -1, 0) zero-predictor kinetic correction",
+      "actual": 406.2388312322778,
+      "expected": 406.2388312322778,
+      "tolerance": 2e-08,
+      "pass": true
+    },
+    {
+      "name": "(16, 0, -1, 0) independent wall pressure work",
+      "actual": 812.4776624645581,
+      "expected": 812.4776624645556,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "(16, 0, -1, 1) moving-wall energy identity",
+      "actual": -1.9326762412674725e-12,
+      "expected": 0.0,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "(16, 0, -1, 1) cut-cell continuity",
+      "actual": 6.093187478010964e-13,
+      "expected": 0.0,
+      "tolerance": 2e-10,
+      "pass": true
+    },
+    {
+      "name": "(16, 0, -1, 1) predicted kinetic reference",
+      "actual": 56.0,
+      "expected": 56.0,
+      "tolerance": 1e-09,
+      "pass": true
+    },
+    {
+      "name": "16/0/-1 sequential step count",
+      "actual": 2.0,
+      "expected": 2.0,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "16/0/-1 saturated water volume",
+      "actual": 4092.625,
+      "expected": 4092.625,
+      "tolerance": 2e-09,
+      "pass": true
+    },
+    {
+      "name": "(16, 0, 1, 0) moving-wall energy identity",
+      "actual": -1.7053025658242404e-12,
+      "expected": 0.0,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "(16, 0, 1, 0) cut-cell continuity",
+      "actual": 9.534351932093121e-13,
+      "expected": 0.0,
+      "tolerance": 2e-10,
+      "pass": true
+    },
+    {
+      "name": "(16, 0, 1, 0) predicted kinetic reference",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-09,
+      "pass": true
+    },
+    {
+      "name": "(16, 0, 1, 0) zero-predictor kinetic correction",
+      "actual": 445.7827733484839,
+      "expected": 445.7827733484839,
+      "tolerance": 2e-08,
+      "pass": true
+    },
+    {
+      "name": "(16, 0, 1, 0) independent wall pressure work",
+      "actual": 891.5655466969695,
+      "expected": 891.5655466969678,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "(16, 0, 1, 1) moving-wall energy identity",
+      "actual": -3.524291969370097e-12,
+      "expected": 0.0,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "(16, 0, 1, 1) cut-cell continuity",
+      "actual": 9.17340747634554e-13,
+      "expected": 0.0,
+      "tolerance": 2e-10,
+      "pass": true
+    },
+    {
+      "name": "(16, 0, 1, 1) predicted kinetic reference",
+      "actual": 56.0,
+      "expected": 56.0,
+      "tolerance": 1e-09,
+      "pass": true
+    },
+    {
+      "name": "16/0/1 sequential step count",
+      "actual": 2.0,
+      "expected": 2.0,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "16/0/1 saturated water volume",
+      "actual": 4092.625,
+      "expected": 4092.625,
+      "tolerance": 2e-09,
+      "pass": true
+    },
+    {
+      "name": "(16, 1, -1, 0) moving-wall energy identity",
+      "actual": 2.2737367544323206e-12,
+      "expected": 0.0,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "(16, 1, -1, 0) cut-cell continuity",
+      "actual": 6.666965699127225e-13,
+      "expected": 0.0,
+      "tolerance": 2e-10,
+      "pass": true
+    },
+    {
+      "name": "(16, 1, -1, 0) predicted kinetic reference",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-09,
+      "pass": true
+    },
+    {
+      "name": "(16, 1, -1, 0) zero-predictor kinetic correction",
+      "actual": 390.7661157686108,
+      "expected": 390.7661157686108,
+      "tolerance": 2e-08,
+      "pass": true
+    },
+    {
+      "name": "(16, 1, -1, 0) independent wall pressure work",
+      "actual": 781.5322315372193,
+      "expected": 781.5322315372216,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "(16, 1, -1, 1) moving-wall energy identity",
+      "actual": 1.2505552149377763e-12,
+      "expected": 0.0,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "(16, 1, -1, 1) cut-cell continuity",
+      "actual": 7.543872753042191e-13,
+      "expected": 0.0,
+      "tolerance": 2e-10,
+      "pass": true
+    },
+    {
+      "name": "(16, 1, -1, 1) predicted kinetic reference",
+      "actual": 56.0,
+      "expected": 56.0,
+      "tolerance": 1e-09,
+      "pass": true
+    },
+    {
+      "name": "16/1/-1 sequential step count",
+      "actual": 2.0,
+      "expected": 2.0,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "16/1/-1 saturated water volume",
+      "actual": 4092.625,
+      "expected": 4092.625,
+      "tolerance": 2e-09,
+      "pass": true
+    },
+    {
+      "name": "(16, 1, 1, 0) moving-wall energy identity",
+      "actual": -3.410605131648481e-12,
+      "expected": 0.0,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "(16, 1, 1, 0) cut-cell continuity",
+      "actual": 7.619448691778552e-13,
+      "expected": 0.0,
+      "tolerance": 2e-10,
+      "pass": true
+    },
+    {
+      "name": "(16, 1, 1, 0) predicted kinetic reference",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-09,
+      "pass": true
+    },
+    {
+      "name": "(16, 1, 1, 0) zero-predictor kinetic correction",
+      "actual": 424.97530862623097,
+      "expected": 424.97530862623097,
+      "tolerance": 2e-08,
+      "pass": true
+    },
+    {
+      "name": "(16, 1, 1, 0) independent wall pressure work",
+      "actual": 849.9506172524653,
+      "expected": 849.9506172524619,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "(16, 1, 1, 1) moving-wall energy identity",
+      "actual": -4.490630090003833e-12,
+      "expected": 0.0,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "(16, 1, 1, 1) cut-cell continuity",
+      "actual": 9.066912260054238e-13,
+      "expected": 0.0,
+      "tolerance": 2e-10,
+      "pass": true
+    },
+    {
+      "name": "(16, 1, 1, 1) predicted kinetic reference",
+      "actual": 56.0,
+      "expected": 56.0,
+      "tolerance": 1e-09,
+      "pass": true
+    },
+    {
+      "name": "16/1/1 sequential step count",
+      "actual": 2.0,
+      "expected": 2.0,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "16/1/1 saturated water volume",
+      "actual": 4092.625,
+      "expected": 4092.625,
+      "tolerance": 2e-09,
+      "pass": true
+    },
+    {
+      "name": "(16, 2, -1, 0) moving-wall energy identity",
+      "actual": -1.7053025658242404e-12,
+      "expected": 0.0,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "(16, 2, -1, 0) cut-cell continuity",
+      "actual": 6.549502693659059e-13,
+      "expected": 0.0,
+      "tolerance": 2e-10,
+      "pass": true
+    },
+    {
+      "name": "(16, 2, -1, 0) predicted kinetic reference",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-09,
+      "pass": true
+    },
+    {
+      "name": "(16, 2, -1, 0) zero-predictor kinetic correction",
+      "actual": 445.8998448802509,
+      "expected": 445.8998448802509,
+      "tolerance": 2e-08,
+      "pass": true
+    },
+    {
+      "name": "(16, 2, -1, 0) independent wall pressure work",
+      "actual": 891.7996897605035,
+      "expected": 891.7996897605018,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "(16, 2, -1, 1) moving-wall energy identity",
+      "actual": -4.547473508864641e-13,
+      "expected": 0.0,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "(16, 2, -1, 1) cut-cell continuity",
+      "actual": 6.616403930813364e-13,
+      "expected": 0.0,
+      "tolerance": 2e-10,
+      "pass": true
+    },
+    {
+      "name": "(16, 2, -1, 1) predicted kinetic reference",
+      "actual": 56.0,
+      "expected": 56.0,
+      "tolerance": 1e-09,
+      "pass": true
+    },
+    {
+      "name": "16/2/-1 sequential step count",
+      "actual": 2.0,
+      "expected": 2.0,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "16/2/-1 saturated water volume",
+      "actual": 4092.625,
+      "expected": 4092.625,
+      "tolerance": 2e-09,
+      "pass": true
+    },
+    {
+      "name": "(16, 2, 1, 0) moving-wall energy identity",
+      "actual": 4.547473508864641e-13,
+      "expected": 0.0,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "(16, 2, 1, 0) cut-cell continuity",
+      "actual": 9.250725185872e-13,
+      "expected": 0.0,
+      "tolerance": 2e-10,
+      "pass": true
+    },
+    {
+      "name": "(16, 2, 1, 0) predicted kinetic reference",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-09,
+      "pass": true
+    },
+    {
+      "name": "(16, 2, 1, 0) zero-predictor kinetic correction",
+      "actual": 406.0125049854143,
+      "expected": 406.0125049854143,
+      "tolerance": 2e-08,
+      "pass": true
+    },
+    {
+      "name": "(16, 2, 1, 0) independent wall pressure work",
+      "actual": 812.0250099708281,
+      "expected": 812.0250099708286,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "(16, 2, 1, 1) moving-wall energy identity",
+      "actual": -3.0127011996228248e-12,
+      "expected": 0.0,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "(16, 2, 1, 1) cut-cell continuity",
+      "actual": 9.165364864630043e-13,
+      "expected": 0.0,
+      "tolerance": 2e-10,
+      "pass": true
+    },
+    {
+      "name": "(16, 2, 1, 1) predicted kinetic reference",
+      "actual": 56.0,
+      "expected": 56.0,
+      "tolerance": 1e-09,
+      "pass": true
+    },
+    {
+      "name": "16/2/1 sequential step count",
+      "actual": 2.0,
+      "expected": 2.0,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "name": "16/2/1 saturated water volume",
+      "actual": 4092.625,
+      "expected": 4092.625,
+      "tolerance": 2e-09,
+      "pass": true
+    },
+    {
+      "name": "8/0/-1 preserved curl energy",
+      "actual": 12.800000000476246,
+      "expected": 12.8,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "8/0/-1 gradient gauge-independent wall work",
+      "actual": 821.7156922992128,
+      "expected": 821.7156922987367,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "8/0/1 preserved curl energy",
+      "actual": 12.799999999956128,
+      "expected": 12.8,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "8/0/1 gradient gauge-independent wall work",
+      "actual": 899.2639288803659,
+      "expected": 899.2639288804087,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "8/1/-1 preserved curl energy",
+      "actual": 12.799999999935267,
+      "expected": 12.8,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "8/1/-1 gradient gauge-independent wall work",
+      "actual": 795.33320575108,
+      "expected": 795.3332057511448,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "8/1/1 preserved curl energy",
+      "actual": 12.799999999755073,
+      "expected": 12.8,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "8/1/1 gradient gauge-independent wall work",
+      "actual": 857.5918733530054,
+      "expected": 857.5918733532501,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "8/2/-1 preserved curl energy",
+      "actual": 12.799999999740749,
+      "expected": 12.8,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "8/2/-1 gradient gauge-independent wall work",
+      "actual": 899.26392888015,
+      "expected": 899.2639288804087,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "8/2/1 preserved curl energy",
+      "actual": 12.799999999743932,
+      "expected": 12.8,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "8/2/1 gradient gauge-independent wall work",
+      "actual": 821.7156922984808,
+      "expected": 821.7156922987368,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "12/0/-1 preserved curl energy",
+      "actual": 12.800000000090108,
+      "expected": 12.8,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "12/0/-1 gradient gauge-independent wall work",
+      "actual": 813.3003215162796,
+      "expected": 813.3003215161926,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "12/0/1 preserved curl energy",
+      "actual": 12.799999999995691,
+      "expected": 12.8,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "12/0/1 gradient gauge-independent wall work",
+      "actual": 892.2631782316282,
+      "expected": 892.2631782316328,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "12/1/-1 preserved curl energy",
+      "actual": 12.80000000004543,
+      "expected": 12.8,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "12/1/-1 gradient gauge-independent wall work",
+      "actual": 782.7136604422607,
+      "expected": 782.7136604422174,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "12/1/1 preserved curl energy",
+      "actual": 12.799999999986085,
+      "expected": 12.8,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "12/1/1 gradient gauge-independent wall work",
+      "actual": 850.6313411311395,
+      "expected": 850.6313411311519,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "12/2/-1 preserved curl energy",
+      "actual": 12.800000000188675,
+      "expected": 12.8,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "12/2/-1 gradient gauge-independent wall work",
+      "actual": 892.484640303925,
+      "expected": 892.4846403037353,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "12/2/1 preserved curl energy",
+      "actual": 12.800000000041734,
+      "expected": 12.8,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "12/2/1 gradient gauge-independent wall work",
+      "actual": 812.9357986255059,
+      "expected": 812.9357986254652,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "16/0/-1 preserved curl energy",
+      "actual": 12.800000000071805,
+      "expected": 12.8,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "16/0/-1 gradient gauge-independent wall work",
+      "actual": 812.4776624646294,
+      "expected": 812.4776624645581,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "16/0/1 preserved curl energy",
+      "actual": 12.800000000066007,
+      "expected": 12.8,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "16/0/1 gradient gauge-independent wall work",
+      "actual": 891.5655466970366,
+      "expected": 891.5655466969695,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "16/1/-1 preserved curl energy",
+      "actual": 12.800000000103523,
+      "expected": 12.8,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "16/1/-1 gradient gauge-independent wall work",
+      "actual": 781.5322315373231,
+      "expected": 781.5322315372193,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "16/1/1 preserved curl energy",
+      "actual": 12.800000000078455,
+      "expected": 12.8,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "16/1/1 gradient gauge-independent wall work",
+      "actual": 849.9506172525445,
+      "expected": 849.9506172524653,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "16/2/-1 preserved curl energy",
+      "actual": 12.800000000058844,
+      "expected": 12.8,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "16/2/-1 gradient gauge-independent wall work",
+      "actual": 891.7996897605622,
+      "expected": 891.7996897605035,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "16/2/1 preserved curl energy",
+      "actual": 12.8000000000672,
+      "expected": 12.8,
+      "tolerance": 2e-07,
+      "pass": true
+    },
+    {
+      "name": "16/2/1 gradient gauge-independent wall work",
+      "actual": 812.025009970897,
+      "expected": 812.0250099708281,
+      "tolerance": 2e-07,
+      "pass": true
+    }
+  ],
+  "source_sha256": {
+    "CMakeLists.txt": "cc9689adc6f27f6c44870837a342ff7eb3fd6540621c44fd1753867ac7d8af8b",
+    "docs/PHASENPLAN.md": "970a3af9f02997c53641c819927c7b2e668ef15aeec61407851686ca0fe0eba7",
+    "docs/P2_MOVING_CUT_CELL_PRESSURE_ENERGY_PARTIAL.md": "148e22e809e4fb59fa8fd56bf0f2f6ac923f21c0f21e1b2619c4e73abae247fb",
+    "include/upc/p2_moving_cut_cell_energy3d.hpp": "43156ec3a1a2a93de38ccccfe04e9b550565d346f9fc969bfe0b39aa8ef8209a",
+    "include/upc/p2_prescribed_box_mac_vof3d.hpp": "6a963d801a5a846d56ae0b5b86418c070a82cf5f7a92f499519d3e66e3db84be",
+    "include/upc/p2_moving_box_cut_cell_projection3d.hpp": "7ec9aaaed69aae85be1b26d32460c03de81b95f7ffb26e1f6b18e1185aee3fb6",
+    "include/upc/p2_moving_box_swept_wall_flux3d.hpp": "80d299136f57df0b479d598468c39bf67675524942557701f99b40fe897a656e",
+    "tests/p2_moving_cut_cell_energy3d_tests.cpp": "898e119558a788b6764f1b61378c7685219e1a1f6965190e45e7f59b823a1013",
+    "scripts/p2_moving_cut_cell_energy_full_build.cmd": "0bf3dec5183eedbe8a82ec08c80d652c1df2f0ff7319c970b1b5d40dca5b0021",
+    "scripts/p2_moving_cut_cell_energy_acceptance.py": "81c9746861a9d3db0ffb17d439658173a0cf29edb7aa0278e976c1e3d95885f8",
+    "scripts/phase_gate.py": "01065438e2b72b3fe83e7e3ba3decbf54925c84c5f9424b15ad15a8197f59cd6"
+  },
+  "ctest_log_sha256": "301cb69775b0d489852a2090825159c0410a6eed4e2e00bd3e168e8eaf1e6f14",
+  "native_stdout_sha256": "4462bac1e935f52bdb1ac8efb1bb8aa99aa7cb3064bcc3e4ed5e02036111e647"
+}

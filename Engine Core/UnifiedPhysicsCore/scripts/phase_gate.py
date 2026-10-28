@@ -22,8 +22,8 @@ def git_rev() -> str:
 def ctest() -> dict:
     ctest_exe = Path(r"C:\Program Files (x86)\Microsoft Visual Studio\18\BuildTools\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\ctest.exe")
     if not ctest_exe.exists(): return {"ok":False,"message":"ctest missing"}
-    p = subprocess.run([str(ctest_exe),"--test-dir",str(CORE/"build"),"--output-on-failure"],
-                       capture_output=True,text=True,timeout=90)
+    p = subprocess.run([str(ctest_exe),"--test-dir",str(CORE/"build"),"--output-on-failure","--parallel","4"],
+                       capture_output=True,text=True,timeout=180)
     return {"ok":p.returncode==0 and "100% tests passed" in p.stdout,
             "tail":p.stdout[-1800:], "exit":p.returncode}
 

@@ -349,3 +349,9 @@ add_test(NAME physics_p2_periodic_projected_mac_vof_partial COMMAND upc_p2_perio
 add_executable(upc_p2_periodic_mac_vof_energy_tests tests/p2_periodic_mac_vof_energy3d_tests.cpp)
 target_link_libraries(upc_p2_periodic_mac_vof_energy_tests PRIVATE upc)
 add_test(NAME physics_p2_periodic_mac_vof_energy_partial COMMAND upc_p2_periodic_mac_vof_energy_tests)
+
+# P2 partial: exact closed moving cut-cell pressure work and face kinetic
+# identity, opt-in audited sequential MAC/VOF, not two-way FSI.
+add_executable(upc_p2_moving_cut_cell_energy_tests tests/p2_moving_cut_cell_energy3d_tests.cpp)
+target_link_libraries(upc_p2_moving_cut_cell_energy_tests PRIVATE upc)
+add_test(NAME physics_p2_moving_cut_cell_pressure_energy_partial COMMAND upc_p2_moving_cut_cell_energy_tests)

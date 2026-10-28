@@ -806,3 +806,27 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
   Cut-Cell-Koerperbewegung, echte FSI-Gegenreaktion, globale
   thermo-mechanische Energiebilanz, externen CFD-Messdaten oder
   neue UE5.8-Native-E2E-Abnahme fuer diesen Pfad.
+
+## P2 Teilfortschritt: bewegte Cut-Cell-Druckarbeit und Energie-Audit (28.10.2026)
+
+- Neuer optionaler P2MovingCutCellPressureEnergy3D-Audit: geschlossene
+  3D-Cut-Cell-Domaene, zeitgemittelte MAC-Flaechenoeffnungen, vorgeschriebene
+  Starrkoerper-Translation, Druckgradient, lokale Volumenkontinuitaet,
+  geometrische Druckarbeit und gewichtete diskrete Face-Energie.
+- Identitaet: K_nach-K_vor = W_geometrisch - K_druckkorrektur.
+  Nullpraediktor-Referenz: K_nach=K_korrektur, W_geom=2*K_korrektur.
+  Unabhaengig hergestellter Gradient/Zirkulation: K_vor=56 J.
+- Opt-in P2AuditedPrescribedBoxMacVof3D prueft MAC/VOF + Energiebilanz
+  vor dem Commit des naechsten Zustands (transaktionaler Rollback).
+- MSVC Release **69/69 CTest PASS**, 76.618 native Assertions,
+  8^3/12^3/16^3, drei Achsen, beide Richtungen, zwei Predictor-Modi,
+  zwei sequentielle VOF-Schritte, Druck-Gauge- und Negativfaelle.
+- Nachweis: docs/P2_MOVING_CUT_CELL_PRESSURE_ENERGY_PARTIAL.md,
+  scripts/p2_moving_cut_cell_energy_acceptance.py,
+  ENGINE TEST STUBE/runs/p2_moving_cut_cell_energy_partial.json.
+- phase_gate.py nutzt nun paralleles CTest (4 Jobs, 180-s-Timeout)
+  statt des zuvor nach 90 s abgebrochenen seriellen Gesamtlaufs.
+- **P2 weiterhin PARTIAL, P3-P8 PARTIAL**: nur diskrete Druckidentitaet,
+  keine vollstaendige physikalische FSI-Energie, keine Cut-Cell-
+  Impulsadvektion, freien Oberflaechen, externen CFD-Messdaten oder
+  neue Unreal-5.8-Native-E2E fuer diesen Pfad.
