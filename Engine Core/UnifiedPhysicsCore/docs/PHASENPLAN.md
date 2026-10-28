@@ -683,3 +683,24 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
   kein allgemeiner Live-MAC/VOF-Step, keine freie Oberflaeche,
   keine dynamische Zweiwege-FSI/Impuls-/Energieabnahme,
   keine externen CFD-Messdaten und kein neues UE5.8 Native-E2E.
+
+## P2 Teilfortschritt: MAC-Prädiktor in bewegter Cut-Cell-Druckprojektion (28.10.2026)
+
+- `P2MovingBoxCutCellProjection3DBuilder::sample_with_predictor` projiziert
+  jetzt optional extern vorgegebene, **nichtnullige 3D-MAC-Geschwindigkeiten**
+  auf die bewegte Cut-Cell-Kontinuitätsgleichung. Zeitintegrierte
+  Prädiktorflüsse berücksichtigen die zeitgemittelte offene Face-Fläche.
+  Der bisherige Nullprädiktor-Pfad `sample` bleibt kompatibel.
+- Unabhängige diskrete 3D-Gradient/Curl-Manufactured-Tests auf
+  8³/12³/16³ für 36 Körperbewegungen: Gradientenanteil wird entfernt,
+  divergenzfreie Vier-Face-Zirkulation erhalten; Druckdifferenz -480 Pa.
+  Vollständige **61/61 CTest**, **396.978 native Assertions**,
+  **144/144 unabhängige numerische Checks** bestanden.
+- Nachweise: `docs/P2_PREDICTED_MAC_CUT_CELL_PROJECTION_PARTIAL.md`,
+  `scripts/p2_predictor_projection_acceptance.py`,
+  `ENGINE TEST STUBE/runs/p2_predictor_projection_partial.json`.
+- **P2 bleibt PARTIAL:** Noch keine Einbindung des Prädiktors in einen
+  zeitaufgelösten Live-CoupledMacWater3D-Solver, keine freien Oberflächen,
+  keine physikalisch validierte Körper-Gegenreaktion, globale Energie-/
+  Impulsbilanz, unabhängigen 3D-CFD-Messdaten oder neue UE5.8-Native-E2E.
+  P3–P8 bleiben ebenfalls Vollphasen-offen.

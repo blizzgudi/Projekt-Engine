@@ -1,0 +1,1041 @@
+{
+  "phase": "P2",
+  "milestone": "moving_box_nonzero_predicted_mac_projection_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "accepted": false,
+  "full_ctest_suites": 61,
+  "native_assertions": 396978,
+  "independent_numerical_checks": 144,
+  "checks": [
+    {
+      "name": "(8, 0, -1, 0.25)_pressure_difference_pa",
+      "actual": -479.9999999970714,
+      "expected": -480.0,
+      "tolerance": 2e-06,
+      "pass": true
+    },
+    {
+      "name": "(8, 0, -1, 0.25)_gradient_removed_and_curl_preserved_m3",
+      "actual": 8.041631596733545e-13,
+      "expected": 0.0,
+      "tolerance": 3e-10,
+      "pass": true
+    },
+    {
+      "name": "(8, 0, -1, 0.25)_moving_continuity_m3",
+      "actual": 9.925948951661212e-13,
+      "expected": 0.0,
+      "tolerance": 2e-10,
+      "pass": true
+    },
+    {
+      "name": "(8, 0, -1, 0.25)_finite_pressure",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(8, 0, -1, 0.5)_pressure_difference_pa",
+      "actual": -479.9999999997161,
+      "expected": -480.0,
+      "tolerance": 2e-06,
+      "pass": true
+    },
+    {
+      "name": "(8, 0, -1, 0.5)_gradient_removed_and_curl_preserved_m3",
+      "actual": 3.4449526564728217e-13,
+      "expected": 0.0,
+      "tolerance": 3e-10,
+      "pass": true
+    },
+    {
+      "name": "(8, 0, -1, 0.5)_moving_continuity_m3",
+      "actual": 7.418614333953855e-13,
+      "expected": 0.0,
+      "tolerance": 2e-10,
+      "pass": true
+    },
+    {
+      "name": "(8, 0, -1, 0.5)_finite_pressure",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(8, 0, 1, 0.25)_pressure_difference_pa",
+      "actual": -480.00000000057844,
+      "expected": -480.0,
+      "tolerance": 2e-06,
+      "pass": true
+    },
+    {
+      "name": "(8, 0, 1, 0.25)_gradient_removed_and_curl_preserved_m3",
+      "actual": 2.524560421823807e-13,
+      "expected": 0.0,
+      "tolerance": 3e-10,
+      "pass": true
+    },
+    {
+      "name": "(8, 0, 1, 0.25)_moving_continuity_m3",
+      "actual": 6.489704607037794e-13,
+      "expected": 0.0,
+      "tolerance": 2e-10,
+      "pass": true
+    },
+    {
+      "name": "(8, 0, 1, 0.25)_finite_pressure",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(8, 0, 1, 0.5)_pressure_difference_pa",
+      "actual": -479.99999999935096,
+      "expected": -480.0,
+      "tolerance": 2e-06,
+      "pass": true
+    },
+    {
+      "name": "(8, 0, 1, 0.5)_gradient_removed_and_curl_preserved_m3",
+      "actual": 2.42861286636753e-13,
+      "expected": 0.0,
+      "tolerance": 3e-10,
+      "pass": true
+    },
+    {
+      "name": "(8, 0, 1, 0.5)_moving_continuity_m3",
+      "actual": 9.68756325159248e-13,
+      "expected": 0.0,
+      "tolerance": 2e-10,
+      "pass": true
+    },
+    {
+      "name": "(8, 0, 1, 0.5)_finite_pressure",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(8, 1, -1, 0.25)_pressure_difference_pa",
+      "actual": -479.99999999949836,
+      "expected": -480.0,
+      "tolerance": 2e-06,
+      "pass": true
+    },
+    {
+      "name": "(8, 1, -1, 0.25)_gradient_removed_and_curl_preserved_m3",
+      "actual": 2.275714339194934e-13,
+      "expected": 0.0,
+      "tolerance": 3e-10,
+      "pass": true
+    },
+    {
+      "name": "(8, 1, -1, 0.25)_moving_continuity_m3",
+      "actual": 9.69792388755275e-13,
+      "expected": 0.0,
+      "tolerance": 2e-10,
+      "pass": true
+    },
+    {
+      "name": "(8, 1, -1, 0.25)_finite_pressure",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(8, 1, -1, 0.5)_pressure_difference_pa",
+      "actual": -479.99999999973875,
+      "expected": -480.0,
+      "tolerance": 2e-06,
+      "pass": true
+    },
+    {
+      "name": "(8, 1, -1, 0.5)_gradient_removed_and_curl_preserved_m3",
+      "actual": 1.8639256804675597e-13,
+      "expected": 0.0,
+      "tolerance": 3e-10,
+      "pass": true
+    },
+    {
+      "name": "(8, 1, -1, 0.5)_moving_continuity_m3",
+      "actual": 7.338504803833246e-13,
+      "expected": 0.0,
+      "tolerance": 2e-10,
+      "pass": true
+    },
+    {
+      "name": "(8, 1, -1, 0.5)_finite_pressure",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(8, 1, 1, 0.25)_pressure_difference_pa",
+      "actual": -480.0000000018427,
+      "expected": -480.0,
+      "tolerance": 2e-06,
+      "pass": true
+    },
+    {
+      "name": "(8, 1, 1, 0.25)_gradient_removed_and_curl_preserved_m3",
+      "actual": 3.240498147594195e-13,
+      "expected": 0.0,
+      "tolerance": 3e-10,
+      "pass": true
+    },
+    {
+      "name": "(8, 1, 1, 0.25)_moving_continuity_m3",
+      "actual": 9.264260365793309e-13,
+      "expected": 0.0,
+      "tolerance": 2e-10,
+      "pass": true
+    },
+    {
+      "name": "(8, 1, 1, 0.25)_finite_pressure",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(8, 1, 1, 0.5)_pressure_difference_pa",
+      "actual": -480.0000000008414,
+      "expected": -480.0,
+      "tolerance": 2e-06,
+      "pass": true
+    },
+    {
+      "name": "(8, 1, 1, 0.5)_gradient_removed_and_curl_preserved_m3",
+      "actual": 2.8082397518502944e-13,
+      "expected": 0.0,
+      "tolerance": 3e-10,
+      "pass": true
+    },
+    {
+      "name": "(8, 1, 1, 0.5)_moving_continuity_m3",
+      "actual": 7.320376943509288e-13,
+      "expected": 0.0,
+      "tolerance": 2e-10,
+      "pass": true
+    },
+    {
+      "name": "(8, 1, 1, 0.5)_finite_pressure",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(8, 2, -1, 0.25)_pressure_difference_pa",
+      "actual": -480.0000000007764,
+      "expected": -480.0,
+      "tolerance": 2e-06,
+      "pass": true
+    },
+    {
+      "name": "(8, 2, -1, 0.25)_gradient_removed_and_curl_preserved_m3",
+      "actual": 3.762077455116142e-13,
+      "expected": 0.0,
+      "tolerance": 3e-10,
+      "pass": true
+    },
+    {
+      "name": "(8, 2, -1, 0.25)_moving_continuity_m3",
+      "actual": 8.429741280013836e-13,
+      "expected": 0.0,
+      "tolerance": 2e-10,
+      "pass": true
+    },
+    {
+      "name": "(8, 2, -1, 0.25)_finite_pressure",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(8, 2, -1, 0.5)_pressure_difference_pa",
+      "actual": -480.00000000301037,
+      "expected": -480.0,
+      "tolerance": 2e-06,
+      "pass": true
+    },
+    {
+      "name": "(8, 2, -1, 0.5)_gradient_removed_and_curl_preserved_m3",
+      "actual": 7.168948594482583e-13,
+      "expected": 0.0,
+      "tolerance": 3e-10,
+      "pass": true
+    },
+    {
+      "name": "(8, 2, -1, 0.5)_moving_continuity_m3",
+      "actual": 8.447860466720414e-13,
+      "expected": 0.0,
+      "tolerance": 2e-10,
+      "pass": true
+    },
+    {
+      "name": "(8, 2, -1, 0.5)_finite_pressure",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(8, 2, 1, 0.25)_pressure_difference_pa",
+      "actual": -480.00000000095105,
+      "expected": -480.0,
+      "tolerance": 2e-06,
+      "pass": true
+    },
+    {
+      "name": "(8, 2, 1, 0.25)_gradient_removed_and_curl_preserved_m3",
+      "actual": 2.462188439245061e-13,
+      "expected": 0.0,
+      "tolerance": 3e-10,
+      "pass": true
+    },
+    {
+      "name": "(8, 2, 1, 0.25)_moving_continuity_m3",
+      "actual": 7.213448588450078e-13,
+      "expected": 0.0,
+      "tolerance": 2e-10,
+      "pass": true
+    },
+    {
+      "name": "(8, 2, 1, 0.25)_finite_pressure",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(8, 2, 1, 0.5)_pressure_difference_pa",
+      "actual": -480.00000000049994,
+      "expected": -480.0,
+      "tolerance": 2e-06,
+      "pass": true
+    },
+    {
+      "name": "(8, 2, 1, 0.5)_gradient_removed_and_curl_preserved_m3",
+      "actual": 5.396932900580964e-13,
+      "expected": 0.0,
+      "tolerance": 3e-10,
+      "pass": true
+    },
+    {
+      "name": "(8, 2, 1, 0.5)_moving_continuity_m3",
+      "actual": 4.3699766028026943e-13,
+      "expected": 0.0,
+      "tolerance": 2e-10,
+      "pass": true
+    },
+    {
+      "name": "(8, 2, 1, 0.5)_finite_pressure",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(12, 0, -1, 0.25)_pressure_difference_pa",
+      "actual": -479.9999999994837,
+      "expected": -480.0,
+      "tolerance": 2e-06,
+      "pass": true
+    },
+    {
+      "name": "(12, 0, -1, 0.25)_gradient_removed_and_curl_preserved_m3",
+      "actual": 1.680622871771953e-13,
+      "expected": 0.0,
+      "tolerance": 3e-10,
+      "pass": true
+    },
+    {
+      "name": "(12, 0, -1, 0.25)_moving_continuity_m3",
+      "actual": 9.615052894498821e-13,
+      "expected": 0.0,
+      "tolerance": 2e-10,
+      "pass": true
+    },
+    {
+      "name": "(12, 0, -1, 0.25)_finite_pressure",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(12, 0, -1, 0.5)_pressure_difference_pa",
+      "actual": -479.999999999061,
+      "expected": -480.0,
+      "tolerance": 2e-06,
+      "pass": true
+    },
+    {
+      "name": "(12, 0, -1, 0.5)_gradient_removed_and_curl_preserved_m3",
+      "actual": 4.1229823374844266e-13,
+      "expected": 0.0,
+      "tolerance": 3e-10,
+      "pass": true
+    },
+    {
+      "name": "(12, 0, -1, 0.5)_moving_continuity_m3",
+      "actual": 6.597901478638812e-13,
+      "expected": 0.0,
+      "tolerance": 2e-10,
+      "pass": true
+    },
+    {
+      "name": "(12, 0, -1, 0.5)_finite_pressure",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(12, 0, 1, 0.25)_pressure_difference_pa",
+      "actual": -479.9999999992695,
+      "expected": -480.0,
+      "tolerance": 2e-06,
+      "pass": true
+    },
+    {
+      "name": "(12, 0, 1, 0.25)_gradient_removed_and_curl_preserved_m3",
+      "actual": 1.1761858847991746e-13,
+      "expected": 0.0,
+      "tolerance": 3e-10,
+      "pass": true
+    },
+    {
+      "name": "(12, 0, 1, 0.25)_moving_continuity_m3",
+      "actual": 8.849125723636372e-13,
+      "expected": 0.0,
+      "tolerance": 2e-10,
+      "pass": true
+    },
+    {
+      "name": "(12, 0, 1, 0.25)_finite_pressure",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(12, 0, 1, 0.5)_pressure_difference_pa",
+      "actual": -480.0000000000791,
+      "expected": -480.0,
+      "tolerance": 2e-06,
+      "pass": true
+    },
+    {
+      "name": "(12, 0, 1, 0.5)_gradient_removed_and_curl_preserved_m3",
+      "actual": 1.4497300929172674e-13,
+      "expected": 0.0,
+      "tolerance": 3e-10,
+      "pass": true
+    },
+    {
+      "name": "(12, 0, 1, 0.5)_moving_continuity_m3",
+      "actual": 8.259369750629464e-13,
+      "expected": 0.0,
+      "tolerance": 2e-10,
+      "pass": true
+    },
+    {
+      "name": "(12, 0, 1, 0.5)_finite_pressure",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(12, 1, -1, 0.25)_pressure_difference_pa",
+      "actual": -479.9999999992065,
+      "expected": -480.0,
+      "tolerance": 2e-06,
+      "pass": true
+    },
+    {
+      "name": "(12, 1, -1, 0.25)_gradient_removed_and_curl_preserved_m3",
+      "actual": 2.325153416159187e-13,
+      "expected": 0.0,
+      "tolerance": 3e-10,
+      "pass": true
+    },
+    {
+      "name": "(12, 1, -1, 0.25)_moving_continuity_m3",
+      "actual": 6.346993243477872e-13,
+      "expected": 0.0,
+      "tolerance": 2e-10,
+      "pass": true
+    },
+    {
+      "name": "(12, 1, -1, 0.25)_finite_pressure",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(12, 1, -1, 0.5)_pressure_difference_pa",
+      "actual": -480.0000000006803,
+      "expected": -480.0,
+      "tolerance": 2e-06,
+      "pass": true
+    },
+    {
+      "name": "(12, 1, -1, 0.5)_gradient_removed_and_curl_preserved_m3",
+      "actual": 2.3785313996160795e-13,
+      "expected": 0.0,
+      "tolerance": 3e-10,
+      "pass": true
+    },
+    {
+      "name": "(12, 1, -1, 0.5)_moving_continuity_m3",
+      "actual": 7.084129290124697e-13,
+      "expected": 0.0,
+      "tolerance": 2e-10,
+      "pass": true
+    },
+    {
+      "name": "(12, 1, -1, 0.5)_finite_pressure",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(12, 1, 1, 0.25)_pressure_difference_pa",
+      "actual": -480.00000000031224,
+      "expected": -480.0,
+      "tolerance": 2e-06,
+      "pass": true
+    },
+    {
+      "name": "(12, 1, 1, 0.25)_gradient_removed_and_curl_preserved_m3",
+      "actual": 1.760839737907638e-13,
+      "expected": 0.0,
+      "tolerance": 3e-10,
+      "pass": true
+    },
+    {
+      "name": "(12, 1, 1, 0.25)_moving_continuity_m3",
+      "actual": 8.675894339971527e-13,
+      "expected": 0.0,
+      "tolerance": 2e-10,
+      "pass": true
+    },
+    {
+      "name": "(12, 1, 1, 0.25)_finite_pressure",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(12, 1, 1, 0.5)_pressure_difference_pa",
+      "actual": -479.9999999998706,
+      "expected": -480.0,
+      "tolerance": 2e-06,
+      "pass": true
+    },
+    {
+      "name": "(12, 1, 1, 0.5)_gradient_removed_and_curl_preserved_m3",
+      "actual": 3.082603616810786e-13,
+      "expected": 0.0,
+      "tolerance": 3e-10,
+      "pass": true
+    },
+    {
+      "name": "(12, 1, 1, 0.5)_moving_continuity_m3",
+      "actual": 8.615115999061063e-13,
+      "expected": 0.0,
+      "tolerance": 2e-10,
+      "pass": true
+    },
+    {
+      "name": "(12, 1, 1, 0.5)_finite_pressure",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(12, 2, -1, 0.25)_pressure_difference_pa",
+      "actual": -480.00000000031486,
+      "expected": -480.0,
+      "tolerance": 2e-06,
+      "pass": true
+    },
+    {
+      "name": "(12, 2, -1, 0.25)_gradient_removed_and_curl_preserved_m3",
+      "actual": 1.386026710070709e-13,
+      "expected": 0.0,
+      "tolerance": 3e-10,
+      "pass": true
+    },
+    {
+      "name": "(12, 2, -1, 0.25)_moving_continuity_m3",
+      "actual": 7.348741840745854e-13,
+      "expected": 0.0,
+      "tolerance": 2e-10,
+      "pass": true
+    },
+    {
+      "name": "(12, 2, -1, 0.25)_finite_pressure",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(12, 2, -1, 0.5)_pressure_difference_pa",
+      "actual": -479.9999999998557,
+      "expected": -480.0,
+      "tolerance": 2e-06,
+      "pass": true
+    },
+    {
+      "name": "(12, 2, -1, 0.5)_gradient_removed_and_curl_preserved_m3",
+      "actual": 8.510553373142216e-14,
+      "expected": 0.0,
+      "tolerance": 3e-10,
+      "pass": true
+    },
+    {
+      "name": "(12, 2, -1, 0.5)_moving_continuity_m3",
+      "actual": 5.038320021605314e-13,
+      "expected": 0.0,
+      "tolerance": 2e-10,
+      "pass": true
+    },
+    {
+      "name": "(12, 2, -1, 0.5)_finite_pressure",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(12, 2, 1, 0.25)_pressure_difference_pa",
+      "actual": -479.9999999992434,
+      "expected": -480.0,
+      "tolerance": 2e-06,
+      "pass": true
+    },
+    {
+      "name": "(12, 2, 1, 0.25)_gradient_removed_and_curl_preserved_m3",
+      "actual": 1.4611402365805048e-13,
+      "expected": 0.0,
+      "tolerance": 3e-10,
+      "pass": true
+    },
+    {
+      "name": "(12, 2, 1, 0.25)_moving_continuity_m3",
+      "actual": 8.13196840594721e-13,
+      "expected": 0.0,
+      "tolerance": 2e-10,
+      "pass": true
+    },
+    {
+      "name": "(12, 2, 1, 0.25)_finite_pressure",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(12, 2, 1, 0.5)_pressure_difference_pa",
+      "actual": -480.0000000006276,
+      "expected": -480.0,
+      "tolerance": 2e-06,
+      "pass": true
+    },
+    {
+      "name": "(12, 2, 1, 0.5)_gradient_removed_and_curl_preserved_m3",
+      "actual": 5.176011529106628e-13,
+      "expected": 0.0,
+      "tolerance": 3e-10,
+      "pass": true
+    },
+    {
+      "name": "(12, 2, 1, 0.5)_moving_continuity_m3",
+      "actual": 9.788983859615463e-13,
+      "expected": 0.0,
+      "tolerance": 2e-10,
+      "pass": true
+    },
+    {
+      "name": "(12, 2, 1, 0.5)_finite_pressure",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(16, 0, -1, 0.25)_pressure_difference_pa",
+      "actual": -480.00000000003683,
+      "expected": -480.0,
+      "tolerance": 2e-06,
+      "pass": true
+    },
+    {
+      "name": "(16, 0, -1, 0.25)_gradient_removed_and_curl_preserved_m3",
+      "actual": 1.302859729823691e-13,
+      "expected": 0.0,
+      "tolerance": 3e-10,
+      "pass": true
+    },
+    {
+      "name": "(16, 0, -1, 0.25)_moving_continuity_m3",
+      "actual": 6.093187478010964e-13,
+      "expected": 0.0,
+      "tolerance": 2e-10,
+      "pass": true
+    },
+    {
+      "name": "(16, 0, -1, 0.25)_finite_pressure",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(16, 0, -1, 0.5)_pressure_difference_pa",
+      "actual": -480.00000000062454,
+      "expected": -480.0,
+      "tolerance": 2e-06,
+      "pass": true
+    },
+    {
+      "name": "(16, 0, -1, 0.5)_gradient_removed_and_curl_preserved_m3",
+      "actual": 1.5358667029147233e-13,
+      "expected": 0.0,
+      "tolerance": 3e-10,
+      "pass": true
+    },
+    {
+      "name": "(16, 0, -1, 0.5)_moving_continuity_m3",
+      "actual": 9.15427456060769e-13,
+      "expected": 0.0,
+      "tolerance": 2e-10,
+      "pass": true
+    },
+    {
+      "name": "(16, 0, -1, 0.5)_finite_pressure",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(16, 0, 1, 0.25)_pressure_difference_pa",
+      "actual": -480.00000000016144,
+      "expected": -480.0,
+      "tolerance": 2e-06,
+      "pass": true
+    },
+    {
+      "name": "(16, 0, 1, 0.25)_gradient_removed_and_curl_preserved_m3",
+      "actual": 1.1401768201454998e-13,
+      "expected": 0.0,
+      "tolerance": 3e-10,
+      "pass": true
+    },
+    {
+      "name": "(16, 0, 1, 0.25)_moving_continuity_m3",
+      "actual": 9.17340747634554e-13,
+      "expected": 0.0,
+      "tolerance": 2e-10,
+      "pass": true
+    },
+    {
+      "name": "(16, 0, 1, 0.25)_finite_pressure",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(16, 0, 1, 0.5)_pressure_difference_pa",
+      "actual": -479.99999999998056,
+      "expected": -480.0,
+      "tolerance": 2e-06,
+      "pass": true
+    },
+    {
+      "name": "(16, 0, 1, 0.5)_gradient_removed_and_curl_preserved_m3",
+      "actual": 1.7260433533838881e-13,
+      "expected": 0.0,
+      "tolerance": 3e-10,
+      "pass": true
+    },
+    {
+      "name": "(16, 0, 1, 0.5)_moving_continuity_m3",
+      "actual": 9.96770781148612e-13,
+      "expected": 0.0,
+      "tolerance": 2e-10,
+      "pass": true
+    },
+    {
+      "name": "(16, 0, 1, 0.5)_finite_pressure",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(16, 1, -1, 0.25)_pressure_difference_pa",
+      "actual": -479.9999999993673,
+      "expected": -480.0,
+      "tolerance": 2e-06,
+      "pass": true
+    },
+    {
+      "name": "(16, 1, -1, 0.25)_gradient_removed_and_curl_preserved_m3",
+      "actual": 1.937247020786237e-13,
+      "expected": 0.0,
+      "tolerance": 3e-10,
+      "pass": true
+    },
+    {
+      "name": "(16, 1, -1, 0.25)_moving_continuity_m3",
+      "actual": 7.543872753042191e-13,
+      "expected": 0.0,
+      "tolerance": 2e-10,
+      "pass": true
+    },
+    {
+      "name": "(16, 1, -1, 0.25)_finite_pressure",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(16, 1, -1, 0.5)_pressure_difference_pa",
+      "actual": -480.0000000001376,
+      "expected": -480.0,
+      "tolerance": 2e-06,
+      "pass": true
+    },
+    {
+      "name": "(16, 1, -1, 0.5)_gradient_removed_and_curl_preserved_m3",
+      "actual": 1.7277932556902798e-13,
+      "expected": 0.0,
+      "tolerance": 3e-10,
+      "pass": true
+    },
+    {
+      "name": "(16, 1, -1, 0.5)_moving_continuity_m3",
+      "actual": 9.087557095721621e-13,
+      "expected": 0.0,
+      "tolerance": 2e-10,
+      "pass": true
+    },
+    {
+      "name": "(16, 1, -1, 0.5)_finite_pressure",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(16, 1, 1, 0.25)_pressure_difference_pa",
+      "actual": -479.9999999996107,
+      "expected": -480.0,
+      "tolerance": 2e-06,
+      "pass": true
+    },
+    {
+      "name": "(16, 1, 1, 0.25)_gradient_removed_and_curl_preserved_m3",
+      "actual": 1.5445273098685375e-13,
+      "expected": 0.0,
+      "tolerance": 3e-10,
+      "pass": true
+    },
+    {
+      "name": "(16, 1, 1, 0.25)_moving_continuity_m3",
+      "actual": 9.066912260054238e-13,
+      "expected": 0.0,
+      "tolerance": 2e-10,
+      "pass": true
+    },
+    {
+      "name": "(16, 1, 1, 0.25)_finite_pressure",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(16, 1, 1, 0.5)_pressure_difference_pa",
+      "actual": -479.99999999996385,
+      "expected": -480.0,
+      "tolerance": 2e-06,
+      "pass": true
+    },
+    {
+      "name": "(16, 1, 1, 0.5)_gradient_removed_and_curl_preserved_m3",
+      "actual": 3.4319064517313036e-13,
+      "expected": 0.0,
+      "tolerance": 3e-10,
+      "pass": true
+    },
+    {
+      "name": "(16, 1, 1, 0.5)_moving_continuity_m3",
+      "actual": 7.073923695075091e-13,
+      "expected": 0.0,
+      "tolerance": 2e-10,
+      "pass": true
+    },
+    {
+      "name": "(16, 1, 1, 0.5)_finite_pressure",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(16, 2, -1, 0.25)_pressure_difference_pa",
+      "actual": -479.99999999990797,
+      "expected": -480.0,
+      "tolerance": 2e-06,
+      "pass": true
+    },
+    {
+      "name": "(16, 2, -1, 0.25)_gradient_removed_and_curl_preserved_m3",
+      "actual": 1.0605047656014888e-13,
+      "expected": 0.0,
+      "tolerance": 3e-10,
+      "pass": true
+    },
+    {
+      "name": "(16, 2, -1, 0.25)_moving_continuity_m3",
+      "actual": 6.616403930813364e-13,
+      "expected": 0.0,
+      "tolerance": 2e-10,
+      "pass": true
+    },
+    {
+      "name": "(16, 2, -1, 0.25)_finite_pressure",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(16, 2, -1, 0.5)_pressure_difference_pa",
+      "actual": -480.0000000001669,
+      "expected": -480.0,
+      "tolerance": 2e-06,
+      "pass": true
+    },
+    {
+      "name": "(16, 2, -1, 0.5)_gradient_removed_and_curl_preserved_m3",
+      "actual": 1.2923798316244461e-13,
+      "expected": 0.0,
+      "tolerance": 3e-10,
+      "pass": true
+    },
+    {
+      "name": "(16, 2, -1, 0.5)_moving_continuity_m3",
+      "actual": 8.760749287475833e-13,
+      "expected": 0.0,
+      "tolerance": 2e-10,
+      "pass": true
+    },
+    {
+      "name": "(16, 2, -1, 0.5)_finite_pressure",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(16, 2, 1, 0.25)_pressure_difference_pa",
+      "actual": -480.0000000001189,
+      "expected": -480.0,
+      "tolerance": 2e-06,
+      "pass": true
+    },
+    {
+      "name": "(16, 2, 1, 0.25)_gradient_removed_and_curl_preserved_m3",
+      "actual": 1.7089113327553584e-13,
+      "expected": 0.0,
+      "tolerance": 3e-10,
+      "pass": true
+    },
+    {
+      "name": "(16, 2, 1, 0.25)_moving_continuity_m3",
+      "actual": 9.165364864630043e-13,
+      "expected": 0.0,
+      "tolerance": 2e-10,
+      "pass": true
+    },
+    {
+      "name": "(16, 2, 1, 0.25)_finite_pressure",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(16, 2, 1, 0.5)_pressure_difference_pa",
+      "actual": -479.9999999994794,
+      "expected": -480.0,
+      "tolerance": 2e-06,
+      "pass": true
+    },
+    {
+      "name": "(16, 2, 1, 0.5)_gradient_removed_and_curl_preserved_m3",
+      "actual": 2.0220348832811208e-13,
+      "expected": 0.0,
+      "tolerance": 3e-10,
+      "pass": true
+    },
+    {
+      "name": "(16, 2, 1, 0.5)_moving_continuity_m3",
+      "actual": 8.691128329171849e-13,
+      "expected": 0.0,
+      "tolerance": 2e-10,
+      "pass": true
+    },
+    {
+      "name": "(16, 2, 1, 0.5)_finite_pressure",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    }
+  ],
+  "native_stdout": "PRED 8 0 -1 0.25 8.041631596733545e-13 -479.99999999707143 9.925948951661212e-13\nPRED 8 0 -1 0.5 3.4449526564728217e-13 -479.99999999971612 7.4186143339538546e-13\nPRED 8 0 1 0.25 2.5245604218238071e-13 -480.00000000057844 6.4897046070377939e-13\nPRED 8 0 1 0.5 2.4286128663675299e-13 -479.99999999935096 9.6875632515924792e-13\nPRED 8 1 -1 0.25 2.2757143391949342e-13 -479.99999999949836 9.6979238875527507e-13\nPRED 8 1 -1 0.5 1.8639256804675597e-13 -479.99999999973875 7.3385048038332457e-13\nPRED 8 1 1 0.25 3.2404981475941952e-13 -480.00000000184269 9.2642603657933087e-13\nPRED 8 1 1 0.5 2.8082397518502944e-13 -480.0000000008414 7.320376943509288e-13\nPRED 8 2 -1 0.25 3.7620774551161418e-13 -480.00000000077642 8.429741280013836e-13\nPRED 8 2 -1 0.5 7.1689485944825826e-13 -480.00000000301037 8.4478604667204138e-13\nPRED 8 2 1 0.25 2.462188439245061e-13 -480.00000000095105 7.2134485884500776e-13\nPRED 8 2 1 0.5 5.3969329005809641e-13 -480.00000000049994 4.3699766028026943e-13\nPRED 12 0 -1 0.25 1.6806228717719529e-13 -479.99999999948369 9.6150528944988212e-13\nPRED 12 0 -1 0.5 4.1229823374844266e-13 -479.999999999061 6.5979014786388124e-13\nPRED 12 0 1 0.25 1.1761858847991746e-13 -479.99999999926951 8.8491257236363724e-13\nPRED 12 0 1 0.5 1.4497300929172674e-13 -480.00000000007913 8.2593697506294639e-13\nPRED 12 1 -1 0.25 2.3251534161591869e-13 -479.99999999920652 6.346993243477872e-13\nPRED 12 1 -1 0.5 2.3785313996160795e-13 -480.0000000006803 7.0841292901246966e-13\nPRED 12 1 1 0.25 1.7608397379076379e-13 -480.00000000031224 8.6758943399715266e-13\nPRED 12 1 1 0.5 3.0826036168107862e-13 -479.99999999987062 8.6151159990610626e-13\nPRED 12 2 -1 0.25 1.3860267100707091e-13 -480.00000000031486 7.3487418407458538e-13\nPRED 12 2 -1 0.5 8.5105533731422156e-14 -479.99999999985567 5.0383200216053137e-13\nPRED 12 2 1 0.25 1.4611402365805048e-13 -479.99999999924341 8.1319684059472097e-13\nPRED 12 2 1 0.5 5.1760115291066278e-13 -480.00000000062761 9.7889838596154632e-13\nPRED 16 0 -1 0.25 1.302859729823691e-13 -480.00000000003683 6.0931874780109641e-13\nPRED 16 0 -1 0.5 1.5358667029147233e-13 -480.00000000062454 9.1542745606076892e-13\nPRED 16 0 1 0.25 1.1401768201454998e-13 -480.00000000016144 9.1734074763455409e-13\nPRED 16 0 1 0.5 1.7260433533838881e-13 -479.99999999998056 9.9677078114861206e-13\nPRED 16 1 -1 0.25 1.9372470207862369e-13 -479.99999999936728 7.5438727530421912e-13\nPRED 16 1 -1 0.5 1.7277932556902798e-13 -480.00000000013762 9.0875570957216212e-13\nPRED 16 1 1 0.25 1.5445273098685375e-13 -479.99999999961068 9.0669122600542384e-13\nPRED 16 1 1 0.5 3.4319064517313036e-13 -479.99999999996385 7.0739236950750906e-13\nPRED 16 2 -1 0.25 1.0605047656014888e-13 -479.99999999990797 6.6164039308133638e-13\nPRED 16 2 -1 0.5 1.2923798316244461e-13 -480.00000000016689 8.760749287475833e-13\nPRED 16 2 1 0.25 1.7089113327553584e-13 -480.00000000011892 9.1653648646300434e-13\nPRED 16 2 1 0.5 2.0220348832811208e-13 -479.99999999947943 8.6911283291718489e-13\nPASS: 396978 native predicted MAC cut-cell assertions\n",
+  "ctest_log_sha256": "11b58f5ca6e7da62a65da830032442067a32d0e7be6749dbcf35c69b73addd21",
+  "source_sha256": {
+    "include/upc/p2_moving_box_open_volume3d.hpp": "270ecc419fa312212e47dbcfbd7fa8f2b172fde153b6d66e19f226be5cbedbb2",
+    "include/upc/p2_moving_box_mac_apertures3d.hpp": "c5fbdae598166771f6a28359c31960178239d3a59e0ccbb60f89f47b38f29ad3",
+    "include/upc/p2_moving_box_swept_wall_flux3d.hpp": "80d299136f57df0b479d598468c39bf67675524942557701f99b40fe897a656e",
+    "include/upc/p2_moving_box_cut_cell_projection3d.hpp": "7ec9aaaed69aae85be1b26d32460c03de81b95f7ffb26e1f6b18e1185aee3fb6",
+    "include/upc/p2_fractional_boundary_vof_flux3d.hpp": "978afa27a7a01a82b32a13505621935737e5dcf66515545ef704cac3ae7cbdbd",
+    "tests/p2_moving_box_predictor_projection3d_tests.cpp": "7ddd49645f6b7ebea1cbb5b82958dab27acf1eff68fefd4bfa1659939c3b883a",
+    "scripts/p2_predictor_projection_acceptance.py": "728037843d75c6b6f162e7c49b8054907880768ae4df062746d4885e30e96f67",
+    "docs/P2_PREDICTED_MAC_CUT_CELL_PROJECTION_PARTIAL.md": "e560ac56fe6334979059d424b30310d9111b640b7e6bf0355f82bcee801e391c",
+    "docs/PHASENPLAN.md": "cfe65cff913a050abf54741059a124cfa34f27ee3832762214f62abcaf6a678b",
+    "CMakeLists.txt": "b1a24d4cd3aeb5b1adf74e2cc713fc890e036ad531912ddb6d9d6558e83f43fa"
+  },
+  "generated_utc": "2026-10-28T06:33:45.929122+00:00",
+  "limitations": [
+    "Opt-in single moving axis-aligned box, closed fully saturated domain",
+    "Predicted MAC velocities supplied externally; no time-resolved live solver integration",
+    "No free-surface stress or validated dynamic two-way solid impulse and energy",
+    "No independent measured 3D CFD data or new Unreal 5.8 native E2E"
+  ]
+}

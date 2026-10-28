@@ -306,3 +306,9 @@ add_test(NAME physics_p2_moving_box_swept_wall_gcl_partial COMMAND upc_p2_moving
 add_executable(upc_p2_moving_box_cut_cell_projection_tests tests/p2_moving_box_cut_cell_projection3d_tests.cpp)
 target_link_libraries(upc_p2_moving_box_cut_cell_projection_tests PRIVATE upc)
 add_test(NAME physics_p2_moving_box_cut_cell_pressure_partial COMMAND upc_p2_moving_box_cut_cell_projection_tests)
+
+# P2 partial: moving cut-cell pressure projection of nonzero predicted MAC
+# velocities, exact discrete gradient/curl split; no two-way FSI.
+add_executable(upc_p2_moving_box_predictor_projection_tests tests/p2_moving_box_predictor_projection3d_tests.cpp)
+target_link_libraries(upc_p2_moving_box_predictor_projection_tests PRIVATE upc)
+add_test(NAME physics_p2_moving_box_predicted_mac_projection_partial COMMAND upc_p2_moving_box_predictor_projection_tests)

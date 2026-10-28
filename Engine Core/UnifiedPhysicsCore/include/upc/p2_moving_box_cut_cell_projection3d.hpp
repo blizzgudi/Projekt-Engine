@@ -1,7 +1,7 @@
 #pragma once
 // P2 PARTIAL: closed-domain, constant-density cut-cell pressure correction
-// for a translating axis-aligned box. Solves only a geometrically forced
-// incompressible MAC face-volume flux; NOT full Navier-Stokes or two-way FSI.
+// for a translating axis-aligned box. Optionally projects supplied predicted
+// MAC face velocities. NOT full Navier-Stokes or two-way FSI.
 #include "upc/p2_moving_box_swept_wall_flux3d.hpp"
 #include <algorithm>
 #include <cmath>
@@ -41,6 +41,35 @@ public:
         double dx_m,double dt_s,double density_kg_m3,
         const P2Box3D& old_box,const P2Box3D& new_box,
         std::size_t max_iterations=4000) {
+        return solve(nx,ny,nz,dx_m,dt_s,density_kg_m3,
+                     old_box,new_box,nullptr,nullptr,nullptr,max_iterations);
+    }
+
+    // Opt-in predicted MAC velocities (m/s) on the time-averaged OPEN
+    // face area. The pressure correction projects their volume flux
+    // onto the moving-box geometric continuity constraint. All six
+    // exterior boundaries remain impermeable. No free surface or FSI.
+    static P2MovingBoxCutCellProjection3D sample_with_predictor(
+        std::size_t nx,std::size_t ny,std::size_t nz,
+        double dx_m,double dt_s,double density_kg_m3,
+        const P2Box3D& old_box,const P2Box3D& new_box,
+        const std::vector<double>& u_pred_m_s,
+        const std::vector<double>& v_pred_m_s,
+        const std::vector<double>& w_pred_m_s,
+        std::size_t max_iterations=4000) {
+        return solve(nx,ny,nz,dx_m,dt_s,density_kg_m3,
+                     old_box,new_box,&u_pred_m_s,&v_pred_m_s,
+                     &w_pred_m_s,max_iterations);
+    }
+private:
+    static P2MovingBoxCutCellProjection3D solve(
+        std::size_t nx,std::size_t ny,std::size_t nz,
+        double dx_m,double dt_s,double density_kg_m3,
+        const P2Box3D& old_box,const P2Box3D& new_box,
+        const std::vector<double>* u_pred_m_s,
+        const std::vector<double>* v_pred_m_s,
+        const std::vector<double>* w_pred_m_s,
+        std::size_t max_iterations) {
         if(!std::isfinite(density_kg_m3)||density_kg_m3<=0.0||
            max_iterations==0||nx*ny*nz>32768)
             throw std::invalid_argument("Invalid cut-cell projection parameters");
@@ -90,6 +119,49 @@ public:
         for(std::size_t y=0;y<ny;++y)
         for(std::size_t x=0;x<nx;++x)
             add(ci(x,y,z-1),ci(x,y,z),wi(x,y,z),2,g.w_open[wi(x,y,z)]);
+        // Integrate a caller-supplied predictor over time and OPEN
+        // face area: Q* = velocity * dt * dx^2 * aperture.
+        // Solve A phi = (alpha_old-alpha_new)*dx^3 - div(Q*).
+        // The correction is conservative on each interior edge.
+        if(u_pred_m_s) {
+            if(u_pred_m_s->size()!=g.u_open.size() ||
+               v_pred_m_s->size()!=g.v_open.size() ||
+               w_pred_m_s->size()!=g.w_open.size())
+                throw std::invalid_argument("Cut-cell predictor shape mismatch");
+            std::vector<unsigned char> active_u(g.u_open.size(),0),
+                active_v(g.v_open.size(),0),active_w(g.w_open.size(),0);
+            for(const auto& e:edges) {
+                auto& active=e.axis==0?active_u:
+                             e.axis==1?active_v:active_w;
+                active[e.face]=1;
+            }
+            const auto validate=[&](const std::vector<double>& values,
+                                    const std::vector<unsigned char>& active) {
+                for(std::size_t i=0;i<values.size();++i)
+                    if(!std::isfinite(values[i]) ||
+                       (!active[i] && values[i]!=0.0))
+                        throw std::invalid_argument(
+                            "Nonfinite or closed-face cut-cell predictor");
+            };
+            validate(*u_pred_m_s,active_u);
+            validate(*v_pred_m_s,active_v);
+            validate(*w_pred_m_s,active_w);
+            const double swept_area=dt_s*dx_m*dx_m;
+            if(!std::isfinite(swept_area)||swept_area<=0.0)
+                throw std::invalid_argument("Cut-cell predictor time-area overflow");
+            for(const auto& e:edges) {
+                const auto& input=e.axis==0?*u_pred_m_s:
+                                  e.axis==1?*v_pred_m_s:*w_pred_m_s;
+                const double q=input[e.face]*swept_area*e.aperture;
+                if(!std::isfinite(q))
+                    throw std::invalid_argument("Cut-cell predictor flux overflow");
+                auto& output=e.axis==0?out.u_fluid_m3:
+                             e.axis==1?out.v_fluid_m3:out.w_fluid_m3;
+                output[e.face]=q;
+                b[e.left]-=q;
+                b[e.right]+=q;
+            }
+        }
         // A disconnected sealed component needs its OWN zero net
         // volume source. Global zero alone is insufficient.
         std::vector<std::vector<std::size_t>> neighbors(n);
@@ -191,8 +263,10 @@ public:
                 throw std::runtime_error("Nonfinite cut-cell fluid flux");
             auto& faces=e.axis==0?out.u_fluid_m3:
                         e.axis==1?out.v_fluid_m3:out.w_fluid_m3;
-            faces[e.face]=q;
-            out.fluid_flux_l1_m3+=std::abs(q);
+            faces[e.face]+=q;
+            if(!std::isfinite(faces[e.face]))
+                throw std::runtime_error("Nonfinite corrected cut-cell flux");
+            out.fluid_flux_l1_m3+=std::abs(faces[e.face]);
         }
         return out;
     }
