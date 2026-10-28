@@ -1,0 +1,1640 @@
+{
+  "phase": "P2",
+  "milestone": "moving_mac_dual_numerical_l2_energy_stability",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "ctest_suites": 75,
+  "native_assertions": 149165,
+  "checks": [
+    {
+      "name": "complete MSVC CTest 75/75",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "new native CTest present",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "140000+ native assertions",
+      "pass": true,
+      "detail": 149165
+    },
+    {
+      "name": "48 moving step cases",
+      "pass": true,
+      "detail": 48
+    },
+    {
+      "name": "unique case (8, 0, -1, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite and nonincreasing L2 (8, 0, -1, 0, 0)",
+      "pass": true,
+      "detail": [
+        124495.00000000001,
+        124495.00000000007,
+        -5.820766091346741e-11
+      ]
+    },
+    {
+      "name": "uniform state near-zero loss (8, 0, -1, 0, 0)",
+      "pass": true,
+      "detail": -5.820766091346741e-11
+    },
+    {
+      "name": "unique case (8, 0, -1, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite and nonincreasing L2 (8, 0, -1, 0, 1)",
+      "pass": true,
+      "detail": [
+        124495.00000000007,
+        124495.00000000003,
+        3.456079866737127e-11
+      ]
+    },
+    {
+      "name": "uniform state near-zero loss (8, 0, -1, 0, 1)",
+      "pass": true,
+      "detail": 3.456079866737127e-11
+    },
+    {
+      "name": "unique case (8, 0, -1, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite and nonincreasing L2 (8, 0, -1, 1, 0)",
+      "pass": true,
+      "detail": [
+        120257.94596313588,
+        120257.50916615064,
+        0.436796985237379
+      ]
+    },
+    {
+      "name": "nonuniform state strictly dissipates (8, 0, -1, 1, 0)",
+      "pass": true,
+      "detail": 0.436796985237379
+    },
+    {
+      "name": "unique case (8, 0, -1, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite and nonincreasing L2 (8, 0, -1, 1, 1)",
+      "pass": true,
+      "detail": [
+        120257.50916615064,
+        120257.07212041231,
+        0.4370457383292887
+      ]
+    },
+    {
+      "name": "nonuniform state strictly dissipates (8, 0, -1, 1, 1)",
+      "pass": true,
+      "detail": 0.4370457383292887
+    },
+    {
+      "name": "unique case (8, 0, 1, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite and nonincreasing L2 (8, 0, 1, 0, 0)",
+      "pass": true,
+      "detail": [
+        124495.00000000001,
+        124495.00000000006,
+        -4.729372449219227e-11
+      ]
+    },
+    {
+      "name": "uniform state near-zero loss (8, 0, 1, 0, 0)",
+      "pass": true,
+      "detail": -4.729372449219227e-11
+    },
+    {
+      "name": "unique case (8, 0, 1, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite and nonincreasing L2 (8, 0, 1, 0, 1)",
+      "pass": true,
+      "detail": [
+        124495.00000000006,
+        124494.99999999997,
+        8.731149137020111e-11
+      ]
+    },
+    {
+      "name": "uniform state near-zero loss (8, 0, 1, 0, 1)",
+      "pass": true,
+      "detail": 8.731149137020111e-11
+    },
+    {
+      "name": "unique case (8, 0, 1, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite and nonincreasing L2 (8, 0, 1, 1, 0)",
+      "pass": true,
+      "detail": [
+        120257.94596313588,
+        120257.47779177505,
+        0.4681713608351856
+      ]
+    },
+    {
+      "name": "nonuniform state strictly dissipates (8, 0, 1, 1, 0)",
+      "pass": true,
+      "detail": 0.4681713608351856
+    },
+    {
+      "name": "unique case (8, 0, 1, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite and nonincreasing L2 (8, 0, 1, 1, 1)",
+      "pass": true,
+      "detail": [
+        120257.47779177505,
+        120257.01274955095,
+        0.46504222408111673
+      ]
+    },
+    {
+      "name": "nonuniform state strictly dissipates (8, 0, 1, 1, 1)",
+      "pass": true,
+      "detail": 0.46504222408111673
+    },
+    {
+      "name": "unique case (8, 1, -1, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite and nonincreasing L2 (8, 1, -1, 0, 0)",
+      "pass": true,
+      "detail": [
+        124495.00000000001,
+        124495.00000000003,
+        -7.275957614183426e-12
+      ]
+    },
+    {
+      "name": "uniform state near-zero loss (8, 1, -1, 0, 0)",
+      "pass": true,
+      "detail": -7.275957614183426e-12
+    },
+    {
+      "name": "unique case (8, 1, -1, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite and nonincreasing L2 (8, 1, -1, 0, 1)",
+      "pass": true,
+      "detail": [
+        124495.00000000003,
+        124495.00000000006,
+        -3.8198777474462986e-11
+      ]
+    },
+    {
+      "name": "uniform state near-zero loss (8, 1, -1, 0, 1)",
+      "pass": true,
+      "detail": -3.8198777474462986e-11
+    },
+    {
+      "name": "unique case (8, 1, -1, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite and nonincreasing L2 (8, 1, -1, 1, 0)",
+      "pass": true,
+      "detail": [
+        120257.94596313588,
+        120257.46607757961,
+        0.47988555627034657
+      ]
+    },
+    {
+      "name": "nonuniform state strictly dissipates (8, 1, -1, 1, 0)",
+      "pass": true,
+      "detail": 0.47988555627034657
+    },
+    {
+      "name": "unique case (8, 1, -1, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite and nonincreasing L2 (8, 1, -1, 1, 1)",
+      "pass": true,
+      "detail": [
+        120257.46607757961,
+        120256.94632495474,
+        0.5197526248593931
+      ]
+    },
+    {
+      "name": "nonuniform state strictly dissipates (8, 1, -1, 1, 1)",
+      "pass": true,
+      "detail": 0.5197526248593931
+    },
+    {
+      "name": "unique case (8, 1, 1, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite and nonincreasing L2 (8, 1, 1, 0, 0)",
+      "pass": true,
+      "detail": [
+        124495.00000000001,
+        124495.00000000006,
+        -4.547473508864641e-11
+      ]
+    },
+    {
+      "name": "uniform state near-zero loss (8, 1, 1, 0, 0)",
+      "pass": true,
+      "detail": -4.547473508864641e-11
+    },
+    {
+      "name": "unique case (8, 1, 1, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite and nonincreasing L2 (8, 1, 1, 0, 1)",
+      "pass": true,
+      "detail": [
+        124495.00000000006,
+        124494.99999999997,
+        8.913048077374697e-11
+      ]
+    },
+    {
+      "name": "uniform state near-zero loss (8, 1, 1, 0, 1)",
+      "pass": true,
+      "detail": 8.913048077374697e-11
+    },
+    {
+      "name": "unique case (8, 1, 1, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite and nonincreasing L2 (8, 1, 1, 1, 0)",
+      "pass": true,
+      "detail": [
+        120257.94596313588,
+        120257.48252106787,
+        0.4634420680049516
+      ]
+    },
+    {
+      "name": "nonuniform state strictly dissipates (8, 1, 1, 1, 0)",
+      "pass": true,
+      "detail": 0.4634420680049516
+    },
+    {
+      "name": "unique case (8, 1, 1, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite and nonincreasing L2 (8, 1, 1, 1, 1)",
+      "pass": true,
+      "detail": [
+        120257.48252106787,
+        120257.02294935458,
+        0.4595717133033759
+      ]
+    },
+    {
+      "name": "nonuniform state strictly dissipates (8, 1, 1, 1, 1)",
+      "pass": true,
+      "detail": 0.4595717133033759
+    },
+    {
+      "name": "unique case (8, 2, -1, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite and nonincreasing L2 (8, 2, -1, 0, 0)",
+      "pass": true,
+      "detail": [
+        124495.00000000001,
+        124495.00000000007,
+        -6.002665031701326e-11
+      ]
+    },
+    {
+      "name": "uniform state near-zero loss (8, 2, -1, 0, 0)",
+      "pass": true,
+      "detail": -6.002665031701326e-11
+    },
+    {
+      "name": "unique case (8, 2, -1, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite and nonincreasing L2 (8, 2, -1, 0, 1)",
+      "pass": true,
+      "detail": [
+        124495.00000000007,
+        124495.00000000009,
+        -1.4551915228366852e-11
+      ]
+    },
+    {
+      "name": "uniform state near-zero loss (8, 2, -1, 0, 1)",
+      "pass": true,
+      "detail": -1.4551915228366852e-11
+    },
+    {
+      "name": "unique case (8, 2, -1, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite and nonincreasing L2 (8, 2, -1, 1, 0)",
+      "pass": true,
+      "detail": [
+        120257.94596313588,
+        120257.4520795558,
+        0.49388358008218347
+      ]
+    },
+    {
+      "name": "nonuniform state strictly dissipates (8, 2, -1, 1, 0)",
+      "pass": true,
+      "detail": 0.49388358008218347
+    },
+    {
+      "name": "unique case (8, 2, -1, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite and nonincreasing L2 (8, 2, -1, 1, 1)",
+      "pass": true,
+      "detail": [
+        120257.4520795558,
+        120256.96118079302,
+        0.49089876277685107
+      ]
+    },
+    {
+      "name": "nonuniform state strictly dissipates (8, 2, -1, 1, 1)",
+      "pass": true,
+      "detail": 0.49089876277685107
+    },
+    {
+      "name": "unique case (8, 2, 1, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite and nonincreasing L2 (8, 2, 1, 0, 0)",
+      "pass": true,
+      "detail": [
+        124495.00000000001,
+        124495.00000000013,
+        -1.1823431123048067e-10
+      ]
+    },
+    {
+      "name": "uniform state near-zero loss (8, 2, 1, 0, 0)",
+      "pass": true,
+      "detail": -1.1823431123048067e-10
+    },
+    {
+      "name": "unique case (8, 2, 1, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite and nonincreasing L2 (8, 2, 1, 0, 1)",
+      "pass": true,
+      "detail": [
+        124495.00000000013,
+        124495.00000000006,
+        8.36735125631094e-11
+      ]
+    },
+    {
+      "name": "uniform state near-zero loss (8, 2, 1, 0, 1)",
+      "pass": true,
+      "detail": 8.36735125631094e-11
+    },
+    {
+      "name": "unique case (8, 2, 1, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite and nonincreasing L2 (8, 2, 1, 1, 0)",
+      "pass": true,
+      "detail": [
+        120257.94596313588,
+        120257.47775339673,
+        0.4682097391496427
+      ]
+    },
+    {
+      "name": "nonuniform state strictly dissipates (8, 2, 1, 1, 0)",
+      "pass": true,
+      "detail": 0.4682097391496427
+    },
+    {
+      "name": "unique case (8, 2, 1, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite and nonincreasing L2 (8, 2, 1, 1, 1)",
+      "pass": true,
+      "detail": [
+        120257.47775339673,
+        120257.01339502825,
+        0.46435836847649625
+      ]
+    },
+    {
+      "name": "nonuniform state strictly dissipates (8, 2, 1, 1, 1)",
+      "pass": true,
+      "detail": 0.46435836847649625
+    },
+    {
+      "name": "unique case (12, 0, -1, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite and nonincreasing L2 (12, 0, -1, 0, 0)",
+      "pass": true,
+      "detail": [
+        442575.00000000006,
+        442574.99999999977,
+        2.764863893389702e-10
+      ]
+    },
+    {
+      "name": "uniform state near-zero loss (12, 0, -1, 0, 0)",
+      "pass": true,
+      "detail": 2.764863893389702e-10
+    },
+    {
+      "name": "unique case (12, 0, -1, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite and nonincreasing L2 (12, 0, -1, 0, 1)",
+      "pass": true,
+      "detail": [
+        442574.99999999977,
+        442574.9999999997,
+        8.36735125631094e-11
+      ]
+    },
+    {
+      "name": "uniform state near-zero loss (12, 0, -1, 0, 1)",
+      "pass": true,
+      "detail": 8.36735125631094e-11
+    },
+    {
+      "name": "unique case (12, 0, -1, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite and nonincreasing L2 (12, 0, -1, 1, 0)",
+      "pass": true,
+      "detail": [
+        443938.339422983,
+        443936.90362888575,
+        1.4357940972477081
+      ]
+    },
+    {
+      "name": "nonuniform state strictly dissipates (12, 0, -1, 1, 0)",
+      "pass": true,
+      "detail": 1.4357940972477081
+    },
+    {
+      "name": "unique case (12, 0, -1, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite and nonincreasing L2 (12, 0, -1, 1, 1)",
+      "pass": true,
+      "detail": [
+        443936.90362888575,
+        443935.4664391767,
+        1.43718970908958
+      ]
+    },
+    {
+      "name": "nonuniform state strictly dissipates (12, 0, -1, 1, 1)",
+      "pass": true,
+      "detail": 1.43718970908958
+    },
+    {
+      "name": "unique case (12, 0, 1, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite and nonincreasing L2 (12, 0, 1, 0, 0)",
+      "pass": true,
+      "detail": [
+        442575.00000000006,
+        442575.00000000023,
+        -1.382431946694851e-10
+      ]
+    },
+    {
+      "name": "uniform state near-zero loss (12, 0, 1, 0, 0)",
+      "pass": true,
+      "detail": -1.382431946694851e-10
+    },
+    {
+      "name": "unique case (12, 0, 1, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite and nonincreasing L2 (12, 0, 1, 0, 1)",
+      "pass": true,
+      "detail": [
+        442575.00000000023,
+        442575.00000000047,
+        -2.4374458007514477e-10
+      ]
+    },
+    {
+      "name": "uniform state near-zero loss (12, 0, 1, 0, 1)",
+      "pass": true,
+      "detail": -2.4374458007514477e-10
+    },
+    {
+      "name": "unique case (12, 0, 1, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite and nonincreasing L2 (12, 0, 1, 1, 0)",
+      "pass": true,
+      "detail": [
+        443938.339422983,
+        443936.901845859,
+        1.4375771239792812
+      ]
+    },
+    {
+      "name": "nonuniform state strictly dissipates (12, 0, 1, 1, 0)",
+      "pass": true,
+      "detail": 1.4375771239792812
+    },
+    {
+      "name": "unique case (12, 0, 1, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite and nonincreasing L2 (12, 0, 1, 1, 1)",
+      "pass": true,
+      "detail": [
+        443936.901845859,
+        443935.46875562426,
+        1.433090234750125
+      ]
+    },
+    {
+      "name": "nonuniform state strictly dissipates (12, 0, 1, 1, 1)",
+      "pass": true,
+      "detail": 1.433090234750125
+    },
+    {
+      "name": "unique case (12, 1, -1, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite and nonincreasing L2 (12, 1, -1, 0, 0)",
+      "pass": true,
+      "detail": [
+        442575.00000000006,
+        442574.99999999965,
+        3.67435859516263e-10
+      ]
+    },
+    {
+      "name": "uniform state near-zero loss (12, 1, -1, 0, 0)",
+      "pass": true,
+      "detail": 3.67435859516263e-10
+    },
+    {
+      "name": "unique case (12, 1, -1, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite and nonincreasing L2 (12, 1, -1, 0, 1)",
+      "pass": true,
+      "detail": [
+        442574.99999999965,
+        442575.0000000004,
+        -7.057678885757923e-10
+      ]
+    },
+    {
+      "name": "uniform state near-zero loss (12, 1, -1, 0, 1)",
+      "pass": true,
+      "detail": -7.057678885757923e-10
+    },
+    {
+      "name": "unique case (12, 1, -1, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite and nonincreasing L2 (12, 1, -1, 1, 0)",
+      "pass": true,
+      "detail": [
+        443938.339422983,
+        443936.88447702554,
+        1.454945957466407
+      ]
+    },
+    {
+      "name": "nonuniform state strictly dissipates (12, 1, -1, 1, 0)",
+      "pass": true,
+      "detail": 1.454945957466407
+    },
+    {
+      "name": "unique case (12, 1, -1, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite and nonincreasing L2 (12, 1, -1, 1, 1)",
+      "pass": true,
+      "detail": [
+        443936.88447702554,
+        443935.39187852846,
+        1.49259849707596
+      ]
+    },
+    {
+      "name": "nonuniform state strictly dissipates (12, 1, -1, 1, 1)",
+      "pass": true,
+      "detail": 1.49259849707596
+    },
+    {
+      "name": "unique case (12, 1, 1, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite and nonincreasing L2 (12, 1, 1, 0, 0)",
+      "pass": true,
+      "detail": [
+        442575.00000000006,
+        442575.00000000023,
+        -1.3460521586239338e-10
+      ]
+    },
+    {
+      "name": "uniform state near-zero loss (12, 1, 1, 0, 0)",
+      "pass": true,
+      "detail": -1.3460521586239338e-10
+    },
+    {
+      "name": "unique case (12, 1, 1, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite and nonincreasing L2 (12, 1, 1, 0, 1)",
+      "pass": true,
+      "detail": [
+        442575.00000000023,
+        442574.9999999999,
+        2.764863893389702e-10
+      ]
+    },
+    {
+      "name": "uniform state near-zero loss (12, 1, 1, 0, 1)",
+      "pass": true,
+      "detail": 2.764863893389702e-10
+    },
+    {
+      "name": "unique case (12, 1, 1, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite and nonincreasing L2 (12, 1, 1, 1, 0)",
+      "pass": true,
+      "detail": [
+        443938.339422983,
+        443936.8860897757,
+        1.4533332072933263
+      ]
+    },
+    {
+      "name": "nonuniform state strictly dissipates (12, 1, 1, 1, 0)",
+      "pass": true,
+      "detail": 1.4533332072933263
+    },
+    {
+      "name": "unique case (12, 1, 1, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite and nonincreasing L2 (12, 1, 1, 1, 1)",
+      "pass": true,
+      "detail": [
+        443936.8860897757,
+        443935.4369440704,
+        1.449145705337287
+      ]
+    },
+    {
+      "name": "nonuniform state strictly dissipates (12, 1, 1, 1, 1)",
+      "pass": true,
+      "detail": 1.449145705337287
+    },
+    {
+      "name": "unique case (12, 2, -1, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite and nonincreasing L2 (12, 2, -1, 0, 0)",
+      "pass": true,
+      "detail": [
+        442575.00000000006,
+        442575.0000000003,
+        -2.3646862246096134e-10
+      ]
+    },
+    {
+      "name": "uniform state near-zero loss (12, 2, -1, 0, 0)",
+      "pass": true,
+      "detail": -2.3646862246096134e-10
+    },
+    {
+      "name": "unique case (12, 2, -1, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite and nonincreasing L2 (12, 2, -1, 0, 1)",
+      "pass": true,
+      "detail": [
+        442575.0000000003,
+        442575.00000000047,
+        -1.4915713109076023e-10
+      ]
+    },
+    {
+      "name": "uniform state near-zero loss (12, 2, -1, 0, 1)",
+      "pass": true,
+      "detail": -1.4915713109076023e-10
+    },
+    {
+      "name": "unique case (12, 2, -1, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite and nonincreasing L2 (12, 2, -1, 1, 0)",
+      "pass": true,
+      "detail": [
+        443938.339422983,
+        443936.8594188286,
+        1.480004154418566
+      ]
+    },
+    {
+      "name": "nonuniform state strictly dissipates (12, 2, -1, 1, 0)",
+      "pass": true,
+      "detail": 1.480004154418566
+    },
+    {
+      "name": "unique case (12, 2, -1, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite and nonincreasing L2 (12, 2, -1, 1, 1)",
+      "pass": true,
+      "detail": [
+        443936.8594188286,
+        443935.3834359979,
+        1.4759828306887357
+      ]
+    },
+    {
+      "name": "nonuniform state strictly dissipates (12, 2, -1, 1, 1)",
+      "pass": true,
+      "detail": 1.4759828306887357
+    },
+    {
+      "name": "unique case (12, 2, 1, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite and nonincreasing L2 (12, 2, 1, 0, 0)",
+      "pass": true,
+      "detail": [
+        442575.00000000006,
+        442574.9999999999,
+        1.8553691916167736e-10
+      ]
+    },
+    {
+      "name": "uniform state near-zero loss (12, 2, 1, 0, 0)",
+      "pass": true,
+      "detail": 1.8553691916167736e-10
+    },
+    {
+      "name": "unique case (12, 2, 1, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite and nonincreasing L2 (12, 2, 1, 0, 1)",
+      "pass": true,
+      "detail": [
+        442574.9999999999,
+        442574.99999999953,
+        3.7471181713044643e-10
+      ]
+    },
+    {
+      "name": "uniform state near-zero loss (12, 2, 1, 0, 1)",
+      "pass": true,
+      "detail": 3.7471181713044643e-10
+    },
+    {
+      "name": "unique case (12, 2, 1, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite and nonincreasing L2 (12, 2, 1, 1, 0)",
+      "pass": true,
+      "detail": [
+        443938.339422983,
+        443936.9063514134,
+        1.4330715696050902
+      ]
+    },
+    {
+      "name": "nonuniform state strictly dissipates (12, 2, 1, 1, 0)",
+      "pass": true,
+      "detail": 1.4330715696050902
+    },
+    {
+      "name": "unique case (12, 2, 1, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite and nonincreasing L2 (12, 2, 1, 1, 1)",
+      "pass": true,
+      "detail": [
+        443936.9063514134,
+        443935.4874446908,
+        1.418906722603424
+      ]
+    },
+    {
+      "name": "nonuniform state strictly dissipates (12, 2, 1, 1, 1)",
+      "pass": true,
+      "detail": 1.418906722603424
+    },
+    {
+      "name": "all grid, axis, direction, mode and step combinations",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "sequential energy continuity (8, 0, -1, 0)",
+      "pass": true,
+      "detail": [
+        124495.00000000007,
+        124495.00000000007
+      ]
+    },
+    {
+      "name": "sequential energy continuity (8, 0, -1, 1)",
+      "pass": true,
+      "detail": [
+        120257.50916615064,
+        120257.50916615064
+      ]
+    },
+    {
+      "name": "sequential energy continuity (8, 0, 1, 0)",
+      "pass": true,
+      "detail": [
+        124495.00000000006,
+        124495.00000000006
+      ]
+    },
+    {
+      "name": "sequential energy continuity (8, 0, 1, 1)",
+      "pass": true,
+      "detail": [
+        120257.47779177505,
+        120257.47779177505
+      ]
+    },
+    {
+      "name": "sequential energy continuity (8, 1, -1, 0)",
+      "pass": true,
+      "detail": [
+        124495.00000000003,
+        124495.00000000003
+      ]
+    },
+    {
+      "name": "sequential energy continuity (8, 1, -1, 1)",
+      "pass": true,
+      "detail": [
+        120257.46607757961,
+        120257.46607757961
+      ]
+    },
+    {
+      "name": "sequential energy continuity (8, 1, 1, 0)",
+      "pass": true,
+      "detail": [
+        124495.00000000006,
+        124495.00000000006
+      ]
+    },
+    {
+      "name": "sequential energy continuity (8, 1, 1, 1)",
+      "pass": true,
+      "detail": [
+        120257.48252106787,
+        120257.48252106787
+      ]
+    },
+    {
+      "name": "sequential energy continuity (8, 2, -1, 0)",
+      "pass": true,
+      "detail": [
+        124495.00000000007,
+        124495.00000000007
+      ]
+    },
+    {
+      "name": "sequential energy continuity (8, 2, -1, 1)",
+      "pass": true,
+      "detail": [
+        120257.4520795558,
+        120257.4520795558
+      ]
+    },
+    {
+      "name": "sequential energy continuity (8, 2, 1, 0)",
+      "pass": true,
+      "detail": [
+        124495.00000000013,
+        124495.00000000013
+      ]
+    },
+    {
+      "name": "sequential energy continuity (8, 2, 1, 1)",
+      "pass": true,
+      "detail": [
+        120257.47775339673,
+        120257.47775339673
+      ]
+    },
+    {
+      "name": "sequential energy continuity (12, 0, -1, 0)",
+      "pass": true,
+      "detail": [
+        442574.99999999977,
+        442574.99999999977
+      ]
+    },
+    {
+      "name": "sequential energy continuity (12, 0, -1, 1)",
+      "pass": true,
+      "detail": [
+        443936.90362888575,
+        443936.90362888575
+      ]
+    },
+    {
+      "name": "sequential energy continuity (12, 0, 1, 0)",
+      "pass": true,
+      "detail": [
+        442575.00000000023,
+        442575.00000000023
+      ]
+    },
+    {
+      "name": "sequential energy continuity (12, 0, 1, 1)",
+      "pass": true,
+      "detail": [
+        443936.901845859,
+        443936.901845859
+      ]
+    },
+    {
+      "name": "sequential energy continuity (12, 1, -1, 0)",
+      "pass": true,
+      "detail": [
+        442574.99999999965,
+        442574.99999999965
+      ]
+    },
+    {
+      "name": "sequential energy continuity (12, 1, -1, 1)",
+      "pass": true,
+      "detail": [
+        443936.88447702554,
+        443936.88447702554
+      ]
+    },
+    {
+      "name": "sequential energy continuity (12, 1, 1, 0)",
+      "pass": true,
+      "detail": [
+        442575.00000000023,
+        442575.00000000023
+      ]
+    },
+    {
+      "name": "sequential energy continuity (12, 1, 1, 1)",
+      "pass": true,
+      "detail": [
+        443936.8860897757,
+        443936.8860897757
+      ]
+    },
+    {
+      "name": "sequential energy continuity (12, 2, -1, 0)",
+      "pass": true,
+      "detail": [
+        442575.0000000003,
+        442575.0000000003
+      ]
+    },
+    {
+      "name": "sequential energy continuity (12, 2, -1, 1)",
+      "pass": true,
+      "detail": [
+        443936.8594188286,
+        443936.8594188286
+      ]
+    },
+    {
+      "name": "sequential energy continuity (12, 2, 1, 0)",
+      "pass": true,
+      "detail": [
+        442574.9999999999,
+        442574.9999999999
+      ]
+    },
+    {
+      "name": "sequential energy continuity (12, 2, 1, 1)",
+      "pass": true,
+      "detail": [
+        443936.9063514134,
+        443936.9063514134
+      ]
+    }
+  ],
+  "reference": [
+    {
+      "grid": 8,
+      "axis": 0,
+      "sign": -1,
+      "mode": 0,
+      "step": 0,
+      "energy_before_j": 124495.00000000001,
+      "energy_after_j": 124495.00000000007,
+      "numerical_upwind_loss_j": -5.820766091346741e-11
+    },
+    {
+      "grid": 8,
+      "axis": 0,
+      "sign": -1,
+      "mode": 0,
+      "step": 1,
+      "energy_before_j": 124495.00000000007,
+      "energy_after_j": 124495.00000000003,
+      "numerical_upwind_loss_j": 3.456079866737127e-11
+    },
+    {
+      "grid": 8,
+      "axis": 0,
+      "sign": -1,
+      "mode": 1,
+      "step": 0,
+      "energy_before_j": 120257.94596313588,
+      "energy_after_j": 120257.50916615064,
+      "numerical_upwind_loss_j": 0.436796985237379
+    },
+    {
+      "grid": 8,
+      "axis": 0,
+      "sign": -1,
+      "mode": 1,
+      "step": 1,
+      "energy_before_j": 120257.50916615064,
+      "energy_after_j": 120257.07212041231,
+      "numerical_upwind_loss_j": 0.4370457383292887
+    },
+    {
+      "grid": 8,
+      "axis": 0,
+      "sign": 1,
+      "mode": 0,
+      "step": 0,
+      "energy_before_j": 124495.00000000001,
+      "energy_after_j": 124495.00000000006,
+      "numerical_upwind_loss_j": -4.729372449219227e-11
+    },
+    {
+      "grid": 8,
+      "axis": 0,
+      "sign": 1,
+      "mode": 0,
+      "step": 1,
+      "energy_before_j": 124495.00000000006,
+      "energy_after_j": 124494.99999999997,
+      "numerical_upwind_loss_j": 8.731149137020111e-11
+    },
+    {
+      "grid": 8,
+      "axis": 0,
+      "sign": 1,
+      "mode": 1,
+      "step": 0,
+      "energy_before_j": 120257.94596313588,
+      "energy_after_j": 120257.47779177505,
+      "numerical_upwind_loss_j": 0.4681713608351856
+    },
+    {
+      "grid": 8,
+      "axis": 0,
+      "sign": 1,
+      "mode": 1,
+      "step": 1,
+      "energy_before_j": 120257.47779177505,
+      "energy_after_j": 120257.01274955095,
+      "numerical_upwind_loss_j": 0.46504222408111673
+    },
+    {
+      "grid": 8,
+      "axis": 1,
+      "sign": -1,
+      "mode": 0,
+      "step": 0,
+      "energy_before_j": 124495.00000000001,
+      "energy_after_j": 124495.00000000003,
+      "numerical_upwind_loss_j": -7.275957614183426e-12
+    },
+    {
+      "grid": 8,
+      "axis": 1,
+      "sign": -1,
+      "mode": 0,
+      "step": 1,
+      "energy_before_j": 124495.00000000003,
+      "energy_after_j": 124495.00000000006,
+      "numerical_upwind_loss_j": -3.8198777474462986e-11
+    },
+    {
+      "grid": 8,
+      "axis": 1,
+      "sign": -1,
+      "mode": 1,
+      "step": 0,
+      "energy_before_j": 120257.94596313588,
+      "energy_after_j": 120257.46607757961,
+      "numerical_upwind_loss_j": 0.47988555627034657
+    },
+    {
+      "grid": 8,
+      "axis": 1,
+      "sign": -1,
+      "mode": 1,
+      "step": 1,
+      "energy_before_j": 120257.46607757961,
+      "energy_after_j": 120256.94632495474,
+      "numerical_upwind_loss_j": 0.5197526248593931
+    },
+    {
+      "grid": 8,
+      "axis": 1,
+      "sign": 1,
+      "mode": 0,
+      "step": 0,
+      "energy_before_j": 124495.00000000001,
+      "energy_after_j": 124495.00000000006,
+      "numerical_upwind_loss_j": -4.547473508864641e-11
+    },
+    {
+      "grid": 8,
+      "axis": 1,
+      "sign": 1,
+      "mode": 0,
+      "step": 1,
+      "energy_before_j": 124495.00000000006,
+      "energy_after_j": 124494.99999999997,
+      "numerical_upwind_loss_j": 8.913048077374697e-11
+    },
+    {
+      "grid": 8,
+      "axis": 1,
+      "sign": 1,
+      "mode": 1,
+      "step": 0,
+      "energy_before_j": 120257.94596313588,
+      "energy_after_j": 120257.48252106787,
+      "numerical_upwind_loss_j": 0.4634420680049516
+    },
+    {
+      "grid": 8,
+      "axis": 1,
+      "sign": 1,
+      "mode": 1,
+      "step": 1,
+      "energy_before_j": 120257.48252106787,
+      "energy_after_j": 120257.02294935458,
+      "numerical_upwind_loss_j": 0.4595717133033759
+    },
+    {
+      "grid": 8,
+      "axis": 2,
+      "sign": -1,
+      "mode": 0,
+      "step": 0,
+      "energy_before_j": 124495.00000000001,
+      "energy_after_j": 124495.00000000007,
+      "numerical_upwind_loss_j": -6.002665031701326e-11
+    },
+    {
+      "grid": 8,
+      "axis": 2,
+      "sign": -1,
+      "mode": 0,
+      "step": 1,
+      "energy_before_j": 124495.00000000007,
+      "energy_after_j": 124495.00000000009,
+      "numerical_upwind_loss_j": -1.4551915228366852e-11
+    },
+    {
+      "grid": 8,
+      "axis": 2,
+      "sign": -1,
+      "mode": 1,
+      "step": 0,
+      "energy_before_j": 120257.94596313588,
+      "energy_after_j": 120257.4520795558,
+      "numerical_upwind_loss_j": 0.49388358008218347
+    },
+    {
+      "grid": 8,
+      "axis": 2,
+      "sign": -1,
+      "mode": 1,
+      "step": 1,
+      "energy_before_j": 120257.4520795558,
+      "energy_after_j": 120256.96118079302,
+      "numerical_upwind_loss_j": 0.49089876277685107
+    },
+    {
+      "grid": 8,
+      "axis": 2,
+      "sign": 1,
+      "mode": 0,
+      "step": 0,
+      "energy_before_j": 124495.00000000001,
+      "energy_after_j": 124495.00000000013,
+      "numerical_upwind_loss_j": -1.1823431123048067e-10
+    },
+    {
+      "grid": 8,
+      "axis": 2,
+      "sign": 1,
+      "mode": 0,
+      "step": 1,
+      "energy_before_j": 124495.00000000013,
+      "energy_after_j": 124495.00000000006,
+      "numerical_upwind_loss_j": 8.36735125631094e-11
+    },
+    {
+      "grid": 8,
+      "axis": 2,
+      "sign": 1,
+      "mode": 1,
+      "step": 0,
+      "energy_before_j": 120257.94596313588,
+      "energy_after_j": 120257.47775339673,
+      "numerical_upwind_loss_j": 0.4682097391496427
+    },
+    {
+      "grid": 8,
+      "axis": 2,
+      "sign": 1,
+      "mode": 1,
+      "step": 1,
+      "energy_before_j": 120257.47775339673,
+      "energy_after_j": 120257.01339502825,
+      "numerical_upwind_loss_j": 0.46435836847649625
+    },
+    {
+      "grid": 12,
+      "axis": 0,
+      "sign": -1,
+      "mode": 0,
+      "step": 0,
+      "energy_before_j": 442575.00000000006,
+      "energy_after_j": 442574.99999999977,
+      "numerical_upwind_loss_j": 2.764863893389702e-10
+    },
+    {
+      "grid": 12,
+      "axis": 0,
+      "sign": -1,
+      "mode": 0,
+      "step": 1,
+      "energy_before_j": 442574.99999999977,
+      "energy_after_j": 442574.9999999997,
+      "numerical_upwind_loss_j": 8.36735125631094e-11
+    },
+    {
+      "grid": 12,
+      "axis": 0,
+      "sign": -1,
+      "mode": 1,
+      "step": 0,
+      "energy_before_j": 443938.339422983,
+      "energy_after_j": 443936.90362888575,
+      "numerical_upwind_loss_j": 1.4357940972477081
+    },
+    {
+      "grid": 12,
+      "axis": 0,
+      "sign": -1,
+      "mode": 1,
+      "step": 1,
+      "energy_before_j": 443936.90362888575,
+      "energy_after_j": 443935.4664391767,
+      "numerical_upwind_loss_j": 1.43718970908958
+    },
+    {
+      "grid": 12,
+      "axis": 0,
+      "sign": 1,
+      "mode": 0,
+      "step": 0,
+      "energy_before_j": 442575.00000000006,
+      "energy_after_j": 442575.00000000023,
+      "numerical_upwind_loss_j": -1.382431946694851e-10
+    },
+    {
+      "grid": 12,
+      "axis": 0,
+      "sign": 1,
+      "mode": 0,
+      "step": 1,
+      "energy_before_j": 442575.00000000023,
+      "energy_after_j": 442575.00000000047,
+      "numerical_upwind_loss_j": -2.4374458007514477e-10
+    },
+    {
+      "grid": 12,
+      "axis": 0,
+      "sign": 1,
+      "mode": 1,
+      "step": 0,
+      "energy_before_j": 443938.339422983,
+      "energy_after_j": 443936.901845859,
+      "numerical_upwind_loss_j": 1.4375771239792812
+    },
+    {
+      "grid": 12,
+      "axis": 0,
+      "sign": 1,
+      "mode": 1,
+      "step": 1,
+      "energy_before_j": 443936.901845859,
+      "energy_after_j": 443935.46875562426,
+      "numerical_upwind_loss_j": 1.433090234750125
+    },
+    {
+      "grid": 12,
+      "axis": 1,
+      "sign": -1,
+      "mode": 0,
+      "step": 0,
+      "energy_before_j": 442575.00000000006,
+      "energy_after_j": 442574.99999999965,
+      "numerical_upwind_loss_j": 3.67435859516263e-10
+    },
+    {
+      "grid": 12,
+      "axis": 1,
+      "sign": -1,
+      "mode": 0,
+      "step": 1,
+      "energy_before_j": 442574.99999999965,
+      "energy_after_j": 442575.0000000004,
+      "numerical_upwind_loss_j": -7.057678885757923e-10
+    },
+    {
+      "grid": 12,
+      "axis": 1,
+      "sign": -1,
+      "mode": 1,
+      "step": 0,
+      "energy_before_j": 443938.339422983,
+      "energy_after_j": 443936.88447702554,
+      "numerical_upwind_loss_j": 1.454945957466407
+    },
+    {
+      "grid": 12,
+      "axis": 1,
+      "sign": -1,
+      "mode": 1,
+      "step": 1,
+      "energy_before_j": 443936.88447702554,
+      "energy_after_j": 443935.39187852846,
+      "numerical_upwind_loss_j": 1.49259849707596
+    },
+    {
+      "grid": 12,
+      "axis": 1,
+      "sign": 1,
+      "mode": 0,
+      "step": 0,
+      "energy_before_j": 442575.00000000006,
+      "energy_after_j": 442575.00000000023,
+      "numerical_upwind_loss_j": -1.3460521586239338e-10
+    },
+    {
+      "grid": 12,
+      "axis": 1,
+      "sign": 1,
+      "mode": 0,
+      "step": 1,
+      "energy_before_j": 442575.00000000023,
+      "energy_after_j": 442574.9999999999,
+      "numerical_upwind_loss_j": 2.764863893389702e-10
+    },
+    {
+      "grid": 12,
+      "axis": 1,
+      "sign": 1,
+      "mode": 1,
+      "step": 0,
+      "energy_before_j": 443938.339422983,
+      "energy_after_j": 443936.8860897757,
+      "numerical_upwind_loss_j": 1.4533332072933263
+    },
+    {
+      "grid": 12,
+      "axis": 1,
+      "sign": 1,
+      "mode": 1,
+      "step": 1,
+      "energy_before_j": 443936.8860897757,
+      "energy_after_j": 443935.4369440704,
+      "numerical_upwind_loss_j": 1.449145705337287
+    },
+    {
+      "grid": 12,
+      "axis": 2,
+      "sign": -1,
+      "mode": 0,
+      "step": 0,
+      "energy_before_j": 442575.00000000006,
+      "energy_after_j": 442575.0000000003,
+      "numerical_upwind_loss_j": -2.3646862246096134e-10
+    },
+    {
+      "grid": 12,
+      "axis": 2,
+      "sign": -1,
+      "mode": 0,
+      "step": 1,
+      "energy_before_j": 442575.0000000003,
+      "energy_after_j": 442575.00000000047,
+      "numerical_upwind_loss_j": -1.4915713109076023e-10
+    },
+    {
+      "grid": 12,
+      "axis": 2,
+      "sign": -1,
+      "mode": 1,
+      "step": 0,
+      "energy_before_j": 443938.339422983,
+      "energy_after_j": 443936.8594188286,
+      "numerical_upwind_loss_j": 1.480004154418566
+    },
+    {
+      "grid": 12,
+      "axis": 2,
+      "sign": -1,
+      "mode": 1,
+      "step": 1,
+      "energy_before_j": 443936.8594188286,
+      "energy_after_j": 443935.3834359979,
+      "numerical_upwind_loss_j": 1.4759828306887357
+    },
+    {
+      "grid": 12,
+      "axis": 2,
+      "sign": 1,
+      "mode": 0,
+      "step": 0,
+      "energy_before_j": 442575.00000000006,
+      "energy_after_j": 442574.9999999999,
+      "numerical_upwind_loss_j": 1.8553691916167736e-10
+    },
+    {
+      "grid": 12,
+      "axis": 2,
+      "sign": 1,
+      "mode": 0,
+      "step": 1,
+      "energy_before_j": 442574.9999999999,
+      "energy_after_j": 442574.99999999953,
+      "numerical_upwind_loss_j": 3.7471181713044643e-10
+    },
+    {
+      "grid": 12,
+      "axis": 2,
+      "sign": 1,
+      "mode": 1,
+      "step": 0,
+      "energy_before_j": 443938.339422983,
+      "energy_after_j": 443936.9063514134,
+      "numerical_upwind_loss_j": 1.4330715696050902
+    },
+    {
+      "grid": 12,
+      "axis": 2,
+      "sign": 1,
+      "mode": 1,
+      "step": 1,
+      "energy_before_j": 443936.9063514134,
+      "energy_after_j": 443935.4874446908,
+      "numerical_upwind_loss_j": 1.418906722603424
+    }
+  ],
+  "source_sha256": {
+    "CMakeLists.txt": "9dd0144465e51647c95ea2999b74f6d2224b0ade5f49adf5082bc8a7d020c9fd",
+    "docs/PHASENPLAN.md": "c0db0225c4b727ba529f1670388036de6aa2352b4d4bc34f41caecf4b6917984",
+    "docs/P2_MOVING_MAC_DUAL_ENERGY_PARTIAL.md": "6deba9a8aba7a0e110392bbfae3bcba37d73abecd8de82cf41c4e81ce511e85e",
+    "include/upc/p2_moving_mac_dual_energy3d.hpp": "efa26d088d6689e5949f43dba0597012f43d86e1b3bb8f78f8056f1ede9f2603",
+    "include/upc/p2_moving_mac_shared_predictor3d.hpp": "fce2cde328b2b627cb8f47005758dfc15d6e8db906bf28f3513866d913fb522f",
+    "include/upc/p2_moving_mac_dual_transport3d.hpp": "0321d87bbc3898b4a6ff6ed7d8f16578cb3ff41da5c5cbe5d4173b4698b7671a",
+    "include/upc/p2_moving_cut_cell_scalar_transport3d.hpp": "9e3e57855fc2387d076a11a116ee1f80220b813e99542b55065661a6b2c5d206",
+    "tests/p2_moving_mac_dual_energy3d_tests.cpp": "e63664e6027420559ab6f0b3d5972a682fef69856b31f91ebfd17bd91db289ce",
+    "scripts/p2_moving_mac_dual_energy_full_build.cmd": "4f30b9d9e65c2806ea3e676b818dbaf25b91387a3d148bbe970b1e5323fe80a9",
+    "scripts/p2_moving_mac_dual_energy_acceptance.py": "7f776f82c40d87ad1e712d19568b9181a68021a8d2fc68c2748e110d511a53c1"
+  },
+  "ctest_log_sha256": "13a97c7194cd4407cd32764f43d4310d4f0a240b34d4631e1f2d1042ba1064a6",
+  "unproven": [
+    "single physical momentum tensor across three MAC duals",
+    "moving rigid-body reaction impulse and total mechanical energy",
+    "stress-correct free surface and independent measured 3D CFD",
+    "live CoupledMacWater3D integration and Unreal 5.8 Native-E2E"
+  ]
+}

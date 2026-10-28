@@ -386,3 +386,9 @@ add_test(NAME physics_p2_moving_mac_shared_predictor_partial COMMAND upc_p2_movi
 add_executable(upc_p2_moving_mac_flux_consistency_tests tests/p2_moving_mac_flux_consistency3d_tests.cpp)
 target_link_libraries(upc_p2_moving_mac_flux_consistency_tests PRIVATE upc)
 add_test(NAME physics_p2_moving_mac_flux_consistency_partial COMMAND upc_p2_moving_mac_flux_consistency_tests)
+
+# P2 partial: numerical open-dual-volume L2 stability of conservative
+# moving MAC upwind transport; NOT physical pressure/FSI energy closure.
+add_executable(upc_p2_moving_mac_dual_energy_tests tests/p2_moving_mac_dual_energy3d_tests.cpp)
+target_link_libraries(upc_p2_moving_mac_dual_energy_tests PRIVATE upc)
+add_test(NAME physics_p2_moving_mac_dual_energy_partial COMMAND upc_p2_moving_mac_dual_energy_tests)

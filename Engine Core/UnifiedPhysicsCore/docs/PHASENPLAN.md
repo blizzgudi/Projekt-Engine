@@ -923,3 +923,20 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
   Das Messinstrument behebt die gemeinsame Impulstensor-Luecke nicht.
   Freie Oberflaechen, echte Fluid-Solid-Gegenreaktion, globale Energie,
   externe CFD-Referenzen und Unreal-5.8-Native-E2E fehlen weiterhin.
+
+## P2 Teilfortschritt: numerische MAC-Dualenergie-Stabilitaet (28.10.2026)
+
+- Neuer optionaler `P2MovingMacDualEnergy3D`-Audit misst
+  volumen-gewichtete signierte Dual-Komponentenimpulse und
+  quadratische kinetische L2-Proxies vor/nach bewegtem Upwind-Transport.
+- Prueft getrennte Komponentenerhaltung, Donor-CFL, GCL und
+  nicht zunehmende diskrete L2-Energie (Jensen/konvexer Upwind).
+- MSVC Release, 75/75 CTest, 8^3/12^3, alle Bewegungsachsen und
+  Richtungen, uniforme/nichtuniforme signierte Komponenten und
+  je zwei sequentielle Schritte. Unabhaengige Nachrechnung und
+  Quell-/CTest-Hashes in docs/P2_MOVING_MAC_DUAL_ENERGY_PARTIAL.md.
+- **P2 weiterhin PARTIAL, P3-P8 PARTIAL, ALL_COMPLETE=False.**
+  Dies ist nur eine numerische Upwind-Stabilitaetsbilanz, keine
+  physikalische Druck-/FSI-Energie, keine gemeinsame Impulstensor-
+  Kopplung, keine freien Oberflaechen, externe 3D-CFD-Referenz oder
+  UE5.8-Native-E2E fuer diesen Pfad.
