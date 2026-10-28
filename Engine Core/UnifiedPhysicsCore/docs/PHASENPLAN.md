@@ -609,3 +609,30 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
   Geometrie: Es werden keine MAC-Face-Fluesse, keine Druckprojektion,
   kein Fluid-Gegenimpuls und keine Gesamtenergie erzeugt. Keine
   externen 3D-CFD-Messreferenzen oder neue UE5.8-Native-E2E-Abnahme.
+
+## P2 Teilfortschritt: zeitgemittelte MAC-Face-Aperturen bewegter 3D-Quader (28.10.2026)
+
+- Neue optionale `P2MovingBoxFaceApertures3D` berechnet die geometrisch
+  **zeitgemittelten** offenen Flaechenanteile aller U/V/W-MAC-Faces
+  fuer einen linear translatierten starren, achsparallelen Quader.
+  Exakte Intervallzerlegung bei Kantenuebergaengen und
+  Gauss-Legendre-Integration der stueckweise quadratischen
+  Face-Blockierung. Die alten/neuen subzellgenauen
+  offenen Zellvolumina werden aus `P2MovingBoxOpenVolumes3D` uebernommen.
+- MSVC-Release-Build und **58/58 CTest PASS**; **1.285.920 native
+  Assertions** (inkl. aller Aperturgrenzen und Zeitumkehr);
+  **108/108 unabhaengige analytische Face-Integralpruefungen** auf
+  8^3/12^3/16^3, allen Normalachsen und Bewegungsrichtungen.
+  Referenzen: 1/4, 3/4, 1/2, 35/48, 37/64, 7/16 sowie
+  geschlossene, gitterausgerichtete Festkoerper-Faces.
+- Nachweis: `docs/P2_MOVING_BOX_MAC_APERTURES_PARTIAL.md`,
+  `scripts/p2_moving_box_mac_apertures_acceptance.py`,
+  `ENGINE TEST STUBE/runs/p2_moving_box_mac_apertures_partial.json`,
+  `ENGINE TEST STUBE/runs/p2_box_apertures_full_ctest_20261028.txt`.
+- **P2 bleibt PARTIAL; P3-P8 offen.** Die Aperturen sind
+  geometrische Flaechenanteile, **keine** physikalischen MAC-Fluesse.
+  Bewegte-Wand-GCL, Druckprojektion, Fluid-/Koerper-Gegenimpuls,
+  globale Energieerhaltung, externe 3D-CFD-Messdaten und
+  neues UE5.8-Native-E2E bleiben offen. Naechster P2-Schritt:
+  Aperturen mit bewegter Wandgeschwindigkeit in einen
+  konservativen Cut-Cell-Kontinuitaets-/Druckoperator integrieren.

@@ -288,3 +288,9 @@ add_test(NAME physics_p2_fractional_moving_boundary_gcl_vof_partial COMMAND upc_
 add_executable(upc_p2_moving_box_geometry_tests tests/p2_moving_box_open_volume3d_tests.cpp)
 target_link_libraries(upc_p2_moving_box_geometry_tests PRIVATE upc)
 add_test(NAME physics_p2_moving_box_cut_cell_geometry_partial COMMAND upc_p2_moving_box_geometry_tests)
+
+# P2 partial: exact time-averaged 3D cut-cell MAC face aperture for
+# translating rigid axis-aligned box. Geometry only, no fluid velocity/FSI.
+add_executable(upc_p2_moving_box_apertures_tests tests/p2_moving_box_mac_apertures3d_tests.cpp)
+target_link_libraries(upc_p2_moving_box_apertures_tests PRIVATE upc)
+add_test(NAME physics_p2_moving_box_mac_face_apertures_partial COMMAND upc_p2_moving_box_apertures_tests)

@@ -1,0 +1,785 @@
+{
+  "phase": "P2",
+  "milestone": "time_averaged_moving_box_mac_face_apertures_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "accepted": false,
+  "full_ctest_suites": 58,
+  "native_assertions": 1285920,
+  "independent_numerical_checks": 108,
+  "checks": [
+    {
+      "name": "normal_(8, 0, -1)_value0",
+      "actual": 0.25,
+      "expected": 0.25,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "normal_(8, 0, -1)_value1",
+      "actual": 0.75,
+      "expected": 0.75,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "tangent_(8, 0, -1)_value0",
+      "actual": 0.5,
+      "expected": 0.5,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "normal_(8, 0, 1)_value0",
+      "actual": 0.25,
+      "expected": 0.25,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "normal_(8, 0, 1)_value1",
+      "actual": 0.75,
+      "expected": 0.75,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "tangent_(8, 0, 1)_value0",
+      "actual": 0.5,
+      "expected": 0.5,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "diagonal_(8, 0)_value0",
+      "actual": 0.7291666666666666,
+      "expected": 0.7291666666666666,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "mixed_(8, 0)_value0",
+      "actual": 0.578125,
+      "expected": 0.578125,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "static_(8, 0)_value0",
+      "actual": 0.4375,
+      "expected": 0.4375,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "aligned_(8, 0)_value0",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "aligned_(8, 0)_value1",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "aligned_(8, 0)_value2",
+      "actual": 0.5,
+      "expected": 0.5,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "normal_(8, 1, -1)_value0",
+      "actual": 0.25,
+      "expected": 0.25,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "normal_(8, 1, -1)_value1",
+      "actual": 0.75,
+      "expected": 0.75,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "tangent_(8, 1, -1)_value0",
+      "actual": 0.5,
+      "expected": 0.5,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "normal_(8, 1, 1)_value0",
+      "actual": 0.25,
+      "expected": 0.25,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "normal_(8, 1, 1)_value1",
+      "actual": 0.75,
+      "expected": 0.75,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "tangent_(8, 1, 1)_value0",
+      "actual": 0.5,
+      "expected": 0.5,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "diagonal_(8, 1)_value0",
+      "actual": 0.7291666666666666,
+      "expected": 0.7291666666666666,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "mixed_(8, 1)_value0",
+      "actual": 0.578125,
+      "expected": 0.578125,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "static_(8, 1)_value0",
+      "actual": 0.4375,
+      "expected": 0.4375,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "aligned_(8, 1)_value0",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "aligned_(8, 1)_value1",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "aligned_(8, 1)_value2",
+      "actual": 0.5,
+      "expected": 0.5,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "normal_(8, 2, -1)_value0",
+      "actual": 0.25,
+      "expected": 0.25,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "normal_(8, 2, -1)_value1",
+      "actual": 0.75,
+      "expected": 0.75,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "tangent_(8, 2, -1)_value0",
+      "actual": 0.5,
+      "expected": 0.5,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "normal_(8, 2, 1)_value0",
+      "actual": 0.25,
+      "expected": 0.25,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "normal_(8, 2, 1)_value1",
+      "actual": 0.75,
+      "expected": 0.75,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "tangent_(8, 2, 1)_value0",
+      "actual": 0.5,
+      "expected": 0.5,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "diagonal_(8, 2)_value0",
+      "actual": 0.7291666666666666,
+      "expected": 0.7291666666666666,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "mixed_(8, 2)_value0",
+      "actual": 0.578125,
+      "expected": 0.578125,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "static_(8, 2)_value0",
+      "actual": 0.4375,
+      "expected": 0.4375,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "aligned_(8, 2)_value0",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "aligned_(8, 2)_value1",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "aligned_(8, 2)_value2",
+      "actual": 0.5,
+      "expected": 0.5,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "normal_(12, 0, -1)_value0",
+      "actual": 0.25,
+      "expected": 0.25,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "normal_(12, 0, -1)_value1",
+      "actual": 0.75,
+      "expected": 0.75,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "tangent_(12, 0, -1)_value0",
+      "actual": 0.5,
+      "expected": 0.5,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "normal_(12, 0, 1)_value0",
+      "actual": 0.25,
+      "expected": 0.25,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "normal_(12, 0, 1)_value1",
+      "actual": 0.75,
+      "expected": 0.75,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "tangent_(12, 0, 1)_value0",
+      "actual": 0.5,
+      "expected": 0.5,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "diagonal_(12, 0)_value0",
+      "actual": 0.7291666666666666,
+      "expected": 0.7291666666666666,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "mixed_(12, 0)_value0",
+      "actual": 0.578125,
+      "expected": 0.578125,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "static_(12, 0)_value0",
+      "actual": 0.4375,
+      "expected": 0.4375,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "aligned_(12, 0)_value0",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "aligned_(12, 0)_value1",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "aligned_(12, 0)_value2",
+      "actual": 0.5,
+      "expected": 0.5,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "normal_(12, 1, -1)_value0",
+      "actual": 0.25,
+      "expected": 0.25,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "normal_(12, 1, -1)_value1",
+      "actual": 0.75,
+      "expected": 0.75,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "tangent_(12, 1, -1)_value0",
+      "actual": 0.5,
+      "expected": 0.5,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "normal_(12, 1, 1)_value0",
+      "actual": 0.25,
+      "expected": 0.25,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "normal_(12, 1, 1)_value1",
+      "actual": 0.75,
+      "expected": 0.75,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "tangent_(12, 1, 1)_value0",
+      "actual": 0.5,
+      "expected": 0.5,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "diagonal_(12, 1)_value0",
+      "actual": 0.7291666666666666,
+      "expected": 0.7291666666666666,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "mixed_(12, 1)_value0",
+      "actual": 0.578125,
+      "expected": 0.578125,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "static_(12, 1)_value0",
+      "actual": 0.4375,
+      "expected": 0.4375,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "aligned_(12, 1)_value0",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "aligned_(12, 1)_value1",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "aligned_(12, 1)_value2",
+      "actual": 0.5,
+      "expected": 0.5,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "normal_(12, 2, -1)_value0",
+      "actual": 0.25,
+      "expected": 0.25,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "normal_(12, 2, -1)_value1",
+      "actual": 0.75,
+      "expected": 0.75,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "tangent_(12, 2, -1)_value0",
+      "actual": 0.5,
+      "expected": 0.5,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "normal_(12, 2, 1)_value0",
+      "actual": 0.25,
+      "expected": 0.25,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "normal_(12, 2, 1)_value1",
+      "actual": 0.75,
+      "expected": 0.75,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "tangent_(12, 2, 1)_value0",
+      "actual": 0.5,
+      "expected": 0.5,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "diagonal_(12, 2)_value0",
+      "actual": 0.7291666666666666,
+      "expected": 0.7291666666666666,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "mixed_(12, 2)_value0",
+      "actual": 0.578125,
+      "expected": 0.578125,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "static_(12, 2)_value0",
+      "actual": 0.4375,
+      "expected": 0.4375,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "aligned_(12, 2)_value0",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "aligned_(12, 2)_value1",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "aligned_(12, 2)_value2",
+      "actual": 0.5,
+      "expected": 0.5,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "normal_(16, 0, -1)_value0",
+      "actual": 0.25,
+      "expected": 0.25,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "normal_(16, 0, -1)_value1",
+      "actual": 0.75,
+      "expected": 0.75,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "tangent_(16, 0, -1)_value0",
+      "actual": 0.5,
+      "expected": 0.5,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "normal_(16, 0, 1)_value0",
+      "actual": 0.25,
+      "expected": 0.25,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "normal_(16, 0, 1)_value1",
+      "actual": 0.75,
+      "expected": 0.75,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "tangent_(16, 0, 1)_value0",
+      "actual": 0.5,
+      "expected": 0.5,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "diagonal_(16, 0)_value0",
+      "actual": 0.7291666666666666,
+      "expected": 0.7291666666666666,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "mixed_(16, 0)_value0",
+      "actual": 0.578125,
+      "expected": 0.578125,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "static_(16, 0)_value0",
+      "actual": 0.4375,
+      "expected": 0.4375,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "aligned_(16, 0)_value0",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "aligned_(16, 0)_value1",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "aligned_(16, 0)_value2",
+      "actual": 0.5,
+      "expected": 0.5,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "normal_(16, 1, -1)_value0",
+      "actual": 0.25,
+      "expected": 0.25,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "normal_(16, 1, -1)_value1",
+      "actual": 0.75,
+      "expected": 0.75,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "tangent_(16, 1, -1)_value0",
+      "actual": 0.5,
+      "expected": 0.5,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "normal_(16, 1, 1)_value0",
+      "actual": 0.25,
+      "expected": 0.25,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "normal_(16, 1, 1)_value1",
+      "actual": 0.75,
+      "expected": 0.75,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "tangent_(16, 1, 1)_value0",
+      "actual": 0.5,
+      "expected": 0.5,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "diagonal_(16, 1)_value0",
+      "actual": 0.7291666666666666,
+      "expected": 0.7291666666666666,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "mixed_(16, 1)_value0",
+      "actual": 0.578125,
+      "expected": 0.578125,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "static_(16, 1)_value0",
+      "actual": 0.4375,
+      "expected": 0.4375,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "aligned_(16, 1)_value0",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "aligned_(16, 1)_value1",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "aligned_(16, 1)_value2",
+      "actual": 0.5,
+      "expected": 0.5,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "normal_(16, 2, -1)_value0",
+      "actual": 0.25,
+      "expected": 0.25,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "normal_(16, 2, -1)_value1",
+      "actual": 0.75,
+      "expected": 0.75,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "tangent_(16, 2, -1)_value0",
+      "actual": 0.5,
+      "expected": 0.5,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "normal_(16, 2, 1)_value0",
+      "actual": 0.25,
+      "expected": 0.25,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "normal_(16, 2, 1)_value1",
+      "actual": 0.75,
+      "expected": 0.75,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "tangent_(16, 2, 1)_value0",
+      "actual": 0.5,
+      "expected": 0.5,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "diagonal_(16, 2)_value0",
+      "actual": 0.7291666666666666,
+      "expected": 0.7291666666666666,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "mixed_(16, 2)_value0",
+      "actual": 0.578125,
+      "expected": 0.578125,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "static_(16, 2)_value0",
+      "actual": 0.4375,
+      "expected": 0.4375,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "aligned_(16, 2)_value0",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "aligned_(16, 2)_value1",
+      "actual": 0.0,
+      "expected": 0.0,
+      "tolerance": 1e-12,
+      "pass": true
+    },
+    {
+      "name": "aligned_(16, 2)_value2",
+      "actual": 0.5,
+      "expected": 0.5,
+      "tolerance": 1e-12,
+      "pass": true
+    }
+  ],
+  "native_stdout": "normal,8,0,-1,0.25,0.75\ntangent,8,0,-1,0.5\nnormal,8,0,1,0.25,0.75\ntangent,8,0,1,0.5\ndiagonal,8,0,0.72916666666666663\nmixed,8,0,0.578125\nstatic,8,0,0.4375\naligned,8,0,0,0,0.5\nnormal,8,1,-1,0.25,0.75\ntangent,8,1,-1,0.5\nnormal,8,1,1,0.25,0.75\ntangent,8,1,1,0.5\ndiagonal,8,1,0.72916666666666663\nmixed,8,1,0.578125\nstatic,8,1,0.4375\naligned,8,1,0,0,0.5\nnormal,8,2,-1,0.25,0.75\ntangent,8,2,-1,0.5\nnormal,8,2,1,0.25,0.75\ntangent,8,2,1,0.5\ndiagonal,8,2,0.72916666666666663\nmixed,8,2,0.578125\nstatic,8,2,0.4375\naligned,8,2,0,0,0.5\nnormal,12,0,-1,0.25,0.75\ntangent,12,0,-1,0.5\nnormal,12,0,1,0.25,0.75\ntangent,12,0,1,0.5\ndiagonal,12,0,0.72916666666666663\nmixed,12,0,0.578125\nstatic,12,0,0.4375\naligned,12,0,0,0,0.5\nnormal,12,1,-1,0.25,0.75\ntangent,12,1,-1,0.5\nnormal,12,1,1,0.25,0.75\ntangent,12,1,1,0.5\ndiagonal,12,1,0.72916666666666663\nmixed,12,1,0.578125\nstatic,12,1,0.4375\naligned,12,1,0,0,0.5\nnormal,12,2,-1,0.25,0.75\ntangent,12,2,-1,0.5\nnormal,12,2,1,0.25,0.75\ntangent,12,2,1,0.5\ndiagonal,12,2,0.72916666666666663\nmixed,12,2,0.578125\nstatic,12,2,0.4375\naligned,12,2,0,0,0.5\nnormal,16,0,-1,0.25,0.75\ntangent,16,0,-1,0.5\nnormal,16,0,1,0.25,0.75\ntangent,16,0,1,0.5\ndiagonal,16,0,0.72916666666666663\nmixed,16,0,0.578125\nstatic,16,0,0.4375\naligned,16,0,0,0,0.5\nnormal,16,1,-1,0.25,0.75\ntangent,16,1,-1,0.5\nnormal,16,1,1,0.25,0.75\ntangent,16,1,1,0.5\ndiagonal,16,1,0.72916666666666663\nmixed,16,1,0.578125\nstatic,16,1,0.4375\naligned,16,1,0,0,0.5\nnormal,16,2,-1,0.25,0.75\ntangent,16,2,-1,0.5\nnormal,16,2,1,0.25,0.75\ntangent,16,2,1,0.5\ndiagonal,16,2,0.72916666666666663\nmixed,16,2,0.578125\nstatic,16,2,0.4375\naligned,16,2,0,0,0.5\nPASS: moving MAC apertures assertions=1285920 phase_complete=false\n",
+  "ctest_log_sha256": "44801470a5b2119c46f1e970b37888cfdfef5536cb246ed26b738735da3170a1",
+  "source_sha256": {
+    "include/upc/p2_moving_box_open_volume3d.hpp": "270ecc419fa312212e47dbcfbd7fa8f2b172fde153b6d66e19f226be5cbedbb2",
+    "include/upc/p2_moving_box_mac_apertures3d.hpp": "c5fbdae598166771f6a28359c31960178239d3a59e0ccbb60f89f47b38f29ad3",
+    "tests/p2_moving_box_mac_apertures3d_tests.cpp": "052a5f190513571082ca5b445622b9c1c2db919469b63de2180cb943cdd576a4",
+    "scripts/p2_moving_box_mac_apertures_acceptance.py": "839f0cf5a3123629078ad3ae77cd6632e5bcdcb0bf3fda74a542b9c55288b3af",
+    "docs/P2_MOVING_BOX_MAC_APERTURES_PARTIAL.md": "720718e7ebaf9f1dc241bf4e970040797800ba017169dbcaed5a4d1c7367851c",
+    "CMakeLists.txt": "e353bf00b778b1039b81aa111383bd4b03a1a34cdc8ca98c90e7450ec23c4a6a"
+  },
+  "generated_utc": "2026-10-28T02:59:13.152696+00:00",
+  "limitations": [
+    "Only translating axis-aligned boxes, no rotation/deformation",
+    "Time-averaged geometric face apertures, NOT swept MAC fluxes",
+    "No moving-wall GCL, pressure, water/solid impulse or energy closure",
+    "No independent 3D CFD measurements or Unreal 5.8 Native E2E"
+  ]
+}
