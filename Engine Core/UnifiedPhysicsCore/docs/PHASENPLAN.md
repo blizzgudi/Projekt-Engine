@@ -959,3 +959,22 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
   physikalischer Impulstensor. Keine dynamische Fluid-Solid-Gegenreaktion,
   spannungskorrekte freie Oberflaeche, externe 3D-CFD-Messvalidierung
   oder UE5.8-Native-E2E dieses Pfades.
+
+## P2 Teilfortschritt: Drucktraktion und Gegenimpuls-Diagnose (29.10.2026)
+
+- `P2MovingBoxPressureTraction3D` integriert stueckweise konstanten
+  Druck auf den sechs Oberflaechen eines vorgeschrieben bewegten
+  achsenparallelen Quaders. Exakte Oberflaechen-/Voxel-Schnittflaechen,
+  resultierende Kraft, Drehmoment, diagnostischer Fluid-Gegenimpuls
+  und exakte diskrete geometrische Druckarbeit werden getrennt erfasst.
+- MSVC Release und vollstaendiger 77/77 CTest PASS. 12 unabhaengige
+  analytische Bewegungsfaelle auf 8^3/12^3 (3 Achsen, beide Richtungen),
+  Kraft 40 N, Gegenimpuls -10 kg m/s, Arbeit +/-8 J; Druck-Gauge,
+  asymmetrischer Drehmoment-Patch, echter PCG-Druck und Negativfaelle.
+- Belege: docs/P2_MOVING_BOX_PRESSURE_TRACTION_PARTIAL.md,
+  scripts/p2_moving_box_pressure_traction_acceptance.py und
+  ENGINE TEST STUBE/runs/p2_moving_box_pressure_traction_partial.json.
+- **P2 weiterhin PARTIAL; P3-P8 PARTIAL; ALL_COMPLETE=False.**
+  Gegenimpuls wird NICHT angewendet, keine dynamische FSI, keine
+  vollstaendige physikalische Energie-/Impulsbilanz, freie Oberflaeche,
+  externe 3D-CFD-Messvalidierung oder neues UE5.8-Native-E2E.

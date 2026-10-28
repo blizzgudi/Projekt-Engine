@@ -1,0 +1,470 @@
+{
+  "phase": "P2",
+  "milestone": "prescribed_box_pressure_traction_and_counter_impulse_diagnostic",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "ctest_suites": 77,
+  "native_assertions": 288,
+  "checks": [
+    {
+      "name": "full 77/77 CTest",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "new native CTest present",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "288+ native assertions",
+      "pass": true,
+      "detail": 288
+    },
+    {
+      "name": "12 moving 3D cases",
+      "pass": true,
+      "detail": 12
+    },
+    {
+      "name": "unique (8, 0, -1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite (8, 0, -1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent pressure force (8, 0, -1)",
+      "pass": true,
+      "detail": 40.0
+    },
+    {
+      "name": "independent swept pressure work (8, 0, -1)",
+      "pass": true,
+      "detail": -8.000000000000007
+    },
+    {
+      "name": "midpoint/swept agreement for aligned pressure step (8, 0, -1)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (8, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite (8, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent pressure force (8, 0, 1)",
+      "pass": true,
+      "detail": 40.0
+    },
+    {
+      "name": "independent swept pressure work (8, 0, 1)",
+      "pass": true,
+      "detail": 8.000000000000007
+    },
+    {
+      "name": "midpoint/swept agreement for aligned pressure step (8, 0, 1)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (8, 1, -1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite (8, 1, -1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent pressure force (8, 1, -1)",
+      "pass": true,
+      "detail": 40.0
+    },
+    {
+      "name": "independent swept pressure work (8, 1, -1)",
+      "pass": true,
+      "detail": -8.000000000000007
+    },
+    {
+      "name": "midpoint/swept agreement for aligned pressure step (8, 1, -1)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (8, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite (8, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent pressure force (8, 1, 1)",
+      "pass": true,
+      "detail": 40.0
+    },
+    {
+      "name": "independent swept pressure work (8, 1, 1)",
+      "pass": true,
+      "detail": 8.000000000000007
+    },
+    {
+      "name": "midpoint/swept agreement for aligned pressure step (8, 1, 1)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (8, 2, -1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite (8, 2, -1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent pressure force (8, 2, -1)",
+      "pass": true,
+      "detail": 40.0
+    },
+    {
+      "name": "independent swept pressure work (8, 2, -1)",
+      "pass": true,
+      "detail": -8.000000000000007
+    },
+    {
+      "name": "midpoint/swept agreement for aligned pressure step (8, 2, -1)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (8, 2, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite (8, 2, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent pressure force (8, 2, 1)",
+      "pass": true,
+      "detail": 40.0
+    },
+    {
+      "name": "independent swept pressure work (8, 2, 1)",
+      "pass": true,
+      "detail": 8.000000000000007
+    },
+    {
+      "name": "midpoint/swept agreement for aligned pressure step (8, 2, 1)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (12, 0, -1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite (12, 0, -1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent pressure force (12, 0, -1)",
+      "pass": true,
+      "detail": 40.0
+    },
+    {
+      "name": "independent swept pressure work (12, 0, -1)",
+      "pass": true,
+      "detail": -8.000000000000007
+    },
+    {
+      "name": "midpoint/swept agreement for aligned pressure step (12, 0, -1)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (12, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite (12, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent pressure force (12, 0, 1)",
+      "pass": true,
+      "detail": 40.0
+    },
+    {
+      "name": "independent swept pressure work (12, 0, 1)",
+      "pass": true,
+      "detail": 8.000000000000007
+    },
+    {
+      "name": "midpoint/swept agreement for aligned pressure step (12, 0, 1)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (12, 1, -1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite (12, 1, -1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent pressure force (12, 1, -1)",
+      "pass": true,
+      "detail": 40.0
+    },
+    {
+      "name": "independent swept pressure work (12, 1, -1)",
+      "pass": true,
+      "detail": -8.000000000000007
+    },
+    {
+      "name": "midpoint/swept agreement for aligned pressure step (12, 1, -1)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (12, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite (12, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent pressure force (12, 1, 1)",
+      "pass": true,
+      "detail": 40.0
+    },
+    {
+      "name": "independent swept pressure work (12, 1, 1)",
+      "pass": true,
+      "detail": 8.000000000000007
+    },
+    {
+      "name": "midpoint/swept agreement for aligned pressure step (12, 1, 1)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (12, 2, -1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite (12, 2, -1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent pressure force (12, 2, -1)",
+      "pass": true,
+      "detail": 40.0
+    },
+    {
+      "name": "independent swept pressure work (12, 2, -1)",
+      "pass": true,
+      "detail": -8.000000000000007
+    },
+    {
+      "name": "midpoint/swept agreement for aligned pressure step (12, 2, -1)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (12, 2, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite (12, 2, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent pressure force (12, 2, 1)",
+      "pass": true,
+      "detail": 40.0
+    },
+    {
+      "name": "independent swept pressure work (12, 2, 1)",
+      "pass": true,
+      "detail": 8.000000000000007
+    },
+    {
+      "name": "midpoint/swept agreement for aligned pressure step (12, 2, 1)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "complete movement coverage",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "real projected pressure case",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite nontrivial projected force/work",
+      "pass": true,
+      "detail": [
+        -2158.1051970506846,
+        -323.7157795576029,
+        3.979039320256561e-13
+      ]
+    }
+  ],
+  "analytic_reference": [
+    {
+      "grid": 8,
+      "axis": 0,
+      "direction": -1,
+      "solid_force_n": 40.0,
+      "solid_geometric_work_j": -8.000000000000007,
+      "midpoint_work_difference_j": 0.0
+    },
+    {
+      "grid": 8,
+      "axis": 0,
+      "direction": 1,
+      "solid_force_n": 40.0,
+      "solid_geometric_work_j": 8.000000000000007,
+      "midpoint_work_difference_j": 0.0
+    },
+    {
+      "grid": 8,
+      "axis": 1,
+      "direction": -1,
+      "solid_force_n": 40.0,
+      "solid_geometric_work_j": -8.000000000000007,
+      "midpoint_work_difference_j": 0.0
+    },
+    {
+      "grid": 8,
+      "axis": 1,
+      "direction": 1,
+      "solid_force_n": 40.0,
+      "solid_geometric_work_j": 8.000000000000007,
+      "midpoint_work_difference_j": 0.0
+    },
+    {
+      "grid": 8,
+      "axis": 2,
+      "direction": -1,
+      "solid_force_n": 40.0,
+      "solid_geometric_work_j": -8.000000000000007,
+      "midpoint_work_difference_j": 0.0
+    },
+    {
+      "grid": 8,
+      "axis": 2,
+      "direction": 1,
+      "solid_force_n": 40.0,
+      "solid_geometric_work_j": 8.000000000000007,
+      "midpoint_work_difference_j": 0.0
+    },
+    {
+      "grid": 12,
+      "axis": 0,
+      "direction": -1,
+      "solid_force_n": 40.0,
+      "solid_geometric_work_j": -8.000000000000007,
+      "midpoint_work_difference_j": 0.0
+    },
+    {
+      "grid": 12,
+      "axis": 0,
+      "direction": 1,
+      "solid_force_n": 40.0,
+      "solid_geometric_work_j": 8.000000000000007,
+      "midpoint_work_difference_j": 0.0
+    },
+    {
+      "grid": 12,
+      "axis": 1,
+      "direction": -1,
+      "solid_force_n": 40.0,
+      "solid_geometric_work_j": -8.000000000000007,
+      "midpoint_work_difference_j": 0.0
+    },
+    {
+      "grid": 12,
+      "axis": 1,
+      "direction": 1,
+      "solid_force_n": 40.0,
+      "solid_geometric_work_j": 8.000000000000007,
+      "midpoint_work_difference_j": 0.0
+    },
+    {
+      "grid": 12,
+      "axis": 2,
+      "direction": -1,
+      "solid_force_n": 40.0,
+      "solid_geometric_work_j": -8.000000000000007,
+      "midpoint_work_difference_j": 0.0
+    },
+    {
+      "grid": 12,
+      "axis": 2,
+      "direction": 1,
+      "solid_force_n": 40.0,
+      "solid_geometric_work_j": 8.000000000000007,
+      "midpoint_work_difference_j": 0.0
+    }
+  ],
+  "projected_pressure_reference": [
+    -2158.1051970506846,
+    -323.7157795576029,
+    3.979039320256561e-13
+  ],
+  "source_sha256": {
+    "CMakeLists.txt": "b3301c6ccb61570868a25373058f8a352070f902943c9e8010ccd0f385158102",
+    "docs/PHASENPLAN.md": "4af3671b8d4eb7aa237e8bb242eb0c510cb241c5b8347ad79582050b67c6e3dc",
+    "docs/P2_MOVING_BOX_PRESSURE_TRACTION_PARTIAL.md": "3a43d6b2aa67543e524d8e87e1a08a7953a8b9016b4bf5025f6e2fff85acc3df",
+    "include/upc/p2_moving_box_pressure_traction3d.hpp": "261ed5769c7fe24d078802592b8db55df076ccc3015634ed818b301dbaa9fa53",
+    "include/upc/p2_moving_box_open_volume3d.hpp": "270ecc419fa312212e47dbcfbd7fa8f2b172fde153b6d66e19f226be5cbedbb2",
+    "include/upc/p2_moving_box_cut_cell_projection3d.hpp": "7ec9aaaed69aae85be1b26d32460c03de81b95f7ffb26e1f6b18e1185aee3fb6",
+    "tests/p2_moving_box_pressure_traction3d_tests.cpp": "1a5bd926ffe86158c92ded5dbd4d666c99c0622dc92238d080fbd8f0ba570bf0",
+    "scripts/p2_moving_box_pressure_traction_full_build.cmd": "b7561a3d5c10fe1299653a7842e7d47c73dfb8d733d9042a3de3781674684198",
+    "scripts/p2_moving_box_pressure_traction_acceptance.py": "64d3dd7d63a80dc4ce08ea1b8c9c0873be17e68594b69e5b03030803e295cf39"
+  },
+  "ctest_log_sha256": "2f8bf47f0c25641467f5b16b53a06b676430ba35c2b864333bb958cfe187b5a7",
+  "unproven": [
+    "counter-impulse is diagnostic and not applied to a dynamic rigid body",
+    "common conservative MAC momentum tensor and global physical energy",
+    "stress-correct free surface and independent measured 3D CFD",
+    "coupled live MAC/VOF and Unreal 5.8 native E2E"
+  ]
+}

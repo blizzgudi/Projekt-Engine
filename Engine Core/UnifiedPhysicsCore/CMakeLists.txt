@@ -397,3 +397,9 @@ add_test(NAME physics_p2_moving_mac_dual_energy_partial COMMAND upc_p2_moving_ma
 add_executable(upc_p2_moving_mac_dual_pressure_work_tests tests/p2_moving_mac_dual_pressure_work3d_tests.cpp)
 target_link_libraries(upc_p2_moving_mac_dual_pressure_work_tests PRIVATE upc)
 add_test(NAME physics_p2_moving_mac_dual_pressure_work_partial COMMAND upc_p2_moving_mac_dual_pressure_work_tests)
+
+# P2 partial: cut-cell pressure traction and geometric wall-work ledger on
+# a prescribed translating box. No dynamic two-way rigid-body coupling.
+add_executable(upc_p2_moving_box_pressure_traction_tests tests/p2_moving_box_pressure_traction3d_tests.cpp)
+target_link_libraries(upc_p2_moving_box_pressure_traction_tests PRIVATE upc)
+add_test(NAME physics_p2_moving_box_pressure_traction_partial COMMAND upc_p2_moving_box_pressure_traction_tests)
