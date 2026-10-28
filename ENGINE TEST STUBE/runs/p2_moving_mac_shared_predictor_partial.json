@@ -1,0 +1,3085 @@
+{
+  "phase": "P2",
+  "milestone": "moving_mac_shared_primal_predictor",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "ctest_suites": 73,
+  "native_assertions": 268716,
+  "checks": [
+    {
+      "name": "full CTest 73/73",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "shared predictor included in CTest",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "native checks >= 200000",
+      "pass": true,
+      "detail": 268716
+    },
+    {
+      "name": "nontrivial shared primal advection",
+      "pass": true,
+      "detail": 0.4801177472049041
+    },
+    {
+      "name": "108 3D motion/step/component cases",
+      "pass": true,
+      "detail": 108
+    },
+    {
+      "name": "unique (8, 0, -1, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (8, 0, -1, 0, 0)",
+      "pass": true,
+      "detail": {
+        "error": 1.2789769243681803e-13,
+        "gcl": 8.895106873296754e-13,
+        "cfl": 0.4821428571428744,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 0, -1, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (8, 0, -1, 0, 1)",
+      "pass": true,
+      "detail": {
+        "error": 2.5579538487363607e-13,
+        "gcl": 8.895106873296754e-13,
+        "cfl": 0.4821428571428744,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 0, -1, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (8, 0, -1, 0, 2)",
+      "pass": true,
+      "detail": {
+        "error": 2.2737367544323206e-13,
+        "gcl": 8.895106873296754e-13,
+        "cfl": 0.4821428571428744,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 0, -1, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (8, 0, -1, 1, 0)",
+      "pass": true,
+      "detail": {
+        "error": 2.842170943040401e-14,
+        "gcl": 9.798828415341632e-13,
+        "cfl": 0.3219912461109719,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 0, -1, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (8, 0, -1, 1, 1)",
+      "pass": true,
+      "detail": {
+        "error": 1.1368683772161603e-13,
+        "gcl": 9.798828415341632e-13,
+        "cfl": 0.3219912461109719,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 0, -1, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (8, 0, -1, 1, 2)",
+      "pass": true,
+      "detail": {
+        "error": 3.410605131648481e-13,
+        "gcl": 9.798828415341632e-13,
+        "cfl": 0.3219912461109719,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 0, 1, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (8, 0, 1, 0, 0)",
+      "pass": true,
+      "detail": {
+        "error": 1.8474111129762605e-13,
+        "gcl": 9.933165401321276e-13,
+        "cfl": 0.3648648648643168,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 0, 1, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (8, 0, 1, 0, 1)",
+      "pass": true,
+      "detail": {
+        "error": 3.410605131648481e-13,
+        "gcl": 9.933165401321276e-13,
+        "cfl": 0.3648648648643168,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 0, 1, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (8, 0, 1, 0, 2)",
+      "pass": true,
+      "detail": {
+        "error": 1.1368683772161603e-13,
+        "gcl": 9.933165401321276e-13,
+        "cfl": 0.3648648648643168,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 0, 1, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (8, 0, 1, 1, 0)",
+      "pass": true,
+      "detail": {
+        "error": 1.4210854715202004e-13,
+        "gcl": 9.034994974399524e-13,
+        "cfl": 0.5744680851063286,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 0, 1, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (8, 0, 1, 1, 1)",
+      "pass": true,
+      "detail": {
+        "error": 0.0,
+        "gcl": 9.034994974399524e-13,
+        "cfl": 0.5744680851063286,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 0, 1, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (8, 0, 1, 1, 2)",
+      "pass": true,
+      "detail": {
+        "error": 3.979039320256561e-13,
+        "gcl": 9.034994974399524e-13,
+        "cfl": 0.5744680851063286,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 1, -1, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (8, 1, -1, 0, 0)",
+      "pass": true,
+      "detail": {
+        "error": 1.4210854715202004e-13,
+        "gcl": 9.112710586123285e-13,
+        "cfl": 0.28571428571510715,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 1, -1, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (8, 1, -1, 0, 1)",
+      "pass": true,
+      "detail": {
+        "error": 2.2737367544323206e-13,
+        "gcl": 9.112710586123285e-13,
+        "cfl": 0.28571428571510715,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 1, -1, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (8, 1, -1, 0, 2)",
+      "pass": true,
+      "detail": {
+        "error": 2.2737367544323206e-13,
+        "gcl": 9.112710586123285e-13,
+        "cfl": 0.28571428571510715,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 1, -1, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (8, 1, -1, 1, 0)",
+      "pass": true,
+      "detail": {
+        "error": 9.947598300641403e-14,
+        "gcl": 9.183764859699295e-13,
+        "cfl": 0.14814814814820448,
+        "active": 1167
+      }
+    },
+    {
+      "name": "unique (8, 1, -1, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (8, 1, -1, 1, 1)",
+      "pass": true,
+      "detail": {
+        "error": 2.842170943040401e-14,
+        "gcl": 9.183764859699295e-13,
+        "cfl": 0.14814814814820448,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 1, -1, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (8, 1, -1, 1, 2)",
+      "pass": true,
+      "detail": {
+        "error": 1.1368683772161603e-13,
+        "gcl": 9.183764859699295e-13,
+        "cfl": 0.14814814814820448,
+        "active": 1167
+      }
+    },
+    {
+      "name": "unique (8, 1, 1, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (8, 1, 1, 0, 0)",
+      "pass": true,
+      "detail": {
+        "error": 1.4210854715202004e-13,
+        "gcl": 6.473710456589288e-13,
+        "cfl": 0.23076923076933564,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 1, 1, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (8, 1, 1, 0, 1)",
+      "pass": true,
+      "detail": {
+        "error": 3.979039320256561e-13,
+        "gcl": 6.473710456589288e-13,
+        "cfl": 0.23076923076933564,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 1, 1, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (8, 1, 1, 0, 2)",
+      "pass": true,
+      "detail": {
+        "error": 1.7053025658242404e-13,
+        "gcl": 6.473710456589288e-13,
+        "cfl": 0.23076923076933564,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 1, 1, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (8, 1, 1, 1, 0)",
+      "pass": true,
+      "detail": {
+        "error": 4.263256414560601e-14,
+        "gcl": 8.959499808725013e-13,
+        "cfl": 0.29999999999970545,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 1, 1, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (8, 1, 1, 1, 1)",
+      "pass": true,
+      "detail": {
+        "error": 1.7053025658242404e-13,
+        "gcl": 8.959499808725013e-13,
+        "cfl": 0.29999999999970545,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 1, 1, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (8, 1, 1, 1, 2)",
+      "pass": true,
+      "detail": {
+        "error": 5.684341886080802e-14,
+        "gcl": 8.959499808725013e-13,
+        "cfl": 0.29999999999970545,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 2, -1, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (8, 2, -1, 0, 0)",
+      "pass": true,
+      "detail": {
+        "error": 1.5631940186722204e-13,
+        "gcl": 8.464340339742193e-13,
+        "cfl": 0.36486486486460307,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 2, -1, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (8, 2, -1, 0, 1)",
+      "pass": true,
+      "detail": {
+        "error": 3.694822225952521e-13,
+        "gcl": 8.464340339742193e-13,
+        "cfl": 0.36486486486460307,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 2, -1, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (8, 2, -1, 0, 2)",
+      "pass": true,
+      "detail": {
+        "error": 2.8421709430404007e-13,
+        "gcl": 8.464340339742193e-13,
+        "cfl": 0.36486486486460307,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 2, -1, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (8, 2, -1, 1, 0)",
+      "pass": true,
+      "detail": {
+        "error": 1.1368683772161603e-13,
+        "gcl": 8.822942376696119e-13,
+        "cfl": 0.5744680851075582,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 2, -1, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (8, 2, -1, 1, 1)",
+      "pass": true,
+      "detail": {
+        "error": 8.526512829121202e-14,
+        "gcl": 8.822942376696119e-13,
+        "cfl": 0.5744680851075582,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 2, -1, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (8, 2, -1, 1, 2)",
+      "pass": true,
+      "detail": {
+        "error": 0.0,
+        "gcl": 8.822942376696119e-13,
+        "cfl": 0.5744680851075582,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 2, 1, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (8, 2, 1, 0, 0)",
+      "pass": true,
+      "detail": {
+        "error": 5.684341886080802e-14,
+        "gcl": 8.884004643050503e-13,
+        "cfl": 0.4821428571438054,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 2, 1, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (8, 2, 1, 0, 1)",
+      "pass": true,
+      "detail": {
+        "error": 2.5579538487363607e-13,
+        "gcl": 8.884004643050503e-13,
+        "cfl": 0.4821428571438054,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 2, 1, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (8, 2, 1, 0, 2)",
+      "pass": true,
+      "detail": {
+        "error": 1.1368683772161603e-13,
+        "gcl": 8.884004643050503e-13,
+        "cfl": 0.4821428571438054,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 2, 1, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (8, 2, 1, 1, 0)",
+      "pass": true,
+      "detail": {
+        "error": 7.105427357601002e-14,
+        "gcl": 8.748557434046234e-13,
+        "cfl": 0.3263022051270075,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 2, 1, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (8, 2, 1, 1, 1)",
+      "pass": true,
+      "detail": {
+        "error": 2.842170943040401e-14,
+        "gcl": 8.748557434046234e-13,
+        "cfl": 0.3263022051270075,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (8, 2, 1, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (8, 2, 1, 1, 2)",
+      "pass": true,
+      "detail": {
+        "error": 2.8421709430404007e-13,
+        "gcl": 8.748557434046234e-13,
+        "cfl": 0.3263022051270075,
+        "active": 1168
+      }
+    },
+    {
+      "name": "unique (12, 0, -1, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (12, 0, -1, 0, 0)",
+      "pass": true,
+      "detail": {
+        "error": 1.9895196601282805e-12,
+        "gcl": 9.78994663114463e-13,
+        "cfl": 0.48214285714274363,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 0, -1, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (12, 0, -1, 0, 1)",
+      "pass": true,
+      "detail": {
+        "error": 9.094947017729282e-13,
+        "gcl": 9.78994663114463e-13,
+        "cfl": 0.48214285714274363,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 0, -1, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (12, 0, -1, 0, 2)",
+      "pass": true,
+      "detail": {
+        "error": 1.1368683772161603e-13,
+        "gcl": 9.78994663114463e-13,
+        "cfl": 0.48214285714274363,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 0, -1, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (12, 0, -1, 1, 0)",
+      "pass": true,
+      "detail": {
+        "error": 5.684341886080801e-13,
+        "gcl": 7.988054662178001e-13,
+        "cfl": 0.3170791513913782,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 0, -1, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (12, 0, -1, 1, 1)",
+      "pass": true,
+      "detail": {
+        "error": 1.0231815394945443e-12,
+        "gcl": 7.988054662178001e-13,
+        "cfl": 0.3170791513913782,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 0, -1, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (12, 0, -1, 1, 2)",
+      "pass": true,
+      "detail": {
+        "error": 5.684341886080801e-13,
+        "gcl": 7.988054662178001e-13,
+        "cfl": 0.3170791513913782,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 0, 1, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (12, 0, 1, 0, 0)",
+      "pass": true,
+      "detail": {
+        "error": 9.094947017729282e-13,
+        "gcl": 9.194867089945546e-13,
+        "cfl": 0.36486486486522735,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 0, 1, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (12, 0, 1, 0, 1)",
+      "pass": true,
+      "detail": {
+        "error": 4.547473508864641e-13,
+        "gcl": 9.194867089945546e-13,
+        "cfl": 0.36486486486522735,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 0, 1, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (12, 0, 1, 0, 2)",
+      "pass": true,
+      "detail": {
+        "error": 2.5011104298755527e-12,
+        "gcl": 9.194867089945546e-13,
+        "cfl": 0.36486486486522735,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 0, 1, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (12, 0, 1, 1, 0)",
+      "pass": true,
+      "detail": {
+        "error": 1.1368683772161603e-13,
+        "gcl": 9.68003455170674e-13,
+        "cfl": 0.5744680851068283,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 0, 1, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (12, 0, 1, 1, 1)",
+      "pass": true,
+      "detail": {
+        "error": 6.821210263296962e-13,
+        "gcl": 9.68003455170674e-13,
+        "cfl": 0.5744680851068283,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 0, 1, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (12, 0, 1, 1, 2)",
+      "pass": true,
+      "detail": {
+        "error": 6.821210263296962e-13,
+        "gcl": 9.68003455170674e-13,
+        "cfl": 0.5744680851068283,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 1, -1, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (12, 1, -1, 0, 0)",
+      "pass": true,
+      "detail": {
+        "error": 1.5347723092418164e-12,
+        "gcl": 9.869882688917642e-13,
+        "cfl": 0.28571428571416585,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 1, -1, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (12, 1, -1, 0, 1)",
+      "pass": true,
+      "detail": {
+        "error": 1.4779288903810084e-12,
+        "gcl": 9.869882688917642e-13,
+        "cfl": 0.28571428571416585,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 1, -1, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (12, 1, -1, 0, 2)",
+      "pass": true,
+      "detail": {
+        "error": 1.1368683772161603e-13,
+        "gcl": 9.869882688917642e-13,
+        "cfl": 0.28571428571416585,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 1, -1, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (12, 1, -1, 1, 0)",
+      "pass": true,
+      "detail": {
+        "error": 1.1368683772161603e-12,
+        "gcl": 9.467981954003335e-13,
+        "cfl": 0.1481481481480968,
+        "active": 4343
+      }
+    },
+    {
+      "name": "unique (12, 1, -1, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (12, 1, -1, 1, 1)",
+      "pass": true,
+      "detail": {
+        "error": 4.547473508864641e-13,
+        "gcl": 9.467981954003335e-13,
+        "cfl": 0.1481481481480968,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 1, -1, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (12, 1, -1, 1, 2)",
+      "pass": true,
+      "detail": {
+        "error": 1.9326762412674725e-12,
+        "gcl": 9.467981954003335e-13,
+        "cfl": 0.1481481481480968,
+        "active": 4343
+      }
+    },
+    {
+      "name": "unique (12, 1, 1, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (12, 1, 1, 0, 0)",
+      "pass": true,
+      "detail": {
+        "error": 1.5347723092418164e-12,
+        "gcl": 9.954259638789154e-13,
+        "cfl": 0.23076923076950323,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 1, 1, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (12, 1, 1, 0, 1)",
+      "pass": true,
+      "detail": {
+        "error": 3.410605131648481e-13,
+        "gcl": 9.954259638789154e-13,
+        "cfl": 0.23076923076950323,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 1, 1, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (12, 1, 1, 0, 2)",
+      "pass": true,
+      "detail": {
+        "error": 2.1600499167107046e-12,
+        "gcl": 9.954259638789154e-13,
+        "cfl": 0.23076923076950323,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 1, 1, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (12, 1, 1, 1, 0)",
+      "pass": true,
+      "detail": {
+        "error": 5.684341886080801e-13,
+        "gcl": 7.783773625646973e-13,
+        "cfl": 0.30000000000033694,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 1, 1, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (12, 1, 1, 1, 1)",
+      "pass": true,
+      "detail": {
+        "error": 3.410605131648481e-13,
+        "gcl": 7.783773625646973e-13,
+        "cfl": 0.30000000000033694,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 1, 1, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (12, 1, 1, 1, 2)",
+      "pass": true,
+      "detail": {
+        "error": 1.1368683772161603e-12,
+        "gcl": 7.783773625646973e-13,
+        "cfl": 0.30000000000033694,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 2, -1, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (12, 2, -1, 0, 0)",
+      "pass": true,
+      "detail": {
+        "error": 7.389644451905042e-13,
+        "gcl": 9.78328529299688e-13,
+        "cfl": 0.36486486486499403,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 2, -1, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (12, 2, -1, 0, 1)",
+      "pass": true,
+      "detail": {
+        "error": 1.1368683772161603e-13,
+        "gcl": 9.78328529299688e-13,
+        "cfl": 0.36486486486499403,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 2, -1, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (12, 2, -1, 0, 2)",
+      "pass": true,
+      "detail": {
+        "error": 2.2737367544323206e-12,
+        "gcl": 9.78328529299688e-13,
+        "cfl": 0.36486486486499403,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 2, -1, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (12, 2, -1, 1, 0)",
+      "pass": true,
+      "detail": {
+        "error": 6.821210263296962e-13,
+        "gcl": 8.646416915780719e-13,
+        "cfl": 0.5744680851061597,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 2, -1, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (12, 2, -1, 1, 1)",
+      "pass": true,
+      "detail": {
+        "error": 4.547473508864641e-13,
+        "gcl": 8.646416915780719e-13,
+        "cfl": 0.5744680851061597,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 2, -1, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (12, 2, -1, 1, 2)",
+      "pass": true,
+      "detail": {
+        "error": 1.8189894035458565e-12,
+        "gcl": 8.646416915780719e-13,
+        "cfl": 0.5744680851061597,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 2, 1, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (12, 2, 1, 0, 0)",
+      "pass": true,
+      "detail": {
+        "error": 2.0463630789890885e-12,
+        "gcl": 9.259260025373806e-13,
+        "cfl": 0.48214285714300364,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 2, 1, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (12, 2, 1, 0, 1)",
+      "pass": true,
+      "detail": {
+        "error": 6.821210263296962e-13,
+        "gcl": 9.259260025373806e-13,
+        "cfl": 0.48214285714300364,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 2, 1, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (12, 2, 1, 0, 2)",
+      "pass": true,
+      "detail": {
+        "error": 1.8189894035458565e-12,
+        "gcl": 9.259260025373806e-13,
+        "cfl": 0.48214285714300364,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 2, 1, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (12, 2, 1, 1, 0)",
+      "pass": true,
+      "detail": {
+        "error": 6.821210263296962e-13,
+        "gcl": 9.474643292151086e-13,
+        "cfl": 0.334030102188687,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 2, 1, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (12, 2, 1, 1, 1)",
+      "pass": true,
+      "detail": {
+        "error": 1.2505552149377763e-12,
+        "gcl": 9.474643292151086e-13,
+        "cfl": 0.334030102188687,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (12, 2, 1, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (12, 2, 1, 1, 2)",
+      "pass": true,
+      "detail": {
+        "error": 1.8189894035458565e-12,
+        "gcl": 9.474643292151086e-13,
+        "cfl": 0.334030102188687,
+        "active": 4344
+      }
+    },
+    {
+      "name": "unique (16, 0, -1, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (16, 0, -1, 0, 0)",
+      "pass": true,
+      "detail": {
+        "error": 5.5706550483591855e-12,
+        "gcl": 9.93205517829665e-13,
+        "cfl": 0.48214285714281474,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 0, -1, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (16, 0, -1, 0, 1)",
+      "pass": true,
+      "detail": {
+        "error": 1.8189894035458565e-12,
+        "gcl": 9.93205517829665e-13,
+        "cfl": 0.48214285714281474,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 0, -1, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (16, 0, -1, 0, 2)",
+      "pass": true,
+      "detail": {
+        "error": 1.1823431123048067e-11,
+        "gcl": 9.93205517829665e-13,
+        "cfl": 0.48214285714281474,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 0, -1, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (16, 0, -1, 1, 0)",
+      "pass": true,
+      "detail": {
+        "error": 3.296918293926865e-12,
+        "gcl": 9.494627306594339e-13,
+        "cfl": 0.3168461330294632,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 0, -1, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (16, 0, -1, 1, 1)",
+      "pass": true,
+      "detail": {
+        "error": 2.5011104298755527e-12,
+        "gcl": 9.494627306594339e-13,
+        "cfl": 0.3168461330294632,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 0, -1, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (16, 0, -1, 1, 2)",
+      "pass": true,
+      "detail": {
+        "error": 4.547473508864641e-13,
+        "gcl": 9.494627306594339e-13,
+        "cfl": 0.3168461330294632,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 0, 1, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (16, 0, 1, 0, 0)",
+      "pass": true,
+      "detail": {
+        "error": 4.433786671143025e-12,
+        "gcl": 8.788525462932739e-13,
+        "cfl": 0.3648648648650312,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 0, 1, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (16, 0, 1, 0, 1)",
+      "pass": true,
+      "detail": {
+        "error": 3.410605131648481e-12,
+        "gcl": 8.788525462932739e-13,
+        "cfl": 0.3648648648650312,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 0, 1, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (16, 0, 1, 0, 2)",
+      "pass": true,
+      "detail": {
+        "error": 4.092726157978177e-12,
+        "gcl": 8.788525462932739e-13,
+        "cfl": 0.3648648648650312,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 0, 1, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (16, 0, 1, 1, 0)",
+      "pass": true,
+      "detail": {
+        "error": 4.547473508864641e-13,
+        "gcl": 9.816591983735634e-13,
+        "cfl": 0.5744680851064642,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 0, 1, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (16, 0, 1, 1, 1)",
+      "pass": true,
+      "detail": {
+        "error": 2.0463630789890885e-12,
+        "gcl": 9.816591983735634e-13,
+        "cfl": 0.5744680851064642,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 0, 1, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (16, 0, 1, 1, 2)",
+      "pass": true,
+      "detail": {
+        "error": 0.0,
+        "gcl": 9.816591983735634e-13,
+        "cfl": 0.5744680851064642,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 1, -1, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (16, 1, -1, 0, 0)",
+      "pass": true,
+      "detail": {
+        "error": 4.433786671143025e-12,
+        "gcl": 9.43467526326458e-13,
+        "cfl": 0.28571428571417906,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 1, -1, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (16, 1, -1, 0, 1)",
+      "pass": true,
+      "detail": {
+        "error": 1.5916157281026244e-12,
+        "gcl": 9.43467526326458e-13,
+        "cfl": 0.28571428571417906,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 1, -1, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (16, 1, -1, 0, 2)",
+      "pass": true,
+      "detail": {
+        "error": 5.4569682106375694e-12,
+        "gcl": 9.43467526326458e-13,
+        "cfl": 0.28571428571417906,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 1, -1, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (16, 1, -1, 1, 0)",
+      "pass": true,
+      "detail": {
+        "error": 5.684341886080801e-13,
+        "gcl": 9.268141809570807e-13,
+        "cfl": 0.1481481481482213,
+        "active": 10783
+      }
+    },
+    {
+      "name": "unique (16, 1, -1, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (16, 1, -1, 1, 1)",
+      "pass": true,
+      "detail": {
+        "error": 7.048583938740194e-12,
+        "gcl": 9.268141809570807e-13,
+        "cfl": 0.1481481481482213,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 1, -1, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (16, 1, -1, 1, 2)",
+      "pass": true,
+      "detail": {
+        "error": 8.640199666842818e-12,
+        "gcl": 9.268141809570807e-13,
+        "cfl": 0.1481481481482213,
+        "active": 10783
+      }
+    },
+    {
+      "name": "unique (16, 1, 1, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (16, 1, 1, 0, 0)",
+      "pass": true,
+      "detail": {
+        "error": 3.637978807091713e-12,
+        "gcl": 9.732215033864122e-13,
+        "cfl": 0.23076923076923403,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 1, 1, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (16, 1, 1, 0, 1)",
+      "pass": true,
+      "detail": {
+        "error": 3.865352482534945e-12,
+        "gcl": 9.732215033864122e-13,
+        "cfl": 0.23076923076923403,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 1, 1, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (16, 1, 1, 0, 2)",
+      "pass": true,
+      "detail": {
+        "error": 1.546140993013978e-11,
+        "gcl": 9.732215033864122e-13,
+        "cfl": 0.23076923076923403,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 1, 1, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (16, 1, 1, 1, 0)",
+      "pass": true,
+      "detail": {
+        "error": 1.4779288903810084e-12,
+        "gcl": 9.051648319768901e-13,
+        "cfl": 0.29999999999997384,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 1, 1, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (16, 1, 1, 1, 1)",
+      "pass": true,
+      "detail": {
+        "error": 1.3642420526593924e-12,
+        "gcl": 9.051648319768901e-13,
+        "cfl": 0.29999999999997384,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 1, 1, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (16, 1, 1, 1, 2)",
+      "pass": true,
+      "detail": {
+        "error": 9.549694368615746e-12,
+        "gcl": 9.051648319768901e-13,
+        "cfl": 0.29999999999997384,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 2, -1, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (16, 2, -1, 0, 0)",
+      "pass": true,
+      "detail": {
+        "error": 4.092726157978177e-12,
+        "gcl": 9.19153642087167e-13,
+        "cfl": 0.3648648648648501,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 2, -1, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (16, 2, -1, 0, 1)",
+      "pass": true,
+      "detail": {
+        "error": 9.094947017729282e-13,
+        "gcl": 9.19153642087167e-13,
+        "cfl": 0.3648648648648501,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 2, -1, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (16, 2, -1, 0, 2)",
+      "pass": true,
+      "detail": {
+        "error": 1.000444171950221e-11,
+        "gcl": 9.19153642087167e-13,
+        "cfl": 0.3648648648648501,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 2, -1, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (16, 2, -1, 1, 0)",
+      "pass": true,
+      "detail": {
+        "error": 6.821210263296962e-13,
+        "gcl": 8.988365607365267e-13,
+        "cfl": 0.5744680851063866,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 2, -1, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (16, 2, -1, 1, 1)",
+      "pass": true,
+      "detail": {
+        "error": 1.5916157281026244e-12,
+        "gcl": 8.988365607365267e-13,
+        "cfl": 0.5744680851063866,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 2, -1, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (16, 2, -1, 1, 2)",
+      "pass": true,
+      "detail": {
+        "error": 4.547473508864641e-12,
+        "gcl": 8.988365607365267e-13,
+        "cfl": 0.5744680851063866,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 2, 1, 0, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (16, 2, 1, 0, 0)",
+      "pass": true,
+      "detail": {
+        "error": 5.115907697472721e-12,
+        "gcl": 8.750777880095484e-13,
+        "cfl": 0.48214285714274396,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 2, 1, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (16, 2, 1, 0, 1)",
+      "pass": true,
+      "detail": {
+        "error": 1.3642420526593924e-12,
+        "gcl": 8.750777880095484e-13,
+        "cfl": 0.48214285714274396,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 2, 1, 0, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (16, 2, 1, 0, 2)",
+      "pass": true,
+      "detail": {
+        "error": 9.549694368615746e-12,
+        "gcl": 8.750777880095484e-13,
+        "cfl": 0.48214285714274396,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 2, 1, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (16, 2, 1, 1, 0)",
+      "pass": true,
+      "detail": {
+        "error": 2.1600499167107046e-12,
+        "gcl": 9.734435479913373e-13,
+        "cfl": 0.33429393614758807,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 2, 1, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (16, 2, 1, 1, 1)",
+      "pass": true,
+      "detail": {
+        "error": 2.5011104298755527e-12,
+        "gcl": 9.734435479913373e-13,
+        "cfl": 0.33429393614758807,
+        "active": 10784
+      }
+    },
+    {
+      "name": "unique (16, 2, 1, 1, 2)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "conservation GCL CFL (16, 2, 1, 1, 2)",
+      "pass": true,
+      "detail": {
+        "error": 1.3642420526593924e-12,
+        "gcl": 9.734435479913373e-13,
+        "cfl": 0.33429393614758807,
+        "active": 10784
+      }
+    },
+    {
+      "name": "complete 3D case coverage",
+      "pass": true,
+      "detail": null
+    }
+  ],
+  "reference": [
+    {
+      "grid": 8,
+      "axis": 0,
+      "sign": -1,
+      "step": 0,
+      "component": 0,
+      "before": 100.45418895556294,
+      "after": 100.45418895556281,
+      "error": 1.2789769243681803e-13,
+      "gcl": 8.895106873296754e-13,
+      "donor_cfl": 0.4821428571428744,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 0,
+      "sign": -1,
+      "step": 0,
+      "component": 1,
+      "before": 190.8012615820817,
+      "after": 190.80126158208145,
+      "error": 2.5579538487363607e-13,
+      "gcl": 8.895106873296754e-13,
+      "donor_cfl": 0.4821428571428744,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 0,
+      "sign": -1,
+      "step": 0,
+      "component": 2,
+      "before": 265.9186037334544,
+      "after": 265.91860373345463,
+      "error": 2.2737367544323206e-13,
+      "gcl": 8.895106873296754e-13,
+      "donor_cfl": 0.4821428571428744,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 0,
+      "sign": -1,
+      "step": 1,
+      "component": 0,
+      "before": 100.45418895556281,
+      "after": 100.45418895556284,
+      "error": 2.842170943040401e-14,
+      "gcl": 9.798828415341632e-13,
+      "donor_cfl": 0.3219912461109719,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 0,
+      "sign": -1,
+      "step": 1,
+      "component": 1,
+      "before": 190.80126158208145,
+      "after": 190.80126158208134,
+      "error": 1.1368683772161603e-13,
+      "gcl": 9.798828415341632e-13,
+      "donor_cfl": 0.3219912461109719,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 0,
+      "sign": -1,
+      "step": 1,
+      "component": 2,
+      "before": 265.91860373345463,
+      "after": 265.918603733455,
+      "error": 3.410605131648481e-13,
+      "gcl": 9.798828415341632e-13,
+      "donor_cfl": 0.3219912461109719,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 0,
+      "sign": 1,
+      "step": 0,
+      "component": 0,
+      "before": 100.45418895556294,
+      "after": 100.45418895556276,
+      "error": 1.8474111129762605e-13,
+      "gcl": 9.933165401321276e-13,
+      "donor_cfl": 0.3648648648643168,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 0,
+      "sign": 1,
+      "step": 0,
+      "component": 1,
+      "before": 190.8012615820817,
+      "after": 190.80126158208137,
+      "error": 3.410605131648481e-13,
+      "gcl": 9.933165401321276e-13,
+      "donor_cfl": 0.3648648648643168,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 0,
+      "sign": 1,
+      "step": 0,
+      "component": 2,
+      "before": 265.9186037334544,
+      "after": 265.9186037334545,
+      "error": 1.1368683772161603e-13,
+      "gcl": 9.933165401321276e-13,
+      "donor_cfl": 0.3648648648643168,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 0,
+      "sign": 1,
+      "step": 1,
+      "component": 0,
+      "before": 100.45418895556276,
+      "after": 100.4541889555629,
+      "error": 1.4210854715202004e-13,
+      "gcl": 9.034994974399524e-13,
+      "donor_cfl": 0.5744680851063286,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 0,
+      "sign": 1,
+      "step": 1,
+      "component": 1,
+      "before": 190.80126158208137,
+      "after": 190.80126158208137,
+      "error": 0.0,
+      "gcl": 9.034994974399524e-13,
+      "donor_cfl": 0.5744680851063286,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 0,
+      "sign": 1,
+      "step": 1,
+      "component": 2,
+      "before": 265.9186037334545,
+      "after": 265.9186037334549,
+      "error": 3.979039320256561e-13,
+      "gcl": 9.034994974399524e-13,
+      "donor_cfl": 0.5744680851063286,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 1,
+      "sign": -1,
+      "step": 0,
+      "component": 0,
+      "before": 100.45418895556294,
+      "after": 100.4541889555628,
+      "error": 1.4210854715202004e-13,
+      "gcl": 9.112710586123285e-13,
+      "donor_cfl": 0.28571428571510715,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 1,
+      "sign": -1,
+      "step": 0,
+      "component": 1,
+      "before": 190.8012615820817,
+      "after": 190.80126158208148,
+      "error": 2.2737367544323206e-13,
+      "gcl": 9.112710586123285e-13,
+      "donor_cfl": 0.28571428571510715,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 1,
+      "sign": -1,
+      "step": 0,
+      "component": 2,
+      "before": 265.9186037334544,
+      "after": 265.91860373345463,
+      "error": 2.2737367544323206e-13,
+      "gcl": 9.112710586123285e-13,
+      "donor_cfl": 0.28571428571510715,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 1,
+      "sign": -1,
+      "step": 1,
+      "component": 0,
+      "before": 100.4541889555628,
+      "after": 100.4541889555629,
+      "error": 9.947598300641403e-14,
+      "gcl": 9.183764859699295e-13,
+      "donor_cfl": 0.14814814814820448,
+      "active_faces": 1167
+    },
+    {
+      "grid": 8,
+      "axis": 1,
+      "sign": -1,
+      "step": 1,
+      "component": 1,
+      "before": 190.80126158208148,
+      "after": 190.80126158208145,
+      "error": 2.842170943040401e-14,
+      "gcl": 9.183764859699295e-13,
+      "donor_cfl": 0.14814814814820448,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 1,
+      "sign": -1,
+      "step": 1,
+      "component": 2,
+      "before": 265.91860373345463,
+      "after": 265.9186037334545,
+      "error": 1.1368683772161603e-13,
+      "gcl": 9.183764859699295e-13,
+      "donor_cfl": 0.14814814814820448,
+      "active_faces": 1167
+    },
+    {
+      "grid": 8,
+      "axis": 1,
+      "sign": 1,
+      "step": 0,
+      "component": 0,
+      "before": 100.45418895556294,
+      "after": 100.4541889555628,
+      "error": 1.4210854715202004e-13,
+      "gcl": 6.473710456589288e-13,
+      "donor_cfl": 0.23076923076933564,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 1,
+      "sign": 1,
+      "step": 0,
+      "component": 1,
+      "before": 190.8012615820817,
+      "after": 190.8012615820813,
+      "error": 3.979039320256561e-13,
+      "gcl": 6.473710456589288e-13,
+      "donor_cfl": 0.23076923076933564,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 1,
+      "sign": 1,
+      "step": 0,
+      "component": 2,
+      "before": 265.9186037334544,
+      "after": 265.9186037334546,
+      "error": 1.7053025658242404e-13,
+      "gcl": 6.473710456589288e-13,
+      "donor_cfl": 0.23076923076933564,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 1,
+      "sign": 1,
+      "step": 1,
+      "component": 0,
+      "before": 100.4541889555628,
+      "after": 100.45418895556284,
+      "error": 4.263256414560601e-14,
+      "gcl": 8.959499808725013e-13,
+      "donor_cfl": 0.29999999999970545,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 1,
+      "sign": 1,
+      "step": 1,
+      "component": 1,
+      "before": 190.8012615820813,
+      "after": 190.80126158208148,
+      "error": 1.7053025658242404e-13,
+      "gcl": 8.959499808725013e-13,
+      "donor_cfl": 0.29999999999970545,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 1,
+      "sign": 1,
+      "step": 1,
+      "component": 2,
+      "before": 265.9186037334546,
+      "after": 265.91860373345463,
+      "error": 5.684341886080802e-14,
+      "gcl": 8.959499808725013e-13,
+      "donor_cfl": 0.29999999999970545,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 2,
+      "sign": -1,
+      "step": 0,
+      "component": 0,
+      "before": 100.45418895556294,
+      "after": 100.45418895556278,
+      "error": 1.5631940186722204e-13,
+      "gcl": 8.464340339742193e-13,
+      "donor_cfl": 0.36486486486460307,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 2,
+      "sign": -1,
+      "step": 0,
+      "component": 1,
+      "before": 190.8012615820817,
+      "after": 190.80126158208134,
+      "error": 3.694822225952521e-13,
+      "gcl": 8.464340339742193e-13,
+      "donor_cfl": 0.36486486486460307,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 2,
+      "sign": -1,
+      "step": 0,
+      "component": 2,
+      "before": 265.9186037334544,
+      "after": 265.9186037334547,
+      "error": 2.8421709430404007e-13,
+      "gcl": 8.464340339742193e-13,
+      "donor_cfl": 0.36486486486460307,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 2,
+      "sign": -1,
+      "step": 1,
+      "component": 0,
+      "before": 100.45418895556278,
+      "after": 100.4541889555629,
+      "error": 1.1368683772161603e-13,
+      "gcl": 8.822942376696119e-13,
+      "donor_cfl": 0.5744680851075582,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 2,
+      "sign": -1,
+      "step": 1,
+      "component": 1,
+      "before": 190.80126158208134,
+      "after": 190.80126158208142,
+      "error": 8.526512829121202e-14,
+      "gcl": 8.822942376696119e-13,
+      "donor_cfl": 0.5744680851075582,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 2,
+      "sign": -1,
+      "step": 1,
+      "component": 2,
+      "before": 265.9186037334547,
+      "after": 265.9186037334547,
+      "error": 0.0,
+      "gcl": 8.822942376696119e-13,
+      "donor_cfl": 0.5744680851075582,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 2,
+      "sign": 1,
+      "step": 0,
+      "component": 0,
+      "before": 100.45418895556294,
+      "after": 100.45418895556288,
+      "error": 5.684341886080802e-14,
+      "gcl": 8.884004643050503e-13,
+      "donor_cfl": 0.4821428571438054,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 2,
+      "sign": 1,
+      "step": 0,
+      "component": 1,
+      "before": 190.8012615820817,
+      "after": 190.80126158208145,
+      "error": 2.5579538487363607e-13,
+      "gcl": 8.884004643050503e-13,
+      "donor_cfl": 0.4821428571438054,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 2,
+      "sign": 1,
+      "step": 0,
+      "component": 2,
+      "before": 265.9186037334544,
+      "after": 265.9186037334545,
+      "error": 1.1368683772161603e-13,
+      "gcl": 8.884004643050503e-13,
+      "donor_cfl": 0.4821428571438054,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 2,
+      "sign": 1,
+      "step": 1,
+      "component": 0,
+      "before": 100.45418895556288,
+      "after": 100.45418895556281,
+      "error": 7.105427357601002e-14,
+      "gcl": 8.748557434046234e-13,
+      "donor_cfl": 0.3263022051270075,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 2,
+      "sign": 1,
+      "step": 1,
+      "component": 1,
+      "before": 190.80126158208145,
+      "after": 190.80126158208142,
+      "error": 2.842170943040401e-14,
+      "gcl": 8.748557434046234e-13,
+      "donor_cfl": 0.3263022051270075,
+      "active_faces": 1168
+    },
+    {
+      "grid": 8,
+      "axis": 2,
+      "sign": 1,
+      "step": 1,
+      "component": 2,
+      "before": 265.9186037334545,
+      "after": 265.9186037334548,
+      "error": 2.8421709430404007e-13,
+      "gcl": 8.748557434046234e-13,
+      "donor_cfl": 0.3263022051270075,
+      "active_faces": 1168
+    },
+    {
+      "grid": 12,
+      "axis": 0,
+      "sign": -1,
+      "step": 0,
+      "component": 0,
+      "before": 333.16871276631883,
+      "after": 333.1687127663208,
+      "error": 1.9895196601282805e-12,
+      "gcl": 9.78994663114463e-13,
+      "donor_cfl": 0.48214285714274363,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 0,
+      "sign": -1,
+      "step": 0,
+      "component": 1,
+      "before": 639.7548909629295,
+      "after": 639.7548909629286,
+      "error": 9.094947017729282e-13,
+      "gcl": 9.78994663114463e-13,
+      "donor_cfl": 0.48214285714274363,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 0,
+      "sign": -1,
+      "step": 0,
+      "component": 2,
+      "before": 939.3072400360078,
+      "after": 939.3072400360077,
+      "error": 1.1368683772161603e-13,
+      "gcl": 9.78994663114463e-13,
+      "donor_cfl": 0.48214285714274363,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 0,
+      "sign": -1,
+      "step": 1,
+      "component": 0,
+      "before": 333.1687127663208,
+      "after": 333.16871276632025,
+      "error": 5.684341886080801e-13,
+      "gcl": 7.988054662178001e-13,
+      "donor_cfl": 0.3170791513913782,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 0,
+      "sign": -1,
+      "step": 1,
+      "component": 1,
+      "before": 639.7548909629286,
+      "after": 639.7548909629296,
+      "error": 1.0231815394945443e-12,
+      "gcl": 7.988054662178001e-13,
+      "donor_cfl": 0.3170791513913782,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 0,
+      "sign": -1,
+      "step": 1,
+      "component": 2,
+      "before": 939.3072400360077,
+      "after": 939.3072400360071,
+      "error": 5.684341886080801e-13,
+      "gcl": 7.988054662178001e-13,
+      "donor_cfl": 0.3170791513913782,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 0,
+      "sign": 1,
+      "step": 0,
+      "component": 0,
+      "before": 333.16871276631883,
+      "after": 333.16871276631974,
+      "error": 9.094947017729282e-13,
+      "gcl": 9.194867089945546e-13,
+      "donor_cfl": 0.36486486486522735,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 0,
+      "sign": 1,
+      "step": 0,
+      "component": 1,
+      "before": 639.7548909629295,
+      "after": 639.754890962929,
+      "error": 4.547473508864641e-13,
+      "gcl": 9.194867089945546e-13,
+      "donor_cfl": 0.36486486486522735,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 0,
+      "sign": 1,
+      "step": 0,
+      "component": 2,
+      "before": 939.3072400360078,
+      "after": 939.3072400360103,
+      "error": 2.5011104298755527e-12,
+      "gcl": 9.194867089945546e-13,
+      "donor_cfl": 0.36486486486522735,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 0,
+      "sign": 1,
+      "step": 1,
+      "component": 0,
+      "before": 333.16871276631974,
+      "after": 333.16871276631963,
+      "error": 1.1368683772161603e-13,
+      "gcl": 9.68003455170674e-13,
+      "donor_cfl": 0.5744680851068283,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 0,
+      "sign": 1,
+      "step": 1,
+      "component": 1,
+      "before": 639.754890962929,
+      "after": 639.7548909629284,
+      "error": 6.821210263296962e-13,
+      "gcl": 9.68003455170674e-13,
+      "donor_cfl": 0.5744680851068283,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 0,
+      "sign": 1,
+      "step": 1,
+      "component": 2,
+      "before": 939.3072400360103,
+      "after": 939.307240036011,
+      "error": 6.821210263296962e-13,
+      "gcl": 9.68003455170674e-13,
+      "donor_cfl": 0.5744680851068283,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 1,
+      "sign": -1,
+      "step": 0,
+      "component": 0,
+      "before": 333.16871276631883,
+      "after": 333.16871276632037,
+      "error": 1.5347723092418164e-12,
+      "gcl": 9.869882688917642e-13,
+      "donor_cfl": 0.28571428571416585,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 1,
+      "sign": -1,
+      "step": 0,
+      "component": 1,
+      "before": 639.7548909629295,
+      "after": 639.754890962928,
+      "error": 1.4779288903810084e-12,
+      "gcl": 9.869882688917642e-13,
+      "donor_cfl": 0.28571428571416585,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 1,
+      "sign": -1,
+      "step": 0,
+      "component": 2,
+      "before": 939.3072400360078,
+      "after": 939.3072400360077,
+      "error": 1.1368683772161603e-13,
+      "gcl": 9.869882688917642e-13,
+      "donor_cfl": 0.28571428571416585,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 1,
+      "sign": -1,
+      "step": 1,
+      "component": 0,
+      "before": 333.16871276632037,
+      "after": 333.16871276631923,
+      "error": 1.1368683772161603e-12,
+      "gcl": 9.467981954003335e-13,
+      "donor_cfl": 0.1481481481480968,
+      "active_faces": 4343
+    },
+    {
+      "grid": 12,
+      "axis": 1,
+      "sign": -1,
+      "step": 1,
+      "component": 1,
+      "before": 639.754890962928,
+      "after": 639.7548909629276,
+      "error": 4.547473508864641e-13,
+      "gcl": 9.467981954003335e-13,
+      "donor_cfl": 0.1481481481480968,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 1,
+      "sign": -1,
+      "step": 1,
+      "component": 2,
+      "before": 939.3072400360077,
+      "after": 939.3072400360096,
+      "error": 1.9326762412674725e-12,
+      "gcl": 9.467981954003335e-13,
+      "donor_cfl": 0.1481481481480968,
+      "active_faces": 4343
+    },
+    {
+      "grid": 12,
+      "axis": 1,
+      "sign": 1,
+      "step": 0,
+      "component": 0,
+      "before": 333.16871276631883,
+      "after": 333.16871276632037,
+      "error": 1.5347723092418164e-12,
+      "gcl": 9.954259638789154e-13,
+      "donor_cfl": 0.23076923076950323,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 1,
+      "sign": 1,
+      "step": 0,
+      "component": 1,
+      "before": 639.7548909629295,
+      "after": 639.7548909629292,
+      "error": 3.410605131648481e-13,
+      "gcl": 9.954259638789154e-13,
+      "donor_cfl": 0.23076923076950323,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 1,
+      "sign": 1,
+      "step": 0,
+      "component": 2,
+      "before": 939.3072400360078,
+      "after": 939.30724003601,
+      "error": 2.1600499167107046e-12,
+      "gcl": 9.954259638789154e-13,
+      "donor_cfl": 0.23076923076950323,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 1,
+      "sign": 1,
+      "step": 1,
+      "component": 0,
+      "before": 333.16871276632037,
+      "after": 333.1687127663198,
+      "error": 5.684341886080801e-13,
+      "gcl": 7.783773625646973e-13,
+      "donor_cfl": 0.30000000000033694,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 1,
+      "sign": 1,
+      "step": 1,
+      "component": 1,
+      "before": 639.7548909629292,
+      "after": 639.7548909629295,
+      "error": 3.410605131648481e-13,
+      "gcl": 7.783773625646973e-13,
+      "donor_cfl": 0.30000000000033694,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 1,
+      "sign": 1,
+      "step": 1,
+      "component": 2,
+      "before": 939.30724003601,
+      "after": 939.3072400360088,
+      "error": 1.1368683772161603e-12,
+      "gcl": 7.783773625646973e-13,
+      "donor_cfl": 0.30000000000033694,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 2,
+      "sign": -1,
+      "step": 0,
+      "component": 0,
+      "before": 333.16871276631883,
+      "after": 333.1687127663196,
+      "error": 7.389644451905042e-13,
+      "gcl": 9.78328529299688e-13,
+      "donor_cfl": 0.36486486486499403,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 2,
+      "sign": -1,
+      "step": 0,
+      "component": 1,
+      "before": 639.7548909629295,
+      "after": 639.7548909629294,
+      "error": 1.1368683772161603e-13,
+      "gcl": 9.78328529299688e-13,
+      "donor_cfl": 0.36486486486499403,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 2,
+      "sign": -1,
+      "step": 0,
+      "component": 2,
+      "before": 939.3072400360078,
+      "after": 939.3072400360101,
+      "error": 2.2737367544323206e-12,
+      "gcl": 9.78328529299688e-13,
+      "donor_cfl": 0.36486486486499403,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 2,
+      "sign": -1,
+      "step": 1,
+      "component": 0,
+      "before": 333.1687127663196,
+      "after": 333.16871276632025,
+      "error": 6.821210263296962e-13,
+      "gcl": 8.646416915780719e-13,
+      "donor_cfl": 0.5744680851061597,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 2,
+      "sign": -1,
+      "step": 1,
+      "component": 1,
+      "before": 639.7548909629294,
+      "after": 639.7548909629289,
+      "error": 4.547473508864641e-13,
+      "gcl": 8.646416915780719e-13,
+      "donor_cfl": 0.5744680851061597,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 2,
+      "sign": -1,
+      "step": 1,
+      "component": 2,
+      "before": 939.3072400360101,
+      "after": 939.3072400360082,
+      "error": 1.8189894035458565e-12,
+      "gcl": 8.646416915780719e-13,
+      "donor_cfl": 0.5744680851061597,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 2,
+      "sign": 1,
+      "step": 0,
+      "component": 0,
+      "before": 333.16871276631883,
+      "after": 333.1687127663209,
+      "error": 2.0463630789890885e-12,
+      "gcl": 9.259260025373806e-13,
+      "donor_cfl": 0.48214285714300364,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 2,
+      "sign": 1,
+      "step": 0,
+      "component": 1,
+      "before": 639.7548909629295,
+      "after": 639.7548909629288,
+      "error": 6.821210263296962e-13,
+      "gcl": 9.259260025373806e-13,
+      "donor_cfl": 0.48214285714300364,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 2,
+      "sign": 1,
+      "step": 0,
+      "component": 2,
+      "before": 939.3072400360078,
+      "after": 939.3072400360096,
+      "error": 1.8189894035458565e-12,
+      "gcl": 9.259260025373806e-13,
+      "donor_cfl": 0.48214285714300364,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 2,
+      "sign": 1,
+      "step": 1,
+      "component": 0,
+      "before": 333.1687127663209,
+      "after": 333.1687127663202,
+      "error": 6.821210263296962e-13,
+      "gcl": 9.474643292151086e-13,
+      "donor_cfl": 0.334030102188687,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 2,
+      "sign": 1,
+      "step": 1,
+      "component": 1,
+      "before": 639.7548909629288,
+      "after": 639.7548909629301,
+      "error": 1.2505552149377763e-12,
+      "gcl": 9.474643292151086e-13,
+      "donor_cfl": 0.334030102188687,
+      "active_faces": 4344
+    },
+    {
+      "grid": 12,
+      "axis": 2,
+      "sign": 1,
+      "step": 1,
+      "component": 2,
+      "before": 939.3072400360096,
+      "after": 939.3072400360078,
+      "error": 1.8189894035458565e-12,
+      "gcl": 9.474643292151086e-13,
+      "donor_cfl": 0.334030102188687,
+      "active_faces": 4344
+    },
+    {
+      "grid": 16,
+      "axis": 0,
+      "sign": -1,
+      "step": 0,
+      "component": 0,
+      "before": 769.1604355842173,
+      "after": 769.1604355842118,
+      "error": 5.5706550483591855e-12,
+      "gcl": 9.93205517829665e-13,
+      "donor_cfl": 0.48214285714281474,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 0,
+      "sign": -1,
+      "step": 0,
+      "component": 1,
+      "before": 1534.4414209617132,
+      "after": 1534.4414209617114,
+      "error": 1.8189894035458565e-12,
+      "gcl": 9.93205517829665e-13,
+      "donor_cfl": 0.48214285714281474,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 0,
+      "sign": -1,
+      "step": 0,
+      "component": 2,
+      "before": 2302.9964282786036,
+      "after": 2302.996428278592,
+      "error": 1.1823431123048067e-11,
+      "gcl": 9.93205517829665e-13,
+      "donor_cfl": 0.48214285714281474,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 0,
+      "sign": -1,
+      "step": 1,
+      "component": 0,
+      "before": 769.1604355842118,
+      "after": 769.1604355842151,
+      "error": 3.296918293926865e-12,
+      "gcl": 9.494627306594339e-13,
+      "donor_cfl": 0.3168461330294632,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 0,
+      "sign": -1,
+      "step": 1,
+      "component": 1,
+      "before": 1534.4414209617114,
+      "after": 1534.441420961714,
+      "error": 2.5011104298755527e-12,
+      "gcl": 9.494627306594339e-13,
+      "donor_cfl": 0.3168461330294632,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 0,
+      "sign": -1,
+      "step": 1,
+      "component": 2,
+      "before": 2302.996428278592,
+      "after": 2302.9964282785922,
+      "error": 4.547473508864641e-13,
+      "gcl": 9.494627306594339e-13,
+      "donor_cfl": 0.3168461330294632,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 0,
+      "sign": 1,
+      "step": 0,
+      "component": 0,
+      "before": 769.1604355842173,
+      "after": 769.1604355842129,
+      "error": 4.433786671143025e-12,
+      "gcl": 8.788525462932739e-13,
+      "donor_cfl": 0.3648648648650312,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 0,
+      "sign": 1,
+      "step": 0,
+      "component": 1,
+      "before": 1534.4414209617132,
+      "after": 1534.4414209617098,
+      "error": 3.410605131648481e-12,
+      "gcl": 8.788525462932739e-13,
+      "donor_cfl": 0.3648648648650312,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 0,
+      "sign": 1,
+      "step": 0,
+      "component": 2,
+      "before": 2302.9964282786036,
+      "after": 2302.9964282785995,
+      "error": 4.092726157978177e-12,
+      "gcl": 8.788525462932739e-13,
+      "donor_cfl": 0.3648648648650312,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 0,
+      "sign": 1,
+      "step": 1,
+      "component": 0,
+      "before": 769.1604355842129,
+      "after": 769.1604355842134,
+      "error": 4.547473508864641e-13,
+      "gcl": 9.816591983735634e-13,
+      "donor_cfl": 0.5744680851064642,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 0,
+      "sign": 1,
+      "step": 1,
+      "component": 1,
+      "before": 1534.4414209617098,
+      "after": 1534.4414209617119,
+      "error": 2.0463630789890885e-12,
+      "gcl": 9.816591983735634e-13,
+      "donor_cfl": 0.5744680851064642,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 0,
+      "sign": 1,
+      "step": 1,
+      "component": 2,
+      "before": 2302.9964282785995,
+      "after": 2302.9964282785995,
+      "error": 0.0,
+      "gcl": 9.816591983735634e-13,
+      "donor_cfl": 0.5744680851064642,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 1,
+      "sign": -1,
+      "step": 0,
+      "component": 0,
+      "before": 769.1604355842173,
+      "after": 769.1604355842129,
+      "error": 4.433786671143025e-12,
+      "gcl": 9.43467526326458e-13,
+      "donor_cfl": 0.28571428571417906,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 1,
+      "sign": -1,
+      "step": 0,
+      "component": 1,
+      "before": 1534.4414209617132,
+      "after": 1534.4414209617148,
+      "error": 1.5916157281026244e-12,
+      "gcl": 9.43467526326458e-13,
+      "donor_cfl": 0.28571428571417906,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 1,
+      "sign": -1,
+      "step": 0,
+      "component": 2,
+      "before": 2302.9964282786036,
+      "after": 2302.996428278598,
+      "error": 5.4569682106375694e-12,
+      "gcl": 9.43467526326458e-13,
+      "donor_cfl": 0.28571428571417906,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 1,
+      "sign": -1,
+      "step": 1,
+      "component": 0,
+      "before": 769.1604355842129,
+      "after": 769.1604355842135,
+      "error": 5.684341886080801e-13,
+      "gcl": 9.268141809570807e-13,
+      "donor_cfl": 0.1481481481482213,
+      "active_faces": 10783
+    },
+    {
+      "grid": 16,
+      "axis": 1,
+      "sign": -1,
+      "step": 1,
+      "component": 1,
+      "before": 1534.4414209617148,
+      "after": 1534.4414209617078,
+      "error": 7.048583938740194e-12,
+      "gcl": 9.268141809570807e-13,
+      "donor_cfl": 0.1481481481482213,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 1,
+      "sign": -1,
+      "step": 1,
+      "component": 2,
+      "before": 2302.996428278598,
+      "after": 2302.9964282785895,
+      "error": 8.640199666842818e-12,
+      "gcl": 9.268141809570807e-13,
+      "donor_cfl": 0.1481481481482213,
+      "active_faces": 10783
+    },
+    {
+      "grid": 16,
+      "axis": 1,
+      "sign": 1,
+      "step": 0,
+      "component": 0,
+      "before": 769.1604355842173,
+      "after": 769.1604355842137,
+      "error": 3.637978807091713e-12,
+      "gcl": 9.732215033864122e-13,
+      "donor_cfl": 0.23076923076923403,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 1,
+      "sign": 1,
+      "step": 0,
+      "component": 1,
+      "before": 1534.4414209617132,
+      "after": 1534.441420961717,
+      "error": 3.865352482534945e-12,
+      "gcl": 9.732215033864122e-13,
+      "donor_cfl": 0.23076923076923403,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 1,
+      "sign": 1,
+      "step": 0,
+      "component": 2,
+      "before": 2302.9964282786036,
+      "after": 2302.996428278588,
+      "error": 1.546140993013978e-11,
+      "gcl": 9.732215033864122e-13,
+      "donor_cfl": 0.23076923076923403,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 1,
+      "sign": 1,
+      "step": 1,
+      "component": 0,
+      "before": 769.1604355842137,
+      "after": 769.1604355842122,
+      "error": 1.4779288903810084e-12,
+      "gcl": 9.051648319768901e-13,
+      "donor_cfl": 0.29999999999997384,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 1,
+      "sign": 1,
+      "step": 1,
+      "component": 1,
+      "before": 1534.441420961717,
+      "after": 1534.4414209617157,
+      "error": 1.3642420526593924e-12,
+      "gcl": 9.051648319768901e-13,
+      "donor_cfl": 0.29999999999997384,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 1,
+      "sign": 1,
+      "step": 1,
+      "component": 2,
+      "before": 2302.996428278588,
+      "after": 2302.9964282785977,
+      "error": 9.549694368615746e-12,
+      "gcl": 9.051648319768901e-13,
+      "donor_cfl": 0.29999999999997384,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 2,
+      "sign": -1,
+      "step": 0,
+      "component": 0,
+      "before": 769.1604355842173,
+      "after": 769.1604355842132,
+      "error": 4.092726157978177e-12,
+      "gcl": 9.19153642087167e-13,
+      "donor_cfl": 0.3648648648648501,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 2,
+      "sign": -1,
+      "step": 0,
+      "component": 1,
+      "before": 1534.4414209617132,
+      "after": 1534.4414209617141,
+      "error": 9.094947017729282e-13,
+      "gcl": 9.19153642087167e-13,
+      "donor_cfl": 0.3648648648648501,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 2,
+      "sign": -1,
+      "step": 0,
+      "component": 2,
+      "before": 2302.9964282786036,
+      "after": 2302.9964282785936,
+      "error": 1.000444171950221e-11,
+      "gcl": 9.19153642087167e-13,
+      "donor_cfl": 0.3648648648648501,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 2,
+      "sign": -1,
+      "step": 1,
+      "component": 0,
+      "before": 769.1604355842132,
+      "after": 769.1604355842139,
+      "error": 6.821210263296962e-13,
+      "gcl": 8.988365607365267e-13,
+      "donor_cfl": 0.5744680851063866,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 2,
+      "sign": -1,
+      "step": 1,
+      "component": 1,
+      "before": 1534.4414209617141,
+      "after": 1534.4414209617125,
+      "error": 1.5916157281026244e-12,
+      "gcl": 8.988365607365267e-13,
+      "donor_cfl": 0.5744680851063866,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 2,
+      "sign": -1,
+      "step": 1,
+      "component": 2,
+      "before": 2302.9964282785936,
+      "after": 2302.996428278598,
+      "error": 4.547473508864641e-12,
+      "gcl": 8.988365607365267e-13,
+      "donor_cfl": 0.5744680851063866,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 2,
+      "sign": 1,
+      "step": 0,
+      "component": 0,
+      "before": 769.1604355842173,
+      "after": 769.1604355842122,
+      "error": 5.115907697472721e-12,
+      "gcl": 8.750777880095484e-13,
+      "donor_cfl": 0.48214285714274396,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 2,
+      "sign": 1,
+      "step": 0,
+      "component": 1,
+      "before": 1534.4414209617132,
+      "after": 1534.4414209617119,
+      "error": 1.3642420526593924e-12,
+      "gcl": 8.750777880095484e-13,
+      "donor_cfl": 0.48214285714274396,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 2,
+      "sign": 1,
+      "step": 0,
+      "component": 2,
+      "before": 2302.9964282786036,
+      "after": 2302.996428278594,
+      "error": 9.549694368615746e-12,
+      "gcl": 8.750777880095484e-13,
+      "donor_cfl": 0.48214285714274396,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 2,
+      "sign": 1,
+      "step": 1,
+      "component": 0,
+      "before": 769.1604355842122,
+      "after": 769.1604355842144,
+      "error": 2.1600499167107046e-12,
+      "gcl": 9.734435479913373e-13,
+      "donor_cfl": 0.33429393614758807,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 2,
+      "sign": 1,
+      "step": 1,
+      "component": 1,
+      "before": 1534.4414209617119,
+      "after": 1534.4414209617144,
+      "error": 2.5011104298755527e-12,
+      "gcl": 9.734435479913373e-13,
+      "donor_cfl": 0.33429393614758807,
+      "active_faces": 10784
+    },
+    {
+      "grid": 16,
+      "axis": 2,
+      "sign": 1,
+      "step": 1,
+      "component": 2,
+      "before": 2302.996428278594,
+      "after": 2302.9964282785927,
+      "error": 1.3642420526593924e-12,
+      "gcl": 9.734435479913373e-13,
+      "donor_cfl": 0.33429393614758807,
+      "active_faces": 10784
+    }
+  ],
+  "source_sha256": {
+    "CMakeLists.txt": "757e0ad3424f9df5c0137ba3fcccdeb3f046e92d3a44d1622f39903505702997",
+    "docs/P2_MOVING_MAC_SHARED_PREDICTOR_PARTIAL.md": "bfa0b09acaa41f5ae70bb5115d5ad465120ba53758efe0adeebda41deb5564d7",
+    "include/upc/p2_moving_mac_shared_predictor3d.hpp": "8ff91a6f3baf7d99c0ea9c1b0a639ed82fb80b0c21e76d6c8f38bfc16172eafd",
+    "include/upc/p2_moving_mac_dual_transport3d.hpp": "0321d87bbc3898b4a6ff6ed7d8f16578cb3ff41da5c5cbe5d4173b4698b7671a",
+    "include/upc/p2_moving_mac_dual_volumes3d.hpp": "b6dcf0444be679dd2bb74d1846e74686c21a33870f50724912dce3a497c83bfa",
+    "include/upc/p2_moving_box_cut_cell_projection3d.hpp": "7ec9aaaed69aae85be1b26d32460c03de81b95f7ffb26e1f6b18e1185aee3fb6",
+    "include/upc/p2_moving_cut_cell_scalar_transport3d.hpp": "9e3e57855fc2387d076a11a116ee1f80220b813e99542b55065661a6b2c5d206",
+    "tests/p2_moving_mac_shared_predictor3d_tests.cpp": "4f3c5153d5a3e0279cffad861561c091e21efd24d50ea03f94c894ee2d65334e",
+    "scripts/p2_moving_mac_shared_predictor_full_build.cmd": "d9ec9432940b34fbcdd959fcb442a196ff20f8efc0b0124226551c0e9aa3c1d3",
+    "scripts/p2_moving_mac_shared_predictor_acceptance.py": "3025be0de4b3ec586a83881be0a2cdaa26ae204d121c9069fdd6b7b8d26dcc82"
+  },
+  "ctest_log_sha256": "751d646e72b7679c0a8d9a0370d0e610b23ead3be4d3ff0b4b90970497639ddb",
+  "unproven": [
+    "single corrected physical MAC dual momentum flux tensor",
+    "nonlinear moving-wall Navier-Stokes and bidirectional FSI",
+    "free-surface stress, variable density, measured 3D CFD",
+    "live CoupledMacWater3D and UE5.8 Native E2E integration"
+  ]
+}

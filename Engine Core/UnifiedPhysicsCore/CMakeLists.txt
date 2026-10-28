@@ -373,3 +373,9 @@ add_test(NAME physics_p2_moving_mac_dual_volume_gcl_partial COMMAND upc_p2_movin
 add_executable(upc_p2_moving_mac_dual_transport_tests tests/p2_moving_mac_dual_transport3d_tests.cpp)
 target_link_libraries(upc_p2_moving_mac_dual_transport_tests PRIVATE upc)
 add_test(NAME physics_p2_moving_mac_dual_conservative_transport_partial COMMAND upc_p2_moving_mac_dual_transport_tests)
+
+# P2 partial: one primal MAC predictor interpolated onto all three moving
+# dual grids, with independent pressure corrections; not full nonlinear FSI.
+add_executable(upc_p2_moving_mac_shared_predictor_tests tests/p2_moving_mac_shared_predictor3d_tests.cpp)
+target_link_libraries(upc_p2_moving_mac_shared_predictor_tests PRIVATE upc)
+add_test(NAME physics_p2_moving_mac_shared_predictor_partial COMMAND upc_p2_moving_mac_shared_predictor_tests)

@@ -858,3 +858,30 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
 - **P2 bleibt PARTIAL**, ebenso P3-P8. Es fehlen physikalische
   Dual-MAC-Impulsadvektion, Wand-Gegenimpuls, freie Oberflaeche,
   externe CFD-Messvalidierung und neues UE5.8-Native-E2E.
+
+## P2 Teilfortschritt: konservativer Transport auf bewegten MAC-Dualvolumina (28.10.2026)
+
+- `P2MovingMacDualTransport3D`: separat projizierte geschlossene
+  Cut-Cell-Volumenfluesse fuer drei gestaffelte Dualgitter und konservativer
+  signierter Upwind-Transport. 72/72 CTest, 216 Bewegungsreferenzen.
+- Belege: docs/P2_MOVING_MAC_DUAL_TRANSPORT_PARTIAL.md und
+  ENGINE TEST STUBE/runs/p2_moving_mac_dual_transport_partial.json.
+- **P2 bleibt PARTIAL**: separate Null-Praediktoren, keine einheitliche
+  physikalische MAC-Selbstadvektion oder FSI-Gegenreaktion.
+
+## P2 Teilfortschritt: gemeinsamer Primal-MAC-Praediktor fuer Dualgitter (28.10.2026)
+
+- `P2MovingMacSharedPredictor3D` interpoliert EIN primal gestaffeltes
+  u/v/w-Feld auf die drei bewegten Dualgitter; separate Cut-Cell-
+  Druckprojektionen und konservativer signierter Transport bleiben erhalten.
+- MSVC-Release und 73/73 CTest PASS; 268716 native Assertions,
+  108 konservative Bewegungs-/Schritt-/Komponentenfaelle und analytische
+  Halbzellen-Interpolationspruefung. P1 erneut 33/33 PASS.
+- Belege: docs/P2_MOVING_MAC_SHARED_PREDICTOR_PARTIAL.md,
+  scripts/p2_moving_mac_shared_predictor_acceptance.py und
+  ENGINE TEST STUBE/runs/p2_moving_mac_shared_predictor_partial.json.
+- **P2 weiterhin PARTIAL, P3-P8 ebenfalls PARTIAL.** Drei unabhaengig
+  druckkorrigierte Dualfluesse sind noch kein einheitlicher physikalischer
+  Impulstensor. Naechster Schritt: konsistente gemeinsame Impulsfluesse,
+  dynamische Wand-Gegenreaktion, freie Oberflaeche, CFD-Messdaten und
+  Native-E2E fuer den voll gekoppelten Pfad.
