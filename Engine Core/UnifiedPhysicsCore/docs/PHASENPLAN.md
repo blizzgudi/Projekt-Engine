@@ -830,3 +830,18 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
   keine vollstaendige physikalische FSI-Energie, keine Cut-Cell-
   Impulsadvektion, freien Oberflaechen, externen CFD-Messdaten oder
   neue Unreal-5.8-Native-E2E fuer diesen Pfad.
+
+## P2 Teilfortschritt: signierter Skalartransport auf bewegten Cut-Cells (28.10.2026)
+
+- Neuer optionaler zellzentrierter 3D-Upwind-Operator auf den
+  projizierten, zeitintegrierten Cut-Cell-MAC-Volumenfluessen eines
+  linear verschobenen Starrkoerperquaders. Er prueft GCL, Donor-CFL,
+  globale signierte Skalarerhaltung und konstante Feldwerte.
+- Drei Gitter (8^3/12^3/16^3), drei Achsen, beide Richtungen,
+  je zwei Schritte, unabhaengige Upwind- und geometrische
+  Quader-Schnittvolumen-Referenzen sowie Negativfaelle.
+- Beleg: docs/P2_MOVING_CUT_CELL_SIGNED_SCALAR_PARTIAL.md und
+  ENGINE TEST STUBE/runs/p2_moving_cut_cell_scalar_partial.json.
+- **P2 weiterhin PARTIAL.** Dies ist noch kein MAC-Dualvolumen-
+  Impulstransport und keine physikalische FSI-/Energiekopplung.
+  P3-P8 ebenfalls PARTIAL; ALL_COMPLETE=False.

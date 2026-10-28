@@ -355,3 +355,9 @@ add_test(NAME physics_p2_periodic_mac_vof_energy_partial COMMAND upc_p2_periodic
 add_executable(upc_p2_moving_cut_cell_energy_tests tests/p2_moving_cut_cell_energy3d_tests.cpp)
 target_link_libraries(upc_p2_moving_cut_cell_energy_tests PRIVATE upc)
 add_test(NAME physics_p2_moving_cut_cell_pressure_energy_partial COMMAND upc_p2_moving_cut_cell_energy_tests)
+
+# P2 partial: signed conservative scalar transport on moving projected cut-cell
+# fluxes. A precursor to momentum transport, NOT staggered MAC/FSI closure.
+add_executable(upc_p2_moving_cut_cell_scalar_transport_tests tests/p2_moving_cut_cell_scalar_transport3d_tests.cpp)
+target_link_libraries(upc_p2_moving_cut_cell_scalar_transport_tests PRIVATE upc)
+add_test(NAME physics_p2_moving_cut_cell_signed_scalar_partial COMMAND upc_p2_moving_cut_cell_scalar_transport_tests)

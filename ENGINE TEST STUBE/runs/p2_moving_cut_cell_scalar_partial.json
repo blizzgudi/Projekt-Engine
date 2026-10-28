@@ -1,0 +1,452 @@
+{
+  "phase": "P2",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "scope": "signed cell-centred passive scalar through moving projected 3D cut-cell flux",
+  "native_assertions": 228284,
+  "ctest_suites": 70,
+  "checks": [
+    {
+      "name": "MSVC CTest complete 70/70",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "new native CTest present",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "native assertions >= 200000",
+      "pass": true,
+      "detail": 228284
+    },
+    {
+      "name": "18 distinct grid-axis-direction references",
+      "pass": true,
+      "detail": 18
+    },
+    {
+      "name": "unique configuration 8/0/-1",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "analytic initial integral 8/0/-1",
+      "pass": true,
+      "detail": {
+        "expected": 153.86862500000007,
+        "actual": 153.86862500000007,
+        "abs_error": 0.0
+      }
+    },
+    {
+      "name": "unique configuration 8/0/1",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "analytic initial integral 8/0/1",
+      "pass": true,
+      "detail": {
+        "expected": 153.86862500000007,
+        "actual": 153.86862500000007,
+        "abs_error": 0.0
+      }
+    },
+    {
+      "name": "unique configuration 8/1/-1",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "analytic initial integral 8/1/-1",
+      "pass": true,
+      "detail": {
+        "expected": 153.86862500000007,
+        "actual": 153.86862500000007,
+        "abs_error": 0.0
+      }
+    },
+    {
+      "name": "unique configuration 8/1/1",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "analytic initial integral 8/1/1",
+      "pass": true,
+      "detail": {
+        "expected": 153.86862500000007,
+        "actual": 153.86862500000007,
+        "abs_error": 0.0
+      }
+    },
+    {
+      "name": "unique configuration 8/2/-1",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "analytic initial integral 8/2/-1",
+      "pass": true,
+      "detail": {
+        "expected": 153.86862500000007,
+        "actual": 153.86862500000007,
+        "abs_error": 0.0
+      }
+    },
+    {
+      "name": "unique configuration 8/2/1",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "analytic initial integral 8/2/1",
+      "pass": true,
+      "detail": {
+        "expected": 153.86862500000007,
+        "actual": 153.86862500000007,
+        "abs_error": 0.0
+      }
+    },
+    {
+      "name": "unique configuration 12/0/-1",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "analytic initial integral 12/0/-1",
+      "pass": true,
+      "detail": {
+        "expected": 573.5486249999999,
+        "actual": 573.5486249999999,
+        "abs_error": 0.0
+      }
+    },
+    {
+      "name": "unique configuration 12/0/1",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "analytic initial integral 12/0/1",
+      "pass": true,
+      "detail": {
+        "expected": 573.5486249999999,
+        "actual": 573.5486249999999,
+        "abs_error": 0.0
+      }
+    },
+    {
+      "name": "unique configuration 12/1/-1",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "analytic initial integral 12/1/-1",
+      "pass": true,
+      "detail": {
+        "expected": 573.5486249999999,
+        "actual": 573.5486249999999,
+        "abs_error": 0.0
+      }
+    },
+    {
+      "name": "unique configuration 12/1/1",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "analytic initial integral 12/1/1",
+      "pass": true,
+      "detail": {
+        "expected": 573.5486249999999,
+        "actual": 573.5486249999999,
+        "abs_error": 0.0
+      }
+    },
+    {
+      "name": "unique configuration 12/2/-1",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "analytic initial integral 12/2/-1",
+      "pass": true,
+      "detail": {
+        "expected": 573.5486249999999,
+        "actual": 573.5486249999999,
+        "abs_error": 0.0
+      }
+    },
+    {
+      "name": "unique configuration 12/2/1",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "analytic initial integral 12/2/1",
+      "pass": true,
+      "detail": {
+        "expected": 573.5486249999999,
+        "actual": 573.5486249999999,
+        "abs_error": 0.0
+      }
+    },
+    {
+      "name": "unique configuration 16/0/-1",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "analytic initial integral 16/0/-1",
+      "pass": true,
+      "detail": {
+        "expected": 1483.7886250000001,
+        "actual": 1483.7886250000001,
+        "abs_error": 0.0
+      }
+    },
+    {
+      "name": "unique configuration 16/0/1",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "analytic initial integral 16/0/1",
+      "pass": true,
+      "detail": {
+        "expected": 1483.7886250000001,
+        "actual": 1483.7886250000001,
+        "abs_error": 0.0
+      }
+    },
+    {
+      "name": "unique configuration 16/1/-1",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "analytic initial integral 16/1/-1",
+      "pass": true,
+      "detail": {
+        "expected": 1483.7886250000001,
+        "actual": 1483.7886250000001,
+        "abs_error": 0.0
+      }
+    },
+    {
+      "name": "unique configuration 16/1/1",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "analytic initial integral 16/1/1",
+      "pass": true,
+      "detail": {
+        "expected": 1483.7886250000001,
+        "actual": 1483.7886250000001,
+        "abs_error": 0.0
+      }
+    },
+    {
+      "name": "unique configuration 16/2/-1",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "analytic initial integral 16/2/-1",
+      "pass": true,
+      "detail": {
+        "expected": 1483.7886250000001,
+        "actual": 1483.7886250000001,
+        "abs_error": 0.0
+      }
+    },
+    {
+      "name": "unique configuration 16/2/1",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "analytic initial integral 16/2/1",
+      "pass": true,
+      "detail": {
+        "expected": 1483.7886250000001,
+        "actual": 1483.7886250000001,
+        "abs_error": 0.0
+      }
+    },
+    {
+      "name": "complete Cartesian test product",
+      "pass": true,
+      "detail": null
+    }
+  ],
+  "reference": [
+    {
+      "grid": 8,
+      "axis": 0,
+      "direction": -1,
+      "analytic_integral_m3": 153.86862500000007,
+      "native_integral_m3": 153.86862500000007,
+      "abs_error": 0.0
+    },
+    {
+      "grid": 8,
+      "axis": 0,
+      "direction": 1,
+      "analytic_integral_m3": 153.86862500000007,
+      "native_integral_m3": 153.86862500000007,
+      "abs_error": 0.0
+    },
+    {
+      "grid": 8,
+      "axis": 1,
+      "direction": -1,
+      "analytic_integral_m3": 153.86862500000007,
+      "native_integral_m3": 153.86862500000007,
+      "abs_error": 0.0
+    },
+    {
+      "grid": 8,
+      "axis": 1,
+      "direction": 1,
+      "analytic_integral_m3": 153.86862500000007,
+      "native_integral_m3": 153.86862500000007,
+      "abs_error": 0.0
+    },
+    {
+      "grid": 8,
+      "axis": 2,
+      "direction": -1,
+      "analytic_integral_m3": 153.86862500000007,
+      "native_integral_m3": 153.86862500000007,
+      "abs_error": 0.0
+    },
+    {
+      "grid": 8,
+      "axis": 2,
+      "direction": 1,
+      "analytic_integral_m3": 153.86862500000007,
+      "native_integral_m3": 153.86862500000007,
+      "abs_error": 0.0
+    },
+    {
+      "grid": 12,
+      "axis": 0,
+      "direction": -1,
+      "analytic_integral_m3": 573.5486249999999,
+      "native_integral_m3": 573.5486249999999,
+      "abs_error": 0.0
+    },
+    {
+      "grid": 12,
+      "axis": 0,
+      "direction": 1,
+      "analytic_integral_m3": 573.5486249999999,
+      "native_integral_m3": 573.5486249999999,
+      "abs_error": 0.0
+    },
+    {
+      "grid": 12,
+      "axis": 1,
+      "direction": -1,
+      "analytic_integral_m3": 573.5486249999999,
+      "native_integral_m3": 573.5486249999999,
+      "abs_error": 0.0
+    },
+    {
+      "grid": 12,
+      "axis": 1,
+      "direction": 1,
+      "analytic_integral_m3": 573.5486249999999,
+      "native_integral_m3": 573.5486249999999,
+      "abs_error": 0.0
+    },
+    {
+      "grid": 12,
+      "axis": 2,
+      "direction": -1,
+      "analytic_integral_m3": 573.5486249999999,
+      "native_integral_m3": 573.5486249999999,
+      "abs_error": 0.0
+    },
+    {
+      "grid": 12,
+      "axis": 2,
+      "direction": 1,
+      "analytic_integral_m3": 573.5486249999999,
+      "native_integral_m3": 573.5486249999999,
+      "abs_error": 0.0
+    },
+    {
+      "grid": 16,
+      "axis": 0,
+      "direction": -1,
+      "analytic_integral_m3": 1483.7886250000001,
+      "native_integral_m3": 1483.7886250000001,
+      "abs_error": 0.0
+    },
+    {
+      "grid": 16,
+      "axis": 0,
+      "direction": 1,
+      "analytic_integral_m3": 1483.7886250000001,
+      "native_integral_m3": 1483.7886250000001,
+      "abs_error": 0.0
+    },
+    {
+      "grid": 16,
+      "axis": 1,
+      "direction": -1,
+      "analytic_integral_m3": 1483.7886250000001,
+      "native_integral_m3": 1483.7886250000001,
+      "abs_error": 0.0
+    },
+    {
+      "grid": 16,
+      "axis": 1,
+      "direction": 1,
+      "analytic_integral_m3": 1483.7886250000001,
+      "native_integral_m3": 1483.7886250000001,
+      "abs_error": 0.0
+    },
+    {
+      "grid": 16,
+      "axis": 2,
+      "direction": -1,
+      "analytic_integral_m3": 1483.7886250000001,
+      "native_integral_m3": 1483.7886250000001,
+      "abs_error": 0.0
+    },
+    {
+      "grid": 16,
+      "axis": 2,
+      "direction": 1,
+      "analytic_integral_m3": 1483.7886250000001,
+      "native_integral_m3": 1483.7886250000001,
+      "abs_error": 0.0
+    }
+  ],
+  "source_sha256": {
+    "CMakeLists.txt": "806b1bca76e22a4288a6c3cdd45ba95da2cdda61b5e294d86b310281dbeb1f80",
+    "docs/PHASENPLAN.md": "bcf34dad78b551b5fdd35a51b863f2dc3c35b65b8b8c0d3e31c598f73334e3c5",
+    "docs/P2_MOVING_CUT_CELL_SIGNED_SCALAR_PARTIAL.md": "6901ca42323db4d99fe89fcd38de873b819190582db99bee028ec391f2827c82",
+    "include/upc/p2_moving_cut_cell_scalar_transport3d.hpp": "9e3e57855fc2387d076a11a116ee1f80220b813e99542b55065661a6b2c5d206",
+    "include/upc/p2_moving_box_cut_cell_projection3d.hpp": "7ec9aaaed69aae85be1b26d32460c03de81b95f7ffb26e1f6b18e1185aee3fb6",
+    "include/upc/p2_moving_box_swept_wall_flux3d.hpp": "80d299136f57df0b479d598468c39bf67675524942557701f99b40fe897a656e",
+    "tests/p2_moving_cut_cell_scalar_transport3d_tests.cpp": "13e095a96dbc30dc91a79c8ec4d5dd77ce553fbaceae87b0dc20505b412d26e9",
+    "scripts/p2_moving_cut_cell_scalar_full_build.cmd": "ae40a5726ae8606f2c043330ffdc92ce670ff92935681fee40a6192037453362",
+    "scripts/p2_moving_cut_cell_scalar_acceptance.py": "d20fd8a4f169130be153fc4937b9300367efcd4699f3e573da22cf3ee1081819"
+  },
+  "ctest_log_sha256": "bd89a82885a2f2ce18738878882f8076d29d3886f80a779b22b7329e6ba535f2",
+  "unproven": [
+    "staggered MAC dual-volume conservative momentum transport",
+    "two-way fluid-solid reaction and global energy closure",
+    "free-surface stress and variable-density CFD",
+    "independent measured 3D CFD validation",
+    "CoupledMacWater3D and UE5.8 native E2E integration"
+  ]
+}
