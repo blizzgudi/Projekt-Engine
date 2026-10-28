@@ -660,3 +660,26 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
   fraktionale VOF-/MAC-Kontinuitaet und Cut-Cell-Druckprojektion,
   bidirektionaler Impuls, Gesamtenergie, externe 3D-CFD-Messung
   und neues UE5.8-Native-E2E stehen aus.
+
+## P2 Teilfortschritt: geschlossene 3D-Cut-Cell-Druckprojektion mit VOF (28.10.2026)
+
+- Neuer optionaler `P2MovingBoxCutCellProjection3DBuilder` koppelt exakte
+  bewegte Quader-Cut-Cell-Volumina, zeitgemittelte offene MAC-Faces und
+  geometrischen Wand-Sweep mit einem **gewichteten 3D-Druck-Poisson**
+  (Jacobi-PCG). Er erzeugt echte Fluid-Face-Volumenfluesse, deren lokale
+  Divergenz `alpha_old-alpha_new` kompensiert; Aussenraender geschlossen.
+- In 36 Bewegungsfaellen (8^3/12^3/16^3, alle Achsen/Vorzeichen,
+  0.25/0.5 Zellverschiebungen) wurden die neuen Face-Fluesse auch an
+  `FractionalBoundaryVofFlux3D` uebergeben. Bei vollstaendig gesaettigtem
+  Wasser reproduziert der VOF-Operator alle neuen offenen Zellvolumina
+  bei konstanter Gesamtwassermenge und gepruefter Donor-CFL.
+- **60/60 CTest PASS**, **489.969 native Assertions** und unabhaengiges
+  Python-Gate fuer 36 analytische 3D-Volumenreferenzen (144 Checks).
+  Dokumentation: `docs/P2_CUT_CELL_PRESSURE_VOF_PARTIAL.md`;
+  Gate: `scripts/p2_cut_cell_projection_acceptance.py`;
+  Report: `ENGINE TEST STUBE/runs/p2_cut_cell_projection_partial.json`.
+- **P2-P8 bleiben PARTIAL.** Geschlossene, vollstaendig nasse
+  Anfangsruhe-Situation mit einem linear bewegten achsparallelen Quader;
+  kein allgemeiner Live-MAC/VOF-Step, keine freie Oberflaeche,
+  keine dynamische Zweiwege-FSI/Impuls-/Energieabnahme,
+  keine externen CFD-Messdaten und kein neues UE5.8 Native-E2E.

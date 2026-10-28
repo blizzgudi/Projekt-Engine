@@ -1,0 +1,1041 @@
+{
+  "phase": "P2",
+  "milestone": "moving_box_closed_cut_cell_pressure_vof_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "accepted": false,
+  "full_ctest_suites": 60,
+  "native_assertions": 489969,
+  "independent_numerical_checks": 144,
+  "checks": [
+    {
+      "name": "(8, 0, -1, 0.25)_L1",
+      "actual": 1.125,
+      "expected": 1.125,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "(8, 0, -1, 0.25)_continuity",
+      "actual": 9.540285228482048e-13,
+      "expected": 0.0,
+      "tolerance": 1.1e-12,
+      "pass": true
+    },
+    {
+      "name": "(8, 0, -1, 0.25)_iterations_nonzero",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(8, 0, -1, 0.25)_flux_positive",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(8, 0, -1, 0.5)_L1",
+      "actual": 2.25,
+      "expected": 2.25,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "(8, 0, -1, 0.5)_continuity",
+      "actual": 7.253919687144617e-13,
+      "expected": 0.0,
+      "tolerance": 1.1e-12,
+      "pass": true
+    },
+    {
+      "name": "(8, 0, -1, 0.5)_iterations_nonzero",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(8, 0, -1, 0.5)_flux_positive",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(8, 0, 1, 0.25)_L1",
+      "actual": 1.125,
+      "expected": 1.125,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "(8, 0, 1, 0.25)_continuity",
+      "actual": 6.811773367587648e-13,
+      "expected": 0.0,
+      "tolerance": 1.1e-12,
+      "pass": true
+    },
+    {
+      "name": "(8, 0, 1, 0.25)_iterations_nonzero",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(8, 0, 1, 0.25)_flux_positive",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(8, 0, 1, 0.5)_L1",
+      "actual": 2.25,
+      "expected": 2.25,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "(8, 0, 1, 0.5)_continuity",
+      "actual": 9.973133430207781e-13,
+      "expected": 0.0,
+      "tolerance": 1.1e-12,
+      "pass": true
+    },
+    {
+      "name": "(8, 0, 1, 0.5)_iterations_nonzero",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(8, 0, 1, 0.5)_flux_positive",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(8, 1, -1, 0.25)_L1",
+      "actual": 1.125,
+      "expected": 1.125,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "(8, 1, -1, 0.25)_continuity",
+      "actual": 5.3105089770078e-13,
+      "expected": 0.0,
+      "tolerance": 1.1e-12,
+      "pass": true
+    },
+    {
+      "name": "(8, 1, -1, 0.25)_iterations_nonzero",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(8, 1, -1, 0.25)_flux_positive",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(8, 1, -1, 0.5)_L1",
+      "actual": 2.25,
+      "expected": 2.25,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "(8, 1, -1, 0.5)_continuity",
+      "actual": 5.973416206117577e-13,
+      "expected": 0.0,
+      "tolerance": 1.1e-12,
+      "pass": true
+    },
+    {
+      "name": "(8, 1, -1, 0.5)_iterations_nonzero",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(8, 1, -1, 0.5)_flux_positive",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(8, 1, 1, 0.25)_L1",
+      "actual": 1.125,
+      "expected": 1.125,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "(8, 1, 1, 0.25)_continuity",
+      "actual": 6.055262628118507e-13,
+      "expected": 0.0,
+      "tolerance": 1.1e-12,
+      "pass": true
+    },
+    {
+      "name": "(8, 1, 1, 0.25)_iterations_nonzero",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(8, 1, 1, 0.25)_flux_positive",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(8, 1, 1, 0.5)_L1",
+      "actual": 2.25,
+      "expected": 2.25,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "(8, 1, 1, 0.5)_continuity",
+      "actual": 7.233168057563244e-13,
+      "expected": 0.0,
+      "tolerance": 1.1e-12,
+      "pass": true
+    },
+    {
+      "name": "(8, 1, 1, 0.5)_iterations_nonzero",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(8, 1, 1, 0.5)_flux_positive",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(8, 2, -1, 0.25)_L1",
+      "actual": 1.125,
+      "expected": 1.125,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "(8, 2, -1, 0.25)_continuity",
+      "actual": 6.81163458970957e-13,
+      "expected": 0.0,
+      "tolerance": 1.1e-12,
+      "pass": true
+    },
+    {
+      "name": "(8, 2, -1, 0.25)_iterations_nonzero",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(8, 2, -1, 0.25)_flux_positive",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(8, 2, -1, 0.5)_L1",
+      "actual": 2.249999999999999,
+      "expected": 2.25,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "(8, 2, -1, 0.5)_continuity",
+      "actual": 9.972925263390664e-13,
+      "expected": 0.0,
+      "tolerance": 1.1e-12,
+      "pass": true
+    },
+    {
+      "name": "(8, 2, -1, 0.5)_iterations_nonzero",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(8, 2, -1, 0.5)_flux_positive",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(8, 2, 1, 0.25)_L1",
+      "actual": 1.125,
+      "expected": 1.125,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "(8, 2, 1, 0.25)_continuity",
+      "actual": 9.540285228482048e-13,
+      "expected": 0.0,
+      "tolerance": 1.1e-12,
+      "pass": true
+    },
+    {
+      "name": "(8, 2, 1, 0.25)_iterations_nonzero",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(8, 2, 1, 0.25)_flux_positive",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(8, 2, 1, 0.5)_L1",
+      "actual": 2.25,
+      "expected": 2.25,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "(8, 2, 1, 0.5)_continuity",
+      "actual": 7.253503353510382e-13,
+      "expected": 0.0,
+      "tolerance": 1.1e-12,
+      "pass": true
+    },
+    {
+      "name": "(8, 2, 1, 0.5)_iterations_nonzero",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(8, 2, 1, 0.5)_flux_positive",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(12, 0, -1, 0.25)_L1",
+      "actual": 1.125,
+      "expected": 1.125,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "(12, 0, -1, 0.25)_continuity",
+      "actual": 9.367918767100303e-13,
+      "expected": 0.0,
+      "tolerance": 1.1e-12,
+      "pass": true
+    },
+    {
+      "name": "(12, 0, -1, 0.25)_iterations_nonzero",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(12, 0, -1, 0.25)_flux_positive",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(12, 0, -1, 0.5)_L1",
+      "actual": 2.25,
+      "expected": 2.25,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "(12, 0, -1, 0.5)_continuity",
+      "actual": 8.595875747308135e-13,
+      "expected": 0.0,
+      "tolerance": 1.1e-12,
+      "pass": true
+    },
+    {
+      "name": "(12, 0, -1, 0.5)_iterations_nonzero",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(12, 0, -1, 0.5)_flux_positive",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(12, 0, 1, 0.25)_L1",
+      "actual": 1.125,
+      "expected": 1.125,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "(12, 0, 1, 0.25)_continuity",
+      "actual": 7.661233843506143e-13,
+      "expected": 0.0,
+      "tolerance": 1.1e-12,
+      "pass": true
+    },
+    {
+      "name": "(12, 0, 1, 0.25)_iterations_nonzero",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(12, 0, 1, 0.25)_flux_positive",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(12, 0, 1, 0.5)_L1",
+      "actual": 2.25,
+      "expected": 2.25,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "(12, 0, 1, 0.5)_continuity",
+      "actual": 8.721361306751607e-13,
+      "expected": 0.0,
+      "tolerance": 1.1e-12,
+      "pass": true
+    },
+    {
+      "name": "(12, 0, 1, 0.5)_iterations_nonzero",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(12, 0, 1, 0.5)_flux_positive",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(12, 1, -1, 0.25)_L1",
+      "actual": 1.125,
+      "expected": 1.125,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "(12, 1, -1, 0.25)_continuity",
+      "actual": 9.268471407031242e-13,
+      "expected": 0.0,
+      "tolerance": 1.1e-12,
+      "pass": true
+    },
+    {
+      "name": "(12, 1, -1, 0.25)_iterations_nonzero",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(12, 1, -1, 0.25)_flux_positive",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(12, 1, -1, 0.5)_L1",
+      "actual": 2.25,
+      "expected": 2.25,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "(12, 1, -1, 0.5)_continuity",
+      "actual": 9.803692146287402e-13,
+      "expected": 0.0,
+      "tolerance": 1.1e-12,
+      "pass": true
+    },
+    {
+      "name": "(12, 1, -1, 0.5)_iterations_nonzero",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(12, 1, -1, 0.5)_flux_positive",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(12, 1, 1, 0.25)_L1",
+      "actual": 1.125,
+      "expected": 1.125,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "(12, 1, 1, 0.25)_continuity",
+      "actual": 8.259794622355807e-13,
+      "expected": 0.0,
+      "tolerance": 1.1e-12,
+      "pass": true
+    },
+    {
+      "name": "(12, 1, 1, 0.25)_iterations_nonzero",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(12, 1, 1, 0.25)_flux_positive",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(12, 1, 1, 0.5)_L1",
+      "actual": 2.25,
+      "expected": 2.25,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "(12, 1, 1, 0.5)_continuity",
+      "actual": 9.848773272619349e-13,
+      "expected": 0.0,
+      "tolerance": 1.1e-12,
+      "pass": true
+    },
+    {
+      "name": "(12, 1, 1, 0.5)_iterations_nonzero",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(12, 1, 1, 0.5)_flux_positive",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(12, 2, -1, 0.25)_L1",
+      "actual": 1.125,
+      "expected": 1.125,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "(12, 2, -1, 0.25)_continuity",
+      "actual": 7.369826320394179e-13,
+      "expected": 0.0,
+      "tolerance": 1.1e-12,
+      "pass": true
+    },
+    {
+      "name": "(12, 2, -1, 0.25)_iterations_nonzero",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(12, 2, -1, 0.25)_flux_positive",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(12, 2, -1, 0.5)_L1",
+      "actual": 2.249999999999999,
+      "expected": 2.25,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "(12, 2, -1, 0.5)_continuity",
+      "actual": 5.057232844302151e-13,
+      "expected": 0.0,
+      "tolerance": 1.1e-12,
+      "pass": true
+    },
+    {
+      "name": "(12, 2, -1, 0.5)_iterations_nonzero",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(12, 2, -1, 0.5)_flux_positive",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(12, 2, 1, 0.25)_L1",
+      "actual": 1.125,
+      "expected": 1.125,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "(12, 2, 1, 0.25)_continuity",
+      "actual": 7.585531595216688e-13,
+      "expected": 0.0,
+      "tolerance": 1.1e-12,
+      "pass": true
+    },
+    {
+      "name": "(12, 2, 1, 0.25)_iterations_nonzero",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(12, 2, 1, 0.25)_flux_positive",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(12, 2, 1, 0.5)_L1",
+      "actual": 2.25,
+      "expected": 2.25,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "(12, 2, 1, 0.5)_continuity",
+      "actual": 5.788902343595304e-13,
+      "expected": 0.0,
+      "tolerance": 1.1e-12,
+      "pass": true
+    },
+    {
+      "name": "(12, 2, 1, 0.5)_iterations_nonzero",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(12, 2, 1, 0.5)_flux_positive",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(16, 0, -1, 0.25)_L1",
+      "actual": 1.125,
+      "expected": 1.125,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "(16, 0, -1, 0.25)_continuity",
+      "actual": 6.061736941391505e-13,
+      "expected": 0.0,
+      "tolerance": 1.1e-12,
+      "pass": true
+    },
+    {
+      "name": "(16, 0, -1, 0.25)_iterations_nonzero",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(16, 0, -1, 0.25)_flux_positive",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(16, 0, -1, 0.5)_L1",
+      "actual": 2.25,
+      "expected": 2.25,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "(16, 0, -1, 0.5)_continuity",
+      "actual": 9.658103310161703e-13,
+      "expected": 0.0,
+      "tolerance": 1.1e-12,
+      "pass": true
+    },
+    {
+      "name": "(16, 0, -1, 0.5)_iterations_nonzero",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(16, 0, -1, 0.5)_flux_positive",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(16, 0, 1, 0.25)_L1",
+      "actual": 1.125,
+      "expected": 1.125,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "(16, 0, 1, 0.25)_continuity",
+      "actual": 9.534351932093121e-13,
+      "expected": 0.0,
+      "tolerance": 1.1e-12,
+      "pass": true
+    },
+    {
+      "name": "(16, 0, 1, 0.25)_iterations_nonzero",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(16, 0, 1, 0.25)_flux_positive",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(16, 0, 1, 0.5)_L1",
+      "actual": 2.25,
+      "expected": 2.25,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "(16, 0, 1, 0.5)_continuity",
+      "actual": 9.293332704947421e-13,
+      "expected": 0.0,
+      "tolerance": 1.1e-12,
+      "pass": true
+    },
+    {
+      "name": "(16, 0, 1, 0.5)_iterations_nonzero",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(16, 0, 1, 0.5)_flux_positive",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(16, 1, -1, 0.25)_L1",
+      "actual": 1.125,
+      "expected": 1.125,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "(16, 1, -1, 0.25)_continuity",
+      "actual": 6.666965699127225e-13,
+      "expected": 0.0,
+      "tolerance": 1.1e-12,
+      "pass": true
+    },
+    {
+      "name": "(16, 1, -1, 0.25)_iterations_nonzero",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(16, 1, -1, 0.25)_flux_positive",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(16, 1, -1, 0.5)_L1",
+      "actual": 2.25,
+      "expected": 2.25,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "(16, 1, -1, 0.5)_continuity",
+      "actual": 8.705818184406855e-13,
+      "expected": 0.0,
+      "tolerance": 1.1e-12,
+      "pass": true
+    },
+    {
+      "name": "(16, 1, -1, 0.5)_iterations_nonzero",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(16, 1, -1, 0.5)_flux_positive",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(16, 1, 1, 0.25)_L1",
+      "actual": 1.125,
+      "expected": 1.125,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "(16, 1, 1, 0.25)_continuity",
+      "actual": 7.619448691778552e-13,
+      "expected": 0.0,
+      "tolerance": 1.1e-12,
+      "pass": true
+    },
+    {
+      "name": "(16, 1, 1, 0.25)_iterations_nonzero",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(16, 1, 1, 0.25)_flux_positive",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(16, 1, 1, 0.5)_L1",
+      "actual": 2.25,
+      "expected": 2.25,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "(16, 1, 1, 0.5)_continuity",
+      "actual": 9.23162371199715e-13,
+      "expected": 0.0,
+      "tolerance": 1.1e-12,
+      "pass": true
+    },
+    {
+      "name": "(16, 1, 1, 0.5)_iterations_nonzero",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(16, 1, 1, 0.5)_flux_positive",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(16, 2, -1, 0.25)_L1",
+      "actual": 1.125,
+      "expected": 1.125,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "(16, 2, -1, 0.25)_continuity",
+      "actual": 6.549502693659059e-13,
+      "expected": 0.0,
+      "tolerance": 1.1e-12,
+      "pass": true
+    },
+    {
+      "name": "(16, 2, -1, 0.25)_iterations_nonzero",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(16, 2, -1, 0.25)_flux_positive",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(16, 2, -1, 0.5)_L1",
+      "actual": 2.249999999999999,
+      "expected": 2.25,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "(16, 2, -1, 0.5)_continuity",
+      "actual": 9.977155820267702e-13,
+      "expected": 0.0,
+      "tolerance": 1.1e-12,
+      "pass": true
+    },
+    {
+      "name": "(16, 2, -1, 0.5)_iterations_nonzero",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(16, 2, -1, 0.5)_flux_positive",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(16, 2, 1, 0.25)_L1",
+      "actual": 1.125,
+      "expected": 1.125,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "(16, 2, 1, 0.25)_continuity",
+      "actual": 9.250725185872e-13,
+      "expected": 0.0,
+      "tolerance": 1.1e-12,
+      "pass": true
+    },
+    {
+      "name": "(16, 2, 1, 0.25)_iterations_nonzero",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(16, 2, 1, 0.25)_flux_positive",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(16, 2, 1, 0.5)_L1",
+      "actual": 2.25,
+      "expected": 2.25,
+      "tolerance": 2e-12,
+      "pass": true
+    },
+    {
+      "name": "(16, 2, 1, 0.5)_continuity",
+      "actual": 9.65147124547261e-13,
+      "expected": 0.0,
+      "tolerance": 1.1e-12,
+      "pass": true
+    },
+    {
+      "name": "(16, 2, 1, 0.5)_iterations_nonzero",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "(16, 2, 1, 0.5)_flux_positive",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    }
+  ],
+  "native_stdout": "CASE 8 0 -1 0.25 1.125 9.540285228482048e-13 65 3.239091677392632\nCASE 8 0 -1 0.5 2.25 7.253919687144617e-13 65 7.381706476712471\nCASE 8 0 1 0.25 1.125 6.811773367587648e-13 60 3.125933308930274\nCASE 8 0 1 0.5 2.25 9.973133430207781e-13 64 6.824863576508919\nCASE 8 1 -1 0.25 1.125 5.3105089770078e-13 63 3.612214246397331\nCASE 8 1 -1 0.5 2.25 5.973416206117577e-13 64 7.854436926754206\nCASE 8 1 1 0.25 1.125 6.055262628118507e-13 57 3.03598968379717\nCASE 8 1 1 0.5 2.25 7.233168057563244e-13 62 6.313160143286642\nCASE 8 2 -1 0.25 1.125 6.81163458970957e-13 60 3.125933308930275\nCASE 8 2 -1 0.5 2.249999999999999 9.972925263390664e-13 64 6.824863576508914\nCASE 8 2 1 0.25 1.125 9.540285228482048e-13 65 3.239091677392633\nCASE 8 2 1 0.5 2.25 7.253503353510382e-13 65 7.381706476712471\nCASE 12 0 -1 0.25 1.125 9.367918767100303e-13 99 3.821818224878521\nCASE 12 0 -1 0.5 2.25 8.595875747308135e-13 106 8.777844603632467\nCASE 12 0 1 0.25 1.125 7.661233843506143e-13 98 3.666897285139703\nCASE 12 0 1 0.5 2.25 8.721361306751607e-13 100 8.183389736328113\nCASE 12 1 -1 0.25 1.125 9.268471407031242e-13 98 4.311160170195078\nCASE 12 1 -1 0.5 2.25 9.803692146287402e-13 99 9.400335338294136\nCASE 12 1 1 0.25 1.125 8.259794622355807e-13 98 3.578338062787878\nCASE 12 1 1 0.5 2.25 9.848773272619349e-13 99 7.516437437697374\nCASE 12 2 -1 0.25 1.125 7.369826320394179e-13 98 3.668545773454846\nCASE 12 2 -1 0.5 2.249999999999999 5.057232844302151e-13 107 8.107256299509986\nCASE 12 2 1 0.25 1.125 7.585531595216688e-13 98 3.848816552023623\nCASE 12 2 1 0.5 2.25 5.788902343595304e-13 101 8.932445642462556\nCASE 16 0 -1 0.25 1.125 6.061736941391505e-13 126 4.120674325984536\nCASE 16 0 -1 0.5 2.25 9.658103310161703e-13 128 9.491928553396264\nCASE 16 0 1 0.25 1.125 9.534351932093121e-13 125 3.943876667350476\nCASE 16 0 1 0.5 2.25 9.293332704947421e-13 126 8.902343758328927\nCASE 16 1 -1 0.25 1.125 6.666965699127225e-13 126 4.667200294048847\nCASE 16 1 -1 0.5 2.25 8.705818184406855e-13 129 10.18474509468147\nCASE 16 1 1 0.25 1.125 7.619448691778552e-13 125 3.851935665851566\nCASE 16 1 1 0.5 2.25 9.23162371199715e-13 126 8.140769050568794\nCASE 16 2 -1 0.25 1.125 6.549502693659059e-13 126 3.943384671365818\nCASE 16 2 -1 0.5 2.249999999999999 9.977155820267702e-13 128 8.756444459340784\nCASE 16 2 1 0.25 1.125 9.250725185872e-13 123 4.164478132002984\nCASE 16 2 1 0.5 2.25 9.651471245472609e-13 126 9.751529076563665\nPASS: 489969 native moving-box cut-cell pressure assertions\n",
+  "ctest_log_sha256": "6b4d1dca855d2f3c35c7d2edd195ddf37c701fc7a0aba5154d3238ed10744010",
+  "source_sha256": {
+    "include/upc/p2_moving_box_open_volume3d.hpp": "270ecc419fa312212e47dbcfbd7fa8f2b172fde153b6d66e19f226be5cbedbb2",
+    "include/upc/p2_moving_box_mac_apertures3d.hpp": "c5fbdae598166771f6a28359c31960178239d3a59e0ccbb60f89f47b38f29ad3",
+    "include/upc/p2_moving_box_swept_wall_flux3d.hpp": "80d299136f57df0b479d598468c39bf67675524942557701f99b40fe897a656e",
+    "include/upc/p2_fractional_boundary_vof_flux3d.hpp": "978afa27a7a01a82b32a13505621935737e5dcf66515545ef704cac3ae7cbdbd",
+    "include/upc/p2_moving_box_cut_cell_projection3d.hpp": "9ba899f33f649322ad2779856fb88d86e37080ac114eb94f1a25df39c494bea9",
+    "tests/p2_moving_box_cut_cell_projection3d_tests.cpp": "b375d157beb492ac8ddc5dfc69bda34be7b5bfbdd74f84cde2fa4a6c93d23d97",
+    "scripts/p2_cut_cell_projection_acceptance.py": "55c7ac9b6af603074db7c8950d6d5d13deba797b6c010f865f649a96202cfc3e",
+    "docs/P2_CUT_CELL_PRESSURE_VOF_PARTIAL.md": "dd5721472e32ce22e6719784ff6ff80f7a2857cfef1a35f0d27f837ab885699f",
+    "docs/PHASENPLAN.md": "4ed31feafda79e06ee0ca8c60e0a65a4661d044025f1b4f3d064321b3ceb3207",
+    "CMakeLists.txt": "9b6e6a6acec264a91071fe66ebdbe23329c1435956817874eb1c642e4d643ec2"
+  },
+  "generated_utc": "2026-10-28T04:54:20.348912+00:00",
+  "limitations": [
+    "Only closed fully saturated initially stationary fluid, single translating box",
+    "Pressure/VOF projection is opt-in, not integrated into the live MAC solver",
+    "No validated post-projection FSI impulse/energy, moving-body response or measured CFD",
+    "No free-surface stress model, multi-body dynamics or new UE5.8 Native-E2E"
+  ]
+}

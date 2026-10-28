@@ -300,3 +300,9 @@ add_test(NAME physics_p2_moving_box_mac_face_apertures_partial COMMAND upc_p2_mo
 add_executable(upc_p2_moving_box_swept_wall_flux_tests tests/p2_moving_box_swept_wall_flux3d_tests.cpp)
 target_link_libraries(upc_p2_moving_box_swept_wall_flux_tests PRIVATE upc)
 add_test(NAME physics_p2_moving_box_swept_wall_gcl_partial COMMAND upc_p2_moving_box_swept_wall_flux_tests)
+
+# P2 partial: weighted 3D cut-cell pressure projection from translating
+# box geometry and wall sweep GCL. Closed liquid, no two-way FSI.
+add_executable(upc_p2_moving_box_cut_cell_projection_tests tests/p2_moving_box_cut_cell_projection3d_tests.cpp)
+target_link_libraries(upc_p2_moving_box_cut_cell_projection_tests PRIVATE upc)
+add_test(NAME physics_p2_moving_box_cut_cell_pressure_partial COMMAND upc_p2_moving_box_cut_cell_projection_tests)
