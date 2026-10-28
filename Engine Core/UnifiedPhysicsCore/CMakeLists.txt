@@ -331,3 +331,9 @@ add_test(NAME physics_p2_periodic_mac_linear_transport_partial COMMAND upc_p2_pe
 add_executable(upc_p2_variable_mac_transport_tests tests/p2_variable_mac_transport3d_tests.cpp)
 target_link_libraries(upc_p2_variable_mac_transport_tests PRIVATE upc)
 add_test(NAME physics_p2_variable_mac_flux_transport_partial COMMAND upc_p2_variable_mac_transport_tests)
+
+# P2 partial: periodic conservative nonlinear MAC advection followed by
+# mean-zero pressure PCG projection. No cut-cell, VOF, or FSI closure.
+add_executable(upc_p2_periodic_mac_projection_tests tests/p2_periodic_mac_projection3d_tests.cpp)
+target_link_libraries(upc_p2_periodic_mac_projection_tests PRIVATE upc)
+add_test(NAME physics_p2_periodic_nonlinear_mac_projection_partial COMMAND upc_p2_periodic_mac_projection_tests)

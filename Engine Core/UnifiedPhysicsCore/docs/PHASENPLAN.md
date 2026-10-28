@@ -761,3 +761,20 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
 - P2 bleibt PARTIAL; P3-P8 bleiben PARTIAL. Keine Einbindung in
   CoupledMacWater3D, keine bewegten Cut-Cells, freien Oberflaechen,
   Zweiwege-FSI, externen 3D-Messdaten oder neuen UE5.8 Native-E2E.
+
+## P2 Teilfortschritt: periodische nichtlineare 3D-MAC-Advektion und PCG-Druckprojektion (28.10.2026)
+
+- Neuer optionaler P2PeriodicMacProjection3D: matrixfreier periodischer
+  3D-Poisson-Operator mit Jacobi-PCG, Druck-Gauge und MAC-Face-Korrektur.
+- self_advect_project verbindet den konservativen variablen
+  MAC-Impulstransport mit der Divergenzprojektion ueber mehrere Schritte.
+- Unabhaengige analytische Fourier-Druckreferenzen, drei nichtkubische
+  3D-Gitter, vier nichtlineare Folgeschritte, Massensummen-Proxies,
+  Nullraum-/Negativfaelle und vollstaendiger nativer CTest-Regressionslauf.
+- Nachweise: docs/P2_PERIODIC_NONLINEAR_MAC_PROJECTION_PARTIAL.md,
+  scripts/p2_periodic_projection_acceptance.py,
+  ENGINE TEST STUBE/runs/p2_periodic_projection_partial.json.
+- P2 bleibt PARTIAL, P3-P8 ebenso. Periodische vollstaendig nasse
+  konstantdichte Testdomain; keine freien Oberflaechen, bewegten
+  Cut-Cells, bidirektionale FSI, globale physikalische Impuls-/
+  Energiebilanz, externe 3D-CFD-Messdaten oder neues UE5.8 Native-E2E.

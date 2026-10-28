@@ -1,0 +1,326 @@
+{
+  "phase": "P2",
+  "milestone": "periodic_nonlinear_mac_transport_pressure_projection_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "accepted": false,
+  "full_ctest_suites": 66,
+  "native_assertions": 42751,
+  "independent_numerical_checks": 42,
+  "checks": [
+    {
+      "name": "p000_(8, 10, 12)",
+      "actual": 160.00000000000736,
+      "expected": 160.0,
+      "tolerance": 1e-07,
+      "pass": true
+    },
+    {
+      "name": "px_(8, 10, 12)",
+      "actual": -40.00000000000073,
+      "expected": -40.0,
+      "tolerance": 1e-07,
+      "pass": true
+    },
+    {
+      "name": "py_(8, 10, 12)",
+      "actual": 79.99999999999815,
+      "expected": 80.0,
+      "tolerance": 1e-07,
+      "pass": true
+    },
+    {
+      "name": "pz_(8, 10, 12)",
+      "actual": 120.00000000000036,
+      "expected": 120.0,
+      "tolerance": 1e-07,
+      "pass": true
+    },
+    {
+      "name": "velocity_error_(8, 10, 12)",
+      "actual": 2.7533531010703882e-14,
+      "expected": 0.0,
+      "tolerance": 1e-10,
+      "pass": true
+    },
+    {
+      "name": "divergence_(8, 10, 12)",
+      "actual": 2.084998840246044e-13,
+      "expected": 0.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "nonlinear_nonzero_(8, 10, 12, 1)",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "projected_divergence_(8, 10, 12, 1)",
+      "actual": 4.163336342344337e-16,
+      "expected": 0.0,
+      "tolerance": 1e-10,
+      "pass": true
+    },
+    {
+      "name": "nonlinear_nonzero_(8, 10, 12, 2)",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "projected_divergence_(8, 10, 12, 2)",
+      "actual": 3.885780586188048e-16,
+      "expected": 0.0,
+      "tolerance": 1e-10,
+      "pass": true
+    },
+    {
+      "name": "nonlinear_nonzero_(8, 10, 12, 3)",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "projected_divergence_(8, 10, 12, 3)",
+      "actual": 5.551115123125783e-16,
+      "expected": 0.0,
+      "tolerance": 1e-10,
+      "pass": true
+    },
+    {
+      "name": "nonlinear_nonzero_(8, 10, 12, 4)",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "projected_divergence_(8, 10, 12, 4)",
+      "actual": 7.771561172376096e-16,
+      "expected": 0.0,
+      "tolerance": 1e-10,
+      "pass": true
+    },
+    {
+      "name": "p000_(12, 14, 16)",
+      "actual": 159.999999999999,
+      "expected": 160.0,
+      "tolerance": 1e-07,
+      "pass": true
+    },
+    {
+      "name": "px_(12, 14, 16)",
+      "actual": -39.9999999999976,
+      "expected": -40.0,
+      "tolerance": 1e-07,
+      "pass": true
+    },
+    {
+      "name": "py_(12, 14, 16)",
+      "actual": 79.99999999999818,
+      "expected": 80.0,
+      "tolerance": 1e-07,
+      "pass": true
+    },
+    {
+      "name": "pz_(12, 14, 16)",
+      "actual": 119.99999999999724,
+      "expected": 120.0,
+      "tolerance": 1e-07,
+      "pass": true
+    },
+    {
+      "name": "velocity_error_(12, 14, 16)",
+      "actual": 1.1907141939104804e-14,
+      "expected": 0.0,
+      "tolerance": 1e-10,
+      "pass": true
+    },
+    {
+      "name": "divergence_(12, 14, 16)",
+      "actual": 8.790190797469677e-14,
+      "expected": 0.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "nonlinear_nonzero_(12, 14, 16, 1)",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "projected_divergence_(12, 14, 16, 1)",
+      "actual": 4.85722573273506e-16,
+      "expected": 0.0,
+      "tolerance": 1e-10,
+      "pass": true
+    },
+    {
+      "name": "nonlinear_nonzero_(12, 14, 16, 2)",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "projected_divergence_(12, 14, 16, 2)",
+      "actual": 4.440892098500626e-16,
+      "expected": 0.0,
+      "tolerance": 1e-10,
+      "pass": true
+    },
+    {
+      "name": "nonlinear_nonzero_(12, 14, 16, 3)",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "projected_divergence_(12, 14, 16, 3)",
+      "actual": 3.608224830031759e-16,
+      "expected": 0.0,
+      "tolerance": 1e-10,
+      "pass": true
+    },
+    {
+      "name": "nonlinear_nonzero_(12, 14, 16, 4)",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "projected_divergence_(12, 14, 16, 4)",
+      "actual": 3.3306690738754696e-16,
+      "expected": 0.0,
+      "tolerance": 1e-10,
+      "pass": true
+    },
+    {
+      "name": "p000_(16, 18, 20)",
+      "actual": 159.99999999999687,
+      "expected": 160.0,
+      "tolerance": 1e-07,
+      "pass": true
+    },
+    {
+      "name": "px_(16, 18, 20)",
+      "actual": -39.999999999993506,
+      "expected": -40.0,
+      "tolerance": 1e-07,
+      "pass": true
+    },
+    {
+      "name": "py_(16, 18, 20)",
+      "actual": 80.00000000000307,
+      "expected": 80.0,
+      "tolerance": 1e-07,
+      "pass": true
+    },
+    {
+      "name": "pz_(16, 18, 20)",
+      "actual": 119.99999999999991,
+      "expected": 120.0,
+      "tolerance": 1e-07,
+      "pass": true
+    },
+    {
+      "name": "velocity_error_(16, 18, 20)",
+      "actual": 9.325873406851315e-15,
+      "expected": 0.0,
+      "tolerance": 1e-10,
+      "pass": true
+    },
+    {
+      "name": "divergence_(16, 18, 20)",
+      "actual": 6.80566714095221e-14,
+      "expected": 0.0,
+      "tolerance": 1e-11,
+      "pass": true
+    },
+    {
+      "name": "nonlinear_nonzero_(16, 18, 20, 1)",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "projected_divergence_(16, 18, 20, 1)",
+      "actual": 2.498001805406602e-16,
+      "expected": 0.0,
+      "tolerance": 1e-10,
+      "pass": true
+    },
+    {
+      "name": "nonlinear_nonzero_(16, 18, 20, 2)",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "projected_divergence_(16, 18, 20, 2)",
+      "actual": 2.498001805406602e-16,
+      "expected": 0.0,
+      "tolerance": 1e-10,
+      "pass": true
+    },
+    {
+      "name": "nonlinear_nonzero_(16, 18, 20, 3)",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "projected_divergence_(16, 18, 20, 3)",
+      "actual": 2.498001805406602e-16,
+      "expected": 0.0,
+      "tolerance": 1e-10,
+      "pass": true
+    },
+    {
+      "name": "nonlinear_nonzero_(16, 18, 20, 4)",
+      "actual": 1.0,
+      "expected": 1.0,
+      "tolerance": 0.0,
+      "pass": true
+    },
+    {
+      "name": "projected_divergence_(16, 18, 20, 4)",
+      "actual": 2.498001805406602e-16,
+      "expected": 0.0,
+      "tolerance": 1e-10,
+      "pass": true
+    }
+  ],
+  "ctest_log_sha256": "89fd11daecfcb2d55e82deb0594c269d2044d0e6143809172e0ea2e2434a262f",
+  "source_sha256": {
+    "include/upc/p2_periodic_mac_projection3d.hpp": "58073fb6a98ea88fe9f81e6dabb0c3d132f283e9346d1771a4818e5890ceb917",
+    "include/upc/p2_variable_mac_transport3d.hpp": "b0a82555c95656d1493dd33a3ae3c6bb0ca187a4a4d2846573d0da2c16ba5d73",
+    "tests/p2_periodic_mac_projection3d_tests.cpp": "1e6a6cb233fe55fcb684f5fd33f6884eea4f708898320116daa116eb50d416a0",
+    "scripts/p2_periodic_projection_acceptance.py": "b0753996603fa8f35cf1a9cc4084a98c6b7abedceb1b7dd39dd9348c19264015",
+    "scripts/p2_periodic_projection_full_build.cmd": "a2f325bbfe605c5caa7e4d5d5875cfaaca4ab9f2e38d9e50c8b4ee58e4839509",
+    "docs/P2_PERIODIC_NONLINEAR_MAC_PROJECTION_PARTIAL.md": "bb981765ebd847069e9e8df0a7472ba905c9f1c6630c0a6fd9b871222f217894",
+    "docs/PHASENPLAN.md": "531bec808ebcf1b160c8bcca4ab89c03817eee00e6515b09f1a284311f6ba75a",
+    "CMakeLists.txt": "b776124826f4f042a51a285c98785741926994468b88181ffb02332191e71281"
+  },
+  "generated_utc": "2026-10-28T11:33:06.805689+00:00",
+  "limitations": [
+    "Periodic fully filled constant-density 3D MAC domain only",
+    "Pressure PCG manufactured modes are not external CFD measurements",
+    "No free surface, moving cut cells, CoupledMacWater3D integration or two-way FSI",
+    "Component integral conservation is not global physical momentum/energy closure",
+    "No Unreal 5.8 Native E2E for this operator",
+    "P2-P8 full phases remain open"
+  ]
+}
