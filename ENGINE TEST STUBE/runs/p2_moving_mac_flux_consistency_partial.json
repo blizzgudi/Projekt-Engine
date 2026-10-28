@@ -1,0 +1,343 @@
+{
+  "phase": "P2",
+  "milestone": "moving_mac_primal_dual_flux_consistency_diagnostic",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "ctest_suites": 74,
+  "native_assertions": 120467,
+  "checks": [
+    {
+      "name": "complete MSVC CTest 74/74",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "new native test present",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "120000+ native assertions",
+      "pass": true,
+      "detail": 120467
+    },
+    {
+      "name": "12 independently measured moving cases",
+      "pass": true,
+      "detail": 12
+    },
+    {
+      "name": "unique case (8, 0, -1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite, GCL and nonzero dual correction (8, 0, -1)",
+      "pass": true,
+      "detail": [
+        9.119918362165969e-13,
+        9.442612707369347e-13,
+        2.3986301743827636,
+        0.025181274732518764
+      ]
+    },
+    {
+      "name": "unique case (8, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite, GCL and nonzero dual correction (8, 0, 1)",
+      "pass": true,
+      "detail": [
+        9.70697914409735e-13,
+        8.213860364439385e-13,
+        2.3840164312412546,
+        0.021597102168010918
+      ]
+    },
+    {
+      "name": "unique case (8, 1, -1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite, GCL and nonzero dual correction (8, 1, -1)",
+      "pass": true,
+      "detail": [
+        7.130780341202403e-13,
+        9.387759666856788e-13,
+        1.7288827153363442,
+        0.016425096464144886
+      ]
+    },
+    {
+      "name": "unique case (8, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite, GCL and nonzero dual correction (8, 1, 1)",
+      "pass": true,
+      "detail": [
+        7.544789445979028e-13,
+        9.095424608786262e-13,
+        2.329153055177164,
+        0.016784389489492152
+      ]
+    },
+    {
+      "name": "unique case (8, 2, -1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite, GCL and nonzero dual correction (8, 2, -1)",
+      "pass": true,
+      "detail": [
+        9.707169963679707e-13,
+        8.213870122258937e-13,
+        2.384016431241264,
+        0.02159710216801084
+      ]
+    },
+    {
+      "name": "unique case (8, 2, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite, GCL and nonzero dual correction (8, 2, 1)",
+      "pass": true,
+      "detail": [
+        9.11978825790527e-13,
+        9.442746064236562e-13,
+        2.398630174382765,
+        0.02518127473251887
+      ]
+    },
+    {
+      "name": "unique case (12, 0, -1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite, GCL and nonzero dual correction (12, 0, -1)",
+      "pass": true,
+      "detail": [
+        5.967202643467062e-13,
+        9.378752792834136e-13,
+        2.6769658916011463,
+        0.025108792892133698
+      ]
+    },
+    {
+      "name": "unique case (12, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite, GCL and nonzero dual correction (12, 0, 1)",
+      "pass": true,
+      "detail": [
+        9.121963167463276e-13,
+        9.847664133796896e-13,
+        2.6660664365388596,
+        0.02151194363122376
+      ]
+    },
+    {
+      "name": "unique case (12, 1, -1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite, GCL and nonzero dual correction (12, 1, -1)",
+      "pass": true,
+      "detail": [
+        8.578705644078297e-13,
+        9.581833075459137e-13,
+        1.8339368903270596,
+        0.01637733016652288
+      ]
+    },
+    {
+      "name": "unique case (12, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite, GCL and nonzero dual correction (12, 1, 1)",
+      "pass": true,
+      "detail": [
+        9.231753274156762e-13,
+        8.632581411857632e-13,
+        2.604486385749703,
+        0.016730730986115244
+      ]
+    },
+    {
+      "name": "unique case (12, 2, -1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite, GCL and nonzero dual correction (12, 2, -1)",
+      "pass": true,
+      "detail": [
+        8.870719100679408e-13,
+        9.950506808494367e-13,
+        2.6695845191213103,
+        0.02152727952708799
+      ]
+    },
+    {
+      "name": "unique case (12, 2, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite, GCL and nonzero dual correction (12, 2, 1)",
+      "pass": true,
+      "detail": [
+        8.019074228433898e-13,
+        9.942043661861216e-13,
+        2.6886913423086924,
+        0.02508801197101617
+      ]
+    },
+    {
+      "name": "all axes, directions and grids",
+      "pass": true,
+      "detail": null
+    }
+  ],
+  "reference": [
+    {
+      "grid": 8,
+      "axis": 0,
+      "sign": -1,
+      "primal_gcl_m3": 9.119918362165969e-13,
+      "dual_gcl_m3": 9.442612707369347e-13,
+      "correction_l1_m3": 2.3986301743827636,
+      "correction_max_m3": 0.025181274732518764
+    },
+    {
+      "grid": 8,
+      "axis": 0,
+      "sign": 1,
+      "primal_gcl_m3": 9.70697914409735e-13,
+      "dual_gcl_m3": 8.213860364439385e-13,
+      "correction_l1_m3": 2.3840164312412546,
+      "correction_max_m3": 0.021597102168010918
+    },
+    {
+      "grid": 8,
+      "axis": 1,
+      "sign": -1,
+      "primal_gcl_m3": 7.130780341202403e-13,
+      "dual_gcl_m3": 9.387759666856788e-13,
+      "correction_l1_m3": 1.7288827153363442,
+      "correction_max_m3": 0.016425096464144886
+    },
+    {
+      "grid": 8,
+      "axis": 1,
+      "sign": 1,
+      "primal_gcl_m3": 7.544789445979028e-13,
+      "dual_gcl_m3": 9.095424608786262e-13,
+      "correction_l1_m3": 2.329153055177164,
+      "correction_max_m3": 0.016784389489492152
+    },
+    {
+      "grid": 8,
+      "axis": 2,
+      "sign": -1,
+      "primal_gcl_m3": 9.707169963679707e-13,
+      "dual_gcl_m3": 8.213870122258937e-13,
+      "correction_l1_m3": 2.384016431241264,
+      "correction_max_m3": 0.02159710216801084
+    },
+    {
+      "grid": 8,
+      "axis": 2,
+      "sign": 1,
+      "primal_gcl_m3": 9.11978825790527e-13,
+      "dual_gcl_m3": 9.442746064236562e-13,
+      "correction_l1_m3": 2.398630174382765,
+      "correction_max_m3": 0.02518127473251887
+    },
+    {
+      "grid": 12,
+      "axis": 0,
+      "sign": -1,
+      "primal_gcl_m3": 5.967202643467062e-13,
+      "dual_gcl_m3": 9.378752792834136e-13,
+      "correction_l1_m3": 2.6769658916011463,
+      "correction_max_m3": 0.025108792892133698
+    },
+    {
+      "grid": 12,
+      "axis": 0,
+      "sign": 1,
+      "primal_gcl_m3": 9.121963167463276e-13,
+      "dual_gcl_m3": 9.847664133796896e-13,
+      "correction_l1_m3": 2.6660664365388596,
+      "correction_max_m3": 0.02151194363122376
+    },
+    {
+      "grid": 12,
+      "axis": 1,
+      "sign": -1,
+      "primal_gcl_m3": 8.578705644078297e-13,
+      "dual_gcl_m3": 9.581833075459137e-13,
+      "correction_l1_m3": 1.8339368903270596,
+      "correction_max_m3": 0.01637733016652288
+    },
+    {
+      "grid": 12,
+      "axis": 1,
+      "sign": 1,
+      "primal_gcl_m3": 9.231753274156762e-13,
+      "dual_gcl_m3": 8.632581411857632e-13,
+      "correction_l1_m3": 2.604486385749703,
+      "correction_max_m3": 0.016730730986115244
+    },
+    {
+      "grid": 12,
+      "axis": 2,
+      "sign": -1,
+      "primal_gcl_m3": 8.870719100679408e-13,
+      "dual_gcl_m3": 9.950506808494367e-13,
+      "correction_l1_m3": 2.6695845191213103,
+      "correction_max_m3": 0.02152727952708799
+    },
+    {
+      "grid": 12,
+      "axis": 2,
+      "sign": 1,
+      "primal_gcl_m3": 8.019074228433898e-13,
+      "dual_gcl_m3": 9.942043661861216e-13,
+      "correction_l1_m3": 2.6886913423086924,
+      "correction_max_m3": 0.02508801197101617
+    }
+  ],
+  "source_sha256": {
+    "CMakeLists.txt": "90623916f36ec3dd87aa66118064ec5dc0cb55c16a5ae2513b2a7f212a3c01ac",
+    "include/upc/p2_moving_mac_flux_consistency3d.hpp": "9cd487fc4b5e2c050fa51c4216bdb47bdc51359888f440aea75130670096aede",
+    "include/upc/p2_moving_mac_shared_predictor3d.hpp": "fce2cde328b2b627cb8f47005758dfc15d6e8db906bf28f3513866d913fb522f",
+    "include/upc/p2_moving_mac_dual_transport3d.hpp": "0321d87bbc3898b4a6ff6ed7d8f16578cb3ff41da5c5cbe5d4173b4698b7671a",
+    "include/upc/p2_moving_box_cut_cell_projection3d.hpp": "7ec9aaaed69aae85be1b26d32460c03de81b95f7ffb26e1f6b18e1185aee3fb6",
+    "tests/p2_moving_mac_flux_consistency3d_tests.cpp": "8b25b817615c22c1ef3cc80975db47527acf30cdca57a6873b880edd00e1454c",
+    "scripts/p2_moving_mac_flux_consistency_full_build.cmd": "e4647607e4810b8152d9e96c69c52be8d896caf1c0e2b1e8d7c0fdbb1c16c972",
+    "scripts/p2_moving_mac_flux_consistency_acceptance.py": "117d2bfc0e02a1c502f00443588f1046a37e008b58106921cfec51e8b367e55f",
+    "docs/P2_MOVING_MAC_FLUX_CONSISTENCY_PARTIAL.md": "1748b7aea73e2fecd79c4734093b53e3245cb5834f704e6c9bcb4b78d433a908"
+  },
+  "ctest_log_sha256": "2ff77a833bc072f588aeedac350c81278789837727b6040c3eaaf794bc1fe984",
+  "unproven": [
+    "single physical momentum tensor across three MAC duals",
+    "moving rigid-body reaction impulse and full energy",
+    "stress-correct free surface and independent 3D CFD measurement",
+    "live CoupledMacWater3D integration and Unreal 5.8 Native-E2E"
+  ]
+}

@@ -906,3 +906,20 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
   Keine einheitliche korrigierte Impulsfluss-Tensorbilanz,
   dynamische Fluid-Solid-Gegenreaktion, freie Oberflaeche,
   externe 3D-CFD-Messvalidierung oder neues UE5.8 Native-E2E.
+
+## P2 Teilfortschritt: messbare Primal-/Dual-MAC-Flux-Konsistenzluecke (28.10.2026)
+
+- Neuer optionaler `P2MovingMacFluxConsistency3D`-Audit vergleicht
+  einen gemeinsamen primal druckprojizierten MAC-Praediktor mit den
+  drei separat projizierten bewegten MAC-Dualvolumenfluessen.
+- Nachweis: MSVC Release, **74/74 CTest PASS**, 120467 native Assertions,
+  12 bewegte 3D-Faelle (8^3/12^3, 3 Achsen, 2 Richtungen), zwei
+  stationaere Nullreferenzen und unabhaengige Flusssummenpruefungen.
+  29/29 quantitative Teilabnahme-Checks; Quell-/Log-SHA256.
+- Belege: docs/P2_MOVING_MAC_FLUX_CONSISTENCY_PARTIAL.md,
+  scripts/p2_moving_mac_flux_consistency_acceptance.py und
+  ENGINE TEST STUBE/runs/p2_moving_mac_flux_consistency_partial.json.
+- **P2 bleibt PARTIAL, P3-P8 ebenfalls PARTIAL; ALL_COMPLETE=False.**
+  Das Messinstrument behebt die gemeinsame Impulstensor-Luecke nicht.
+  Freie Oberflaechen, echte Fluid-Solid-Gegenreaktion, globale Energie,
+  externe CFD-Referenzen und Unreal-5.8-Native-E2E fehlen weiterhin.

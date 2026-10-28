@@ -379,3 +379,10 @@ add_test(NAME physics_p2_moving_mac_dual_conservative_transport_partial COMMAND 
 add_executable(upc_p2_moving_mac_shared_predictor_tests tests/p2_moving_mac_shared_predictor3d_tests.cpp)
 target_link_libraries(upc_p2_moving_mac_shared_predictor_tests PRIVATE upc)
 add_test(NAME physics_p2_moving_mac_shared_predictor_partial COMMAND upc_p2_moving_mac_shared_predictor_tests)
+
+# P2 partial: measure the flux correction required when one projected
+# primal MAC field is re-projected on three independently moving duals.
+# A numerical inconsistency diagnostic, not a physical momentum tensor.
+add_executable(upc_p2_moving_mac_flux_consistency_tests tests/p2_moving_mac_flux_consistency3d_tests.cpp)
+target_link_libraries(upc_p2_moving_mac_flux_consistency_tests PRIVATE upc)
+add_test(NAME physics_p2_moving_mac_flux_consistency_partial COMMAND upc_p2_moving_mac_flux_consistency_tests)
