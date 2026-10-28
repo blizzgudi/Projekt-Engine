@@ -276,3 +276,9 @@ add_test(NAME physics_p2_conservative_3d_mac_vof_face_flux_partial COMMAND upc_p
 add_executable(upc_p2_moving_boundary_vof_flux_tests tests/p2_moving_boundary_vof_flux3d_tests.cpp)
 target_link_libraries(upc_p2_moving_boundary_vof_flux_tests PRIVATE upc)
 add_test(NAME physics_p2_moving_boundary_gcl_vof_flux_partial COMMAND upc_p2_moving_boundary_vof_flux_tests)
+
+# P2 partial: subcell fluid-open fractions and conservative moving-boundary
+# GCL on 3D MAC faces. External fluxes only; NOT bidirectional FSI.
+add_executable(upc_p2_fractional_boundary_vof_tests tests/p2_fractional_boundary_vof_flux3d_tests.cpp)
+target_link_libraries(upc_p2_fractional_boundary_vof_tests PRIVATE upc)
+add_test(NAME physics_p2_fractional_moving_boundary_gcl_vof_partial COMMAND upc_p2_fractional_boundary_vof_tests)

@@ -564,3 +564,26 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
   Koerperkinematik/Fluiddruck berechnet; keine gekoppelte MAC-Impulsbilanz,
   keine globale Energieerhaltung, keine externen 3D-CFD-Messungen und
   kein neuer UE5.8-Native-E2E-Lauf fuer diesen Operator. P3-P8 offen.
+
+## P2 Teilfortschritt: subzellgenaue 3D-MAC-GCL/VOF-Grenzvolumina (28.10.2026)
+
+- Neuer optionaler `FractionalBoundaryVofFlux3D` transportiert Wasser bei
+  zeitlich veraenderten offenen Zellvolumenanteilen `alpha_old/alpha_new`
+  in [0,1]. Im Unterschied zum binaeren Maskenoperator wird die
+  Donor-Saettigung `water_old/alpha_old` korrekt beruecksichtigt.
+  Lokale geometrische Erhaltung, Wasser- und offenes Gesamtvolumen,
+  Donor-CFL, unzulaessige Faces und Positivitaet werden geprueft.
+- MSVC-Release-Build und **56/56 CTest-Suites PASS**; 228858 native
+  Assertions sowie **462/462 unabhaengige numerische Referenzchecks**
+  auf 8^3/12^3/16^3, alle Achsen und Vorzeichen, Sweeps 0.25/0.5,
+  neu geoeffnete Zellen, gesplittete Fluesse, statische Zirkulation
+  und Fehlerfaelle. P1 erneut 33/33 PASS.
+- Nachweise: `docs/P2_FRACTIONAL_BOUNDARY_GCL_VOF_PARTIAL.md`,
+  `scripts/p2_fractional_boundary_vof_acceptance.py`,
+  `ENGINE TEST STUBE/runs/p2_fractional_boundary_vof_partial.json`
+  sowie vollstaendiges CTest-Log mit SHA256.
+- **P2 bleibt PARTIAL; P3-P8 offen.** Die offenen Volumenanteile und
+  MAC-Face-Fluesse sind weiterhin externe Eingaben, nicht aus einer
+  bewegten 3D-Koerperoberflaeche und einem Druck-/Impuls-Solver abgeleitet.
+  Keine globale Energie-/Impulsbilanz, externe 3D-CFD-Messvalidierung
+  oder neue UE5.8-Native-E2E-Abnahme fuer diesen Operator.
