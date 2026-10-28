@@ -392,3 +392,8 @@ add_test(NAME physics_p2_moving_mac_flux_consistency_partial COMMAND upc_p2_movi
 add_executable(upc_p2_moving_mac_dual_energy_tests tests/p2_moving_mac_dual_energy3d_tests.cpp)
 target_link_libraries(upc_p2_moving_mac_dual_energy_tests PRIVATE upc)
 add_test(NAME physics_p2_moving_mac_dual_energy_partial COMMAND upc_p2_moving_mac_dual_energy_tests)
+# P2 partial: pressure-work/gradient identity on three moving MAC dual grids
+# reconstructed from one primal projection; NOT a common physical tensor/FSI.
+add_executable(upc_p2_moving_mac_dual_pressure_work_tests tests/p2_moving_mac_dual_pressure_work3d_tests.cpp)
+target_link_libraries(upc_p2_moving_mac_dual_pressure_work_tests PRIVATE upc)
+add_test(NAME physics_p2_moving_mac_dual_pressure_work_partial COMMAND upc_p2_moving_mac_dual_pressure_work_tests)

@@ -940,3 +940,22 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
   physikalische Druck-/FSI-Energie, keine gemeinsame Impulstensor-
   Kopplung, keine freien Oberflaechen, externe 3D-CFD-Referenz oder
   UE5.8-Native-E2E fuer diesen Pfad.
+
+## P2 Teilfortschritt: diskrete Druckarbeit auf drei bewegten MAC-Dualgittern (28.10.2026)
+
+- Neuer optionaler `P2MovingMacDualPressureWork3D`-Audit: gemeinsame
+  Primal-MAC-Druckprojektion, Halbzellen-Rekonstruktion und separate
+  Druckkorrekturen auf allen drei bewegten Dualgittern.
+- Pro Dualgitter wird die exakte diskrete Druckgradient-/Wandarbeits-
+  Identitaet geprueft; aggregierte Projektionsenergie, geometrische
+  Druckarbeit und Korrekturenergie werden separat ausgewiesen.
+- MSVC Release und vollstaendige 76/76 CTest-Suites PASS; 14 3D-Faelle
+  (8^3/12^3, drei Achsen, beide Richtungen, zwei statische Referenzen),
+  Druck-Gauge- und Negativtests. Quantitative Nachweise und SHA-256:
+  docs/P2_MOVING_MAC_DUAL_PRESSURE_WORK_PARTIAL.md und
+  ENGINE TEST STUBE/runs/p2_moving_mac_dual_pressure_work_partial.json.
+- **P2 bleibt PARTIAL; P3-P8 PARTIAL; ALL_COMPLETE=False.**
+  Drei separate Dual-Druckkorrekturen sind noch kein gemeinsamer
+  physikalischer Impulstensor. Keine dynamische Fluid-Solid-Gegenreaktion,
+  spannungskorrekte freie Oberflaeche, externe 3D-CFD-Messvalidierung
+  oder UE5.8-Native-E2E dieses Pfades.

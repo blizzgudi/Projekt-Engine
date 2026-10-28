@@ -1,0 +1,694 @@
+{
+  "phase": "P2",
+  "milestone": "moving_mac_three_dual_pressure_work_identity",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "ctest_suites": 76,
+  "native_assertions": 490,
+  "checks": [
+    {
+      "name": "full 76/76 CTest",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "new test present",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "490+ native assertions",
+      "pass": true,
+      "detail": 490
+    },
+    {
+      "name": "14 stationary/moving cases",
+      "pass": true,
+      "detail": 14
+    },
+    {
+      "name": "unique (8, 0, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite pressure terms (8, 0, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "pressure work identity (8, 0, 1, 0)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "nonnegative correction (8, 0, 1, 0)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "max residual (8, 0, 1, 0)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "static zero pressure work (8, 0, 1, 0)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "unique (8, 0, -1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite pressure terms (8, 0, -1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "pressure work identity (8, 0, -1, 1)",
+      "pass": true,
+      "detail": [
+        278.2836593698521,
+        398.39997484615856,
+        120.11631547630631
+      ]
+    },
+    {
+      "name": "nonnegative correction (8, 0, -1, 1)",
+      "pass": true,
+      "detail": 120.11631547630631
+    },
+    {
+      "name": "max residual (8, 0, -1, 1)",
+      "pass": true,
+      "detail": 3.694822225952521e-13
+    },
+    {
+      "name": "moving pressure correction (8, 0, -1, 1)",
+      "pass": true,
+      "detail": 120.11631547630631
+    },
+    {
+      "name": "unique (8, 0, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite pressure terms (8, 0, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "pressure work identity (8, 0, 1, 1)",
+      "pass": true,
+      "detail": [
+        276.4868036104839,
+        394.79129003520507,
+        118.30448642472147
+      ]
+    },
+    {
+      "name": "nonnegative correction (8, 0, 1, 1)",
+      "pass": true,
+      "detail": 118.30448642472147
+    },
+    {
+      "name": "max residual (8, 0, 1, 1)",
+      "pass": true,
+      "detail": 3.126388037344441e-13
+    },
+    {
+      "name": "moving pressure correction (8, 0, 1, 1)",
+      "pass": true,
+      "detail": 118.30448642472147
+    },
+    {
+      "name": "unique (8, 1, -1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite pressure terms (8, 1, -1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "pressure work identity (8, 1, -1, 1)",
+      "pass": true,
+      "detail": [
+        180.7547005446712,
+        259.97844613265335,
+        79.2237455879822
+      ]
+    },
+    {
+      "name": "nonnegative correction (8, 1, -1, 1)",
+      "pass": true,
+      "detail": 79.2237455879822
+    },
+    {
+      "name": "max residual (8, 1, -1, 1)",
+      "pass": true,
+      "detail": 3.410605131648481e-13
+    },
+    {
+      "name": "moving pressure correction (8, 1, -1, 1)",
+      "pass": true,
+      "detail": 79.2237455879822
+    },
+    {
+      "name": "unique (8, 1, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite pressure terms (8, 1, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "pressure work identity (8, 1, 1, 1)",
+      "pass": true,
+      "detail": [
+        263.774905964468,
+        374.54132790968566,
+        110.76642194521759
+      ]
+    },
+    {
+      "name": "nonnegative correction (8, 1, 1, 1)",
+      "pass": true,
+      "detail": 110.76642194521759
+    },
+    {
+      "name": "max residual (8, 1, 1, 1)",
+      "pass": true,
+      "detail": 2.4868995751603507e-13
+    },
+    {
+      "name": "moving pressure correction (8, 1, 1, 1)",
+      "pass": true,
+      "detail": 110.76642194521759
+    },
+    {
+      "name": "unique (8, 2, -1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite pressure terms (8, 2, -1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "pressure work identity (8, 2, -1, 1)",
+      "pass": true,
+      "detail": [
+        276.48680361048355,
+        394.7912900352051,
+        118.30448642472126
+      ]
+    },
+    {
+      "name": "nonnegative correction (8, 2, -1, 1)",
+      "pass": true,
+      "detail": 118.30448642472126
+    },
+    {
+      "name": "max residual (8, 2, -1, 1)",
+      "pass": true,
+      "detail": 2.4158453015843406e-13
+    },
+    {
+      "name": "moving pressure correction (8, 2, -1, 1)",
+      "pass": true,
+      "detail": 118.30448642472126
+    },
+    {
+      "name": "unique (8, 2, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite pressure terms (8, 2, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "pressure work identity (8, 2, 1, 1)",
+      "pass": true,
+      "detail": [
+        278.28365936985233,
+        398.3999748461588,
+        120.11631547630657
+      ]
+    },
+    {
+      "name": "nonnegative correction (8, 2, 1, 1)",
+      "pass": true,
+      "detail": 120.11631547630657
+    },
+    {
+      "name": "max residual (8, 2, 1, 1)",
+      "pass": true,
+      "detail": 3.126388037344441e-13
+    },
+    {
+      "name": "moving pressure correction (8, 2, 1, 1)",
+      "pass": true,
+      "detail": 120.11631547630657
+    },
+    {
+      "name": "unique (12, 0, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite pressure terms (12, 0, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "pressure work identity (12, 0, 1, 0)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "nonnegative correction (12, 0, 1, 0)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "max residual (12, 0, 1, 0)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "static zero pressure work (12, 0, 1, 0)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "unique (12, 0, -1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite pressure terms (12, 0, -1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "pressure work identity (12, 0, -1, 1)",
+      "pass": true,
+      "detail": [
+        273.47342429416176,
+        392.0813878564808,
+        118.60796356231985
+      ]
+    },
+    {
+      "name": "nonnegative correction (12, 0, -1, 1)",
+      "pass": true,
+      "detail": 118.60796356231985
+    },
+    {
+      "name": "max residual (12, 0, -1, 1)",
+      "pass": true,
+      "detail": 1.2079226507921703e-12
+    },
+    {
+      "name": "moving pressure correction (12, 0, -1, 1)",
+      "pass": true,
+      "detail": 118.60796356231985
+    },
+    {
+      "name": "unique (12, 0, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite pressure terms (12, 0, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "pressure work identity (12, 0, 1, 1)",
+      "pass": true,
+      "detail": [
+        271.65347331887335,
+        388.43927869954064,
+        116.78580538066771
+      ]
+    },
+    {
+      "name": "nonnegative correction (12, 0, 1, 1)",
+      "pass": true,
+      "detail": 116.78580538066771
+    },
+    {
+      "name": "max residual (12, 0, 1, 1)",
+      "pass": true,
+      "detail": 6.821210263296962e-13
+    },
+    {
+      "name": "moving pressure correction (12, 0, 1, 1)",
+      "pass": true,
+      "detail": 116.78580538066771
+    },
+    {
+      "name": "unique (12, 1, -1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite pressure terms (12, 1, -1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "pressure work identity (12, 1, -1, 1)",
+      "pass": true,
+      "detail": [
+        177.53167982148818,
+        256.0941338950661,
+        78.5624540735771
+      ]
+    },
+    {
+      "name": "nonnegative correction (12, 1, -1, 1)",
+      "pass": true,
+      "detail": 78.5624540735771
+    },
+    {
+      "name": "max residual (12, 1, -1, 1)",
+      "pass": true,
+      "detail": 6.110667527536862e-13
+    },
+    {
+      "name": "moving pressure correction (12, 1, -1, 1)",
+      "pass": true,
+      "detail": 78.5624540735771
+    },
+    {
+      "name": "unique (12, 1, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite pressure terms (12, 1, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "pressure work identity (12, 1, 1, 1)",
+      "pass": true,
+      "detail": [
+        258.93983272458735,
+        368.2115418461621,
+        109.27170912157567
+      ]
+    },
+    {
+      "name": "nonnegative correction (12, 1, 1, 1)",
+      "pass": true,
+      "detail": 109.27170912157567
+    },
+    {
+      "name": "max residual (12, 1, 1, 1)",
+      "pass": true,
+      "detail": 6.750155989720952e-13
+    },
+    {
+      "name": "moving pressure correction (12, 1, 1, 1)",
+      "pass": true,
+      "detail": 109.27170912157567
+    },
+    {
+      "name": "unique (12, 2, -1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite pressure terms (12, 2, -1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "pressure work identity (12, 2, -1, 1)",
+      "pass": true,
+      "detail": [
+        271.8058162485387,
+        388.6326009573848,
+        116.8267847088465
+      ]
+    },
+    {
+      "name": "nonnegative correction (12, 2, -1, 1)",
+      "pass": true,
+      "detail": 116.8267847088465
+    },
+    {
+      "name": "max residual (12, 2, -1, 1)",
+      "pass": true,
+      "detail": 7.815970093361102e-13
+    },
+    {
+      "name": "moving pressure correction (12, 2, -1, 1)",
+      "pass": true,
+      "detail": 116.8267847088465
+    },
+    {
+      "name": "unique (12, 2, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite pressure terms (12, 2, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "pressure work identity (12, 2, 1, 1)",
+      "pass": true,
+      "detail": [
+        273.5501802168065,
+        392.1535266678652,
+        118.60334645105866
+      ]
+    },
+    {
+      "name": "nonnegative correction (12, 2, 1, 1)",
+      "pass": true,
+      "detail": 118.60334645105866
+    },
+    {
+      "name": "max residual (12, 2, 1, 1)",
+      "pass": true,
+      "detail": 3.268496584496461e-13
+    },
+    {
+      "name": "moving pressure correction (12, 2, 1, 1)",
+      "pass": true,
+      "detail": 118.60334645105866
+    },
+    {
+      "name": "complete 3D movement coverage",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "numerical regression (12, 0, -1, 1)",
+      "pass": true,
+      "detail": [
+        273.47342429416176,
+        273.47342429416176
+      ]
+    },
+    {
+      "name": "numerical regression (12, 1, -1, 1)",
+      "pass": true,
+      "detail": [
+        177.53167982148818,
+        177.53167982148818
+      ]
+    }
+  ],
+  "reference": [
+    {
+      "grid": 8,
+      "axis": 0,
+      "direction": 1,
+      "moving": false,
+      "projection_change_j": 0.0,
+      "geometric_pressure_work_j": 0.0,
+      "pressure_correction_energy_j": 0.0,
+      "identity_residual_j": 0.0
+    },
+    {
+      "grid": 8,
+      "axis": 0,
+      "direction": -1,
+      "moving": true,
+      "projection_change_j": 278.2836593698521,
+      "geometric_pressure_work_j": 398.39997484615856,
+      "pressure_correction_energy_j": 120.11631547630631,
+      "identity_residual_j": 3.694822225952521e-13
+    },
+    {
+      "grid": 8,
+      "axis": 0,
+      "direction": 1,
+      "moving": true,
+      "projection_change_j": 276.4868036104839,
+      "geometric_pressure_work_j": 394.79129003520507,
+      "pressure_correction_energy_j": 118.30448642472147,
+      "identity_residual_j": 3.126388037344441e-13
+    },
+    {
+      "grid": 8,
+      "axis": 1,
+      "direction": -1,
+      "moving": true,
+      "projection_change_j": 180.7547005446712,
+      "geometric_pressure_work_j": 259.97844613265335,
+      "pressure_correction_energy_j": 79.2237455879822,
+      "identity_residual_j": 3.410605131648481e-13
+    },
+    {
+      "grid": 8,
+      "axis": 1,
+      "direction": 1,
+      "moving": true,
+      "projection_change_j": 263.774905964468,
+      "geometric_pressure_work_j": 374.54132790968566,
+      "pressure_correction_energy_j": 110.76642194521759,
+      "identity_residual_j": 2.4868995751603507e-13
+    },
+    {
+      "grid": 8,
+      "axis": 2,
+      "direction": -1,
+      "moving": true,
+      "projection_change_j": 276.48680361048355,
+      "geometric_pressure_work_j": 394.7912900352051,
+      "pressure_correction_energy_j": 118.30448642472126,
+      "identity_residual_j": 2.4158453015843406e-13
+    },
+    {
+      "grid": 8,
+      "axis": 2,
+      "direction": 1,
+      "moving": true,
+      "projection_change_j": 278.28365936985233,
+      "geometric_pressure_work_j": 398.3999748461588,
+      "pressure_correction_energy_j": 120.11631547630657,
+      "identity_residual_j": 3.126388037344441e-13
+    },
+    {
+      "grid": 12,
+      "axis": 0,
+      "direction": 1,
+      "moving": false,
+      "projection_change_j": 0.0,
+      "geometric_pressure_work_j": 0.0,
+      "pressure_correction_energy_j": 0.0,
+      "identity_residual_j": 0.0
+    },
+    {
+      "grid": 12,
+      "axis": 0,
+      "direction": -1,
+      "moving": true,
+      "projection_change_j": 273.47342429416176,
+      "geometric_pressure_work_j": 392.0813878564808,
+      "pressure_correction_energy_j": 118.60796356231985,
+      "identity_residual_j": 1.2079226507921703e-12
+    },
+    {
+      "grid": 12,
+      "axis": 0,
+      "direction": 1,
+      "moving": true,
+      "projection_change_j": 271.65347331887335,
+      "geometric_pressure_work_j": 388.43927869954064,
+      "pressure_correction_energy_j": 116.78580538066771,
+      "identity_residual_j": 6.821210263296962e-13
+    },
+    {
+      "grid": 12,
+      "axis": 1,
+      "direction": -1,
+      "moving": true,
+      "projection_change_j": 177.53167982148818,
+      "geometric_pressure_work_j": 256.0941338950661,
+      "pressure_correction_energy_j": 78.5624540735771,
+      "identity_residual_j": 6.110667527536862e-13
+    },
+    {
+      "grid": 12,
+      "axis": 1,
+      "direction": 1,
+      "moving": true,
+      "projection_change_j": 258.93983272458735,
+      "geometric_pressure_work_j": 368.2115418461621,
+      "pressure_correction_energy_j": 109.27170912157567,
+      "identity_residual_j": 6.750155989720952e-13
+    },
+    {
+      "grid": 12,
+      "axis": 2,
+      "direction": -1,
+      "moving": true,
+      "projection_change_j": 271.8058162485387,
+      "geometric_pressure_work_j": 388.6326009573848,
+      "pressure_correction_energy_j": 116.8267847088465,
+      "identity_residual_j": 7.815970093361102e-13
+    },
+    {
+      "grid": 12,
+      "axis": 2,
+      "direction": 1,
+      "moving": true,
+      "projection_change_j": 273.5501802168065,
+      "geometric_pressure_work_j": 392.1535266678652,
+      "pressure_correction_energy_j": 118.60334645105866,
+      "identity_residual_j": 3.268496584496461e-13
+    }
+  ],
+  "source_sha256": {
+    "CMakeLists.txt": "5c0a49fb9411d878a09b746c6c40a57334b67d67aae363c03b3adea3a37211ed",
+    "docs/PHASENPLAN.md": "9089c87a6c2955ddcc06918c39c65100c3751de45598ceb584cd73aad3d593d1",
+    "docs/P2_MOVING_MAC_DUAL_PRESSURE_WORK_PARTIAL.md": "cfeaef7d8b6c2a1e1461343082c3dd267cda3c6522205485a10b1fc21d8dd8ad",
+    "include/upc/p2_moving_mac_dual_pressure_work3d.hpp": "e333e8aba7b33baa907fbee6081bf4e8dba742986177449f4ed2c9057e216abc",
+    "include/upc/p2_moving_mac_shared_predictor3d.hpp": "fce2cde328b2b627cb8f47005758dfc15d6e8db906bf28f3513866d913fb522f",
+    "include/upc/p2_moving_cut_cell_energy3d.hpp": "43156ec3a1a2a93de38ccccfe04e9b550565d346f9fc969bfe0b39aa8ef8209a",
+    "include/upc/p2_moving_box_cut_cell_projection3d.hpp": "7ec9aaaed69aae85be1b26d32460c03de81b95f7ffb26e1f6b18e1185aee3fb6",
+    "tests/p2_moving_mac_dual_pressure_work3d_tests.cpp": "724b8cce5a6572784b48a5d70d4f41f742e32de844e2edaacfc516157a51c1c2",
+    "scripts/p2_moving_mac_dual_pressure_work_full_build.cmd": "786fdbdd03f4c4910538621afa43313ffc1e722fcb77403f96c9725610efcb65",
+    "scripts/p2_moving_mac_dual_pressure_work_acceptance.py": "f79ea7d6152c139792f184a36e66fddec0a219d5ed6147fa823f56731000e1e2"
+  },
+  "ctest_log_sha256": "5bbd4909911cf02e54fd945480cb26d23789e2302b2a4559e05b257060900b51",
+  "unproven": [
+    "common physical momentum tensor across all three MAC duals",
+    "two-way moving rigid-body momentum and total energy",
+    "stress-correct free surface and measured 3D CFD",
+    "live MAC/VOF integration and Unreal 5.8 native E2E"
+  ]
+}
