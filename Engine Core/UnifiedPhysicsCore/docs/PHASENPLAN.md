@@ -885,3 +885,24 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
   Impulstensor. Naechster Schritt: konsistente gemeinsame Impulsfluesse,
   dynamische Wand-Gegenreaktion, freie Oberflaeche, CFD-Messdaten und
   Native-E2E fuer den voll gekoppelten Pfad.
+
+## P2 Teilfortschritt: Primal-MAC-Druckprojektion vor gemeinsamer Dual-Rekonstruktion (28.10.2026)
+
+- `P2MovingMacSharedPredictor3D::project_primal` projiziert optional
+  das gemeinsame Primal-u/v/w-Feld zuerst mit dem tatsaechlichen
+  bewegten Cut-Cell-GCL und rekonstruiert danach korrigierte
+  Primal-Face-Geschwindigkeiten aus zeitintegrierten Volumenfluessen.
+- `step_projected_primal` gibt diese EINMAL primal projizierten
+  Geschwindigkeiten an die drei Dualgitter weiter; die anschliessenden
+  Dual-Projektionen bleiben explizit voneinander unabhaengig.
+- MSVC Release 73/73 CTest PASS; 312870 native Assertions im
+  erweiterten gemeinsamen Test, 12 bewegte 3D-GCL-Faelle,
+  zwei analytische Druckgradient-Nullraumreferenzen und
+  33/33 unabhaengige Teil-Gate-Pruefungen PASS.
+- Nachweise: docs/P2_PRIMAL_PROJECTED_SHARED_PARTIAL.md,
+  scripts/p2_primal_projected_shared_acceptance.py und
+  ENGINE TEST STUBE/runs/p2_primal_projected_shared_partial.json.
+- **P2 weiterhin PARTIAL; P3-P8 offen; ALL_COMPLETE=False.**
+  Keine einheitliche korrigierte Impulsfluss-Tensorbilanz,
+  dynamische Fluid-Solid-Gegenreaktion, freie Oberflaeche,
+  externe 3D-CFD-Messvalidierung oder neues UE5.8 Native-E2E.

@@ -146,6 +146,108 @@ void run(int n,int axis,int sign){
         box=next;
     }
 }
+void primal_projection_cases(){
+    using Wall=upc::P2MovingBoxSweptWallFlux3DBuilder;
+    for(int n:{8,12})for(int axis=0;axis<3;++axis)
+    for(int sign:{-1,1}){
+        const Box box{{3.2,3.1,3.3},{4.7,4.6,4.8}};
+        const auto next=shift(box,axis,sign*0.15);
+        const auto g=Wall::sample(n,n,n,1.0,0.25,box,next).geometry;
+        Faces input=primal_field(n,0.05);
+        const std::array<const std::vector<double>*,3> open{{
+            &g.u_open,&g.v_open,&g.w_open}};
+        for(int f=0;f<3;++f)
+            for(std::size_t i=0;i<input[f].size();++i)
+                if((*open[f])[i]<=1e-12)input[f][i]=0.0;
+        const auto projected=Bridge::project_primal(
+            n,n,n,1.0,0.25,1000.0,box,next,input);
+        double residual=0.0,nonzero=0.0;
+        for(int z=0;z<n;++z)for(int y=0;y<n;++y)
+        for(int x=0;x<n;++x){
+            const auto c=(z*n+y)*n+x;
+            const auto u=(z*n+y)*(n+1)+x;
+            const auto v=(z*(n+1)+y)*n+x;
+            const auto w=(z*n+y)*n+x;
+            const auto q=[&](int f,std::size_t i){
+                return projected.corrected[f][i]*
+                    (*open[f])[i]*0.25;
+            };
+            const double divergence=
+                q(0,u+1)-q(0,u)+q(1,v+n)-q(1,v)+
+                q(2,w+n*n)-q(2,w);
+            const double expected=g.cell_geometry.alpha_old[c]-
+                                  g.cell_geometry.alpha_new[c];
+            residual=std::max(residual,std::abs(divergence-expected));
+        }
+        for(int f=0;f<3;++f)
+            for(std::size_t i=0;i<input[f].size();++i){
+                check(std::isfinite(projected.corrected[f][i]),
+                      "projected primal finite");
+                if((*open[f])[i]<=1e-12)
+                    near(projected.corrected[f][i],0.0,0.0,
+                         "projected primal blocked");
+                nonzero+=std::abs(projected.corrected[f][i]);
+            }
+        check(residual<1e-9,"primal moving GCL independent divergence");
+        check(projected.max_continuity_residual_m3<1e-9,
+              "primal solver GCL");
+        check(nonzero>1e-6,"nonzero projected primal velocity");
+        const auto original=values(n,box);
+        const auto via=Bridge::step_projected_primal(
+            n,n,n,1.0,0.25,1000.0,box,next,input,original);
+        const auto direct=Bridge::step(
+            n,n,n,1.0,0.25,1000.0,box,next,projected.corrected,original);
+        check(via.component_new==direct.component_new,
+              "primal projection passed unchanged to duals");
+        for(int c=0;c<3;++c)
+            near(via.integral_after[c],via.integral_before[c],1e-8,
+                 "projected primal conservative dual transport");
+        std::cout<<"PRIMALPROJ "<<n<<" "<<axis<<" "<<sign<<" "
+                 <<std::setprecision(17)<<residual<<" "<<nonzero<<" "
+                 <<via.max_donor_courant<<"\n";
+    }
+    for(int n:{8,12}){
+        const Box b{{3.2,3.1,3.3},{4.7,4.6,4.8}};
+        const auto g=Wall::sample(n,n,n,1.0,0.25,b,b).geometry;
+        const std::array<const std::vector<double>*,3> open{{
+            &g.u_open,&g.v_open,&g.w_open}};
+        Faces gradient;
+        const auto phi=[](int x,int y,int z){
+            return 0.13*x+0.07*y-0.11*z;
+        };
+        for(int f=0;f<3;++f){
+            std::array<int,3> shape{{n,n,n}};++shape[f];
+            gradient[f].assign(shape[0]*shape[1]*shape[2],0.0);
+            for(int z=0;z<shape[2];++z)
+            for(int y=0;y<shape[1];++y)
+            for(int x=0;x<shape[0];++x){
+                const std::array<int,3> p{{x,y,z}};
+                const auto i=(z*shape[1]+y)*shape[0]+x;
+                if(p[f]==0||p[f]==n||(*open[f])[i]<=1e-12)
+                    continue;
+                auto left=p;--left[f];
+                gradient[f][i]=(phi(left[0],left[1],left[2])-
+                                  phi(x,y,z))/0.25;
+            }
+        }
+        const auto projected=Bridge::project_primal(
+            n,n,n,1.0,0.25,1000.0,b,b,gradient);
+        double maximum=0.0;
+        for(const auto& f:projected.corrected)
+            for(const double v:f)maximum=std::max(maximum,std::abs(v));
+        check(maximum<1e-9,"manufactured gradient annihilated");
+        std::cout<<"PRIMAL_GRADIENT "<<n<<" "<<std::setprecision(17)
+                 <<maximum<<"\n";
+        auto invalid=gradient;
+        invalid[0][0]=0.1; // Exterior normal face is forbidden.
+        rejects([&]{Bridge::project_primal(
+            n,n,n,1.0,0.25,1000.0,b,b,invalid);},
+            "closed primal face rejected");
+        rejects([&]{Bridge::project_primal(
+            n,n,n,1.0,0.25,0.0,b,b,gradient);},
+            "invalid primal density rejected");
+    }
+}
 void zero_and_nonzero(){
     const Box b{{3.2,3.1,3.3},{4.7,4.6,4.8}};
     const auto original=values(12,b);
@@ -183,6 +285,7 @@ int main(){
         for(int n:{8,12,16})for(int a=0;a<3;++a)
             for(int sign:{-1,1})run(n,a,sign);
         zero_and_nonzero();
+        primal_projection_cases();
         std::cout<<"PASS: "<<checks<<" native shared MAC predictor assertions\n";
         return 0;
     }catch(const std::exception& e){

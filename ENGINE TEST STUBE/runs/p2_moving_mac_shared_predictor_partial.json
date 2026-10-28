@@ -4,7 +4,7 @@
   "partial_accepted": true,
   "phase_complete": false,
   "ctest_suites": 73,
-  "native_assertions": 268716,
+  "native_assertions": 312870,
   "checks": [
     {
       "name": "full CTest 73/73",
@@ -19,7 +19,7 @@
     {
       "name": "native checks >= 200000",
       "pass": true,
-      "detail": 268716
+      "detail": 312870
     },
     {
       "name": "nontrivial shared primal advection",
@@ -3066,16 +3066,16 @@
   "source_sha256": {
     "CMakeLists.txt": "757e0ad3424f9df5c0137ba3fcccdeb3f046e92d3a44d1622f39903505702997",
     "docs/P2_MOVING_MAC_SHARED_PREDICTOR_PARTIAL.md": "bfa0b09acaa41f5ae70bb5115d5ad465120ba53758efe0adeebda41deb5564d7",
-    "include/upc/p2_moving_mac_shared_predictor3d.hpp": "8ff91a6f3baf7d99c0ea9c1b0a639ed82fb80b0c21e76d6c8f38bfc16172eafd",
+    "include/upc/p2_moving_mac_shared_predictor3d.hpp": "fce2cde328b2b627cb8f47005758dfc15d6e8db906bf28f3513866d913fb522f",
     "include/upc/p2_moving_mac_dual_transport3d.hpp": "0321d87bbc3898b4a6ff6ed7d8f16578cb3ff41da5c5cbe5d4173b4698b7671a",
     "include/upc/p2_moving_mac_dual_volumes3d.hpp": "b6dcf0444be679dd2bb74d1846e74686c21a33870f50724912dce3a497c83bfa",
     "include/upc/p2_moving_box_cut_cell_projection3d.hpp": "7ec9aaaed69aae85be1b26d32460c03de81b95f7ffb26e1f6b18e1185aee3fb6",
     "include/upc/p2_moving_cut_cell_scalar_transport3d.hpp": "9e3e57855fc2387d076a11a116ee1f80220b813e99542b55065661a6b2c5d206",
-    "tests/p2_moving_mac_shared_predictor3d_tests.cpp": "4f3c5153d5a3e0279cffad861561c091e21efd24d50ea03f94c894ee2d65334e",
+    "tests/p2_moving_mac_shared_predictor3d_tests.cpp": "a869eededd179060218d2214a5501695e8e2470d7df93e17321b80aa7daf1aff",
     "scripts/p2_moving_mac_shared_predictor_full_build.cmd": "d9ec9432940b34fbcdd959fcb442a196ff20f8efc0b0124226551c0e9aa3c1d3",
     "scripts/p2_moving_mac_shared_predictor_acceptance.py": "3025be0de4b3ec586a83881be0a2cdaa26ae204d121c9069fdd6b7b8d26dcc82"
   },
-  "ctest_log_sha256": "751d646e72b7679c0a8d9a0370d0e610b23ead3be4d3ff0b4b90970497639ddb",
+  "ctest_log_sha256": "7950c5fb9a121fc484c5cabd07ec4231489094029e41fe7c3307d44571531dfc",
   "unproven": [
     "single corrected physical MAC dual momentum flux tensor",
     "nonlinear moving-wall Navier-Stokes and bidirectional FSI",

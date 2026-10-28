@@ -76,6 +76,72 @@ public:
         return result;
     }
 
+    // P2 PARTIAL: project ONE primal MAC predictor against the actual
+    // moving-box cell GCL before interpolating it to the three duals.
+    // The subsequent dual pressure solves are still independent.
+    struct PrimalProjection {
+        Faces corrected;
+        double max_continuity_residual_m3=0.0;
+        std::size_t iterations=0;
+    };
+    static PrimalProjection project_primal(
+        std::size_t nx,std::size_t ny,std::size_t nz,
+        double dx,double dt,double rho,
+        const P2Box3D& old_box,const P2Box3D& new_box,
+        const Faces& primal) {
+        if(!std::isfinite(rho)||rho<=0.0)
+            throw std::invalid_argument("Invalid primal projection density");
+        const auto geometry=P2MovingBoxSweptWallFlux3DBuilder::sample(
+            nx,ny,nz,dx,dt,old_box,new_box);
+        const auto& g=geometry.geometry;
+        const std::array<const std::vector<double>*,3> apertures{{
+            &g.u_open,&g.v_open,&g.w_open}};
+        for(int f=0;f<3;++f) {
+            if(primal[f].size()!=apertures[f]->size())
+                throw std::invalid_argument("Primal projection face shape");
+            for(std::size_t i=0;i<primal[f].size();++i)
+                if(!std::isfinite(primal[f][i])||
+                   ((*apertures[f])[i]<=1e-12&&primal[f][i]!=0.0))
+                    throw std::invalid_argument("Primal blocked/nonfinite face");
+        }
+        const auto projected=
+            P2MovingBoxCutCellProjection3DBuilder::sample_with_predictor(
+                nx,ny,nz,dx,dt,rho,old_box,new_box,
+                primal[0],primal[1],primal[2]);
+        const std::array<const std::vector<double>*,3> flux{{
+            &projected.u_fluid_m3,&projected.v_fluid_m3,
+            &projected.w_fluid_m3}};
+        const double area_time=dt*dx*dx;
+        if(!std::isfinite(area_time)||area_time<=0.0)
+            throw std::invalid_argument("Primal area-time overflow");
+        PrimalProjection result;
+        result.max_continuity_residual_m3=
+            projected.max_continuity_residual_m3;
+        result.iterations=projected.cg_iterations;
+        for(int f=0;f<3;++f) {
+            result.corrected[f].assign(primal[f].size(),0.0);
+            for(std::size_t i=0;i<primal[f].size();++i) {
+                const double aperture=(*apertures[f])[i];
+                if(aperture<=1e-12)continue;
+                const double value=(*flux[f])[i]/(area_time*aperture);
+                if(!std::isfinite(value))
+                    throw std::runtime_error("Nonfinite corrected primal face");
+                result.corrected[f][i]=value;
+            }
+        }
+        return result;
+    }
+    static P2MovingMacDualTransportResult3D step_projected_primal(
+        std::size_t nx,std::size_t ny,std::size_t nz,
+        double dx,double dt,double rho,
+        const P2Box3D& old_box,const P2Box3D& new_box,
+        const Faces& primal,const Faces& component_old) {
+        const auto projected=project_primal(
+            nx,ny,nz,dx,dt,rho,old_box,new_box,primal);
+        return step(nx,ny,nz,dx,dt,rho,old_box,new_box,
+                    projected.corrected,component_old);
+    }
+
     // Conservatively advect signed dual component values using the
     // reconstructed common primal predictor and separately projected
     // moving-box dual fluxes. No caller-owned input is mutated.

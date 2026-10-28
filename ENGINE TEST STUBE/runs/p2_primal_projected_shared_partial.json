@@ -1,0 +1,347 @@
+{
+  "phase": "P2",
+  "milestone": "primal_projected_shared_mac",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "ctest_suites": 73,
+  "native_assertions": 312870,
+  "checks": [
+    {
+      "name": "complete 73/73 native CTest",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "new shared-MAC test included",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "native assertions >= 300000",
+      "pass": true,
+      "detail": 312870
+    },
+    {
+      "name": "12 moving primal projection cases",
+      "pass": true,
+      "detail": 12
+    },
+    {
+      "name": "unique (8, 0, -1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent GCL/active transport/CFL (8, 0, -1)",
+      "pass": true,
+      "detail": {
+        "residual_m3": 4.450396214744634e-13,
+        "velocity_l1": 18.57924141543301,
+        "donor_cfl": 0.4821428571441262
+      }
+    },
+    {
+      "name": "unique (8, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent GCL/active transport/CFL (8, 0, 1)",
+      "pass": true,
+      "detail": {
+        "residual_m3": 9.508964796123287e-13,
+        "velocity_l1": 19.082446343492958,
+        "donor_cfl": 0.36486486486483416
+      }
+    },
+    {
+      "name": "unique (8, 1, -1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent GCL/active transport/CFL (8, 1, -1)",
+      "pass": true,
+      "detail": {
+        "residual_m3": 6.354825519971907e-13,
+        "velocity_l1": 18.033740055161203,
+        "donor_cfl": 0.2857142857146354
+      }
+    },
+    {
+      "name": "unique (8, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent GCL/active transport/CFL (8, 1, 1)",
+      "pass": true,
+      "detail": {
+        "residual_m3": 6.997666335273323e-13,
+        "velocity_l1": 18.857587693568547,
+        "donor_cfl": 0.2307692307698853
+      }
+    },
+    {
+      "name": "unique (8, 2, -1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent GCL/active transport/CFL (8, 2, -1)",
+      "pass": true,
+      "detail": {
+        "residual_m3": 8.832348914744603e-13,
+        "velocity_l1": 19.0975606394183,
+        "donor_cfl": 0.36486486486376546
+      }
+    },
+    {
+      "name": "unique (8, 2, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent GCL/active transport/CFL (8, 2, 1)",
+      "pass": true,
+      "detail": {
+        "residual_m3": 5.947174176734737e-13,
+        "velocity_l1": 18.300114467503352,
+        "donor_cfl": 0.4821428571438213
+      }
+    },
+    {
+      "name": "unique (12, 0, -1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent GCL/active transport/CFL (12, 0, -1)",
+      "pass": true,
+      "detail": {
+        "residual_m3": 7.204042050401593e-13,
+        "velocity_l1": 60.49986676348044,
+        "donor_cfl": 0.4821428571429649
+      }
+    },
+    {
+      "name": "unique (12, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent GCL/active transport/CFL (12, 0, 1)",
+      "pass": true,
+      "detail": {
+        "residual_m3": 7.4570991742684e-13,
+        "velocity_l1": 61.39101939129603,
+        "donor_cfl": 0.3648648648651476
+      }
+    },
+    {
+      "name": "unique (12, 1, -1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent GCL/active transport/CFL (12, 1, -1)",
+      "pass": true,
+      "detail": {
+        "residual_m3": 6.908492874990735e-13,
+        "velocity_l1": 60.32808045074401,
+        "donor_cfl": 0.28571428571437063
+      }
+    },
+    {
+      "name": "unique (12, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent GCL/active transport/CFL (12, 1, 1)",
+      "pass": true,
+      "detail": {
+        "residual_m3": 8.819065269727311e-13,
+        "velocity_l1": 61.01645618000965,
+        "donor_cfl": 0.2307692307693377
+      }
+    },
+    {
+      "name": "unique (12, 2, -1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent GCL/active transport/CFL (12, 2, -1)",
+      "pass": true,
+      "detail": {
+        "residual_m3": 9.847374651816843e-13,
+        "velocity_l1": 61.32348703652548,
+        "donor_cfl": 0.364864864865224
+      }
+    },
+    {
+      "name": "unique (12, 2, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent GCL/active transport/CFL (12, 2, 1)",
+      "pass": true,
+      "detail": {
+        "residual_m3": 8.582323220152066e-13,
+        "velocity_l1": 60.52701650724926,
+        "donor_cfl": 0.4821428571427816
+      }
+    },
+    {
+      "name": "all 12 cases covered",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "2 independent manufactured gradients",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "both grids gradient coverage",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "gradient annihilation n=8",
+      "pass": true,
+      "detail": 1.5698227032016008e-12
+    },
+    {
+      "name": "gradient annihilation n=12",
+      "pass": true,
+      "detail": 1.2607692667643278e-12
+    }
+  ],
+  "reference": [
+    {
+      "grid": 8,
+      "axis": 0,
+      "sign": -1,
+      "residual_m3": 4.450396214744634e-13,
+      "velocity_l1_m_s": 18.57924141543301,
+      "donor_cfl": 0.4821428571441262
+    },
+    {
+      "grid": 8,
+      "axis": 0,
+      "sign": 1,
+      "residual_m3": 9.508964796123287e-13,
+      "velocity_l1_m_s": 19.082446343492958,
+      "donor_cfl": 0.36486486486483416
+    },
+    {
+      "grid": 8,
+      "axis": 1,
+      "sign": -1,
+      "residual_m3": 6.354825519971907e-13,
+      "velocity_l1_m_s": 18.033740055161203,
+      "donor_cfl": 0.2857142857146354
+    },
+    {
+      "grid": 8,
+      "axis": 1,
+      "sign": 1,
+      "residual_m3": 6.997666335273323e-13,
+      "velocity_l1_m_s": 18.857587693568547,
+      "donor_cfl": 0.2307692307698853
+    },
+    {
+      "grid": 8,
+      "axis": 2,
+      "sign": -1,
+      "residual_m3": 8.832348914744603e-13,
+      "velocity_l1_m_s": 19.0975606394183,
+      "donor_cfl": 0.36486486486376546
+    },
+    {
+      "grid": 8,
+      "axis": 2,
+      "sign": 1,
+      "residual_m3": 5.947174176734737e-13,
+      "velocity_l1_m_s": 18.300114467503352,
+      "donor_cfl": 0.4821428571438213
+    },
+    {
+      "grid": 12,
+      "axis": 0,
+      "sign": -1,
+      "residual_m3": 7.204042050401593e-13,
+      "velocity_l1_m_s": 60.49986676348044,
+      "donor_cfl": 0.4821428571429649
+    },
+    {
+      "grid": 12,
+      "axis": 0,
+      "sign": 1,
+      "residual_m3": 7.4570991742684e-13,
+      "velocity_l1_m_s": 61.39101939129603,
+      "donor_cfl": 0.3648648648651476
+    },
+    {
+      "grid": 12,
+      "axis": 1,
+      "sign": -1,
+      "residual_m3": 6.908492874990735e-13,
+      "velocity_l1_m_s": 60.32808045074401,
+      "donor_cfl": 0.28571428571437063
+    },
+    {
+      "grid": 12,
+      "axis": 1,
+      "sign": 1,
+      "residual_m3": 8.819065269727311e-13,
+      "velocity_l1_m_s": 61.01645618000965,
+      "donor_cfl": 0.2307692307693377
+    },
+    {
+      "grid": 12,
+      "axis": 2,
+      "sign": -1,
+      "residual_m3": 9.847374651816843e-13,
+      "velocity_l1_m_s": 61.32348703652548,
+      "donor_cfl": 0.364864864865224
+    },
+    {
+      "grid": 12,
+      "axis": 2,
+      "sign": 1,
+      "residual_m3": 8.582323220152066e-13,
+      "velocity_l1_m_s": 60.52701650724926,
+      "donor_cfl": 0.4821428571427816
+    }
+  ],
+  "manufactured_gradient": [
+    [
+      "8",
+      "1.5698227032016008e-12"
+    ],
+    [
+      "12",
+      "1.2607692667643278e-12"
+    ]
+  ],
+  "source_sha256": {
+    "include/upc/p2_moving_mac_shared_predictor3d.hpp": "fce2cde328b2b627cb8f47005758dfc15d6e8db906bf28f3513866d913fb522f",
+    "include/upc/p2_moving_box_cut_cell_projection3d.hpp": "7ec9aaaed69aae85be1b26d32460c03de81b95f7ffb26e1f6b18e1185aee3fb6",
+    "include/upc/p2_moving_box_swept_wall_flux3d.hpp": "80d299136f57df0b479d598468c39bf67675524942557701f99b40fe897a656e",
+    "include/upc/p2_moving_mac_dual_transport3d.hpp": "0321d87bbc3898b4a6ff6ed7d8f16578cb3ff41da5c5cbe5d4173b4698b7671a",
+    "tests/p2_moving_mac_shared_predictor3d_tests.cpp": "a869eededd179060218d2214a5501695e8e2470d7df93e17321b80aa7daf1aff",
+    "scripts/p2_primal_projected_shared_acceptance.py": "e3eb1817e28f13e8c99d7355c29be2eb26ef031bdf3e8de6542e85fea52ccbc7",
+    "docs/P2_PRIMAL_PROJECTED_SHARED_PARTIAL.md": "0ba397c374d80de4daf2cbf0e51716657b709d94f8e08cfa9c9b6a5c169b1682"
+  },
+  "ctest_log_sha256": "7950c5fb9a121fc484c5cabd07ec4231489094029e41fe7c3307d44571531dfc",
+  "unproven": [
+    "one corrected physical momentum tensor on all dual grids",
+    "bidirectional moving-solid fluid momentum and energy",
+    "free-surface stresses and measured independent 3D CFD",
+    "live CoupledMacWater3D and Unreal 5.8 Native E2E"
+  ]
+}
