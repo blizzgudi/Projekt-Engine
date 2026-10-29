@@ -14,6 +14,12 @@
 - Volle Einheitsfuellung als diskrete Invariante; echte teilweise blockierte Zellvolumina und Face-Aperturen eines stationaeren 3D-Quaders; acht Negativtests (Grenzfluss, Festkoerper, Divergenz, CFL, NaN, ungueltige Fuellung, Arraygroesse, dt=0).
 - MSVC-Release, komplette CTest-Suite und reproduzierbarer JSON-Teilnachweis in `ENGINE TEST STUBE/runs/p2_static_cut_cell_vof_partial.json` mit SHA256 von Quellcode und CTest-Log.
 
+## Zusatz: nichtuniforme MAC-Zeitfolgen mit gemeinsamem CFL-Budget (30.10.2026)
+
+- step_velocity_sequence_adaptive verarbeitet vorgeschriebene U/V/W-MAC-Felder mit unterschiedlichen positiven Zeitscheibendauern. Pro Scheibe wird eine geometrisch sichere Donor-CFL-Teilstepzahl gewaehlt; ein gemeinsames Budget (maximal 1024) verhindert unbegrenzte Arbeit.
+- Native 8^3/12^3: vier ungleiche Zeitscheiben mit wechselnden dreiachsigen Wirbelfeldern, unabhaengige manuelle CFL-/Teilstep-Referenz, exakte Zellparitaet, Massenbilanz und Fuellgrenzen. Spaetere NaN-/Divergenz-/Zeitfehler und unzureichendes Gesamtbudget werden abgewiesen.
+- Die bisherigen Methoden bleiben unveraendert. Dies ist keine Navier-Stokes-Zeitintegration und keine bewegte FSI. P2-P8 bleiben PARTIAL.
+
 ## Grenzen
 - Nur passiver Skalartransport auf vorgeschriebenem, stationaerem MAC-Geschwindigkeitsfeld, **kein** eigenstaendiger Navier-Stokes-Druck-/Impulsschritt.
 - Kein Moving-Cut-Cell-GCL, keine bewegte Festkoerper-Gegenreaktion, keine dynamisch berechnete Oberflaechenspannung, keine VOF-Interface-Rekonstruktion (nur diffusive first-order Upwind-Advektion).

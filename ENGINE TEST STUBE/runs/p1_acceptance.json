@@ -2,7 +2,7 @@
   "schema_version": 1,
   "phase": "P1",
   "accepted": true,
-  "generated_utc": "2026-10-29T20:40:51.868987+00:00",
+  "generated_utc": "2026-10-29T23:32:19.064169+00:00",
   "scope": "2D depth-averaged CPU shallow-water solver only, not volumetric CFD",
   "source_sha256": {
     "include/upc/core.hpp": "08114486924261c69c423dc5b5f30ab3a575c3cf5211b3898ce8ceb7a72b00a6",
@@ -73,19 +73,19 @@
       "experiment": "shallow_water_2d",
       "cells": "1024",
       "iterations": "30",
-      "time_ms": "7.5955"
+      "time_ms": "7.3191"
     },
     {
       "experiment": "shallow_water_2d",
       "cells": "4096",
       "iterations": "30",
-      "time_ms": "22.5782"
+      "time_ms": "21.8841"
     },
     {
       "experiment": "shallow_water_2d",
       "cells": "9216",
       "iterations": "30",
-      "time_ms": "28.9811"
+      "time_ms": "29.0935"
     }
   ],
   "checks": [
@@ -308,19 +308,19 @@
     {
       "name": "p1_cpu_benchmark_finite_1024",
       "pass": true,
-      "value": 7.5955,
+      "value": 7.3191,
       "tolerance": "positive finite milliseconds"
     },
     {
       "name": "p1_cpu_benchmark_finite_4096",
       "pass": true,
-      "value": 22.5782,
+      "value": 21.8841,
       "tolerance": "positive finite milliseconds"
     },
     {
       "name": "p1_cpu_benchmark_finite_9216",
       "pass": true,
-      "value": 28.9811,
+      "value": 29.0935,
       "tolerance": "positive finite milliseconds"
     }
   ],

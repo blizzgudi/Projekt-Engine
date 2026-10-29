@@ -1228,3 +1228,15 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
 - Opt-in step_velocity_sequence: vier unterschiedliche vorgeschriebene 3D-MAC-Felder, stationaere Cut-Cells, konservativer Upwind-VOF-Transport mit Einzelstep-Validierung.
 - 8^3/12^3 Native-Tests, manuelle Vier-Step-Referenz, Wassererhaltung, Divergenz-/CFL-/NaN-Negativtests und SHA256-Teilnachweis in docs/P2_STATIC_CUT_CELL_VOF_PARTIAL.md.
 - **P2-P8 bleiben PARTIAL; ALL_COMPLETE=False.** Keine dynamische Navier-Stokes-/FSI-Kopplung, keine externe 3D-CFD-Validierung und keine neue UE5.8-Native-E2E.
+
+
+## P2 Zusatz: nichtuniforme vorgeschriebene MAC-VOF-Zeitfolgen (30.10.2026)
+
+- step_velocity_sequence_adaptive akzeptiert unterschiedliche positive
+  Zeitdauern pro externem U/V/W-Feld. Jeder Abschnitt erhaelt sichere
+  geometrische CFL-Teilsteps unter einem gemeinsamen Limit von 1024.
+- Native 8^3/12^3, manuelle Referenz, Massen-/Fuellgrenzen,
+  Negativtests und SHA-JSON-Teilgate.
+- P2-P8 PARTIAL, ALL_COMPLETE=False: weiterhin vorgeschriebene
+  MAC-Felder, stationaere Cut-Cells, keine physikalische FSI-
+  Impuls-/Energieerhaltung oder externe CFD-/UE5.8-Native-E2E-Abnahme.

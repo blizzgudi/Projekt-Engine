@@ -172,6 +172,46 @@ public:
         total.substeps_used=count;
         return total;
     }
+    // Unequal time slices of prescribed MAC fields, with a shared CFL budget.
+    // Passive transport only; not a Navier-Stokes or two-way FSI solver.
+    static P2StaticCutCellVofResult3D step_velocity_sequence_adaptive(
+        std::size_t nx,std::size_t ny,std::size_t nz,double dx,
+        const P2Box3D& stationary_box,const std::vector<double>& fraction,
+        const std::vector<double>& durations_s,
+        const std::vector<std::vector<double>>& u_steps,
+        const std::vector<std::vector<double>>& v_steps,
+        const std::vector<std::vector<double>>& w_steps,
+        double target_donor_cfl=0.8,std::size_t max_total_substeps=1024) {
+        const auto count=durations_s.size();
+        if(count==0||count>1024||u_steps.size()!=count||
+           v_steps.size()!=count||w_steps.size()!=count||
+           max_total_substeps==0||max_total_substeps>1024||
+           count>max_total_substeps||
+           !std::isfinite(target_donor_cfl)||target_donor_cfl<=0||
+           target_donor_cfl>1)
+            throw std::invalid_argument("Invalid adaptive VOF sequence controls");
+        auto state=fraction;
+        P2StaticCutCellVofResult3D total;
+        total.substeps_used=0;
+        for(std::size_t k=0;k<count;++k) {
+            if(!std::isfinite(durations_s[k])||durations_s[k]<=0)
+                throw std::invalid_argument("Invalid adaptive VOF slice duration");
+            const auto remaining=max_total_substeps-total.substeps_used;
+            auto next=step_auto_subcycled(
+                nx,ny,nz,dx,durations_s[k],stationary_box,state,
+                u_steps[k],v_steps[k],w_steps[k],target_donor_cfl,remaining);
+            if(k==0)total.water_before_m3=next.water_before_m3;
+            total.water_after_m3=next.water_after_m3;
+            total.max_donor_cfl=std::max(total.max_donor_cfl,next.max_donor_cfl);
+            total.max_cell_volume_divergence_m3=std::max(
+                total.max_cell_volume_divergence_m3,
+                next.max_cell_volume_divergence_m3);
+            total.substeps_used+=next.substeps_used;
+            state=std::move(next.fraction_after);
+        }
+        total.fraction_after=std::move(state);
+        return total;
+    }
     // Select a safe number of substeps from the *geometric* outgoing
     // donor-CFL, independent of the evolving water fraction. A pilot
     // step at dt/max_substeps validates the same sealed-face, cut-cell,

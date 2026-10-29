@@ -107,6 +107,21 @@ def main():
         check(f"{n} time-varying equals independent step calls",
               error<1e-14 and diff>1e-5)
         check(f"{n} time-varying donor CFL",0<cfl<=1)
+    adaptive=re.findall(r"^VOF_ADAPTIVE (\d+) (\d+) ([\d.eE+-]+) "
+                        r"([\d.eE+-]+) ([\d.eE+-]+)$",
+                        output,re.MULTILINE)
+    check("unequal adaptive MAC slices on both 3D grids",
+          len(adaptive)==2,[r[0] for r in adaptive])
+    for row in adaptive:
+        n,k=int(row[0]),int(row[1])
+        before,after,cfl=map(float,row[2:])
+        check(f"{n} cubed nonuniform adaptive slice substeps",
+              n in (8,12) and 4<k<=1024,(n,k))
+        check(f"{n} adaptive sequence water conserved",
+              math.isfinite(before) and before>0 and
+              abs(before-after)<1e-10,(before,after))
+        check(f"{n} adaptive sequence geometric CFL",
+              0<cfl<=0.8+1e-12,cfl)
     check("eight physical/numeric rejection tests",
           "VOF_NEGATIVE 8" in output)
     hashes={name:sha(CORE/name) for name in SOURCES}
@@ -119,7 +134,7 @@ def main():
         "limitations":[
             "prescribed solenoidal MAC velocity and stationary cut-cell geometry",
             "first-order diffusive donor-cell advection, no interface reconstruction",
-            "caller-controlled temporal subcycling, not adaptive CFD",
+            "bounded geometric CFL subcycling on prescribed fields, not adaptive CFD",
             "no pressure/impulse time integration or moving-solid counterreaction",
             "no global physical FSI energy/momentum conservation",
             "no external measured 3D CFD or new Unreal 5.8 Native-E2E",

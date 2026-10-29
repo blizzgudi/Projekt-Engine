@@ -274,6 +274,90 @@ void velocity_sequence(int n) {
              <<actual.water_before_m3<<" "<<actual.water_after_m3
              <<" "<<error<<" "<<difference<<" "<<actual.max_donor_cfl<<"\n";
 }
+void adaptive_velocity_sequence(int n) {
+    Setup s(n);
+    const std::vector<double> durations{0.1,0.025,0.08,0.05};
+    const std::vector<double> factors{40.0,-30.0,50.0,-20.0};
+    std::vector<std::vector<double>> us,vs,ws;
+    for(double factor:factors) {
+        auto u=s.u,v=s.v,w=s.w;
+        for(double& x:u)x*=factor;
+        for(double& x:v)x*=factor;
+        for(double& x:w)x*=factor;
+        us.push_back(std::move(u));
+        vs.push_back(std::move(v));
+        ws.push_back(std::move(w));
+    }
+    const auto actual=upc::P2StaticCutCellVof3D::step_velocity_sequence_adaptive(
+        n,n,n,1.0,s.box,s.f,durations,us,vs,ws);
+    auto manual=s.f;
+    std::size_t expected=0;
+    for(std::size_t k=0;k<durations.size();++k) {
+        const auto pilot=upc::P2StaticCutCellVof3D::step(
+            n,n,n,1.0,durations[k]/1024.0,s.box,manual,
+            us[k],vs[k],ws[k]);
+        const auto steps=std::max<std::size_t>(1,static_cast<std::size_t>(
+            std::ceil(pilot.max_donor_cfl*1024.0/0.8)));
+        check(steps>=1&&steps<=1024,"independent per-slice CFL count");
+        expected+=steps;
+        manual=upc::P2StaticCutCellVof3D::step_subcycled(
+            n,n,n,1.0,durations[k],s.box,manual,
+            us[k],vs[k],ws[k],steps).fraction_after;
+    }
+    check(expected>durations.size()&&expected<=1024,
+          "unequal time slices require adaptive substeps");
+    check(actual.substeps_used==expected,"shared adaptive work count");
+    check(actual.fraction_after==manual,
+          "adaptive sequence exactly matches independent manual integration");
+    near(actual.water_before_m3,actual.water_after_m3,1e-10,
+         "adaptive unequal-slice volume conserved");
+    check(actual.max_donor_cfl>0&&actual.max_donor_cfl<=0.8+1e-12,
+          "adaptive unequal-slice donor CFL target");
+    for(double x:actual.fraction_after)
+        check(x>=0&&x<=1,"adaptive VOF bounded on all cells");
+    const auto one=upc::P2StaticCutCellVof3D::step_velocity_sequence_adaptive(
+        n,n,n,1.0,s.box,s.f,{0.001},{s.u},{s.v},{s.w});
+    check(one.substeps_used==1&&
+          one.fraction_after==s.run(s.f,0.001).fraction_after,
+          "one safe slice retains exact legacy parity");
+    rejects([&]{upc::P2StaticCutCellVof3D::step_velocity_sequence_adaptive(
+        n,n,n,1.0,s.box,s.f,{}, {}, {}, {});},
+        "empty adaptive sequence rejected");
+    rejects([&]{upc::P2StaticCutCellVof3D::step_velocity_sequence_adaptive(
+        n,n,n,1.0,s.box,s.f,durations,us,vs,{});},
+        "mismatched adaptive sequence rejected");
+    auto bad_times=durations;
+    bad_times[2]=0.0;
+    rejects([&]{upc::P2StaticCutCellVof3D::step_velocity_sequence_adaptive(
+        n,n,n,1.0,s.box,s.f,bad_times,us,vs,ws);},
+        "zero later slice duration rejected");
+    bad_times[2]=std::numeric_limits<double>::infinity();
+    rejects([&]{upc::P2StaticCutCellVof3D::step_velocity_sequence_adaptive(
+        n,n,n,1.0,s.box,s.f,bad_times,us,vs,ws);},
+        "nonfinite later slice duration rejected");
+    auto bad_u=us;
+    bad_u[2][s.ui(1,0,1)]+=0.1;
+    rejects([&]{upc::P2StaticCutCellVof3D::step_velocity_sequence_adaptive(
+        n,n,n,1.0,s.box,s.f,durations,bad_u,vs,ws);},
+        "non-solenoidal later slice rejected");
+    bad_u=us;
+    bad_u[2][s.ui(1,0,1)]=std::numeric_limits<double>::quiet_NaN();
+    rejects([&]{upc::P2StaticCutCellVof3D::step_velocity_sequence_adaptive(
+        n,n,n,1.0,s.box,s.f,durations,bad_u,vs,ws);},
+        "nonfinite later velocity rejected");
+    rejects([&]{upc::P2StaticCutCellVof3D::step_velocity_sequence_adaptive(
+        n,n,n,1.0,s.box,s.f,durations,us,vs,ws,0.8,expected-1);},
+        "insufficient shared substep budget rejected");
+    rejects([&]{upc::P2StaticCutCellVof3D::step_velocity_sequence_adaptive(
+        n,n,n,1.0,s.box,s.f,durations,us,vs,ws,0.8,0);},
+        "zero shared substep budget rejected");
+    rejects([&]{upc::P2StaticCutCellVof3D::step_velocity_sequence_adaptive(
+        n,n,n,1.0,s.box,s.f,durations,us,vs,ws,1.01);},
+        "invalid adaptive target CFL rejected");
+    std::cout<<"VOF_ADAPTIVE "<<n<<" "<<expected<<" "
+             <<std::setprecision(17)<<actual.water_before_m3<<" "
+             <<actual.water_after_m3<<" "<<actual.max_donor_cfl<<"\n";
+}
 void negatives() {
     Setup s(8);
     auto bad=s;
@@ -310,6 +394,8 @@ int main() {
         automatic_subcycling(12);
         velocity_sequence(8);
         velocity_sequence(12);
+        adaptive_velocity_sequence(8);
+        adaptive_velocity_sequence(12);
         negatives();
         std::cout<<"PASS: "<<assertions
                  <<" native static 3D cut-cell VOF assertions\n";
