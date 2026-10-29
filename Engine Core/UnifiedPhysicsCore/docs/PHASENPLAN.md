@@ -1110,3 +1110,23 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
 - **P2-P8 bleiben PARTIAL, ALL_COMPLETE=False.** Offene
   freie-Oberflaechen-/MAC-Gegenreaktion, physikalische Gesamtbilanzen,
   externe CFD-Referenzen und UE5.8-Native-E2E dieses Pfads.
+
+## P2 Teilfortschritt: diskreter hydrostatischer Energiegradient (29.10.2026)
+
+- Neuer opt-in `P2HydrostaticDiscreteGradient3D`: die Auftriebskraft wird
+  ueber die tatsaechliche vertikale Starrkoerper-Verschiebung integriert,
+  inklusive Nass/Trocken-Uebergang. Der bisherige eingefrorene Kraftschritt
+  bleibt als Vergleich unveraendert. Exakte diskrete Starrkoerper-
+  Potential-/Kinetikbilanz fuer einen fest vorgegebenen Wasserstand.
+- MSVC-Release, komplette 84/84 CTest-Suites, 48 analytisch kontrollierte
+  Konfigurationen (8^3/12^3, sechs Wasserstaende, g=0/9.81, +/- v0),
+  numerisch unabhaengige Auftriebswegmittelung, Nass/Trocken-Uebergaenge,
+  Neutralauftrieb, Zeitumkehr und Negativfaelle. Quantitatives Gate:
+  scripts/p2_hydrostatic_discrete_gradient_acceptance.py.
+  Nachweise: docs/P2_HYDROSTATIC_DISCRETE_GRADIENT_PARTIAL.md und
+  ENGINE TEST STUBE/runs/p2_hydrostatic_discrete_gradient_partial.json.
+- **P2-P8 bleiben PARTIAL, ALL_COMPLETE=False.** Die Energieabnahme
+  betrifft nur den Starrkoerper im eingefrorenen Wasserpotential. Keine
+  angewendete MAC/VOF-Gegenreaktion, keine dynamische Wasseroberflaeche,
+  keine globale FSI-Energie-/Impulserhaltung, keine externen 3D-CFD-
+  Messdaten und kein Unreal-5.8-Native-E2E dieses neuen Pfads.

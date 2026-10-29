@@ -440,3 +440,10 @@ add_test(NAME physics_p2_stratified_hydrostatic_load_partial COMMAND upc_p2_stra
 add_executable(upc_p2_hydrostatic_gravity_tests tests/p2_hydrostatic_gravity3d_tests.cpp)
 target_link_libraries(upc_p2_hydrostatic_gravity_tests PRIVATE upc)
 add_test(NAME physics_p2_hydrostatic_gravity_energy_partial COMMAND upc_p2_hydrostatic_gravity_tests)
+# P2 PARTIAL: optional fixed-level hydrostatic discrete-gradient rigid integration.
+# Energy closes only for the rigid body in a prescribed stationary bath.
+add_executable(upc_p2_hydrostatic_discrete_gradient_tests
+    tests/p2_hydrostatic_discrete_gradient3d_tests.cpp)
+target_link_libraries(upc_p2_hydrostatic_discrete_gradient_tests PRIVATE upc)
+add_test(NAME physics_p2_hydrostatic_discrete_gradient_partial
+    COMMAND upc_p2_hydrostatic_discrete_gradient_tests)

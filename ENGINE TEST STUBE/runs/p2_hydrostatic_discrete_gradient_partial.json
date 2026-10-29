@@ -1,0 +1,1838 @@
+{
+  "phase": "P2",
+  "milestone": "hydrostatic_discrete_gradient_body_only_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "ctest_suites": 84,
+  "native_assertions": 644,
+  "checks": [
+    {
+      "name": "84/84 CTest",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "new native suite included",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "native assertions >= 640",
+      "pass": true,
+      "detail": 644
+    },
+    {
+      "name": "48 analytic configurations",
+      "pass": true,
+      "detail": 48
+    },
+    {
+      "name": "unique (8, 0.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent potential gradient (8, 0.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "momentum (8, 0.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent body energy (8, 0.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "reported body defect (8, 0.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (8, 0.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent potential gradient (8, 0.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        -0.0
+      ]
+    },
+    {
+      "name": "momentum (8, 0.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent body energy (8, 0.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "reported body defect (8, 0.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (8, 0.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent potential gradient (8, 0.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "momentum (8, 0.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent body energy (8, 0.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "reported body defect (8, 0.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": -7.958078640513122e-13
+    },
+    {
+      "name": "unique (8, 0.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent potential gradient (8, 0.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        -0.0
+      ]
+    },
+    {
+      "name": "momentum (8, 0.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent body energy (8, 0.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "reported body defect (8, 0.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": 5.684341886080802e-14
+    },
+    {
+      "name": "unique (8, 3.125, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent potential gradient (8, 3.125, 0.0, -0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "momentum (8, 3.125, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent body energy (8, 3.125, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "reported body defect (8, 3.125, 0.0, -0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (8, 3.125, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent potential gradient (8, 3.125, 0.0, 0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        -0.0
+      ]
+    },
+    {
+      "name": "momentum (8, 3.125, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent body energy (8, 3.125, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "reported body defect (8, 3.125, 0.0, 0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (8, 3.125, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent potential gradient (8, 3.125, 9.81, -0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "momentum (8, 3.125, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent body energy (8, 3.125, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "reported body defect (8, 3.125, 9.81, -0.4)",
+      "pass": true,
+      "detail": -7.958078640513122e-13
+    },
+    {
+      "name": "unique (8, 3.125, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent potential gradient (8, 3.125, 9.81, 0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        -0.0
+      ]
+    },
+    {
+      "name": "momentum (8, 3.125, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent body energy (8, 3.125, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "reported body defect (8, 3.125, 9.81, 0.4)",
+      "pass": true,
+      "detail": 5.684341886080802e-14
+    },
+    {
+      "name": "unique (8, 4.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent potential gradient (8, 4.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "momentum (8, 4.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent body energy (8, 4.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "reported body defect (8, 4.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (8, 4.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent potential gradient (8, 4.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        -0.0
+      ]
+    },
+    {
+      "name": "momentum (8, 4.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent body energy (8, 4.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "reported body defect (8, 4.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (8, 4.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent potential gradient (8, 4.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": [
+        20146.00146384408,
+        20146.001463844143
+      ]
+    },
+    {
+      "name": "momentum (8, 4.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent body energy (8, 4.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "reported body defect (8, 4.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": -4.831690603168681e-13
+    },
+    {
+      "name": "unique (8, 4.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent potential gradient (8, 4.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": [
+        20045.553370377176,
+        20045.553370377074
+      ]
+    },
+    {
+      "name": "momentum (8, 4.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent body energy (8, 4.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "reported body defect (8, 4.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": -3.836930773104541e-13
+    },
+    {
+      "name": "unique (8, 4.35, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent potential gradient (8, 4.35, 0.0, -0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "momentum (8, 4.35, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent body energy (8, 4.35, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "reported body defect (8, 4.35, 0.0, -0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (8, 4.35, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent potential gradient (8, 4.35, 0.0, 0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        -0.0
+      ]
+    },
+    {
+      "name": "momentum (8, 4.35, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent body energy (8, 4.35, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "reported body defect (8, 4.35, 0.0, 0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (8, 4.35, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent potential gradient (8, 4.35, 9.81, -0.4)",
+      "pass": true,
+      "detail": [
+        28935.209642197795,
+        28935.20964220119
+      ]
+    },
+    {
+      "name": "momentum (8, 4.35, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent body energy (8, 4.35, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "reported body defect (8, 4.35, 9.81, -0.4)",
+      "pass": true,
+      "detail": -5.684341886080801e-13
+    },
+    {
+      "name": "unique (8, 4.35, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent potential gradient (8, 4.35, 9.81, 0.4)",
+      "pass": true,
+      "detail": [
+        28834.76154873089,
+        28834.761548730217
+      ]
+    },
+    {
+      "name": "momentum (8, 4.35, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent body energy (8, 4.35, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "reported body defect (8, 4.35, 9.81, 0.4)",
+      "pass": true,
+      "detail": -3.410605131648481e-13
+    },
+    {
+      "name": "unique (8, 5.75, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent potential gradient (8, 5.75, 0.0, -0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "momentum (8, 5.75, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent body energy (8, 5.75, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "reported body defect (8, 5.75, 0.0, -0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (8, 5.75, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent potential gradient (8, 5.75, 0.0, 0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        -0.0
+      ]
+    },
+    {
+      "name": "momentum (8, 5.75, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent body energy (8, 5.75, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "reported body defect (8, 5.75, 0.0, 0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (8, 5.75, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent potential gradient (8, 5.75, 9.81, -0.4)",
+      "pass": true,
+      "detail": [
+        40181.75999999997,
+        40181.75999999989
+      ]
+    },
+    {
+      "name": "momentum (8, 5.75, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent body energy (8, 5.75, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "reported body defect (8, 5.75, 9.81, -0.4)",
+      "pass": true,
+      "detail": -6.821210263296962e-13
+    },
+    {
+      "name": "unique (8, 5.75, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent potential gradient (8, 5.75, 9.81, 0.4)",
+      "pass": true,
+      "detail": [
+        40181.75999999997,
+        40181.76000000286
+      ]
+    },
+    {
+      "name": "momentum (8, 5.75, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent body energy (8, 5.75, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "reported body defect (8, 5.75, 9.81, 0.4)",
+      "pass": true,
+      "detail": 5.684341886080802e-14
+    },
+    {
+      "name": "unique (8, 8.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent potential gradient (8, 8.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "momentum (8, 8.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent body energy (8, 8.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "reported body defect (8, 8.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (8, 8.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent potential gradient (8, 8.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        -0.0
+      ]
+    },
+    {
+      "name": "momentum (8, 8.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent body energy (8, 8.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "reported body defect (8, 8.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (8, 8.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent potential gradient (8, 8.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": [
+        40181.75999999997,
+        40181.75999999989
+      ]
+    },
+    {
+      "name": "momentum (8, 8.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent body energy (8, 8.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "reported body defect (8, 8.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": -6.821210263296962e-13
+    },
+    {
+      "name": "unique (8, 8.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent potential gradient (8, 8.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": [
+        40181.75999999997,
+        40181.76000000678
+      ]
+    },
+    {
+      "name": "momentum (8, 8.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent body energy (8, 8.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "reported body defect (8, 8.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": 5.684341886080802e-14
+    },
+    {
+      "name": "unique (12, 0.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent potential gradient (12, 0.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "momentum (12, 0.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent body energy (12, 0.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "reported body defect (12, 0.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (12, 0.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent potential gradient (12, 0.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        -0.0
+      ]
+    },
+    {
+      "name": "momentum (12, 0.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent body energy (12, 0.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "reported body defect (12, 0.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (12, 0.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent potential gradient (12, 0.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "momentum (12, 0.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent body energy (12, 0.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "reported body defect (12, 0.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": -7.958078640513122e-13
+    },
+    {
+      "name": "unique (12, 0.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent potential gradient (12, 0.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        -0.0
+      ]
+    },
+    {
+      "name": "momentum (12, 0.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent body energy (12, 0.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "reported body defect (12, 0.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": 5.684341886080802e-14
+    },
+    {
+      "name": "unique (12, 3.125, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent potential gradient (12, 3.125, 0.0, -0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "momentum (12, 3.125, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent body energy (12, 3.125, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "reported body defect (12, 3.125, 0.0, -0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (12, 3.125, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent potential gradient (12, 3.125, 0.0, 0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        -0.0
+      ]
+    },
+    {
+      "name": "momentum (12, 3.125, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent body energy (12, 3.125, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "reported body defect (12, 3.125, 0.0, 0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (12, 3.125, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent potential gradient (12, 3.125, 9.81, -0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "momentum (12, 3.125, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent body energy (12, 3.125, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "reported body defect (12, 3.125, 9.81, -0.4)",
+      "pass": true,
+      "detail": -7.958078640513122e-13
+    },
+    {
+      "name": "unique (12, 3.125, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent potential gradient (12, 3.125, 9.81, 0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        -0.0
+      ]
+    },
+    {
+      "name": "momentum (12, 3.125, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent body energy (12, 3.125, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "reported body defect (12, 3.125, 9.81, 0.4)",
+      "pass": true,
+      "detail": 5.684341886080802e-14
+    },
+    {
+      "name": "unique (12, 4.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent potential gradient (12, 4.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "momentum (12, 4.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent body energy (12, 4.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "reported body defect (12, 4.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (12, 4.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent potential gradient (12, 4.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        -0.0
+      ]
+    },
+    {
+      "name": "momentum (12, 4.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent body energy (12, 4.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "reported body defect (12, 4.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (12, 4.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent potential gradient (12, 4.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": [
+        20146.00146384408,
+        20146.001463844143
+      ]
+    },
+    {
+      "name": "momentum (12, 4.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent body energy (12, 4.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "reported body defect (12, 4.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": -4.831690603168681e-13
+    },
+    {
+      "name": "unique (12, 4.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent potential gradient (12, 4.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": [
+        20045.553370377176,
+        20045.553370377074
+      ]
+    },
+    {
+      "name": "momentum (12, 4.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent body energy (12, 4.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "reported body defect (12, 4.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": -3.836930773104541e-13
+    },
+    {
+      "name": "unique (12, 4.35, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent potential gradient (12, 4.35, 0.0, -0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "momentum (12, 4.35, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent body energy (12, 4.35, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "reported body defect (12, 4.35, 0.0, -0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (12, 4.35, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent potential gradient (12, 4.35, 0.0, 0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        -0.0
+      ]
+    },
+    {
+      "name": "momentum (12, 4.35, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent body energy (12, 4.35, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "reported body defect (12, 4.35, 0.0, 0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (12, 4.35, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent potential gradient (12, 4.35, 9.81, -0.4)",
+      "pass": true,
+      "detail": [
+        28935.209642197795,
+        28935.20964220119
+      ]
+    },
+    {
+      "name": "momentum (12, 4.35, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent body energy (12, 4.35, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "reported body defect (12, 4.35, 9.81, -0.4)",
+      "pass": true,
+      "detail": -5.684341886080801e-13
+    },
+    {
+      "name": "unique (12, 4.35, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent potential gradient (12, 4.35, 9.81, 0.4)",
+      "pass": true,
+      "detail": [
+        28834.76154873089,
+        28834.761548730217
+      ]
+    },
+    {
+      "name": "momentum (12, 4.35, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent body energy (12, 4.35, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "reported body defect (12, 4.35, 9.81, 0.4)",
+      "pass": true,
+      "detail": -3.410605131648481e-13
+    },
+    {
+      "name": "unique (12, 5.75, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent potential gradient (12, 5.75, 0.0, -0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "momentum (12, 5.75, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent body energy (12, 5.75, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "reported body defect (12, 5.75, 0.0, -0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (12, 5.75, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent potential gradient (12, 5.75, 0.0, 0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        -0.0
+      ]
+    },
+    {
+      "name": "momentum (12, 5.75, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent body energy (12, 5.75, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "reported body defect (12, 5.75, 0.0, 0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (12, 5.75, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent potential gradient (12, 5.75, 9.81, -0.4)",
+      "pass": true,
+      "detail": [
+        40181.75999999997,
+        40181.75999999989
+      ]
+    },
+    {
+      "name": "momentum (12, 5.75, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent body energy (12, 5.75, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "reported body defect (12, 5.75, 9.81, -0.4)",
+      "pass": true,
+      "detail": -6.821210263296962e-13
+    },
+    {
+      "name": "unique (12, 5.75, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent potential gradient (12, 5.75, 9.81, 0.4)",
+      "pass": true,
+      "detail": [
+        40181.75999999997,
+        40181.76000000286
+      ]
+    },
+    {
+      "name": "momentum (12, 5.75, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent body energy (12, 5.75, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "reported body defect (12, 5.75, 9.81, 0.4)",
+      "pass": true,
+      "detail": 5.684341886080802e-14
+    },
+    {
+      "name": "unique (12, 12.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent potential gradient (12, 12.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "momentum (12, 12.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent body energy (12, 12.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "reported body defect (12, 12.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (12, 12.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent potential gradient (12, 12.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        -0.0
+      ]
+    },
+    {
+      "name": "momentum (12, 12.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent body energy (12, 12.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "reported body defect (12, 12.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (12, 12.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent potential gradient (12, 12.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": [
+        40181.75999999997,
+        40181.759999979535
+      ]
+    },
+    {
+      "name": "momentum (12, 12.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent body energy (12, 12.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "reported body defect (12, 12.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": -6.821210263296962e-13
+    },
+    {
+      "name": "unique (12, 12.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent potential gradient (12, 12.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": [
+        40181.75999999997,
+        40181.76000002247
+      ]
+    },
+    {
+      "name": "momentum (12, 12.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent body energy (12, 12.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "reported body defect (12, 12.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": 5.684341886080802e-14
+    },
+    {
+      "name": "full grid/water/velocity coverage",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "max energy defect < 1e-7 J",
+      "pass": true,
+      "detail": null
+    }
+  ],
+  "analytic_reference": [
+    {
+      "grid": 8,
+      "level_m": 0.0,
+      "gravity_m_s2": 0.0,
+      "initial_velocity_m_s": -0.4,
+      "dz_m": -0.0040000000000000036,
+      "mean_buoyancy_N": 0.0,
+      "body_energy_defect_J": 0.0
+    },
+    {
+      "grid": 8,
+      "level_m": 0.0,
+      "gravity_m_s2": 0.0,
+      "initial_velocity_m_s": 0.4,
+      "dz_m": 0.0039999999999995595,
+      "mean_buoyancy_N": 0.0,
+      "body_energy_defect_J": 0.0
+    },
+    {
+      "grid": 8,
+      "level_m": 0.0,
+      "gravity_m_s2": 9.81,
+      "initial_velocity_m_s": -0.4,
+      "dz_m": -0.004490500000000175,
+      "mean_buoyancy_N": 0.0,
+      "body_energy_defect_J": -7.958078640513122e-13
+    },
+    {
+      "grid": 8,
+      "level_m": 0.0,
+      "gravity_m_s2": 9.81,
+      "initial_velocity_m_s": 0.4,
+      "dz_m": 0.003509499999999832,
+      "mean_buoyancy_N": 0.0,
+      "body_energy_defect_J": 5.684341886080802e-14
+    },
+    {
+      "grid": 8,
+      "level_m": 3.125,
+      "gravity_m_s2": 0.0,
+      "initial_velocity_m_s": -0.4,
+      "dz_m": -0.0040000000000000036,
+      "mean_buoyancy_N": 0.0,
+      "body_energy_defect_J": 0.0
+    },
+    {
+      "grid": 8,
+      "level_m": 3.125,
+      "gravity_m_s2": 0.0,
+      "initial_velocity_m_s": 0.4,
+      "dz_m": 0.0039999999999995595,
+      "mean_buoyancy_N": 0.0,
+      "body_energy_defect_J": 0.0
+    },
+    {
+      "grid": 8,
+      "level_m": 3.125,
+      "gravity_m_s2": 9.81,
+      "initial_velocity_m_s": -0.4,
+      "dz_m": -0.004490500000000175,
+      "mean_buoyancy_N": 0.0,
+      "body_energy_defect_J": -7.958078640513122e-13
+    },
+    {
+      "grid": 8,
+      "level_m": 3.125,
+      "gravity_m_s2": 9.81,
+      "initial_velocity_m_s": 0.4,
+      "dz_m": 0.003509499999999832,
+      "mean_buoyancy_N": 0.0,
+      "body_energy_defect_J": 5.684341886080802e-14
+    },
+    {
+      "grid": 8,
+      "level_m": 4.0,
+      "gravity_m_s2": 0.0,
+      "initial_velocity_m_s": -0.4,
+      "dz_m": -0.0040000000000000036,
+      "mean_buoyancy_N": 0.0,
+      "body_energy_defect_J": 0.0
+    },
+    {
+      "grid": 8,
+      "level_m": 4.0,
+      "gravity_m_s2": 0.0,
+      "initial_velocity_m_s": 0.4,
+      "dz_m": 0.0039999999999995595,
+      "mean_buoyancy_N": 0.0,
+      "body_energy_defect_J": 0.0
+    },
+    {
+      "grid": 8,
+      "level_m": 4.0,
+      "gravity_m_s2": 9.81,
+      "initial_velocity_m_s": -0.4,
+      "dz_m": -0.004389769992680925,
+      "mean_buoyancy_N": 20146.00146384408,
+      "body_energy_defect_J": -4.831690603168681e-13
+    },
+    {
+      "grid": 8,
+      "level_m": 4.0,
+      "gravity_m_s2": 9.81,
+      "initial_velocity_m_s": 0.4,
+      "dz_m": 0.003609727766852089,
+      "mean_buoyancy_N": 20045.553370377176,
+      "body_energy_defect_J": -3.836930773104541e-13
+    },
+    {
+      "grid": 8,
+      "level_m": 4.35,
+      "gravity_m_s2": 0.0,
+      "initial_velocity_m_s": -0.4,
+      "dz_m": -0.0040000000000000036,
+      "mean_buoyancy_N": 0.0,
+      "body_energy_defect_J": 0.0
+    },
+    {
+      "grid": 8,
+      "level_m": 4.35,
+      "gravity_m_s2": 0.0,
+      "initial_velocity_m_s": 0.4,
+      "dz_m": 0.0039999999999995595,
+      "mean_buoyancy_N": 0.0,
+      "body_energy_defect_J": 0.0
+    },
+    {
+      "grid": 8,
+      "level_m": 4.35,
+      "gravity_m_s2": 9.81,
+      "initial_velocity_m_s": -0.4,
+      "dz_m": -0.004345823951788841,
+      "mean_buoyancy_N": 28935.209642197795,
+      "body_energy_defect_J": -5.684341886080801e-13
+    },
+    {
+      "grid": 8,
+      "level_m": 4.35,
+      "gravity_m_s2": 9.81,
+      "initial_velocity_m_s": 0.4,
+      "dz_m": 0.003653673807743729,
+      "mean_buoyancy_N": 28834.76154873089,
+      "body_energy_defect_J": -3.410605131648481e-13
+    },
+    {
+      "grid": 8,
+      "level_m": 5.75,
+      "gravity_m_s2": 0.0,
+      "initial_velocity_m_s": -0.4,
+      "dz_m": -0.0040000000000000036,
+      "mean_buoyancy_N": 0.0,
+      "body_energy_defect_J": 0.0
+    },
+    {
+      "grid": 8,
+      "level_m": 5.75,
+      "gravity_m_s2": 0.0,
+      "initial_velocity_m_s": 0.4,
+      "dz_m": 0.0039999999999995595,
+      "mean_buoyancy_N": 0.0,
+      "body_energy_defect_J": 0.0
+    },
+    {
+      "grid": 8,
+      "level_m": 5.75,
+      "gravity_m_s2": 9.81,
+      "initial_velocity_m_s": -0.4,
+      "dz_m": -0.0042895912000000536,
+      "mean_buoyancy_N": 40181.75999999997,
+      "body_energy_defect_J": -6.821210263296962e-13
+    },
+    {
+      "grid": 8,
+      "level_m": 5.75,
+      "gravity_m_s2": 9.81,
+      "initial_velocity_m_s": 0.4,
+      "dz_m": 0.0037104087999999535,
+      "mean_buoyancy_N": 40181.75999999997,
+      "body_energy_defect_J": 5.684341886080802e-14
+    },
+    {
+      "grid": 8,
+      "level_m": 8.0,
+      "gravity_m_s2": 0.0,
+      "initial_velocity_m_s": -0.4,
+      "dz_m": -0.0040000000000000036,
+      "mean_buoyancy_N": 0.0,
+      "body_energy_defect_J": 0.0
+    },
+    {
+      "grid": 8,
+      "level_m": 8.0,
+      "gravity_m_s2": 0.0,
+      "initial_velocity_m_s": 0.4,
+      "dz_m": 0.0039999999999995595,
+      "mean_buoyancy_N": 0.0,
+      "body_energy_defect_J": 0.0
+    },
+    {
+      "grid": 8,
+      "level_m": 8.0,
+      "gravity_m_s2": 9.81,
+      "initial_velocity_m_s": -0.4,
+      "dz_m": -0.0042895912000000536,
+      "mean_buoyancy_N": 40181.75999999997,
+      "body_energy_defect_J": -6.821210263296962e-13
+    },
+    {
+      "grid": 8,
+      "level_m": 8.0,
+      "gravity_m_s2": 9.81,
+      "initial_velocity_m_s": 0.4,
+      "dz_m": 0.0037104087999999535,
+      "mean_buoyancy_N": 40181.75999999997,
+      "body_energy_defect_J": 5.684341886080802e-14
+    },
+    {
+      "grid": 12,
+      "level_m": 0.0,
+      "gravity_m_s2": 0.0,
+      "initial_velocity_m_s": -0.4,
+      "dz_m": -0.0040000000000000036,
+      "mean_buoyancy_N": 0.0,
+      "body_energy_defect_J": 0.0
+    },
+    {
+      "grid": 12,
+      "level_m": 0.0,
+      "gravity_m_s2": 0.0,
+      "initial_velocity_m_s": 0.4,
+      "dz_m": 0.0039999999999995595,
+      "mean_buoyancy_N": 0.0,
+      "body_energy_defect_J": 0.0
+    },
+    {
+      "grid": 12,
+      "level_m": 0.0,
+      "gravity_m_s2": 9.81,
+      "initial_velocity_m_s": -0.4,
+      "dz_m": -0.004490500000000175,
+      "mean_buoyancy_N": 0.0,
+      "body_energy_defect_J": -7.958078640513122e-13
+    },
+    {
+      "grid": 12,
+      "level_m": 0.0,
+      "gravity_m_s2": 9.81,
+      "initial_velocity_m_s": 0.4,
+      "dz_m": 0.003509499999999832,
+      "mean_buoyancy_N": 0.0,
+      "body_energy_defect_J": 5.684341886080802e-14
+    },
+    {
+      "grid": 12,
+      "level_m": 3.125,
+      "gravity_m_s2": 0.0,
+      "initial_velocity_m_s": -0.4,
+      "dz_m": -0.0040000000000000036,
+      "mean_buoyancy_N": 0.0,
+      "body_energy_defect_J": 0.0
+    },
+    {
+      "grid": 12,
+      "level_m": 3.125,
+      "gravity_m_s2": 0.0,
+      "initial_velocity_m_s": 0.4,
+      "dz_m": 0.0039999999999995595,
+      "mean_buoyancy_N": 0.0,
+      "body_energy_defect_J": 0.0
+    },
+    {
+      "grid": 12,
+      "level_m": 3.125,
+      "gravity_m_s2": 9.81,
+      "initial_velocity_m_s": -0.4,
+      "dz_m": -0.004490500000000175,
+      "mean_buoyancy_N": 0.0,
+      "body_energy_defect_J": -7.958078640513122e-13
+    },
+    {
+      "grid": 12,
+      "level_m": 3.125,
+      "gravity_m_s2": 9.81,
+      "initial_velocity_m_s": 0.4,
+      "dz_m": 0.003509499999999832,
+      "mean_buoyancy_N": 0.0,
+      "body_energy_defect_J": 5.684341886080802e-14
+    },
+    {
+      "grid": 12,
+      "level_m": 4.0,
+      "gravity_m_s2": 0.0,
+      "initial_velocity_m_s": -0.4,
+      "dz_m": -0.0040000000000000036,
+      "mean_buoyancy_N": 0.0,
+      "body_energy_defect_J": 0.0
+    },
+    {
+      "grid": 12,
+      "level_m": 4.0,
+      "gravity_m_s2": 0.0,
+      "initial_velocity_m_s": 0.4,
+      "dz_m": 0.0039999999999995595,
+      "mean_buoyancy_N": 0.0,
+      "body_energy_defect_J": 0.0
+    },
+    {
+      "grid": 12,
+      "level_m": 4.0,
+      "gravity_m_s2": 9.81,
+      "initial_velocity_m_s": -0.4,
+      "dz_m": -0.004389769992680925,
+      "mean_buoyancy_N": 20146.00146384408,
+      "body_energy_defect_J": -4.831690603168681e-13
+    },
+    {
+      "grid": 12,
+      "level_m": 4.0,
+      "gravity_m_s2": 9.81,
+      "initial_velocity_m_s": 0.4,
+      "dz_m": 0.003609727766852089,
+      "mean_buoyancy_N": 20045.553370377176,
+      "body_energy_defect_J": -3.836930773104541e-13
+    },
+    {
+      "grid": 12,
+      "level_m": 4.35,
+      "gravity_m_s2": 0.0,
+      "initial_velocity_m_s": -0.4,
+      "dz_m": -0.0040000000000000036,
+      "mean_buoyancy_N": 0.0,
+      "body_energy_defect_J": 0.0
+    },
+    {
+      "grid": 12,
+      "level_m": 4.35,
+      "gravity_m_s2": 0.0,
+      "initial_velocity_m_s": 0.4,
+      "dz_m": 0.0039999999999995595,
+      "mean_buoyancy_N": 0.0,
+      "body_energy_defect_J": 0.0
+    },
+    {
+      "grid": 12,
+      "level_m": 4.35,
+      "gravity_m_s2": 9.81,
+      "initial_velocity_m_s": -0.4,
+      "dz_m": -0.004345823951788841,
+      "mean_buoyancy_N": 28935.209642197795,
+      "body_energy_defect_J": -5.684341886080801e-13
+    },
+    {
+      "grid": 12,
+      "level_m": 4.35,
+      "gravity_m_s2": 9.81,
+      "initial_velocity_m_s": 0.4,
+      "dz_m": 0.003653673807743729,
+      "mean_buoyancy_N": 28834.76154873089,
+      "body_energy_defect_J": -3.410605131648481e-13
+    },
+    {
+      "grid": 12,
+      "level_m": 5.75,
+      "gravity_m_s2": 0.0,
+      "initial_velocity_m_s": -0.4,
+      "dz_m": -0.0040000000000000036,
+      "mean_buoyancy_N": 0.0,
+      "body_energy_defect_J": 0.0
+    },
+    {
+      "grid": 12,
+      "level_m": 5.75,
+      "gravity_m_s2": 0.0,
+      "initial_velocity_m_s": 0.4,
+      "dz_m": 0.0039999999999995595,
+      "mean_buoyancy_N": 0.0,
+      "body_energy_defect_J": 0.0
+    },
+    {
+      "grid": 12,
+      "level_m": 5.75,
+      "gravity_m_s2": 9.81,
+      "initial_velocity_m_s": -0.4,
+      "dz_m": -0.0042895912000000536,
+      "mean_buoyancy_N": 40181.75999999997,
+      "body_energy_defect_J": -6.821210263296962e-13
+    },
+    {
+      "grid": 12,
+      "level_m": 5.75,
+      "gravity_m_s2": 9.81,
+      "initial_velocity_m_s": 0.4,
+      "dz_m": 0.0037104087999999535,
+      "mean_buoyancy_N": 40181.75999999997,
+      "body_energy_defect_J": 5.684341886080802e-14
+    },
+    {
+      "grid": 12,
+      "level_m": 12.0,
+      "gravity_m_s2": 0.0,
+      "initial_velocity_m_s": -0.4,
+      "dz_m": -0.0040000000000000036,
+      "mean_buoyancy_N": 0.0,
+      "body_energy_defect_J": 0.0
+    },
+    {
+      "grid": 12,
+      "level_m": 12.0,
+      "gravity_m_s2": 0.0,
+      "initial_velocity_m_s": 0.4,
+      "dz_m": 0.0039999999999995595,
+      "mean_buoyancy_N": 0.0,
+      "body_energy_defect_J": 0.0
+    },
+    {
+      "grid": 12,
+      "level_m": 12.0,
+      "gravity_m_s2": 9.81,
+      "initial_velocity_m_s": -0.4,
+      "dz_m": -0.0042895912000000536,
+      "mean_buoyancy_N": 40181.75999999997,
+      "body_energy_defect_J": -6.821210263296962e-13
+    },
+    {
+      "grid": 12,
+      "level_m": 12.0,
+      "gravity_m_s2": 9.81,
+      "initial_velocity_m_s": 0.4,
+      "dz_m": 0.0037104087999999535,
+      "mean_buoyancy_N": 40181.75999999997,
+      "body_energy_defect_J": 5.684341886080802e-14
+    }
+  ],
+  "source_sha256": {
+    "CMakeLists.txt": "9b07c0760b104109057d4a500260049ec5c1c0eb3ad9c24fc9ab3ed47d14e2cf",
+    "docs/PHASENPLAN.md": "2680a58eabb8a1bf255b88fdd96a77c735b57f072fcaa4e93bf8fd01fb48f67a",
+    "docs/P2_HYDROSTATIC_DISCRETE_GRADIENT_PARTIAL.md": "27e3d850b8c350411027fb0f38622c21ad76170c4d7824148e6c35bfb9651876",
+    "include/upc/p2_hydrostatic_discrete_gradient3d.hpp": "5a46089c591eb4968e6a4116c1cf14fc848d71f61a33569d62ac2cbaa8090fa9",
+    "include/upc/p2_hydrostatic_gravity3d.hpp": "2c30656d6e86595faab43c1499949fba69b5b5061d1e0e7cdc6aebc50a02365e",
+    "include/upc/p2_stratified_hydrostatic_load3d.hpp": "8e556ea8f079830e221fd3060c7c980f432ab53961ffdbdacd35a86b23858ab0",
+    "include/upc/p2_moving_box_open_volume3d.hpp": "270ecc419fa312212e47dbcfbd7fa8f2b172fde153b6d66e19f226be5cbedbb2",
+    "include/upc/rigid_pressure_response3d.hpp": "41282862ecf047ab9cf7c27ebea34314f049658e03bb3bbd4533609a0f41afe1",
+    "tests/p2_hydrostatic_discrete_gradient3d_tests.cpp": "5b85e6c91d4d08ac6a952f048fd6e2fd54beede2cb17c7965254c2b05858e4db",
+    "scripts/p2_hydrostatic_discrete_gradient_acceptance.py": "9d06e78c3c4dd72662a44c194d999c63811248752c547c1d850e66587ecc7a52",
+    "scripts/p2_hydrostatic_discrete_gradient_full_build.cmd": "334a3e928c3f462cfa68186212e1de93627290ec7061a3a6d64d3d558bd56cf8"
+  },
+  "ctest_log_sha256": "021e48ffb65e4c08a100dd776a39f46be11f77789cbf4c02d26c223cb2625dec",
+  "limitations": [
+    "prescribed quiescent horizontal water level only",
+    "body-only discrete mechanical energy, NOT global fluid energy",
+    "fluid counterimpulse UNAPPLIED to MAC/VOF",
+    "no dynamic free surface, measured 3D CFD or UE5.8 native E2E"
+  ]
+}
