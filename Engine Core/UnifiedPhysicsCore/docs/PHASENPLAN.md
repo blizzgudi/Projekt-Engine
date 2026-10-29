@@ -1089,3 +1089,24 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
   Keine dynamische 3D-Freiflaechenstroemung, keine angewendete
   Fluid-Gegenreaktion, keine globale FSI-Erhaltung, externe 3D-CFD-
   Messvalidierung oder Unreal-5.8-Native-E2E dieses Pfades.
+
+## P2 Teilfortschritt: hydrostatischer Auftrieb + Eigengewicht + exaktes Potential (29.10.2026)
+
+- Neuer optionaler `P2HydrostaticGravity3D`-Pfad kombiniert den
+  hydrostatischen Auftrieb eines ruhenden horizontalen Wasserstandes
+  mit der separaten aeusseren Gewichtskraft auf einen bewegten Quader.
+  Die Fluid-Gegenreaktion wird ausschliesslich fuer den Auftrieb
+  diagnostiziert, nicht fuer das Eigengewicht und nicht auf MAC angewendet.
+- Analytische Referenz fuer das exakte hydrostatische Potential bei
+  trockener, teilweiser und voller Eintauchung. Die mechanische
+  Potentialabweichung bei eingefrorener Kraft wird offengelegt und
+  beim Durchqueren einer Teilzellen-Wasserlinie explizit als
+  **nicht null** getestet; keine falsche globale Energiefreigabe.
+- 24 analytische 3D-Faelle (8^3/12^3, sechs Wasserstaende,
+  g=0/9.81), Neutralauftrieb und Fehlerfaelle; Native-Build,
+  CTest und SHA256-Teilnachweis in
+  `docs/P2_HYDROSTATIC_GRAVITY_PARTIAL.md` und
+  `ENGINE TEST STUBE/runs/p2_hydrostatic_gravity_partial.json`.
+- **P2-P8 bleiben PARTIAL, ALL_COMPLETE=False.** Offene
+  freie-Oberflaechen-/MAC-Gegenreaktion, physikalische Gesamtbilanzen,
+  externe CFD-Referenzen und UE5.8-Native-E2E dieses Pfads.

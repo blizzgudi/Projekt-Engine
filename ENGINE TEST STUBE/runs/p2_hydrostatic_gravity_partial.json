@@ -1,0 +1,1189 @@
+{
+  "phase": "P2",
+  "milestone": "hydrostatic_body_gravity_potential_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "ctest_suites": 83,
+  "native_assertions": 542,
+  "checks": [
+    {
+      "name": "83/83 full CTest",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "native gravity suite included",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "native assertions >= 500",
+      "pass": true,
+      "detail": 542
+    },
+    {
+      "name": "24 independent analytic cases",
+      "pass": true,
+      "detail": 24
+    },
+    {
+      "name": "unique (8, 0.0, 0.0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Archimedes (8, 0.0, 0.0)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "gravity net (8, 0.0, 0.0)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "rigid translation (8, 0.0, 0.0)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "exact fixed-level potential (8, 0.0, 0.0)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "unique (8, 0.0, 9.81)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Archimedes (8, 0.0, 9.81)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "gravity net (8, 0.0, 9.81)",
+      "pass": true,
+      "detail": [
+        -98100.0,
+        -98100.0
+      ]
+    },
+    {
+      "name": "rigid translation (8, 0.0, 9.81)",
+      "pass": true,
+      "detail": [
+        -0.0004905,
+        -0.0004905
+      ]
+    },
+    {
+      "name": "exact fixed-level potential (8, 0.0, 9.81)",
+      "pass": true,
+      "detail": [
+        -1.680433570072637e-11,
+        0.0
+      ]
+    },
+    {
+      "name": "unique (8, 3.125, 0.0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Archimedes (8, 3.125, 0.0)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "gravity net (8, 3.125, 0.0)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "rigid translation (8, 3.125, 0.0)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "exact fixed-level potential (8, 3.125, 0.0)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "unique (8, 3.125, 9.81)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Archimedes (8, 3.125, 9.81)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "gravity net (8, 3.125, 9.81)",
+      "pass": true,
+      "detail": [
+        -98100.0,
+        -98100.0
+      ]
+    },
+    {
+      "name": "rigid translation (8, 3.125, 9.81)",
+      "pass": true,
+      "detail": [
+        -0.0004905,
+        -0.0004905
+      ]
+    },
+    {
+      "name": "exact fixed-level potential (8, 3.125, 9.81)",
+      "pass": true,
+      "detail": [
+        -1.680433570072637e-11,
+        0.0
+      ]
+    },
+    {
+      "name": "unique (8, 4.0, 0.0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Archimedes (8, 4.0, 0.0)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "gravity net (8, 4.0, 0.0)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "rigid translation (8, 4.0, 0.0)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "exact fixed-level potential (8, 4.0, 0.0)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "unique (8, 4.0, 9.81)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Archimedes (8, 4.0, 9.81)",
+      "pass": true,
+      "detail": [
+        20090.879999999997,
+        20090.879999999997
+      ]
+    },
+    {
+      "name": "gravity net (8, 4.0, 9.81)",
+      "pass": true,
+      "detail": [
+        -78009.12,
+        -78009.12
+      ]
+    },
+    {
+      "name": "rigid translation (8, 4.0, 9.81)",
+      "pass": true,
+      "detail": [
+        -0.00039004560000000004,
+        -0.00039004560000000004
+      ]
+    },
+    {
+      "name": "exact fixed-level potential (8, 4.0, 9.81)",
+      "pass": true,
+      "detail": [
+        0.0019103359183816337,
+        0.0019103359263725082
+      ]
+    },
+    {
+      "name": "unique (8, 4.35, 0.0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Archimedes (8, 4.35, 0.0)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "gravity net (8, 4.35, 0.0)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "rigid translation (8, 4.35, 0.0)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "exact fixed-level potential (8, 4.35, 0.0)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "unique (8, 4.35, 9.81)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Archimedes (8, 4.35, 9.81)",
+      "pass": true,
+      "detail": [
+        28880.63999999999,
+        28880.63999999999
+      ]
+    },
+    {
+      "name": "gravity net (8, 4.35, 9.81)",
+      "pass": true,
+      "detail": [
+        -69219.36000000002,
+        -69219.36000000002
+      ]
+    },
+    {
+      "name": "rigid translation (8, 4.35, 9.81)",
+      "pass": true,
+      "detail": [
+        -0.0003460968000000001,
+        -0.00034609680000000006
+      ]
+    },
+    {
+      "name": "exact fixed-level potential (8, 4.35, 9.81)",
+      "pass": true,
+      "detail": [
+        0.0015040911108208377,
+        0.0015040911112423109
+      ]
+    },
+    {
+      "name": "unique (8, 5.75, 0.0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Archimedes (8, 5.75, 0.0)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "gravity net (8, 5.75, 0.0)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "rigid translation (8, 5.75, 0.0)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "exact fixed-level potential (8, 5.75, 0.0)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "unique (8, 5.75, 9.81)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Archimedes (8, 5.75, 9.81)",
+      "pass": true,
+      "detail": [
+        40181.76000000001,
+        40181.76000000001
+      ]
+    },
+    {
+      "name": "gravity net (8, 5.75, 9.81)",
+      "pass": true,
+      "detail": [
+        -57918.23999999999,
+        -57918.23999999999
+      ]
+    },
+    {
+      "name": "rigid translation (8, 5.75, 9.81)",
+      "pass": true,
+      "detail": [
+        -0.00028959119999999997,
+        -0.00028959119999999997
+      ]
+    },
+    {
+      "name": "exact fixed-level potential (8, 5.75, 9.81)",
+      "pass": true,
+      "detail": [
+        -1.1546319456101628e-12,
+        0.0
+      ]
+    },
+    {
+      "name": "unique (8, 8.0, 0.0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Archimedes (8, 8.0, 0.0)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "gravity net (8, 8.0, 0.0)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "rigid translation (8, 8.0, 0.0)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "exact fixed-level potential (8, 8.0, 0.0)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "unique (8, 8.0, 9.81)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Archimedes (8, 8.0, 9.81)",
+      "pass": true,
+      "detail": [
+        40181.76000000001,
+        40181.76000000001
+      ]
+    },
+    {
+      "name": "gravity net (8, 8.0, 9.81)",
+      "pass": true,
+      "detail": [
+        -57918.23999999999,
+        -57918.23999999999
+      ]
+    },
+    {
+      "name": "rigid translation (8, 8.0, 9.81)",
+      "pass": true,
+      "detail": [
+        -0.00028959119999999997,
+        -0.00028959119999999997
+      ]
+    },
+    {
+      "name": "exact fixed-level potential (8, 8.0, 9.81)",
+      "pass": true,
+      "detail": [
+        -1.1546319456101628e-12,
+        0.0
+      ]
+    },
+    {
+      "name": "unique (12, 0.0, 0.0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Archimedes (12, 0.0, 0.0)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "gravity net (12, 0.0, 0.0)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "rigid translation (12, 0.0, 0.0)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "exact fixed-level potential (12, 0.0, 0.0)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "unique (12, 0.0, 9.81)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Archimedes (12, 0.0, 9.81)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "gravity net (12, 0.0, 9.81)",
+      "pass": true,
+      "detail": [
+        -98100.0,
+        -98100.0
+      ]
+    },
+    {
+      "name": "rigid translation (12, 0.0, 9.81)",
+      "pass": true,
+      "detail": [
+        -0.0004905,
+        -0.0004905
+      ]
+    },
+    {
+      "name": "exact fixed-level potential (12, 0.0, 9.81)",
+      "pass": true,
+      "detail": [
+        -1.680433570072637e-11,
+        0.0
+      ]
+    },
+    {
+      "name": "unique (12, 3.125, 0.0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Archimedes (12, 3.125, 0.0)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "gravity net (12, 3.125, 0.0)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "rigid translation (12, 3.125, 0.0)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "exact fixed-level potential (12, 3.125, 0.0)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "unique (12, 3.125, 9.81)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Archimedes (12, 3.125, 9.81)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "gravity net (12, 3.125, 9.81)",
+      "pass": true,
+      "detail": [
+        -98100.0,
+        -98100.0
+      ]
+    },
+    {
+      "name": "rigid translation (12, 3.125, 9.81)",
+      "pass": true,
+      "detail": [
+        -0.0004905,
+        -0.0004905
+      ]
+    },
+    {
+      "name": "exact fixed-level potential (12, 3.125, 9.81)",
+      "pass": true,
+      "detail": [
+        -1.680433570072637e-11,
+        0.0
+      ]
+    },
+    {
+      "name": "unique (12, 4.0, 0.0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Archimedes (12, 4.0, 0.0)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "gravity net (12, 4.0, 0.0)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "rigid translation (12, 4.0, 0.0)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "exact fixed-level potential (12, 4.0, 0.0)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "unique (12, 4.0, 9.81)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Archimedes (12, 4.0, 9.81)",
+      "pass": true,
+      "detail": [
+        20090.879999999997,
+        20090.879999999997
+      ]
+    },
+    {
+      "name": "gravity net (12, 4.0, 9.81)",
+      "pass": true,
+      "detail": [
+        -78009.12,
+        -78009.12
+      ]
+    },
+    {
+      "name": "rigid translation (12, 4.0, 9.81)",
+      "pass": true,
+      "detail": [
+        -0.00039004560000000004,
+        -0.00039004560000000004
+      ]
+    },
+    {
+      "name": "exact fixed-level potential (12, 4.0, 9.81)",
+      "pass": true,
+      "detail": [
+        0.0019103359183816337,
+        0.0019103359263725082
+      ]
+    },
+    {
+      "name": "unique (12, 4.35, 0.0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Archimedes (12, 4.35, 0.0)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "gravity net (12, 4.35, 0.0)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "rigid translation (12, 4.35, 0.0)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "exact fixed-level potential (12, 4.35, 0.0)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "unique (12, 4.35, 9.81)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Archimedes (12, 4.35, 9.81)",
+      "pass": true,
+      "detail": [
+        28880.63999999999,
+        28880.63999999999
+      ]
+    },
+    {
+      "name": "gravity net (12, 4.35, 9.81)",
+      "pass": true,
+      "detail": [
+        -69219.36000000002,
+        -69219.36000000002
+      ]
+    },
+    {
+      "name": "rigid translation (12, 4.35, 9.81)",
+      "pass": true,
+      "detail": [
+        -0.0003460968000000001,
+        -0.00034609680000000006
+      ]
+    },
+    {
+      "name": "exact fixed-level potential (12, 4.35, 9.81)",
+      "pass": true,
+      "detail": [
+        0.0015040911108208377,
+        0.0015040911112423109
+      ]
+    },
+    {
+      "name": "unique (12, 5.75, 0.0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Archimedes (12, 5.75, 0.0)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "gravity net (12, 5.75, 0.0)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "rigid translation (12, 5.75, 0.0)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "exact fixed-level potential (12, 5.75, 0.0)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "unique (12, 5.75, 9.81)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Archimedes (12, 5.75, 9.81)",
+      "pass": true,
+      "detail": [
+        40181.76000000001,
+        40181.76000000001
+      ]
+    },
+    {
+      "name": "gravity net (12, 5.75, 9.81)",
+      "pass": true,
+      "detail": [
+        -57918.23999999999,
+        -57918.23999999999
+      ]
+    },
+    {
+      "name": "rigid translation (12, 5.75, 9.81)",
+      "pass": true,
+      "detail": [
+        -0.00028959119999999997,
+        -0.00028959119999999997
+      ]
+    },
+    {
+      "name": "exact fixed-level potential (12, 5.75, 9.81)",
+      "pass": true,
+      "detail": [
+        -1.1546319456101628e-12,
+        0.0
+      ]
+    },
+    {
+      "name": "unique (12, 12.0, 0.0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Archimedes (12, 12.0, 0.0)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "gravity net (12, 12.0, 0.0)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "rigid translation (12, 12.0, 0.0)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "exact fixed-level potential (12, 12.0, 0.0)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "unique (12, 12.0, 9.81)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Archimedes (12, 12.0, 9.81)",
+      "pass": true,
+      "detail": [
+        40181.76000000001,
+        40181.76000000001
+      ]
+    },
+    {
+      "name": "gravity net (12, 12.0, 9.81)",
+      "pass": true,
+      "detail": [
+        -57918.23999999999,
+        -57918.23999999999
+      ]
+    },
+    {
+      "name": "rigid translation (12, 12.0, 9.81)",
+      "pass": true,
+      "detail": [
+        -0.00028959119999999997,
+        -0.00028959119999999997
+      ]
+    },
+    {
+      "name": "exact fixed-level potential (12, 12.0, 9.81)",
+      "pass": true,
+      "detail": [
+        -5.936229285907757e-11,
+        0.0
+      ]
+    },
+    {
+      "name": "grid level gravity coverage",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "moving partial surface has nonzero defect",
+      "pass": true,
+      "detail": null
+    }
+  ],
+  "analytic_reference": [
+    {
+      "grid": 8,
+      "level_m": 0.0,
+      "gravity_m_s2": 0.0,
+      "mass_kg": 10000.0,
+      "buoyancy_N": 0.0,
+      "net_N": 0.0,
+      "translation_m": 0.0,
+      "mechanical_defect_J": 0.0
+    },
+    {
+      "grid": 8,
+      "level_m": 0.0,
+      "gravity_m_s2": 9.81,
+      "mass_kg": 10000.0,
+      "buoyancy_N": 0.0,
+      "net_N": -98100.0,
+      "translation_m": -0.0004905,
+      "mechanical_defect_J": -1.680433570072637e-11
+    },
+    {
+      "grid": 8,
+      "level_m": 3.125,
+      "gravity_m_s2": 0.0,
+      "mass_kg": 10000.0,
+      "buoyancy_N": 0.0,
+      "net_N": 0.0,
+      "translation_m": 0.0,
+      "mechanical_defect_J": 0.0
+    },
+    {
+      "grid": 8,
+      "level_m": 3.125,
+      "gravity_m_s2": 9.81,
+      "mass_kg": 10000.0,
+      "buoyancy_N": 0.0,
+      "net_N": -98100.0,
+      "translation_m": -0.0004905,
+      "mechanical_defect_J": -1.680433570072637e-11
+    },
+    {
+      "grid": 8,
+      "level_m": 4.0,
+      "gravity_m_s2": 0.0,
+      "mass_kg": 10000.0,
+      "buoyancy_N": 0.0,
+      "net_N": 0.0,
+      "translation_m": 0.0,
+      "mechanical_defect_J": 0.0
+    },
+    {
+      "grid": 8,
+      "level_m": 4.0,
+      "gravity_m_s2": 9.81,
+      "mass_kg": 10000.0,
+      "buoyancy_N": 20090.879999999997,
+      "net_N": -78009.12,
+      "translation_m": -0.00039004560000000004,
+      "mechanical_defect_J": 0.0019103359183816337
+    },
+    {
+      "grid": 8,
+      "level_m": 4.35,
+      "gravity_m_s2": 0.0,
+      "mass_kg": 10000.0,
+      "buoyancy_N": 0.0,
+      "net_N": 0.0,
+      "translation_m": 0.0,
+      "mechanical_defect_J": 0.0
+    },
+    {
+      "grid": 8,
+      "level_m": 4.35,
+      "gravity_m_s2": 9.81,
+      "mass_kg": 10000.0,
+      "buoyancy_N": 28880.63999999999,
+      "net_N": -69219.36000000002,
+      "translation_m": -0.0003460968000000001,
+      "mechanical_defect_J": 0.0015040911108208377
+    },
+    {
+      "grid": 8,
+      "level_m": 5.75,
+      "gravity_m_s2": 0.0,
+      "mass_kg": 10000.0,
+      "buoyancy_N": 0.0,
+      "net_N": 0.0,
+      "translation_m": 0.0,
+      "mechanical_defect_J": 0.0
+    },
+    {
+      "grid": 8,
+      "level_m": 5.75,
+      "gravity_m_s2": 9.81,
+      "mass_kg": 10000.0,
+      "buoyancy_N": 40181.76000000001,
+      "net_N": -57918.23999999999,
+      "translation_m": -0.00028959119999999997,
+      "mechanical_defect_J": -1.1546319456101628e-12
+    },
+    {
+      "grid": 8,
+      "level_m": 8.0,
+      "gravity_m_s2": 0.0,
+      "mass_kg": 10000.0,
+      "buoyancy_N": 0.0,
+      "net_N": 0.0,
+      "translation_m": 0.0,
+      "mechanical_defect_J": 0.0
+    },
+    {
+      "grid": 8,
+      "level_m": 8.0,
+      "gravity_m_s2": 9.81,
+      "mass_kg": 10000.0,
+      "buoyancy_N": 40181.76000000001,
+      "net_N": -57918.23999999999,
+      "translation_m": -0.00028959119999999997,
+      "mechanical_defect_J": -1.1546319456101628e-12
+    },
+    {
+      "grid": 12,
+      "level_m": 0.0,
+      "gravity_m_s2": 0.0,
+      "mass_kg": 10000.0,
+      "buoyancy_N": 0.0,
+      "net_N": 0.0,
+      "translation_m": 0.0,
+      "mechanical_defect_J": 0.0
+    },
+    {
+      "grid": 12,
+      "level_m": 0.0,
+      "gravity_m_s2": 9.81,
+      "mass_kg": 10000.0,
+      "buoyancy_N": 0.0,
+      "net_N": -98100.0,
+      "translation_m": -0.0004905,
+      "mechanical_defect_J": -1.680433570072637e-11
+    },
+    {
+      "grid": 12,
+      "level_m": 3.125,
+      "gravity_m_s2": 0.0,
+      "mass_kg": 10000.0,
+      "buoyancy_N": 0.0,
+      "net_N": 0.0,
+      "translation_m": 0.0,
+      "mechanical_defect_J": 0.0
+    },
+    {
+      "grid": 12,
+      "level_m": 3.125,
+      "gravity_m_s2": 9.81,
+      "mass_kg": 10000.0,
+      "buoyancy_N": 0.0,
+      "net_N": -98100.0,
+      "translation_m": -0.0004905,
+      "mechanical_defect_J": -1.680433570072637e-11
+    },
+    {
+      "grid": 12,
+      "level_m": 4.0,
+      "gravity_m_s2": 0.0,
+      "mass_kg": 10000.0,
+      "buoyancy_N": 0.0,
+      "net_N": 0.0,
+      "translation_m": 0.0,
+      "mechanical_defect_J": 0.0
+    },
+    {
+      "grid": 12,
+      "level_m": 4.0,
+      "gravity_m_s2": 9.81,
+      "mass_kg": 10000.0,
+      "buoyancy_N": 20090.879999999997,
+      "net_N": -78009.12,
+      "translation_m": -0.00039004560000000004,
+      "mechanical_defect_J": 0.0019103359183816337
+    },
+    {
+      "grid": 12,
+      "level_m": 4.35,
+      "gravity_m_s2": 0.0,
+      "mass_kg": 10000.0,
+      "buoyancy_N": 0.0,
+      "net_N": 0.0,
+      "translation_m": 0.0,
+      "mechanical_defect_J": 0.0
+    },
+    {
+      "grid": 12,
+      "level_m": 4.35,
+      "gravity_m_s2": 9.81,
+      "mass_kg": 10000.0,
+      "buoyancy_N": 28880.63999999999,
+      "net_N": -69219.36000000002,
+      "translation_m": -0.0003460968000000001,
+      "mechanical_defect_J": 0.0015040911108208377
+    },
+    {
+      "grid": 12,
+      "level_m": 5.75,
+      "gravity_m_s2": 0.0,
+      "mass_kg": 10000.0,
+      "buoyancy_N": 0.0,
+      "net_N": 0.0,
+      "translation_m": 0.0,
+      "mechanical_defect_J": 0.0
+    },
+    {
+      "grid": 12,
+      "level_m": 5.75,
+      "gravity_m_s2": 9.81,
+      "mass_kg": 10000.0,
+      "buoyancy_N": 40181.76000000001,
+      "net_N": -57918.23999999999,
+      "translation_m": -0.00028959119999999997,
+      "mechanical_defect_J": -1.1546319456101628e-12
+    },
+    {
+      "grid": 12,
+      "level_m": 12.0,
+      "gravity_m_s2": 0.0,
+      "mass_kg": 10000.0,
+      "buoyancy_N": 0.0,
+      "net_N": 0.0,
+      "translation_m": 0.0,
+      "mechanical_defect_J": 0.0
+    },
+    {
+      "grid": 12,
+      "level_m": 12.0,
+      "gravity_m_s2": 9.81,
+      "mass_kg": 10000.0,
+      "buoyancy_N": 40181.76000000001,
+      "net_N": -57918.23999999999,
+      "translation_m": -0.00028959119999999997,
+      "mechanical_defect_J": -5.936229285907757e-11
+    }
+  ],
+  "source_sha256": {
+    "CMakeLists.txt": "ea2df05002746e5f774b193716657511d6c97bb1f44b3e8b426062749bd5cf8d",
+    "docs/PHASENPLAN.md": "87cbee15688b019ee6585ad08f9e9bb8d535fc049d68a876d536efb710c3bf64",
+    "docs/P2_HYDROSTATIC_GRAVITY_PARTIAL.md": "e10ef231b807ea0dfd4a7e2377015ef09e1d68e28b5e5bd9e78a77e79157d5f3",
+    "include/upc/p2_hydrostatic_gravity3d.hpp": "2c30656d6e86595faab43c1499949fba69b5b5061d1e0e7cdc6aebc50a02365e",
+    "include/upc/p2_stratified_hydrostatic_load3d.hpp": "8e556ea8f079830e221fd3060c7c980f432ab53961ffdbdacd35a86b23858ab0",
+    "include/upc/p2_moving_box_open_volume3d.hpp": "270ecc419fa312212e47dbcfbd7fa8f2b172fde153b6d66e19f226be5cbedbb2",
+    "include/upc/rigid_pressure_response3d.hpp": "41282862ecf047ab9cf7c27ebea34314f049658e03bb3bbd4533609a0f41afe1",
+    "tests/p2_hydrostatic_gravity3d_tests.cpp": "6885889e62055ea01de2738c0b2ce96162c23fbf1a267ac68371e24272d806c9",
+    "scripts/p2_hydrostatic_gravity_acceptance.py": "e9a8973da4c6ea933c4fede0d1d186b66d7c8f548c6b6e3facc72eb493baf50d",
+    "scripts/p2_hydrostatic_gravity_full_build.cmd": "204db5fab8023ae9cea7863974e8513565b11bd1ba03ea73a2144029d0b996fa"
+  },
+  "ctest_log_sha256": "1d0781315aba3086016d66f2db6387b200ee84464f32285e80b087a26633b16d",
+  "limitations": [
+    "quiescent fixed-level stratified hydrostatics only",
+    "buoyancy fluid counterimpulse is diagnostic and UNAPPLIED",
+    "frozen-force integration has nonzero interface potential defect",
+    "no free-surface CFD, global FSI energy/momentum, external 3D measurements or UE5.8 native E2E"
+  ]
+}

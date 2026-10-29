@@ -434,3 +434,9 @@ add_test(NAME physics_p2_moving_box_projected_vof_partial COMMAND upc_p2_moving_
 add_executable(upc_p2_stratified_hydrostatic_load_tests tests/p2_stratified_hydrostatic_load3d_tests.cpp)
 target_link_libraries(upc_p2_stratified_hydrostatic_load_tests PRIVATE upc)
 add_test(NAME physics_p2_stratified_hydrostatic_load_partial COMMAND upc_p2_stratified_hydrostatic_load_tests)
+
+# P2 partial: rigid gravity and exact fixed-water-level hydrostatic potential
+# audit. The fluid counterimpulse is diagnostic, NOT applied to MAC.
+add_executable(upc_p2_hydrostatic_gravity_tests tests/p2_hydrostatic_gravity3d_tests.cpp)
+target_link_libraries(upc_p2_hydrostatic_gravity_tests PRIVATE upc)
+add_test(NAME physics_p2_hydrostatic_gravity_energy_partial COMMAND upc_p2_hydrostatic_gravity_tests)
