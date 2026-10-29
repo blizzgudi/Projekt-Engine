@@ -1130,3 +1130,21 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
   angewendete MAC/VOF-Gegenreaktion, keine dynamische Wasseroberflaeche,
   keine globale FSI-Energie-/Impulserhaltung, keine externen 3D-CFD-
   Messdaten und kein Unreal-5.8-Native-E2E dieses neuen Pfads.
+
+## P2 Teilfortschritt: geschlossenes 3D-Becken mit hydrostatischer Wasserverdrängung (29.10.2026)
+
+- Opt-in P2ClosedBasinHydrostatic3D: Wasserstand folgt dem
+  **konstanten Wasservolumen** und der sich vertikal bewegenden
+  Quadergeometrie. Initiale und finale 3D-Cut-Cell-Wasserfraktionen
+  werden aus den tatsächlich offenen Zellvolumina rekonstruiert.
+- Exakte stückweise Auftriebs-Wegintegration und diskreter Gradient
+  schließen die Energie von Starrkörper + **quasistatischem**
+  Wasserschwerepotential, einschließlich veränderter Wasserlinie.
+- Nachweis: docs/P2_CLOSED_BASIN_HYDROSTATIC_PARTIAL.md,
+  scripts/p2_closed_basin_hydrostatic_acceptance.py und
+  ENGINE TEST STUBE/runs/p2_closed_basin_hydrostatic_partial.json.
+  Die native Suite ist Teil des vollständigen CTest-Gates.
+- **P2-P8 bleiben PARTIAL; ALL_COMPLETE=False.** Keine MAC/VOF-
+  Zeitintegration, kein angewendeter Fluid-Gegenimpuls, keine
+  Fluidträgheit oder vollständige FSI-Energie-/Impulsbilanz,
+  keine externen 3D-CFD-Messreferenzen und kein neues UE5.8-Native-E2E.

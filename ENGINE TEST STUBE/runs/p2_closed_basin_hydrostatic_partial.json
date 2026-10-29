@@ -1,0 +1,2701 @@
+{
+  "phase": "P2",
+  "milestone": "closed_basin_quasistatic_water_displacement_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "ctest_suites": 85,
+  "native_assertions": 54466,
+  "checks": [
+    {
+      "name": "full 85/85 CTest",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "new suite present",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "native assertions >= 50000",
+      "pass": true,
+      "detail": 54466
+    },
+    {
+      "name": "48 reference configurations",
+      "pass": true,
+      "detail": 48
+    },
+    {
+      "name": "unique (8, 0.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "initial inventory (8, 0.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "final displaced inventory (8, 0.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "independent force quadrature (8, 0.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "body momentum (8, 0.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent water+body energy (8, 0.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": 2.6367796834847468e-12
+    },
+    {
+      "name": "reported energy defect (8, 0.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (8, 0.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "initial inventory (8, 0.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "final displaced inventory (8, 0.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "independent force quadrature (8, 0.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "body momentum (8, 0.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent water+body energy (8, 0.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": -3.5263458819656535e-10
+    },
+    {
+      "name": "reported energy defect (8, 0.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (8, 0.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "initial inventory (8, 0.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "final displaced inventory (8, 0.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "independent force quadrature (8, 0.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "body momentum (8, 0.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent water+body energy (8, 0.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": 1.5683099263696931e-10
+    },
+    {
+      "name": "reported energy defect (8, 0.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": -7.958078640513122e-13
+    },
+    {
+      "name": "unique (8, 0.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "initial inventory (8, 0.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "final displaced inventory (8, 0.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "independent force quadrature (8, 0.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "body momentum (8, 0.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent water+body energy (8, 0.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": -1.1795009413617663e-10
+    },
+    {
+      "name": "reported energy defect (8, 0.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": 5.684341886080802e-14
+    },
+    {
+      "name": "unique (8, 3.125, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "initial inventory (8, 3.125, 0.0, -0.4)",
+      "pass": true,
+      "detail": [
+        200.0,
+        200.0
+      ]
+    },
+    {
+      "name": "final displaced inventory (8, 3.125, 0.0, -0.4)",
+      "pass": true,
+      "detail": [
+        200.0,
+        200.0
+      ]
+    },
+    {
+      "name": "independent force quadrature (8, 3.125, 0.0, -0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "body momentum (8, 3.125, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent water+body energy (8, 3.125, 0.0, -0.4)",
+      "pass": true,
+      "detail": 2.6367796834847468e-12
+    },
+    {
+      "name": "reported energy defect (8, 3.125, 0.0, -0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (8, 3.125, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "initial inventory (8, 3.125, 0.0, 0.4)",
+      "pass": true,
+      "detail": [
+        200.0,
+        200.0
+      ]
+    },
+    {
+      "name": "final displaced inventory (8, 3.125, 0.0, 0.4)",
+      "pass": true,
+      "detail": [
+        200.0,
+        200.0
+      ]
+    },
+    {
+      "name": "independent force quadrature (8, 3.125, 0.0, 0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "body momentum (8, 3.125, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent water+body energy (8, 3.125, 0.0, 0.4)",
+      "pass": true,
+      "detail": -3.5263458819656535e-10
+    },
+    {
+      "name": "reported energy defect (8, 3.125, 0.0, 0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (8, 3.125, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "initial inventory (8, 3.125, 9.81, -0.4)",
+      "pass": true,
+      "detail": [
+        200.0,
+        200.0
+      ]
+    },
+    {
+      "name": "final displaced inventory (8, 3.125, 9.81, -0.4)",
+      "pass": true,
+      "detail": [
+        200.0,
+        200.0
+      ]
+    },
+    {
+      "name": "independent force quadrature (8, 3.125, 9.81, -0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "body momentum (8, 3.125, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent water+body energy (8, 3.125, 9.81, -0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "reported energy defect (8, 3.125, 9.81, -0.4)",
+      "pass": true,
+      "detail": -7.958078640513122e-13
+    },
+    {
+      "name": "unique (8, 3.125, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "initial inventory (8, 3.125, 9.81, 0.4)",
+      "pass": true,
+      "detail": [
+        200.0,
+        200.0
+      ]
+    },
+    {
+      "name": "final displaced inventory (8, 3.125, 9.81, 0.4)",
+      "pass": true,
+      "detail": [
+        200.0,
+        200.0
+      ]
+    },
+    {
+      "name": "independent force quadrature (8, 3.125, 9.81, 0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "body momentum (8, 3.125, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent water+body energy (8, 3.125, 9.81, 0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "reported energy defect (8, 3.125, 9.81, 0.4)",
+      "pass": true,
+      "detail": 5.684341886080802e-14
+    },
+    {
+      "name": "unique (8, 3.2, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "initial inventory (8, 3.2, 0.0, -0.4)",
+      "pass": true,
+      "detail": [
+        204.8,
+        204.7999999999996
+      ]
+    },
+    {
+      "name": "final displaced inventory (8, 3.2, 0.0, -0.4)",
+      "pass": true,
+      "detail": [
+        204.8,
+        204.7999999999996
+      ]
+    },
+    {
+      "name": "independent force quadrature (8, 3.2, 0.0, -0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "body momentum (8, 3.2, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent water+body energy (8, 3.2, 0.0, -0.4)",
+      "pass": true,
+      "detail": 2.6367796834847468e-12
+    },
+    {
+      "name": "reported energy defect (8, 3.2, 0.0, -0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (8, 3.2, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "initial inventory (8, 3.2, 0.0, 0.4)",
+      "pass": true,
+      "detail": [
+        204.8,
+        204.79999999999927
+      ]
+    },
+    {
+      "name": "final displaced inventory (8, 3.2, 0.0, 0.4)",
+      "pass": true,
+      "detail": [
+        204.8,
+        204.79999999999927
+      ]
+    },
+    {
+      "name": "independent force quadrature (8, 3.2, 0.0, 0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "body momentum (8, 3.2, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent water+body energy (8, 3.2, 0.0, 0.4)",
+      "pass": true,
+      "detail": -3.5263458819656535e-10
+    },
+    {
+      "name": "reported energy defect (8, 3.2, 0.0, 0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (8, 3.2, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "initial inventory (8, 3.2, 9.81, -0.4)",
+      "pass": true,
+      "detail": [
+        204.8,
+        204.79999999999927
+      ]
+    },
+    {
+      "name": "final displaced inventory (8, 3.2, 9.81, -0.4)",
+      "pass": true,
+      "detail": [
+        204.8,
+        204.79999999999927
+      ]
+    },
+    {
+      "name": "independent force quadrature (8, 3.2, 9.81, -0.4)",
+      "pass": true,
+      "detail": [
+        58.73189893380841,
+        58.73189893351219
+      ]
+    },
+    {
+      "name": "body momentum (8, 3.2, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent water+body energy (8, 3.2, 9.81, -0.4)",
+      "pass": true,
+      "detail": -4.656612873077393e-10
+    },
+    {
+      "name": "reported energy defect (8, 3.2, 9.81, -0.4)",
+      "pass": true,
+      "detail": 2.1930190996499732e-10
+    },
+    {
+      "name": "unique (8, 3.2, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "initial inventory (8, 3.2, 9.81, 0.4)",
+      "pass": true,
+      "detail": [
+        204.8,
+        204.79999999999927
+      ]
+    },
+    {
+      "name": "final displaced inventory (8, 3.2, 9.81, 0.4)",
+      "pass": true,
+      "detail": [
+        204.8,
+        204.79999999999927
+      ]
+    },
+    {
+      "name": "independent force quadrature (8, 3.2, 9.81, 0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "body momentum (8, 3.2, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent water+body energy (8, 3.2, 9.81, 0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "reported energy defect (8, 3.2, 9.81, 0.4)",
+      "pass": true,
+      "detail": 5.684341886080802e-14
+    },
+    {
+      "name": "unique (8, 4.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "initial inventory (8, 4.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": [
+        253.952,
+        253.95200000000034
+      ]
+    },
+    {
+      "name": "final displaced inventory (8, 4.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": [
+        253.95200000000003,
+        253.95200000000034
+      ]
+    },
+    {
+      "name": "independent force quadrature (8, 4.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "body momentum (8, 4.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent water+body energy (8, 4.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": 2.6367796834847468e-12
+    },
+    {
+      "name": "reported energy defect (8, 4.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (8, 4.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "initial inventory (8, 4.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": [
+        253.952,
+        253.95199999999966
+      ]
+    },
+    {
+      "name": "final displaced inventory (8, 4.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": [
+        253.952,
+        253.95199999999966
+      ]
+    },
+    {
+      "name": "independent force quadrature (8, 4.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "body momentum (8, 4.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent water+body energy (8, 4.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": -3.5263458819656535e-10
+    },
+    {
+      "name": "reported energy defect (8, 4.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (8, 4.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "initial inventory (8, 4.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": [
+        253.952,
+        253.95200000000023
+      ]
+    },
+    {
+      "name": "final displaced inventory (8, 4.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": [
+        253.95200000000003,
+        253.95200000000023
+      ]
+    },
+    {
+      "name": "independent force quadrature (8, 4.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": [
+        20148.298041308084,
+        20148.298041308193
+      ]
+    },
+    {
+      "name": "body momentum (8, 4.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent water+body energy (8, 4.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "reported energy defect (8, 4.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": 7.158860171330161e-10
+    },
+    {
+      "name": "unique (8, 4.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "initial inventory (8, 4.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": [
+        253.952,
+        253.95199999999932
+      ]
+    },
+    {
+      "name": "final displaced inventory (8, 4.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": [
+        253.952,
+        253.95199999999932
+      ]
+    },
+    {
+      "name": "independent force quadrature (8, 4.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": [
+        20043.664884316557,
+        20043.664884316287
+      ]
+    },
+    {
+      "name": "body momentum (8, 4.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent water+body energy (8, 4.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": -9.313225746154785e-10
+    },
+    {
+      "name": "reported energy defect (8, 4.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": -2.397655407548882e-10
+    },
+    {
+      "name": "unique (8, 5.75, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "initial inventory (8, 5.75, 0.0, -0.4)",
+      "pass": true,
+      "detail": [
+        363.904,
+        363.9040000000001
+      ]
+    },
+    {
+      "name": "final displaced inventory (8, 5.75, 0.0, -0.4)",
+      "pass": true,
+      "detail": [
+        363.904,
+        363.9040000000001
+      ]
+    },
+    {
+      "name": "independent force quadrature (8, 5.75, 0.0, -0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "body momentum (8, 5.75, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent water+body energy (8, 5.75, 0.0, -0.4)",
+      "pass": true,
+      "detail": 2.6367796834847468e-12
+    },
+    {
+      "name": "reported energy defect (8, 5.75, 0.0, -0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (8, 5.75, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "initial inventory (8, 5.75, 0.0, 0.4)",
+      "pass": true,
+      "detail": [
+        363.904,
+        363.9039999999999
+      ]
+    },
+    {
+      "name": "final displaced inventory (8, 5.75, 0.0, 0.4)",
+      "pass": true,
+      "detail": [
+        363.904,
+        363.9039999999999
+      ]
+    },
+    {
+      "name": "independent force quadrature (8, 5.75, 0.0, 0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "body momentum (8, 5.75, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent water+body energy (8, 5.75, 0.0, 0.4)",
+      "pass": true,
+      "detail": -3.5263458819656535e-10
+    },
+    {
+      "name": "reported energy defect (8, 5.75, 0.0, 0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (8, 5.75, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "initial inventory (8, 5.75, 9.81, -0.4)",
+      "pass": true,
+      "detail": [
+        363.904,
+        363.9040000000001
+      ]
+    },
+    {
+      "name": "final displaced inventory (8, 5.75, 9.81, -0.4)",
+      "pass": true,
+      "detail": [
+        363.904,
+        363.9040000000001
+      ]
+    },
+    {
+      "name": "independent force quadrature (8, 5.75, 9.81, -0.4)",
+      "pass": true,
+      "detail": [
+        40181.75999999997,
+        40181.76000000001
+      ]
+    },
+    {
+      "name": "body momentum (8, 5.75, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent water+body energy (8, 5.75, 9.81, -0.4)",
+      "pass": true,
+      "detail": 1.862645149230957e-09
+    },
+    {
+      "name": "reported energy defect (8, 5.75, 9.81, -0.4)",
+      "pass": true,
+      "detail": -8.620304470241535e-11
+    },
+    {
+      "name": "unique (8, 5.75, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "initial inventory (8, 5.75, 9.81, 0.4)",
+      "pass": true,
+      "detail": [
+        363.904,
+        363.9039999999999
+      ]
+    },
+    {
+      "name": "final displaced inventory (8, 5.75, 9.81, 0.4)",
+      "pass": true,
+      "detail": [
+        363.904,
+        363.9039999999999
+      ]
+    },
+    {
+      "name": "independent force quadrature (8, 5.75, 9.81, 0.4)",
+      "pass": true,
+      "detail": [
+        40181.75999999997,
+        40181.76000000001
+      ]
+    },
+    {
+      "name": "body momentum (8, 5.75, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent water+body energy (8, 5.75, 9.81, 0.4)",
+      "pass": true,
+      "detail": 1.862645149230957e-09
+    },
+    {
+      "name": "reported energy defect (8, 5.75, 9.81, 0.4)",
+      "pass": true,
+      "detail": -6.059508450562134e-10
+    },
+    {
+      "name": "unique (8, 8.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "initial inventory (8, 8.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": [
+        507.904,
+        507.9040000000001
+      ]
+    },
+    {
+      "name": "final displaced inventory (8, 8.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": [
+        507.904,
+        507.9040000000001
+      ]
+    },
+    {
+      "name": "independent force quadrature (8, 8.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "body momentum (8, 8.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent water+body energy (8, 8.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": 2.6367796834847468e-12
+    },
+    {
+      "name": "reported energy defect (8, 8.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (8, 8.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "initial inventory (8, 8.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": [
+        507.904,
+        507.9039999999999
+      ]
+    },
+    {
+      "name": "final displaced inventory (8, 8.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": [
+        507.904,
+        507.9039999999999
+      ]
+    },
+    {
+      "name": "independent force quadrature (8, 8.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "body momentum (8, 8.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent water+body energy (8, 8.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": -3.5263458819656535e-10
+    },
+    {
+      "name": "reported energy defect (8, 8.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (8, 8.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "initial inventory (8, 8.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": [
+        507.904,
+        507.9040000000001
+      ]
+    },
+    {
+      "name": "final displaced inventory (8, 8.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": [
+        507.904,
+        507.9040000000001
+      ]
+    },
+    {
+      "name": "independent force quadrature (8, 8.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": [
+        40181.75999999997,
+        40181.76000000001
+      ]
+    },
+    {
+      "name": "body momentum (8, 8.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent water+body energy (8, 8.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "reported energy defect (8, 8.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": -1.9488481939333724e-09
+    },
+    {
+      "name": "unique (8, 8.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "initial inventory (8, 8.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": [
+        507.904,
+        507.9039999999999
+      ]
+    },
+    {
+      "name": "final displaced inventory (8, 8.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": [
+        507.904,
+        507.9039999999999
+      ]
+    },
+    {
+      "name": "independent force quadrature (8, 8.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": [
+        40181.75999999997,
+        40181.76000000001
+      ]
+    },
+    {
+      "name": "body momentum (8, 8.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent water+body energy (8, 8.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "reported energy defect (8, 8.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": -2.4685959942871705e-09
+    },
+    {
+      "name": "unique (12, 0.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "initial inventory (12, 0.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "final displaced inventory (12, 0.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "independent force quadrature (12, 0.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "body momentum (12, 0.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent water+body energy (12, 0.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": 2.6367796834847468e-12
+    },
+    {
+      "name": "reported energy defect (12, 0.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (12, 0.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "initial inventory (12, 0.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "final displaced inventory (12, 0.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "independent force quadrature (12, 0.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "body momentum (12, 0.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent water+body energy (12, 0.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": -3.5263458819656535e-10
+    },
+    {
+      "name": "reported energy defect (12, 0.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (12, 0.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "initial inventory (12, 0.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "final displaced inventory (12, 0.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "independent force quadrature (12, 0.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "body momentum (12, 0.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent water+body energy (12, 0.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": 1.5683099263696931e-10
+    },
+    {
+      "name": "reported energy defect (12, 0.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": -7.958078640513122e-13
+    },
+    {
+      "name": "unique (12, 0.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "initial inventory (12, 0.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "final displaced inventory (12, 0.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "independent force quadrature (12, 0.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "body momentum (12, 0.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent water+body energy (12, 0.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": -1.1795009413617663e-10
+    },
+    {
+      "name": "reported energy defect (12, 0.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": 5.684341886080802e-14
+    },
+    {
+      "name": "unique (12, 3.125, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "initial inventory (12, 3.125, 0.0, -0.4)",
+      "pass": true,
+      "detail": [
+        450.0,
+        450.0
+      ]
+    },
+    {
+      "name": "final displaced inventory (12, 3.125, 0.0, -0.4)",
+      "pass": true,
+      "detail": [
+        450.0,
+        450.0
+      ]
+    },
+    {
+      "name": "independent force quadrature (12, 3.125, 0.0, -0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "body momentum (12, 3.125, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent water+body energy (12, 3.125, 0.0, -0.4)",
+      "pass": true,
+      "detail": 2.6367796834847468e-12
+    },
+    {
+      "name": "reported energy defect (12, 3.125, 0.0, -0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (12, 3.125, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "initial inventory (12, 3.125, 0.0, 0.4)",
+      "pass": true,
+      "detail": [
+        450.0,
+        450.0
+      ]
+    },
+    {
+      "name": "final displaced inventory (12, 3.125, 0.0, 0.4)",
+      "pass": true,
+      "detail": [
+        450.0,
+        450.0
+      ]
+    },
+    {
+      "name": "independent force quadrature (12, 3.125, 0.0, 0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "body momentum (12, 3.125, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent water+body energy (12, 3.125, 0.0, 0.4)",
+      "pass": true,
+      "detail": -3.5263458819656535e-10
+    },
+    {
+      "name": "reported energy defect (12, 3.125, 0.0, 0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (12, 3.125, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "initial inventory (12, 3.125, 9.81, -0.4)",
+      "pass": true,
+      "detail": [
+        450.0,
+        450.0
+      ]
+    },
+    {
+      "name": "final displaced inventory (12, 3.125, 9.81, -0.4)",
+      "pass": true,
+      "detail": [
+        450.0,
+        450.0
+      ]
+    },
+    {
+      "name": "independent force quadrature (12, 3.125, 9.81, -0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "body momentum (12, 3.125, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent water+body energy (12, 3.125, 9.81, -0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "reported energy defect (12, 3.125, 9.81, -0.4)",
+      "pass": true,
+      "detail": -7.958078640513122e-13
+    },
+    {
+      "name": "unique (12, 3.125, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "initial inventory (12, 3.125, 9.81, 0.4)",
+      "pass": true,
+      "detail": [
+        450.0,
+        450.0
+      ]
+    },
+    {
+      "name": "final displaced inventory (12, 3.125, 9.81, 0.4)",
+      "pass": true,
+      "detail": [
+        450.0,
+        450.0
+      ]
+    },
+    {
+      "name": "independent force quadrature (12, 3.125, 9.81, 0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "body momentum (12, 3.125, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent water+body energy (12, 3.125, 9.81, 0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "reported energy defect (12, 3.125, 9.81, 0.4)",
+      "pass": true,
+      "detail": 5.684341886080802e-14
+    },
+    {
+      "name": "unique (12, 3.2, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "initial inventory (12, 3.2, 0.0, -0.4)",
+      "pass": true,
+      "detail": [
+        460.8,
+        460.800000000002
+      ]
+    },
+    {
+      "name": "final displaced inventory (12, 3.2, 0.0, -0.4)",
+      "pass": true,
+      "detail": [
+        460.8,
+        460.800000000002
+      ]
+    },
+    {
+      "name": "independent force quadrature (12, 3.2, 0.0, -0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "body momentum (12, 3.2, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent water+body energy (12, 3.2, 0.0, -0.4)",
+      "pass": true,
+      "detail": 2.6367796834847468e-12
+    },
+    {
+      "name": "reported energy defect (12, 3.2, 0.0, -0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (12, 3.2, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "initial inventory (12, 3.2, 0.0, 0.4)",
+      "pass": true,
+      "detail": [
+        460.8,
+        460.79999999999836
+      ]
+    },
+    {
+      "name": "final displaced inventory (12, 3.2, 0.0, 0.4)",
+      "pass": true,
+      "detail": [
+        460.8,
+        460.79999999999836
+      ]
+    },
+    {
+      "name": "independent force quadrature (12, 3.2, 0.0, 0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "body momentum (12, 3.2, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent water+body energy (12, 3.2, 0.0, 0.4)",
+      "pass": true,
+      "detail": -3.5263458819656535e-10
+    },
+    {
+      "name": "reported energy defect (12, 3.2, 0.0, 0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (12, 3.2, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "initial inventory (12, 3.2, 9.81, -0.4)",
+      "pass": true,
+      "detail": [
+        460.8,
+        460.80000000000314
+      ]
+    },
+    {
+      "name": "final displaced inventory (12, 3.2, 9.81, -0.4)",
+      "pass": true,
+      "detail": [
+        460.8,
+        460.80000000000314
+      ]
+    },
+    {
+      "name": "independent force quadrature (12, 3.2, 9.81, -0.4)",
+      "pass": true,
+      "detail": [
+        57.40320787024647,
+        57.40320787080603
+      ]
+    },
+    {
+      "name": "body momentum (12, 3.2, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent water+body energy (12, 3.2, 9.81, -0.4)",
+      "pass": true,
+      "detail": -1.862645149230957e-09
+    },
+    {
+      "name": "reported energy defect (12, 3.2, 9.81, -0.4)",
+      "pass": true,
+      "detail": -2.165563728340203e-09
+    },
+    {
+      "name": "unique (12, 3.2, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "initial inventory (12, 3.2, 9.81, 0.4)",
+      "pass": true,
+      "detail": [
+        460.8,
+        460.79999999999836
+      ]
+    },
+    {
+      "name": "final displaced inventory (12, 3.2, 9.81, 0.4)",
+      "pass": true,
+      "detail": [
+        460.8,
+        460.79999999999836
+      ]
+    },
+    {
+      "name": "independent force quadrature (12, 3.2, 9.81, 0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "body momentum (12, 3.2, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent water+body energy (12, 3.2, 9.81, 0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "reported energy defect (12, 3.2, 9.81, 0.4)",
+      "pass": true,
+      "detail": 5.684341886080802e-14
+    },
+    {
+      "name": "unique (12, 4.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "initial inventory (12, 4.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": [
+        573.952,
+        573.9519999999955
+      ]
+    },
+    {
+      "name": "final displaced inventory (12, 4.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": [
+        573.952,
+        573.9519999999955
+      ]
+    },
+    {
+      "name": "independent force quadrature (12, 4.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "body momentum (12, 4.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent water+body energy (12, 4.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": 2.6367796834847468e-12
+    },
+    {
+      "name": "reported energy defect (12, 4.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (12, 4.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "initial inventory (12, 4.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": [
+        573.952,
+        573.9519999999999
+      ]
+    },
+    {
+      "name": "final displaced inventory (12, 4.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": [
+        573.952,
+        573.9519999999999
+      ]
+    },
+    {
+      "name": "independent force quadrature (12, 4.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "body momentum (12, 4.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent water+body energy (12, 4.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": -3.5263458819656535e-10
+    },
+    {
+      "name": "reported energy defect (12, 4.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (12, 4.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "initial inventory (12, 4.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": [
+        573.952,
+        573.9519999999973
+      ]
+    },
+    {
+      "name": "final displaced inventory (12, 4.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": [
+        573.9519999999999,
+        573.9519999999973
+      ]
+    },
+    {
+      "name": "independent force quadrature (12, 4.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": [
+        20146.999073630242,
+        20146.999073629773
+      ]
+    },
+    {
+      "name": "body momentum (12, 4.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent water+body energy (12, 4.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": -3.725290298461914e-09
+    },
+    {
+      "name": "reported energy defect (12, 4.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": -4.914966211799765e-09
+    },
+    {
+      "name": "unique (12, 4.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "initial inventory (12, 4.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": [
+        573.952,
+        573.9519999999986
+      ]
+    },
+    {
+      "name": "final displaced inventory (12, 4.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": [
+        573.952,
+        573.9519999999986
+      ]
+    },
+    {
+      "name": "independent force quadrature (12, 4.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": [
+        20044.73303132717,
+        20044.733031326938
+      ]
+    },
+    {
+      "name": "body momentum (12, 4.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent water+body energy (12, 4.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": 1.862645149230957e-09
+    },
+    {
+      "name": "reported energy defect (12, 4.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": 1.4834995454293676e-09
+    },
+    {
+      "name": "unique (12, 5.75, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "initial inventory (12, 5.75, 0.0, -0.4)",
+      "pass": true,
+      "detail": [
+        823.904,
+        823.9039999999998
+      ]
+    },
+    {
+      "name": "final displaced inventory (12, 5.75, 0.0, -0.4)",
+      "pass": true,
+      "detail": [
+        823.904,
+        823.9039999999998
+      ]
+    },
+    {
+      "name": "independent force quadrature (12, 5.75, 0.0, -0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "body momentum (12, 5.75, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent water+body energy (12, 5.75, 0.0, -0.4)",
+      "pass": true,
+      "detail": 2.6367796834847468e-12
+    },
+    {
+      "name": "reported energy defect (12, 5.75, 0.0, -0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (12, 5.75, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "initial inventory (12, 5.75, 0.0, 0.4)",
+      "pass": true,
+      "detail": [
+        823.904,
+        823.9040000000002
+      ]
+    },
+    {
+      "name": "final displaced inventory (12, 5.75, 0.0, 0.4)",
+      "pass": true,
+      "detail": [
+        823.904,
+        823.9040000000002
+      ]
+    },
+    {
+      "name": "independent force quadrature (12, 5.75, 0.0, 0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "body momentum (12, 5.75, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent water+body energy (12, 5.75, 0.0, 0.4)",
+      "pass": true,
+      "detail": -3.5263458819656535e-10
+    },
+    {
+      "name": "reported energy defect (12, 5.75, 0.0, 0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (12, 5.75, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "initial inventory (12, 5.75, 9.81, -0.4)",
+      "pass": true,
+      "detail": [
+        823.904,
+        823.904
+      ]
+    },
+    {
+      "name": "final displaced inventory (12, 5.75, 9.81, -0.4)",
+      "pass": true,
+      "detail": [
+        823.904,
+        823.904
+      ]
+    },
+    {
+      "name": "independent force quadrature (12, 5.75, 9.81, -0.4)",
+      "pass": true,
+      "detail": [
+        40181.75999999997,
+        40181.76000000001
+      ]
+    },
+    {
+      "name": "body momentum (12, 5.75, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent water+body energy (12, 5.75, 9.81, -0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "reported energy defect (12, 5.75, 9.81, -0.4)",
+      "pass": true,
+      "detail": -1.9488481939333724e-09
+    },
+    {
+      "name": "unique (12, 5.75, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "initial inventory (12, 5.75, 9.81, 0.4)",
+      "pass": true,
+      "detail": [
+        823.904,
+        823.904
+      ]
+    },
+    {
+      "name": "final displaced inventory (12, 5.75, 9.81, 0.4)",
+      "pass": true,
+      "detail": [
+        823.904,
+        823.904
+      ]
+    },
+    {
+      "name": "independent force quadrature (12, 5.75, 9.81, 0.4)",
+      "pass": true,
+      "detail": [
+        40181.75999999997,
+        40181.76000000001
+      ]
+    },
+    {
+      "name": "body momentum (12, 5.75, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent water+body energy (12, 5.75, 9.81, 0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "reported energy defect (12, 5.75, 9.81, 0.4)",
+      "pass": true,
+      "detail": -2.4685959942871705e-09
+    },
+    {
+      "name": "unique (12, 12.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "initial inventory (12, 12.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": [
+        1723.904,
+        1723.9039999999998
+      ]
+    },
+    {
+      "name": "final displaced inventory (12, 12.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": [
+        1723.904,
+        1723.9039999999998
+      ]
+    },
+    {
+      "name": "independent force quadrature (12, 12.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "body momentum (12, 12.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent water+body energy (12, 12.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": 2.6367796834847468e-12
+    },
+    {
+      "name": "reported energy defect (12, 12.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (12, 12.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "initial inventory (12, 12.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": [
+        1723.904,
+        1723.9040000000002
+      ]
+    },
+    {
+      "name": "final displaced inventory (12, 12.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": [
+        1723.904,
+        1723.9040000000002
+      ]
+    },
+    {
+      "name": "independent force quadrature (12, 12.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "body momentum (12, 12.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent water+body energy (12, 12.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": -3.5263458819656535e-10
+    },
+    {
+      "name": "reported energy defect (12, 12.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (12, 12.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "initial inventory (12, 12.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": [
+        1723.904,
+        1723.904
+      ]
+    },
+    {
+      "name": "final displaced inventory (12, 12.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": [
+        1723.904,
+        1723.904
+      ]
+    },
+    {
+      "name": "independent force quadrature (12, 12.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": [
+        40181.75999999997,
+        40181.76000000001
+      ]
+    },
+    {
+      "name": "body momentum (12, 12.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent water+body energy (12, 12.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": 1.4901161193847656e-08
+    },
+    {
+      "name": "reported energy defect (12, 12.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": 9.22702270145237e-09
+    },
+    {
+      "name": "unique (12, 12.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "initial inventory (12, 12.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": [
+        1723.904,
+        1723.904
+      ]
+    },
+    {
+      "name": "final displaced inventory (12, 12.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": [
+        1723.904,
+        1723.904
+      ]
+    },
+    {
+      "name": "independent force quadrature (12, 12.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": [
+        40181.75999999997,
+        40181.76000000001
+      ]
+    },
+    {
+      "name": "body momentum (12, 12.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent water+body energy (12, 12.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "reported energy defect (12, 12.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": 8.707274901098572e-09
+    },
+    {
+      "name": "complete grid/level/gravity/velocity coverage",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "maximum equilibrium energy defect < 1e-7 J",
+      "pass": true,
+      "detail": null
+    }
+  ],
+  "reference": [
+    {
+      "grid": 8,
+      "initial_level_m": 0.0,
+      "final_level_m": 0.0,
+      "gravity_m_s2": 0.0,
+      "initial_velocity_m_s": -0.4,
+      "dz_m": -0.0040000000000000036,
+      "mean_buoyancy_N": 0.0,
+      "water_volume_m3": 0.0,
+      "equilibrium_energy_defect_J": 0.0
+    },
+    {
+      "grid": 8,
+      "initial_level_m": 0.0,
+      "final_level_m": 0.0,
+      "gravity_m_s2": 0.0,
+      "initial_velocity_m_s": 0.4,
+      "dz_m": 0.0039999999999995595,
+      "mean_buoyancy_N": 0.0,
+      "water_volume_m3": 0.0,
+      "equilibrium_energy_defect_J": 0.0
+    },
+    {
+      "grid": 8,
+      "initial_level_m": 0.0,
+      "final_level_m": 0.0,
+      "gravity_m_s2": 9.81,
+      "initial_velocity_m_s": -0.4,
+      "dz_m": -0.004490500000000175,
+      "mean_buoyancy_N": 0.0,
+      "water_volume_m3": 0.0,
+      "equilibrium_energy_defect_J": -7.958078640513122e-13
+    },
+    {
+      "grid": 8,
+      "initial_level_m": 0.0,
+      "final_level_m": 0.0,
+      "gravity_m_s2": 9.81,
+      "initial_velocity_m_s": 0.4,
+      "dz_m": 0.003509499999999832,
+      "mean_buoyancy_N": 0.0,
+      "water_volume_m3": 0.0,
+      "equilibrium_energy_defect_J": 5.684341886080802e-14
+    },
+    {
+      "grid": 8,
+      "initial_level_m": 3.125,
+      "final_level_m": 3.125,
+      "gravity_m_s2": 0.0,
+      "initial_velocity_m_s": -0.4,
+      "dz_m": -0.0040000000000000036,
+      "mean_buoyancy_N": 0.0,
+      "water_volume_m3": 200.0,
+      "equilibrium_energy_defect_J": 0.0
+    },
+    {
+      "grid": 8,
+      "initial_level_m": 3.125,
+      "final_level_m": 3.125,
+      "gravity_m_s2": 0.0,
+      "initial_velocity_m_s": 0.4,
+      "dz_m": 0.0039999999999995595,
+      "mean_buoyancy_N": 0.0,
+      "water_volume_m3": 200.0,
+      "equilibrium_energy_defect_J": 0.0
+    },
+    {
+      "grid": 8,
+      "initial_level_m": 3.125,
+      "final_level_m": 3.125,
+      "gravity_m_s2": 9.81,
+      "initial_velocity_m_s": -0.4,
+      "dz_m": -0.004490500000000175,
+      "mean_buoyancy_N": 0.0,
+      "water_volume_m3": 200.0,
+      "equilibrium_energy_defect_J": -7.958078640513122e-13
+    },
+    {
+      "grid": 8,
+      "initial_level_m": 3.125,
+      "final_level_m": 3.125,
+      "gravity_m_s2": 9.81,
+      "initial_velocity_m_s": 0.4,
+      "dz_m": 0.003509499999999832,
+      "mean_buoyancy_N": 0.0,
+      "water_volume_m3": 200.0,
+      "equilibrium_energy_defect_J": 5.684341886080802e-14
+    },
+    {
+      "grid": 8,
+      "initial_level_m": 3.2,
+      "final_level_m": 3.200166666666667,
+      "gravity_m_s2": 0.0,
+      "initial_velocity_m_s": -0.4,
+      "dz_m": -0.0040000000000000036,
+      "mean_buoyancy_N": 0.0,
+      "water_volume_m3": 204.7999999999996,
+      "equilibrium_energy_defect_J": 0.0
+    },
+    {
+      "grid": 8,
+      "initial_level_m": 3.2,
+      "final_level_m": 3.2,
+      "gravity_m_s2": 0.0,
+      "initial_velocity_m_s": 0.4,
+      "dz_m": 0.0039999999999995595,
+      "mean_buoyancy_N": 0.0,
+      "water_volume_m3": 204.79999999999927,
+      "equilibrium_energy_defect_J": 0.0
+    },
+    {
+      "grid": 8,
+      "initial_level_m": 3.2,
+      "final_level_m": 3.2001870919308546,
+      "gravity_m_s2": 9.81,
+      "initial_velocity_m_s": -0.4,
+      "dz_m": -0.004490206340505232,
+      "mean_buoyancy_N": 58.73189893380841,
+      "water_volume_m3": 204.79999999999927,
+      "equilibrium_energy_defect_J": 2.1930190996499732e-10
+    },
+    {
+      "grid": 8,
+      "initial_level_m": 3.2,
+      "final_level_m": 3.2,
+      "gravity_m_s2": 9.81,
+      "initial_velocity_m_s": 0.4,
+      "dz_m": 0.003509499999999832,
+      "mean_buoyancy_N": 0.0,
+      "water_volume_m3": 204.79999999999927,
+      "equilibrium_energy_defect_J": 5.684341886080802e-14
+    },
+    {
+      "grid": 8,
+      "initial_level_m": 4.0,
+      "final_level_m": 4.000166666666667,
+      "gravity_m_s2": 0.0,
+      "initial_velocity_m_s": -0.4,
+      "dz_m": -0.0040000000000000036,
+      "mean_buoyancy_N": 0.0,
+      "water_volume_m3": 253.95200000000034,
+      "equilibrium_energy_defect_J": 0.0
+    },
+    {
+      "grid": 8,
+      "initial_level_m": 4.0,
+      "final_level_m": 3.999833333333333,
+      "gravity_m_s2": 0.0,
+      "initial_velocity_m_s": 0.4,
+      "dz_m": 0.0039999999999995595,
+      "mean_buoyancy_N": 0.0,
+      "water_volume_m3": 253.95199999999966,
+      "equilibrium_energy_defect_J": 0.0
+    },
+    {
+      "grid": 8,
+      "initial_level_m": 4.0,
+      "final_level_m": 4.000182906604575,
+      "gravity_m_s2": 9.81,
+      "initial_velocity_m_s": -0.4,
+      "dz_m": -0.0043897585097933955,
+      "mean_buoyancy_N": 20148.298041308084,
+      "water_volume_m3": 253.95200000000023,
+      "equilibrium_energy_defect_J": 7.158860171330161e-10
+    },
+    {
+      "grid": 8,
+      "initial_level_m": 4.0,
+      "final_level_m": 3.999849595069816,
+      "gravity_m_s2": 9.81,
+      "initial_velocity_m_s": 0.4,
+      "dz_m": 0.0036097183244212516,
+      "mean_buoyancy_N": 20043.664884316557,
+      "water_volume_m3": 253.95199999999932,
+      "equilibrium_energy_defect_J": -2.397655407548882e-10
+    },
+    {
+      "grid": 8,
+      "initial_level_m": 5.75,
+      "final_level_m": 5.75,
+      "gravity_m_s2": 0.0,
+      "initial_velocity_m_s": -0.4,
+      "dz_m": -0.0040000000000000036,
+      "mean_buoyancy_N": 0.0,
+      "water_volume_m3": 363.9040000000001,
+      "equilibrium_energy_defect_J": 0.0
+    },
+    {
+      "grid": 8,
+      "initial_level_m": 5.75,
+      "final_level_m": 5.75,
+      "gravity_m_s2": 0.0,
+      "initial_velocity_m_s": 0.4,
+      "dz_m": 0.0039999999999995595,
+      "mean_buoyancy_N": 0.0,
+      "water_volume_m3": 363.9039999999999,
+      "equilibrium_energy_defect_J": 0.0
+    },
+    {
+      "grid": 8,
+      "initial_level_m": 5.75,
+      "final_level_m": 5.75,
+      "gravity_m_s2": 9.81,
+      "initial_velocity_m_s": -0.4,
+      "dz_m": -0.0042895912000000536,
+      "mean_buoyancy_N": 40181.75999999997,
+      "water_volume_m3": 363.9040000000001,
+      "equilibrium_energy_defect_J": -8.620304470241535e-11
+    },
+    {
+      "grid": 8,
+      "initial_level_m": 5.75,
+      "final_level_m": 5.75,
+      "gravity_m_s2": 9.81,
+      "initial_velocity_m_s": 0.4,
+      "dz_m": 0.0037104087999999535,
+      "mean_buoyancy_N": 40181.75999999997,
+      "water_volume_m3": 363.9039999999999,
+      "equilibrium_energy_defect_J": -6.059508450562134e-10
+    },
+    {
+      "grid": 8,
+      "initial_level_m": 8.0,
+      "final_level_m": 8.0,
+      "gravity_m_s2": 0.0,
+      "initial_velocity_m_s": -0.4,
+      "dz_m": -0.0040000000000000036,
+      "mean_buoyancy_N": 0.0,
+      "water_volume_m3": 507.9040000000001,
+      "equilibrium_energy_defect_J": 0.0
+    },
+    {
+      "grid": 8,
+      "initial_level_m": 8.0,
+      "final_level_m": 8.0,
+      "gravity_m_s2": 0.0,
+      "initial_velocity_m_s": 0.4,
+      "dz_m": 0.0039999999999995595,
+      "mean_buoyancy_N": 0.0,
+      "water_volume_m3": 507.9039999999999,
+      "equilibrium_energy_defect_J": 0.0
+    },
+    {
+      "grid": 8,
+      "initial_level_m": 8.0,
+      "final_level_m": 8.0,
+      "gravity_m_s2": 9.81,
+      "initial_velocity_m_s": -0.4,
+      "dz_m": -0.0042895912000000536,
+      "mean_buoyancy_N": 40181.75999999997,
+      "water_volume_m3": 507.9040000000001,
+      "equilibrium_energy_defect_J": -1.9488481939333724e-09
+    },
+    {
+      "grid": 8,
+      "initial_level_m": 8.0,
+      "final_level_m": 8.0,
+      "gravity_m_s2": 9.81,
+      "initial_velocity_m_s": 0.4,
+      "dz_m": 0.0037104087999999535,
+      "mean_buoyancy_N": 40181.75999999997,
+      "water_volume_m3": 507.9039999999999,
+      "equilibrium_energy_defect_J": -2.4685959942871705e-09
+    },
+    {
+      "grid": 12,
+      "initial_level_m": 0.0,
+      "final_level_m": 0.0,
+      "gravity_m_s2": 0.0,
+      "initial_velocity_m_s": -0.4,
+      "dz_m": -0.0040000000000000036,
+      "mean_buoyancy_N": 0.0,
+      "water_volume_m3": 0.0,
+      "equilibrium_energy_defect_J": 0.0
+    },
+    {
+      "grid": 12,
+      "initial_level_m": 0.0,
+      "final_level_m": 0.0,
+      "gravity_m_s2": 0.0,
+      "initial_velocity_m_s": 0.4,
+      "dz_m": 0.0039999999999995595,
+      "mean_buoyancy_N": 0.0,
+      "water_volume_m3": 0.0,
+      "equilibrium_energy_defect_J": 0.0
+    },
+    {
+      "grid": 12,
+      "initial_level_m": 0.0,
+      "final_level_m": 0.0,
+      "gravity_m_s2": 9.81,
+      "initial_velocity_m_s": -0.4,
+      "dz_m": -0.004490500000000175,
+      "mean_buoyancy_N": 0.0,
+      "water_volume_m3": 0.0,
+      "equilibrium_energy_defect_J": -7.958078640513122e-13
+    },
+    {
+      "grid": 12,
+      "initial_level_m": 0.0,
+      "final_level_m": 0.0,
+      "gravity_m_s2": 9.81,
+      "initial_velocity_m_s": 0.4,
+      "dz_m": 0.003509499999999832,
+      "mean_buoyancy_N": 0.0,
+      "water_volume_m3": 0.0,
+      "equilibrium_energy_defect_J": 5.684341886080802e-14
+    },
+    {
+      "grid": 12,
+      "initial_level_m": 3.125,
+      "final_level_m": 3.125,
+      "gravity_m_s2": 0.0,
+      "initial_velocity_m_s": -0.4,
+      "dz_m": -0.0040000000000000036,
+      "mean_buoyancy_N": 0.0,
+      "water_volume_m3": 450.0,
+      "equilibrium_energy_defect_J": 0.0
+    },
+    {
+      "grid": 12,
+      "initial_level_m": 3.125,
+      "final_level_m": 3.125,
+      "gravity_m_s2": 0.0,
+      "initial_velocity_m_s": 0.4,
+      "dz_m": 0.0039999999999995595,
+      "mean_buoyancy_N": 0.0,
+      "water_volume_m3": 450.0,
+      "equilibrium_energy_defect_J": 0.0
+    },
+    {
+      "grid": 12,
+      "initial_level_m": 3.125,
+      "final_level_m": 3.125,
+      "gravity_m_s2": 9.81,
+      "initial_velocity_m_s": -0.4,
+      "dz_m": -0.004490500000000175,
+      "mean_buoyancy_N": 0.0,
+      "water_volume_m3": 450.0,
+      "equilibrium_energy_defect_J": -7.958078640513122e-13
+    },
+    {
+      "grid": 12,
+      "initial_level_m": 3.125,
+      "final_level_m": 3.125,
+      "gravity_m_s2": 9.81,
+      "initial_velocity_m_s": 0.4,
+      "dz_m": 0.003509499999999832,
+      "mean_buoyancy_N": 0.0,
+      "water_volume_m3": 450.0,
+      "equilibrium_energy_defect_J": 5.684341886080802e-14
+    },
+    {
+      "grid": 12,
+      "initial_level_m": 3.2,
+      "final_level_m": 3.2000723981900454,
+      "gravity_m_s2": 0.0,
+      "initial_velocity_m_s": -0.4,
+      "dz_m": -0.0040000000000000036,
+      "mean_buoyancy_N": 0.0,
+      "water_volume_m3": 460.800000000002,
+      "equilibrium_energy_defect_J": 0.0
+    },
+    {
+      "grid": 12,
+      "initial_level_m": 3.2,
+      "final_level_m": 3.2,
+      "gravity_m_s2": 0.0,
+      "initial_velocity_m_s": 0.4,
+      "dz_m": 0.0039999999999995595,
+      "mean_buoyancy_N": 0.0,
+      "water_volume_m3": 460.79999999999836,
+      "equilibrium_energy_defect_J": 0.0
+    },
+    {
+      "grid": 12,
+      "initial_level_m": 3.2,
+      "final_level_m": 3.200081270823239,
+      "gravity_m_s2": 9.81,
+      "initial_velocity_m_s": -0.4,
+      "dz_m": -0.004490212983960795,
+      "mean_buoyancy_N": 57.40320787024647,
+      "water_volume_m3": 460.80000000000314,
+      "equilibrium_energy_defect_J": -2.165563728340203e-09
+    },
+    {
+      "grid": 12,
+      "initial_level_m": 3.2,
+      "final_level_m": 3.2,
+      "gravity_m_s2": 9.81,
+      "initial_velocity_m_s": 0.4,
+      "dz_m": 0.003509499999999832,
+      "mean_buoyancy_N": 0.0,
+      "water_volume_m3": 460.79999999999836,
+      "equilibrium_energy_defect_J": 5.684341886080802e-14
+    },
+    {
+      "grid": 12,
+      "initial_level_m": 4.0,
+      "final_level_m": 4.000072398190046,
+      "gravity_m_s2": 0.0,
+      "initial_velocity_m_s": -0.4,
+      "dz_m": -0.0040000000000000036,
+      "mean_buoyancy_N": 0.0,
+      "water_volume_m3": 573.9519999999955,
+      "equilibrium_energy_defect_J": 0.0
+    },
+    {
+      "grid": 12,
+      "initial_level_m": 4.0,
+      "final_level_m": 3.9999276018099548,
+      "gravity_m_s2": 0.0,
+      "initial_velocity_m_s": 0.4,
+      "dz_m": 0.0039999999999995595,
+      "mean_buoyancy_N": 0.0,
+      "water_volume_m3": 573.9519999999999,
+      "equilibrium_energy_defect_J": 0.0
+    },
+    {
+      "grid": 12,
+      "initial_level_m": 4.0,
+      "final_level_m": 4.000079452760264,
+      "gravity_m_s2": 9.81,
+      "initial_velocity_m_s": -0.4,
+      "dz_m": -0.00438976500463184,
+      "mean_buoyancy_N": 20146.999073630242,
+      "water_volume_m3": 573.9519999999973,
+      "equilibrium_energy_defect_J": -4.914966211799765e-09
+    },
+    {
+      "grid": 12,
+      "initial_level_m": 4.0,
+      "final_level_m": 3.99993466563502,
+      "gravity_m_s2": 9.81,
+      "initial_velocity_m_s": 0.4,
+      "dz_m": 0.003609723665156217,
+      "mean_buoyancy_N": 20044.73303132717,
+      "water_volume_m3": 573.9519999999986,
+      "equilibrium_energy_defect_J": 1.4834995454293676e-09
+    },
+    {
+      "grid": 12,
+      "initial_level_m": 5.75,
+      "final_level_m": 5.75,
+      "gravity_m_s2": 0.0,
+      "initial_velocity_m_s": -0.4,
+      "dz_m": -0.0040000000000000036,
+      "mean_buoyancy_N": 0.0,
+      "water_volume_m3": 823.9039999999998,
+      "equilibrium_energy_defect_J": 0.0
+    },
+    {
+      "grid": 12,
+      "initial_level_m": 5.75,
+      "final_level_m": 5.75,
+      "gravity_m_s2": 0.0,
+      "initial_velocity_m_s": 0.4,
+      "dz_m": 0.0039999999999995595,
+      "mean_buoyancy_N": 0.0,
+      "water_volume_m3": 823.9040000000002,
+      "equilibrium_energy_defect_J": 0.0
+    },
+    {
+      "grid": 12,
+      "initial_level_m": 5.75,
+      "final_level_m": 5.75,
+      "gravity_m_s2": 9.81,
+      "initial_velocity_m_s": -0.4,
+      "dz_m": -0.0042895912000000536,
+      "mean_buoyancy_N": 40181.75999999997,
+      "water_volume_m3": 823.904,
+      "equilibrium_energy_defect_J": -1.9488481939333724e-09
+    },
+    {
+      "grid": 12,
+      "initial_level_m": 5.75,
+      "final_level_m": 5.75,
+      "gravity_m_s2": 9.81,
+      "initial_velocity_m_s": 0.4,
+      "dz_m": 0.0037104087999999535,
+      "mean_buoyancy_N": 40181.75999999997,
+      "water_volume_m3": 823.904,
+      "equilibrium_energy_defect_J": -2.4685959942871705e-09
+    },
+    {
+      "grid": 12,
+      "initial_level_m": 12.0,
+      "final_level_m": 12.0,
+      "gravity_m_s2": 0.0,
+      "initial_velocity_m_s": -0.4,
+      "dz_m": -0.0040000000000000036,
+      "mean_buoyancy_N": 0.0,
+      "water_volume_m3": 1723.9039999999998,
+      "equilibrium_energy_defect_J": 0.0
+    },
+    {
+      "grid": 12,
+      "initial_level_m": 12.0,
+      "final_level_m": 12.0,
+      "gravity_m_s2": 0.0,
+      "initial_velocity_m_s": 0.4,
+      "dz_m": 0.0039999999999995595,
+      "mean_buoyancy_N": 0.0,
+      "water_volume_m3": 1723.9040000000002,
+      "equilibrium_energy_defect_J": 0.0
+    },
+    {
+      "grid": 12,
+      "initial_level_m": 12.0,
+      "final_level_m": 12.0,
+      "gravity_m_s2": 9.81,
+      "initial_velocity_m_s": -0.4,
+      "dz_m": -0.0042895912000000536,
+      "mean_buoyancy_N": 40181.75999999997,
+      "water_volume_m3": 1723.904,
+      "equilibrium_energy_defect_J": 9.22702270145237e-09
+    },
+    {
+      "grid": 12,
+      "initial_level_m": 12.0,
+      "final_level_m": 12.0,
+      "gravity_m_s2": 9.81,
+      "initial_velocity_m_s": 0.4,
+      "dz_m": 0.0037104087999999535,
+      "mean_buoyancy_N": 40181.75999999997,
+      "water_volume_m3": 1723.904,
+      "equilibrium_energy_defect_J": 8.707274901098572e-09
+    }
+  ],
+  "source_sha256": {
+    "CMakeLists.txt": "ac7d93e92222c229587b3091f494448910a123639bf191d68e0c2aa877f9065c",
+    "docs/PHASENPLAN.md": "e3c0e430b6aa990dc369eb6628f156048cebd1fd5039c68b8db24bf3a60ed08e",
+    "docs/P2_CLOSED_BASIN_HYDROSTATIC_PARTIAL.md": "6b885a1e90de623e312df9623c544496a5d6cd5102725d2953608399e6197633",
+    "include/upc/p2_closed_basin_hydrostatic3d.hpp": "138b30bd78c843151f48419754233633415ace1a9e492d2bc45acc2f84769eae",
+    "include/upc/p2_moving_box_open_volume3d.hpp": "270ecc419fa312212e47dbcfbd7fa8f2b172fde153b6d66e19f226be5cbedbb2",
+    "include/upc/rigid_pressure_response3d.hpp": "41282862ecf047ab9cf7c27ebea34314f049658e03bb3bbd4533609a0f41afe1",
+    "tests/p2_closed_basin_hydrostatic3d_tests.cpp": "b6c445eccba498dbc813edef380fc2b6ac0db5e3825ac9a320657b9408d37c0e",
+    "scripts/p2_closed_basin_hydrostatic_acceptance.py": "009a186fa409a07061baee98e69ea1f2fa86f00280ab15670fcbb6556483295c",
+    "scripts/p2_closed_basin_hydrostatic_full_build.cmd": "e053e94cf6478d8aac38c66fa287ae0473a09d375d349cd3200a111134157aae"
+  },
+  "ctest_log_sha256": "3e586580c918037765319d5a7bcc16310e403d20f49a20ecbfbf28893bf5da24",
+  "limitations": [
+    "quasistatic hydrostatic equilibrium; no resolved fluid inertia",
+    "water fractions reconstructed, NOT advected by MAC/VOF",
+    "buoyancy counterimpulse diagnostic only, NOT applied",
+    "no dynamic 3D FSI momentum/energy validation or external CFD data",
+    "no UE5.8 native E2E for this optional path"
+  ]
+}

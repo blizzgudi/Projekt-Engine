@@ -447,3 +447,11 @@ add_executable(upc_p2_hydrostatic_discrete_gradient_tests
 target_link_libraries(upc_p2_hydrostatic_discrete_gradient_tests PRIVATE upc)
 add_test(NAME physics_p2_hydrostatic_discrete_gradient_partial
     COMMAND upc_p2_hydrostatic_discrete_gradient_tests)
+
+# P2 PARTIAL: closed-basin equilibrium water displacement and rigid discrete
+# hydrostatic energy. No fluid inertia, MAC reaction or dynamic FSI.
+add_executable(upc_p2_closed_basin_hydrostatic_tests
+    tests/p2_closed_basin_hydrostatic3d_tests.cpp)
+target_link_libraries(upc_p2_closed_basin_hydrostatic_tests PRIVATE upc)
+add_test(NAME physics_p2_closed_basin_hydrostatic_partial
+    COMMAND upc_p2_closed_basin_hydrostatic_tests)
