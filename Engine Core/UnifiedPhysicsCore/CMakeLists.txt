@@ -463,3 +463,9 @@ add_executable(upc_p2_closed_basin_kinematic_flux_tests
 target_link_libraries(upc_p2_closed_basin_kinematic_flux_tests PRIVATE upc)
 add_test(NAME physics_p2_closed_basin_kinematic_flux_partial
     COMMAND upc_p2_closed_basin_kinematic_flux_tests)
+
+# P2 PARTIAL: real first-order 3D donor-cell water-fraction transport on a
+# stationary cut-cell MAC grid. Prescribed solenoidal velocity; NOT FSI/NS.
+add_executable(upc_p2_static_cut_cell_vof_tests tests/p2_static_cut_cell_vof3d_tests.cpp)
+target_link_libraries(upc_p2_static_cut_cell_vof_tests PRIVATE upc)
+add_test(NAME physics_p2_static_cut_cell_vof_partial COMMAND upc_p2_static_cut_cell_vof_tests)

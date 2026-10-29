@@ -1,0 +1,133 @@
+{
+  "phase": "P2",
+  "milestone": "static_cut_cell_3d_donor_vof_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "ctest_suites": 87,
+  "native_assertions": 94777,
+  "checks": [
+    {
+      "name": "87/87 full native CTest suites",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "new CTest suite included",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "native assertions >= 90000",
+      "pass": true,
+      "detail": 94777
+    },
+    {
+      "name": "two grid sizes",
+      "pass": true,
+      "detail": [
+        "12",
+        "8"
+      ]
+    },
+    {
+      "name": "8 cubed, 40 dynamic steps",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "8 finite volume mass",
+      "pass": true,
+      "detail": 130.32000000000005
+    },
+    {
+      "name": "8 full-water invariant",
+      "pass": true,
+      "detail": 511.0
+    },
+    {
+      "name": "8 nontrivial 3D advection",
+      "pass": true,
+      "detail": 0.00040000000000001146
+    },
+    {
+      "name": "8 donor CFL",
+      "pass": true,
+      "detail": 0.04000000000000001
+    },
+    {
+      "name": "12 cubed, 40 dynamic steps",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "12 finite volume mass",
+      "pass": true,
+      "detail": 544.0799999999997
+    },
+    {
+      "name": "12 full-water invariant",
+      "pass": true,
+      "detail": 1727.0
+    },
+    {
+      "name": "12 nontrivial 3D advection",
+      "pass": true,
+      "detail": 0.00040000000000001146
+    },
+    {
+      "name": "12 donor CFL",
+      "pass": true,
+      "detail": 0.04000000000000001
+    },
+    {
+      "name": "analytic donor-cell reference",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "fractional cut-cell scenario executed",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "real partially occluded 3D cells and faces",
+      "pass": true,
+      "detail": [
+        8,
+        12
+      ]
+    },
+    {
+      "name": "partial-cell water mass conserved",
+      "pass": true,
+      "detail": [
+        129.39840000000004,
+        129.39840000000004
+      ]
+    },
+    {
+      "name": "eight physical/numeric rejection tests",
+      "pass": true,
+      "detail": null
+    }
+  ],
+  "source_sha256": {
+    "CMakeLists.txt": "3bafa076a16a2405214fcf378271d64585cf73a5dd44912d6040054beca9f59c",
+    "docs/PHASENPLAN.md": "7dd6a0e011c4b9e55bbd67f9ce44f7ca80dabef922134859411f6a08a2ed550b",
+    "docs/P2_STATIC_CUT_CELL_VOF_PARTIAL.md": "006386bf30c70cb7caaaac639e3f8b761146ef871d38d5e91df23ff82d5bb612",
+    "include/upc/p2_static_cut_cell_vof3d.hpp": "73eb97105c5e9056ae582abe682b3198114fc2444c3555e20807660a7f5e2471",
+    "include/upc/p2_moving_box_mac_apertures3d.hpp": "c5fbdae598166771f6a28359c31960178239d3a59e0ccbb60f89f47b38f29ad3",
+    "include/upc/p2_moving_box_open_volume3d.hpp": "270ecc419fa312212e47dbcfbd7fa8f2b172fde153b6d66e19f226be5cbedbb2",
+    "tests/p2_static_cut_cell_vof3d_tests.cpp": "f8ded991d711708f97a9f570347c4d1593fd96c267f4ebfc755e994aadc93d3b",
+    "scripts/p2_static_cut_cell_vof_acceptance.py": "a2844bb57e7bda33beb1d85a277bdaff34db06762dd48b78879ed95772712493",
+    "scripts/p2_static_cut_cell_vof_full_build.cmd": "73075d11a3e65c5ba16a8b77ae7bec36e31b7816746b17ec8740c90f336b2168"
+  },
+  "ctest_log_sha256": "640d91c8c053333a030cef0e483ff1fed39d2c8aa06b8b564d724fd6bf485b58",
+  "limitations": [
+    "prescribed solenoidal MAC velocity and stationary cut-cell geometry",
+    "first-order diffusive donor-cell advection, no interface reconstruction",
+    "no pressure/impulse time integration or moving-solid counterreaction",
+    "no global physical FSI energy/momentum conservation",
+    "no external measured 3D CFD or new Unreal 5.8 Native-E2E"
+  ]
+}

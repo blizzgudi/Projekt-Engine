@@ -1190,3 +1190,24 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
   keine globale physikalische FSI-Energie-/Impulserhaltung,
   keine externe 3D-CFD-Messvalidierung oder UE5.8-Native-E2E
   dieses neuen Pfads. P3-P8 bleiben ebenfalls PARTIAL.
+
+## P2 Teilfortschritt: dynamisches 3D-Upwind-VOF auf stationaeren Cut-Cells (29.10.2026)
+
+- Neuer opt-in `P2StaticCutCellVof3D` transportiert Wasserfraktionen
+  ueber U/V/W-MAC-Faces mit echten stationaeren Cut-Cell-Aperturen.
+  First-order donor-cell Upwind, konservatives Zellinventar, strikter
+  lokaler Donor-CFL und diskrete Volumendivergenz-Pruefung.
+- Native Tests: 8^3/12^3 mit je 40 Zeitschritten, dreiachsige
+  divergentenfreie Wirbel, konstante Vollwasser-Invariante,
+  unabhaengiger analytischer Donor-Einzelschritt, teilweise
+  blockierte Zellvolumina/Face-Aperturen und acht Negativfaelle.
+- Nachweise: `docs/P2_STATIC_CUT_CELL_VOF_PARTIAL.md`,
+  `scripts/p2_static_cut_cell_vof_acceptance.py`,
+  `ENGINE TEST STUBE/runs/p2_static_cut_cell_vof_partial.json`
+  und vollstaendiges MSVC/CTest-Protokoll.
+- **P2-P8 bleiben PARTIAL; ALL_COMPLETE=False.** Vorgeschriebene
+  MAC-Geschwindigkeiten und stationaere Festkoerpergeometrie sind
+  noch keine dynamische Navier-Stokes-/FSI-Kopplung. Externe
+  3D-CFD-Messvalidierung, globale physikalische Energie-/Impulsbilanz,
+  bewegte freie Oberflaechen-Stressgrenze und UE5.8-Native-E2E
+  dieses Pfads fehlen.
