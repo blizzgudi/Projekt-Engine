@@ -1,0 +1,1489 @@
+{
+  "phase": "P2",
+  "milestone": "closed_basin_3d_kinematic_face_flux_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "ctest_suites": 86,
+  "native_assertions": 173592,
+  "checks": [
+    {
+      "name": "full 86/86 CTest",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "new CTest suite",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "native independent 3D assertions >= 150000",
+      "pass": true,
+      "detail": 173592
+    },
+    {
+      "name": "32 reference configurations",
+      "pass": true,
+      "detail": 32
+    },
+    {
+      "name": "unique configuration (8, 0.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite numerical results (8, 0.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "3D finite-volume continuity (8, 0.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "conjugate-gradient convergence (8, 0.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "CG bounded iterations (8, 0.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": 0
+    },
+    {
+      "name": "global water conservation (8, 0.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "dry basin zero face volume (8, 0.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique configuration (8, 0.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite numerical results (8, 0.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "3D finite-volume continuity (8, 0.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "conjugate-gradient convergence (8, 0.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "CG bounded iterations (8, 0.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": 0
+    },
+    {
+      "name": "global water conservation (8, 0.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "dry basin zero face volume (8, 0.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique configuration (8, 0.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite numerical results (8, 0.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "3D finite-volume continuity (8, 0.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "conjugate-gradient convergence (8, 0.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "CG bounded iterations (8, 0.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": 0
+    },
+    {
+      "name": "global water conservation (8, 0.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "dry basin zero face volume (8, 0.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique configuration (8, 0.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite numerical results (8, 0.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "3D finite-volume continuity (8, 0.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "conjugate-gradient convergence (8, 0.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "CG bounded iterations (8, 0.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": 0
+    },
+    {
+      "name": "global water conservation (8, 0.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "dry basin zero face volume (8, 0.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique configuration (8, 3.2, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite numerical results (8, 3.2, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "3D finite-volume continuity (8, 3.2, 0.0, -0.4)",
+      "pass": true,
+      "detail": 2.1147750217664907e-11
+    },
+    {
+      "name": "conjugate-gradient convergence (8, 3.2, 0.0, -0.4)",
+      "pass": true,
+      "detail": 1.09054866039619e-10
+    },
+    {
+      "name": "CG bounded iterations (8, 3.2, 0.0, -0.4)",
+      "pass": true,
+      "detail": 43
+    },
+    {
+      "name": "global water conservation (8, 3.2, 0.0, -0.4)",
+      "pass": true,
+      "detail": 1.2545520178264269e-14
+    },
+    {
+      "name": "unique configuration (8, 3.2, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite numerical results (8, 3.2, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "3D finite-volume continuity (8, 3.2, 0.0, 0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "conjugate-gradient convergence (8, 3.2, 0.0, 0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "CG bounded iterations (8, 3.2, 0.0, 0.4)",
+      "pass": true,
+      "detail": 0
+    },
+    {
+      "name": "global water conservation (8, 3.2, 0.0, 0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique configuration (8, 3.2, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite numerical results (8, 3.2, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "3D finite-volume continuity (8, 3.2, 9.81, -0.4)",
+      "pass": true,
+      "detail": 3.862354880368457e-11
+    },
+    {
+      "name": "conjugate-gradient convergence (8, 3.2, 9.81, -0.4)",
+      "pass": true,
+      "detail": 1.6017426445348446e-10
+    },
+    {
+      "name": "CG bounded iterations (8, 3.2, 9.81, -0.4)",
+      "pass": true,
+      "detail": 43
+    },
+    {
+      "name": "global water conservation (8, 3.2, 9.81, -0.4)",
+      "pass": true,
+      "detail": 2.3314683517128287e-15
+    },
+    {
+      "name": "unique configuration (8, 3.2, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite numerical results (8, 3.2, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "3D finite-volume continuity (8, 3.2, 9.81, 0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "conjugate-gradient convergence (8, 3.2, 9.81, 0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "CG bounded iterations (8, 3.2, 9.81, 0.4)",
+      "pass": true,
+      "detail": 0
+    },
+    {
+      "name": "global water conservation (8, 3.2, 9.81, 0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique configuration (8, 4.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite numerical results (8, 4.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "3D finite-volume continuity (8, 4.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": 6.977529665164184e-12
+    },
+    {
+      "name": "conjugate-gradient convergence (8, 4.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": 3.099077658853349e-11
+    },
+    {
+      "name": "CG bounded iterations (8, 4.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": 59
+    },
+    {
+      "name": "global water conservation (8, 4.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": 1.2486539580081057e-14
+    },
+    {
+      "name": "wet basin actual water flux (8, 4.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": 0.0008748954872606237
+    },
+    {
+      "name": "unique configuration (8, 4.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite numerical results (8, 4.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "3D finite-volume continuity (8, 4.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": 1.220645576261413e-11
+    },
+    {
+      "name": "conjugate-gradient convergence (8, 4.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": 7.785272249237833e-11
+    },
+    {
+      "name": "CG bounded iterations (8, 4.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": 36
+    },
+    {
+      "name": "global water conservation (8, 4.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": -1.2434497875801753e-14
+    },
+    {
+      "name": "wet basin actual water flux (8, 4.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": 0.0008750000004189126
+    },
+    {
+      "name": "unique configuration (8, 4.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite numerical results (8, 4.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "3D finite-volume continuity (8, 4.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": 3.763211964269431e-12
+    },
+    {
+      "name": "conjugate-gradient convergence (8, 4.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": 1.8042647029879886e-11
+    },
+    {
+      "name": "CG bounded iterations (8, 4.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": 59
+    },
+    {
+      "name": "global water conservation (8, 4.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": 2.2985086056692694e-14
+    },
+    {
+      "name": "wet basin actual water flux (8, 4.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": 0.0009601338158353555
+    },
+    {
+      "name": "unique configuration (8, 4.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite numerical results (8, 4.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "3D finite-volume continuity (8, 4.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": 1.1218630191489609e-11
+    },
+    {
+      "name": "conjugate-gradient convergence (8, 4.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": 7.235824052894558e-11
+    },
+    {
+      "name": "CG bounded iterations (8, 4.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": 36
+    },
+    {
+      "name": "global water conservation (8, 4.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": 5.773159728050814e-15
+    },
+    {
+      "name": "wet basin actual water flux (8, 4.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": 0.0007896258839699123
+    },
+    {
+      "name": "unique configuration (8, 5.75, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite numerical results (8, 5.75, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "3D finite-volume continuity (8, 5.75, 0.0, -0.4)",
+      "pass": true,
+      "detail": 6.110778549839324e-11
+    },
+    {
+      "name": "conjugate-gradient convergence (8, 5.75, 0.0, -0.4)",
+      "pass": true,
+      "detail": 3.399638609177285e-10
+    },
+    {
+      "name": "CG bounded iterations (8, 5.75, 0.0, -0.4)",
+      "pass": true,
+      "detail": 39
+    },
+    {
+      "name": "global water conservation (8, 5.75, 0.0, -0.4)",
+      "pass": true,
+      "detail": -8.881784197001252e-16
+    },
+    {
+      "name": "wet basin actual water flux (8, 5.75, 0.0, -0.4)",
+      "pass": true,
+      "detail": 0.0007313824550032792
+    },
+    {
+      "name": "unique configuration (8, 5.75, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite numerical results (8, 5.75, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "3D finite-volume continuity (8, 5.75, 0.0, 0.4)",
+      "pass": true,
+      "detail": 6.439448974049355e-11
+    },
+    {
+      "name": "conjugate-gradient convergence (8, 5.75, 0.0, 0.4)",
+      "pass": true,
+      "detail": 3.4381759520766095e-10
+    },
+    {
+      "name": "CG bounded iterations (8, 5.75, 0.0, 0.4)",
+      "pass": true,
+      "detail": 39
+    },
+    {
+      "name": "global water conservation (8, 5.75, 0.0, 0.4)",
+      "pass": true,
+      "detail": 1.3322676295501878e-15
+    },
+    {
+      "name": "wet basin actual water flux (8, 5.75, 0.0, 0.4)",
+      "pass": true,
+      "detail": 0.0007313824550689403
+    },
+    {
+      "name": "unique configuration (8, 5.75, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite numerical results (8, 5.75, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "3D finite-volume continuity (8, 5.75, 9.81, -0.4)",
+      "pass": true,
+      "detail": 2.71256350714566e-11
+    },
+    {
+      "name": "conjugate-gradient convergence (8, 5.75, 9.81, -0.4)",
+      "pass": true,
+      "detail": 1.519540133211606e-10
+    },
+    {
+      "name": "CG bounded iterations (8, 5.75, 9.81, -0.4)",
+      "pass": true,
+      "detail": 40
+    },
+    {
+      "name": "global water conservation (8, 5.75, 9.81, -0.4)",
+      "pass": true,
+      "detail": 4.440892098500626e-16
+    },
+    {
+      "name": "wet basin actual water flux (8, 5.75, 9.81, -0.4)",
+      "pass": true,
+      "detail": 0.0007843329334676195
+    },
+    {
+      "name": "unique configuration (8, 5.75, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite numerical results (8, 5.75, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "3D finite-volume continuity (8, 5.75, 9.81, 0.4)",
+      "pass": true,
+      "detail": 6.708900102125881e-11
+    },
+    {
+      "name": "conjugate-gradient convergence (8, 5.75, 9.81, 0.4)",
+      "pass": true,
+      "detail": 3.295328369449807e-10
+    },
+    {
+      "name": "CG bounded iterations (8, 5.75, 9.81, 0.4)",
+      "pass": true,
+      "detail": 39
+    },
+    {
+      "name": "global water conservation (8, 5.75, 9.81, 0.4)",
+      "pass": true,
+      "detail": 4.440892098500626e-16
+    },
+    {
+      "name": "wet basin actual water flux (8, 5.75, 9.81, 0.4)",
+      "pass": true,
+      "detail": 0.0006784319753010244
+    },
+    {
+      "name": "unique configuration (12, 0.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite numerical results (12, 0.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "3D finite-volume continuity (12, 0.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "conjugate-gradient convergence (12, 0.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "CG bounded iterations (12, 0.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": 0
+    },
+    {
+      "name": "global water conservation (12, 0.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "dry basin zero face volume (12, 0.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique configuration (12, 0.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite numerical results (12, 0.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "3D finite-volume continuity (12, 0.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "conjugate-gradient convergence (12, 0.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "CG bounded iterations (12, 0.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": 0
+    },
+    {
+      "name": "global water conservation (12, 0.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "dry basin zero face volume (12, 0.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique configuration (12, 0.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite numerical results (12, 0.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "3D finite-volume continuity (12, 0.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "conjugate-gradient convergence (12, 0.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "CG bounded iterations (12, 0.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": 0
+    },
+    {
+      "name": "global water conservation (12, 0.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "dry basin zero face volume (12, 0.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique configuration (12, 0.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite numerical results (12, 0.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "3D finite-volume continuity (12, 0.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "conjugate-gradient convergence (12, 0.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "CG bounded iterations (12, 0.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": 0
+    },
+    {
+      "name": "global water conservation (12, 0.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "dry basin zero face volume (12, 0.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique configuration (12, 3.2, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite numerical results (12, 3.2, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "3D finite-volume continuity (12, 3.2, 0.0, -0.4)",
+      "pass": true,
+      "detail": 4.7580384077150484e-11
+    },
+    {
+      "name": "conjugate-gradient convergence (12, 3.2, 0.0, -0.4)",
+      "pass": true,
+      "detail": 3.5708241529918004e-10
+    },
+    {
+      "name": "CG bounded iterations (12, 3.2, 0.0, -0.4)",
+      "pass": true,
+      "detail": 94
+    },
+    {
+      "name": "global water conservation (12, 3.2, 0.0, -0.4)",
+      "pass": true,
+      "detail": -2.55351295663786e-15
+    },
+    {
+      "name": "unique configuration (12, 3.2, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite numerical results (12, 3.2, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "3D finite-volume continuity (12, 3.2, 0.0, 0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "conjugate-gradient convergence (12, 3.2, 0.0, 0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "CG bounded iterations (12, 3.2, 0.0, 0.4)",
+      "pass": true,
+      "detail": 0
+    },
+    {
+      "name": "global water conservation (12, 3.2, 0.0, 0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique configuration (12, 3.2, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite numerical results (12, 3.2, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "3D finite-volume continuity (12, 3.2, 9.81, -0.4)",
+      "pass": true,
+      "detail": 4.380631968281534e-11
+    },
+    {
+      "name": "conjugate-gradient convergence (12, 3.2, 9.81, -0.4)",
+      "pass": true,
+      "detail": 3.9305290396086053e-10
+    },
+    {
+      "name": "CG bounded iterations (12, 3.2, 9.81, -0.4)",
+      "pass": true,
+      "detail": 94
+    },
+    {
+      "name": "global water conservation (12, 3.2, 9.81, -0.4)",
+      "pass": true,
+      "detail": -5.484501741648273e-14
+    },
+    {
+      "name": "unique configuration (12, 3.2, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite numerical results (12, 3.2, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "3D finite-volume continuity (12, 3.2, 9.81, 0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "conjugate-gradient convergence (12, 3.2, 9.81, 0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "CG bounded iterations (12, 3.2, 9.81, 0.4)",
+      "pass": true,
+      "detail": 0
+    },
+    {
+      "name": "global water conservation (12, 3.2, 9.81, 0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique configuration (12, 4.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite numerical results (12, 4.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "3D finite-volume continuity (12, 4.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": 7.649236799522896e-11
+    },
+    {
+      "name": "conjugate-gradient convergence (12, 4.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": 5.577355450670445e-10
+    },
+    {
+      "name": "CG bounded iterations (12, 4.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": 148
+    },
+    {
+      "name": "global water conservation (12, 4.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": 6.023653797981865e-14
+    },
+    {
+      "name": "wet basin actual water flux (12, 4.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": 0.0009150777219966978
+    },
+    {
+      "name": "unique configuration (12, 4.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite numerical results (12, 4.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "3D finite-volume continuity (12, 4.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": 6.696776466696974e-11
+    },
+    {
+      "name": "conjugate-gradient convergence (12, 4.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": 4.887633234611616e-10
+    },
+    {
+      "name": "CG bounded iterations (12, 4.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": 68
+    },
+    {
+      "name": "global water conservation (12, 4.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": 2.6645352591003757e-15
+    },
+    {
+      "name": "wet basin actual water flux (12, 4.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": 0.0009151118072246274
+    },
+    {
+      "name": "unique configuration (12, 4.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite numerical results (12, 4.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "3D finite-volume continuity (12, 4.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": 5.809996928007877e-11
+    },
+    {
+      "name": "conjugate-gradient convergence (12, 4.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": 4.671381565846685e-10
+    },
+    {
+      "name": "CG bounded iterations (12, 4.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": 148
+    },
+    {
+      "name": "global water conservation (12, 4.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": -7.043150784813434e-14
+    },
+    {
+      "name": "wet basin actual water flux (12, 4.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": 0.001004239798765977
+    },
+    {
+      "name": "unique configuration (12, 4.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite numerical results (12, 4.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "3D finite-volume continuity (12, 4.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": 6.046807499160423e-11
+    },
+    {
+      "name": "conjugate-gradient convergence (12, 4.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": 4.410996282577636e-10
+    },
+    {
+      "name": "CG bounded iterations (12, 4.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": 68
+    },
+    {
+      "name": "global water conservation (12, 4.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": 4.3076653355456074e-14
+    },
+    {
+      "name": "wet basin actual water flux (12, 4.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": 0.0008258256795951965
+    },
+    {
+      "name": "unique configuration (12, 5.75, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite numerical results (12, 5.75, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "3D finite-volume continuity (12, 5.75, 0.0, -0.4)",
+      "pass": true,
+      "detail": 6.837519439528705e-11
+    },
+    {
+      "name": "conjugate-gradient convergence (12, 5.75, 0.0, -0.4)",
+      "pass": true,
+      "detail": 6.530987083783219e-10
+    },
+    {
+      "name": "CG bounded iterations (12, 5.75, 0.0, -0.4)",
+      "pass": true,
+      "detail": 74
+    },
+    {
+      "name": "global water conservation (12, 5.75, 0.0, -0.4)",
+      "pass": true,
+      "detail": -8.881784197001252e-16
+    },
+    {
+      "name": "wet basin actual water flux (12, 5.75, 0.0, -0.4)",
+      "pass": true,
+      "detail": 0.0007336333965171382
+    },
+    {
+      "name": "unique configuration (12, 5.75, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite numerical results (12, 5.75, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "3D finite-volume continuity (12, 5.75, 0.0, 0.4)",
+      "pass": true,
+      "detail": 6.850919831435931e-11
+    },
+    {
+      "name": "conjugate-gradient convergence (12, 5.75, 0.0, 0.4)",
+      "pass": true,
+      "detail": 6.531417236270014e-10
+    },
+    {
+      "name": "CG bounded iterations (12, 5.75, 0.0, 0.4)",
+      "pass": true,
+      "detail": 74
+    },
+    {
+      "name": "global water conservation (12, 5.75, 0.0, 0.4)",
+      "pass": true,
+      "detail": 1.3322676295501878e-15
+    },
+    {
+      "name": "wet basin actual water flux (12, 5.75, 0.0, 0.4)",
+      "pass": true,
+      "detail": 0.0007336336572495706
+    },
+    {
+      "name": "unique configuration (12, 5.75, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite numerical results (12, 5.75, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "3D finite-volume continuity (12, 5.75, 9.81, -0.4)",
+      "pass": true,
+      "detail": 7.336975471616825e-11
+    },
+    {
+      "name": "conjugate-gradient convergence (12, 5.75, 9.81, -0.4)",
+      "pass": true,
+      "detail": 7.003748344629108e-10
+    },
+    {
+      "name": "CG bounded iterations (12, 5.75, 9.81, -0.4)",
+      "pass": true,
+      "detail": 74
+    },
+    {
+      "name": "global water conservation (12, 5.75, 9.81, -0.4)",
+      "pass": true,
+      "detail": 4.440892098500626e-16
+    },
+    {
+      "name": "wet basin actual water flux (12, 5.75, 9.81, -0.4)",
+      "pass": true,
+      "detail": 0.0007867468303511134
+    },
+    {
+      "name": "unique configuration (12, 5.75, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite numerical results (12, 5.75, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "3D finite-volume continuity (12, 5.75, 9.81, 0.4)",
+      "pass": true,
+      "detail": 6.354738957270456e-11
+    },
+    {
+      "name": "conjugate-gradient convergence (12, 5.75, 9.81, 0.4)",
+      "pass": true,
+      "detail": 6.058542619898147e-10
+    },
+    {
+      "name": "CG bounded iterations (12, 5.75, 9.81, 0.4)",
+      "pass": true,
+      "detail": 74
+    },
+    {
+      "name": "global water conservation (12, 5.75, 9.81, 0.4)",
+      "pass": true,
+      "detail": 4.440892098500626e-16
+    },
+    {
+      "name": "wet basin actual water flux (12, 5.75, 9.81, 0.4)",
+      "pass": true,
+      "detail": 0.0006805201856848447
+    },
+    {
+      "name": "complete independent parameter matrix",
+      "pass": true,
+      "detail": null
+    }
+  ],
+  "reference": [
+    {
+      "grid": 8,
+      "initial_water_level_m": 0.0,
+      "gravity_m_s2": 0.0,
+      "body_velocity_m_s": -0.4,
+      "max_cell_continuity_residual_m3": 0.0,
+      "cg_residual_l2_m3": 0.0,
+      "cg_iterations": 0,
+      "max_integrated_face_flux_m3": 0.0,
+      "total_water_change_m3": 0.0
+    },
+    {
+      "grid": 8,
+      "initial_water_level_m": 0.0,
+      "gravity_m_s2": 0.0,
+      "body_velocity_m_s": 0.4,
+      "max_cell_continuity_residual_m3": 0.0,
+      "cg_residual_l2_m3": 0.0,
+      "cg_iterations": 0,
+      "max_integrated_face_flux_m3": 0.0,
+      "total_water_change_m3": 0.0
+    },
+    {
+      "grid": 8,
+      "initial_water_level_m": 0.0,
+      "gravity_m_s2": 9.81,
+      "body_velocity_m_s": -0.4,
+      "max_cell_continuity_residual_m3": 0.0,
+      "cg_residual_l2_m3": 0.0,
+      "cg_iterations": 0,
+      "max_integrated_face_flux_m3": 0.0,
+      "total_water_change_m3": 0.0
+    },
+    {
+      "grid": 8,
+      "initial_water_level_m": 0.0,
+      "gravity_m_s2": 9.81,
+      "body_velocity_m_s": 0.4,
+      "max_cell_continuity_residual_m3": 0.0,
+      "cg_residual_l2_m3": 0.0,
+      "cg_iterations": 0,
+      "max_integrated_face_flux_m3": 0.0,
+      "total_water_change_m3": 0.0
+    },
+    {
+      "grid": 8,
+      "initial_water_level_m": 3.2,
+      "gravity_m_s2": 0.0,
+      "body_velocity_m_s": -0.4,
+      "max_cell_continuity_residual_m3": 2.1147750217664907e-11,
+      "cg_residual_l2_m3": 1.09054866039619e-10,
+      "cg_iterations": 43,
+      "max_integrated_face_flux_m3": 0.001280861486121298,
+      "total_water_change_m3": 1.2545520178264269e-14
+    },
+    {
+      "grid": 8,
+      "initial_water_level_m": 3.2,
+      "gravity_m_s2": 0.0,
+      "body_velocity_m_s": 0.4,
+      "max_cell_continuity_residual_m3": 0.0,
+      "cg_residual_l2_m3": 0.0,
+      "cg_iterations": 0,
+      "max_integrated_face_flux_m3": 0.0,
+      "total_water_change_m3": 0.0
+    },
+    {
+      "grid": 8,
+      "initial_water_level_m": 3.2,
+      "gravity_m_s2": 9.81,
+      "body_velocity_m_s": -0.4,
+      "max_cell_continuity_residual_m3": 3.862354880368457e-11,
+      "cg_residual_l2_m3": 1.6017426445348446e-10,
+      "cg_iterations": 43,
+      "max_integrated_face_flux_m3": 0.0014378274442456056,
+      "total_water_change_m3": 2.3314683517128287e-15
+    },
+    {
+      "grid": 8,
+      "initial_water_level_m": 3.2,
+      "gravity_m_s2": 9.81,
+      "body_velocity_m_s": 0.4,
+      "max_cell_continuity_residual_m3": 0.0,
+      "cg_residual_l2_m3": 0.0,
+      "cg_iterations": 0,
+      "max_integrated_face_flux_m3": 0.0,
+      "total_water_change_m3": 0.0
+    },
+    {
+      "grid": 8,
+      "initial_water_level_m": 4.0,
+      "gravity_m_s2": 0.0,
+      "body_velocity_m_s": -0.4,
+      "max_cell_continuity_residual_m3": 6.977529665164184e-12,
+      "cg_residual_l2_m3": 3.099077658853349e-11,
+      "cg_iterations": 59,
+      "max_integrated_face_flux_m3": 0.0008748954872606237,
+      "total_water_change_m3": 1.2486539580081057e-14
+    },
+    {
+      "grid": 8,
+      "initial_water_level_m": 4.0,
+      "gravity_m_s2": 0.0,
+      "body_velocity_m_s": 0.4,
+      "max_cell_continuity_residual_m3": 1.220645576261413e-11,
+      "cg_residual_l2_m3": 7.785272249237833e-11,
+      "cg_iterations": 36,
+      "max_integrated_face_flux_m3": 0.0008750000004189126,
+      "total_water_change_m3": -1.2434497875801753e-14
+    },
+    {
+      "grid": 8,
+      "initial_water_level_m": 4.0,
+      "gravity_m_s2": 9.81,
+      "body_velocity_m_s": -0.4,
+      "max_cell_continuity_residual_m3": 3.763211964269431e-12,
+      "cg_residual_l2_m3": 1.8042647029879886e-11,
+      "cg_iterations": 59,
+      "max_integrated_face_flux_m3": 0.0009601338158353555,
+      "total_water_change_m3": 2.2985086056692694e-14
+    },
+    {
+      "grid": 8,
+      "initial_water_level_m": 4.0,
+      "gravity_m_s2": 9.81,
+      "body_velocity_m_s": 0.4,
+      "max_cell_continuity_residual_m3": 1.1218630191489609e-11,
+      "cg_residual_l2_m3": 7.235824052894558e-11,
+      "cg_iterations": 36,
+      "max_integrated_face_flux_m3": 0.0007896258839699123,
+      "total_water_change_m3": 5.773159728050814e-15
+    },
+    {
+      "grid": 8,
+      "initial_water_level_m": 5.75,
+      "gravity_m_s2": 0.0,
+      "body_velocity_m_s": -0.4,
+      "max_cell_continuity_residual_m3": 6.110778549839324e-11,
+      "cg_residual_l2_m3": 3.399638609177285e-10,
+      "cg_iterations": 39,
+      "max_integrated_face_flux_m3": 0.0007313824550032792,
+      "total_water_change_m3": -8.881784197001252e-16
+    },
+    {
+      "grid": 8,
+      "initial_water_level_m": 5.75,
+      "gravity_m_s2": 0.0,
+      "body_velocity_m_s": 0.4,
+      "max_cell_continuity_residual_m3": 6.439448974049355e-11,
+      "cg_residual_l2_m3": 3.4381759520766095e-10,
+      "cg_iterations": 39,
+      "max_integrated_face_flux_m3": 0.0007313824550689403,
+      "total_water_change_m3": 1.3322676295501878e-15
+    },
+    {
+      "grid": 8,
+      "initial_water_level_m": 5.75,
+      "gravity_m_s2": 9.81,
+      "body_velocity_m_s": -0.4,
+      "max_cell_continuity_residual_m3": 2.71256350714566e-11,
+      "cg_residual_l2_m3": 1.519540133211606e-10,
+      "cg_iterations": 40,
+      "max_integrated_face_flux_m3": 0.0007843329334676195,
+      "total_water_change_m3": 4.440892098500626e-16
+    },
+    {
+      "grid": 8,
+      "initial_water_level_m": 5.75,
+      "gravity_m_s2": 9.81,
+      "body_velocity_m_s": 0.4,
+      "max_cell_continuity_residual_m3": 6.708900102125881e-11,
+      "cg_residual_l2_m3": 3.295328369449807e-10,
+      "cg_iterations": 39,
+      "max_integrated_face_flux_m3": 0.0006784319753010244,
+      "total_water_change_m3": 4.440892098500626e-16
+    },
+    {
+      "grid": 12,
+      "initial_water_level_m": 0.0,
+      "gravity_m_s2": 0.0,
+      "body_velocity_m_s": -0.4,
+      "max_cell_continuity_residual_m3": 0.0,
+      "cg_residual_l2_m3": 0.0,
+      "cg_iterations": 0,
+      "max_integrated_face_flux_m3": 0.0,
+      "total_water_change_m3": 0.0
+    },
+    {
+      "grid": 12,
+      "initial_water_level_m": 0.0,
+      "gravity_m_s2": 0.0,
+      "body_velocity_m_s": 0.4,
+      "max_cell_continuity_residual_m3": 0.0,
+      "cg_residual_l2_m3": 0.0,
+      "cg_iterations": 0,
+      "max_integrated_face_flux_m3": 0.0,
+      "total_water_change_m3": 0.0
+    },
+    {
+      "grid": 12,
+      "initial_water_level_m": 0.0,
+      "gravity_m_s2": 9.81,
+      "body_velocity_m_s": -0.4,
+      "max_cell_continuity_residual_m3": 0.0,
+      "cg_residual_l2_m3": 0.0,
+      "cg_iterations": 0,
+      "max_integrated_face_flux_m3": 0.0,
+      "total_water_change_m3": 0.0
+    },
+    {
+      "grid": 12,
+      "initial_water_level_m": 0.0,
+      "gravity_m_s2": 9.81,
+      "body_velocity_m_s": 0.4,
+      "max_cell_continuity_residual_m3": 0.0,
+      "cg_residual_l2_m3": 0.0,
+      "cg_iterations": 0,
+      "max_integrated_face_flux_m3": 0.0,
+      "total_water_change_m3": 0.0
+    },
+    {
+      "grid": 12,
+      "initial_water_level_m": 3.2,
+      "gravity_m_s2": 0.0,
+      "body_velocity_m_s": -0.4,
+      "max_cell_continuity_residual_m3": 4.7580384077150484e-11,
+      "cg_residual_l2_m3": 3.5708241529918004e-10,
+      "cg_iterations": 94,
+      "max_integrated_face_flux_m3": 0.0013452245112870697,
+      "total_water_change_m3": -2.55351295663786e-15
+    },
+    {
+      "grid": 12,
+      "initial_water_level_m": 3.2,
+      "gravity_m_s2": 0.0,
+      "body_velocity_m_s": 0.4,
+      "max_cell_continuity_residual_m3": 0.0,
+      "cg_residual_l2_m3": 0.0,
+      "cg_iterations": 0,
+      "max_integrated_face_flux_m3": 0.0,
+      "total_water_change_m3": 0.0
+    },
+    {
+      "grid": 12,
+      "initial_water_level_m": 3.2,
+      "gravity_m_s2": 9.81,
+      "body_velocity_m_s": -0.4,
+      "max_cell_continuity_residual_m3": 4.380631968281534e-11,
+      "cg_residual_l2_m3": 3.9305290396086053e-10,
+      "cg_iterations": 94,
+      "max_integrated_face_flux_m3": 0.0015100895515059538,
+      "total_water_change_m3": -5.484501741648273e-14
+    },
+    {
+      "grid": 12,
+      "initial_water_level_m": 3.2,
+      "gravity_m_s2": 9.81,
+      "body_velocity_m_s": 0.4,
+      "max_cell_continuity_residual_m3": 0.0,
+      "cg_residual_l2_m3": 0.0,
+      "cg_iterations": 0,
+      "max_integrated_face_flux_m3": 0.0,
+      "total_water_change_m3": 0.0
+    },
+    {
+      "grid": 12,
+      "initial_water_level_m": 4.0,
+      "gravity_m_s2": 0.0,
+      "body_velocity_m_s": -0.4,
+      "max_cell_continuity_residual_m3": 7.649236799522896e-11,
+      "cg_residual_l2_m3": 5.577355450670445e-10,
+      "cg_iterations": 148,
+      "max_integrated_face_flux_m3": 0.0009150777219966978,
+      "total_water_change_m3": 6.023653797981865e-14
+    },
+    {
+      "grid": 12,
+      "initial_water_level_m": 4.0,
+      "gravity_m_s2": 0.0,
+      "body_velocity_m_s": 0.4,
+      "max_cell_continuity_residual_m3": 6.696776466696974e-11,
+      "cg_residual_l2_m3": 4.887633234611616e-10,
+      "cg_iterations": 68,
+      "max_integrated_face_flux_m3": 0.0009151118072246274,
+      "total_water_change_m3": 2.6645352591003757e-15
+    },
+    {
+      "grid": 12,
+      "initial_water_level_m": 4.0,
+      "gravity_m_s2": 9.81,
+      "body_velocity_m_s": -0.4,
+      "max_cell_continuity_residual_m3": 5.809996928007877e-11,
+      "cg_residual_l2_m3": 4.671381565846685e-10,
+      "cg_iterations": 148,
+      "max_integrated_face_flux_m3": 0.001004239798765977,
+      "total_water_change_m3": -7.043150784813434e-14
+    },
+    {
+      "grid": 12,
+      "initial_water_level_m": 4.0,
+      "gravity_m_s2": 9.81,
+      "body_velocity_m_s": 0.4,
+      "max_cell_continuity_residual_m3": 6.046807499160423e-11,
+      "cg_residual_l2_m3": 4.410996282577636e-10,
+      "cg_iterations": 68,
+      "max_integrated_face_flux_m3": 0.0008258256795951965,
+      "total_water_change_m3": 4.3076653355456074e-14
+    },
+    {
+      "grid": 12,
+      "initial_water_level_m": 5.75,
+      "gravity_m_s2": 0.0,
+      "body_velocity_m_s": -0.4,
+      "max_cell_continuity_residual_m3": 6.837519439528705e-11,
+      "cg_residual_l2_m3": 6.530987083783219e-10,
+      "cg_iterations": 74,
+      "max_integrated_face_flux_m3": 0.0007336333965171382,
+      "total_water_change_m3": -8.881784197001252e-16
+    },
+    {
+      "grid": 12,
+      "initial_water_level_m": 5.75,
+      "gravity_m_s2": 0.0,
+      "body_velocity_m_s": 0.4,
+      "max_cell_continuity_residual_m3": 6.850919831435931e-11,
+      "cg_residual_l2_m3": 6.531417236270014e-10,
+      "cg_iterations": 74,
+      "max_integrated_face_flux_m3": 0.0007336336572495706,
+      "total_water_change_m3": 1.3322676295501878e-15
+    },
+    {
+      "grid": 12,
+      "initial_water_level_m": 5.75,
+      "gravity_m_s2": 9.81,
+      "body_velocity_m_s": -0.4,
+      "max_cell_continuity_residual_m3": 7.336975471616825e-11,
+      "cg_residual_l2_m3": 7.003748344629108e-10,
+      "cg_iterations": 74,
+      "max_integrated_face_flux_m3": 0.0007867468303511134,
+      "total_water_change_m3": 4.440892098500626e-16
+    },
+    {
+      "grid": 12,
+      "initial_water_level_m": 5.75,
+      "gravity_m_s2": 9.81,
+      "body_velocity_m_s": 0.4,
+      "max_cell_continuity_residual_m3": 6.354738957270456e-11,
+      "cg_residual_l2_m3": 6.058542619898147e-10,
+      "cg_iterations": 74,
+      "max_integrated_face_flux_m3": 0.0006805201856848447,
+      "total_water_change_m3": 4.440892098500626e-16
+    }
+  ],
+  "source_sha256": {
+    "CMakeLists.txt": "967c97bd70109154628f2391df808dbc70e0e91faeaa328ebd7b52bb17d1239e",
+    "docs/PHASENPLAN.md": "fb5a4c28f81fd8b7e3a6cbffe1127c0266ff00c9fabd9c40e27322cfaf6a4f5a",
+    "docs/P2_CLOSED_BASIN_KINEMATIC_FLUX_PARTIAL.md": "ea2386ed06961b5cc5161e9106d2f74ab5ed941a7a84ccc51ad6e700a011186c",
+    "include/upc/p2_closed_basin_kinematic_flux3d.hpp": "15c6a13e698b8c4abac8e6ab0d06e60a9c4a67ce856655fab817592ad35591a6",
+    "include/upc/p2_closed_basin_hydrostatic3d.hpp": "138b30bd78c843151f48419754233633415ace1a9e492d2bc45acc2f84769eae",
+    "include/upc/p2_moving_box_mac_apertures3d.hpp": "c5fbdae598166771f6a28359c31960178239d3a59e0ccbb60f89f47b38f29ad3",
+    "include/upc/p2_moving_box_open_volume3d.hpp": "270ecc419fa312212e47dbcfbd7fa8f2b172fde153b6d66e19f226be5cbedbb2",
+    "tests/p2_closed_basin_kinematic_flux3d_tests.cpp": "8392b81ae6ba0e35cb73947ee9e6f3af21cec7be0e7c89a8ce8ac9a5aebbb9f3",
+    "scripts/p2_closed_basin_kinematic_flux_acceptance.py": "be2b9584fb5801ff56c5be8d614bd71813bbe77da114d5adef9666e7a1f52e86",
+    "scripts/p2_closed_basin_kinematic_flux_full_build.cmd": "057d9efa3212c0538315ec604f2d3d68ba01e0064119a0dd8d9e4b2f92a6a15d"
+  },
+  "ctest_log_sha256": "d8bce305ee9f1892caaf8fc835726d6b379802caf719093dbece8dcef928557c",
+  "limitations": [
+    "flux reconstruction between prescribed hydrostatic states",
+    "not a time-advanced MAC/VOF Navier-Stokes solution",
+    "no applied rigid-fluid counterimpulse or fluid inertia",
+    "no global physical FSI energy/momentum conservation",
+    "no external 3D CFD measurements or UE5.8 Native-E2E"
+  ]
+}

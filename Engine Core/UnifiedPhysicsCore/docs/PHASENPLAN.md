@@ -1148,3 +1148,22 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
   Zeitintegration, kein angewendeter Fluid-Gegenimpuls, keine
   Fluidträgheit oder vollständige FSI-Energie-/Impulsbilanz,
   keine externen 3D-CFD-Messreferenzen und kein neues UE5.8-Native-E2E.
+
+## P2 Teilfortschritt: konservative 3D-Kinematikfluesse im geschlossenen Becken (29.10.2026)
+
+- Neuer opt-in `P2ClosedBasinKinematicFlux3D` erzeugt aus alten/neuen
+  Wasserinventaren des geschlossenen Beckens und den zeitgemittelten
+  Cut-Cell-Face-Aperturen ein 3D-MAC-Volumenflussfeld U/V/W.
+  Der geschlossene Beckenrand bleibt exakt flussfrei.
+- Gewichtete Graph-Laplace-Rekonstruktion mit CG, 32 analytisch
+  parametrisierte 3D-Faelle auf 8^3/12^3, unabhängige zellweise
+  Finite-Volumen-Neuberechnung, negative Eingaben, komplette CTest-
+  Suite, Source-/Testprotokoll-SHA256.
+- Nachweise: `docs/P2_CLOSED_BASIN_KINEMATIC_FLUX_PARTIAL.md`,
+  `scripts/p2_closed_basin_kinematic_flux_acceptance.py`,
+  `ENGINE TEST STUBE/runs/p2_closed_basin_kinematic_flux_partial.json`.
+- **P2-P8 bleiben PARTIAL; ALL_COMPLETE=False.** Dies ist nur eine
+  kinematische Flussrekonstruktion zwischen quasistatischen Zustaenden.
+  Keine dynamische MAC/VOF-Advektion, keine angewendete FSI-
+  Gegenreaktion, keine physikalische Gesamtenergie-/Impulserhaltung,
+  keine externen CFD-Messdaten oder Unreal-5.8-Native-E2E.

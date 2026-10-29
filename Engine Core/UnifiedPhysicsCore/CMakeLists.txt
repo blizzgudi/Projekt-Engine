@@ -455,3 +455,11 @@ add_executable(upc_p2_closed_basin_hydrostatic_tests
 target_link_libraries(upc_p2_closed_basin_hydrostatic_tests PRIVATE upc)
 add_test(NAME physics_p2_closed_basin_hydrostatic_partial
     COMMAND upc_p2_closed_basin_hydrostatic_tests)
+
+# P2 PARTIAL: conservative 3D kinematic face-volume reconstruction between
+# closed-basin hydrostatic states. No Navier-Stokes dynamics or FSI momentum.
+add_executable(upc_p2_closed_basin_kinematic_flux_tests
+    tests/p2_closed_basin_kinematic_flux3d_tests.cpp)
+target_link_libraries(upc_p2_closed_basin_kinematic_flux_tests PRIVATE upc)
+add_test(NAME physics_p2_closed_basin_kinematic_flux_partial
+    COMMAND upc_p2_closed_basin_kinematic_flux_tests)
