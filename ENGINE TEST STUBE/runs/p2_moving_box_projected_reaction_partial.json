@@ -1,0 +1,645 @@
+{
+  "phase": "P2",
+  "milestone": "moving_box_projected_mac_reaction_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "ctest_suites": 80,
+  "native_assertions": 2011,
+  "checks": [
+    {
+      "name": "complete 80/80 CTest",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "new native test in CTest",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "native assertions >= 2000",
+      "pass": true,
+      "detail": 2011
+    },
+    {
+      "name": "12 analytic configurations",
+      "pass": true,
+      "detail": 12
+    },
+    {
+      "name": "unique (8, 0, -1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite (8, 0, -1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "pre-projection violation (8, 0, -1)",
+      "pass": true,
+      "detail": 0.0081980286360213
+    },
+    {
+      "name": "post-projection continuity (8, 0, -1)",
+      "pass": true,
+      "detail": 7.235456266248275e-13
+    },
+    {
+      "name": "reduction >= 4 orders (8, 0, -1)",
+      "pass": true,
+      "detail": 8.825848978443939e-11
+    },
+    {
+      "name": "correction exposed (8, 0, -1)",
+      "pass": true,
+      "detail": -350.77273782735006
+    },
+    {
+      "name": "correction sign (8, 0, -1)",
+      "pass": true,
+      "detail": -350.77273782735006
+    },
+    {
+      "name": "impulse residual ledger (8, 0, -1)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (8, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite (8, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "pre-projection violation (8, 0, 1)",
+      "pass": true,
+      "detail": 0.008198028636020966
+    },
+    {
+      "name": "post-projection continuity (8, 0, 1)",
+      "pass": true,
+      "detail": 7.235480660797156e-13
+    },
+    {
+      "name": "reduction >= 4 orders (8, 0, 1)",
+      "pass": true,
+      "detail": 8.825878735047945e-11
+    },
+    {
+      "name": "correction exposed (8, 0, 1)",
+      "pass": true,
+      "detail": 350.77273782733374
+    },
+    {
+      "name": "correction sign (8, 0, 1)",
+      "pass": true,
+      "detail": 350.77273782733374
+    },
+    {
+      "name": "impulse residual ledger (8, 0, 1)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (8, 1, -1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite (8, 1, -1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "pre-projection violation (8, 1, -1)",
+      "pass": true,
+      "detail": 0.0081980286360213
+    },
+    {
+      "name": "post-projection continuity (8, 1, -1)",
+      "pass": true,
+      "detail": 7.235460603056965e-13
+    },
+    {
+      "name": "reduction >= 4 orders (8, 1, -1)",
+      "pass": true,
+      "detail": 8.82585426850681e-11
+    },
+    {
+      "name": "correction exposed (8, 1, -1)",
+      "pass": true,
+      "detail": -350.77273782735045
+    },
+    {
+      "name": "correction sign (8, 1, -1)",
+      "pass": true,
+      "detail": -350.77273782735045
+    },
+    {
+      "name": "impulse residual ledger (8, 1, -1)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (8, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite (8, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "pre-projection violation (8, 1, 1)",
+      "pass": true,
+      "detail": 0.008198028636020966
+    },
+    {
+      "name": "post-projection continuity (8, 1, 1)",
+      "pass": true,
+      "detail": 7.235468734573258e-13
+    },
+    {
+      "name": "reduction >= 4 orders (8, 1, 1)",
+      "pass": true,
+      "detail": 8.82586418737505e-11
+    },
+    {
+      "name": "correction exposed (8, 1, 1)",
+      "pass": true,
+      "detail": 350.7727378273339
+    },
+    {
+      "name": "correction sign (8, 1, 1)",
+      "pass": true,
+      "detail": 350.7727378273339
+    },
+    {
+      "name": "impulse residual ledger (8, 1, 1)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (8, 2, -1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite (8, 2, -1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "pre-projection violation (8, 2, -1)",
+      "pass": true,
+      "detail": 0.00819802863602141
+    },
+    {
+      "name": "post-projection continuity (8, 2, -1)",
+      "pass": true,
+      "detail": 7.235454639945016e-13
+    },
+    {
+      "name": "reduction >= 4 orders (8, 2, -1)",
+      "pass": true,
+      "detail": 8.825846994670244e-11
+    },
+    {
+      "name": "correction exposed (8, 2, -1)",
+      "pass": true,
+      "detail": -350.77273782735375
+    },
+    {
+      "name": "correction sign (8, 2, -1)",
+      "pass": true,
+      "detail": -350.77273782735375
+    },
+    {
+      "name": "impulse residual ledger (8, 2, -1)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (8, 2, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite (8, 2, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "pre-projection violation (8, 2, 1)",
+      "pass": true,
+      "detail": 0.008198028636020966
+    },
+    {
+      "name": "post-projection continuity (8, 2, 1)",
+      "pass": true,
+      "detail": 7.235472529280862e-13
+    },
+    {
+      "name": "reduction >= 4 orders (8, 2, 1)",
+      "pass": true,
+      "detail": 8.825868816180063e-11
+    },
+    {
+      "name": "correction exposed (8, 2, 1)",
+      "pass": true,
+      "detail": 350.7727378273328
+    },
+    {
+      "name": "correction sign (8, 2, 1)",
+      "pass": true,
+      "detail": 350.7727378273328
+    },
+    {
+      "name": "impulse residual ledger (8, 2, 1)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (12, 0, -1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite (12, 0, -1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "pre-projection violation (12, 0, -1)",
+      "pass": true,
+      "detail": 0.0081980286360213
+    },
+    {
+      "name": "post-projection continuity (12, 0, -1)",
+      "pass": true,
+      "detail": 8.064456898495068e-13
+    },
+    {
+      "name": "reduction >= 4 orders (12, 0, -1)",
+      "pass": true,
+      "detail": 9.837068466753908e-11
+    },
+    {
+      "name": "correction exposed (12, 0, -1)",
+      "pass": true,
+      "detail": -351.209787393623
+    },
+    {
+      "name": "correction sign (12, 0, -1)",
+      "pass": true,
+      "detail": -351.209787393623
+    },
+    {
+      "name": "impulse residual ledger (12, 0, -1)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (12, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite (12, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "pre-projection violation (12, 0, 1)",
+      "pass": true,
+      "detail": 0.008198028636020966
+    },
+    {
+      "name": "post-projection continuity (12, 0, 1)",
+      "pass": true,
+      "detail": 8.044009794198892e-13
+    },
+    {
+      "name": "reduction >= 4 orders (12, 0, 1)",
+      "pass": true,
+      "detail": 9.812126977520745e-11
+    },
+    {
+      "name": "correction exposed (12, 0, 1)",
+      "pass": true,
+      "detail": 351.20707801592044
+    },
+    {
+      "name": "correction sign (12, 0, 1)",
+      "pass": true,
+      "detail": 351.20707801592044
+    },
+    {
+      "name": "impulse residual ledger (12, 0, 1)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (12, 1, -1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite (12, 1, -1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "pre-projection violation (12, 1, -1)",
+      "pass": true,
+      "detail": 0.0081980286360213
+    },
+    {
+      "name": "post-projection continuity (12, 1, -1)",
+      "pass": true,
+      "detail": 8.064462726081745e-13
+    },
+    {
+      "name": "reduction >= 4 orders (12, 1, -1)",
+      "pass": true,
+      "detail": 9.837075575275891e-11
+    },
+    {
+      "name": "correction exposed (12, 1, -1)",
+      "pass": true,
+      "detail": -351.2097873936233
+    },
+    {
+      "name": "correction sign (12, 1, -1)",
+      "pass": true,
+      "detail": -351.2097873936233
+    },
+    {
+      "name": "impulse residual ledger (12, 1, -1)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (12, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite (12, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "pre-projection violation (12, 1, 1)",
+      "pass": true,
+      "detail": 0.008198028636020966
+    },
+    {
+      "name": "post-projection continuity (12, 1, 1)",
+      "pass": true,
+      "detail": 8.044011556027422e-13
+    },
+    {
+      "name": "reduction >= 4 orders (12, 1, 1)",
+      "pass": true,
+      "detail": 9.812129126608786e-11
+    },
+    {
+      "name": "correction exposed (12, 1, 1)",
+      "pass": true,
+      "detail": 351.2070780159203
+    },
+    {
+      "name": "correction sign (12, 1, 1)",
+      "pass": true,
+      "detail": 351.2070780159203
+    },
+    {
+      "name": "impulse residual ledger (12, 1, 1)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (12, 2, -1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite (12, 2, -1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "pre-projection violation (12, 2, -1)",
+      "pass": true,
+      "detail": 0.00819802863602141
+    },
+    {
+      "name": "post-projection continuity (12, 2, -1)",
+      "pass": true,
+      "detail": 8.064458253747783e-13
+    },
+    {
+      "name": "reduction >= 4 orders (12, 2, -1)",
+      "pass": true,
+      "detail": 9.837070119898422e-11
+    },
+    {
+      "name": "correction exposed (12, 2, -1)",
+      "pass": true,
+      "detail": -351.2097873936344
+    },
+    {
+      "name": "correction sign (12, 2, -1)",
+      "pass": true,
+      "detail": -351.2097873936344
+    },
+    {
+      "name": "impulse residual ledger (12, 2, -1)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (12, 2, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite (12, 2, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "pre-projection violation (12, 2, 1)",
+      "pass": true,
+      "detail": 0.008198028636020966
+    },
+    {
+      "name": "post-projection continuity (12, 2, 1)",
+      "pass": true,
+      "detail": 8.044011827077965e-13
+    },
+    {
+      "name": "reduction >= 4 orders (12, 2, 1)",
+      "pass": true,
+      "detail": 9.812129457237715e-11
+    },
+    {
+      "name": "correction exposed (12, 2, 1)",
+      "pass": true,
+      "detail": 351.20707801591925
+    },
+    {
+      "name": "correction sign (12, 2, 1)",
+      "pass": true,
+      "detail": 351.20707801591925
+    },
+    {
+      "name": "impulse residual ledger (12, 2, 1)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "full grid/axis/sign coverage",
+      "pass": true,
+      "detail": null
+    }
+  ],
+  "analytic_reference": [
+    {
+      "grid": 8,
+      "axis": 0,
+      "gradient_sign": -1,
+      "unprojected_gcl_residual_m3": 0.0081980286360213,
+      "projected_gcl_residual_m3": 7.235456266248275e-13,
+      "projection_momentum_change_proxy_Ns": -350.77273782735006,
+      "combined_impulse_residual_proxy_Ns": -350.77273782735006
+    },
+    {
+      "grid": 8,
+      "axis": 0,
+      "gradient_sign": 1,
+      "unprojected_gcl_residual_m3": 0.008198028636020966,
+      "projected_gcl_residual_m3": 7.235480660797156e-13,
+      "projection_momentum_change_proxy_Ns": 350.77273782733374,
+      "combined_impulse_residual_proxy_Ns": 350.77273782733374
+    },
+    {
+      "grid": 8,
+      "axis": 1,
+      "gradient_sign": -1,
+      "unprojected_gcl_residual_m3": 0.0081980286360213,
+      "projected_gcl_residual_m3": 7.235460603056965e-13,
+      "projection_momentum_change_proxy_Ns": -350.77273782735045,
+      "combined_impulse_residual_proxy_Ns": -350.77273782735045
+    },
+    {
+      "grid": 8,
+      "axis": 1,
+      "gradient_sign": 1,
+      "unprojected_gcl_residual_m3": 0.008198028636020966,
+      "projected_gcl_residual_m3": 7.235468734573258e-13,
+      "projection_momentum_change_proxy_Ns": 350.7727378273339,
+      "combined_impulse_residual_proxy_Ns": 350.7727378273339
+    },
+    {
+      "grid": 8,
+      "axis": 2,
+      "gradient_sign": -1,
+      "unprojected_gcl_residual_m3": 0.00819802863602141,
+      "projected_gcl_residual_m3": 7.235454639945016e-13,
+      "projection_momentum_change_proxy_Ns": -350.77273782735375,
+      "combined_impulse_residual_proxy_Ns": -350.77273782735375
+    },
+    {
+      "grid": 8,
+      "axis": 2,
+      "gradient_sign": 1,
+      "unprojected_gcl_residual_m3": 0.008198028636020966,
+      "projected_gcl_residual_m3": 7.235472529280862e-13,
+      "projection_momentum_change_proxy_Ns": 350.7727378273328,
+      "combined_impulse_residual_proxy_Ns": 350.7727378273328
+    },
+    {
+      "grid": 12,
+      "axis": 0,
+      "gradient_sign": -1,
+      "unprojected_gcl_residual_m3": 0.0081980286360213,
+      "projected_gcl_residual_m3": 8.064456898495068e-13,
+      "projection_momentum_change_proxy_Ns": -351.209787393623,
+      "combined_impulse_residual_proxy_Ns": -351.209787393623
+    },
+    {
+      "grid": 12,
+      "axis": 0,
+      "gradient_sign": 1,
+      "unprojected_gcl_residual_m3": 0.008198028636020966,
+      "projected_gcl_residual_m3": 8.044009794198892e-13,
+      "projection_momentum_change_proxy_Ns": 351.20707801592044,
+      "combined_impulse_residual_proxy_Ns": 351.20707801592044
+    },
+    {
+      "grid": 12,
+      "axis": 1,
+      "gradient_sign": -1,
+      "unprojected_gcl_residual_m3": 0.0081980286360213,
+      "projected_gcl_residual_m3": 8.064462726081745e-13,
+      "projection_momentum_change_proxy_Ns": -351.2097873936233,
+      "combined_impulse_residual_proxy_Ns": -351.2097873936233
+    },
+    {
+      "grid": 12,
+      "axis": 1,
+      "gradient_sign": 1,
+      "unprojected_gcl_residual_m3": 0.008198028636020966,
+      "projected_gcl_residual_m3": 8.044011556027422e-13,
+      "projection_momentum_change_proxy_Ns": 351.2070780159203,
+      "combined_impulse_residual_proxy_Ns": 351.2070780159203
+    },
+    {
+      "grid": 12,
+      "axis": 2,
+      "gradient_sign": -1,
+      "unprojected_gcl_residual_m3": 0.00819802863602141,
+      "projected_gcl_residual_m3": 8.064458253747783e-13,
+      "projection_momentum_change_proxy_Ns": -351.2097873936344,
+      "combined_impulse_residual_proxy_Ns": -351.2097873936344
+    },
+    {
+      "grid": 12,
+      "axis": 2,
+      "gradient_sign": 1,
+      "unprojected_gcl_residual_m3": 0.008198028636020966,
+      "projected_gcl_residual_m3": 8.044011827077965e-13,
+      "projection_momentum_change_proxy_Ns": 351.20707801591925,
+      "combined_impulse_residual_proxy_Ns": 351.20707801591925
+    }
+  ],
+  "source_sha256": {
+    "CMakeLists.txt": "0f4af75252d9d26c3e83d891f7af414c60afccfc87b98d87476744bf204d1ed8",
+    "docs/PHASENPLAN.md": "5e2b3b60b865ff2a7ac0f1bb6e94e76e6a9307b55664dabc098e31278ee09ec6",
+    "docs/P2_MOVING_BOX_PROJECTED_REACTION_PARTIAL.md": "40bcb8c479c02d036bcb276c49f7d441c91ee19b90ec00ede25df09b5c865e71",
+    "include/upc/p2_moving_box_projected_reaction3d.hpp": "e79bab667e3b5c99429532789b9380ca211faa562a85f3611226a276719b3a57",
+    "include/upc/p2_moving_box_mac_counterimpulse3d.hpp": "7af384dfd0b66d337b33dd518e3984af844bf9a52c2703c4a9cdaa88abaf22be",
+    "include/upc/p2_moving_box_dynamic_pressure3d.hpp": "0542c4c40eb5f4ea855c105ad639437d15a0936a6025de8614d910780d6c57be",
+    "include/upc/p2_moving_box_cut_cell_projection3d.hpp": "7ec9aaaed69aae85be1b26d32460c03de81b95f7ffb26e1f6b18e1185aee3fb6",
+    "include/upc/p2_moving_mac_dual_volumes3d.hpp": "b6dcf0444be679dd2bb74d1846e74686c21a33870f50724912dce3a497c83bfa",
+    "tests/p2_moving_box_projected_reaction3d_tests.cpp": "6dd335162e314178c483b72f9e2d5649959303100701367d79acbc4c7afcae53",
+    "scripts/p2_moving_box_projected_reaction_full_build.cmd": "3ce7d21a5eb8bb3f6ca65399547e7d52cbd36275823a02310ca0230678d01c2c",
+    "scripts/p2_moving_box_projected_reaction_acceptance.py": "19563fd7c7b740ac9781e3b573bed4811a545cd3fd9a07c0bb7b62ff089067dd"
+  },
+  "ctest_log_sha256": "82290671eb1087f41cc70f55909db810eeb9b3884496f65a4091fea6184882f2",
+  "unproven": [
+    "projected MAC continuity does not establish physical FSI impulse conservation",
+    "pressure projection changes the dual-mass momentum proxy substantially",
+    "no coupled common momentum tensor, free-surface VOF or global mechanical energy closure",
+    "no independent measured 3D CFD reference or Unreal 5.8 Native-E2E for this path"
+  ]
+}

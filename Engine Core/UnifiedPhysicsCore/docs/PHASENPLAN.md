@@ -1018,3 +1018,20 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
   Es fehlen ein gemeinsamer konservativer physikalischer Impulstensor,
   die anschliessende Cut-Cell-Projektion, VOF-Massenkopplung, globale
   Energie-/Impulserhaltung, gemessene 3D-CFD-Referenzen und UE5.8-E2E.
+
+## P2 Teilfortschritt: dynamischer MAC-Gegenimpuls mit nachfolgender Cut-Cell-Projektion (29.10.2026)
+
+- `P2MovingBoxProjectedReaction3D`: angewendeter MAC-Gegenimpuls
+  wird mit gemeinsamer primal-Cut-Cell-PCG-Druckprojektion auf die
+  geometrische Kontinuität zurückgeführt; druckbedingte Änderung
+  des Dualmassen-Impulsproxies separat dokumentiert.
+- MSVC Release 80/80 CTest PASS; 12 analytische 3D-Fälle auf 8³/12³,
+  3 Achsen, beide Druckgradientvorzeichen, unabhängig nachgerechnete
+  Voxel-GCL, Gauge-Invarianz und Negativfälle.
+- **Explizit nicht geschlossen:** die Druckprojektion ändert den
+  Fluid-Impulsproxy stark. Kein globaler physikalischer FSI-Impuls-/
+  Energiebeweis; keine Live-VOF-Kopplung, externen 3D-CFD-Messdaten
+  oder Unreal-5.8-Native-E2E. P2-P8 PARTIAL, ALL_COMPLETE=False.
+- Belege: `docs/P2_MOVING_BOX_PROJECTED_REACTION_PARTIAL.md`,
+  `scripts/p2_moving_box_projected_reaction_acceptance.py` und
+  `ENGINE TEST STUBE/runs/p2_moving_box_projected_reaction_partial.json`.

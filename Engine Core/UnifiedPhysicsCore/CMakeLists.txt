@@ -415,3 +415,10 @@ add_test(NAME physics_p2_moving_box_dynamic_pressure_partial COMMAND upc_p2_movi
 add_executable(upc_p2_moving_box_mac_counterimpulse_tests tests/p2_moving_box_mac_counterimpulse3d_tests.cpp)
 target_link_libraries(upc_p2_moving_box_mac_counterimpulse_tests PRIVATE upc)
 add_test(NAME physics_p2_moving_box_mac_counterimpulse_partial COMMAND upc_p2_moving_box_mac_counterimpulse_tests)
+
+# P2 partial: applied moving-box MAC reaction followed by conservative
+# primal cut-cell pressure projection. Momentum correction is audited;
+# no VOF or closed physical FSI energy/momentum balance.
+add_executable(upc_p2_moving_box_projected_reaction_tests tests/p2_moving_box_projected_reaction3d_tests.cpp)
+target_link_libraries(upc_p2_moving_box_projected_reaction_tests PRIVATE upc)
+add_test(NAME physics_p2_moving_box_projected_reaction_partial COMMAND upc_p2_moving_box_projected_reaction_tests)
