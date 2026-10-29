@@ -66,3 +66,26 @@ fuer diesen neuen Pfad und unabhaengige gemessene 3D-CFD-Referenzen
 fehlen. Naechster technischer Schritt: dynamische zeitdiskrete
 MAC/VOF-Geschwindigkeits- und Impulsintegration auf Basis der
 rekonstruierten Fluesse, mit gemeinsamer Wasser-/Koerperenergie.
+
+## Zusatznachweis: konservatives Finite-Volumen-Replay (29.10.2026)
+
+Der neue optionale Operator `P2ClosedBasinFluxReplay3D` wendet die
+integrierten U/V/W-Face-Volumina **tatsaechlich** auf das alte
+Cut-Cell-Wasserinventar an: `V_after = alpha_old*f_old*dx^3 - div(Q)`.
+Er berechnet die neue Wasserfraktion aus dem **neuen** offenen
+Zellvolumen und verwirft negative Mengen, ueberfuellte Zellen,
+nichtfinite Fluesse, gesperrte Faces und offene Beckenraender.
+
+Die nativen Regressionen vergleichen das so rekonstruierte Inventar
+in allen 32 3D-Konfigurationen zellenweise mit dem unabhaengig
+berechneten hydrostatischen Zielinventar. Fuenf gezielte Negativtests
+pruefen u.a. manipulierte Randfluesse, uebermaessigen Fluss,
+NaN, falsche Vektorlaenge und ungueltige Fraktionen.
+`p2_closed_basin_kinematic_flux_acceptance.py` prueft die
+REPLAY-Zeilen, die Quellen-Hashes und den kompletten CTest-Log.
+
+**Grenze:** Dieses Replay ist eine algebraische
+Finite-Volumen-Transformation vorgeschriebener Anfangs-/Endzustaende.
+Es fuehrt weder eine unabhaengige zeitliche VOF-Advektion noch
+MAC-Impuls, hydrostatische Gegenkraft, Druckprojektion oder
+Energieerhaltung des gesamten Fluids aus. P2 bleibt PARTIAL.

@@ -4,7 +4,7 @@
   "partial_accepted": true,
   "phase_complete": false,
   "ctest_suites": 86,
-  "native_assertions": 173596,
+  "native_assertions": 245313,
   "checks": [
     {
       "name": "full 86/86 CTest",
@@ -19,7 +19,7 @@
     {
       "name": "native independent 3D assertions >= 150000",
       "pass": true,
-      "detail": 173596
+      "detail": 245313
     },
     {
       "name": "disconnected wet-island test executed",
@@ -44,6 +44,496 @@
       "name": "32 reference configurations",
       "pass": true,
       "detail": 32
+    },
+    {
+      "name": "32 finite-volume flux replays",
+      "pass": true,
+      "detail": 32
+    },
+    {
+      "name": "five replay rejection cases executed",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "unique replay (8, 0.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "replay reconstructs new cut-cell inventory (8, 0.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "replay conserves water volume (8, 0.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique replay (8, 0.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "replay reconstructs new cut-cell inventory (8, 0.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "replay conserves water volume (8, 0.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique replay (8, 0.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "replay reconstructs new cut-cell inventory (8, 0.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "replay conserves water volume (8, 0.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique replay (8, 0.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "replay reconstructs new cut-cell inventory (8, 0.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "replay conserves water volume (8, 0.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique replay (8, 3.2, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "replay reconstructs new cut-cell inventory (8, 3.2, 0.0, -0.4)",
+      "pass": true,
+      "detail": 1.7963408538435033e-11
+    },
+    {
+      "name": "replay conserves water volume (8, 3.2, 0.0, -0.4)",
+      "pass": true,
+      "detail": -3.3992364478763193e-10
+    },
+    {
+      "name": "unique replay (8, 3.2, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "replay reconstructs new cut-cell inventory (8, 3.2, 0.0, 0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "replay conserves water volume (8, 3.2, 0.0, 0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique replay (8, 3.2, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "replay reconstructs new cut-cell inventory (8, 3.2, 9.81, -0.4)",
+      "pass": true,
+      "detail": 3.309807983242763e-11
+    },
+    {
+      "name": "replay conserves water volume (8, 3.2, 9.81, -0.4)",
+      "pass": true,
+      "detail": -6.089635462558363e-10
+    },
+    {
+      "name": "unique replay (8, 3.2, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "replay reconstructs new cut-cell inventory (8, 3.2, 9.81, 0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "replay conserves water volume (8, 3.2, 9.81, 0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique replay (8, 4.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "replay reconstructs new cut-cell inventory (8, 4.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": 5.604516850610253e-12
+    },
+    {
+      "name": "replay conserves water volume (8, 4.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": -1.8494006326363888e-10
+    },
+    {
+      "name": "unique replay (8, 4.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "replay reconstructs new cut-cell inventory (8, 4.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": 1.1837864022368194e-11
+    },
+    {
+      "name": "replay conserves water volume (8, 4.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": -2.8137492336099967e-10
+    },
+    {
+      "name": "unique replay (8, 4.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "replay reconstructs new cut-cell inventory (8, 4.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": 3.005817816870149e-12
+    },
+    {
+      "name": "replay conserves water volume (8, 4.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": -1.1019096746167634e-10
+    },
+    {
+      "name": "unique replay (8, 4.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "replay reconstructs new cut-cell inventory (8, 4.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": 9.374390153027434e-12
+    },
+    {
+      "name": "replay conserves water volume (8, 4.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": -2.6486191018193495e-10
+    },
+    {
+      "name": "unique replay (8, 5.75, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "replay reconstructs new cut-cell inventory (8, 5.75, 0.0, -0.4)",
+      "pass": true,
+      "detail": 6.110778549839324e-11
+    },
+    {
+      "name": "replay conserves water volume (8, 5.75, 0.0, -0.4)",
+      "pass": true,
+      "detail": -2.2160975277074613e-09
+    },
+    {
+      "name": "unique replay (8, 5.75, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "replay reconstructs new cut-cell inventory (8, 5.75, 0.0, 0.4)",
+      "pass": true,
+      "detail": 4.282318943893415e-11
+    },
+    {
+      "name": "replay conserves water volume (8, 5.75, 0.0, 0.4)",
+      "pass": true,
+      "detail": -1.9453523236734327e-09
+    },
+    {
+      "name": "unique replay (8, 5.75, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "replay reconstructs new cut-cell inventory (8, 5.75, 9.81, -0.4)",
+      "pass": true,
+      "detail": 2.355404760123747e-11
+    },
+    {
+      "name": "replay conserves water volume (8, 5.75, 9.81, -0.4)",
+      "pass": true,
+      "detail": -7.930225365271326e-10
+    },
+    {
+      "name": "unique replay (8, 5.75, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "replay reconstructs new cut-cell inventory (8, 5.75, 9.81, 0.4)",
+      "pass": true,
+      "detail": 4.303934986182867e-11
+    },
+    {
+      "name": "replay conserves water volume (8, 5.75, 9.81, 0.4)",
+      "pass": true,
+      "detail": -1.918635916808853e-09
+    },
+    {
+      "name": "unique replay (12, 0.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "replay reconstructs new cut-cell inventory (12, 0.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "replay conserves water volume (12, 0.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique replay (12, 0.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "replay reconstructs new cut-cell inventory (12, 0.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "replay conserves water volume (12, 0.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique replay (12, 0.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "replay reconstructs new cut-cell inventory (12, 0.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "replay conserves water volume (12, 0.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique replay (12, 0.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "replay reconstructs new cut-cell inventory (12, 0.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "replay conserves water volume (12, 0.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique replay (12, 3.2, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "replay reconstructs new cut-cell inventory (12, 3.2, 0.0, -0.4)",
+      "pass": true,
+      "detail": 4.414901777494151e-11
+    },
+    {
+      "name": "replay conserves water volume (12, 3.2, 0.0, -0.4)",
+      "pass": true,
+      "detail": -2.200238213845296e-09
+    },
+    {
+      "name": "unique replay (12, 3.2, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "replay reconstructs new cut-cell inventory (12, 3.2, 0.0, 0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "replay conserves water volume (12, 3.2, 0.0, 0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique replay (12, 3.2, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "replay reconstructs new cut-cell inventory (12, 3.2, 9.81, -0.4)",
+      "pass": true,
+      "detail": 4.380631968281534e-11
+    },
+    {
+      "name": "replay conserves water volume (12, 3.2, 9.81, -0.4)",
+      "pass": true,
+      "detail": -2.2994868231762666e-09
+    },
+    {
+      "name": "unique replay (12, 3.2, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "replay reconstructs new cut-cell inventory (12, 3.2, 9.81, 0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "replay conserves water volume (12, 3.2, 9.81, 0.4)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique replay (12, 4.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "replay reconstructs new cut-cell inventory (12, 4.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": 6.880196412595296e-11
+    },
+    {
+      "name": "replay conserves water volume (12, 4.0, 0.0, -0.4)",
+      "pass": true,
+      "detail": -4.772346073877998e-09
+    },
+    {
+      "name": "unique replay (12, 4.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "replay reconstructs new cut-cell inventory (12, 4.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": 6.583633638257425e-11
+    },
+    {
+      "name": "replay conserves water volume (12, 4.0, 0.0, 0.4)",
+      "pass": true,
+      "detail": -2.5900135369738564e-09
+    },
+    {
+      "name": "unique replay (12, 4.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "replay reconstructs new cut-cell inventory (12, 4.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": 5.4525162163088225e-11
+    },
+    {
+      "name": "replay conserves water volume (12, 4.0, 9.81, -0.4)",
+      "pass": true,
+      "detail": -3.984723662142642e-09
+    },
+    {
+      "name": "unique replay (12, 4.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "replay reconstructs new cut-cell inventory (12, 4.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": 5.943767700244962e-11
+    },
+    {
+      "name": "replay conserves water volume (12, 4.0, 9.81, 0.4)",
+      "pass": true,
+      "detail": -2.336719262530096e-09
+    },
+    {
+      "name": "unique replay (12, 5.75, 0.0, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "replay reconstructs new cut-cell inventory (12, 5.75, 0.0, -0.4)",
+      "pass": true,
+      "detail": 6.837519439528705e-11
+    },
+    {
+      "name": "replay conserves water volume (12, 5.75, 0.0, -0.4)",
+      "pass": true,
+      "detail": -5.369656719267368e-09
+    },
+    {
+      "name": "unique replay (12, 5.75, 0.0, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "replay reconstructs new cut-cell inventory (12, 5.75, 0.0, 0.4)",
+      "pass": true,
+      "detail": 6.127864882188305e-11
+    },
+    {
+      "name": "replay conserves water volume (12, 5.75, 0.0, 0.4)",
+      "pass": true,
+      "detail": -5.5060809245333076e-09
+    },
+    {
+      "name": "unique replay (12, 5.75, 9.81, -0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "replay reconstructs new cut-cell inventory (12, 5.75, 9.81, -0.4)",
+      "pass": true,
+      "detail": 7.336975471616825e-11
+    },
+    {
+      "name": "replay conserves water volume (12, 5.75, 9.81, -0.4)",
+      "pass": true,
+      "detail": -5.758010956924409e-09
+    },
+    {
+      "name": "unique replay (12, 5.75, 9.81, 0.4)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "replay reconstructs new cut-cell inventory (12, 5.75, 9.81, 0.4)",
+      "pass": true,
+      "detail": 5.6847859752906515e-11
+    },
+    {
+      "name": "replay conserves water volume (12, 5.75, 9.81, 0.4)",
+      "pass": true,
+      "detail": -5.109200174047146e-09
     },
     {
       "name": "unique configuration (8, 0.0, 0.0, -0.4)",
@@ -1129,6 +1619,11 @@
       "name": "complete independent parameter matrix",
       "pass": true,
       "detail": null
+    },
+    {
+      "name": "replay covers same independent matrix",
+      "pass": true,
+      "detail": null
     }
   ],
   "reference": [
@@ -1487,20 +1982,22 @@
   ],
   "source_sha256": {
     "CMakeLists.txt": "967c97bd70109154628f2391df808dbc70e0e91faeaa328ebd7b52bb17d1239e",
-    "docs/PHASENPLAN.md": "85d2c258e20e6f90e2802eced1dfd6fb39e4e4be726134df9233204172dc95f6",
-    "docs/P2_CLOSED_BASIN_KINEMATIC_FLUX_PARTIAL.md": "e33e192d0cfa849e7f122392b0c8343337e936008e8eab95cc2715705da695b3",
+    "docs/PHASENPLAN.md": "077d6b2f829684e7b16d46beda43172ee4fa5beb6f7bbe2838ef454e55b49476",
+    "docs/P2_CLOSED_BASIN_KINEMATIC_FLUX_PARTIAL.md": "46525867161dbd583144b10c469300bdd82cdc97ca8469fedd4c057dd381084e",
     "include/upc/p2_closed_basin_kinematic_flux3d.hpp": "963f1d5c15d6db94e4c47f457887deb1a3cccdbaa435d8c910a2694cf2b13629",
+    "include/upc/p2_closed_basin_flux_replay3d.hpp": "e2291016f32fcaf8d2bd5b36716bb639a3f898d6a62b2862447c06a290853f8b",
     "include/upc/p2_closed_basin_hydrostatic3d.hpp": "138b30bd78c843151f48419754233633415ace1a9e492d2bc45acc2f84769eae",
     "include/upc/p2_moving_box_mac_apertures3d.hpp": "c5fbdae598166771f6a28359c31960178239d3a59e0ccbb60f89f47b38f29ad3",
     "include/upc/p2_moving_box_open_volume3d.hpp": "270ecc419fa312212e47dbcfbd7fa8f2b172fde153b6d66e19f226be5cbedbb2",
-    "tests/p2_closed_basin_kinematic_flux3d_tests.cpp": "887a2e01badd39dea32e20336d03456a130060116b43524143cf24431523d8b8",
-    "scripts/p2_closed_basin_kinematic_flux_acceptance.py": "ca0f407f922b80ab9f316a67784e660d4be00a9812e55f1d4a40fc27bcd973c6",
+    "tests/p2_closed_basin_kinematic_flux3d_tests.cpp": "3435533e004b20509bc8168839402fd8f1939928ec86799b65349a07ad8a17c4",
+    "scripts/p2_closed_basin_kinematic_flux_acceptance.py": "8b2e9702aceb9d826ced58fe280c071679bd9fb79fbd1b5e7efdbb6903520604",
     "scripts/p2_closed_basin_kinematic_flux_full_build.cmd": "057d9efa3212c0538315ec604f2d3d68ba01e0064119a0dd8d9e4b2f92a6a15d"
   },
-  "ctest_log_sha256": "fdbef8347b568498446979807a64c18a38194341cfd2405639f5593891103d1d",
+  "ctest_log_sha256": "40bf53a0f1cd9ccdc6b89f755936fd064acf734c034b48b7344f074ba1ccad80",
   "limitations": [
     "flux reconstruction between prescribed hydrostatic states",
     "wet graph components checked for separate inventory conservation",
+    "algebraic finite-volume replay validates the reconstructed MAC flux against the new cut-cell water inventory; not an upwind or dynamic VOF update",
     "not a time-advanced MAC/VOF Navier-Stokes solution",
     "no applied rigid-fluid counterimpulse or fluid inertia",
     "no global physical FSI energy/momentum conservation",

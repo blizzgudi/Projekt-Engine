@@ -1172,3 +1172,21 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
   Keine dynamische MAC/VOF-Advektion, keine angewendete FSI-
   Gegenreaktion, keine physikalische Gesamtenergie-/Impulserhaltung,
   keine externen CFD-Messdaten oder Unreal-5.8-Native-E2E.
+
+## P2 Zusatzfortschritt: 3D-Cut-Cell-MAC-Flux-Replay (29.10.2026)
+
+- `P2ClosedBasinFluxReplay3D` wendet die rekonstruierten integrierten
+  MAC-Face-Volumina konservativ auf das alte Wasserinventar und die
+  neuen Cut-Cell-Kapazitaeten an. Kein Navier-Stokes-/FSI-Schritt.
+- 32 3D-Regressionskonfigurationen pruefen die zellweise U/V/W-
+  Bilanz gegen den unabhaengig hydrostatisch berechneten Zielzustand.
+  Fuenf Negativfaelle lehnen unphysikalische/ungueltige Fluesse ab.
+- Belege: `docs/P2_CLOSED_BASIN_KINEMATIC_FLUX_PARTIAL.md`,
+  `scripts/p2_closed_basin_kinematic_flux_acceptance.py`,
+  `ENGINE TEST STUBE/runs/p2_closed_basin_kinematic_flux_partial.json`
+  und der vollstaendige 86-Suite-CTest-Log.
+- **P2 weiterhin PARTIAL**: kein dynamisches VOF-Upwind,
+  keine Fluidtraegheit, keine angewendete Festkoerper-Gegenreaktion,
+  keine globale physikalische FSI-Energie-/Impulserhaltung,
+  keine externe 3D-CFD-Messvalidierung oder UE5.8-Native-E2E
+  dieses neuen Pfads. P3-P8 bleiben ebenfalls PARTIAL.

@@ -19,6 +19,7 @@ SOURCES = [
     "CMakeLists.txt", "docs/PHASENPLAN.md",
     "docs/P2_CLOSED_BASIN_KINEMATIC_FLUX_PARTIAL.md",
     "include/upc/p2_closed_basin_kinematic_flux3d.hpp",
+    "include/upc/p2_closed_basin_flux_replay3d.hpp",
     "include/upc/p2_closed_basin_hydrostatic3d.hpp",
     "include/upc/p2_moving_box_mac_apertures3d.hpp",
     "include/upc/p2_moving_box_open_volume3d.hpp",
@@ -62,6 +63,24 @@ def main() -> None:
               abs(float(component.group(4)))<1e-9,
               float(component.group(4)))
     check("32 reference configurations", len(rows) == 32, len(rows))
+    replay_pattern=(r"^REPLAY\s+(\d+)\s+([\d.eE+-]+)\s+([\d.eE+-]+)\s+"
+                    r"([\d.eE+-]+)\s+([\d.eE+-]+)\s+([\d.eE+-]+)$")
+    replay_rows=re.findall(replay_pattern,output,re.MULTILINE)
+    check("32 finite-volume flux replays",len(replay_rows)==32,len(replay_rows))
+    check("five replay rejection cases executed",
+          "REPLAY_NEGATIVE 5" in output)
+    replay_keys=set()
+    for row in replay_rows:
+        key=(int(row[0]),round(float(row[1]),9),
+             round(float(row[2]),9),round(float(row[3]),9))
+        check(f"unique replay {key}",key not in replay_keys)
+        replay_keys.add(key)
+        err,mass=(float(row[4]),float(row[5]))
+        check(f"replay reconstructs new cut-cell inventory {key}",
+              math.isfinite(err) and 0<=err<2e-8,err)
+        check(f"replay conserves water volume {key}",
+              math.isfinite(mass) and abs(mass)<2e-8,mass)
+
     seen=set()
     references=[]
     for row in rows:
@@ -97,6 +116,7 @@ def main() -> None:
               for n in (8,12) for h in (0.0,3.2,4.0,5.75)
               for g in (0.0,9.81) for v in (-0.4,0.4)}
     check("complete independent parameter matrix", seen==expected)
+    check("replay covers same independent matrix",replay_keys==expected)
     hashes={name:sha(CORE/name) for name in SOURCES}
     report={
         "phase":"P2",
@@ -108,6 +128,7 @@ def main() -> None:
         "limitations":[
             "flux reconstruction between prescribed hydrostatic states",
             "wet graph components checked for separate inventory conservation",
+            "algebraic finite-volume replay validates the reconstructed MAC flux against the new cut-cell water inventory; not an upwind or dynamic VOF update",
             "not a time-advanced MAC/VOF Navier-Stokes solution",
             "no applied rigid-fluid counterimpulse or fluid inertia",
             "no global physical FSI energy/momentum conservation",

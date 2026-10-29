@@ -1,4 +1,6 @@
 #include "upc/p2_closed_basin_kinematic_flux3d.hpp"
+#include "upc/p2_closed_basin_flux_replay3d.hpp"
+#include <limits>
 #include <algorithm>
 #include <cmath>
 #include <iomanip>
@@ -147,6 +149,78 @@ void disconnected_components() {
     std::cout<<"COMPONENT 2 1 1 "
              <<result.max_cell_continuity_residual_m3<<"\n";
 }
+void replay_regression() {
+    // Independently re-apply every reconstructed MAC face volume to the old
+    // cut-cell inventory; the resulting fraction must match hydrostatic state.
+    for(int n:{8,12})
+    for(double level:{0.0,3.2,4.0,5.75})
+    for(double g:{0.0,9.81})
+    for(double velocity:{-0.4,0.4}) {
+        const auto b=box();
+        const auto hydro=upc::P2ClosedBasinHydrostatic3D::step(
+            n,n,n,1.0,0.01,1000.0,g,water_volume(n,level),
+            b,body(velocity));
+        const auto flux=upc::P2ClosedBasinKinematicFlux3D::reconstruct(
+            n,n,n,1.0,0.01,b,hydro);
+        const auto replay=upc::P2ClosedBasinFluxReplay3D::replay(
+            n,n,n,1.0,0.01,b,hydro.box_after,
+            hydro.water_fraction_before,flux);
+        const auto geom=upc::P2MovingBoxFaceApertures3D::sample(
+            n,n,n,1.0,0.01,b,hydro.box_after);
+        near(replay.water_before_m3,replay.water_after_m3,2e-8,
+             "replay mass conservation");
+        double max_volume_error=0.0;
+        for(std::size_t i=0;i<replay.water_fraction_after.size();++i) {
+            const double expected=geom.cell_geometry.alpha_new[i]*
+                                  hydro.water_fraction_after[i];
+            const double actual=geom.cell_geometry.alpha_new[i]*
+                                replay.water_fraction_after[i];
+            max_volume_error=std::max(max_volume_error,
+                                      std::abs(expected-actual));
+            near(actual,expected,2e-8,
+                 "replay reproduces target cut-cell water volume");
+            require(replay.water_fraction_after[i]>=0.0 &&
+                    replay.water_fraction_after[i]<=1.0,
+                    "replay fraction remains bounded");
+        }
+        std::cout<<"REPLAY "<<n<<" "<<std::setprecision(17)
+                 <<level<<" "<<g<<" "<<velocity<<" "
+                 <<max_volume_error<<" "
+                 <<replay.water_after_m3-replay.water_before_m3<<"\n";
+    }
+    const auto b=box();
+    const auto hydro=upc::P2ClosedBasinHydrostatic3D::step(
+        8,8,8,1.0,0.01,1000.0,9.81,water_volume(8,4),
+        b,body(0.4));
+    const auto flux=upc::P2ClosedBasinKinematicFlux3D::reconstruct(
+        8,8,8,1.0,0.01,b,hydro);
+    const auto replay=[&](const std::vector<double>& f,
+                          const upc::P2ClosedBasinKinematicFluxResult3D& q) {
+        return upc::P2ClosedBasinFluxReplay3D::replay(
+            8,8,8,1.0,0.01,b,hydro.box_after,f,q);
+    };
+    auto invalid=flux;
+    invalid.u_m3[0]=0.1;
+    rejects([&]{(void)replay(hydro.water_fraction_before,invalid);},
+            "replay rejects flow across sealed basin wall");
+    invalid=flux;
+    invalid.u_m3[1]=100.0;
+    rejects([&]{(void)replay(hydro.water_fraction_before,invalid);},
+            "replay rejects negative water or overflowing cell");
+    invalid=flux;
+    invalid.v_m3[0]=std::numeric_limits<double>::quiet_NaN();
+    rejects([&]{(void)replay(hydro.water_fraction_before,invalid);},
+            "replay rejects nonfinite flux");
+    auto fractions=hydro.water_fraction_before;
+    fractions.pop_back();
+    rejects([&]{(void)replay(fractions,flux);},
+            "replay rejects wrong inventory dimensions");
+    fractions=hydro.water_fraction_before;
+    fractions[0]=1.5;
+    rejects([&]{(void)replay(fractions,flux);},
+            "replay rejects invalid input water fraction");
+    std::cout<<"REPLAY_NEGATIVE 5\n";
+}
 void negative() {
     const auto b=box();
     auto state=upc::P2ClosedBasinHydrostatic3D::step(
@@ -175,6 +249,7 @@ int main() {
         for(double g:{0.0,9.81})
         for(double v:{-0.4,0.4})run(n,level,g,v);
         disconnected_components();
+        replay_regression();
         negative();
         std::cout<<"PASS: "<<checks
                  <<" native closed-basin 3D kinematic flux assertions\n";
