@@ -140,6 +140,38 @@ public:
         total.substeps_used=substeps;
         return total;
     }
+    // Time-varying prescribed MAC velocities on stationary cut-cells.
+    // Passive VOF only: no dynamic Navier-Stokes or two-way FSI.
+    static P2StaticCutCellVofResult3D step_velocity_sequence(
+        std::size_t nx,std::size_t ny,std::size_t nz,double dx,double dt,
+        const P2Box3D& stationary_box,const std::vector<double>& fraction,
+        const std::vector<std::vector<double>>& u_steps,
+        const std::vector<std::vector<double>>& v_steps,
+        const std::vector<std::vector<double>>& w_steps) {
+        const auto count=u_steps.size();
+        if(count==0||count>1024||v_steps.size()!=count||
+           w_steps.size()!=count||!std::isfinite(dt)||dt<=0)
+            throw std::invalid_argument("Invalid prescribed VOF velocity sequence");
+        const double h=dt/static_cast<double>(count);
+        if(!std::isfinite(h)||h<=0)
+            throw std::invalid_argument("Invalid prescribed VOF sequence dt");
+        auto state=fraction;
+        P2StaticCutCellVofResult3D total;
+        for(std::size_t k=0;k<count;++k) {
+            auto next=step(nx,ny,nz,dx,h,stationary_box,state,
+                           u_steps[k],v_steps[k],w_steps[k]);
+            if(k==0)total.water_before_m3=next.water_before_m3;
+            total.water_after_m3=next.water_after_m3;
+            total.max_donor_cfl=std::max(total.max_donor_cfl,next.max_donor_cfl);
+            total.max_cell_volume_divergence_m3=std::max(
+                total.max_cell_volume_divergence_m3,
+                next.max_cell_volume_divergence_m3);
+            state=std::move(next.fraction_after);
+        }
+        total.fraction_after=std::move(state);
+        total.substeps_used=count;
+        return total;
+    }
     // Select a safe number of substeps from the *geometric* outgoing
     // donor-CFL, independent of the evolving water fraction. A pilot
     // step at dt/max_substeps validates the same sealed-face, cut-cell,

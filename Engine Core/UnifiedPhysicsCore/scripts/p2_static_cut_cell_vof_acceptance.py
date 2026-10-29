@@ -93,6 +93,20 @@ def main():
               abs(before-after)<1e-10,(before,after))
         check(f"{n} auto donor CFL target",
               0<cfl<=0.8+1e-12,cfl)
+    sequences=re.findall(r"^VOF_SEQUENCE (\d+) (\d+) ([\d.eE+-]+) "
+                         r"([\d.eE+-]+) ([\d.eE+-]+) ([\d.eE+-]+) "
+                         r"([\d.eE+-]+)$",output,re.MULTILINE)
+    check("time-varying MAC sequence on two 3D grids",
+          len(sequences)==2,[r[0] for r in sequences])
+    for row in sequences:
+        n,k=int(row[0]),int(row[1])
+        before,after,error,diff,cfl=map(float,row[2:])
+        check(f"{n} cubed four distinct MAC time slices",n in (8,12) and k==4)
+        check(f"{n} time-varying water conserved",
+              math.isfinite(before) and abs(before-after)<1e-10)
+        check(f"{n} time-varying equals independent step calls",
+              error<1e-14 and diff>1e-5)
+        check(f"{n} time-varying donor CFL",0<cfl<=1)
     check("eight physical/numeric rejection tests",
           "VOF_NEGATIVE 8" in output)
     hashes={name:sha(CORE/name) for name in SOURCES}

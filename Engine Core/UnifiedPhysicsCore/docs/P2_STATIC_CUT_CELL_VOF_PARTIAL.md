@@ -33,3 +33,8 @@
 - Native 8^3/12^3 mit 40-fachen U/V/W-Geschwindigkeiten: automatisch zwei Teilsteps bei CFL 0.8; zellweise bitgleicher Vergleich mit explizit zwei Substeps, Wasservolumen invariant, kleiner Zeitschritt bleibt bei einem Step, acht negative Kontrollfaelle.
 - MSVC Release und komplette 87-Suite-CTest sowie separates JSON-Gate mit zwei automatischen Referenzzeilen und SHA256 der tatsaechlich getesteten Quellen. Die quantitative Abnahme gilt nur fuer vorgeschriebene MAC-Geschwindigkeiten und stationaere Festkoerper.
 - **P2 weiterhin PARTIAL:** Die Methode ist ein geometrischer CFL-Controller, kein adaptiver Navier-Stokes-/VOF-/FSI-Solver; dynamischer Druck, bewegte Festkoerper-Gegenreaktion, physikalische Energie-/Impulsbilanz, externe CFD-Messdaten und UE5.8-Native-E2E fehlen.
+## Zusatz: zeitlich variable vorgeschriebene 3D-MAC-Felder (29.10.2026)
+
+- Opt-in step_velocity_sequence akzeptiert je gleichlangem Teilstep ein anderes U/V/W-Feld. Jede Geschwindigkeit durchlaeuft die vorhandenen Cut-Cell-, Divergenz-, CFL- und Volumenchecks.
+- Native 8^3/12^3: vier wechselnde dreiachsige Wirbelfelder, exakter Vergleich gegen unabhaengige manuelle Einzelsteps, Wassererhaltung, Fraktionsgrenzen, ungueltige spaetere Steps und leere/ungleiche Sequenzen.
+- Das quantitative JSON-Gate prueft zwei VOF_SEQUENCE-Zeilen samt Quell-SHA256. Keine dynamische Navier-Stokes-Berechnung, keine bewegte FSI oder UE5.8-Native-E2E. P2-P8 bleiben PARTIAL.

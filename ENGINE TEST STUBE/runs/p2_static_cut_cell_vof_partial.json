@@ -4,7 +4,7 @@
   "partial_accepted": true,
   "phase_complete": false,
   "ctest_suites": 87,
-  "native_assertions": 97059,
+  "native_assertions": 99317,
   "checks": [
     {
       "name": "87/87 full native CTest suites",
@@ -19,7 +19,7 @@
     {
       "name": "native assertions >= 90000",
       "pass": true,
-      "detail": 97059
+      "detail": 99317
     },
     {
       "name": "two grid sizes",
@@ -204,6 +204,54 @@
       "detail": 0.8
     },
     {
+      "name": "time-varying MAC sequence on two 3D grids",
+      "pass": true,
+      "detail": [
+        "8",
+        "12"
+      ]
+    },
+    {
+      "name": "8 cubed four distinct MAC time slices",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "8 time-varying water conserved",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "8 time-varying equals independent step calls",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "8 time-varying donor CFL",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "12 cubed four distinct MAC time slices",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "12 time-varying water conserved",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "12 time-varying equals independent step calls",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "12 time-varying donor CFL",
+      "pass": true,
+      "detail": null
+    },
+    {
       "name": "eight physical/numeric rejection tests",
       "pass": true,
       "detail": null
@@ -211,16 +259,16 @@
   ],
   "source_sha256": {
     "CMakeLists.txt": "3bafa076a16a2405214fcf378271d64585cf73a5dd44912d6040054beca9f59c",
-    "docs/PHASENPLAN.md": "489c89f50be1ce85425447b90b44a20cde825b0169720727be174457b76730c9",
-    "docs/P2_STATIC_CUT_CELL_VOF_PARTIAL.md": "3fad010b00a878c5d340bd38ccd1e78e1ca31a1b4598d82d3ffa2067fe9fb34b",
-    "include/upc/p2_static_cut_cell_vof3d.hpp": "1b2017625482a2e43e3062019b7a9e92442544ce4e46ae131cecbd1765da37d3",
+    "docs/PHASENPLAN.md": "59996574c724e5908255131ede0d33b144c2bb8a9570438302a5c038b8e2c4bc",
+    "docs/P2_STATIC_CUT_CELL_VOF_PARTIAL.md": "f370b85ea2819390e7221954c1fb4c66d3b2d67f4aa59509f22a28a2bbc621e4",
+    "include/upc/p2_static_cut_cell_vof3d.hpp": "396a1b39acf48fb705d1f207cf528ab9dd6a6cf5cb6f7080ed95e12d5a36b5c6",
     "include/upc/p2_moving_box_mac_apertures3d.hpp": "c5fbdae598166771f6a28359c31960178239d3a59e0ccbb60f89f47b38f29ad3",
     "include/upc/p2_moving_box_open_volume3d.hpp": "270ecc419fa312212e47dbcfbd7fa8f2b172fde153b6d66e19f226be5cbedbb2",
-    "tests/p2_static_cut_cell_vof3d_tests.cpp": "55da7c6411794b6cd209b0d78c41ff9d68f48eb50bf911b8b27592657c9f7f85",
-    "scripts/p2_static_cut_cell_vof_acceptance.py": "54f9ec3db9eab7570003d76cd7feba319de8e84b2a5b46154781137376a0f9eb",
+    "tests/p2_static_cut_cell_vof3d_tests.cpp": "e153815050e0497af241cce4ac6bb15351e7ce416b22a5f6f3986ead97cccd7a",
+    "scripts/p2_static_cut_cell_vof_acceptance.py": "c48a451479f87abd81e7803c538d590786f3e63bf7fc9edf445d54f53f9e8290",
     "scripts/p2_static_cut_cell_vof_full_build.cmd": "73075d11a3e65c5ba16a8b77ae7bec36e31b7816746b17ec8740c90f336b2168"
   },
-  "ctest_log_sha256": "ea47ce4c3ef5a808025d93550636a3e3299c12965e4633c1c760795c8edaaf32",
+  "ctest_log_sha256": "1f9238238f645eeeb937a111c9ad6c7895fc04e25de63b6c2b5f3d34bd4357d6",
   "limitations": [
     "prescribed solenoidal MAC velocity and stationary cut-cell geometry",
     "first-order diffusive donor-cell advection, no interface reconstruction",

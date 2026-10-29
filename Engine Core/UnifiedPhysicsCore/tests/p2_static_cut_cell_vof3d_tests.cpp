@@ -218,6 +218,62 @@ void automatic_subcycling(int n) {
              <<std::setprecision(17)<<actual.water_before_m3<<" "
              <<actual.water_after_m3<<" "<<actual.max_donor_cfl<<"\n";
 }
+void velocity_sequence(int n) {
+    Setup s(n);
+    std::vector<std::vector<double>> us,vs,ws;
+    for(int k=0;k<4;++k) {
+        auto u=s.u,v=s.v,w=s.w;
+        const double factor=(k%2==0?1.0:-1.0)*(k+1);
+        for(double& x:u)x*=factor;
+        for(double& x:v)x*=factor;
+        for(double& x:w)x*=factor;
+        us.push_back(std::move(u));
+        vs.push_back(std::move(v));
+        ws.push_back(std::move(w));
+    }
+    const auto actual=upc::P2StaticCutCellVof3D::step_velocity_sequence(
+        n,n,n,1.0,0.2,s.box,s.f,us,vs,ws);
+    auto manual=s.f;
+    for(int k=0;k<4;++k)
+        manual=upc::P2StaticCutCellVof3D::step(
+            n,n,n,1.0,0.05,s.box,manual,us[k],vs[k],ws[k]).fraction_after;
+    double error=0,difference=0;
+    for(std::size_t i=0;i<manual.size();++i) {
+        error=std::max(error,std::abs(manual[i]-actual.fraction_after[i]));
+        difference=std::max(difference,std::abs(s.f[i]-actual.fraction_after[i]));
+        check(actual.fraction_after[i]>=0&&actual.fraction_after[i]<=1,
+              "time-varying VOF fractions bounded");
+    }
+    near(error,0,1e-14,"time-varying MAC sequence matches manual");
+    check(difference>1e-5,"time-varying 3D MAC actually transports water");
+    near(actual.water_before_m3,actual.water_after_m3,1e-10,
+         "time-varying MAC conserves water");
+    check(actual.substeps_used==4&&actual.max_donor_cfl>0&&
+          actual.max_donor_cfl<=1,"time-varying MAC step diagnostics");
+    const auto one=upc::P2StaticCutCellVof3D::step_velocity_sequence(
+        n,n,n,1.0,0.05,s.box,s.f,{s.u},{s.v},{s.w});
+    check(one.fraction_after==s.run(s.f,0.05).fraction_after,
+          "one-field sequence matches legacy step");
+    rejects([&]{upc::P2StaticCutCellVof3D::step_velocity_sequence(
+        n,n,n,1.0,0.2,s.box,s.f,{}, {}, {});},
+        "empty prescribed sequence rejected");
+    rejects([&]{upc::P2StaticCutCellVof3D::step_velocity_sequence(
+        n,n,n,1.0,0.2,s.box,s.f,us,{},ws);},
+        "mismatched prescribed sequence rejected");
+    auto bad=us;
+    bad[2][s.ui(1,0,1)]+=0.1;
+    rejects([&]{upc::P2StaticCutCellVof3D::step_velocity_sequence(
+        n,n,n,1.0,0.2,s.box,s.f,bad,vs,ws);},
+        "non-solenoidal later sequence step rejected");
+    bad=us;
+    bad[3][s.ui(1,0,1)]=std::numeric_limits<double>::quiet_NaN();
+    rejects([&]{upc::P2StaticCutCellVof3D::step_velocity_sequence(
+        n,n,n,1.0,0.2,s.box,s.f,bad,vs,ws);},
+        "nonfinite later sequence step rejected");
+    std::cout<<"VOF_SEQUENCE "<<n<<" 4 "<<std::setprecision(17)
+             <<actual.water_before_m3<<" "<<actual.water_after_m3
+             <<" "<<error<<" "<<difference<<" "<<actual.max_donor_cfl<<"\n";
+}
 void negatives() {
     Setup s(8);
     auto bad=s;
@@ -252,6 +308,8 @@ int main() {
         temporal_subcycling(12);
         automatic_subcycling(8);
         automatic_subcycling(12);
+        velocity_sequence(8);
+        velocity_sequence(12);
         negatives();
         std::cout<<"PASS: "<<assertions
                  <<" native static 3D cut-cell VOF assertions\n";
