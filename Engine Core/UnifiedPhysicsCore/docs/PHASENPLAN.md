@@ -1071,3 +1071,21 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
   hydrostatischer Lastpfad; Gegenimpuls nicht an MAC zurueckgegeben,
   keine freie Oberflaechenstroemung, keine globale FSI-Erhaltung,
   keine externen 3D-Messreferenzen oder UE5.8-Native-E2E.
+
+## P2 Teilfortschritt: wasservolumengemittelter hydrostatischer Teilzellen-Druck (29.10.2026)
+
+- Der optionale `P2StratifiedHydrostaticLoad3D`-Diagnosepfad integriert
+  den hydrostatischen Druck in teilweise gefuellten VOF-Oberflaechenzellen
+  ueber das **benetzte** Zellvolumen. Bisher wurde in solchen Zellen
+  faelschlich am geometrischen Zellzentrum (ggf. oberhalb der
+  Wasserlinie) ausgewertet; neu `p=rho*g*f*dx/2` fuer `0<f<1`.
+- Unabhaengige Spaltenreferenz `sum_z(p_z*f_z*dx)=rho*g*h^2/2`.
+  24 analytische 3D-Konfigurationen, 8^3/12^3, trockene/ganzzahlige/
+  fraktionale Wasserlinien und g=0/9.81. MSVC Release und 82/82 CTest
+  PASS; 29.821 native Assertions, 101 quantitative Checks. Teilabnahme mit
+  Source-SHA256: `scripts/p2_stratified_hydrostatic_acceptance.py`,
+  `ENGINE TEST STUBE/runs/p2_stratified_hydrostatic_partial.json`.
+- **P2 bleibt PARTIAL; P3-P8 PARTIAL; ALL_COMPLETE=False.**
+  Keine dynamische 3D-Freiflaechenstroemung, keine angewendete
+  Fluid-Gegenreaktion, keine globale FSI-Erhaltung, externe 3D-CFD-
+  Messvalidierung oder Unreal-5.8-Native-E2E dieses Pfades.

@@ -42,11 +42,11 @@ def main()->None:
     m=re.search(r"PASS:\s+(\d+) native stratified hydrostatic body-load assertions",
                 result.stdout)
     count=int(m.group(1)) if m else 0
-    check("native assertions >= 12000",count>=12000,count)
+    check("native assertions >= 29000",count>=29000,count)
     rows=re.findall(r"^HYDRO\s+(\d+)\s+([\d.eE+-]+)\s+([\d.eE+-]+)\s+"
                     r"([\d.eE+-]+)\s+([\d.eE+-]+)\s+([\d.eE+-]+)$",
                     result.stdout,re.MULTILINE)
-    check("12 hydrostatic configurations",len(rows)==12,len(rows))
+    check("24 hydrostatic configurations",len(rows)==24,len(rows))
     seen=set()
     records=[]
     for row in rows:
@@ -65,7 +65,8 @@ def main()->None:
                         "force_N":actual,"velocity_m_s":v})
     check("complete grid/height/gravity coverage",
           seen==set((n,h,g) for n in (8,12)
-                   for h in (0.0,4.0,float(n)) for g in (0.0,9.81)))
+                   for h in (0.0,4.0,float(n),3.125,4.35,5.75)
+                   for g in (0.0,9.81)))
     report={
         "phase":"P2",
         "milestone":"stratified_vof_hydrostatic_rigid_load_partial",
@@ -80,7 +81,7 @@ def main()->None:
         "unproven":[
             "only stratified quiescent water columns, no general 3D free-surface CFD",
             "water-derived pressure updates rigid body, but fluid counterimpulse is NOT applied",
-            "cell-centred pressure on partly wetted surfaces is an approximation",
+            "water-volume-averaged pressure is diagnostic, not surface traction",
             "no global fluid-solid energy or momentum closure, independent measured CFD, or UE5.8 Native-E2E",
         ],
     }

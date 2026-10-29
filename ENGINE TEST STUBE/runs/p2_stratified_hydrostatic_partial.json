@@ -4,7 +4,7 @@
   "partial_accepted": true,
   "phase_complete": false,
   "ctest_suites": 82,
-  "native_assertions": 13669,
+  "native_assertions": 29821,
   "checks": [
     {
       "name": "full 82/82 CTest",
@@ -17,14 +17,14 @@
       "detail": null
     },
     {
-      "name": "native assertions >= 12000",
+      "name": "native assertions >= 29000",
       "pass": true,
-      "detail": 13669
+      "detail": 29821
     },
     {
-      "name": "12 hydrostatic configurations",
+      "name": "24 hydrostatic configurations",
       "pass": true,
-      "detail": 12
+      "detail": 24
     },
     {
       "name": "unique (8, 0.0, 0.0)",
@@ -179,6 +179,162 @@
     },
     {
       "name": "independent velocity (8, 8.0, 9.81)",
+      "pass": true,
+      "detail": 0.04018176000000001
+    },
+    {
+      "name": "unique (8, 3.125, 0.0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent force (8, 3.125, 0.0)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "reported force (8, 3.125, 0.0)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "independent velocity (8, 3.125, 0.0)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (8, 3.125, 9.81)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent force (8, 3.125, 9.81)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "reported force (8, 3.125, 9.81)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "independent velocity (8, 3.125, 9.81)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (8, 4.35, 0.0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent force (8, 4.35, 0.0)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "reported force (8, 4.35, 0.0)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "independent velocity (8, 4.35, 0.0)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (8, 4.35, 9.81)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent force (8, 4.35, 9.81)",
+      "pass": true,
+      "detail": [
+        28880.639999999974,
+        28880.63999999999
+      ]
+    },
+    {
+      "name": "reported force (8, 4.35, 9.81)",
+      "pass": true,
+      "detail": [
+        28880.639999999992,
+        28880.63999999999
+      ]
+    },
+    {
+      "name": "independent velocity (8, 4.35, 9.81)",
+      "pass": true,
+      "detail": 0.028880639999999996
+    },
+    {
+      "name": "unique (8, 5.75, 0.0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent force (8, 5.75, 0.0)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "reported force (8, 5.75, 0.0)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "independent velocity (8, 5.75, 0.0)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (8, 5.75, 9.81)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent force (8, 5.75, 9.81)",
+      "pass": true,
+      "detail": [
+        40181.75999999997,
+        40181.76000000001
+      ]
+    },
+    {
+      "name": "reported force (8, 5.75, 9.81)",
+      "pass": true,
+      "detail": [
+        40181.76000000001,
+        40181.76000000001
+      ]
+    },
+    {
+      "name": "independent velocity (8, 5.75, 9.81)",
       "pass": true,
       "detail": 0.04018176000000001
     },
@@ -339,6 +495,162 @@
       "detail": 0.04018176000000001
     },
     {
+      "name": "unique (12, 3.125, 0.0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent force (12, 3.125, 0.0)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "reported force (12, 3.125, 0.0)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "independent velocity (12, 3.125, 0.0)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (12, 3.125, 9.81)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent force (12, 3.125, 9.81)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "reported force (12, 3.125, 9.81)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "independent velocity (12, 3.125, 9.81)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (12, 4.35, 0.0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent force (12, 4.35, 0.0)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "reported force (12, 4.35, 0.0)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "independent velocity (12, 4.35, 0.0)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (12, 4.35, 9.81)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent force (12, 4.35, 9.81)",
+      "pass": true,
+      "detail": [
+        28880.639999999974,
+        28880.63999999999
+      ]
+    },
+    {
+      "name": "reported force (12, 4.35, 9.81)",
+      "pass": true,
+      "detail": [
+        28880.639999999992,
+        28880.63999999999
+      ]
+    },
+    {
+      "name": "independent velocity (12, 4.35, 9.81)",
+      "pass": true,
+      "detail": 0.028880639999999996
+    },
+    {
+      "name": "unique (12, 5.75, 0.0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent force (12, 5.75, 0.0)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "reported force (12, 5.75, 0.0)",
+      "pass": true,
+      "detail": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "independent velocity (12, 5.75, 0.0)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "unique (12, 5.75, 9.81)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent force (12, 5.75, 9.81)",
+      "pass": true,
+      "detail": [
+        40181.75999999997,
+        40181.76000000001
+      ]
+    },
+    {
+      "name": "reported force (12, 5.75, 9.81)",
+      "pass": true,
+      "detail": [
+        40181.76000000001,
+        40181.76000000001
+      ]
+    },
+    {
+      "name": "independent velocity (12, 5.75, 9.81)",
+      "pass": true,
+      "detail": 0.04018176000000001
+    },
+    {
       "name": "complete grid/height/gravity coverage",
       "pass": true,
       "detail": null
@@ -388,6 +700,48 @@
       "velocity_m_s": 0.04018176000000001
     },
     {
+      "grid": 8,
+      "height_m": 3.125,
+      "gravity_m_s2": 0.0,
+      "force_N": 0.0,
+      "velocity_m_s": 0.0
+    },
+    {
+      "grid": 8,
+      "height_m": 3.125,
+      "gravity_m_s2": 9.81,
+      "force_N": 0.0,
+      "velocity_m_s": 0.0
+    },
+    {
+      "grid": 8,
+      "height_m": 4.35,
+      "gravity_m_s2": 0.0,
+      "force_N": 0.0,
+      "velocity_m_s": 0.0
+    },
+    {
+      "grid": 8,
+      "height_m": 4.35,
+      "gravity_m_s2": 9.81,
+      "force_N": 28880.639999999974,
+      "velocity_m_s": 0.028880639999999996
+    },
+    {
+      "grid": 8,
+      "height_m": 5.75,
+      "gravity_m_s2": 0.0,
+      "force_N": 0.0,
+      "velocity_m_s": 0.0
+    },
+    {
+      "grid": 8,
+      "height_m": 5.75,
+      "gravity_m_s2": 9.81,
+      "force_N": 40181.75999999997,
+      "velocity_m_s": 0.04018176000000001
+    },
+    {
       "grid": 12,
       "height_m": 0.0,
       "gravity_m_s2": 0.0,
@@ -428,25 +782,67 @@
       "gravity_m_s2": 9.81,
       "force_N": 40181.75999999997,
       "velocity_m_s": 0.04018176000000001
+    },
+    {
+      "grid": 12,
+      "height_m": 3.125,
+      "gravity_m_s2": 0.0,
+      "force_N": 0.0,
+      "velocity_m_s": 0.0
+    },
+    {
+      "grid": 12,
+      "height_m": 3.125,
+      "gravity_m_s2": 9.81,
+      "force_N": 0.0,
+      "velocity_m_s": 0.0
+    },
+    {
+      "grid": 12,
+      "height_m": 4.35,
+      "gravity_m_s2": 0.0,
+      "force_N": 0.0,
+      "velocity_m_s": 0.0
+    },
+    {
+      "grid": 12,
+      "height_m": 4.35,
+      "gravity_m_s2": 9.81,
+      "force_N": 28880.639999999974,
+      "velocity_m_s": 0.028880639999999996
+    },
+    {
+      "grid": 12,
+      "height_m": 5.75,
+      "gravity_m_s2": 0.0,
+      "force_N": 0.0,
+      "velocity_m_s": 0.0
+    },
+    {
+      "grid": 12,
+      "height_m": 5.75,
+      "gravity_m_s2": 9.81,
+      "force_N": 40181.75999999997,
+      "velocity_m_s": 0.04018176000000001
     }
   ],
   "source_sha256": {
     "CMakeLists.txt": "8955bcbd580e268f9297a2509b757795180edc8d2b8a97550460c59a23dbe00a",
-    "docs/PHASENPLAN.md": "6cfc997126de03de6103f6952d603933822d21542fa182dc2a4945f4fe0b554d",
-    "docs/P2_STRATIFIED_HYDROSTATIC_PARTIAL.md": "68f8d74d21e7f093bb9ae003839d98084453c791206e2194067bb8f3b614f421",
-    "include/upc/p2_stratified_hydrostatic_load3d.hpp": "93c1ba762df274cf3d07be90e5c9b6575c81b188e0b5c1fe0e2437d91031ade8",
+    "docs/PHASENPLAN.md": "126ccdc77d9e968588e3a73cc6631c30c88339decb9e5c0f892fcc57100e94b2",
+    "docs/P2_STRATIFIED_HYDROSTATIC_PARTIAL.md": "f08f5f262718814f42a56b70830caa9fa22b778f47c53800526b9271e2eed152",
+    "include/upc/p2_stratified_hydrostatic_load3d.hpp": "8e556ea8f079830e221fd3060c7c980f432ab53961ffdbdacd35a86b23858ab0",
     "include/upc/p2_moving_box_dynamic_pressure3d.hpp": "0542c4c40eb5f4ea855c105ad639437d15a0936a6025de8614d910780d6c57be",
     "include/upc/p2_moving_box_pressure_traction3d.hpp": "261ed5769c7fe24d078802592b8db55df076ccc3015634ed818b301dbaa9fa53",
     "include/upc/rigid_pressure_response3d.hpp": "41282862ecf047ab9cf7c27ebea34314f049658e03bb3bbd4533609a0f41afe1",
-    "tests/p2_stratified_hydrostatic_load3d_tests.cpp": "a15da57f73266ba7e5a32d9ec626d1069a0d1da46bb03e7c6158a15d4dab67ad",
-    "scripts/p2_stratified_hydrostatic_acceptance.py": "3842259fc2b9b90d5f50c2c156193c68cc59affc472709691ed049ca2b5944d2",
+    "tests/p2_stratified_hydrostatic_load3d_tests.cpp": "22e452d63da1bbca72911c376d164f5f8b5d461cfe9f2f1d961fde8f648f1389",
+    "scripts/p2_stratified_hydrostatic_acceptance.py": "d425b93c56fc73d94e8cff3f0ec737c6452dc51ad5a040c8862f30abe0f40ce9",
     "scripts/p2_stratified_hydrostatic_full_build.cmd": "90179fb501a9aeac492eee30492984c630b20f77e31aec20a6b25528ca9687e8"
   },
-  "ctest_log_sha256": "ac2bf837a0dd2d1e4baeb3c8be35ae28ff0fe1981b2d014b19697da4228d7a87",
+  "ctest_log_sha256": "ac8bb35caab8c3c637c484d5b442c527718223c630654e71fc8db0abbea3170c",
   "unproven": [
     "only stratified quiescent water columns, no general 3D free-surface CFD",
     "water-derived pressure updates rigid body, but fluid counterimpulse is NOT applied",
-    "cell-centred pressure on partly wetted surfaces is an approximation",
+    "water-volume-averaged pressure is diagnostic, not surface traction",
     "no global fluid-solid energy or momentum closure, independent measured CFD, or UE5.8 Native-E2E"
   ]
 }

@@ -42,9 +42,22 @@ void scenario(int n,double height,double g) {
     for(int x=0;x<n;++x) {
         const auto i=(z*n+y)*n+x;
         const double expected=fill[i]>0.0?
-            1000.0*g*std::max(0.0,height-(z+0.5)):0.0;
+            1000.0*g*(fill[i]<1.0 ? 0.5*fill[i] :
+                         std::max(0.0,height-(z+0.5))):0.0;
         near(out.water_pressure_pa[i],expected,1e-8,
              "independent hydrostatic cell pressure");
+    }
+    // Independent hydrostatic column integral: integral_0^h rho*g*(h-z) dz
+    // = rho*g*h^2/2. The partial top-cell contribution MUST be
+    // weighted by its wet volume, not the entire cell volume.
+    for(int y=0;y<n;++y)for(int x=0;x<n;++x) {
+        double pressure_integral=0.0;
+        for(int z=0;z<n;++z) {
+            const auto i=(z*n+y)*n+x;
+            pressure_integral+=out.water_pressure_pa[i]*fill[i];
+        }
+        near(pressure_integral,0.5*1000.0*g*height*height,1e-7,
+             "exact wet-volume hydrostatic pressure integral");
     }
     // Independently integrate vertical pressure on ACTUAL solid faces:
     // rho*g*A*(wet box depth). This is exact for horizontal water level.
@@ -130,7 +143,8 @@ void negative() {
 }
 int main() {
     try {
-        for(int n:{8,12})for(double height:{0.0,4.0,double(n)})
+        for(int n:{8,12})for(double height:{0.0,4.0,double(n),
+                                       3.125,4.35,5.75})
             for(double g:{0.0,9.81})scenario(n,height,g);
         negative();
         std::cout<<"PASS: "<<checks

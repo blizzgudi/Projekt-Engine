@@ -25,8 +25,9 @@ class P2StratifiedHydrostaticLoad3D {
 public:
     // Each vertical column must contain full water cells, at most one
     // partial interface cell, then dry air. Gravity is -Z. This diagnostic
-    // p is valid at cell centres; interface/cut-face traction requires
-    // analytic integration at the actual box surface (see step).
+    // p is the water-volume-averaged pressure in each wet cell;
+    // interface/cut-face traction still requires analytic integration
+    // at the actual box surface (see step).
     static std::vector<double> pressure(
         std::size_t nx,std::size_t ny,std::size_t nz,double dx,
         double rho_water,double gravity_m_s2,
@@ -55,7 +56,12 @@ public:
             for(std::size_t z=0;z<nz;++z) {
                 const auto i=(z*ny+y)*nx+x;
                 if(water_fraction[i]==0.0)continue;
-                const double depth=std::max(0.0,height-(z+0.5)*dx);
+                // A partial top cell has water only in its bottom f*dx.
+                // Average pressure over that WATER volume, not the dry
+                // remainder: integral_0^(f dx) rho*g*(f dx-s) ds / (f dx).
+                const double f=water_fraction[i];
+                const double depth=f<1.0 ? 0.5*f*dx :
+                    std::max(0.0,height-(z+0.5)*dx);
                 p[i]=rho_water*gravity_m_s2*depth;
                 if(!std::isfinite(p[i]))
                     throw std::overflow_error("Hydrostatic pressure overflow");
