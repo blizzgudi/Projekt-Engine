@@ -1211,3 +1211,9 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
   3D-CFD-Messvalidierung, globale physikalische Energie-/Impulsbilanz,
   bewegte freie Oberflaechen-Stressgrenze und UE5.8-Native-E2E
   dieses Pfads fehlen.
+
+## P2 Zusatz: 3D-VOF mit temporalem Subcycling (29.10.2026)
+
+- Opt-in P2StaticCutCellVof3D::step_subcycled wiederholt konservative 3D-Upwind-VOF-Transporte mit vorgeschriebenen U/V/W-Feldern und stationaerer Cut-Cell-Geometrie.
+- Native 8^3/12^3: Einzelschritt-CFL-Verletzung bei 40-facher Geschwindigkeit, vier Teilsteps gegen separate Referenzaufrufe, Wasserbilanz, Fraktionsgrenzen, Einzelschritt-Paritaet und Negativtests. Vollstaendige CTest-/SHA-Teilabnahme unter docs/P2_STATIC_CUT_CELL_VOF_PARTIAL.md.
+- **P2-P8 PARTIAL, ALL_COMPLETE=False**: keine Navier-Stokes/FSI-Kopplung, keine stresskonsistente freie Oberflaeche, keine externe CFD-Messvalidierung und kein neuer UE5.8-Native-E2E.

@@ -66,6 +66,18 @@ def main():
               cells>=8 and faces>0,(cells,faces))
         check("partial-cell water mass conserved",
               abs(after-before)<1e-10,(before,after))
+    subcycles=re.findall(r"^VOF_SUBCYCLE (\d+) (\d+) ([\d.eE+-]+) "
+                         r"([\d.eE+-]+) ([\d.eE+-]+) ([\d.eE+-]+)$",
+                         output,re.MULTILINE)
+    check("subcycling on both 3D grids",len(subcycles)==2,
+          [r[0] for r in subcycles])
+    for r in subcycles:
+        n,k=int(r[0]),int(r[1])
+        before,after,error,cfl=map(float,r[2:])
+        check(f"{n} cubed four temporal substeps",n in (8,12) and k==4)
+        check(f"{n} subcycle volume conservation",abs(before-after)<1e-10)
+        check(f"{n} subcycle matches manual four-step reference",error<1e-14)
+        check(f"{n} subcycle donor CFL",0<cfl<1)
     check("eight physical/numeric rejection tests",
           "VOF_NEGATIVE 8" in output)
     hashes={name:sha(CORE/name) for name in SOURCES}
@@ -78,6 +90,7 @@ def main():
         "limitations":[
             "prescribed solenoidal MAC velocity and stationary cut-cell geometry",
             "first-order diffusive donor-cell advection, no interface reconstruction",
+            "caller-controlled temporal subcycling, not adaptive CFD",
             "no pressure/impulse time integration or moving-solid counterreaction",
             "no global physical FSI energy/momentum conservation",
             "no external measured 3D CFD or new Unreal 5.8 Native-E2E",

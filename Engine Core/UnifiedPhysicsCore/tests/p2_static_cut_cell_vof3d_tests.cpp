@@ -127,6 +127,43 @@ void partial_cut_cells() {
              <<std::setprecision(17)<<first.water_before_m3<<" "
              <<first.water_after_m3<<"\n";
 }
+void temporal_subcycling(int n) {
+    Setup s(n);
+    for(double& x:s.u)x*=40;
+    for(double& x:s.v)x*=40;
+    for(double& x:s.w)x*=40;
+    rejects([&]{s.run(s.f);},"single high-CFL step rejected");
+    const auto actual=upc::P2StaticCutCellVof3D::step_subcycled(
+        n,n,n,1.0,0.1,s.box,s.f,s.u,s.v,s.w,4);
+    auto manual=s.f;
+    for(int i=0;i<4;++i)
+        manual=s.run(manual,0.025).fraction_after;
+    double error=0.0;
+    for(std::size_t i=0;i<manual.size();++i) {
+        error=std::max(error,std::abs(actual.fraction_after[i]-manual[i]));
+        check(actual.fraction_after[i]>=0&&actual.fraction_after[i]<=1,
+              "subcycled fraction bounded");
+    }
+    near(error,0.0,1e-14,"four substeps match manual calls");
+    near(actual.water_before_m3,actual.water_after_m3,1e-10,
+         "subcycled water volume conserved");
+    check(actual.max_donor_cfl>0&&actual.max_donor_cfl<1,
+          "subcycled CFL bounded");
+    const auto one=upc::P2StaticCutCellVof3D::step_subcycled(
+        n,n,n,1.0,0.0025,s.box,s.f,s.u,s.v,s.w,1);
+    const auto direct=s.run(s.f,0.0025);
+    check(one.fraction_after==direct.fraction_after,
+          "single substep bitwise parity");
+    rejects([&]{upc::P2StaticCutCellVof3D::step_subcycled(
+        n,n,n,1.0,0.1,s.box,s.f,s.u,s.v,s.w,0);},
+        "zero substeps rejected");
+    rejects([&]{upc::P2StaticCutCellVof3D::step_subcycled(
+        n,n,n,1.0,0.1,s.box,s.f,s.u,s.v,s.w,1025);},
+        "too many substeps rejected");
+    std::cout<<"VOF_SUBCYCLE "<<n<<" 4 "<<std::setprecision(17)
+             <<actual.water_before_m3<<" "<<actual.water_after_m3
+             <<" "<<error<<" "<<actual.max_donor_cfl<<"\n";
+}
 void negatives() {
     Setup s(8);
     auto bad=s;
@@ -157,6 +194,8 @@ int main() {
         run_case(12);
         analytic_upwind_reference();
         partial_cut_cells();
+        temporal_subcycling(8);
+        temporal_subcycling(12);
         negatives();
         std::cout<<"PASS: "<<assertions
                  <<" native static 3D cut-cell VOF assertions\n";

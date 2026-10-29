@@ -4,7 +4,7 @@
   "partial_accepted": true,
   "phase_complete": false,
   "ctest_suites": 87,
-  "native_assertions": 94777,
+  "native_assertions": 97031,
   "checks": [
     {
       "name": "87/87 full native CTest suites",
@@ -19,7 +19,7 @@
     {
       "name": "native assertions >= 90000",
       "pass": true,
-      "detail": 94777
+      "detail": 97031
     },
     {
       "name": "two grid sizes",
@@ -106,6 +106,54 @@
       ]
     },
     {
+      "name": "subcycling on both 3D grids",
+      "pass": true,
+      "detail": [
+        "8",
+        "12"
+      ]
+    },
+    {
+      "name": "8 cubed four temporal substeps",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "8 subcycle volume conservation",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "8 subcycle matches manual four-step reference",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "8 subcycle donor CFL",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "12 cubed four temporal substeps",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "12 subcycle volume conservation",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "12 subcycle matches manual four-step reference",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "12 subcycle donor CFL",
+      "pass": true,
+      "detail": null
+    },
+    {
       "name": "eight physical/numeric rejection tests",
       "pass": true,
       "detail": null
@@ -113,19 +161,20 @@
   ],
   "source_sha256": {
     "CMakeLists.txt": "3bafa076a16a2405214fcf378271d64585cf73a5dd44912d6040054beca9f59c",
-    "docs/PHASENPLAN.md": "7dd6a0e011c4b9e55bbd67f9ce44f7ca80dabef922134859411f6a08a2ed550b",
-    "docs/P2_STATIC_CUT_CELL_VOF_PARTIAL.md": "006386bf30c70cb7caaaac639e3f8b761146ef871d38d5e91df23ff82d5bb612",
-    "include/upc/p2_static_cut_cell_vof3d.hpp": "73eb97105c5e9056ae582abe682b3198114fc2444c3555e20807660a7f5e2471",
+    "docs/PHASENPLAN.md": "a2783501768e5ed703776ce6ce9984ae65d76aff5c37217146aa9adcc34e2d4a",
+    "docs/P2_STATIC_CUT_CELL_VOF_PARTIAL.md": "9536267bcc208ec8a9686c5701a1ae7bfdd0e871826b5dfbc010d938b6c2a0c7",
+    "include/upc/p2_static_cut_cell_vof3d.hpp": "e678911c4ea5e225e02e20aa327b4ad6f07700ef797438dd40ccee0bb1e94271",
     "include/upc/p2_moving_box_mac_apertures3d.hpp": "c5fbdae598166771f6a28359c31960178239d3a59e0ccbb60f89f47b38f29ad3",
     "include/upc/p2_moving_box_open_volume3d.hpp": "270ecc419fa312212e47dbcfbd7fa8f2b172fde153b6d66e19f226be5cbedbb2",
-    "tests/p2_static_cut_cell_vof3d_tests.cpp": "f8ded991d711708f97a9f570347c4d1593fd96c267f4ebfc755e994aadc93d3b",
-    "scripts/p2_static_cut_cell_vof_acceptance.py": "a2844bb57e7bda33beb1d85a277bdaff34db06762dd48b78879ed95772712493",
+    "tests/p2_static_cut_cell_vof3d_tests.cpp": "736818d4fdce57950ae12cd96376c0090b010c566c35d894fe84ec15eb0b00b0",
+    "scripts/p2_static_cut_cell_vof_acceptance.py": "e296fafea4255ed2f1a2255bf948da419033606362f9c77b93e9bca69df3fa1b",
     "scripts/p2_static_cut_cell_vof_full_build.cmd": "73075d11a3e65c5ba16a8b77ae7bec36e31b7816746b17ec8740c90f336b2168"
   },
-  "ctest_log_sha256": "640d91c8c053333a030cef0e483ff1fed39d2c8aa06b8b564d724fd6bf485b58",
+  "ctest_log_sha256": "a033b9025c77a81fab99c6afbfa4e485a8daaef1e64a5d93d82a0fb0e3aa5476",
   "limitations": [
     "prescribed solenoidal MAC velocity and stationary cut-cell geometry",
     "first-order diffusive donor-cell advection, no interface reconstruction",
+    "caller-controlled temporal subcycling, not adaptive CFD",
     "no pressure/impulse time integration or moving-solid counterreaction",
     "no global physical FSI energy/momentum conservation",
     "no external measured 3D CFD or new Unreal 5.8 Native-E2E"

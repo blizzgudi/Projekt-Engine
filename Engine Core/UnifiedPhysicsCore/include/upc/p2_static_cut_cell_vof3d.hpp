@@ -111,5 +111,32 @@ public:
             throw std::logic_error("Static VOF water mass changed");
         return out;
     }
+    // Explicit temporal subcycling; prescribed MAC velocity and fixed geometry.
+    // This is not a dynamic Navier-Stokes or two-way FSI integration.
+    static P2StaticCutCellVofResult3D step_subcycled(
+        std::size_t nx,std::size_t ny,std::size_t nz,double dx,double dt,
+        const P2Box3D& stationary_box,const std::vector<double>& fraction,
+        const std::vector<double>& u_m_s,const std::vector<double>& v_m_s,
+        const std::vector<double>& w_m_s,std::size_t substeps) {
+        if(substeps==0||substeps>1024)
+            throw std::invalid_argument("Invalid VOF substep count");
+        const double h=dt/static_cast<double>(substeps);
+        if(!std::isfinite(dt)||dt<=0||!std::isfinite(h)||h<=0)
+            throw std::invalid_argument("Invalid VOF subcycle time");
+        auto state=fraction;
+        P2StaticCutCellVofResult3D total;
+        for(std::size_t k=0;k<substeps;++k) {
+            auto next=step(nx,ny,nz,dx,h,stationary_box,state,u_m_s,v_m_s,w_m_s);
+            if(k==0)total.water_before_m3=next.water_before_m3;
+            total.water_after_m3=next.water_after_m3;
+            total.max_donor_cfl=std::max(total.max_donor_cfl,next.max_donor_cfl);
+            total.max_cell_volume_divergence_m3=std::max(
+                total.max_cell_volume_divergence_m3,
+                next.max_cell_volume_divergence_m3);
+            state=std::move(next.fraction_after);
+        }
+        total.fraction_after=std::move(state);
+        return total;
+    }
 };
 } // namespace upc

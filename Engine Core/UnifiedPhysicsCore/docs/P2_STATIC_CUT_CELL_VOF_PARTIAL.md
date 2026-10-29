@@ -19,3 +19,9 @@
 - Kein Moving-Cut-Cell-GCL, keine bewegte Festkoerper-Gegenreaktion, keine dynamisch berechnete Oberflaechenspannung, keine VOF-Interface-Rekonstruktion (nur diffusive first-order Upwind-Advektion).
 - Keine globale physikalische Fluid-Festkoerper-Energie-/Impulserhaltung, keine unabhaengige 3D-CFD-Messvalidierung, kein UE5.8-Native-E2E fuer diesen Pfad.
 - P2–P8 bleiben PARTIAL. Das vorhandene `phase_gate.py` darf diese Teilabnahme nicht als Full-PASS zaehlen.
+
+## Zusatz: temporales CFL-Subcycling (29.10.2026)
+
+- Die neue optionale Methode step_subcycled wiederholt den konservativen 3D-VOF-Operator mit 1 bis 1024 vom Aufrufer gewaehlten Teilzeitschritten. Der alte step bleibt unveraendert. Jeder Teilstep prueft die lokale Donor-CFL, MAC-Divergenz und Wasserbilanz.
+- Native 8^3/12^3: 40-fache Wirbelgeschwindigkeit erzwingt Einzelschritt-CFL-Fehler. Vier Teilsteps werden zellweise mit vier separaten step-Aufrufen verglichen. Massenbilanz, Fraktionsgrenzen, 1-Step-Paritaet und ungueltige Substepzahlen werden getestet. Das JSON-Gate prueft die VOF_SUBCYCLE-Referenzzeilen.
+- Kein adaptiver Fluid-Zeitschritt, keine dynamische MAC-Geschwindigkeitsberechnung, keine bewegte Festkoerper-Gegenreaktion. P2 bleibt PARTIAL.
