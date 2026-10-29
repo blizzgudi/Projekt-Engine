@@ -16,6 +16,7 @@ struct P2StaticCutCellVofResult3D {
     double water_after_m3=0.0;
     double max_cell_volume_divergence_m3=0.0;
     double max_donor_cfl=0.0;
+    std::size_t substeps_used=1;
 };
 class P2StaticCutCellVof3D {
 public:
@@ -136,7 +137,39 @@ public:
             state=std::move(next.fraction_after);
         }
         total.fraction_after=std::move(state);
+        total.substeps_used=substeps;
         return total;
+    }
+    // Select a safe number of substeps from the *geometric* outgoing
+    // donor-CFL, independent of the evolving water fraction. A pilot
+    // step at dt/max_substeps validates the same sealed-face, cut-cell,
+    // and solenoidal constraints as the production step. No solver CFL
+    // or pressure dynamics are inferred from this passive VOF bound.
+    static P2StaticCutCellVofResult3D step_auto_subcycled(
+        std::size_t nx,std::size_t ny,std::size_t nz,double dx,double dt,
+        const P2Box3D& stationary_box,const std::vector<double>& fraction,
+        const std::vector<double>& u_m_s,const std::vector<double>& v_m_s,
+        const std::vector<double>& w_m_s,double target_donor_cfl=0.8,
+        std::size_t max_substeps=1024) {
+        if(!std::isfinite(target_donor_cfl)||target_donor_cfl<=0||
+           target_donor_cfl>1||max_substeps==0||max_substeps>1024)
+            throw std::invalid_argument("Invalid automatic VOF CFL controls");
+        if(!std::isfinite(dt)||dt<=0)
+            throw std::invalid_argument("Invalid automatic VOF dt");
+        const double pilot_dt=dt/static_cast<double>(max_substeps);
+        if(!std::isfinite(pilot_dt)||pilot_dt<=0)
+            throw std::invalid_argument("Invalid automatic VOF pilot dt");
+        const auto pilot=step(nx,ny,nz,dx,pilot_dt,stationary_box,
+                              fraction,u_m_s,v_m_s,w_m_s);
+        const double full_cfl=pilot.max_donor_cfl*
+                              static_cast<double>(max_substeps);
+        const double ratio=full_cfl/target_donor_cfl;
+        if(!std::isfinite(ratio)||ratio>static_cast<double>(max_substeps))
+            throw std::invalid_argument("Automatic VOF CFL budget exceeded");
+        const auto count=std::max<std::size_t>(
+            1,static_cast<std::size_t>(std::ceil(ratio)));
+        return step_subcycled(nx,ny,nz,dx,dt,stationary_box,fraction,
+                              u_m_s,v_m_s,w_m_s,count);
     }
 };
 } // namespace upc

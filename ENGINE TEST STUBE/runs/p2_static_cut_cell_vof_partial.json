@@ -4,7 +4,7 @@
   "partial_accepted": true,
   "phase_complete": false,
   "ctest_suites": 87,
-  "native_assertions": 97031,
+  "native_assertions": 97059,
   "checks": [
     {
       "name": "87/87 full native CTest suites",
@@ -19,7 +19,7 @@
     {
       "name": "native assertions >= 90000",
       "pass": true,
-      "detail": 97031
+      "detail": 97059
     },
     {
       "name": "two grid sizes",
@@ -154,6 +154,56 @@
       "detail": null
     },
     {
+      "name": "automatic CFL mode on both 3D grids",
+      "pass": true,
+      "detail": [
+        "8",
+        "12"
+      ]
+    },
+    {
+      "name": "8 cubed minimum automatic substeps",
+      "pass": true,
+      "detail": [
+        8,
+        2
+      ]
+    },
+    {
+      "name": "8 auto volume conserved",
+      "pass": true,
+      "detail": [
+        130.32000000000005,
+        130.32000000000005
+      ]
+    },
+    {
+      "name": "8 auto donor CFL target",
+      "pass": true,
+      "detail": 0.8
+    },
+    {
+      "name": "12 cubed minimum automatic substeps",
+      "pass": true,
+      "detail": [
+        12,
+        2
+      ]
+    },
+    {
+      "name": "12 auto volume conserved",
+      "pass": true,
+      "detail": [
+        544.0799999999997,
+        544.0799999999997
+      ]
+    },
+    {
+      "name": "12 auto donor CFL target",
+      "pass": true,
+      "detail": 0.8
+    },
+    {
       "name": "eight physical/numeric rejection tests",
       "pass": true,
       "detail": null
@@ -161,16 +211,16 @@
   ],
   "source_sha256": {
     "CMakeLists.txt": "3bafa076a16a2405214fcf378271d64585cf73a5dd44912d6040054beca9f59c",
-    "docs/PHASENPLAN.md": "a2783501768e5ed703776ce6ce9984ae65d76aff5c37217146aa9adcc34e2d4a",
-    "docs/P2_STATIC_CUT_CELL_VOF_PARTIAL.md": "9536267bcc208ec8a9686c5701a1ae7bfdd0e871826b5dfbc010d938b6c2a0c7",
-    "include/upc/p2_static_cut_cell_vof3d.hpp": "e678911c4ea5e225e02e20aa327b4ad6f07700ef797438dd40ccee0bb1e94271",
+    "docs/PHASENPLAN.md": "489c89f50be1ce85425447b90b44a20cde825b0169720727be174457b76730c9",
+    "docs/P2_STATIC_CUT_CELL_VOF_PARTIAL.md": "3fad010b00a878c5d340bd38ccd1e78e1ca31a1b4598d82d3ffa2067fe9fb34b",
+    "include/upc/p2_static_cut_cell_vof3d.hpp": "1b2017625482a2e43e3062019b7a9e92442544ce4e46ae131cecbd1765da37d3",
     "include/upc/p2_moving_box_mac_apertures3d.hpp": "c5fbdae598166771f6a28359c31960178239d3a59e0ccbb60f89f47b38f29ad3",
     "include/upc/p2_moving_box_open_volume3d.hpp": "270ecc419fa312212e47dbcfbd7fa8f2b172fde153b6d66e19f226be5cbedbb2",
-    "tests/p2_static_cut_cell_vof3d_tests.cpp": "736818d4fdce57950ae12cd96376c0090b010c566c35d894fe84ec15eb0b00b0",
-    "scripts/p2_static_cut_cell_vof_acceptance.py": "e296fafea4255ed2f1a2255bf948da419033606362f9c77b93e9bca69df3fa1b",
+    "tests/p2_static_cut_cell_vof3d_tests.cpp": "55da7c6411794b6cd209b0d78c41ff9d68f48eb50bf911b8b27592657c9f7f85",
+    "scripts/p2_static_cut_cell_vof_acceptance.py": "54f9ec3db9eab7570003d76cd7feba319de8e84b2a5b46154781137376a0f9eb",
     "scripts/p2_static_cut_cell_vof_full_build.cmd": "73075d11a3e65c5ba16a8b77ae7bec36e31b7816746b17ec8740c90f336b2168"
   },
-  "ctest_log_sha256": "a033b9025c77a81fab99c6afbfa4e485a8daaef1e64a5d93d82a0fb0e3aa5476",
+  "ctest_log_sha256": "ea47ce4c3ef5a808025d93550636a3e3299c12965e4633c1c760795c8edaaf32",
   "limitations": [
     "prescribed solenoidal MAC velocity and stationary cut-cell geometry",
     "first-order diffusive donor-cell advection, no interface reconstruction",

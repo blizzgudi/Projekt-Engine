@@ -1217,3 +1217,9 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
 - Opt-in P2StaticCutCellVof3D::step_subcycled wiederholt konservative 3D-Upwind-VOF-Transporte mit vorgeschriebenen U/V/W-Feldern und stationaerer Cut-Cell-Geometrie.
 - Native 8^3/12^3: Einzelschritt-CFL-Verletzung bei 40-facher Geschwindigkeit, vier Teilsteps gegen separate Referenzaufrufe, Wasserbilanz, Fraktionsgrenzen, Einzelschritt-Paritaet und Negativtests. Vollstaendige CTest-/SHA-Teilabnahme unter docs/P2_STATIC_CUT_CELL_VOF_PARTIAL.md.
 - **P2-P8 PARTIAL, ALL_COMPLETE=False**: keine Navier-Stokes/FSI-Kopplung, keine stresskonsistente freie Oberflaeche, keine externe CFD-Messvalidierung und kein neuer UE5.8-Native-E2E.
+
+## P2 Teilfortschritt: automatisches 3D-VOF-CFL-Subcycling (29.10.2026)
+
+- P2StaticCutCellVof3D::step_auto_subcycled waehlt die minimale sichere Teilstepzahl aus geometrischem Donor-CFL (Ziel 0.8, max. 1024); unzureichendes Budget wird abgelehnt.
+- Zwei native 3D-Gitter (8^3, 12^3), zellweise Paritaet zu manuellem Subcycling, konserviertes Wasservolumen, CFL und Negativfaelle; 87/87 CTest nach Fehlerkorrektur. Separater SHA256-JSON-Nachweis: scripts/p2_static_cut_cell_vof_acceptance.py.
+- **P2-P8 PARTIAL, ALL_COMPLETE=False**: nur vorgeschriebene MAC-Geschwindigkeit, stationaere Cut-Cells. Keine dynamische Navier-Stokes/FSI-Gegenreaktion oder externe 3D-CFD-/UE5.8-E2E-Abnahme.

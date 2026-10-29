@@ -164,6 +164,60 @@ void temporal_subcycling(int n) {
              <<actual.water_before_m3<<" "<<actual.water_after_m3
              <<" "<<error<<" "<<actual.max_donor_cfl<<"\n";
 }
+void automatic_subcycling(int n) {
+    Setup s(n);
+    for(double& x:s.u)x*=40;
+    for(double& x:s.v)x*=40;
+    for(double& x:s.w)x*=40;
+    const auto pilot=upc::P2StaticCutCellVof3D::step(
+        n,n,n,1.0,0.1/1024.0,s.box,s.f,s.u,s.v,s.w);
+    const double total_cfl=pilot.max_donor_cfl*1024.0;
+    const std::size_t expected=std::max<std::size_t>(
+        1,static_cast<std::size_t>(std::ceil(total_cfl/0.8)));
+    check(expected>1&&expected<=1024,"automatic CFL requires subcycling");
+    const auto actual=upc::P2StaticCutCellVof3D::step_auto_subcycled(
+        n,n,n,1.0,0.1,s.box,s.f,s.u,s.v,s.w);
+    check(actual.substeps_used==expected,"minimum geometric CFL substeps");
+    check(actual.max_donor_cfl<=0.8+1e-12,"automatic donor CFL target");
+    const auto manual=upc::P2StaticCutCellVof3D::step_subcycled(
+        n,n,n,1.0,0.1,s.box,s.f,s.u,s.v,s.w,expected);
+    check(actual.fraction_after==manual.fraction_after,
+          "automatic subcycling equals explicit identical time steps");
+    near(actual.water_before_m3,actual.water_after_m3,1e-10,
+         "automatic water volume conserved");
+    const auto single=upc::P2StaticCutCellVof3D::step_auto_subcycled(
+        n,n,n,1.0,0.001,s.box,s.f,s.u,s.v,s.w);
+    check(single.substeps_used==1,"automatic safe time step remains single");
+    check(single.fraction_after==s.run(s.f,0.001).fraction_after,
+          "automatic single step exact legacy parity");
+    auto bad=s;
+    bad.u[bad.ui(1,0,1)]+=0.1;
+    rejects([&]{upc::P2StaticCutCellVof3D::step_auto_subcycled(
+        n,n,n,1.0,0.1,bad.box,bad.f,bad.u,bad.v,bad.w);},
+        "automatic mode rejects non-solenoidal MAC velocity");
+    rejects([&]{upc::P2StaticCutCellVof3D::step_auto_subcycled(
+        n,n,n,1.0,0.1,s.box,s.f,s.u,s.v,s.w,0.5,2);},
+        "automatic mode rejects insufficient substep budget");
+    rejects([&]{upc::P2StaticCutCellVof3D::step_auto_subcycled(
+        n,n,n,1.0,0.1,s.box,s.f,s.u,s.v,s.w,0.0);},
+        "automatic mode rejects zero target CFL");
+    rejects([&]{upc::P2StaticCutCellVof3D::step_auto_subcycled(
+        n,n,n,1.0,0.1,s.box,s.f,s.u,s.v,s.w,1.01);},
+        "automatic mode rejects target above one");
+    rejects([&]{upc::P2StaticCutCellVof3D::step_auto_subcycled(
+        n,n,n,1.0,0.1,s.box,s.f,s.u,s.v,s.w,
+        std::numeric_limits<double>::quiet_NaN());},
+        "automatic mode rejects nonfinite target");
+    rejects([&]{upc::P2StaticCutCellVof3D::step_auto_subcycled(
+        n,n,n,1.0,0.1,s.box,s.f,s.u,s.v,s.w,0.8,0);},
+        "automatic mode rejects zero budget");
+    rejects([&]{upc::P2StaticCutCellVof3D::step_auto_subcycled(
+        n,n,n,1.0,0.1,s.box,s.f,s.u,s.v,s.w,0.8,1025);},
+        "automatic mode rejects oversized budget");
+    std::cout<<"VOF_AUTO "<<n<<" "<<expected<<" "
+             <<std::setprecision(17)<<actual.water_before_m3<<" "
+             <<actual.water_after_m3<<" "<<actual.max_donor_cfl<<"\n";
+}
 void negatives() {
     Setup s(8);
     auto bad=s;
@@ -196,6 +250,8 @@ int main() {
         partial_cut_cells();
         temporal_subcycling(8);
         temporal_subcycling(12);
+        automatic_subcycling(8);
+        automatic_subcycling(12);
         negatives();
         std::cout<<"PASS: "<<assertions
                  <<" native static 3D cut-cell VOF assertions\n";

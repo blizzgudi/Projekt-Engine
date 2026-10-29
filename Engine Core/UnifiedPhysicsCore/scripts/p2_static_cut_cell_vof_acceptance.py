@@ -78,6 +78,21 @@ def main():
         check(f"{n} subcycle volume conservation",abs(before-after)<1e-10)
         check(f"{n} subcycle matches manual four-step reference",error<1e-14)
         check(f"{n} subcycle donor CFL",0<cfl<1)
+    auto=re.findall(r"^VOF_AUTO (\d+) (\d+) ([\d.eE+-]+) "
+                    r"([\d.eE+-]+) ([\d.eE+-]+)$",
+                    output,re.MULTILINE)
+    check("automatic CFL mode on both 3D grids",len(auto)==2,
+          [r[0] for r in auto])
+    for r in auto:
+        n,k=int(r[0]),int(r[1])
+        before,after,cfl=map(float,r[2:])
+        check(f"{n} cubed minimum automatic substeps",
+              n in (8,12) and k==2,(n,k))
+        check(f"{n} auto volume conserved",
+              math.isfinite(before) and before>0 and
+              abs(before-after)<1e-10,(before,after))
+        check(f"{n} auto donor CFL target",
+              0<cfl<=0.8+1e-12,cfl)
     check("eight physical/numeric rejection tests",
           "VOF_NEGATIVE 8" in output)
     hashes={name:sha(CORE/name) for name in SOURCES}

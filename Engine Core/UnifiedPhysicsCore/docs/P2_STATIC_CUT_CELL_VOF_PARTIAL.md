@@ -25,3 +25,11 @@
 - Die neue optionale Methode step_subcycled wiederholt den konservativen 3D-VOF-Operator mit 1 bis 1024 vom Aufrufer gewaehlten Teilzeitschritten. Der alte step bleibt unveraendert. Jeder Teilstep prueft die lokale Donor-CFL, MAC-Divergenz und Wasserbilanz.
 - Native 8^3/12^3: 40-fache Wirbelgeschwindigkeit erzwingt Einzelschritt-CFL-Fehler. Vier Teilsteps werden zellweise mit vier separaten step-Aufrufen verglichen. Massenbilanz, Fraktionsgrenzen, 1-Step-Paritaet und ungueltige Substepzahlen werden getestet. Das JSON-Gate prueft die VOF_SUBCYCLE-Referenzzeilen.
 - Kein adaptiver Fluid-Zeitschritt, keine dynamische MAC-Geschwindigkeitsberechnung, keine bewegte Festkoerper-Gegenreaktion. P2 bleibt PARTIAL.
+
+## Zusatz: automatische geometrische CFL-Teilzeitschritte (29.10.2026)
+
+- Optionale Methode P2StaticCutCellVof3D::step_auto_subcycled waehlt aus dem maximalen geometrischen Donor-CFL die kleinste ganze Teilstepzahl fuer das vorgegebene Ziel (Default 0.8, Budget maximal 1024).
+- Ein kurzer Pilot-Step validiert die bestehenden stationaeren Cut-Cell-, geschlossenen Rand- und Solenoidalbedingungen. Bei unzureichendem Budget oder ungueltigen Parametern wird explizit abgebrochen, nicht stillschweigend ueber die CFL-Grenze gegangen.
+- Native 8^3/12^3 mit 40-fachen U/V/W-Geschwindigkeiten: automatisch zwei Teilsteps bei CFL 0.8; zellweise bitgleicher Vergleich mit explizit zwei Substeps, Wasservolumen invariant, kleiner Zeitschritt bleibt bei einem Step, acht negative Kontrollfaelle.
+- MSVC Release und komplette 87-Suite-CTest sowie separates JSON-Gate mit zwei automatischen Referenzzeilen und SHA256 der tatsaechlich getesteten Quellen. Die quantitative Abnahme gilt nur fuer vorgeschriebene MAC-Geschwindigkeiten und stationaere Festkoerper.
+- **P2 weiterhin PARTIAL:** Die Methode ist ein geometrischer CFL-Controller, kein adaptiver Navier-Stokes-/VOF-/FSI-Solver; dynamischer Druck, bewegte Festkoerper-Gegenreaktion, physikalische Energie-/Impulsbilanz, externe CFD-Messdaten und UE5.8-Native-E2E fehlen.
