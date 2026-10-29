@@ -1,19 +1,19 @@
 {
   "schema_version": 1,
-  "generated_utc": "2026-10-26T16:46:24.745887+00:00",
+  "generated_utc": "2026-10-29T08:40:22.512326+00:00",
   "phase": "P2",
   "scope": "CPU MAC pressure + bounded VOF 3D free-surface transport prototype; no FLIP/APIC/MPM, no 3D FSI",
   "accepted": true,
   "source_sha256": {
     "include/upc/core.hpp": "08114486924261c69c423dc5b5f30ab3a575c3cf5211b3898ce8ceb7a72b00a6",
-    "include/upc/coupled_water3d.hpp": "3774c4f8b459f1fcec7f12e026610b337eb1d9585ed8ec993f608fb60d88705c",
+    "include/upc/coupled_water3d.hpp": "6268c6e050068aa610c0848611d8d01e16764b1c0fcf85d9150bd49fca6707e4",
     "include/upc/fluid3d_module.hpp": "f7a8cc65ddd05666b8f65e9ff0a19d04a2163e071b4da0b09a71f2977383dada",
     "include/upc/mac3d.hpp": "9bb4659c5b6e6fd3a512301ae4a3a083fa96b1e67d50363ec8f5634e1038fdc5",
     "tests/coupled_water3d_tests.cpp": "4a615c6e77cf4dd31a8f8ab841c26521fa5289dfa06a9606a261232431873d0d",
     "tests/unified_runtime_tests.cpp": "afcbc2110a3eb5af243225f3bd17db0932c28e17ba11bc2868d69c1351dfd0c9",
     "docs/P2_3D_FLUID_ABNAHME.md": "7789282381fb5dc98e91b2d1a563d6d9dfb89f966c7af1dddc4d6a4f225f5f34",
     "benchmarks/p2_reference.cpp": "20af87420b10cceca7e40cee4ce80cb8cfedaeb22fc3ca61f5fe07ca17827ade",
-    "CMakeLists.txt": "60d378e9ea971b45d0cacf995105d38dbe1df29a2704d77a746bedf1c73966f1"
+    "CMakeLists.txt": "8955bcbd580e268f9297a2509b757795180edc8d2b8a97550460c59a23dbe00a"
   },
   "reference": [
     {
@@ -22,7 +22,7 @@
       "ny": "4",
       "nz": "6",
       "cell_m": "0.200000000000",
-      "elapsed_ms": "8.871500000000",
+      "elapsed_ms": "8.358100000000",
       "initial_m3": "0.256000000000",
       "final_m3": "0.256000000000",
       "centroid_x_m": "0.224708753143",
@@ -37,7 +37,7 @@
       "ny": "8",
       "nz": "12",
       "cell_m": "0.100000000000",
-      "elapsed_ms": "110.272000000000",
+      "elapsed_ms": "93.673300000000",
       "initial_m3": "0.256000000000",
       "final_m3": "0.256000000000",
       "centroid_x_m": "0.219865818224",
@@ -52,7 +52,7 @@
       "ny": "16",
       "nz": "24",
       "cell_m": "0.050000000000",
-      "elapsed_ms": "1257.981100000000",
+      "elapsed_ms": "1192.440100000000",
       "initial_m3": "0.256000000000",
       "final_m3": "0.256000000000",
       "centroid_x_m": "0.215753641661",
@@ -67,7 +67,7 @@
       "ny": "8",
       "nz": "8",
       "cell_m": "0.150000000000",
-      "elapsed_ms": "1.915300000000",
+      "elapsed_ms": "1.800400000000",
       "initial_m3": "0.864000000000",
       "final_m3": "0.864000000000",
       "centroid_x_m": "0.000000000000",
@@ -82,7 +82,7 @@
       "ny": "16",
       "nz": "16",
       "cell_m": "0.075000000000",
-      "elapsed_ms": "49.755900000000",
+      "elapsed_ms": "44.860900000000",
       "initial_m3": "0.864000000000",
       "final_m3": "0.864000000000",
       "centroid_x_m": "0.000000000000",
@@ -97,7 +97,7 @@
       "ny": "24",
       "nz": "24",
       "cell_m": "0.050000000000",
-      "elapsed_ms": "166.817300000000",
+      "elapsed_ms": "153.452200000000",
       "initial_m3": "0.864000000000",
       "final_m3": "0.864000000000",
       "centroid_x_m": "0.000000000000",
@@ -123,7 +123,7 @@
     {
       "name": "finite_runtime_dam_break_8",
       "pass": true,
-      "value": 8.8715,
+      "value": 8.3581,
       "limit": null
     },
     {
@@ -141,7 +141,7 @@
     {
       "name": "finite_runtime_dam_break_16",
       "pass": true,
-      "value": 110.272,
+      "value": 93.6733,
       "limit": null
     },
     {
@@ -159,7 +159,7 @@
     {
       "name": "finite_runtime_dam_break_32",
       "pass": true,
-      "value": 1257.9811,
+      "value": 1192.4401,
       "limit": null
     },
     {
@@ -177,7 +177,7 @@
     {
       "name": "finite_runtime_hydrostatic_8",
       "pass": true,
-      "value": 1.9153,
+      "value": 1.8004,
       "limit": null
     },
     {
@@ -195,7 +195,7 @@
     {
       "name": "finite_runtime_hydrostatic_16",
       "pass": true,
-      "value": 49.7559,
+      "value": 44.8609,
       "limit": null
     },
     {
@@ -213,7 +213,7 @@
     {
       "name": "finite_runtime_hydrostatic_24",
       "pass": true,
-      "value": 166.8173,
+      "value": 153.4522,
       "limit": null
     },
     {

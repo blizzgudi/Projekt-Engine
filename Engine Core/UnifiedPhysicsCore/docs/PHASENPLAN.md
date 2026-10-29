@@ -1054,3 +1054,20 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
   keine druckseitige Rueckkopplung der Wasserfraktion, kein geschlossener
   physikalischer Fluid-Festkoerper-Impuls/Energiehaushalt, keine externen
   3D-CFD-Messdaten und kein Unreal-5.8-Native-E2E dieses Pfades.
+
+## P2 Teilfortschritt: stratified hydrostatic VOF-Drucklast auf Starrkoerper (29.10.2026)
+
+- Optionaler P2StratifiedHydrostaticLoad3D-Pfad: Wasser-Fuellfraktionen
+  aus vertikal geschichteten, ruhenden Wassersaeulen erzeugen
+  hydrostatischen Druck und treiben damit die reale Quadertranslation.
+  Die Kraft wird an den echten Quaderflaechen integriert (Archimedes),
+  nicht aus zellzentrischen Druckwerten als Traktion geschaetzt.
+- Analytische Referenzen 8^3/12^3, trockene/teilgefuellte/vollgefuellte
+  Saeulen und g=0/9.81; native Tests, volle CTest-Suite und
+  SHA256-Nachweise in docs/P2_STRATIFIED_HYDROSTATIC_PARTIAL.md.
+  MSVC Release und 82/82 CTest PASS; 13.669 native Assertions,
+  53 quantitative Gate-Checks, 12 analytische Referenzfaelle.
+- **P2-P8 bleiben PARTIAL, ALL_COMPLETE=False.** Nur statischer
+  hydrostatischer Lastpfad; Gegenimpuls nicht an MAC zurueckgegeben,
+  keine freie Oberflaechenstroemung, keine globale FSI-Erhaltung,
+  keine externen 3D-Messreferenzen oder UE5.8-Native-E2E.
