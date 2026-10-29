@@ -1035,3 +1035,22 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
 - Belege: `docs/P2_MOVING_BOX_PROJECTED_REACTION_PARTIAL.md`,
   `scripts/p2_moving_box_projected_reaction_acceptance.py` und
   `ENGINE TEST STUBE/runs/p2_moving_box_projected_reaction_partial.json`.
+
+## P2 Teilfortschritt: projizierter dynamischer Quader und konservativer passiver VOF-Transport (29.10.2026)
+
+- Opt-in `P2MovingBoxProjectedVof3D` verbindet den angewendeten
+  MAC-Gegenimpuls, die gemeinsame bewegte Cut-Cell-Projektion und den
+  konservativen skalaren Wasser-Fuellfraktions-Remap auf denselben Fluxes.
+- 24 analytische Einzelschrittfaelle (8^3/12^3, 3 Achsen, +/- Druckgradient,
+  voll geflutet oder raeumlich variabler Wasseranteil), 12 zweischrittige
+  Faelle mit aktualisiertem Koerper/MAC/VOF; unabhaengige zellweise
+  Finite-Volumen-Neuberechnung, Wassermasse, GCL, Bounds, CFL und
+  Negativtests. Vollstaendige CTest- und quantitative Nachweise:
+  docs/P2_MOVING_BOX_PROJECTED_VOF_PARTIAL.md,
+  scripts/p2_moving_box_projected_vof_acceptance.py und
+  ENGINE TEST STUBE/runs/p2_moving_box_projected_vof_partial.json.
+- **P2 bleibt PARTIAL, P3-P8 PARTIAL, ALL_COMPLETE=False.**
+  Nur passiver Wassertransport; keine freie Wasser-Luft-Spannungsgrenze,
+  keine druckseitige Rueckkopplung der Wasserfraktion, kein geschlossener
+  physikalischer Fluid-Festkoerper-Impuls/Energiehaushalt, keine externen
+  3D-CFD-Messdaten und kein Unreal-5.8-Native-E2E dieses Pfades.

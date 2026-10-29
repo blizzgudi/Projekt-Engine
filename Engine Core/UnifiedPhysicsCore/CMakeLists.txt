@@ -422,3 +422,9 @@ add_test(NAME physics_p2_moving_box_mac_counterimpulse_partial COMMAND upc_p2_mo
 add_executable(upc_p2_moving_box_projected_reaction_tests tests/p2_moving_box_projected_reaction3d_tests.cpp)
 target_link_libraries(upc_p2_moving_box_projected_reaction_tests PRIVATE upc)
 add_test(NAME physics_p2_moving_box_projected_reaction_partial COMMAND upc_p2_moving_box_projected_reaction_tests)
+
+# P2 partial: passive water-fraction remap driven by the actually projected
+# dynamic moving-box MAC reaction. Bounded conservative VOF, not free-surface FSI.
+add_executable(upc_p2_moving_box_projected_vof_tests tests/p2_moving_box_projected_vof3d_tests.cpp)
+target_link_libraries(upc_p2_moving_box_projected_vof_tests PRIVATE upc)
+add_test(NAME physics_p2_moving_box_projected_vof_partial COMMAND upc_p2_moving_box_projected_vof_tests)

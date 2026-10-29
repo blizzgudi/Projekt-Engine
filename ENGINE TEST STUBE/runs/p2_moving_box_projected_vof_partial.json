@@ -1,0 +1,1294 @@
+{
+  "phase": "P2",
+  "milestone": "moving_box_projected_passive_vof_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "ctest_suites": 81,
+  "native_assertions": 67542,
+  "checks": [
+    {
+      "name": "complete 81/81 CTest",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "new VOF native test in CTest",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "native assertions >= 67000",
+      "pass": true,
+      "detail": 67542
+    },
+    {
+      "name": "24 analytic water configurations",
+      "pass": true,
+      "detail": 24
+    },
+    {
+      "name": "unique (8, 0, -1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite (8, 0, -1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent old-water mass (8, 0, -1, 0)",
+      "pass": true,
+      "detail": [
+        154910.72000000012,
+        154910.72
+      ]
+    },
+    {
+      "name": "conservative water mass (8, 0, -1, 0)",
+      "pass": true,
+      "detail": 1.1641532182693481e-10
+    },
+    {
+      "name": "bounded donor CFL (8, 0, -1, 0)",
+      "pass": true,
+      "detail": 0.016786885246059865
+    },
+    {
+      "name": "FSI proxy explicitly unclosed (8, 0, -1, 0)",
+      "pass": true,
+      "detail": -350.77273782735006
+    },
+    {
+      "name": "unique (8, 0, -1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite (8, 0, -1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent old-water mass (8, 0, -1, 1)",
+      "pass": true,
+      "detail": [
+        507904.0,
+        507904.0
+      ]
+    },
+    {
+      "name": "conservative water mass (8, 0, -1, 1)",
+      "pass": true,
+      "detail": 4.656612873077393e-10
+    },
+    {
+      "name": "bounded donor CFL (8, 0, -1, 1)",
+      "pass": true,
+      "detail": 0.016786885246059865
+    },
+    {
+      "name": "FSI proxy explicitly unclosed (8, 0, -1, 1)",
+      "pass": true,
+      "detail": -350.77273782735006
+    },
+    {
+      "name": "unique (8, 0, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite (8, 0, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent old-water mass (8, 0, 1, 0)",
+      "pass": true,
+      "detail": [
+        154910.72000000012,
+        154910.72
+      ]
+    },
+    {
+      "name": "conservative water mass (8, 0, 1, 0)",
+      "pass": true,
+      "detail": -2.6193447411060333e-10
+    },
+    {
+      "name": "bounded donor CFL (8, 0, 1, 0)",
+      "pass": true,
+      "detail": 0.01678688524605918
+    },
+    {
+      "name": "FSI proxy explicitly unclosed (8, 0, 1, 0)",
+      "pass": true,
+      "detail": 350.77273782733374
+    },
+    {
+      "name": "unique (8, 0, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite (8, 0, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent old-water mass (8, 0, 1, 1)",
+      "pass": true,
+      "detail": [
+        507904.0,
+        507904.0
+      ]
+    },
+    {
+      "name": "conservative water mass (8, 0, 1, 1)",
+      "pass": true,
+      "detail": 4.656612873077393e-10
+    },
+    {
+      "name": "bounded donor CFL (8, 0, 1, 1)",
+      "pass": true,
+      "detail": 0.01678688524605918
+    },
+    {
+      "name": "FSI proxy explicitly unclosed (8, 0, 1, 1)",
+      "pass": true,
+      "detail": 350.77273782733374
+    },
+    {
+      "name": "unique (8, 1, -1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite (8, 1, -1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent old-water mass (8, 1, -1, 0)",
+      "pass": true,
+      "detail": [
+        154910.72000000012,
+        154910.72
+      ]
+    },
+    {
+      "name": "conservative water mass (8, 1, -1, 0)",
+      "pass": true,
+      "detail": -8.731149137020111e-11
+    },
+    {
+      "name": "bounded donor CFL (8, 1, -1, 0)",
+      "pass": true,
+      "detail": 0.01678688524605986
+    },
+    {
+      "name": "FSI proxy explicitly unclosed (8, 1, -1, 0)",
+      "pass": true,
+      "detail": -350.77273782735045
+    },
+    {
+      "name": "unique (8, 1, -1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite (8, 1, -1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent old-water mass (8, 1, -1, 1)",
+      "pass": true,
+      "detail": [
+        507904.0,
+        507904.0
+      ]
+    },
+    {
+      "name": "conservative water mass (8, 1, -1, 1)",
+      "pass": true,
+      "detail": 5.238689482212067e-10
+    },
+    {
+      "name": "bounded donor CFL (8, 1, -1, 1)",
+      "pass": true,
+      "detail": 0.01678688524605986
+    },
+    {
+      "name": "FSI proxy explicitly unclosed (8, 1, -1, 1)",
+      "pass": true,
+      "detail": -350.77273782735045
+    },
+    {
+      "name": "unique (8, 1, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite (8, 1, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent old-water mass (8, 1, 1, 0)",
+      "pass": true,
+      "detail": [
+        154910.72000000012,
+        154910.72
+      ]
+    },
+    {
+      "name": "conservative water mass (8, 1, 1, 0)",
+      "pass": true,
+      "detail": -2.0372681319713593e-10
+    },
+    {
+      "name": "bounded donor CFL (8, 1, 1, 0)",
+      "pass": true,
+      "detail": 0.01678688524605918
+    },
+    {
+      "name": "FSI proxy explicitly unclosed (8, 1, 1, 0)",
+      "pass": true,
+      "detail": 350.7727378273339
+    },
+    {
+      "name": "unique (8, 1, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite (8, 1, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent old-water mass (8, 1, 1, 1)",
+      "pass": true,
+      "detail": [
+        507904.0,
+        507904.0
+      ]
+    },
+    {
+      "name": "conservative water mass (8, 1, 1, 1)",
+      "pass": true,
+      "detail": 3.4924596548080444e-10
+    },
+    {
+      "name": "bounded donor CFL (8, 1, 1, 1)",
+      "pass": true,
+      "detail": 0.01678688524605918
+    },
+    {
+      "name": "FSI proxy explicitly unclosed (8, 1, 1, 1)",
+      "pass": true,
+      "detail": 350.7727378273339
+    },
+    {
+      "name": "unique (8, 2, -1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite (8, 2, -1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent old-water mass (8, 2, -1, 0)",
+      "pass": true,
+      "detail": [
+        154910.72000000012,
+        154910.72
+      ]
+    },
+    {
+      "name": "conservative water mass (8, 2, -1, 0)",
+      "pass": true,
+      "detail": 2.9103830456733704e-11
+    },
+    {
+      "name": "bounded donor CFL (8, 2, -1, 0)",
+      "pass": true,
+      "detail": 0.01678688524605987
+    },
+    {
+      "name": "FSI proxy explicitly unclosed (8, 2, -1, 0)",
+      "pass": true,
+      "detail": -350.77273782735375
+    },
+    {
+      "name": "unique (8, 2, -1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite (8, 2, -1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent old-water mass (8, 2, -1, 1)",
+      "pass": true,
+      "detail": [
+        507904.0,
+        507904.0
+      ]
+    },
+    {
+      "name": "conservative water mass (8, 2, -1, 1)",
+      "pass": true,
+      "detail": 6.984919309616089e-10
+    },
+    {
+      "name": "bounded donor CFL (8, 2, -1, 1)",
+      "pass": true,
+      "detail": 0.01678688524605987
+    },
+    {
+      "name": "FSI proxy explicitly unclosed (8, 2, -1, 1)",
+      "pass": true,
+      "detail": -350.77273782735375
+    },
+    {
+      "name": "unique (8, 2, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite (8, 2, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent old-water mass (8, 2, 1, 0)",
+      "pass": true,
+      "detail": [
+        154910.72000000012,
+        154910.72
+      ]
+    },
+    {
+      "name": "conservative water mass (8, 2, 1, 0)",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "bounded donor CFL (8, 2, 1, 0)",
+      "pass": true,
+      "detail": 0.01678688524605918
+    },
+    {
+      "name": "FSI proxy explicitly unclosed (8, 2, 1, 0)",
+      "pass": true,
+      "detail": 350.7727378273328
+    },
+    {
+      "name": "unique (8, 2, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite (8, 2, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent old-water mass (8, 2, 1, 1)",
+      "pass": true,
+      "detail": [
+        507904.0,
+        507904.0
+      ]
+    },
+    {
+      "name": "conservative water mass (8, 2, 1, 1)",
+      "pass": true,
+      "detail": 2.9103830456733704e-10
+    },
+    {
+      "name": "bounded donor CFL (8, 2, 1, 1)",
+      "pass": true,
+      "detail": 0.01678688524605918
+    },
+    {
+      "name": "FSI proxy explicitly unclosed (8, 2, 1, 1)",
+      "pass": true,
+      "detail": 350.7727378273328
+    },
+    {
+      "name": "unique (12, 0, -1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite (12, 0, -1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent old-water mass (12, 0, -1, 0)",
+      "pass": true,
+      "detail": [
+        629470.7200000004,
+        629470.72
+      ]
+    },
+    {
+      "name": "conservative water mass (12, 0, -1, 0)",
+      "pass": true,
+      "detail": -6.984919309616089e-10
+    },
+    {
+      "name": "bounded donor CFL (12, 0, -1, 0)",
+      "pass": true,
+      "detail": 0.01678934085955851
+    },
+    {
+      "name": "FSI proxy explicitly unclosed (12, 0, -1, 0)",
+      "pass": true,
+      "detail": -351.209787393623
+    },
+    {
+      "name": "unique (12, 0, -1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite (12, 0, -1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent old-water mass (12, 0, -1, 1)",
+      "pass": true,
+      "detail": [
+        1723904.0000000002,
+        1723904.0
+      ]
+    },
+    {
+      "name": "conservative water mass (12, 0, -1, 1)",
+      "pass": true,
+      "detail": 1.6298145055770874e-09
+    },
+    {
+      "name": "bounded donor CFL (12, 0, -1, 1)",
+      "pass": true,
+      "detail": 0.01678934085955851
+    },
+    {
+      "name": "FSI proxy explicitly unclosed (12, 0, -1, 1)",
+      "pass": true,
+      "detail": -351.209787393623
+    },
+    {
+      "name": "unique (12, 0, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite (12, 0, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent old-water mass (12, 0, 1, 0)",
+      "pass": true,
+      "detail": [
+        629470.7200000004,
+        629470.72
+      ]
+    },
+    {
+      "name": "conservative water mass (12, 0, 1, 0)",
+      "pass": true,
+      "detail": -1.0477378964424133e-09
+    },
+    {
+      "name": "bounded donor CFL (12, 0, 1, 0)",
+      "pass": true,
+      "detail": 0.016799267718250927
+    },
+    {
+      "name": "FSI proxy explicitly unclosed (12, 0, 1, 0)",
+      "pass": true,
+      "detail": 351.20707801592044
+    },
+    {
+      "name": "unique (12, 0, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite (12, 0, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent old-water mass (12, 0, 1, 1)",
+      "pass": true,
+      "detail": [
+        1723904.0000000002,
+        1723904.0
+      ]
+    },
+    {
+      "name": "conservative water mass (12, 0, 1, 1)",
+      "pass": true,
+      "detail": -1.3969838619232178e-09
+    },
+    {
+      "name": "bounded donor CFL (12, 0, 1, 1)",
+      "pass": true,
+      "detail": 0.016799267718250927
+    },
+    {
+      "name": "FSI proxy explicitly unclosed (12, 0, 1, 1)",
+      "pass": true,
+      "detail": 351.20707801592044
+    },
+    {
+      "name": "unique (12, 1, -1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite (12, 1, -1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent old-water mass (12, 1, -1, 0)",
+      "pass": true,
+      "detail": [
+        629470.7200000004,
+        629470.72
+      ]
+    },
+    {
+      "name": "conservative water mass (12, 1, -1, 0)",
+      "pass": true,
+      "detail": -1.280568540096283e-09
+    },
+    {
+      "name": "bounded donor CFL (12, 1, -1, 0)",
+      "pass": true,
+      "detail": 0.016789340859558504
+    },
+    {
+      "name": "FSI proxy explicitly unclosed (12, 1, -1, 0)",
+      "pass": true,
+      "detail": -351.2097873936233
+    },
+    {
+      "name": "unique (12, 1, -1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite (12, 1, -1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent old-water mass (12, 1, -1, 1)",
+      "pass": true,
+      "detail": [
+        1723904.0000000002,
+        1723904.0
+      ]
+    },
+    {
+      "name": "conservative water mass (12, 1, -1, 1)",
+      "pass": true,
+      "detail": 9.313225746154785e-10
+    },
+    {
+      "name": "bounded donor CFL (12, 1, -1, 1)",
+      "pass": true,
+      "detail": 0.016789340859558504
+    },
+    {
+      "name": "FSI proxy explicitly unclosed (12, 1, -1, 1)",
+      "pass": true,
+      "detail": -351.2097873936233
+    },
+    {
+      "name": "unique (12, 1, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite (12, 1, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent old-water mass (12, 1, 1, 0)",
+      "pass": true,
+      "detail": [
+        629470.7200000004,
+        629470.72
+      ]
+    },
+    {
+      "name": "conservative water mass (12, 1, 1, 0)",
+      "pass": true,
+      "detail": -5.820766091346741e-10
+    },
+    {
+      "name": "bounded donor CFL (12, 1, 1, 0)",
+      "pass": true,
+      "detail": 0.016799267718250934
+    },
+    {
+      "name": "FSI proxy explicitly unclosed (12, 1, 1, 0)",
+      "pass": true,
+      "detail": 351.2070780159203
+    },
+    {
+      "name": "unique (12, 1, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite (12, 1, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent old-water mass (12, 1, 1, 1)",
+      "pass": true,
+      "detail": [
+        1723904.0000000002,
+        1723904.0
+      ]
+    },
+    {
+      "name": "conservative water mass (12, 1, 1, 1)",
+      "pass": true,
+      "detail": -9.313225746154785e-10
+    },
+    {
+      "name": "bounded donor CFL (12, 1, 1, 1)",
+      "pass": true,
+      "detail": 0.016799267718250934
+    },
+    {
+      "name": "FSI proxy explicitly unclosed (12, 1, 1, 1)",
+      "pass": true,
+      "detail": 351.2070780159203
+    },
+    {
+      "name": "unique (12, 2, -1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite (12, 2, -1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent old-water mass (12, 2, -1, 0)",
+      "pass": true,
+      "detail": [
+        629470.7200000004,
+        629470.72
+      ]
+    },
+    {
+      "name": "conservative water mass (12, 2, -1, 0)",
+      "pass": true,
+      "detail": -1.1641532182693481e-09
+    },
+    {
+      "name": "bounded donor CFL (12, 2, -1, 0)",
+      "pass": true,
+      "detail": 0.016789340859558508
+    },
+    {
+      "name": "FSI proxy explicitly unclosed (12, 2, -1, 0)",
+      "pass": true,
+      "detail": -351.2097873936344
+    },
+    {
+      "name": "unique (12, 2, -1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite (12, 2, -1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent old-water mass (12, 2, -1, 1)",
+      "pass": true,
+      "detail": [
+        1723904.0000000002,
+        1723904.0
+      ]
+    },
+    {
+      "name": "conservative water mass (12, 2, -1, 1)",
+      "pass": true,
+      "detail": 4.656612873077393e-10
+    },
+    {
+      "name": "bounded donor CFL (12, 2, -1, 1)",
+      "pass": true,
+      "detail": 0.016789340859558508
+    },
+    {
+      "name": "FSI proxy explicitly unclosed (12, 2, -1, 1)",
+      "pass": true,
+      "detail": -351.2097873936344
+    },
+    {
+      "name": "unique (12, 2, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite (12, 2, 1, 0)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent old-water mass (12, 2, 1, 0)",
+      "pass": true,
+      "detail": [
+        629470.7200000004,
+        629470.72
+      ]
+    },
+    {
+      "name": "conservative water mass (12, 2, 1, 0)",
+      "pass": true,
+      "detail": 6.984919309616089e-10
+    },
+    {
+      "name": "bounded donor CFL (12, 2, 1, 0)",
+      "pass": true,
+      "detail": 0.016799267718250934
+    },
+    {
+      "name": "FSI proxy explicitly unclosed (12, 2, 1, 0)",
+      "pass": true,
+      "detail": 351.20707801591925
+    },
+    {
+      "name": "unique (12, 2, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite (12, 2, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "independent old-water mass (12, 2, 1, 1)",
+      "pass": true,
+      "detail": [
+        1723904.0000000002,
+        1723904.0
+      ]
+    },
+    {
+      "name": "conservative water mass (12, 2, 1, 1)",
+      "pass": true,
+      "detail": -6.984919309616089e-10
+    },
+    {
+      "name": "bounded donor CFL (12, 2, 1, 1)",
+      "pass": true,
+      "detail": 0.016799267718250934
+    },
+    {
+      "name": "FSI proxy explicitly unclosed (12, 2, 1, 1)",
+      "pass": true,
+      "detail": 351.20707801591925
+    },
+    {
+      "name": "full grid/axis/sign/fill coverage",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "12 two-step moving-water cases",
+      "pass": true,
+      "detail": 12
+    },
+    {
+      "name": "unique sequential (8, 0, -1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "sequential initial mass (8, 0, -1)",
+      "pass": true,
+      "detail": 154910.72000000012
+    },
+    {
+      "name": "unique sequential (8, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "sequential initial mass (8, 0, 1)",
+      "pass": true,
+      "detail": 154910.72000000012
+    },
+    {
+      "name": "unique sequential (8, 1, -1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "sequential initial mass (8, 1, -1)",
+      "pass": true,
+      "detail": 154910.72000000012
+    },
+    {
+      "name": "unique sequential (8, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "sequential initial mass (8, 1, 1)",
+      "pass": true,
+      "detail": 154910.72000000012
+    },
+    {
+      "name": "unique sequential (8, 2, -1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "sequential initial mass (8, 2, -1)",
+      "pass": true,
+      "detail": 154910.72000000012
+    },
+    {
+      "name": "unique sequential (8, 2, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "sequential initial mass (8, 2, 1)",
+      "pass": true,
+      "detail": 154910.72000000012
+    },
+    {
+      "name": "unique sequential (12, 0, -1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "sequential initial mass (12, 0, -1)",
+      "pass": true,
+      "detail": 629470.7200000004
+    },
+    {
+      "name": "unique sequential (12, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "sequential initial mass (12, 0, 1)",
+      "pass": true,
+      "detail": 629470.7200000004
+    },
+    {
+      "name": "unique sequential (12, 1, -1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "sequential initial mass (12, 1, -1)",
+      "pass": true,
+      "detail": 629470.7200000004
+    },
+    {
+      "name": "unique sequential (12, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "sequential initial mass (12, 1, 1)",
+      "pass": true,
+      "detail": 629470.7200000004
+    },
+    {
+      "name": "unique sequential (12, 2, -1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "sequential initial mass (12, 2, -1)",
+      "pass": true,
+      "detail": 629470.7200000004
+    },
+    {
+      "name": "unique sequential (12, 2, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "sequential initial mass (12, 2, 1)",
+      "pass": true,
+      "detail": 629470.7200000004
+    },
+    {
+      "name": "sequential coverage",
+      "pass": true,
+      "detail": null
+    }
+  ],
+  "analytic_reference": [
+    {
+      "grid": 8,
+      "axis": 0,
+      "gradient_sign": -1,
+      "uniform": false,
+      "water_mass_kg": 154910.72000000012,
+      "water_mass_residual_kg": 1.1641532182693481e-10,
+      "max_donor_courant": 0.016786885246059865,
+      "unclosed_impulse_proxy_Ns": -350.77273782735006
+    },
+    {
+      "grid": 8,
+      "axis": 0,
+      "gradient_sign": -1,
+      "uniform": true,
+      "water_mass_kg": 507904.0,
+      "water_mass_residual_kg": 4.656612873077393e-10,
+      "max_donor_courant": 0.016786885246059865,
+      "unclosed_impulse_proxy_Ns": -350.77273782735006
+    },
+    {
+      "grid": 8,
+      "axis": 0,
+      "gradient_sign": 1,
+      "uniform": false,
+      "water_mass_kg": 154910.72000000012,
+      "water_mass_residual_kg": -2.6193447411060333e-10,
+      "max_donor_courant": 0.01678688524605918,
+      "unclosed_impulse_proxy_Ns": 350.77273782733374
+    },
+    {
+      "grid": 8,
+      "axis": 0,
+      "gradient_sign": 1,
+      "uniform": true,
+      "water_mass_kg": 507904.0,
+      "water_mass_residual_kg": 4.656612873077393e-10,
+      "max_donor_courant": 0.01678688524605918,
+      "unclosed_impulse_proxy_Ns": 350.77273782733374
+    },
+    {
+      "grid": 8,
+      "axis": 1,
+      "gradient_sign": -1,
+      "uniform": false,
+      "water_mass_kg": 154910.72000000012,
+      "water_mass_residual_kg": -8.731149137020111e-11,
+      "max_donor_courant": 0.01678688524605986,
+      "unclosed_impulse_proxy_Ns": -350.77273782735045
+    },
+    {
+      "grid": 8,
+      "axis": 1,
+      "gradient_sign": -1,
+      "uniform": true,
+      "water_mass_kg": 507904.0,
+      "water_mass_residual_kg": 5.238689482212067e-10,
+      "max_donor_courant": 0.01678688524605986,
+      "unclosed_impulse_proxy_Ns": -350.77273782735045
+    },
+    {
+      "grid": 8,
+      "axis": 1,
+      "gradient_sign": 1,
+      "uniform": false,
+      "water_mass_kg": 154910.72000000012,
+      "water_mass_residual_kg": -2.0372681319713593e-10,
+      "max_donor_courant": 0.01678688524605918,
+      "unclosed_impulse_proxy_Ns": 350.7727378273339
+    },
+    {
+      "grid": 8,
+      "axis": 1,
+      "gradient_sign": 1,
+      "uniform": true,
+      "water_mass_kg": 507904.0,
+      "water_mass_residual_kg": 3.4924596548080444e-10,
+      "max_donor_courant": 0.01678688524605918,
+      "unclosed_impulse_proxy_Ns": 350.7727378273339
+    },
+    {
+      "grid": 8,
+      "axis": 2,
+      "gradient_sign": -1,
+      "uniform": false,
+      "water_mass_kg": 154910.72000000012,
+      "water_mass_residual_kg": 2.9103830456733704e-11,
+      "max_donor_courant": 0.01678688524605987,
+      "unclosed_impulse_proxy_Ns": -350.77273782735375
+    },
+    {
+      "grid": 8,
+      "axis": 2,
+      "gradient_sign": -1,
+      "uniform": true,
+      "water_mass_kg": 507904.0,
+      "water_mass_residual_kg": 6.984919309616089e-10,
+      "max_donor_courant": 0.01678688524605987,
+      "unclosed_impulse_proxy_Ns": -350.77273782735375
+    },
+    {
+      "grid": 8,
+      "axis": 2,
+      "gradient_sign": 1,
+      "uniform": false,
+      "water_mass_kg": 154910.72000000012,
+      "water_mass_residual_kg": 0.0,
+      "max_donor_courant": 0.01678688524605918,
+      "unclosed_impulse_proxy_Ns": 350.7727378273328
+    },
+    {
+      "grid": 8,
+      "axis": 2,
+      "gradient_sign": 1,
+      "uniform": true,
+      "water_mass_kg": 507904.0,
+      "water_mass_residual_kg": 2.9103830456733704e-10,
+      "max_donor_courant": 0.01678688524605918,
+      "unclosed_impulse_proxy_Ns": 350.7727378273328
+    },
+    {
+      "grid": 12,
+      "axis": 0,
+      "gradient_sign": -1,
+      "uniform": false,
+      "water_mass_kg": 629470.7200000004,
+      "water_mass_residual_kg": -6.984919309616089e-10,
+      "max_donor_courant": 0.01678934085955851,
+      "unclosed_impulse_proxy_Ns": -351.209787393623
+    },
+    {
+      "grid": 12,
+      "axis": 0,
+      "gradient_sign": -1,
+      "uniform": true,
+      "water_mass_kg": 1723904.0000000002,
+      "water_mass_residual_kg": 1.6298145055770874e-09,
+      "max_donor_courant": 0.01678934085955851,
+      "unclosed_impulse_proxy_Ns": -351.209787393623
+    },
+    {
+      "grid": 12,
+      "axis": 0,
+      "gradient_sign": 1,
+      "uniform": false,
+      "water_mass_kg": 629470.7200000004,
+      "water_mass_residual_kg": -1.0477378964424133e-09,
+      "max_donor_courant": 0.016799267718250927,
+      "unclosed_impulse_proxy_Ns": 351.20707801592044
+    },
+    {
+      "grid": 12,
+      "axis": 0,
+      "gradient_sign": 1,
+      "uniform": true,
+      "water_mass_kg": 1723904.0000000002,
+      "water_mass_residual_kg": -1.3969838619232178e-09,
+      "max_donor_courant": 0.016799267718250927,
+      "unclosed_impulse_proxy_Ns": 351.20707801592044
+    },
+    {
+      "grid": 12,
+      "axis": 1,
+      "gradient_sign": -1,
+      "uniform": false,
+      "water_mass_kg": 629470.7200000004,
+      "water_mass_residual_kg": -1.280568540096283e-09,
+      "max_donor_courant": 0.016789340859558504,
+      "unclosed_impulse_proxy_Ns": -351.2097873936233
+    },
+    {
+      "grid": 12,
+      "axis": 1,
+      "gradient_sign": -1,
+      "uniform": true,
+      "water_mass_kg": 1723904.0000000002,
+      "water_mass_residual_kg": 9.313225746154785e-10,
+      "max_donor_courant": 0.016789340859558504,
+      "unclosed_impulse_proxy_Ns": -351.2097873936233
+    },
+    {
+      "grid": 12,
+      "axis": 1,
+      "gradient_sign": 1,
+      "uniform": false,
+      "water_mass_kg": 629470.7200000004,
+      "water_mass_residual_kg": -5.820766091346741e-10,
+      "max_donor_courant": 0.016799267718250934,
+      "unclosed_impulse_proxy_Ns": 351.2070780159203
+    },
+    {
+      "grid": 12,
+      "axis": 1,
+      "gradient_sign": 1,
+      "uniform": true,
+      "water_mass_kg": 1723904.0000000002,
+      "water_mass_residual_kg": -9.313225746154785e-10,
+      "max_donor_courant": 0.016799267718250934,
+      "unclosed_impulse_proxy_Ns": 351.2070780159203
+    },
+    {
+      "grid": 12,
+      "axis": 2,
+      "gradient_sign": -1,
+      "uniform": false,
+      "water_mass_kg": 629470.7200000004,
+      "water_mass_residual_kg": -1.1641532182693481e-09,
+      "max_donor_courant": 0.016789340859558508,
+      "unclosed_impulse_proxy_Ns": -351.2097873936344
+    },
+    {
+      "grid": 12,
+      "axis": 2,
+      "gradient_sign": -1,
+      "uniform": true,
+      "water_mass_kg": 1723904.0000000002,
+      "water_mass_residual_kg": 4.656612873077393e-10,
+      "max_donor_courant": 0.016789340859558508,
+      "unclosed_impulse_proxy_Ns": -351.2097873936344
+    },
+    {
+      "grid": 12,
+      "axis": 2,
+      "gradient_sign": 1,
+      "uniform": false,
+      "water_mass_kg": 629470.7200000004,
+      "water_mass_residual_kg": 6.984919309616089e-10,
+      "max_donor_courant": 0.016799267718250934,
+      "unclosed_impulse_proxy_Ns": 351.20707801591925
+    },
+    {
+      "grid": 12,
+      "axis": 2,
+      "gradient_sign": 1,
+      "uniform": true,
+      "water_mass_kg": 1723904.0000000002,
+      "water_mass_residual_kg": -6.984919309616089e-10,
+      "max_donor_courant": 0.016799267718250934,
+      "unclosed_impulse_proxy_Ns": 351.20707801591925
+    }
+  ],
+  "sequential_reference": [
+    [
+      "8",
+      "0",
+      "-1",
+      "154910.72000000012"
+    ],
+    [
+      "8",
+      "0",
+      "1",
+      "154910.72000000012"
+    ],
+    [
+      "8",
+      "1",
+      "-1",
+      "154910.72000000012"
+    ],
+    [
+      "8",
+      "1",
+      "1",
+      "154910.72000000012"
+    ],
+    [
+      "8",
+      "2",
+      "-1",
+      "154910.72000000012"
+    ],
+    [
+      "8",
+      "2",
+      "1",
+      "154910.72000000012"
+    ],
+    [
+      "12",
+      "0",
+      "-1",
+      "629470.72000000044"
+    ],
+    [
+      "12",
+      "0",
+      "1",
+      "629470.72000000044"
+    ],
+    [
+      "12",
+      "1",
+      "-1",
+      "629470.72000000044"
+    ],
+    [
+      "12",
+      "1",
+      "1",
+      "629470.72000000044"
+    ],
+    [
+      "12",
+      "2",
+      "-1",
+      "629470.72000000044"
+    ],
+    [
+      "12",
+      "2",
+      "1",
+      "629470.72000000044"
+    ]
+  ],
+  "source_sha256": {
+    "CMakeLists.txt": "84097e33422b7542b8c4247a5f759afb8bd04aeb3a26b6ec862c0d9d8c274457",
+    "docs/PHASENPLAN.md": "d6dab29170279cb9301eff6c140ed1c0da5f1d7e8639c2db655f63e586247bf1",
+    "docs/P2_MOVING_BOX_PROJECTED_VOF_PARTIAL.md": "8ad3e2e46843891900d94291f93a2f563239984ffed4842c16480baab10d64dc",
+    "include/upc/p2_moving_box_projected_vof3d.hpp": "52a4341313ab49edbe878f9bc1178efd6855b7c65fba5ef0d0bf59bb81b93dfd",
+    "include/upc/p2_moving_box_projected_reaction3d.hpp": "e79bab667e3b5c99429532789b9380ca211faa562a85f3611226a276719b3a57",
+    "include/upc/p2_moving_box_mac_counterimpulse3d.hpp": "7af384dfd0b66d337b33dd518e3984af844bf9a52c2703c4a9cdaa88abaf22be",
+    "include/upc/p2_moving_box_dynamic_pressure3d.hpp": "0542c4c40eb5f4ea855c105ad639437d15a0936a6025de8614d910780d6c57be",
+    "include/upc/p2_moving_box_cut_cell_projection3d.hpp": "7ec9aaaed69aae85be1b26d32460c03de81b95f7ffb26e1f6b18e1185aee3fb6",
+    "include/upc/p2_moving_cut_cell_scalar_transport3d.hpp": "9e3e57855fc2387d076a11a116ee1f80220b813e99542b55065661a6b2c5d206",
+    "tests/p2_moving_box_projected_vof3d_tests.cpp": "85cdaa409f544453bee247f58499ff1418465e5eb03de20b243c3f235e161018",
+    "scripts/p2_moving_box_projected_vof_full_build.cmd": "c938b6306e072da620cd9a1b75e19a69b61c30e2fbda3ca9033a25077fbd02fb",
+    "scripts/p2_moving_box_projected_vof_acceptance.py": "dd61986520a8b0ecf4b689dd9fa622aebc434c8d9efc057280074c8fa9980948"
+  },
+  "ctest_log_sha256": "a8de9f2f1286f5b14dd678b0fb7ab513b713263b5b918eeaec84e76cb7677ec2",
+  "unproven": [
+    "passive water remap does not feed free-surface stresses back into pressure or solid force",
+    "projection changes fluid momentum proxy by about 350 Ns; physical FSI momentum/energy not closed",
+    "no validated water-air stress boundary, soil, heat, fracture or reaction coupling in this path",
+    "no independent measured 3D CFD or Unreal 5.8 Native-E2E of this path"
+  ]
+}
