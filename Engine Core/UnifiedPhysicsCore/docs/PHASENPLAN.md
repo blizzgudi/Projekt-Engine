@@ -997,3 +997,24 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
   Fluid-Gegenimpuls ist NUR ein Ledger, nicht auf MAC/VOF angewendet.
   Keine vollstaendige bidirektionale FSI, keine globale Energie-/
   Impulserhaltung, keine externe CFD-Messvalidierung oder neues UE-E2E.
+
+## P2 Teilfortschritt: angewendeter MAC-Dual-Gegenimpuls (29.10.2026)
+
+- Optionales `P2MovingBoxMacCounterImpulse3D` verbindet die dynamische
+  Druckkraft-/Quadertranslation mit einem tatsaechlichen Update der
+  zurueckgegebenen MAC-Face-Geschwindigkeiten. Der Gegenimpuls wird
+  auf offene bewegte Dualvolumenmassen nahe der Box verteilt.
+- MSVC Release 79/79 CTest PASS; 663 native Assertions und 12
+  zweischrittige analytische 3D-Referenzfaelle (8^3/12^3, alle Achsen,
+  beide Druckgradient-Vorzeichen). Je zwei Schritte ergeben
+  Quaderimpuls +/-5.12 Ns und angewendeten Fluid-Face-Impuls -/+5.12 Ns.
+- Der fehlende Projektionsschritt wird durch ein ausdruecklich
+  NICHT verschwindendes geometrisches Kontinuitaetsresiduum gezeigt.
+  Dies ist nur eine diskrete Impulsproxy-Bilanz, keine echte FSI.
+- Belege: docs/P2_MOVING_BOX_MAC_COUNTERIMPULSE_PARTIAL.md,
+  scripts/p2_moving_box_mac_counterimpulse_acceptance.py und
+  ENGINE TEST STUBE/runs/p2_moving_box_mac_counterimpulse_partial.json.
+- **P2 weiterhin PARTIAL; P3-P8 PARTIAL; ALL_COMPLETE=False.**
+  Es fehlen ein gemeinsamer konservativer physikalischer Impulstensor,
+  die anschliessende Cut-Cell-Projektion, VOF-Massenkopplung, globale
+  Energie-/Impulserhaltung, gemessene 3D-CFD-Referenzen und UE5.8-E2E.

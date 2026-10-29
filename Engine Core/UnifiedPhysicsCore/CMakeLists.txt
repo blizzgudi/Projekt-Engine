@@ -409,3 +409,9 @@ add_test(NAME physics_p2_moving_box_pressure_traction_partial COMMAND upc_p2_mov
 add_executable(upc_p2_moving_box_dynamic_pressure_tests tests/p2_moving_box_dynamic_pressure3d_tests.cpp)
 target_link_libraries(upc_p2_moving_box_dynamic_pressure_tests PRIVATE upc)
 add_test(NAME physics_p2_moving_box_dynamic_pressure_partial COMMAND upc_p2_moving_box_dynamic_pressure_tests)
+
+# P2 partial: apply a dynamic-box frozen-pressure reaction to exact moving
+# MAC dual masses. Discrete face impulse only; NOT projected or VOF/FSI closed.
+add_executable(upc_p2_moving_box_mac_counterimpulse_tests tests/p2_moving_box_mac_counterimpulse3d_tests.cpp)
+target_link_libraries(upc_p2_moving_box_mac_counterimpulse_tests PRIVATE upc)
+add_test(NAME physics_p2_moving_box_mac_counterimpulse_partial COMMAND upc_p2_moving_box_mac_counterimpulse_tests)

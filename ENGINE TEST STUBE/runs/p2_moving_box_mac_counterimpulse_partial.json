@@ -1,0 +1,586 @@
+{
+  "phase": "P2",
+  "milestone": "moving_box_applied_mac_counterimpulse_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "ctest_suites": 79,
+  "native_assertions": 663,
+  "checks": [
+    {
+      "name": "full 79/79 CTest",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "native new test registered",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "native assertions >= 600",
+      "pass": true,
+      "detail": 663
+    },
+    {
+      "name": "12 two-step independent cases",
+      "pass": true,
+      "detail": 12
+    },
+    {
+      "name": "unique (8, 0, -1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite (8, 0, -1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "body impulse (8, 0, -1)",
+      "pass": true,
+      "detail": 5.1199999999999966
+    },
+    {
+      "name": "applied fluid impulse (8, 0, -1)",
+      "pass": true,
+      "detail": -5.12
+    },
+    {
+      "name": "combined impulse (8, 0, -1)",
+      "pass": true,
+      "detail": -3.552713678800501e-15
+    },
+    {
+      "name": "rigid velocity (8, 0, -1)",
+      "pass": true,
+      "detail": 0.5119999999999997
+    },
+    {
+      "name": "rigid centre (8, 0, -1)",
+      "pass": true,
+      "detail": 4.051200000000001
+    },
+    {
+      "name": "unique (8, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite (8, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "body impulse (8, 0, 1)",
+      "pass": true,
+      "detail": -5.119999999999994
+    },
+    {
+      "name": "applied fluid impulse (8, 0, 1)",
+      "pass": true,
+      "detail": 5.119999999999991
+    },
+    {
+      "name": "combined impulse (8, 0, 1)",
+      "pass": true,
+      "detail": -2.6645352591003757e-15
+    },
+    {
+      "name": "rigid velocity (8, 0, 1)",
+      "pass": true,
+      "detail": -0.5119999999999993
+    },
+    {
+      "name": "rigid centre (8, 0, 1)",
+      "pass": true,
+      "detail": 3.9488000000000003
+    },
+    {
+      "name": "unique (8, 1, -1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite (8, 1, -1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "body impulse (8, 1, -1)",
+      "pass": true,
+      "detail": 5.1199999999999966
+    },
+    {
+      "name": "applied fluid impulse (8, 1, -1)",
+      "pass": true,
+      "detail": -5.12
+    },
+    {
+      "name": "combined impulse (8, 1, -1)",
+      "pass": true,
+      "detail": -3.552713678800501e-15
+    },
+    {
+      "name": "rigid velocity (8, 1, -1)",
+      "pass": true,
+      "detail": 0.5119999999999997
+    },
+    {
+      "name": "rigid centre (8, 1, -1)",
+      "pass": true,
+      "detail": 4.051200000000001
+    },
+    {
+      "name": "unique (8, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite (8, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "body impulse (8, 1, 1)",
+      "pass": true,
+      "detail": -5.119999999999994
+    },
+    {
+      "name": "applied fluid impulse (8, 1, 1)",
+      "pass": true,
+      "detail": 5.11999999999999
+    },
+    {
+      "name": "combined impulse (8, 1, 1)",
+      "pass": true,
+      "detail": -3.552713678800501e-15
+    },
+    {
+      "name": "rigid velocity (8, 1, 1)",
+      "pass": true,
+      "detail": -0.5119999999999993
+    },
+    {
+      "name": "rigid centre (8, 1, 1)",
+      "pass": true,
+      "detail": 3.9488000000000003
+    },
+    {
+      "name": "unique (8, 2, -1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite (8, 2, -1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "body impulse (8, 2, -1)",
+      "pass": true,
+      "detail": 5.1199999999999966
+    },
+    {
+      "name": "applied fluid impulse (8, 2, -1)",
+      "pass": true,
+      "detail": -5.119999999999999
+    },
+    {
+      "name": "combined impulse (8, 2, -1)",
+      "pass": true,
+      "detail": -2.6645352591003757e-15
+    },
+    {
+      "name": "rigid velocity (8, 2, -1)",
+      "pass": true,
+      "detail": 0.5119999999999997
+    },
+    {
+      "name": "rigid centre (8, 2, -1)",
+      "pass": true,
+      "detail": 4.051200000000001
+    },
+    {
+      "name": "unique (8, 2, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite (8, 2, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "body impulse (8, 2, 1)",
+      "pass": true,
+      "detail": -5.119999999999994
+    },
+    {
+      "name": "applied fluid impulse (8, 2, 1)",
+      "pass": true,
+      "detail": 5.119999999999992
+    },
+    {
+      "name": "combined impulse (8, 2, 1)",
+      "pass": true,
+      "detail": -1.7763568394002505e-15
+    },
+    {
+      "name": "rigid velocity (8, 2, 1)",
+      "pass": true,
+      "detail": -0.5119999999999993
+    },
+    {
+      "name": "rigid centre (8, 2, 1)",
+      "pass": true,
+      "detail": 3.9488000000000003
+    },
+    {
+      "name": "unique (12, 0, -1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite (12, 0, -1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "body impulse (12, 0, -1)",
+      "pass": true,
+      "detail": 5.1199999999999966
+    },
+    {
+      "name": "applied fluid impulse (12, 0, -1)",
+      "pass": true,
+      "detail": -5.12
+    },
+    {
+      "name": "combined impulse (12, 0, -1)",
+      "pass": true,
+      "detail": -3.552713678800501e-15
+    },
+    {
+      "name": "rigid velocity (12, 0, -1)",
+      "pass": true,
+      "detail": 0.5119999999999997
+    },
+    {
+      "name": "rigid centre (12, 0, -1)",
+      "pass": true,
+      "detail": 4.051200000000001
+    },
+    {
+      "name": "unique (12, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite (12, 0, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "body impulse (12, 0, 1)",
+      "pass": true,
+      "detail": -5.119999999999994
+    },
+    {
+      "name": "applied fluid impulse (12, 0, 1)",
+      "pass": true,
+      "detail": 5.119999999999991
+    },
+    {
+      "name": "combined impulse (12, 0, 1)",
+      "pass": true,
+      "detail": -2.6645352591003757e-15
+    },
+    {
+      "name": "rigid velocity (12, 0, 1)",
+      "pass": true,
+      "detail": -0.5119999999999993
+    },
+    {
+      "name": "rigid centre (12, 0, 1)",
+      "pass": true,
+      "detail": 3.9488000000000003
+    },
+    {
+      "name": "unique (12, 1, -1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite (12, 1, -1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "body impulse (12, 1, -1)",
+      "pass": true,
+      "detail": 5.1199999999999966
+    },
+    {
+      "name": "applied fluid impulse (12, 1, -1)",
+      "pass": true,
+      "detail": -5.12
+    },
+    {
+      "name": "combined impulse (12, 1, -1)",
+      "pass": true,
+      "detail": -3.552713678800501e-15
+    },
+    {
+      "name": "rigid velocity (12, 1, -1)",
+      "pass": true,
+      "detail": 0.5119999999999997
+    },
+    {
+      "name": "rigid centre (12, 1, -1)",
+      "pass": true,
+      "detail": 4.051200000000001
+    },
+    {
+      "name": "unique (12, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite (12, 1, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "body impulse (12, 1, 1)",
+      "pass": true,
+      "detail": -5.119999999999994
+    },
+    {
+      "name": "applied fluid impulse (12, 1, 1)",
+      "pass": true,
+      "detail": 5.11999999999999
+    },
+    {
+      "name": "combined impulse (12, 1, 1)",
+      "pass": true,
+      "detail": -3.552713678800501e-15
+    },
+    {
+      "name": "rigid velocity (12, 1, 1)",
+      "pass": true,
+      "detail": -0.5119999999999993
+    },
+    {
+      "name": "rigid centre (12, 1, 1)",
+      "pass": true,
+      "detail": 3.9488000000000003
+    },
+    {
+      "name": "unique (12, 2, -1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite (12, 2, -1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "body impulse (12, 2, -1)",
+      "pass": true,
+      "detail": 5.1199999999999966
+    },
+    {
+      "name": "applied fluid impulse (12, 2, -1)",
+      "pass": true,
+      "detail": -5.119999999999999
+    },
+    {
+      "name": "combined impulse (12, 2, -1)",
+      "pass": true,
+      "detail": -2.6645352591003757e-15
+    },
+    {
+      "name": "rigid velocity (12, 2, -1)",
+      "pass": true,
+      "detail": 0.5119999999999997
+    },
+    {
+      "name": "rigid centre (12, 2, -1)",
+      "pass": true,
+      "detail": 4.051200000000001
+    },
+    {
+      "name": "unique (12, 2, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "finite (12, 2, 1)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "body impulse (12, 2, 1)",
+      "pass": true,
+      "detail": -5.119999999999994
+    },
+    {
+      "name": "applied fluid impulse (12, 2, 1)",
+      "pass": true,
+      "detail": 5.119999999999992
+    },
+    {
+      "name": "combined impulse (12, 2, 1)",
+      "pass": true,
+      "detail": -1.7763568394002505e-15
+    },
+    {
+      "name": "rigid velocity (12, 2, 1)",
+      "pass": true,
+      "detail": -0.5119999999999993
+    },
+    {
+      "name": "rigid centre (12, 2, 1)",
+      "pass": true,
+      "detail": 3.9488000000000003
+    },
+    {
+      "name": "complete grid/axis/sign coverage",
+      "pass": true,
+      "detail": null
+    }
+  ],
+  "analytic_reference": [
+    {
+      "grid": 8,
+      "axis": 0,
+      "gradient_sign": -1,
+      "body_impulse_Ns": 5.1199999999999966,
+      "applied_MAC_impulse_Ns": -5.12,
+      "body_velocity_m_s": 0.5119999999999997,
+      "body_centre_m": 4.051200000000001
+    },
+    {
+      "grid": 8,
+      "axis": 0,
+      "gradient_sign": 1,
+      "body_impulse_Ns": -5.119999999999994,
+      "applied_MAC_impulse_Ns": 5.119999999999991,
+      "body_velocity_m_s": -0.5119999999999993,
+      "body_centre_m": 3.9488000000000003
+    },
+    {
+      "grid": 8,
+      "axis": 1,
+      "gradient_sign": -1,
+      "body_impulse_Ns": 5.1199999999999966,
+      "applied_MAC_impulse_Ns": -5.12,
+      "body_velocity_m_s": 0.5119999999999997,
+      "body_centre_m": 4.051200000000001
+    },
+    {
+      "grid": 8,
+      "axis": 1,
+      "gradient_sign": 1,
+      "body_impulse_Ns": -5.119999999999994,
+      "applied_MAC_impulse_Ns": 5.11999999999999,
+      "body_velocity_m_s": -0.5119999999999993,
+      "body_centre_m": 3.9488000000000003
+    },
+    {
+      "grid": 8,
+      "axis": 2,
+      "gradient_sign": -1,
+      "body_impulse_Ns": 5.1199999999999966,
+      "applied_MAC_impulse_Ns": -5.119999999999999,
+      "body_velocity_m_s": 0.5119999999999997,
+      "body_centre_m": 4.051200000000001
+    },
+    {
+      "grid": 8,
+      "axis": 2,
+      "gradient_sign": 1,
+      "body_impulse_Ns": -5.119999999999994,
+      "applied_MAC_impulse_Ns": 5.119999999999992,
+      "body_velocity_m_s": -0.5119999999999993,
+      "body_centre_m": 3.9488000000000003
+    },
+    {
+      "grid": 12,
+      "axis": 0,
+      "gradient_sign": -1,
+      "body_impulse_Ns": 5.1199999999999966,
+      "applied_MAC_impulse_Ns": -5.12,
+      "body_velocity_m_s": 0.5119999999999997,
+      "body_centre_m": 4.051200000000001
+    },
+    {
+      "grid": 12,
+      "axis": 0,
+      "gradient_sign": 1,
+      "body_impulse_Ns": -5.119999999999994,
+      "applied_MAC_impulse_Ns": 5.119999999999991,
+      "body_velocity_m_s": -0.5119999999999993,
+      "body_centre_m": 3.9488000000000003
+    },
+    {
+      "grid": 12,
+      "axis": 1,
+      "gradient_sign": -1,
+      "body_impulse_Ns": 5.1199999999999966,
+      "applied_MAC_impulse_Ns": -5.12,
+      "body_velocity_m_s": 0.5119999999999997,
+      "body_centre_m": 4.051200000000001
+    },
+    {
+      "grid": 12,
+      "axis": 1,
+      "gradient_sign": 1,
+      "body_impulse_Ns": -5.119999999999994,
+      "applied_MAC_impulse_Ns": 5.11999999999999,
+      "body_velocity_m_s": -0.5119999999999993,
+      "body_centre_m": 3.9488000000000003
+    },
+    {
+      "grid": 12,
+      "axis": 2,
+      "gradient_sign": -1,
+      "body_impulse_Ns": 5.1199999999999966,
+      "applied_MAC_impulse_Ns": -5.119999999999999,
+      "body_velocity_m_s": 0.5119999999999997,
+      "body_centre_m": 4.051200000000001
+    },
+    {
+      "grid": 12,
+      "axis": 2,
+      "gradient_sign": 1,
+      "body_impulse_Ns": -5.119999999999994,
+      "applied_MAC_impulse_Ns": 5.119999999999992,
+      "body_velocity_m_s": -0.5119999999999993,
+      "body_centre_m": 3.9488000000000003
+    }
+  ],
+  "source_sha256": {
+    "CMakeLists.txt": "7729db95355e2c7308df38f28fb2bff2efa6ab787472ff459efe0196dac82ec2",
+    "docs/PHASENPLAN.md": "46d1bc8300e797f74c38e31d923d936c3ad0dc580dbb638c99ad298c17eb576d",
+    "docs/P2_MOVING_BOX_MAC_COUNTERIMPULSE_PARTIAL.md": "b9f33254d006d7a10a2037c8d18b47ceb978c4d6d9699c94e47f459d2e2bad69",
+    "include/upc/p2_moving_box_mac_counterimpulse3d.hpp": "7af384dfd0b66d337b33dd518e3984af844bf9a52c2703c4a9cdaa88abaf22be",
+    "include/upc/p2_moving_box_dynamic_pressure3d.hpp": "0542c4c40eb5f4ea855c105ad639437d15a0936a6025de8614d910780d6c57be",
+    "include/upc/p2_moving_box_pressure_traction3d.hpp": "261ed5769c7fe24d078802592b8db55df076ccc3015634ed818b301dbaa9fa53",
+    "include/upc/p2_moving_box_mac_apertures3d.hpp": "c5fbdae598166771f6a28359c31960178239d3a59e0ccbb60f89f47b38f29ad3",
+    "include/upc/p2_moving_mac_dual_volumes3d.hpp": "b6dcf0444be679dd2bb74d1846e74686c21a33870f50724912dce3a497c83bfa",
+    "tests/p2_moving_box_mac_counterimpulse3d_tests.cpp": "c91a56e63d52c6bad7657bb81f30e1e17623d8258df1faf4210974f12a126147",
+    "scripts/p2_moving_box_mac_counterimpulse_full_build.cmd": "477d307a04b4d120cb39d33aa724a55ae98faa805199566ffc6f839e6c8bc0bf",
+    "scripts/p2_moving_box_mac_counterimpulse_acceptance.py": "988d969acee9558ba4cee18c91a6b742a644d3a9e6eb770cee5364b60942494a"
+  },
+  "ctest_log_sha256": "0bc7a6fcd4fc113d6170760654ed0cb1968cf0d0f2e0adaa9224399d6c2c7f9f",
+  "unproven": [
+    "face momentum is a selected moving-dual-mass proxy, not a physical common momentum tensor",
+    "no post-impulse cut-cell pressure projection; nonzero GCL residual explicitly tested",
+    "no VOF transport, free-surface stresses or live CoupledMacWater3D integration",
+    "no closed fluid+solid mechanical energy budget, no external 3D CFD reference",
+    "no UE5.8 Native-E2E for this opt-in component"
+  ]
+}
