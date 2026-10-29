@@ -9,6 +9,7 @@
 #include <cmath>
 #include <cstddef>
 #include <limits>
+#include <numeric>
 #include <stdexcept>
 #include <vector>
 
@@ -84,6 +85,33 @@ public:
             if(z+1<nz)add(a,id(x,y,z+1),((z+1)*ny+y)*nx+x,2,
                           geom.w_open[((z+1)*ny+y)*nx+x]);
         }
+        // The weighted Laplacian has one nullspace per disconnected wet
+        // component. A globally balanced inventory is NOT sufficient:
+        // each component must conserve its own water volume. Fail before CG
+        // instead of returning an arbitrary pressure potential or a cryptic
+        // breakdown. Dry isolated cells with nonzero inventory change fail too.
+        std::vector<std::size_t> parent(n);
+        std::iota(parent.begin(),parent.end(),std::size_t{0});
+        const auto root=[&](std::size_t i) {
+            while(parent[i]!=i) {
+                parent[i]=parent[parent[i]];
+                i=parent[i];
+            }
+            return i;
+        };
+        for(const auto& e:edges) {
+            const auto a=root(e.a),c=root(e.b);
+            if(a!=c)parent[c]=a;
+        }
+        std::vector<double> component_balance(n,0.0);
+        for(std::size_t i=0;i<n;++i)
+            component_balance[root(i)]+=b[i];
+        const double component_tolerance=1e-12*std::max(1.0,volume);
+        for(std::size_t i=0;i<n;++i)
+            if(parent[i]==i &&
+               std::abs(component_balance[i])>component_tolerance)
+                throw std::invalid_argument(
+                    "Disconnected wet component has nonconservative inventory");
         const auto dot=[&](const std::vector<double>& a,
                            const std::vector<double>& c) {
             double s=0.0;

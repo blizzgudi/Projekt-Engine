@@ -21,9 +21,13 @@ hydrostatischen Wasserinventaren bei vertikal bewegtem Starrkoerper.
   ist eine ausdruecklich kinematische Wahl, kein physikalisches
   Upwind-/Dichte-/Viskositaetsmodell. U/V/W sind integrierte
   Volumenfluesse [m^3], keine beschleunigten Fluidimpulse.
-- Die Nullraumfreiheit der geschlossenen Graph-Laplace-Matrix wird
-  durch ein massenkonservatives RHS und CG ohne Druck-Gauge behandelt.
-  Nicht konvergierende oder nicht konservative Faelle brechen ab.
+- Die Graph-Laplace-Matrix besitzt einen Nullraum **pro verbundener
+  benetzter Komponente**. Globale Massenerhaltung allein reicht nicht.
+  Eine Disjoint-Set-Pruefung erzwingt deshalb vor CG die unabhaengige
+  Nullbilanz jeder Komponente, einschliesslich isolierter Trockenzellen.
+  Unmoegliche Transfers zwischen getrennten Wasserinseln werden mit
+  einer spezifischen Fehlermeldung abgewiesen. Erst dann wird ohne
+  Druck-Gauge iteriert. Nicht konvergierende Faelle brechen ab.
 - Die 3D-Zellbilanz wird *unabhaengig* aus U/V/W-Faces und den
   alten/neuen offenen Zellvolumina im nativen Test neu berechnet.
 
@@ -37,6 +41,11 @@ hydrostatischen Wasserinventaren bei vertikal bewegtem Starrkoerper.
   Prueft Zell- und globale Massenbilanz, versiegelte Beckenraender,
   gesperrte MAC-Faces, Nullfluss bei trockenem Becken, Negativfaelle,
   CG-Konvergenz und Quell-/CTest-SHA256.
+- Zusaetzlicher synthetischer 12x8x8-Test: zwei durch trockene
+  Zwischenzellen getrennte Wasserinseln. Unabhaengig ausgeglichene
+  Inseltransfers werden geloest; zwei global ausgeglichene, aber
+  lokal unmoegliche Transfers (zwischen Inseln und in isolierte
+  Trockenzellen) werden vor dem CG-Lauf abgelehnt.
 - Nachweise liegen ausschliesslich unter
   `D:\Projekt Engine\ENGINE TEST STUBE\runs\` und werden nach
   jedem Neubau durch den Akzeptanzlauf aktualisiert.

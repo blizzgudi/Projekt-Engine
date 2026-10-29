@@ -50,6 +50,17 @@ def main() -> None:
                r"([\d.eE+-]+)\s+([\d.eE+-]+)\s+([\d.eE+-]+)\s+"
                r"(\d+)\s+([\d.eE+-]+)\s+([\d.eE+-]+)$")
     rows = re.findall(pattern, output, re.MULTILINE)
+    component = re.search(
+        r"^COMPONENT\s+(\d+)\s+(\d+)\s+(\d+)\s+([\d.eE+-]+)$",
+        output, re.MULTILINE)
+    check("disconnected wet-island test executed", component is not None)
+    if component:
+        check("two isolated components with balanced transfer and two rejections",
+              tuple(map(int,component.groups()[:3]))==(2,1,1),
+              component.groups()[:3])
+        check("disconnected components independent continuity",
+              abs(float(component.group(4)))<1e-9,
+              float(component.group(4)))
     check("32 reference configurations", len(rows) == 32, len(rows))
     seen=set()
     references=[]
@@ -96,6 +107,7 @@ def main() -> None:
         "source_sha256":hashes,"ctest_log_sha256":sha(LOG),
         "limitations":[
             "flux reconstruction between prescribed hydrostatic states",
+            "wet graph components checked for separate inventory conservation",
             "not a time-advanced MAC/VOF Navier-Stokes solution",
             "no applied rigid-fluid counterimpulse or fluid inertia",
             "no global physical FSI energy/momentum conservation",

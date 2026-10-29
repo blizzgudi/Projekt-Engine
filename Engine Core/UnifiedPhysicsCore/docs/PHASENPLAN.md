@@ -1162,6 +1162,11 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
 - Nachweise: `docs/P2_CLOSED_BASIN_KINEMATIC_FLUX_PARTIAL.md`,
   `scripts/p2_closed_basin_kinematic_flux_acceptance.py`,
   `ENGINE TEST STUBE/runs/p2_closed_basin_kinematic_flux_partial.json`.
+- Zusatzpruefung (29.10.2026): DSU-Komponentenbilanz vor dem
+  Graph-Laplace-CG. Zwei getrennte 3D-Wasserinseln koennen je fuer
+  sich konservativ umverteilen; global bilanzierte, aber zwischen
+  getrennten Inseln unmoegliche Transfers werden abgelehnt.
+  Native MSVC/86 CTest und separater SHA-Teilnachweis erneuert.
 - **P2-P8 bleiben PARTIAL; ALL_COMPLETE=False.** Dies ist nur eine
   kinematische Flussrekonstruktion zwischen quasistatischen Zustaenden.
   Keine dynamische MAC/VOF-Advektion, keine angewendete FSI-

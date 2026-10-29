@@ -4,6 +4,7 @@
 #include <iomanip>
 #include <iostream>
 #include <stdexcept>
+#include <string>
 #include <vector>
 
 namespace {
@@ -98,6 +99,54 @@ void run(int n,double level,double g,double v) {
              <<" "<<r.cg_iterations<<" "<<max_flux<<" "
              <<r.total_water_change_m3<<"\n";
 }
+void disconnected_components() {
+    // Two isolated wet islands, each surrounded by one-cell dry halos.
+    // The graph must solve independent balanced transfers but reject a
+    // globally balanced transfer BETWEEN disconnected islands.
+    constexpr int nx=12,ny=8,nz=8;
+    const auto b=box();
+    upc::P2ClosedBasinHydrostaticResult3D state;
+    state.box_after=b;
+    state.water_fraction_before.assign(nx*ny*nz,0.0);
+    state.water_fraction_after.assign(nx*ny*nz,0.0);
+    const auto id=[=](int x) {return std::size_t(nx+x);}; // y=1,z=0
+    for(int x:{1,2,8,9}) {
+        state.water_fraction_before[id(x)]=0.5;
+        state.water_fraction_after[id(x)]=0.5;
+    }
+    state.water_fraction_after[id(1)]=0.25;
+    state.water_fraction_after[id(2)]=0.75;
+    state.water_fraction_after[id(8)]=0.75;
+    state.water_fraction_after[id(9)]=0.25;
+    const auto result=upc::P2ClosedBasinKinematicFlux3D::reconstruct(
+        nx,ny,nz,1.0,0.01,b,state);
+    require(result.max_cell_continuity_residual_m3<1e-9,
+            "balanced disconnected components conserve independently");
+    near(result.total_water_change_m3,0.0,1e-12,
+         "balanced components conserve total water");
+    // Each island is individually unbalanced, while the global total is 0.
+    auto invalid=state;
+    invalid.water_fraction_after[id(1)]+=0.1;
+    invalid.water_fraction_after[id(8)]-=0.1;
+    bool rejected=false;
+    try {
+        (void)upc::P2ClosedBasinKinematicFlux3D::reconstruct(
+            nx,ny,nz,1.0,0.01,b,invalid);
+    } catch(const std::invalid_argument& e) {
+        rejected=std::string(e.what()).find("Disconnected wet component")
+                 !=std::string::npos;
+    }
+    require(rejected,"globally balanced cross-island transfer rejected");
+    // An isolated dry cell cannot gain liquid without an open wet path.
+    invalid=state;
+    invalid.water_fraction_after[id(5)]=0.1;
+    invalid.water_fraction_after[id(1)]-=0.1;
+    rejects([&]{(void)upc::P2ClosedBasinKinematicFlux3D::reconstruct(
+        nx,ny,nz,1.0,0.01,b,invalid);},
+        "isolated dry cell cannot receive water");
+    std::cout<<"COMPONENT 2 1 1 "
+             <<result.max_cell_continuity_residual_m3<<"\n";
+}
 void negative() {
     const auto b=box();
     auto state=upc::P2ClosedBasinHydrostatic3D::step(
@@ -125,6 +174,7 @@ int main() {
         for(double level:{0.0,3.2,4.0,5.75})
         for(double g:{0.0,9.81})
         for(double v:{-0.4,0.4})run(n,level,g,v);
+        disconnected_components();
         negative();
         std::cout<<"PASS: "<<checks
                  <<" native closed-basin 3D kinematic flux assertions\n";
