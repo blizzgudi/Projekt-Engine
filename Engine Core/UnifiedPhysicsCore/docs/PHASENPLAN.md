@@ -1574,3 +1574,18 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
   Kein physikalischer FSI-Gesamtimpuls-/Energiebeweis, keine rotierende
   Geometrie, keine externen 3D-CFD-Messdaten, kein neuer UE5.8-Native-E2E.
   Details: `docs/P2_FROZEN_WRENCH_MAC_REACTION_PARTIAL.md`.
+
+## P2 Teilfortschritt: diskrete Druckgradientenbilanz nach MAC-Nachprojektion (30.10.2026)
+
+- Read-only C++17-Adapter fuer den Nachprojektions-Impuls und die exakte
+  Druckgradienten-Arbeit/Euler-Quadratik der staggered MAC-Face-Proxies.
+- Unabhaengige analytische 3D-Einzell-Zell-Referenz mit sechs Wasser-Luft-
+  Faces und 2x2x2-Wasserwuerfel fuer Wasser-Wasser-/Wasser-Luft-Kopplung.
+- Tests: tests/p2_projection_gradient_budget3d_tests.cpp;
+  scripts/p2_projection_gradient_budget_acceptance.py.
+- Nachweis: ENGINE TEST STUBE/runs/p2_projection_gradient_budget_partial.json;
+  docs/P2_PROJECTION_GRADIENT_BUDGET_PARTIAL.md.
+- **P2 bleibt INCOMPLETE**: Die Gradientenbilanz erklaert nur den
+  numerischen Nachprojektionsimpuls. Physikalische Wandreaktion,
+  globale FSI-Impuls-/Energieerhaltung, bewegte rotierende Geometrie,
+  externe CFD-Messdaten und UE5.8-Native-E2E sind weiterhin offen.

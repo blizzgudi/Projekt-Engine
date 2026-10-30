@@ -469,3 +469,9 @@ add_test(NAME physics_p2_closed_basin_kinematic_flux_partial
 add_executable(upc_p2_static_cut_cell_vof_tests tests/p2_static_cut_cell_vof3d_tests.cpp)
 target_link_libraries(upc_p2_static_cut_cell_vof_tests PRIVATE upc)
 add_test(NAME physics_p2_static_cut_cell_vof_partial COMMAND upc_p2_static_cut_cell_vof_tests)
+
+# P2 partial: explain post-projection MAC face impulses via the actual
+# pressure gradient and exact discrete face-energy identity; NOT global FSI.
+add_executable(upc_p2_projection_gradient_budget_tests tests/p2_projection_gradient_budget3d_tests.cpp)
+target_link_libraries(upc_p2_projection_gradient_budget_tests PRIVATE upc)
+add_test(NAME physics_p2_projection_gradient_budget_partial COMMAND upc_p2_projection_gradient_budget_tests)
