@@ -1589,3 +1589,21 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
   numerischen Nachprojektionsimpuls. Physikalische Wandreaktion,
   globale FSI-Impuls-/Energieerhaltung, bewegte rotierende Geometrie,
   externe CFD-Messdaten und UE5.8-Native-E2E sind weiterhin offen.
+
+
+## P2 Teilfortschritt: MAC-Projektions-Wand-Clamp-Budget (30.10.2026)
+
+- Der `ProjectionGradientBudgetAudit3D` bilanziert jetzt getrennt
+  die durch `MacProjection3D::project` erzwungene Nullgeschwindigkeit
+  an Festkörper- und Außenfaces (lineare/angulare Face-Impulse,
+  Energie-Proxy, Face-Zahlen und Restgeschwindigkeit).
+- Zwei native 3D-Gitter (8³, 12³) mit Wasser/Festkörper-, Festkörper/Luft-
+  und Außenface prüfen unabhängige analytische `delta_p`, `delta_L`
+  und `delta_E`-Referenzen. Reproduktion und Hashbelege:
+  `docs/P2_PROJECTION_WALL_CLAMP_BUDGET_PARTIAL.md`,
+  `scripts/p2_projection_wall_clamp_acceptance.py`,
+  `ENGINE TEST STUBE/runs/p2_projection_wall_clamp_partial.json`.
+- **P2 bleibt INCOMPLETE:** Dies ist ein numerisches MAC-Face-Budget,
+  keine physikalische Wandkraft-/FSI-Impuls- oder Gesamtenergiebilanz.
+  Bewegliche Geometrie, externe 3D-CFD-Daten und UE5.8-Native-E2E
+  dieser Erweiterung fehlen. P3–P8 ebenfalls offen.

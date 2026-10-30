@@ -3,7 +3,7 @@
   "milestone": "post_projection_gradient_impulse_energy_partial",
   "partial_accepted": true,
   "phase_complete": false,
-  "generated_utc": "2026-10-30T21:21:07.072020+00:00",
+  "generated_utc": "2026-10-30T21:59:24.354394+00:00",
   "checks": [
     {
       "name": "native_exit",
@@ -12,7 +12,7 @@
     },
     {
       "name": "native_assertions",
-      "value": 110,
+      "value": 138,
       "pass": true
     },
     {
@@ -236,7 +236,7 @@
       "pass": true
     }
   ],
-  "native_assertions": 110,
+  "native_assertions": 138,
   "analytic_reference": [
     {
       "n": 6,
@@ -340,16 +340,16 @@
     }
   ],
   "source_sha256": {
-    "include/upc/p2_projection_gradient_budget3d.hpp": "f76fcd16b1b1a09b50b3a0885a1eaf1c80e8d3c0a7da675c824fa220298973ce",
+    "include/upc/p2_projection_gradient_budget3d.hpp": "33fd2ce6ff82140c96382219f6e02bdb59501c093a0d95b67a7e1afb1388cbeb",
     "include/upc/mac3d.hpp": "9bb4659c5b6e6fd3a512301ae4a3a083fa96b1e67d50363ec8f5634e1038fdc5",
-    "tests/p2_projection_gradient_budget3d_tests.cpp": "ef09eb0d9005f34af507ca01cdea76e94623bb13e4fdde5884ded1d4ceb4dc4b",
+    "tests/p2_projection_gradient_budget3d_tests.cpp": "a0cc7b2ed44ebe3eaf27fe9bb085a9489723c9fb4c0293220f4b320b475eecca",
     "CMakeLists.txt": "1200ec1a89a2c129c65fbbf5f1ffffed79befe61f8897bab4525ac3c023a06fe",
     "scripts/p2_projection_gradient_budget_acceptance.py": "f8c8e2bc537be8e86ac859637b5e454c59a7dfaa66aef602fba24798acb55404",
     "docs/P2_PROJECTION_GRADIENT_BUDGET_PARTIAL.md": "b429868617939ce5c2dd41de759bb4ad8b55ed18ff83b960443ab74f5838fb60",
-    "docs/PHASENPLAN.md": "37d6fc9e9a3433c1ae6c850c8dd7aa7c93f65bac10a2656d5e3c3525fcac19d6",
+    "docs/PHASENPLAN.md": "9f06e8f0a3b8b46be27cc71c0bab135c742c5cb953a376638050ee60bc2ff929",
     "scripts/phase_gate.py": "01065438e2b72b3fe83e7e3ba3decbf54925c84c5f9424b15ad15a8197f59cd6"
   },
-  "native_binary_sha256": "c389a28d14b9f76f23a9285a8b6c64647c83b356e9a8d68308cfc5c7e267e820",
+  "native_binary_sha256": "e8fb209776e9cd4a9af74979ddea23bf9b680e095546e8de944db92ffb520c8e",
   "ctest_log_sha256": "b38f4ecf02833d9633020138c0233f1c4e0692b44638906f7fe2c79d65b2fc8d",
   "limitations": "Staggered-face rho*dx^3 momentum/energy proxies only; no global FSI, no moving/rotating body geometry, no external CFD data and no Unreal 5.8 Native E2E for this diagnostic."
 }

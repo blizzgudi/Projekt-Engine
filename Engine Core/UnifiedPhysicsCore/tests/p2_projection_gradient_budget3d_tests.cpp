@@ -152,6 +152,62 @@ void run(int n,double dx,double rho,double dt,bool cube) {
              <<","<<result.euler_quadratic_proxy_J
              <<","<<result.wet_wet_faces<<","<<result.wet_air_faces<<"\n";
 }
+
+// A nonzero wet/solid, dry/solid and exterior face must be zeroed by
+// project() before pressure solve. Independent reference: dp=-rho*dx^3*v0,
+// dE=-rho*dx^3*v0^2/2. No pressure correction is needed in this scene.
+void run_clamp(int n,double dx,double rho,double dt) {
+    const int c=n/2;
+    upc::MacProjection3D mac(n,n,n,dx,rho);
+    const auto idx=[&](int x,int y,int z) {
+        return static_cast<std::size_t>((z*n+y)*n+x);
+    };
+    std::vector<std::uint8_t> wet(static_cast<std::size_t>(n)*n*n,0),solid(wet);
+    wet[idx(c,c,c)]=1;
+    solid[idx(c+1,c,c)]=1;
+    mac.set_cell(c,c,c,true);
+    mac.set_cell(c+1,c,c,false,true);
+    mac.set_face_velocity_x(c+1,c,c,0.25);     // wet/solid
+    mac.set_face_velocity_y(c+1,c+1,c,-0.17);  // solid/air
+    mac.set_face_velocity_z(c,c,0,0.31);       // exterior
+    const auto before=mac;
+    mac.project(dt,4000);
+    const std::array<double,3> centre{{0,0,0}};
+    const auto b=upc::ProjectionGradientBudgetAudit3D::analyze(
+        before,mac,n,n,n,dx,rho,dt,wet,solid,centre);
+    const double m=rho*dx*dx*dx;
+    const std::array<double,3> j{{-0.25*m,0.17*m,-0.31*m}};
+    const std::array<std::array<double,3>,3> r{{
+        {{(c+1)*dx,(c+0.5)*dx,(c+0.5)*dx}},
+        {{(c+1.5)*dx,(c+1)*dx,(c+0.5)*dx}},
+        {{(c+0.5)*dx,(c+0.5)*dx,0}}
+    }};
+    std::array<double,3> torque{};
+    for(int axis=0;axis<3;++axis) {
+        torque[(axis+1)%3]+=r[axis][(axis+2)%3]*j[axis];
+        torque[(axis+2)%3]-=r[axis][(axis+1)%3]*j[axis];
+    }
+    const double energy=-0.5*m*(0.25*0.25+0.17*0.17+0.31*0.31);
+    for(int axis=0;axis<3;++axis) {
+        near(b.clamp_linear_Ns[axis],j[axis],1e-12,"analytic clamp impulse");
+        near(b.clamp_angular_Nms[axis],torque[axis],1e-12,
+             "analytic clamp angular impulse");
+        near(b.gradient_linear_Ns[axis],0,1e-12,"zero pressure gradient");
+    }
+    near(b.clamp_face_energy_delta_proxy_J,energy,1e-12,
+         "analytic wall/exterior clamp energy");
+    near(b.max_clamp_after_velocity_m_s,0,0,"zeroed wall/exterior faces");
+    check(b.clamp_solid_faces==6,"six solid-adjacent interior faces");
+    check(b.clamp_exterior_faces==static_cast<std::size_t>(6*n*n),
+          "all external MAC faces accounted for");
+    near(mac.max_divergence(),0,0,"clamped fluid has no divergence");
+    std::cout<<"clamp,"<<n<<","<<dx<<","<<rho<<","<<dt;
+    for(double v:j)std::cout<<","<<v;
+    for(double v:torque)std::cout<<","<<v;
+    std::cout<<","<<energy<<","<<b.clamp_solid_faces<<","
+             <<b.clamp_exterior_faces<<","<<b.max_clamp_after_velocity_m_s<<"\n";
+}
+
 }
 int main() {
     try {
@@ -164,6 +220,8 @@ int main() {
         run(12,0.08,1100.0,0.015,false);
         run(8,0.1,1000.0,0.02,true);
         run(12,0.08,1100.0,0.015,true);
+        run_clamp(8,0.1,1000.0,0.02);
+        run_clamp(12,0.08,1100.0,0.015);
         std::cout<<"PASS: P2 projection-gradient budget assertions="
                  <<assertions<<" phase_complete=false\n";
         return 0;
