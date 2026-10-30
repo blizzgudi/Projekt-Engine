@@ -1,0 +1,16 @@
+{
+  "name": "ENGINE TEST STUBE",
+  "version": "0.1.0",
+  "workspace": "D:\\Projekt Engine\\ENGINE TEST STUBE",
+  "purpose": "Isoliertes, erweiterbares Forschungs- und Testlabor fuer eine eigene Asset- und Material-Engine",
+  "experiments": [
+    {
+      "id": "voxel_water_001",
+      "path": "experiments/voxel_water_001",
+      "test": "test_voxel_lab.py",
+      "simulation": "voxel_lab.py",
+      "benchmark": "benchmark.py",
+      "classification": "vereinfachtes Rastermodell / keine Fluidphysik"
+    }
+  ]
+}
