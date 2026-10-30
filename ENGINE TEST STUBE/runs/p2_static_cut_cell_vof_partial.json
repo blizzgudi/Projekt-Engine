@@ -4,7 +4,7 @@
   "partial_accepted": true,
   "phase_complete": false,
   "ctest_suites": 87,
-  "native_assertions": 289010,
+  "native_assertions": 289030,
   "checks": [
     {
       "name": "87/87 full native CTest suites",
@@ -19,7 +19,7 @@
     {
       "name": "native assertions >= 288000",
       "pass": true,
-      "detail": 289010
+      "detail": 289030
     },
     {
       "name": "two grid sizes",
@@ -1051,21 +1051,103 @@
         1,
         1.0
       ]
+    },
+    {
+      "name": "3D heterogeneous numerical mixing audit on two grids",
+      "pass": true,
+      "detail": [
+        "8",
+        "12"
+      ]
+    },
+    {
+      "name": "8 cubed exact initial mixing functional",
+      "pass": true,
+      "detail": 1.0
+    },
+    {
+      "name": "8 cubed independent three-step mixing reference",
+      "pass": true,
+      "detail": 0.3394638351199851
+    },
+    {
+      "name": "8 cubed nonnegative conservative quadratic dissipation",
+      "pass": true,
+      "detail": 0.6605361648800149
+    },
+    {
+      "name": "12 cubed exact initial mixing functional",
+      "pass": true,
+      "detail": 1.0
+    },
+    {
+      "name": "12 cubed independent three-step mixing reference",
+      "pass": true,
+      "detail": 0.3394638351199851
+    },
+    {
+      "name": "12 cubed nonnegative conservative quadratic dissipation",
+      "pass": true,
+      "detail": 0.6605361648800149
+    },
+    {
+      "name": "3D fractional cut-cell mixing audit on two grids",
+      "pass": true,
+      "detail": [
+        "8",
+        "12"
+      ]
+    },
+    {
+      "name": "8 cubed partial wet-volume Q decreases",
+      "pass": true,
+      "detail": [
+        26.555084800000003,
+        26.501312115821687,
+        0.053772684178316155
+      ]
+    },
+    {
+      "name": "8 cubed partial Q difference closes",
+      "pass": true,
+      "detail": [
+        26.555084800000003,
+        26.501312115821687,
+        0.053772684178316155
+      ]
+    },
+    {
+      "name": "12 cubed partial wet-volume Q decreases",
+      "pass": true,
+      "detail": [
+        158.4486847999996,
+        158.21113753694465,
+        0.23754726305494955
+      ]
+    },
+    {
+      "name": "12 cubed partial Q difference closes",
+      "pass": true,
+      "detail": [
+        158.4486847999996,
+        158.21113753694465,
+        0.23754726305494955
+      ]
     }
   ],
   "source_sha256": {
     "CMakeLists.txt": "3bafa076a16a2405214fcf378271d64585cf73a5dd44912d6040054beca9f59c",
-    "docs/PHASENPLAN.md": "b4ee4b685cf49cd638d50f3dcf6333ec46b42396b3cb0f89612f091a06cb4214",
-    "docs/P2_STATIC_CUT_CELL_VOF_PARTIAL.md": "153e152c5acbed53dab68e7fef4a3f8e7bae46bb03e29f93066bb17e54e69640",
-    "include/upc/p2_cut_cell_tracer_diffusion3d.hpp": "d27fc7251925c556301108bcf8210a64e029bfe3e8cb08b5edeb2a429afd0e83",
+    "docs/PHASENPLAN.md": "bdc861a65e9594d788f016449b957fda729e76986b6938af38a3a286d54fc60a",
+    "docs/P2_STATIC_CUT_CELL_VOF_PARTIAL.md": "8f0987db1bf01a06b3e272e190860a937aee35b45b5ea5c0ad23ca871e131942",
+    "include/upc/p2_cut_cell_tracer_diffusion3d.hpp": "1f580c80583841b91585b712d3b482379692b73079156889475d58313cda1f34",
     "include/upc/p2_static_cut_cell_vof3d.hpp": "303a96b04d72e405d0eaf2c0ca40b2317cbfc2f20b85727fb241dc24ce52727f",
     "include/upc/p2_moving_box_mac_apertures3d.hpp": "c5fbdae598166771f6a28359c31960178239d3a59e0ccbb60f89f47b38f29ad3",
     "include/upc/p2_moving_box_open_volume3d.hpp": "270ecc419fa312212e47dbcfbd7fa8f2b172fde153b6d66e19f226be5cbedbb2",
-    "tests/p2_static_cut_cell_vof3d_tests.cpp": "eabce4902b17a2d68ee7f7ecb18e70c34b367a7796e44394ae7bee94076324df",
-    "scripts/p2_static_cut_cell_vof_acceptance.py": "7a3014b9b3ff5fb1404beaa35ab3e4c1bc0738e8b358ce6ffda0369d47fba8c6",
+    "tests/p2_static_cut_cell_vof3d_tests.cpp": "d23808d07cf4a2887dff505e71be2f32b55d5d2184e2b484141807a0a317afc2",
+    "scripts/p2_static_cut_cell_vof_acceptance.py": "c1592ebc60656bb1334d4b15bd09f96dce3df621cea5f4d35f6ae648933c9213",
     "scripts/p2_static_cut_cell_vof_full_build.cmd": "73075d11a3e65c5ba16a8b77ae7bec36e31b7816746b17ec8740c90f336b2168"
   },
-  "ctest_log_sha256": "0978ba01a7beb72fc46cffa77a984018283942c8858263000a0a9f7431173c8e",
+  "ctest_log_sha256": "359d9eca3bb4b85522eee5c86356556b537c7c3369dad56f6629eff180802a34",
   "limitations": [
     "prescribed solenoidal MAC velocity and stationary cut-cell geometry",
     "first-order diffusive donor-cell advection, no interface reconstruction",

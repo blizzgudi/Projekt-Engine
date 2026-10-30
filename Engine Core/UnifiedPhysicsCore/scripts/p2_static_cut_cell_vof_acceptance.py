@@ -367,6 +367,32 @@ def main():
               abs(large-0.01)<1e-13,large)
         check(f"{n} cubed extreme heterogeneous subcycle and mass",
               substeps==1 and abs(mass-1)<1e-13,(substeps,mass))
+    quadratic=re.findall(
+        r"^VOF_TRACER_HET_QUADRATIC (\d+) ([\d.eE+-]+) "
+        r"([\d.eE+-]+) ([\d.eE+-]+)$",output,re.MULTILINE)
+    check("3D heterogeneous numerical mixing audit on two grids",
+          len(quadratic)==2,[row[0] for row in quadratic])
+    for row in quadratic:
+        n=int(row[0]);before,after,loss=map(float,row[1:])
+        check(f"{n} cubed exact initial mixing functional",
+              n in (8,12) and abs(before-1.0)<1e-13,before)
+        check(f"{n} cubed independent three-step mixing reference",
+              abs(after-20045/59049)<1e-13,after)
+        check(f"{n} cubed nonnegative conservative quadratic dissipation",
+              abs(loss-39004/59049)<1e-13 and abs(before-after-loss)<1e-13,
+              loss)
+    fractional_quadratic=re.findall(
+        r"^VOF_TRACER_HET_QUADRATIC_PARTIAL (\d+) ([\d.eE+-]+) "
+        r"([\d.eE+-]+) ([\d.eE+-]+)$",output,re.MULTILINE)
+    check("3D fractional cut-cell mixing audit on two grids",
+          len(fractional_quadratic)==2,[row[0] for row in fractional_quadratic])
+    for row in fractional_quadratic:
+        n=int(row[0]);before,after,loss=map(float,row[1:])
+        check(f"{n} cubed partial wet-volume Q decreases",
+              n in (8,12) and 0<after<before and loss>0,
+              (before,after,loss))
+        check(f"{n} cubed partial Q difference closes",
+              abs(before-after-loss)<1e-10,(before,after,loss))
     hashes={name:sha(CORE/name) for name in SOURCES}
     report={
         "phase":"P2","milestone":"static_cut_cell_3d_donor_vof_partial",

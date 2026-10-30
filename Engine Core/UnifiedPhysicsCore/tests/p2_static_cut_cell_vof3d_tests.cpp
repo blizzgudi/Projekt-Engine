@@ -1241,6 +1241,20 @@ void heterogeneous_subcycle_reference(int n) {
     check(r.diffusion_substeps==3,"harmonic CFL requires 3 substeps");
     near(r.max_diffusion_cfl,2.0/3.0,1e-13,"harmonic substep CFL");
     near(r.tracer_after_kg,1.0,1e-12,"heterogeneous mass");
+    check(r.diffusive_quadratic_audited,"heterogeneous mixing Q audited");
+    // Three-cell exact rational reference: harmonic face transfers
+    // 2/9 and 4/9 per substep; after three steps concentrations are
+    // 66/243, 85/243 and 92/243. Q = 20045/59049.
+    near(r.diffusive_quadratic_before_kg2_m3,1.0,1e-13,
+         "independent heterogeneous Q before");
+    near(r.diffusive_quadratic_after_kg2_m3,20045.0/59049.0,1e-13,
+         "independent three-step heterogeneous Q after");
+    near(r.diffusive_quadratic_loss_kg2_m3,39004.0/59049.0,1e-13,
+         "independent heterogeneous quadratic dissipation");
+    std::cout<<"VOF_TRACER_HET_QUADRATIC "<<n<<" "<<std::setprecision(17)
+             <<r.diffusive_quadratic_before_kg2_m3<<" "
+             <<r.diffusive_quadratic_after_kg2_m3<<" "
+             <<r.diffusive_quadratic_loss_kg2_m3<<"\n";
     std::vector<double> replay=c;
     std::vector<double> uf(r.u_diffusion_flux_kg.size(),0.0);
     std::vector<double> vf(r.v_diffusion_flux_kg.size(),0.0);
@@ -1305,6 +1319,8 @@ void heterogeneous_subcycle_reference(int n) {
         n,n,n,1,0.5,s.box,s.f,c,s.u,s.v,s.w,d);
     check(zero.diffusion_substeps==1&&zero.concentration_after_kg_m3==c,
           "zero D exact advection parity");
+    check(!zero.diffusive_quadratic_audited,
+          "zero D skips optional quadratic audit without changing advection");
     std::cout<<"VOF_TRACER_HET_SUBCYCLE "<<n<<" "<<r.diffusion_substeps
              <<" "<<std::setprecision(17)<<r.tracer_after_kg<<" "
              <<r.max_diffusion_cfl<<" "<<residual<<"\n";
@@ -1329,6 +1345,28 @@ void heterogeneous_subcycle_reference(int n) {
          "fractional heterogeneous solute mass");
     const auto geom=upc::P2MovingBoxFaceApertures3D::sample(
         n,n,n,1,1.2,s.box,s.box);
+    double independent_q_before=0.0,independent_q_after=0.0;
+    for(std::size_t i=0;i<c.size();++i) {
+        const double volume=geom.cell_geometry.alpha_old[i]*s.f[i];
+        independent_q_before+=volume*c[i]*c[i];
+        independent_q_after+=volume*fractional.concentration_after_kg_m3[i]*
+                             fractional.concentration_after_kg_m3[i];
+    }
+    check(fractional.diffusive_quadratic_audited,
+          "fractional cut-cell mixing Q audited");
+    near(fractional.diffusive_quadratic_before_kg2_m3,
+         independent_q_before,1e-11,"independent fractional Q before");
+    near(fractional.diffusive_quadratic_after_kg2_m3,
+         independent_q_after,1e-11,"independent fractional Q after");
+    check(independent_q_after<independent_q_before,
+          "heterogeneous partial-cut-cell diffusion dissipates Q");
+    near(fractional.diffusive_quadratic_loss_kg2_m3,
+         independent_q_before-independent_q_after,1e-11,
+         "independent fractional Q loss");
+    std::cout<<"VOF_TRACER_HET_QUADRATIC_PARTIAL "<<n<<" "
+             <<std::setprecision(17)<<independent_q_before<<" "
+             <<independent_q_after<<" "
+             <<fractional.diffusive_quadratic_loss_kg2_m3<<"\n";
     double partial_residual=0.0;
     int partial_cells=0;
     for(int z=0;z<n;++z)for(int y=0;y<n;++y)for(int x=0;x<n;++x) {

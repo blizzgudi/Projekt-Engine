@@ -1380,3 +1380,26 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
 - **P2-P8 PARTIAL, ALL_COMPLETE=False.** Reine numerische Robustheit,
   keine kalibrierte Materialphysik, Navier-Stokes-/FSI-Gesamtvalidierung
   oder neue Unreal-5.8-Native-E2E-Abnahme.
+
+## P2 Teilfortschritt: konservative numerische Mischungsdiagnose (30.10.2026)
+
+- step_diffusion_subcycled_heterogeneous bilanziert das diskrete,
+  mit benetztem Zellvolumen gewichtete Konzentrationsquadrat
+  Q=sum(V_wet*c^2) [kg^2/m^3] unmittelbar vor und nach den
+  heterogenen Diffusions-Substeps. Die MAC-Advektion liegt VOR dem
+  Anfangswert; die Messung ist daher keine physikalische Energie.
+- Fuer symmetrische harmonische Face-Leitwerte, Nullfluss-Waende und
+  lokale explizite CFL <= 1 ist Q monoton nicht steigend. Ein Anstieg
+  oberhalb der Rundungstoleranz wird als numerischer Fehler abgelehnt.
+  Null-D bleibt bitgleich zum bisherigen Transport.
+- Native 8^3/12^3: unabhaengige exakte Dreizell-Referenz nach drei
+  Schritten: Q_vor=1, Q_nach=20045/59049=0.339463835119985,
+  Verlust=39004/59049=0.660536164880015 [kg^2/m^3].
+  Fraktionale Cut-Cells: Q 26.5550848 -> 26.501312115821687 (8^3),
+  158.4486848 -> 158.21113753694465 (12^3).
+  Test: tests/p2_static_cut_cell_vof3d_tests.cpp;
+  Teilgate: scripts/p2_static_cut_cell_vof_acceptance.py.
+- **P2-P8 PARTIAL, ALL_COMPLETE=False.** Das ist ein numerischer
+  Mischungs-/Monotonienachweis, keine thermodynamische Entropie,
+  physikalische Fluid-/FSI-Energiebilanz, externe CFD-Messvalidierung
+  oder UE5.8-Native-E2E-Abnahme dieses Transportpfads.

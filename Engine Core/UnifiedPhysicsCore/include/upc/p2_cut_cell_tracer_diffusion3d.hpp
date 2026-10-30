@@ -18,6 +18,13 @@ struct P2CutCellTracerDiffusionResult3D {
     double tracer_after_kg=0.0;
     double max_diffusion_cfl=0.0;
     std::size_t diffusion_substeps=1;
+    // Discrete solute mixing functional Q=sum(wet_cell_volume*c^2)
+    // [kg^2/m^3], NOT kinetic/thermal energy or thermodynamic entropy.
+    // Populated only by the heterogeneous diffusion-subcycle path.
+    bool diffusive_quadratic_audited=false;
+    double diffusive_quadratic_before_kg2_m3=0.0;
+    double diffusive_quadratic_after_kg2_m3=0.0;
+    double diffusive_quadratic_loss_kg2_m3=0.0;
 };
 class P2CutCellTracerDiffusion3D {
     // Scaled harmonic mean avoids reciprocal overflow for subnormal D
@@ -279,6 +286,25 @@ public:
             nx,ny,nz,dx,dt,stationary_box,stationary_box);
         const auto& f=out.advected.water.fraction_after;
         const double cell=dx*dx*dx;
+        // The symmetric no-flux finite-volume diffusion stencil is a
+        // volume-weighted convex averaging operator at local CFL <= 1.
+        // Jensen's inequality therefore requires Q_after <= Q_before.
+        // This audits numerical mixing AFTER prescribed-MAC advection.
+        const auto quadratic=[&](const std::vector<double>& c) {
+            double q=0.0;
+            for(std::size_t i=0;i<n;++i) {
+                const double volume=geom.cell_geometry.alpha_old[i]*cell*f[i];
+                const double term=volume*c[i]*c[i];
+                if(!std::isfinite(term)||term<0.0)
+                    throw std::invalid_argument("Nonfinite tracer quadratic inventory");
+                q+=term;
+            }
+            if(!std::isfinite(q))
+                throw std::invalid_argument("Nonfinite total tracer quadratic");
+            return q;
+        };
+        out.diffusive_quadratic_before_kg2_m3=
+            quadratic(out.advected.concentration_after_kg_m3);
         std::vector<double> conductance_sum(n,0.0);
         const auto id=[&](std::size_t x,std::size_t y,std::size_t z) {
             return (z*ny+y)*nx+x;
@@ -355,6 +381,15 @@ public:
         const double tol=1e-10*std::max(1.0,out.advected.tracer_after_kg);
         if(std::abs(out.tracer_after_kg-out.advected.tracer_after_kg)>tol)
             throw std::logic_error("Subcycled heterogeneous tracer mass not conserved");
+        out.diffusive_quadratic_after_kg2_m3=
+            quadratic(out.concentration_after_kg_m3);
+        out.diffusive_quadratic_loss_kg2_m3=
+            out.diffusive_quadratic_before_kg2_m3-
+            out.diffusive_quadratic_after_kg2_m3;
+        if(out.diffusive_quadratic_loss_kg2_m3 <
+           -1e-11*std::max(1.0,out.diffusive_quadratic_before_kg2_m3))
+            throw std::logic_error("Heterogeneous diffusion increased solute quadratic");
+        out.diffusive_quadratic_audited=true;
         return out;
     }
 

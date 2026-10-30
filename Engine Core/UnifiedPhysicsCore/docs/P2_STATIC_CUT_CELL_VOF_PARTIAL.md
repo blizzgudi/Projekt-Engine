@@ -213,3 +213,33 @@ P2 und P3-P8 bleiben PARTIAL.
 - **P2-P8 bleiben PARTIAL; ALL_COMPLETE=False.** Keine echte
   Fluid-Festkoerper-Kopplung, physikalische Gesamtenergie-/Impulsbilanz,
   externen 3D-CFD-Messdaten oder neue UE5.8-Native-E2E-Abnahme.
+
+## 30.10.2026: diskrete heterogene Tracer-Mischungsbilanz (Teilabnahme)
+
+- Der heterogene CFL-Subcycling-Operator liefert einen numerischen
+  Mischungs-Audit mit diffusive_quadratic_audited sowie
+  diffusive_quadratic_before_kg2_m3,
+  diffusive_quadratic_after_kg2_m3 und
+  diffusive_quadratic_loss_kg2_m3. Definition:
+  Q = Summe ueber Zellen [alpha * dx^3 * VOF * c^2].
+  Einheit kg^2/m^3. Die Messung beginnt **nach** der vorgeschriebenen
+  MAC-Advektion und endet nach den Diffusions-Teilzeitschritten.
+- Mathematischer Grund: Symmetrische harmonische Face-Leitwerte und
+  geschlossene Randflaechen ergeben bei lokaler CFL <=1 einen
+  volumen-gewichteten Mittelungsoperator. Konvexitaet von c^2
+  erzwingt Q_nach <= Q_vor; Verletzung oberhalb der Rundungstoleranz
+  wird zur Laufzeit abgelehnt. Keine Aenderung an den MAC-Impulsen,
+  Wasser-VOF, Temperatur oder Festkoerpern.
+- MSVC-Release-Nativetest auf 8^3 und 12^3: unabhaengige exakte
+  Dreizell-Referenz (harmonische Transferanteile 2/9 und 4/9 pro
+  Substep). Nach 3 Schritten Konzentrationen (66,85,92)/243;
+  Q_vor=1, Q_nach=20045/59049, Q-Verlust=39004/59049.
+  Echte fraktionale Cut-Cells auf beiden Gittern:
+  26.555084800000003 -> 26.501312115821687 und
+  158.4486847999996 -> 158.21113753694465.
+  Zusaetzliche unabhaengige Wet-Volume-Q-Referenz und Null-D-
+  Legacy-Paritaet. Nachweis ueber dasselbe CTest-/JSON-/SHA256-Gate.
+- **Nur P2-Teilfortschritt.** Q ist weder physikalische kinetische
+  Energie noch thermodynamische Entropie. Kein Nachweis bewegter
+  Fluid-Festkoerper-Interaktion, vollstaendiger Navier-Stokes-Physik,
+  externer 3D-CFD-Messdaten oder neuer UE5.8-Native-E2E-Abnahme.
