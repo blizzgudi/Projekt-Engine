@@ -42,7 +42,7 @@ def main():
     output=result.stdout
     match=re.search(r"PASS: (\d+) native static 3D cut-cell VOF assertions",output)
     count=int(match.group(1)) if match else 0
-    check("native assertions >= 274000",count>=288000,count)
+    check("native assertions >= 288000",count>=288000,count)
     rows=re.findall(r"^VOF_CASE (\d+) (\d+) ([\d.eE+-]+) "
                     r"([\d.eE+-]+) ([\d.eE+-]+) ([\d.eE+-]+)$",
                     output,re.MULTILINE)
@@ -349,6 +349,24 @@ def main():
               0<cfl<=0.7+1e-12,cfl)
         check(f"{n} cubed fractional independent cellwise mass ledger",
               math.isfinite(residual) and residual<1e-12,residual)
+    harmonic=re.findall(
+        r"^VOF_TRACER_HARMONIC_EXTREME (\d+) "
+        r"([\d.eE+-]+) ([\d.eE+-]+) ([\d.eE+-]+) "
+        r"(\d+) ([\d.eE+-]+)$",output,re.MULTILINE)
+    check("extreme harmonic material-interface runs on both 3D grids",
+          len(harmonic)==2,[r[0] for r in harmonic])
+    for row in harmonic:
+        n=int(row[0])
+        contrast,equal,large=map(float,row[1:4])
+        substeps=int(row[4]);mass=float(row[5])
+        check(f"{n} cubed subnormal/huge D harmonic flux",
+              n in (8,12) and abs(contrast-2e-10)<1e-21,contrast)
+        check(f"{n} cubed equal subnormal D remains conductive",
+              abs(equal-1e-10)<1e-21,equal)
+        check(f"{n} cubed equal large D avoids overflow",
+              abs(large-0.01)<1e-13,large)
+        check(f"{n} cubed extreme heterogeneous subcycle and mass",
+              substeps==1 and abs(mass-1)<1e-13,(substeps,mass))
     hashes={name:sha(CORE/name) for name in SOURCES}
     report={
         "phase":"P2","milestone":"static_cut_cell_3d_donor_vof_partial",
@@ -364,6 +382,7 @@ def main():
             "diagonal grid-aligned anisotropic diffusivity only; no cross-tensor terms or measured soil calibration",
             "heterogeneous cell-wise diffusivity uses harmonic face mixing, not calibrated porous media or thermodynamic transport",
             "heterogeneous diffusion-only CFL subcycling uses stationary wetted cut cells, not a coupled Navier-Stokes or reactive solver",
+            "extreme harmonic mean is numerical robustness, not measured physical material calibration",
             "opt-in conservative diffusion-only CFL subcycling after one prescribed-MAC advection, not fully coupled time integration",
             "no pressure/impulse time integration or moving-solid counterreaction",
             "no global physical FSI energy/momentum conservation",

@@ -1367,3 +1367,16 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
 - Die exakte lokale Summe der benetzten Face-Leitwerte relativ zum Wasservolumen bestimmt die Substepzahl (CFL-Ziel <=1, Budget maximal 1024); U/V/W-Stoffmassenledger werden aus jedem aktualisierten Substep akkumuliert. Null-D behaelt den bisherigen passiven Advektionszustand exakt bei.
 - MSVC Release, 87/87 CTest, 288988 native Assertions im P2-Test. 8^3/12^3: 3 Substeps bei maximaler CFL 2/3, 1 kg Stoffmasse, Zellbilanz-Residuum 5.55e-17 kg. Fraktionale Cut-Cells: 2 Substeps, 8 partielle Zellen, Residuum 1.11e-16 kg. Manuelles Replay und Negativtests. JSON/Quellhash/CTest-Gate: scripts/p2_static_cut_cell_vof_acceptance.py.
 - **P2-P8 PARTIAL, ALL_COMPLETE=False.** Nur numerischer passiver Stofftransport bei vorgeschriebenen MAC-Geschwindigkeiten und statischer Geometrie, keine kalibrierte Bodenchemie, dynamische 3D-Navier-Stokes-/FSI-Kopplung, physikalische Gesamtimpuls-/Energiebilanz, externe CFD-Messvalidierung oder neue Unreal-5.8-Native-E2E.
+
+## P2 Teilfortschritt: robustes harmonisches D an 3D-Materialgrenzen (30.10.2026)
+
+- Numerisch skaliertes harmonisches Mittel fuer heterogene D_x/D_y/D_z
+  verhindert falsche Nullfluesse durch subnormale positive Koeffizienten
+  sowie Zwischenueberlauf bei grossen endlichen Koeffizienten.
+- Native 8^3/12^3: analytische Grenzwerttests fuer 1e-310/1e308
+  (2e-10 kg), gleiche 1e-310 (1e-10 kg), gleiche 1e308
+  (0.01 kg); Massenerhaltung und Subcycle-Paritaet. Nachweis im
+  P2-Static-Cut-Cell-VOF-Teilgate mit CTest- und Quell-SHA256.
+- **P2-P8 PARTIAL, ALL_COMPLETE=False.** Reine numerische Robustheit,
+  keine kalibrierte Materialphysik, Navier-Stokes-/FSI-Gesamtvalidierung
+  oder neue Unreal-5.8-Native-E2E-Abnahme.

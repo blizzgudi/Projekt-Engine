@@ -194,3 +194,22 @@ P2 und P3-P8 bleiben PARTIAL.
 - Echte fraktionale 3D-Cut-Cells (8 pro Gitter) auf 8^3/12^3: je 2 Substeps, lokale CFL 0.54728663510270337 / 0.63530549094953981, Stoffmasse 113.00864000000004 / 504.52863999999994 kg, zellweises Residuum 1.1102230246251565e-16 kg. Die Stoffmassen folgen dem tatsaechlichen freien Zellvolumen.
 - MSVC Release, 87/87 CTest, 288988 native Assertions. Quantitatives Gate scripts/p2_static_cut_cell_vof_acceptance.py und JSON ENGINE TEST STUBE/runs/p2_static_cut_cell_vof_partial.json mit Quell-SHA256 und CTest-Log-SHA256.
 - **Keine P2-Vollabnahme**: keine dynamische Navier-Stokes-/Fluid-Festkoerper-Gegenreaktion, keine Gesamtimpuls-/Energiebilanz, keine externe 3D-CFD-Messvalidierung und kein neuer UE5.8-Native-E2E-Lauf. P2-P8 bleiben PARTIAL.
+
+## 30.10.2026: numerisch robuster harmonischer Materialgrenzwert (Teilabnahme)
+
+- Heterogene 3D-Cut-Cell-Stoffdiffusion nutzt jetzt ein skaliertes
+  harmonisches Mittel min(Da,Db)/(0.5+0.5*min(Da,Db)/max(Da,Db)).
+  Dadurch erzeugen sehr kleine positive D keine falsche Nullleitfaehigkeit
+  durch 1/D-Ueberlauf; grosse endliche D vermeiden 2*D-Ueberlauf.
+  Beide heterogenen Operatoren (Einzelschritt und CFL-Subcycling) verwenden
+  dieselbe numerisch stabile Face-Regel. D=0 bleibt undurchlaessig.
+- Unabhaengige Grenzwertreferenzen auf 8^3/12^3 mit ruhendem MAC-Feld:
+  D_links=1e-310, D_rechts=1e308, dt=1e300 s: signierter U-Face-Flux
+  2e-10 kg; gleiche subnormale D: 1e-10 kg; gleiche grosse D=1e308,
+  dt=1e-310 s: 0.01 kg. Positive Massenfluesse, CFL, Erhaltung und
+  Subcycling-Paritaet werden im nativen Test und quantitativen Gate geprueft.
+  Extreme dt/D sind absichtliche numerische Stresstests, keine
+  realistischen Material- oder Zeitskalen.
+- **P2-P8 bleiben PARTIAL; ALL_COMPLETE=False.** Keine echte
+  Fluid-Festkoerper-Kopplung, physikalische Gesamtenergie-/Impulsbilanz,
+  externen 3D-CFD-Messdaten oder neue UE5.8-Native-E2E-Abnahme.

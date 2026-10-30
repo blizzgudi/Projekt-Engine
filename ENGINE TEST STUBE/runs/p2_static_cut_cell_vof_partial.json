@@ -4,7 +4,7 @@
   "partial_accepted": true,
   "phase_complete": false,
   "ctest_suites": 87,
-  "native_assertions": 288988,
+  "native_assertions": 289010,
   "checks": [
     {
       "name": "87/87 full native CTest suites",
@@ -17,9 +17,9 @@
       "detail": null
     },
     {
-      "name": "native assertions >= 274000",
+      "name": "native assertions >= 288000",
       "pass": true,
-      "detail": 288988
+      "detail": 289010
     },
     {
       "name": "two grid sizes",
@@ -991,27 +991,81 @@
     {
       "name": "12 cubed fractional heterogeneous local CFL",
       "pass": true,
-      "detail": 0.6353054909495398
+      "detail": 0.63530549094954
     },
     {
       "name": "12 cubed fractional independent cellwise mass ledger",
       "pass": true,
       "detail": 1.1102230246251565e-16
+    },
+    {
+      "name": "extreme harmonic material-interface runs on both 3D grids",
+      "pass": true,
+      "detail": [
+        "8",
+        "12"
+      ]
+    },
+    {
+      "name": "8 cubed subnormal/huge D harmonic flux",
+      "pass": true,
+      "detail": 1.9999999999999939e-10
+    },
+    {
+      "name": "8 cubed equal subnormal D remains conductive",
+      "pass": true,
+      "detail": 9.999999999999969e-11
+    },
+    {
+      "name": "8 cubed equal large D avoids overflow",
+      "pass": true,
+      "detail": 0.009999999999999969
+    },
+    {
+      "name": "8 cubed extreme heterogeneous subcycle and mass",
+      "pass": true,
+      "detail": [
+        1,
+        1.0
+      ]
+    },
+    {
+      "name": "12 cubed subnormal/huge D harmonic flux",
+      "pass": true,
+      "detail": 1.9999999999999939e-10
+    },
+    {
+      "name": "12 cubed equal subnormal D remains conductive",
+      "pass": true,
+      "detail": 9.999999999999969e-11
+    },
+    {
+      "name": "12 cubed equal large D avoids overflow",
+      "pass": true,
+      "detail": 0.009999999999999969
+    },
+    {
+      "name": "12 cubed extreme heterogeneous subcycle and mass",
+      "pass": true,
+      "detail": [
+        1,
+        1.0
+      ]
     }
   ],
   "source_sha256": {
     "CMakeLists.txt": "3bafa076a16a2405214fcf378271d64585cf73a5dd44912d6040054beca9f59c",
-    "docs/PHASENPLAN.md": "d7412c69074344b2a04a5abd6500731dd4a3b408727a5c6b802f4eda3b2bc5dd",
-    "docs/P2_STATIC_CUT_CELL_VOF_PARTIAL.md": "0bb56f1295be7aa38ecf712c608aefaf4bf525f302db8b46c885cead5457d12e",
-    "include/upc/p2_cut_cell_tracer_diffusion3d.hpp": "a66a3b6b987a118649bec79accea8b3d446e806b4634f69d23719328d75d5968",
+    "docs/PHASENPLAN.md": "b4ee4b685cf49cd638d50f3dcf6333ec46b42396b3cb0f89612f091a06cb4214",
+    "docs/P2_STATIC_CUT_CELL_VOF_PARTIAL.md": "153e152c5acbed53dab68e7fef4a3f8e7bae46bb03e29f93066bb17e54e69640",
+    "include/upc/p2_cut_cell_tracer_diffusion3d.hpp": "d27fc7251925c556301108bcf8210a64e029bfe3e8cb08b5edeb2a429afd0e83",
     "include/upc/p2_static_cut_cell_vof3d.hpp": "303a96b04d72e405d0eaf2c0ca40b2317cbfc2f20b85727fb241dc24ce52727f",
     "include/upc/p2_moving_box_mac_apertures3d.hpp": "c5fbdae598166771f6a28359c31960178239d3a59e0ccbb60f89f47b38f29ad3",
     "include/upc/p2_moving_box_open_volume3d.hpp": "270ecc419fa312212e47dbcfbd7fa8f2b172fde153b6d66e19f226be5cbedbb2",
-    "tests/p2_static_cut_cell_vof3d_tests.cpp": "28f5a266f8bfb5df9f002c0cb18661300de7b0b0a510b142a3017285df141c6d",
-    "scripts/p2_static_cut_cell_vof_acceptance.py": "a26cc9b28f177e7e97c76be267ed4e547546a5d641ac7291548a88379a4e16f3",
+    "tests/p2_static_cut_cell_vof3d_tests.cpp": "eabce4902b17a2d68ee7f7ecb18e70c34b367a7796e44394ae7bee94076324df",
+    "scripts/p2_static_cut_cell_vof_acceptance.py": "7a3014b9b3ff5fb1404beaa35ab3e4c1bc0738e8b358ce6ffda0369d47fba8c6",
     "scripts/p2_static_cut_cell_vof_full_build.cmd": "73075d11a3e65c5ba16a8b77ae7bec36e31b7816746b17ec8740c90f336b2168"
   },
-  "ctest_log_sha256": "9e4c44cbb35d5250e22406627df89c5d4a6df772db2facb0bcec9d57633057d9",
+  "ctest_log_sha256": "0978ba01a7beb72fc46cffa77a984018283942c8858263000a0a9f7431173c8e",
   "limitations": [
     "prescribed solenoidal MAC velocity and stationary cut-cell geometry",
     "first-order diffusive donor-cell advection, no interface reconstruction",
@@ -1020,6 +1074,7 @@
     "diagonal grid-aligned anisotropic diffusivity only; no cross-tensor terms or measured soil calibration",
     "heterogeneous cell-wise diffusivity uses harmonic face mixing, not calibrated porous media or thermodynamic transport",
     "heterogeneous diffusion-only CFL subcycling uses stationary wetted cut cells, not a coupled Navier-Stokes or reactive solver",
+    "extreme harmonic mean is numerical robustness, not measured physical material calibration",
     "opt-in conservative diffusion-only CFL subcycling after one prescribed-MAC advection, not fully coupled time integration",
     "no pressure/impulse time integration or moving-solid counterreaction",
     "no global physical FSI energy/momentum conservation",

@@ -1353,6 +1353,64 @@ void heterogeneous_subcycle_reference(int n) {
              <<fractional.max_diffusion_cfl<<" "<<partial_residual<<" "
              <<partial_cells<<"\n";
 }
+void heterogeneous_harmonic_extremes(int n) {
+    using Diff=upc::P2CutCellTracerDiffusion3D;
+    Setup s(n);
+    std::fill(s.u.begin(),s.u.end(),0.0);
+    std::fill(s.v.begin(),s.v.end(),0.0);
+    std::fill(s.w.begin(),s.w.end(),0.0);
+    std::fill(s.f.begin(),s.f.end(),1.0);
+    s.f[s.id(3,3,3)]=0.0;
+    std::vector<double> c(s.f.size(),0.0);
+    c[s.id(1,1,1)]=1.0;
+    std::array<std::vector<double>,3> d;
+    for(auto& axis:d)axis.assign(s.f.size(),0.0);
+    const auto left=s.id(1,1,1),right=s.id(2,1,1);
+    d[0][left]=1e-310;
+    d[0][right]=1e308;
+    // Independent limit D_face=2*D_small/(1+D_small/D_large).
+    // Reciprocal-based means wrongly collapse this positive flux to zero.
+    const double expected=2e-10;
+    const auto r=Diff::step_heterogeneous(
+        n,n,n,1.0,1e300,s.box,s.f,c,s.u,s.v,s.w,d);
+    near(r.u_diffusion_flux_kg[s.ui(2,1,1)],expected,1e-21,
+         "subnormal/huge harmonic interface must conduct");
+    near(r.concentration_after_kg_m3[left],1.0-expected,1e-14,
+         "extreme harmonic donor balance");
+    near(r.concentration_after_kg_m3[right],expected,1e-21,
+         "extreme harmonic receiver balance");
+    near(r.tracer_after_kg,1.0,1e-13,
+         "extreme harmonic solute mass conservation");
+    near(r.max_diffusion_cfl,expected,1e-21,
+         "extreme harmonic local CFL");
+    const auto sub=Diff::step_diffusion_subcycled_heterogeneous(
+        n,n,n,1.0,1e300,s.box,s.f,c,s.u,s.v,s.w,d);
+    check(sub.diffusion_substeps==1,
+          "extreme interface must use one stable substep");
+    near(sub.u_diffusion_flux_kg[s.ui(2,1,1)],expected,1e-21,
+         "subcycled extreme harmonic face flux");
+    near(sub.tracer_after_kg,1.0,1e-13,
+         "subcycled extreme harmonic mass");
+    d[0][right]=1e-310;
+    const auto equal=Diff::step_heterogeneous(
+        n,n,n,1.0,1e300,s.box,s.f,c,s.u,s.v,s.w,d);
+    near(equal.u_diffusion_flux_kg[s.ui(2,1,1)],1e-10,1e-21,
+         "equal subnormal harmonic face");
+    d[0][left]=1e308;
+    d[0][right]=1e308;
+    const auto large=Diff::step_heterogeneous(
+        n,n,n,1.0,1e-310,s.box,s.f,c,s.u,s.v,s.w,d);
+    near(large.u_diffusion_flux_kg[s.ui(2,1,1)],0.01,1e-13,
+         "equal large harmonic face remains finite");
+    near(large.tracer_after_kg,1.0,1e-13,
+         "large harmonic solute mass conservation");
+    std::cout<<"VOF_TRACER_HARMONIC_EXTREME "<<n<<" "
+             <<std::setprecision(17)<<r.u_diffusion_flux_kg[s.ui(2,1,1)]
+             <<" "<<equal.u_diffusion_flux_kg[s.ui(2,1,1)]
+             <<" "<<large.u_diffusion_flux_kg[s.ui(2,1,1)]
+             <<" "<<sub.diffusion_substeps<<" "<<r.tracer_after_kg<<"\n";
+}
+
 void diffusion_analytic_and_partial() {
     using Diff=upc::P2CutCellTracerDiffusion3D;
     Setup s(8);
@@ -1515,6 +1573,8 @@ int main() {
         heterogeneous_diffusion_reference(12);
         heterogeneous_subcycle_reference(8);
         heterogeneous_subcycle_reference(12);
+        heterogeneous_harmonic_extremes(8);
+        heterogeneous_harmonic_extremes(12);
         negatives();
         std::cout<<"PASS: "<<assertions
                  <<" native static 3D cut-cell VOF assertions\n";

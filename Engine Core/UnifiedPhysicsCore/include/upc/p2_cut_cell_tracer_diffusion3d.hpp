@@ -20,6 +20,12 @@ struct P2CutCellTracerDiffusionResult3D {
     std::size_t diffusion_substeps=1;
 };
 class P2CutCellTracerDiffusion3D {
+    // Scaled harmonic mean avoids reciprocal overflow for subnormal D
+    // and multiplication overflow for large finite D.
+    static double harmonic_face_diffusivity(double a,double b) {
+        const double small=std::min(a,b),large=std::max(a,b);
+        return small/(0.5+0.5*(small/large));
+    }
 public:
     // g = D*dt*dx*aperture*min(VOF_a,VOF_b) [m^3],
     // signed mass J = g*(c_a-c_b) [kg]. This wet-aperture rule is an
@@ -181,7 +187,7 @@ public:
             if(aperture<=0.0||f[a]<=0.0||f[b]<=0.0||da==0.0||db==0.0)
                 return 0.0;
             // Stable harmonic mean, avoiding overflow in da*db.
-            const double d=2.0/(1.0/da+1.0/db);
+            const double d=harmonic_face_diffusivity(da,db);
             const double g=d*dt*dx*aperture*std::min(f[a],f[b]);
             if(!std::isfinite(g)||g<0.0)
                 throw std::invalid_argument("Nonfinite heterogeneous conductance");
@@ -283,7 +289,7 @@ public:
             const double db=diffusivity_cell_axis_m2_s[axis][b];
             if(aperture<=0.0||f[a]<=0.0||f[b]<=0.0||
                da==0.0||db==0.0)return;
-            const double d=2.0/(1.0/da+1.0/db);
+            const double d=harmonic_face_diffusivity(da,db);
             const double g=d*dt*dx*aperture*std::min(f[a],f[b]);
             if(!std::isfinite(g)||g<0.0)
                 throw std::invalid_argument("Nonfinite heterogeneous conductance");
