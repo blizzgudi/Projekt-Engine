@@ -4,7 +4,7 @@
   "partial_accepted": true,
   "phase_complete": false,
   "ctest_suites": 87,
-  "native_assertions": 246868,
+  "native_assertions": 254046,
   "checks": [
     {
       "name": "87/87 full native CTest suites",
@@ -19,7 +19,7 @@
     {
       "name": "native assertions >= 90000",
       "pass": true,
-      "detail": 246868
+      "detail": 254046
     },
     {
       "name": "two grid sizes",
@@ -654,26 +654,90 @@
       "name": "eight physical/numeric rejection tests",
       "pass": true,
       "detail": null
+    },
+    {
+      "name": "diagonal anisotropic Fick reference on two 3D grids",
+      "pass": true,
+      "detail": [
+        "8",
+        "12"
+      ]
+    },
+    {
+      "name": "8 cubed anisotropic six-neighbor analytic pulse",
+      "pass": true,
+      "detail": [
+        0.988,
+        0.001,
+        0.002,
+        0.003
+      ]
+    },
+    {
+      "name": "8 cubed anisotropic solute conservation",
+      "pass": true,
+      "detail": 1.0
+    },
+    {
+      "name": "8 cubed anisotropic local CFL",
+      "pass": true,
+      "detail": 0.012
+    },
+    {
+      "name": "8 cubed independent cellwise anisotropic face balance",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "12 cubed anisotropic six-neighbor analytic pulse",
+      "pass": true,
+      "detail": [
+        0.988,
+        0.001,
+        0.002,
+        0.003
+      ]
+    },
+    {
+      "name": "12 cubed anisotropic solute conservation",
+      "pass": true,
+      "detail": 1.0
+    },
+    {
+      "name": "12 cubed anisotropic local CFL",
+      "pass": true,
+      "detail": 0.012
+    },
+    {
+      "name": "12 cubed independent cellwise anisotropic face balance",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "anisotropic zero axes, scalar parity, and four negative cases",
+      "pass": true,
+      "detail": null
     }
   ],
   "source_sha256": {
     "CMakeLists.txt": "3bafa076a16a2405214fcf378271d64585cf73a5dd44912d6040054beca9f59c",
-    "docs/PHASENPLAN.md": "253d79efa1590b078bf9c5bfcddd2ea5c64d332f4016391aa3aed5e4a04fa85a",
-    "docs/P2_STATIC_CUT_CELL_VOF_PARTIAL.md": "bac88e30ee635be18e2d6de561ae1109d6a90938a9b0a9d36eadfb905c1e4f95",
-    "include/upc/p2_cut_cell_tracer_diffusion3d.hpp": "99fb1992cbd28f84558362a9f9c447c438dd0af81c1cd93dc22dd12074021299",
+    "docs/PHASENPLAN.md": "324bf1f8df15eb8f459be09323cca65e4aa3f118c02281e0edadf45524d5f35f",
+    "docs/P2_STATIC_CUT_CELL_VOF_PARTIAL.md": "13a540a144681e6176bb28c0421ae69b384ddf65b80a9f9eba7084667ca85b46",
+    "include/upc/p2_cut_cell_tracer_diffusion3d.hpp": "ef8f03a383436e09e2833d3f3e8f960e313ede247e89a639ca7a7f3cc285e9b3",
     "include/upc/p2_static_cut_cell_vof3d.hpp": "303a96b04d72e405d0eaf2c0ca40b2317cbfc2f20b85727fb241dc24ce52727f",
     "include/upc/p2_moving_box_mac_apertures3d.hpp": "c5fbdae598166771f6a28359c31960178239d3a59e0ccbb60f89f47b38f29ad3",
     "include/upc/p2_moving_box_open_volume3d.hpp": "270ecc419fa312212e47dbcfbd7fa8f2b172fde153b6d66e19f226be5cbedbb2",
-    "tests/p2_static_cut_cell_vof3d_tests.cpp": "27d8ed4eafbe307796f34f4915b2345de24d1f69904540477ba66820f2ffc3f6",
-    "scripts/p2_static_cut_cell_vof_acceptance.py": "404a0cf876b7be7e6a53f632fea835562aa3dcb896319722a47875a5b782e6e5",
+    "tests/p2_static_cut_cell_vof3d_tests.cpp": "d2182c56885a47479a6d7bd5ae530193da4d30d23aa5d3e143745578fc5700fa",
+    "scripts/p2_static_cut_cell_vof_acceptance.py": "6a7bc640b39d8f8731055e7efdbb2f8a761311e93d3d8e2efad3caed9cd54a2d",
     "scripts/p2_static_cut_cell_vof_full_build.cmd": "73075d11a3e65c5ba16a8b77ae7bec36e31b7816746b17ec8740c90f336b2168"
   },
-  "ctest_log_sha256": "caf203bc2b4a61fe22112311216ea622c3a1784e157be9eb1ce70602382d0a3c",
+  "ctest_log_sha256": "e3fed8424706d17f47ff5bf1c693d25e8fd03e2df013ead715d9fef4e443d687",
   "limitations": [
     "prescribed solenoidal MAC velocity and stationary cut-cell geometry",
     "first-order diffusive donor-cell advection, no interface reconstruction",
     "bounded geometric CFL subcycling of water and passive tracer on prescribed fields, not adaptive CFD",
     "explicit Fick-type tracer diffusion uses approximate wetted cut-cell apertures, not measured interfacial physics",
+    "diagonal grid-aligned anisotropic diffusivity only; no cross-tensor terms or measured soil calibration",
     "no pressure/impulse time integration or moving-solid counterreaction",
     "no global physical FSI energy/momentum conservation",
     "no external measured 3D CFD or new Unreal 5.8 Native-E2E"

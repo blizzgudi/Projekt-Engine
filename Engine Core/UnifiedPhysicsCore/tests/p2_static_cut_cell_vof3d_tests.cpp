@@ -855,6 +855,120 @@ void diffusive_tracer(int n) {
              <<mass<<" "<<first.tracer_after_kg<<" "<<residual<<" "
              <<first.max_diffusion_cfl<<"\n";
 }
+void anisotropic_diffusion_reference(int n) {
+    using Diff=upc::P2CutCellTracerDiffusion3D;
+    Setup s(n);
+    std::fill(s.u.begin(),s.u.end(),0.0);
+    std::fill(s.v.begin(),s.v.end(),0.0);
+    std::fill(s.w.begin(),s.w.end(),0.0);
+    std::fill(s.f.begin(),s.f.end(),1.0);
+    s.f[s.id(3,3,3)]=0.0;
+    std::vector<double> c(s.f.size(),0.0);
+    c[s.id(1,1,1)]=1.0;
+    const auto a=Diff::step_anisotropic(
+        n,n,n,1.0,0.1,s.box,s.f,c,s.u,s.v,s.w,{0.01,0.02,0.03});
+    near(a.concentration_after_kg_m3[s.id(1,1,1)],0.988,1e-14,
+         "independent anisotropic 3D center 1-2*dt*(Dx+Dy+Dz)");
+    near(a.max_diffusion_cfl,0.012,1e-14,
+         "anisotropic 3D explicit six-face CFL");
+    for(int axis=0;axis<3;++axis) {
+        const double expected=0.001*(axis+1);
+        for(int side=-1;side<=1;side+=2) {
+            int x=1,y=1,z=1;
+            if(axis==0)x+=side;
+            if(axis==1)y+=side;
+            if(axis==2)z+=side;
+            near(a.concentration_after_kg_m3[s.id(x,y,z)],expected,1e-14,
+                 "independent anisotropic six-neighbor concentration");
+        }
+    }
+    near(a.u_diffusion_flux_kg[s.ui(1,1,1)],-0.001,1e-14,
+         "negative signed anisotropic U face");
+    near(a.u_diffusion_flux_kg[s.ui(2,1,1)],0.001,1e-14,
+         "positive signed anisotropic U face");
+    near(a.v_diffusion_flux_kg[s.vi(1,2,1)],0.002,1e-14,
+         "positive anisotropic V face");
+    near(a.w_diffusion_flux_kg[s.wi(1,1,2)],0.003,1e-14,
+         "positive anisotropic W face");
+    near(a.tracer_after_kg,1.0,1e-13,"anisotropic total tracer mass");
+    double residual=0.0;
+    for(int z=0;z<n;++z)
+    for(int y=0;y<n;++y)
+    for(int x=0;x<n;++x) {
+        const auto i=s.id(x,y,z);
+        const double expected=s.f[i]*c[i]-
+            (a.u_diffusion_flux_kg[s.ui(x+1,y,z)]-
+             a.u_diffusion_flux_kg[s.ui(x,y,z)]+
+             a.v_diffusion_flux_kg[s.vi(x,y+1,z)]-
+             a.v_diffusion_flux_kg[s.vi(x,y,z)]+
+             a.w_diffusion_flux_kg[s.wi(x,y,z+1)]-
+             a.w_diffusion_flux_kg[s.wi(x,y,z)]);
+        const double actual=s.f[i]*a.concentration_after_kg_m3[i];
+        residual=std::max(residual,std::abs(expected-actual));
+        near(actual,expected,1e-13,"anisotropic cellwise U/V/W mass balance");
+    }
+    // Scalar legacy and diagonal isotropic operator must match bitwise,
+    // including with nonzero 3D prescribed MAC velocities.
+    Setup moving(n);
+    std::vector<double> initial(moving.f.size(),0.0);
+    for(std::size_t i=0;i<initial.size();++i)
+        if(moving.f[i]>0)initial[i]=0.5+0.001*i;
+    const auto legacy=Diff::step(
+        n,n,n,1.0,0.1,moving.box,moving.f,initial,
+        moving.u,moving.v,moving.w,0.02);
+    const auto diagonal=Diff::step_anisotropic(
+        n,n,n,1.0,0.1,moving.box,moving.f,initial,
+        moving.u,moving.v,moving.w,{0.02,0.02,0.02});
+    check(legacy.concentration_after_kg_m3==
+          diagonal.concentration_after_kg_m3 &&
+          legacy.u_diffusion_flux_kg==diagonal.u_diffusion_flux_kg &&
+          legacy.v_diffusion_flux_kg==diagonal.v_diffusion_flux_kg &&
+          legacy.w_diffusion_flux_kg==diagonal.w_diffusion_flux_kg &&
+          legacy.tracer_after_kg==diagonal.tracer_after_kg,
+          "diagonal isotropic matches legacy scalar bitwise");
+    const auto y_only=Diff::step_anisotropic(
+        n,n,n,1.0,0.1,s.box,s.f,c,s.u,s.v,s.w,{0.0,0.02,0.0});
+    near(y_only.concentration_after_kg_m3[s.id(1,1,1)],0.996,1e-14,
+         "zero U/W diffusion axes leave only two Y transfers");
+    near(y_only.concentration_after_kg_m3[s.id(1,2,1)],0.002,1e-14,
+         "Y-only positive neighbor");
+    for(double flux:y_only.u_diffusion_flux_kg)
+        near(flux,0.0,0.0,"disabled U axis has zero diffusion flux");
+    for(double flux:y_only.w_diffusion_flux_kg)
+        near(flux,0.0,0.0,"disabled W axis has zero diffusion flux");
+    const auto zero=Diff::step_anisotropic(
+        n,n,n,1.0,0.1,moving.box,moving.f,initial,
+        moving.u,moving.v,moving.w,{0.0,0.0,0.0});
+    const auto passive=upc::P2StaticCutCellVof3D::step_passive_tracer(
+        n,n,n,1.0,0.1,moving.box,moving.f,initial,
+        moving.u,moving.v,moving.w);
+    check(zero.concentration_after_kg_m3==
+          passive.concentration_after_kg_m3 &&
+          zero.tracer_after_kg==passive.tracer_after_kg,
+          "all zero anisotropic coefficients preserve advection bitwise");
+    rejects([&]{Diff::step_anisotropic(
+        n,n,n,1,0.1,s.box,s.f,c,s.u,s.v,s.w,{0.01,-0.02,0.03});},
+        "negative Y diffusivity rejected");
+    rejects([&]{Diff::step_anisotropic(
+        n,n,n,1,0.1,s.box,s.f,c,s.u,s.v,s.w,
+        {0.01,0.02,std::numeric_limits<double>::quiet_NaN()});},
+        "nonfinite Z diffusivity rejected");
+    rejects([&]{Diff::step_anisotropic(
+        n,n,n,1,0.1,s.box,s.f,c,s.u,s.v,s.w,
+        {std::numeric_limits<double>::infinity(),0.02,0.03});},
+        "infinite X diffusivity rejected");
+    rejects([&]{Diff::step_anisotropic(
+        n,n,n,1,1.0,s.box,s.f,c,s.u,s.v,s.w,{10.0,0.0,0.0});},
+        "unstable anisotropic diffusion CFL rejected");
+    std::cout<<"VOF_TRACER_ANISOTROPIC "<<n<<" "
+             <<std::setprecision(17)
+             <<a.concentration_after_kg_m3[s.id(1,1,1)]<<" "
+             <<a.concentration_after_kg_m3[s.id(2,1,1)]<<" "
+             <<a.concentration_after_kg_m3[s.id(1,2,1)]<<" "
+             <<a.concentration_after_kg_m3[s.id(1,1,2)]<<" "
+             <<a.tracer_after_kg<<" "<<a.max_diffusion_cfl<<" "
+             <<residual<<"\n";
+}
 void diffusion_analytic_and_partial() {
     using Diff=upc::P2CutCellTracerDiffusion3D;
     Setup s(8);
@@ -1007,6 +1121,8 @@ int main() {
         diffusive_tracer(8);
         diffusive_tracer(12);
         diffusion_analytic_and_partial();
+        anisotropic_diffusion_reference(8);
+        anisotropic_diffusion_reference(12);
         negatives();
         std::cout<<"PASS: "<<assertions
                  <<" native static 3D cut-cell VOF assertions\n";

@@ -111,3 +111,24 @@ P2 und P3-P8 bleiben PARTIAL.
   Keine dynamische Navier-Stokes-/FSI-Kopplung, keine physikalische
   Gesamtimpuls-/Energieerhaltung, externe CFD-Messvalidierung oder
   neue UE5.8-Native-E2E-Abnahme. P2-P8 bleiben PARTIAL.
+
+## 30.10.2026: diagonal anisotrope 3D-Tracerdiffusion (Teilabnahme)
+
+- Opt-in `P2CutCellTracerDiffusion3D::step_anisotropic` akzeptiert
+  `{D_x,D_y,D_z}` in m2/s und verwendet den jeweiligen Koeffizienten
+  ausschliesslich auf U-/V-/W-Faces. Der bestehende skalare `step`
+  delegiert mit drei identischen Koeffizienten; bitgleiche Paritaet
+  einschliesslich echter 3D-MAC-Advektion wird nativ geprueft.
+- Unabhaengige diskrete 3D-Pulsreferenz auf 8^3 und 12^3:
+  D=(0.01,0.02,0.03) m2/s, dt=0.1 s, dx=1 m, 1 kg
+  Startstoff in einer voll benetzten Zelle. Erwartet: Zentrum 0.988 kg,
+  sechs Nachbarn paarweise 0.001/0.002/0.003 kg, lokaler CFL=0.012.
+  Signierte Face-Fluesse und zellweise U/V/W-Massenbilanz geprueft.
+  Reine Y-Diffusion bei D_x=D_z=0, Null-D-Altpfad und vier ungueltige
+  Diffusivitaets-/CFL-Faelle ebenfalls getestet.
+- Echte Nachweise: `tests/p2_static_cut_cell_vof3d_tests.cpp`,
+  `scripts/p2_static_cut_cell_vof_acceptance.py`, CTest-Protokoll und
+  JSON mit SHA256. Das Modell bleibt explizit, diagonal und
+  gitterachsenorientiert. Kein voller Diffusionstensor, keine
+  experimentelle Bodenanisotropie oder Zwei-Phasen-Kalibrierung.
+  **P2-P8 bleiben PARTIAL; ALL_COMPLETE=False.**

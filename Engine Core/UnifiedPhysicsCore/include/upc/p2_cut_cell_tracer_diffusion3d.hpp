@@ -4,6 +4,7 @@
 // No moving-body FSI, momentum coupling, or resolved two-phase interface law.
 #include "upc/p2_static_cut_cell_vof3d.hpp"
 #include <algorithm>
+#include <array>
 #include <cmath>
 #include <cstddef>
 #include <stdexcept>
@@ -29,8 +30,23 @@ public:
         const std::vector<double>& concentration_kg_m3,
         const std::vector<double>& u_m_s,const std::vector<double>& v_m_s,
         const std::vector<double>& w_m_s,double diffusivity_m2_s) {
-        if(!std::isfinite(diffusivity_m2_s)||diffusivity_m2_s<0)
-            throw std::invalid_argument("Invalid dissolved tracer diffusivity");
+        return step_anisotropic(nx,ny,nz,dx,dt,stationary_box,fraction,
+            concentration_kg_m3,u_m_s,v_m_s,w_m_s,
+            {diffusivity_m2_s,diffusivity_m2_s,diffusivity_m2_s});
+    }
+    // Diagonal, grid-aligned diffusion tensor [D_x,D_y,D_z] in m^2/s.
+    // Off-diagonal cross diffusion and physical anisotropic soil calibration
+    // are NOT modeled; prescribed velocities and geometry remain unchanged.
+    static P2CutCellTracerDiffusionResult3D step_anisotropic(
+        std::size_t nx,std::size_t ny,std::size_t nz,double dx,double dt,
+        const P2Box3D& stationary_box,const std::vector<double>& fraction,
+        const std::vector<double>& concentration_kg_m3,
+        const std::vector<double>& u_m_s,const std::vector<double>& v_m_s,
+        const std::vector<double>& w_m_s,
+        const std::array<double,3>& diffusivity_axis_m2_s) {
+        for(double d:diffusivity_axis_m2_s)
+            if(!std::isfinite(d)||d<0.0)
+                throw std::invalid_argument("Invalid axis tracer diffusivity");
         P2CutCellTracerDiffusionResult3D out;
         out.advected=P2StaticCutCellVof3D::step_passive_tracer(
             nx,ny,nz,dx,dt,stationary_box,fraction,concentration_kg_m3,
@@ -40,7 +56,8 @@ public:
         out.u_diffusion_flux_kg.assign(u_m_s.size(),0.0);
         out.v_diffusion_flux_kg.assign(v_m_s.size(),0.0);
         out.w_diffusion_flux_kg.assign(w_m_s.size(),0.0);
-        if(diffusivity_m2_s==0.0)return out; // Exact legacy parity.
+        if(diffusivity_axis_m2_s[0]==0.0&&diffusivity_axis_m2_s[1]==0.0&&
+           diffusivity_axis_m2_s[2]==0.0)return out; // Exact legacy parity.
         const auto geom=P2MovingBoxFaceApertures3D::sample(
             nx,ny,nz,dx,dt,stationary_box,stationary_box);
         const std::size_t n=out.concentration_after_kg_m3.size();
@@ -59,9 +76,9 @@ public:
         const auto id=[&](std::size_t x,std::size_t y,std::size_t z) {
             return (z*ny+y)*nx+x;
         };
-        const auto transfer=[&](double aperture,std::size_t a,std::size_t b) {
+        const auto transfer=[&](double d,double aperture,std::size_t a,std::size_t b) {
             if(aperture<=0.0||f[a]<=0.0||f[b]<=0.0)return 0.0;
-            const double g=diffusivity_m2_s*dt*dx*aperture*std::min(f[a],f[b]);
+            const double g=d*dt*dx*aperture*std::min(f[a],f[b]);
             if(!std::isfinite(g)||g<0)
                 throw std::invalid_argument("Nonfinite diffusive conductance");
             sum_g[a]+=g;
@@ -79,21 +96,21 @@ public:
         for(std::size_t x=0;x<=nx;++x,++face)
             if(x>0&&x<nx)
                 out.u_diffusion_flux_kg[face]=transfer(
-                    geom.u_open[face],id(x-1,y,z),id(x,y,z));
+                    diffusivity_axis_m2_s[0],geom.u_open[face],id(x-1,y,z),id(x,y,z));
         face=0;
         for(std::size_t z=0;z<nz;++z)
         for(std::size_t y=0;y<=ny;++y)
         for(std::size_t x=0;x<nx;++x,++face)
             if(y>0&&y<ny)
                 out.v_diffusion_flux_kg[face]=transfer(
-                    geom.v_open[face],id(x,y-1,z),id(x,y,z));
+                    diffusivity_axis_m2_s[1],geom.v_open[face],id(x,y-1,z),id(x,y,z));
         face=0;
         for(std::size_t z=0;z<=nz;++z)
         for(std::size_t y=0;y<ny;++y)
         for(std::size_t x=0;x<nx;++x,++face)
             if(z>0&&z<nz)
                 out.w_diffusion_flux_kg[face]=transfer(
-                    geom.w_open[face],id(x,y,z-1),id(x,y,z));
+                    diffusivity_axis_m2_s[2],geom.w_open[face],id(x,y,z-1),id(x,y,z));
         const double tol=1e-11*std::max(1.0,out.advected.tracer_after_kg);
         out.tracer_after_kg=0.0;
         for(std::size_t i=0;i<n;++i) {

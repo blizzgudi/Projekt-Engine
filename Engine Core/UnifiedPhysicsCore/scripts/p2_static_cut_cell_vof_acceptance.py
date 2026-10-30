@@ -232,6 +232,29 @@ def main():
           "VOF_TRACER_DIFFUSION_NEGATIVE 5" in output)
     check("eight physical/numeric rejection tests",
           "VOF_NEGATIVE 8" in output)
+    anisotropic=re.findall(
+        r"^VOF_TRACER_ANISOTROPIC (\d+) ([\d.eE+-]+) "
+        r"([\d.eE+-]+) ([\d.eE+-]+) ([\d.eE+-]+) "
+        r"([\d.eE+-]+) ([\d.eE+-]+) ([\d.eE+-]+)$",
+        output,re.MULTILINE)
+    check("diagonal anisotropic Fick reference on two 3D grids",
+          len(anisotropic)==2,[r[0] for r in anisotropic])
+    for row in anisotropic:
+        n=int(row[0])
+        center,x,y,z,mass,cfl,residual=map(float,row[1:])
+        check(f"{n} cubed anisotropic six-neighbor analytic pulse",
+              n in (8,12) and abs(center-0.988)<1e-13 and
+              abs(x-0.001)<1e-13 and abs(y-0.002)<1e-13 and
+              abs(z-0.003)<1e-13,(center,x,y,z))
+        check(f"{n} cubed anisotropic solute conservation",
+              abs(mass-1.0)<1e-12,mass)
+        check(f"{n} cubed anisotropic local CFL",
+              abs(cfl-0.012)<1e-13,cfl)
+        check(f"{n} cubed independent cellwise anisotropic face balance",
+              math.isfinite(residual) and residual<1e-12,residual)
+    check("anisotropic zero axes, scalar parity, and four negative cases",
+          "VOF_TRACER_ANISOTROPIC 8 " in output and
+          "VOF_TRACER_ANISOTROPIC 12 " in output)
     hashes={name:sha(CORE/name) for name in SOURCES}
     report={
         "phase":"P2","milestone":"static_cut_cell_3d_donor_vof_partial",
@@ -244,6 +267,7 @@ def main():
             "first-order diffusive donor-cell advection, no interface reconstruction",
             "bounded geometric CFL subcycling of water and passive tracer on prescribed fields, not adaptive CFD",
             "explicit Fick-type tracer diffusion uses approximate wetted cut-cell apertures, not measured interfacial physics",
+            "diagonal grid-aligned anisotropic diffusivity only; no cross-tensor terms or measured soil calibration",
             "no pressure/impulse time integration or moving-solid counterreaction",
             "no global physical FSI energy/momentum conservation",
             "no external measured 3D CFD or new Unreal 5.8 Native-E2E",

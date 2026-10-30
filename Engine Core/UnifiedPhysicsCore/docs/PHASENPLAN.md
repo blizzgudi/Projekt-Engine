@@ -1310,3 +1310,19 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
   angenaehert; keine dynamische Navier-Stokes-/FSI-Gegenreaktion,
   keine physikalische Gesamtimpuls-/Energiebilanz, externe
   3D-CFD-Messvalidierung oder UE5.8-Native-E2E dieses Pfads.
+
+## P2 Teilfortschritt: diagonal anisotrope 3D-Stoffdiffusion (30.10.2026)
+
+- Opt-in P2CutCellTracerDiffusion3D::step_anisotropic mit drei
+  gitterachsenbezogenen Fick-Diffusivitaeten fuer U/V/W-Faces.
+  Skalarer Altpfad bleibt bitgleich; getrennte signierte Fluesse,
+  lokale CFL und Massenbilanz bleiben erhalten.
+- Native Referenz auf 8^3/12^3: analytischer 3D-Sechs-Nachbar-Puls
+  (0.988 kg Zentrum, 0.001/0.002/0.003 kg pro Achsen-Nachbar),
+  CFL 0.012, zellweises Ledger, Nullachsen und Negativtests.
+  Nachweise in docs/P2_STATIC_CUT_CELL_VOF_PARTIAL.md und dem
+  bestehenden JSON-/CTest-/SHA256-Teilgate.
+- **P2-P8 PARTIAL, ALL_COMPLETE=False.** Nur diagonale numerische
+  Diffusion bei stationaeren Cut-Cells und vorgeschriebenen MAC-Feldern.
+  Keine gemessene Bodenanisotropie, Navier-Stokes-/FSI-Gegenreaktion,
+  globale physikalische Energie-/Impulsbilanz oder neue UE5.8-E2E.
