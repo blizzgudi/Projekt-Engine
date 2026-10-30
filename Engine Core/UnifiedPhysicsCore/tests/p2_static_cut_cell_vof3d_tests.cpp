@@ -450,6 +450,127 @@ void face_water_flux_ledger(int n) {
              <<std::setprecision(17)<<maximum_error<<" "
              <<maximum_boundary<<" "<<positive<<" "<<negative<<"\n";
 }
+// Passive tracer is carried by the same signed WATER flux, not by the
+// full geometric volume flux. Independently audit the solute inventory.
+void passive_tracer(int n) {
+    Setup s(n);
+    std::vector<double> c(s.f.size(),0.0);
+    for(int z=0;z<n;++z)
+    for(int y=0;y<n;++y)
+    for(int x=0;x<n;++x)
+        if(s.f[s.id(x,y,z)]>0)
+            c[s.id(x,y,z)]=0.2+0.01*(x+2*y+3*z);
+    using Vof=upc::P2StaticCutCellVof3D;
+    const auto initial=Vof::step_passive_tracer(
+        n,n,n,1.0,0.1,s.box,s.f,c,s.u,s.v,s.w);
+    const auto plain=s.run(s.f);
+    check(initial.water.fraction_after==plain.fraction_after,
+          "tracer opt-in does not change water step");
+    double error=0.0;
+    const auto transported=[&](double q,std::size_t a,std::size_t b) {
+        return q*(q>=0?c[a]:c[b]);
+    };
+    for(int z=0;z<n;++z)
+    for(int y=0;y<n;++y)
+    for(int x=0;x<n;++x) {
+        const auto i=s.id(x,y,z);
+        const auto& r=initial.water;
+        const double east=x+1<n?transported(
+            r.u_water_flux_m3[s.ui(x+1,y,z)],i,s.id(x+1,y,z)):0;
+        const double west=x>0?transported(
+            r.u_water_flux_m3[s.ui(x,y,z)],s.id(x-1,y,z),i):0;
+        const double north=y+1<n?transported(
+            r.v_water_flux_m3[s.vi(x,y+1,z)],i,s.id(x,y+1,z)):0;
+        const double south=y>0?transported(
+            r.v_water_flux_m3[s.vi(x,y,z)],s.id(x,y-1,z),i):0;
+        const double top=z+1<n?transported(
+            r.w_water_flux_m3[s.wi(x,y,z+1)],i,s.id(x,y,z+1)):0;
+        const double bottom=z>0?transported(
+            r.w_water_flux_m3[s.wi(x,y,z)],s.id(x,y,z-1),i):0;
+        const double expected=s.f[i]*c[i]-
+            (east-west+north-south+top-bottom);
+        const double actual=r.fraction_after[i]*
+            initial.concentration_after_kg_m3[i];
+        error=std::max(error,std::abs(actual-expected));
+        near(actual,expected,1e-12,"independent solute face balance");
+    }
+    const double mass=initial.tracer_before_kg;
+    for(int t=0;t<40;++t) {
+        auto next=Vof::step_passive_tracer(
+            n,n,n,1.0,0.1,s.box,s.f,c,s.u,s.v,s.w);
+        near(next.tracer_before_kg,mass,1e-10,
+             "passive tracer mass before each step");
+        near(next.tracer_after_kg,mass,1e-10,
+             "passive tracer mass after each step");
+        for(std::size_t i=0;i<c.size();++i) {
+            check(next.concentration_after_kg_m3[i]>=0.0&&
+                  next.concentration_after_kg_m3[i]<=
+                      0.2+0.01*(n-1)*6+1e-12,
+                  "passive tracer concentration bounded");
+        }
+        s.f=std::move(next.water.fraction_after);
+        c=std::move(next.concentration_after_kg_m3);
+    }
+    check(c[s.id(3,3,3)]==0.0,
+          "solid cell cannot accumulate dissolved tracer");
+    if(n==8) {
+        Setup analytic(n);
+        std::vector<double> isolated(analytic.f.size(),0.0);
+        std::vector<double> concentration(analytic.f.size(),0.0);
+        isolated[analytic.id(0,0,1)]=0.5;
+        concentration[analytic.id(0,0,1)]=3.0;
+        const auto r=Vof::step_passive_tracer(
+            n,n,n,1.0,0.1,analytic.box,isolated,concentration,
+            analytic.u,analytic.v,analytic.w);
+        near(r.tracer_before_kg,1.5,1e-14,"analytic tracer initial kg");
+        near(r.tracer_after_kg,1.5,1e-14,"analytic tracer conserved kg");
+        near(r.concentration_after_kg_m3[analytic.id(0,0,1)],3.0,1e-14,
+             "analytic donor concentration");
+        near(r.concentration_after_kg_m3[analytic.id(1,0,1)],3.0,1e-14,
+             "analytic receiving concentration");
+        near(r.water.u_water_flux_m3[analytic.ui(1,0,1)]*3.0,
+             0.06,1e-14,"analytic transported tracer mass");
+        std::cout<<"VOF_TRACER_ANALYTIC 1.5 0.06 3\n";
+        auto bad=concentration;
+        bad[analytic.id(0,0,0)]=1.0;
+        rejects([&]{Vof::step_passive_tracer(
+            n,n,n,1.0,0.1,analytic.box,isolated,bad,
+            analytic.u,analytic.v,analytic.w);},
+            "dry-cell tracer rejected");
+        bad=concentration;bad[analytic.id(0,0,1)]=-1.0;
+        rejects([&]{Vof::step_passive_tracer(
+            n,n,n,1.0,0.1,analytic.box,isolated,bad,
+            analytic.u,analytic.v,analytic.w);},
+            "negative tracer rejected");
+        bad=concentration;
+        bad[analytic.id(0,0,1)]=std::numeric_limits<double>::quiet_NaN();
+        rejects([&]{Vof::step_passive_tracer(
+            n,n,n,1.0,0.1,analytic.box,isolated,bad,
+            analytic.u,analytic.v,analytic.w);},
+            "nonfinite tracer rejected");
+        bad.pop_back();
+        rejects([&]{Vof::step_passive_tracer(
+            n,n,n,1.0,0.1,analytic.box,isolated,bad,
+            analytic.u,analytic.v,analytic.w);},
+            "wrong tracer array length rejected");
+        Setup partial(n);
+        partial.box={{3.2,3.2,3.2},{4.8,4.8,4.8}};
+        std::vector<double> uniform(partial.f.size(),2.0);
+        uniform[partial.id(3,3,3)]=0;
+        const auto pr=Vof::step_passive_tracer(
+            n,n,n,1.0,0.1,partial.box,partial.f,uniform,
+            partial.u,partial.v,partial.w);
+        near(pr.tracer_before_kg,pr.tracer_after_kg,1e-10,
+             "fractional cut-cell solute mass conserved");
+        for(std::size_t i=0;i<uniform.size();++i)
+            if(pr.water.fraction_after[i]>0)
+                near(pr.concentration_after_kg_m3[i],2.0,1e-12,
+                     "uniform tracer invariant on fractional cut-cells");
+        std::cout<<"VOF_TRACER_NEGATIVE 4\n";
+    }
+    std::cout<<"VOF_TRACER "<<n<<" 40 "<<std::setprecision(17)
+             <<mass<<" "<<initial.tracer_after_kg<<" "<<error<<"\n";
+}
 void negatives() {
     Setup s(8);
     auto bad=s;
@@ -490,6 +611,8 @@ int main() {
         adaptive_velocity_sequence(12);
         face_water_flux_ledger(8);
         face_water_flux_ledger(12);
+        passive_tracer(8);
+        passive_tracer(12);
         negatives();
         std::cout<<"PASS: "<<assertions
                  <<" native static 3D cut-cell VOF assertions\n";

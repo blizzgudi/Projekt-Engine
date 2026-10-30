@@ -51,3 +51,11 @@
 - Opt-in step_velocity_sequence akzeptiert je gleichlangem Teilstep ein anderes U/V/W-Feld. Jede Geschwindigkeit durchlaeuft die vorhandenen Cut-Cell-, Divergenz-, CFL- und Volumenchecks.
 - Native 8^3/12^3: vier wechselnde dreiachsige Wirbelfelder, exakter Vergleich gegen unabhaengige manuelle Einzelsteps, Wassererhaltung, Fraktionsgrenzen, ungueltige spaetere Steps und leere/ungleiche Sequenzen.
 - Das quantitative JSON-Gate prueft zwei VOF_SEQUENCE-Zeilen samt Quell-SHA256. Keine dynamische Navier-Stokes-Berechnung, keine bewegte FSI oder UE5.8-Native-E2E. P2-P8 bleiben PARTIAL.
+
+## Zusatz: passiver geloester Stoff auf 3D-VOF-Wasserfluesse (30.10.2026)
+
+- Opt-in `step_passive_tracer` transportiert eine Konzentration in kg/m^3 **Fluessigwasser** mit exakt den bereits berechneten signierten U/V/W-Wasserfluesse des **einzelnen** stationaeren 3D-Cut-Cell-VOF-Schritts. Pro Face verwendet der Stofftransport die Upwind-Konzentration des Wasserdonors. Trockene Zellen duerfen keinen geloesten Stoff enthalten; kein Stofftransport durch feste oder geschlossene Randflaechen.
+- Eigene Inventarbilanz in kg, Positivitaets- und Konzentrationsgrenzen, endliche Werte und falsche Eingabegroessen werden geprueft. Das vorhandene VOF-Ergebnis bleibt unveraendert. Eine bereits ueber mehrere Teilsteps aufsummierte Wasserfluss-Ledger darf **nicht** mit einer einzigen Ausgangskonzentration kombiniert werden; daher bewusst nur eine Einzelstep-API.
+- Native MSVC Release: 87/87 CTest-Suites PASS. Insgesamt 234710 Assertions im betroffenen Native-Test. 8^3 und 12^3 mit je 40 Wasser-/Stoff-Transportsteps, unabhängige zellweise Bilanz aus U/V/W-Face-Ledger (max. Residuum 0 im ersten Schritt), Stoffmassen 55.0512 kg und 300.7536 kg. Analytischer Donor: 0.02 m^3 Wasser x 3 kg/m^3 = 0.06 kg geloester Stoff; vier Negativfaelle und ein fraktionaler Cut-Cell-Konstantkonzentrationstest.
+- Nachweis: `scripts/p2_static_cut_cell_vof_acceptance.py`, `ENGINE TEST STUBE/runs/p2_static_cut_cell_vof_partial.json`, vollständiges CTest-Protokoll mit Quell-/Log-SHA256.
+- **P2-P8 weiterhin PARTIAL, ALL_COMPLETE=False.** Nur passiver konservativer Stofftransport mit vorgeschriebenen Geschwindigkeiten. Keine Diffusion, Reaktion, Waerme-/Boden-Kopplung, Navier-Stokes-Impulsintegration, FSI-Gegenreaktion, externe CFD-Messvalidierung oder neues Unreal-5.8-Native-E2E.

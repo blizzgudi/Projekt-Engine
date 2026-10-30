@@ -139,6 +139,25 @@ def main():
               boundary==0.0,boundary)
         check(f"{n} cubed bidirectional signed transported volumes",
               positive>0 and negative>0,(positive,negative))
+    tracer=re.findall(r"^VOF_TRACER (\d+) (\d+) ([\d.eE+-]+) "
+                      r"([\d.eE+-]+) ([\d.eE+-]+)$",
+                      output,re.MULTILINE)
+    check("passive dissolved tracer on two 3D grids",
+          len(tracer)==2,[r[0] for r in tracer])
+    for row in tracer:
+        n,steps=int(row[0]),int(row[1])
+        before,after,error=map(float,row[2:])
+        check(f"{n} cubed 40 tracer/VOF coupled steps",
+              n in (8,12) and steps==40,(n,steps))
+        check(f"{n} cubed conserved dissolved tracer mass",
+              math.isfinite(before) and before>0 and
+              abs(before-after)<1e-10,(before,after))
+        check(f"{n} cubed independent face solute balance",
+              math.isfinite(error) and error<1e-12,error)
+    check("analytic water-to-tracer donor mass 0.06 kg",
+          "VOF_TRACER_ANALYTIC 1.5 0.06 3" in output)
+    check("four invalid tracer inputs rejected",
+          "VOF_TRACER_NEGATIVE 4" in output)
     check("eight physical/numeric rejection tests",
           "VOF_NEGATIVE 8" in output)
     hashes={name:sha(CORE/name) for name in SOURCES}

@@ -22,6 +22,15 @@ struct P2StaticCutCellVofResult3D {
     // Diagnostic finite-volume transport only, NOT fluid momentum/FSI.
     std::vector<double> u_water_flux_m3,v_water_flux_m3,w_water_flux_m3;
 };
+// One-step passive dissolved tracer carried by the *actual* upwind water
+// face volumes. This is a conservative scalar coupling, not diffusion,
+// chemical reactions, a fluid momentum equation, or FSI.
+struct P2StaticCutCellTracerResult3D {
+    P2StaticCutCellVofResult3D water;
+    std::vector<double> concentration_after_kg_m3;
+    double tracer_before_kg=0.0;
+    double tracer_after_kg=0.0;
+};
 class P2StaticCutCellVof3D {
     // Accumulate signed water volumes across every face, not only total mass.
     // This ledger telescopes over any prescribed-velocity time sequence.
@@ -140,6 +149,102 @@ public:
         if(std::abs(out.water_after_m3-out.water_before_m3)>
            1e-9*std::max(1.0,out.water_before_m3))
             throw std::logic_error("Static VOF water mass changed");
+        return out;
+    }
+    // Advect a nonnegative passive solute [kg/m^3 of liquid water] with
+    // exactly the signed MAC water fluxes produced by one VOF step.
+    // Dry cells must have zero concentration. No solute crosses solid walls.
+    // Only a single step is supported: cumulative fluxes from subcycling
+    // cannot be multiplied by one initial concentration field.
+    static P2StaticCutCellTracerResult3D step_passive_tracer(
+        std::size_t nx,std::size_t ny,std::size_t nz,double dx,double dt,
+        const P2Box3D& stationary_box,const std::vector<double>& fraction,
+        const std::vector<double>& concentration_kg_m3,
+        const std::vector<double>& u_m_s,const std::vector<double>& v_m_s,
+        const std::vector<double>& w_m_s) {
+        P2StaticCutCellTracerResult3D out;
+        out.water=step(nx,ny,nz,dx,dt,stationary_box,fraction,u_m_s,v_m_s,w_m_s);
+        const std::size_t n=out.water.fraction_after.size();
+        if(concentration_kg_m3.size()!=n)
+            throw std::invalid_argument("Tracer concentration array size mismatch");
+        const auto geom=P2MovingBoxFaceApertures3D::sample(
+            nx,ny,nz,dx,dt,stationary_box,stationary_box);
+        const double cell=dx*dx*dx;
+        std::vector<double> inventory(n,0.0);
+        double max_concentration=0.0;
+        for(std::size_t i=0;i<n;++i) {
+            const double c=concentration_kg_m3[i];
+            if(!std::isfinite(c)||c<0)
+                throw std::invalid_argument("Invalid passive tracer concentration");
+            const double water=geom.cell_geometry.alpha_old[i]*cell*fraction[i];
+            if(water==0.0&&c!=0.0)
+                throw std::invalid_argument("Tracer concentration in dry cell");
+            inventory[i]=water*c;
+            if(!std::isfinite(inventory[i]))
+                throw std::invalid_argument("Nonfinite tracer inventory");
+            out.tracer_before_kg+=inventory[i];
+            max_concentration=std::max(max_concentration,c);
+        }
+        if(!std::isfinite(out.tracer_before_kg))
+            throw std::invalid_argument("Nonfinite total tracer inventory");
+        const auto id=[&](std::size_t x,std::size_t y,std::size_t z) {
+            return (z*ny+y)*nx+x;
+        };
+        const auto transfer=[&](double water,std::size_t a,std::size_t b) {
+            if(water==0.0)return;
+            const double solute=water*(water>=0?
+                                      concentration_kg_m3[a]:
+                                      concentration_kg_m3[b]);
+            if(!std::isfinite(solute))
+                throw std::invalid_argument("Nonfinite transported tracer");
+            inventory[a]-=solute;
+            inventory[b]+=solute;
+        };
+        std::size_t face=0;
+        for(std::size_t z=0;z<nz;++z)
+        for(std::size_t y=0;y<ny;++y)
+        for(std::size_t x=0;x<=nx;++x,++face)
+            if(x>0&&x<nx)
+                transfer(out.water.u_water_flux_m3[face],
+                         id(x-1,y,z),id(x,y,z));
+        face=0;
+        for(std::size_t z=0;z<nz;++z)
+        for(std::size_t y=0;y<=ny;++y)
+        for(std::size_t x=0;x<nx;++x,++face)
+            if(y>0&&y<ny)
+                transfer(out.water.v_water_flux_m3[face],
+                         id(x,y-1,z),id(x,y,z));
+        face=0;
+        for(std::size_t z=0;z<=nz;++z)
+        for(std::size_t y=0;y<ny;++y)
+        for(std::size_t x=0;x<nx;++x,++face)
+            if(z>0&&z<nz)
+                transfer(out.water.w_water_flux_m3[face],
+                         id(x,y,z-1),id(x,y,z));
+        out.concentration_after_kg_m3.assign(n,0.0);
+        const double tolerance=1e-11*std::max(1.0,out.tracer_before_kg);
+        for(std::size_t i=0;i<n;++i) {
+            const double water=geom.cell_geometry.alpha_old[i]*cell*
+                               out.water.fraction_after[i];
+            const double mass=inventory[i];
+            if(!std::isfinite(mass)||mass < -tolerance||
+               mass > water*max_concentration+tolerance)
+                throw std::logic_error("Passive tracer positivity/bounds failed");
+            if(water==0.0) {
+                if(std::abs(mass)>tolerance)
+                    throw std::logic_error("Passive tracer stranded in dry cell");
+            } else {
+                const double c=std::max(0.0,mass/water);
+                if(!std::isfinite(c)||c>max_concentration+
+                    1e-10*std::max(1.0,max_concentration))
+                    throw std::logic_error("Passive tracer concentration unbounded");
+                out.concentration_after_kg_m3[i]=c;
+            }
+            out.tracer_after_kg+=water*out.concentration_after_kg_m3[i];
+        }
+        if(!std::isfinite(out.tracer_after_kg)||
+           std::abs(out.tracer_after_kg-out.tracer_before_kg)>tolerance)
+            throw std::logic_error("Passive tracer mass not conserved");
         return out;
     }
     // Explicit temporal subcycling; prescribed MAC velocity and fixed geometry.

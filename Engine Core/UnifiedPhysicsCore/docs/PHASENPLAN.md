@@ -1254,3 +1254,18 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
 - **P2-P8 PARTIAL, ALL_COMPLETE=False.** Dies ist ein passives
   Wassertransport-Ledger, keine gekoppelte Fluid-Impuls-/Energie-
   integration, keine reale FSI-Gegenreaktion oder UE5.8-Native-E2E.
+
+## P2 Teilfortschritt: passiver 3D-Wasser-/Stofftransport (30.10.2026)
+
+- `P2StaticCutCellVof3D::step_passive_tracer` advectiert einen geloesten
+  passiven Stoff [kg/m^3 Wasser] ueber die signierten 3D-MAC-Wasserfluesse
+  des konservativen stationaeren Cut-Cell-VOF-Einzelschritts. Separate
+  Stoffmassenbilanz, keine Stoffmengen in trockenen/gesperrten Zellen.
+- Native MSVC Release: 87/87 CTest PASS, 234710 Assertions im betroffenen
+  Test. 8^3/12^3 mit 40 Schritten, analytische 0.06-kg-Donor-Referenz,
+  zellweise U/V/W-Stoffledger-Referenz, vier Negativtests und
+  fraktionale Cut-Cells. JSON-/SHA-Teilgate:
+  scripts/p2_static_cut_cell_vof_acceptance.py.
+- **P2-P8 bleiben PARTIAL; ALL_COMPLETE=False.** Dies ist kein
+  physikalisch voll gekoppelter 3D-Fluid-/Boden-/Thermal-/FSI-Solver,
+  keine externe CFD-Messvalidierung und keine neue UE5.8-Native-E2E.

@@ -4,7 +4,7 @@
   "partial_accepted": true,
   "phase_complete": false,
   "ctest_suites": 87,
-  "native_assertions": 142185,
+  "native_assertions": 234710,
   "checks": [
     {
       "name": "87/87 full native CTest suites",
@@ -19,7 +19,7 @@
     {
       "name": "native assertions >= 90000",
       "pass": true,
-      "detail": 142185
+      "detail": 234710
     },
     {
       "name": "two grid sizes",
@@ -370,6 +370,66 @@
       ]
     },
     {
+      "name": "passive dissolved tracer on two 3D grids",
+      "pass": true,
+      "detail": [
+        "8",
+        "12"
+      ]
+    },
+    {
+      "name": "8 cubed 40 tracer/VOF coupled steps",
+      "pass": true,
+      "detail": [
+        8,
+        40
+      ]
+    },
+    {
+      "name": "8 cubed conserved dissolved tracer mass",
+      "pass": true,
+      "detail": [
+        55.051200000000016,
+        55.051200000000016
+      ]
+    },
+    {
+      "name": "8 cubed independent face solute balance",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "12 cubed 40 tracer/VOF coupled steps",
+      "pass": true,
+      "detail": [
+        12,
+        40
+      ]
+    },
+    {
+      "name": "12 cubed conserved dissolved tracer mass",
+      "pass": true,
+      "detail": [
+        300.75360000000006,
+        300.75360000000006
+      ]
+    },
+    {
+      "name": "12 cubed independent face solute balance",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "analytic water-to-tracer donor mass 0.06 kg",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "four invalid tracer inputs rejected",
+      "pass": true,
+      "detail": null
+    },
+    {
       "name": "eight physical/numeric rejection tests",
       "pass": true,
       "detail": null
@@ -377,16 +437,16 @@
   ],
   "source_sha256": {
     "CMakeLists.txt": "3bafa076a16a2405214fcf378271d64585cf73a5dd44912d6040054beca9f59c",
-    "docs/PHASENPLAN.md": "f67d368e59022017f51cd7fc7aca915840022bb12717e237cc37b77498553657",
-    "docs/P2_STATIC_CUT_CELL_VOF_PARTIAL.md": "c6836e7a0e4355625525339f99f618edfb328c2e28e98ac3b8c6a344992f7298",
-    "include/upc/p2_static_cut_cell_vof3d.hpp": "163967abe6a52e0e30f553d9e16a9f37cb5063303947983319a65abb228fc54d",
+    "docs/PHASENPLAN.md": "10c632beaf17b7adf932ab2c5a6330b1e2f4828de7e3797756145b525f1f8916",
+    "docs/P2_STATIC_CUT_CELL_VOF_PARTIAL.md": "134f735145039980e26072942bd052841b263bfe7f723f15465fa19951eb6078",
+    "include/upc/p2_static_cut_cell_vof3d.hpp": "63d2d16102995e61d6abe5026b87214594f266204240212e006202a78cf19401",
     "include/upc/p2_moving_box_mac_apertures3d.hpp": "c5fbdae598166771f6a28359c31960178239d3a59e0ccbb60f89f47b38f29ad3",
     "include/upc/p2_moving_box_open_volume3d.hpp": "270ecc419fa312212e47dbcfbd7fa8f2b172fde153b6d66e19f226be5cbedbb2",
-    "tests/p2_static_cut_cell_vof3d_tests.cpp": "5b1d8146f297b00f5488499705e243af1773b88ead456600536ee5663351a205",
-    "scripts/p2_static_cut_cell_vof_acceptance.py": "6bd6e2efa66fab28c5f12766d1de2e54b88f05284791eb74f1f308b1deec2b16",
+    "tests/p2_static_cut_cell_vof3d_tests.cpp": "c07c16272103edf6818cecf607eebb01757c6fe4308e017ee2f0cef0cc71867c",
+    "scripts/p2_static_cut_cell_vof_acceptance.py": "6b8904854a6549472ed979084e3d22785981bf878612e8a4a67d9bc907c79ee9",
     "scripts/p2_static_cut_cell_vof_full_build.cmd": "73075d11a3e65c5ba16a8b77ae7bec36e31b7816746b17ec8740c90f336b2168"
   },
-  "ctest_log_sha256": "9ed17aabc3ad76a8468b8ffbed17cb80d3ec317ef486778c4a5956d9816d196e",
+  "ctest_log_sha256": "d9eff0a3d9f396d01ea36d2619dfe22cc781580156838891c8cf67c3bd91e235",
   "limitations": [
     "prescribed solenoidal MAC velocity and stationary cut-cell geometry",
     "first-order diffusive donor-cell advection, no interface reconstruction",
