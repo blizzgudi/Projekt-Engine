@@ -1555,3 +1555,22 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
   eingefrorene Drucklast, keine echte orientierte Rotationsgeometrie,
   keine globale physikalische FSI-Energie-/Impulserhaltung, keine
   unabhaengige 3D-CFD-Messvalidierung oder Unreal-5.8-Native-E2E.
+
+
+## P2 Teilfortschritt: 6-DOF-MAC-Gegenimpuls mit Druck-Nachprojektion (30.10.2026)
+
+- Bestehender eingefrorener Druckwrench-Gegenimpuls wird in acht nativen
+  3D-Fällen wirklich mit `MacProjection3D::project(dt,3000)` nachprojiziert.
+  Separates Impuls- und Energieaudit rekonstruiert die Projektionsänderung
+  auf allen MAC-Faces, unabhängig berechnete Zell-Divergenz und
+  `J_total = J_frozen + J_projection` um die alte Körpermitte.
+- 87/87 MSVC-Release-CTest-Suites PASS; 64.310 Assertions im erweiterten
+  Native-Test; Divergenz nach Projektion etwa 1e-10 1/s. Das
+  Python-Gate ergänzt die acht Szenarien um numerische
+  Projektions-/Korrekturchecks und Quellen-/Binär-/Log-SHA256.
+- **P2-P8 weiterhin INCOMPLETE, ALL_COMPLETE=False**: Die
+  Nachprojektion verändert die zuvor geschlossene Face-Impulsbilanz,
+  und korrigiert auch inkompatible anfängliche Randgeschwindigkeiten.
+  Kein physikalischer FSI-Gesamtimpuls-/Energiebeweis, keine rotierende
+  Geometrie, keine externen 3D-CFD-Messdaten, kein neuer UE5.8-Native-E2E.
+  Details: `docs/P2_FROZEN_WRENCH_MAC_REACTION_PARTIAL.md`.

@@ -70,3 +70,32 @@ spannungsrichtige Wasser-Luft-Grenze, keine unabhaengigen
 Die gekoppelten Wasser/Boden-, Waerme-, Festkoerper-, Reaktions- und
 GPU/LOD-Vollphasen bleiben offen. P2-P8 sind INCOMPLETE;
 ALL_COMPLETE=False. Ein gruenes Teilgate darf diese Werte nicht aendern.
+
+
+## Nachtrag 30.10.2026: echte Nachprojektion der 6-DOF-Face-Reaktion
+
+Die acht bisherigen 8^3-/12^3-Szenarien (beide Bewegungsrichtungen,
+ruhendes/vorbelegtes MAC-Feld) werden nun nach dem eingefrorenen
+6-DOF-Gegenimpuls zusätzlich mit `MacProjection3D::project(dt,3000)`
+nachprojiziert. Die Tests rekonstruieren die Divergenz unabhängig aus
+allen sechs Zell-Faces, integrieren lineare und angulare Druckprojektions-
+Korrekturimpulse um die alte Körpermitte und prüfen die diskrete
+Impulsidentität `J_total = J_frozen + J_projection` sowie endliche
+Face-Energieänderung. Der ursprüngliche Reaktionspfad bleibt unverändert.
+
+MSVC-Release: 87/87 CTest-Suites PASS, 64.310 native Assertions im
+betroffenen Test. Nach Projektion liegt die maximale Divergenz in den
+Szenarien in der Größenordnung 1e-10 1/s; sie sinkt jeweils um mindestens
+Faktor 100. Bei ruhendem Fluid kompensiert die Projektion die ursprünglichen
+Face-Linearimpulse nahezu vollständig. Bei vorbelegtem Fluid sind die
+Projektionsimpulse erheblich größer, weil auch der anfängliche, an den
+Außenwänden nicht kompatible MAC-Zustand korrigiert wird. Diese
+Unterscheidung ist wesentlich: **Die vor der Projektion geschlossene
+6-DOF-Face-Impulsbilanz ist nach der Projektion keine globale
+Fluid-Festkörper-Impulserhaltung.** Es handelt sich um einen
+numerischen Befund, nicht um einen physikalischen FSI-Abschluss.
+
+Quantitative Zusatzgates und SHA-256-Nachweise stehen im bestehenden
+`p2_frozen_wrench_mac_reaction_partial.json`. P2-P8 bleiben offen:
+Bewegungs-/Rotationsgeometrie, physikalische Druckarbeit und Rückwirkung,
+extern gemessene CFD-Referenzen und Unreal-5.8-Native-E2E fehlen.

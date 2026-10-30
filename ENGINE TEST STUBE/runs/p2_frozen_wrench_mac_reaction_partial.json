@@ -3,7 +3,7 @@
   "milestone": "frozen_nonlinear_pressure_wrench_to_mac_6dof_partial",
   "partial_accepted": true,
   "phase_complete": false,
-  "generated_utc": "2026-10-30T19:24:16.377952+00:00",
+  "generated_utc": "2026-10-30T19:52:00.561352+00:00",
   "checks": [
     {
       "name": "native_exit",
@@ -12,7 +12,7 @@
     },
     {
       "name": "native_assertions",
-      "value": 34854,
+      "value": 64310,
       "pass": true
     },
     {
@@ -121,6 +121,34 @@
       "pass": true
     },
     {
+      "name": "projected_divergence_8_-1_0",
+      "value": 1.3944355500970066e-10,
+      "pass": true
+    },
+    {
+      "name": "projection_energy_finite_8_-1_0",
+      "value": -6.32229285631715e-06,
+      "pass": true
+    },
+    {
+      "name": "projection_impulse_nonzero_8_-1_0",
+      "value": [
+        -0.018612497089672005,
+        0.012631247206000635,
+        -0.024999995923028213
+      ],
+      "pass": true
+    },
+    {
+      "name": "post_projection_impulse_not_frozen_8_-1_0",
+      "value": [
+        2.9103280063669246e-09,
+        -2.793999429387406e-09,
+        4.076971798355755e-09
+      ],
+      "pass": true
+    },
+    {
       "name": "count_8_-1_1_0",
       "value": 32.0,
       "pass": true
@@ -213,6 +241,34 @@
     {
       "name": "nonzero_unprojected_divergence_8_-1_1",
       "value": 0.6,
+      "pass": true
+    },
+    {
+      "name": "projected_divergence_8_-1_1",
+      "value": 1.3434600654171902e-10,
+      "pass": true
+    },
+    {
+      "name": "projection_energy_finite_8_-1_1",
+      "value": -0.3084641969619794,
+      "pass": true
+    },
+    {
+      "name": "projection_impulse_nonzero_8_-1_1",
+      "value": [
+        -4.487612499463358,
+        -8.48936874762688,
+        -13.213999995068031
+      ],
+      "pass": true
+    },
+    {
+      "name": "post_projection_impulse_not_frozen_8_-1_1",
+      "value": [
+        -4.4689999994633585,
+        -8.50199999762688,
+        -13.18899999506803
+      ],
       "pass": true
     },
     {
@@ -311,6 +367,34 @@
       "pass": true
     },
     {
+      "name": "projected_divergence_8_1_0",
+      "value": 1.3882990255377372e-10,
+      "pass": true
+    },
+    {
+      "name": "projection_energy_finite_8_1_0",
+      "value": -6.2895714905048075e-06,
+      "pass": true
+    },
+    {
+      "name": "projection_impulse_nonzero_8_1_0",
+      "value": [
+        -0.018512497108359734,
+        0.01249374723038137,
+        -0.024999995923645688
+      ],
+      "pass": true
+    },
+    {
+      "name": "post_projection_impulse_not_frozen_8_1_0",
+      "value": [
+        2.891640295266118e-09,
+        -2.769618659415052e-09,
+        4.0763542992483526e-09
+      ],
+      "pass": true
+    },
+    {
       "name": "count_8_1_1_0",
       "value": 32.0,
       "pass": true
@@ -403,6 +487,34 @@
     {
       "name": "nonzero_unprojected_divergence_8_1_1",
       "value": 0.6,
+      "pass": true
+    },
+    {
+      "name": "projected_divergence_8_1_1",
+      "value": 1.3434682186175273e-10,
+      "pass": true
+    },
+    {
+      "name": "projection_energy_finite_8_1_1",
+      "value": -0.30846556841464035,
+      "pass": true
+    },
+    {
+      "name": "projection_impulse_nonzero_8_1_1",
+      "value": [
+        -4.4875124994634294,
+        -8.489506247626803,
+        -13.21399999506803
+      ],
+      "pass": true
+    },
+    {
+      "name": "post_projection_impulse_not_frozen_8_1_1",
+      "value": [
+        -4.4689999994634295,
+        -8.501999997626804,
+        -13.188999995068029
+      ],
       "pass": true
     },
     {
@@ -501,6 +613,34 @@
       "pass": true
     },
     {
+      "name": "projected_divergence_12_-1_0",
+      "value": 9.290458962037118e-11,
+      "pass": true
+    },
+    {
+      "name": "projection_energy_finite_12_-1_0",
+      "value": -6.598391926159467e-06,
+      "pass": true
+    },
+    {
+      "name": "projection_impulse_nonzero_12_-1_0",
+      "value": [
+        -0.02908200458041937,
+        0.019736308035855882,
+        -0.03906246377031519
+      ],
+      "pass": true
+    },
+    {
+      "name": "post_projection_impulse_not_frozen_12_-1_0",
+      "value": [
+        2.666958056826707e-08,
+        -2.0089143987211955e-08,
+        3.6229684807764784e-08
+      ],
+      "pass": true
+    },
+    {
       "name": "count_12_-1_1_0",
       "value": 32.0,
       "pass": true
@@ -593,6 +733,34 @@
     {
       "name": "nonzero_unprojected_divergence_12_-1_1",
       "value": 0.488,
+      "pass": true
+    },
+    {
+      "name": "projected_divergence_12_-1_1",
+      "value": 9.30110849450827e-11,
+      "pass": true
+    },
+    {
+      "name": "projection_energy_finite_12_-1_1",
+      "value": -2.1917800694734777,
+      "pass": true
+    },
+    {
+      "name": "projection_impulse_nonzero_12_-1_1",
+      "value": [
+        -31.499785144332197,
+        -59.85135739893193,
+        -92.91601558757428
+      ],
+      "pass": true
+    },
+    {
+      "name": "post_projection_impulse_not_frozen_12_-1_1",
+      "value": [
+        -31.470703113082198,
+        -59.87109372705693,
+        -92.87695308757428
+      ],
       "pass": true
     },
     {
@@ -691,6 +859,34 @@
       "pass": true
     },
     {
+      "name": "projected_divergence_12_1_0",
+      "value": 9.250835795161197e-11,
+      "pass": true
+    },
+    {
+      "name": "projection_energy_finite_12_1_0",
+      "value": -6.564404390539285e-06,
+      "pass": true
+    },
+    {
+      "name": "projection_impulse_nonzero_12_1_0",
+      "value": [
+        -0.02892575473125725,
+        0.019521464489989603,
+        -0.03906246377179302
+      ],
+      "pass": true
+    },
+    {
+      "name": "post_projection_impulse_not_frozen_12_1_0",
+      "value": [
+        2.6518742687886565e-08,
+        -1.9885010433401407e-08,
+        3.6228207045407856e-08
+      ],
+      "pass": true
+    },
+    {
       "name": "count_12_1_1_0",
       "value": 32.0,
       "pass": true
@@ -786,6 +982,34 @@
       "pass": true
     },
     {
+      "name": "projected_divergence_12_1_1",
+      "value": 9.301105718950708e-11,
+      "pass": true
+    },
+    {
+      "name": "projection_energy_finite_12_1_1",
+      "value": -2.1917830713058697,
+      "pass": true
+    },
+    {
+      "name": "projection_impulse_nonzero_12_1_1",
+      "value": [
+        -31.49962889433225,
+        -59.85157224268176,
+        -92.91601558757424
+      ],
+      "pass": true
+    },
+    {
+      "name": "post_projection_impulse_not_frozen_12_1_1",
+      "value": [
+        -31.47070311308225,
+        -59.87109372705676,
+        -92.87695308757424
+      ],
+      "pass": true
+    },
+    {
       "name": "unique_cases",
       "value": 8,
       "pass": true
@@ -820,7 +1044,14 @@
         ],
         "energy": 2.437584912633711e-05,
         "maxdv": 0.0013314001464843756,
-        "divergence": 0.016792864990234385
+        "divergence": 0.016792864990234385,
+        "postdiv": 1.3944355500970066e-10,
+        "projenergy": -6.32229285631715e-06,
+        "projection_linear": [
+          -0.018612497089672005,
+          0.012631247206000635,
+          -0.024999995923028213
+        ]
       },
       "independent_reference": {
         "count": [
@@ -875,7 +1106,14 @@
         ],
         "energy": 0.0007554686030325862,
         "maxdv": 0.0013314001464843756,
-        "divergence": 0.6
+        "divergence": 0.6,
+        "postdiv": 1.3434600654171902e-10,
+        "projenergy": -0.3084641969619794,
+        "projection_linear": [
+          -4.487612499463358,
+          -8.48936874762688,
+          -13.213999995068031
+        ]
       },
       "independent_reference": {
         "count": [
@@ -930,7 +1168,14 @@
         ],
         "energy": 2.444843233419231e-05,
         "maxdv": 0.0013422448730468746,
-        "divergence": 0.01682348022460939
+        "divergence": 0.01682348022460939,
+        "postdiv": 1.3882990255377372e-10,
+        "projenergy": -6.2895714905048075e-06,
+        "projection_linear": [
+          -0.018512497108359734,
+          0.01249374723038137,
+          -0.024999995923645688
+        ]
       },
       "independent_reference": {
         "count": [
@@ -985,7 +1230,14 @@
         ],
         "energy": 0.0007577913424904416,
         "maxdv": 0.0013422448730468746,
-        "divergence": 0.6
+        "divergence": 0.6,
+        "postdiv": 1.3434682186175273e-10,
+        "projenergy": -0.30846556841464035,
+        "projection_linear": [
+          -4.4875124994634294,
+          -8.489506247626803,
+          -13.21399999506803
+        ]
       },
       "independent_reference": {
         "count": [
@@ -1040,7 +1292,14 @@
         ],
         "energy": 3.04698114079212e-05,
         "maxdv": 0.0010651201171874996,
-        "divergence": 0.010747433593749989
+        "divergence": 0.010747433593749989,
+        "postdiv": 9.290458962037118e-11,
+        "projenergy": -6.598391926159467e-06,
+        "projection_linear": [
+          -0.02908200458041937,
+          0.019736308035855882,
+          -0.03906246377031519
+        ]
       },
       "independent_reference": {
         "count": [
@@ -1095,7 +1354,14 @@
         ],
         "energy": 0.001172802239386438,
         "maxdv": 0.0010651201171874996,
-        "divergence": 0.488
+        "divergence": 0.488,
+        "postdiv": 9.30110849450827e-11,
+        "projenergy": -2.1917800694734777,
+        "projection_linear": [
+          -31.499785144332197,
+          -59.85135739893193,
+          -92.91601558757428
+        ]
       },
       "independent_reference": {
         "count": [
@@ -1150,7 +1416,14 @@
         ],
         "energy": 3.056054041774039e-05,
         "maxdv": 0.001073795898437502,
-        "divergence": 0.010767027343750003
+        "divergence": 0.010767027343750003,
+        "postdiv": 9.250835795161197e-11,
+        "projenergy": -6.564404390539285e-06,
+        "projection_linear": [
+          -0.02892575473125725,
+          0.019521464489989603,
+          -0.03906246377179302
+        ]
       },
       "independent_reference": {
         "count": [
@@ -1205,7 +1478,14 @@
         ],
         "energy": 0.001176408837536881,
         "maxdv": 0.001073795898437502,
-        "divergence": 0.488
+        "divergence": 0.488,
+        "postdiv": 9.301105718950708e-11,
+        "projenergy": -2.1917830713058697,
+        "projection_linear": [
+          -31.49962889433225,
+          -59.85157224268176,
+          -92.91601558757424
+        ]
       },
       "independent_reference": {
         "count": [
@@ -1238,23 +1518,23 @@
       }
     }
   ],
-  "native_assertions": 34854,
-  "native_stdout": "CASE n=8 dx=0.10000000000000001 sign=-1 seeded=0 count0=32 count1=32 count2=32 lin0=0.018612500000000011 lin1=-0.012631250000000064 lin2=0.025000000000000012 ang0=4.3159374999999455e-05 ang1=5.3743749999997183e-05 ang2=-4.9109374999997797e-06 energy=2.4375849126337111e-05 maxdv=0.0013314001464843756 divergence=0.016792864990234385\nCASE n=8 dx=0.10000000000000001 sign=-1 seeded=1 count0=32 count1=32 count2=32 lin0=0.018612500000000011 lin1=-0.012631250000000064 lin2=0.025000000000000012 ang0=4.3159374999999455e-05 ang1=5.3743749999997183e-05 ang2=-4.9109374999997797e-06 energy=0.00075546860303258624 maxdv=0.0013314001464843756 divergence=0.59999999999999998\nCASE n=8 dx=0.10000000000000001 sign=1 seeded=0 count0=32 count1=32 count2=32 lin0=0.018512500000000029 lin1=-0.012493750000000029 lin2=0.024999999999999988 ang0=-4.377812500000194e-05 ang1=-5.4193750000001395e-05 ang2=7.5890625000004835e-06 energy=2.4448432334192311e-05 maxdv=0.0013422448730468746 divergence=0.016823480224609388\nCASE n=8 dx=0.10000000000000001 sign=1 seeded=1 count0=32 count1=32 count2=32 lin0=0.018512500000000029 lin1=-0.012493750000000029 lin2=0.024999999999999988 ang0=-4.377812500000194e-05 ang1=-5.4193750000001395e-05 ang2=7.5890625000004835e-06 energy=0.00075779134249044156 maxdv=0.0013422448730468746 divergence=0.59999999999999998\nCASE n=12 dx=0.125 sign=-1 seeded=0 count0=32 count1=32 count2=32 lin0=0.029082031249999939 lin1=-0.019736328124999869 lin2=0.0390625 ang0=8.4295654296876707e-05 ang1=0.000104968261718754 ang2=-9.5916748046838686e-06 energy=3.0469811407921199e-05 maxdv=0.0010651201171874996 divergence=0.010747433593749989\nCASE n=12 dx=0.125 sign=-1 seeded=1 count0=32 count1=32 count2=32 lin0=0.029082031249999939 lin1=-0.019736328124999869 lin2=0.0390625 ang0=8.4295654296876707e-05 ang1=0.000104968261718754 ang2=-9.5916748046838686e-06 energy=0.0011728022393864381 maxdv=0.0010651201171874996 divergence=0.48799999999999999\nCASE n=12 dx=0.125 sign=1 seeded=0 count0=32 count1=32 count2=32 lin0=0.028925781249999939 lin1=-0.019521484375000037 lin2=0.039062500000000062 ang0=-8.5504150390624758e-05 ang1=-0.00010584716796875004 ang2=1.4822387695310976e-05 energy=3.0560540417740389e-05 maxdv=0.0010737958984375019 divergence=0.010767027343750003\nCASE n=12 dx=0.125 sign=1 seeded=1 count0=32 count1=32 count2=32 lin0=0.028925781249999939 lin1=-0.019521484375000037 lin2=0.039062500000000062 ang0=-8.5504150390624758e-05 ang1=-0.00010584716796875004 ang2=1.4822387695310976e-05 energy=0.0011764088375368811 maxdv=0.0010737958984375019 divergence=0.48799999999999999\nPASS: 34854 native frozen-wrench MAC reaction assertions\n",
+  "native_assertions": 64310,
+  "native_stdout": "CASE n=8 dx=0.10000000000000001 sign=-1 seeded=0 count0=32 count1=32 count2=32 lin0=0.018612500000000011 lin1=-0.012631250000000064 lin2=0.025000000000000012 ang0=4.3159374999999455e-05 ang1=5.3743749999997183e-05 ang2=-4.9109374999997797e-06 energy=2.4375849126337111e-05 maxdv=0.0013314001464843756 divergence=0.016792864990234385 postdiv=1.3944355500970066e-10 projenergy=-6.3222928563171502e-06 projimp0=-0.018612497089672005 projimp1=0.012631247206000635 projimp2=-0.024999995923028213\nCASE n=8 dx=0.10000000000000001 sign=-1 seeded=1 count0=32 count1=32 count2=32 lin0=0.018612500000000011 lin1=-0.012631250000000064 lin2=0.025000000000000012 ang0=4.3159374999999455e-05 ang1=5.3743749999997183e-05 ang2=-4.9109374999997797e-06 energy=0.00075546860303258624 maxdv=0.0013314001464843756 divergence=0.59999999999999998 postdiv=1.3434600654171902e-10 projenergy=-0.30846419696197941 projimp0=-4.4876124994633582 projimp1=-8.4893687476268802 projimp2=-13.213999995068031\nCASE n=8 dx=0.10000000000000001 sign=1 seeded=0 count0=32 count1=32 count2=32 lin0=0.018512500000000029 lin1=-0.012493750000000029 lin2=0.024999999999999988 ang0=-4.377812500000194e-05 ang1=-5.4193750000001395e-05 ang2=7.5890625000004835e-06 energy=2.4448432334192311e-05 maxdv=0.0013422448730468746 divergence=0.016823480224609388 postdiv=1.3882990255377372e-10 projenergy=-6.2895714905048075e-06 projimp0=-0.018512497108359734 projimp1=0.01249374723038137 projimp2=-0.024999995923645688\nCASE n=8 dx=0.10000000000000001 sign=1 seeded=1 count0=32 count1=32 count2=32 lin0=0.018512500000000029 lin1=-0.012493750000000029 lin2=0.024999999999999988 ang0=-4.377812500000194e-05 ang1=-5.4193750000001395e-05 ang2=7.5890625000004835e-06 energy=0.00075779134249044156 maxdv=0.0013422448730468746 divergence=0.59999999999999998 postdiv=1.3434682186175273e-10 projenergy=-0.30846556841464035 projimp0=-4.4875124994634294 projimp1=-8.4895062476268031 projimp2=-13.213999995068029\nCASE n=12 dx=0.125 sign=-1 seeded=0 count0=32 count1=32 count2=32 lin0=0.029082031249999939 lin1=-0.019736328124999869 lin2=0.0390625 ang0=8.4295654296876707e-05 ang1=0.000104968261718754 ang2=-9.5916748046838686e-06 energy=3.0469811407921199e-05 maxdv=0.0010651201171874996 divergence=0.010747433593749989 postdiv=9.2904589620371181e-11 projenergy=-6.5983919261594666e-06 projimp0=-0.02908200458041937 projimp1=0.019736308035855882 projimp2=-0.039062463770315192\nCASE n=12 dx=0.125 sign=-1 seeded=1 count0=32 count1=32 count2=32 lin0=0.029082031249999939 lin1=-0.019736328124999869 lin2=0.0390625 ang0=8.4295654296876707e-05 ang1=0.000104968261718754 ang2=-9.5916748046838686e-06 energy=0.0011728022393864381 maxdv=0.0010651201171874996 divergence=0.48799999999999999 postdiv=9.30110849450827e-11 projenergy=-2.1917800694734777 projimp0=-31.499785144332197 projimp1=-59.851357398931931 projimp2=-92.916015587574279\nCASE n=12 dx=0.125 sign=1 seeded=0 count0=32 count1=32 count2=32 lin0=0.028925781249999939 lin1=-0.019521484375000037 lin2=0.039062500000000062 ang0=-8.5504150390624758e-05 ang1=-0.00010584716796875004 ang2=1.4822387695310976e-05 energy=3.0560540417740389e-05 maxdv=0.0010737958984375019 divergence=0.010767027343750003 postdiv=9.2508357951611971e-11 projenergy=-6.5644043905392849e-06 projimp0=-0.028925754731257251 projimp1=0.019521464489989603 projimp2=-0.039062463771793017\nCASE n=12 dx=0.125 sign=1 seeded=1 count0=32 count1=32 count2=32 lin0=0.028925781249999939 lin1=-0.019521484375000037 lin2=0.039062500000000062 ang0=-8.5504150390624758e-05 ang1=-0.00010584716796875004 ang2=1.4822387695310976e-05 energy=0.0011764088375368811 maxdv=0.0010737958984375019 divergence=0.48799999999999999 postdiv=9.3011057189507085e-11 projenergy=-2.1917830713058697 projimp0=-31.49962889433225 projimp1=-59.851572242681762 projimp2=-92.916015587574236\nPASS: 64310 native frozen-wrench MAC reaction assertions\n",
   "native_stderr": "",
   "source_sha256": {
     "include/upc/p2_frozen_wrench_mac_reaction3d.hpp": "36a37ddf24e0a4f5044afbbc7a682eec4265fdb022ca1b98edb64ea3a984cca4",
     "include/upc/p2_frozen_wrench_rigid_step3d.hpp": "56a3097a0039820a62ca855f2b3949888a18c803148abb8e48fc1946e167b429",
     "include/upc/p2_pressure_wrench_reference3d.hpp": "4e7d5a429e6a0b6ede5f08d52451b083277a1f9ab861607ac6f1912a894fadc4",
     "include/upc/mac3d.hpp": "9bb4659c5b6e6fd3a512301ae4a3a083fa96b1e67d50363ec8f5634e1038fdc5",
-    "tests/p2_frozen_wrench_mac_reaction3d_tests.cpp": "13e18014d62bfeffd0331c0d9a8559c0e947227569df64fd78b57ed546eeaca6",
+    "tests/p2_frozen_wrench_mac_reaction3d_tests.cpp": "beb96a4f5789237e4144a0c3efa4f676e5e6e5d60bc6b680b3691572247d0b5f",
     "scripts/p2_frozen_wrench_mac_reaction_full_build.cmd": "9304ad0ae9735cff6b447358093f8a46af7c73026bdf1467b4701b0fd25f94f8",
-    "scripts/p2_frozen_wrench_mac_reaction_acceptance.py": "7982124a264b21d1610ed4c3d694a1fb025c4f8636db5654f30d6390ff38083b",
+    "scripts/p2_frozen_wrench_mac_reaction_acceptance.py": "736768b7e11fa7edae880e0a399358e407264433e5121eeeca80723bfe221372",
     "scripts/p2_frozen_wrench_rigid_acceptance.py": "d630a35d472128a02eadd3cc51127da182e7bac9e94628535422587ab932fa36",
-    "docs/P2_FROZEN_WRENCH_MAC_REACTION_PARTIAL.md": "6ac6685c4015c5f38f7b42ed8ef950252f54bec86e021eb7b2b24fa7b894532b",
-    "docs/PHASENPLAN.md": "a8f289c589364499cb782d6badac6ef5f85932fd73228df16f089251ed1da8e6",
+    "docs/P2_FROZEN_WRENCH_MAC_REACTION_PARTIAL.md": "32a561d740b64370a978216ed35aedfc4c321dfae1b0d40c65b6761d076d8718",
+    "docs/PHASENPLAN.md": "5786cb96588460deea84eefb87fbb7fdea3dedb2efa57b32a80e518fac764381",
     "scripts/phase_gate.py": "01065438e2b72b3fe83e7e3ba3decbf54925c84c5f9424b15ad15a8197f59cd6"
   },
-  "native_binary_sha256": "fd095ecfe8a817f0a73fbc37d6f65d57ff22466ee5366933712a89a0a525d1ab",
-  "ctest_log_sha256": "d9cc373145e6dad50732dbf95cedb3d4b973d04ad4b323d3d27fbb351e9739ce",
-  "limitations": "Frozen pressure and static voxel mask; MAC face mass is a discrete proxy, no rotating geometry, no post-reaction pressure projection, no physical FSI momentum/energy closure, no measured 3D CFD and no Unreal 5.8 Native-E2E for this adapter."
+  "native_binary_sha256": "3c05372cad387457f879784daf75504934a3e8d9e5291ddf1c263193876191eb",
+  "ctest_log_sha256": "63dbb999dc595a7364bf4f6b74020da24d99942ee34932565a8c184f82d15493",
+  "limitations": "Frozen pressure and static voxel mask; MAC face mass is a discrete proxy, no rotating geometry, no post-reaction pressure its pressure correction changes the frozen face impulse; no physical FSI momentum/energy closure, no measured 3D CFD and no Unreal 5.8 Native-E2E."
 }

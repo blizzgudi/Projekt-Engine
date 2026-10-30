@@ -151,7 +151,8 @@ def main() -> None:
              + "".join(fr" {key}=([-+\d.eE]+)" for key in (
                  "count0","count1","count2",
                  "lin0","lin1","lin2","ang0","ang1","ang2",
-                 "energy","maxdv","divergence")))
+                 "energy","maxdv","divergence","postdiv","projenergy",
+                 "projimp0","projimp1","projimp2")))
     rows=re.findall(pattern,proc.stdout)
     add("eight_cases",len(rows),len(rows)==8)
     results=[]
@@ -160,7 +161,9 @@ def main() -> None:
         values=list(map(float,row[4:]))
         actual={"count":values[:3],"lin":values[3:6],
                 "ang":values[6:9],"energy":values[9],
-                "maxdv":values[10],"divergence":values[11]}
+                "maxdv":values[10],"divergence":values[11],
+                "postdiv":values[12],"projenergy":values[13],
+                "projection_linear":values[14:17]}
         want=expected(n,dx,sign,seeded)
         suffix=f"{n}_{sign}_{seeded}"
         for key in ("count","lin","ang"):
@@ -181,6 +184,19 @@ def main() -> None:
                 abs(actual["ang"][i]-want["target"][i+3])<1e-9)
         add(f"nonzero_unprojected_divergence_{suffix}",
             actual["divergence"],actual["divergence"]>1e-6)
+        add(f"projected_divergence_{suffix}",actual["postdiv"],
+            math.isfinite(actual["postdiv"]) and actual["postdiv"]<1e-7
+            and actual["postdiv"]<actual["divergence"]*0.01)
+        add(f"projection_energy_finite_{suffix}",actual["projenergy"],
+            math.isfinite(actual["projenergy"]))
+        add(f"projection_impulse_nonzero_{suffix}",actual["projection_linear"],
+            all(math.isfinite(x) for x in actual["projection_linear"])
+            and sum(x*x for x in actual["projection_linear"])>1e-14)
+        # Pressure projection changes the MAC face impulse; frozen wrench
+        # closure must not be reported as post-projection conservation.
+        add(f"post_projection_impulse_not_frozen_{suffix}",
+            [actual["lin"][i]+actual["projection_linear"][i] for i in range(3)],
+            any(abs(actual["projection_linear"][i])>1e-8 for i in range(3)))
         results.append({"n":n,"dx":dx,"sign":sign,"seeded":seeded,
                         "native":actual,"independent_reference":want})
     add("unique_cases",len({(r["n"],r["sign"],r["seeded"]) for r in results}),
@@ -199,8 +215,8 @@ def main() -> None:
         "ctest_log_sha256":sha(LOG),
         "limitations":"Frozen pressure and static voxel mask; MAC face mass is a "
         "discrete proxy, no rotating geometry, no post-reaction pressure "
-        "projection, no physical FSI momentum/energy closure, no measured "
-        "3D CFD and no Unreal 5.8 Native-E2E for this adapter.",
+        "its pressure correction changes the frozen face impulse; no physical FSI "
+        "momentum/energy closure, no measured 3D CFD and no Unreal 5.8 Native-E2E.",
     }
     RUNS.mkdir(parents=True,exist_ok=True)
     OUT.write_text(json.dumps(report,indent=2,ensure_ascii=False),

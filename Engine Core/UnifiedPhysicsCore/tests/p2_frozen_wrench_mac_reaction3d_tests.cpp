@@ -163,6 +163,56 @@ void run(int n,double dx,int sign,bool seeded) {
              "deterministic MAC replay");
     near(rr.fluid_face_energy_delta_proxy_J,
          result.fluid_face_energy_delta_proxy_J,0,"deterministic energy");
+    // P2 partial: actually re-project the frozen 6-DOF MAC reaction.
+    // Audit the pressure-projection correction separately: the original
+    // six-DOF face impulse ledger is NOT a post-projection conservation proof.
+    auto projected=saved;
+    projected.project(dt,3000);
+    const double postdiv=projected.max_divergence();
+    check(std::isfinite(postdiv)&&postdiv<result.max_divergence_after_s_inv*0.01,
+          "pressure projection must reduce reaction divergence by >=100x");
+    std::array<double,6> projection_impulse{},total_impulse{};
+    double projection_energy=0.0;
+    double independent_postdiv=0.0;
+    for(int z=0;z<n;++z)for(int y=0;y<n;++y)for(int x=0;x<n;++x) {
+        if(!scene.wet[idx(x,y,z)])continue;
+        const double d=(face(projected,0,x+1,y,z)-face(projected,0,x,y,z)
+                       +face(projected,1,x,y+1,z)-face(projected,1,x,y,z)
+                       +face(projected,2,x,y,z+1)-face(projected,2,x,y,z))/dx;
+        independent_postdiv=std::max(independent_postdiv,std::abs(d));
+    }
+    near(postdiv,independent_postdiv,1e-12,"independent post-projection divergence");
+    for(int a=0;a<3;++a)
+    for(int z=0;z<n+(a==2);++z)
+    for(int y=0;y<n+(a==1);++y)
+    for(int x=0;x<n+(a==0);++x) {
+        const double v0=face(before,a,x,y,z);
+        const double v1=face(saved,a,x,y,z);
+        const double v2=face(projected,a,x,y,z);
+        const double jp=mass*(v2-v1),jt=mass*(v2-v0);
+        projection_impulse[a]+=jp;
+        total_impulse[a]+=jt;
+        const std::array<double,3> r{{
+            (x+(a!=0?0.5:0))*dx-body.centre_m[0],
+            (y+(a!=1?0.5:0))*dx-body.centre_m[1],
+            (z+(a!=2?0.5:0))*dx-body.centre_m[2]}};
+        projection_impulse[3+(a+1)%3]+=r[(a+2)%3]*jp;
+        projection_impulse[3+(a+2)%3]-=r[(a+1)%3]*jp;
+        total_impulse[3+(a+1)%3]+=r[(a+2)%3]*jt;
+        total_impulse[3+(a+2)%3]-=r[(a+1)%3]*jt;
+        projection_energy+=0.5*mass*(v2*v2-v1*v1);
+        check(std::isfinite(v2),"finite projected MAC face");
+    }
+    for(int i=0;i<6;++i) {
+        const double original=i<3?result.applied_fluid_linear_Ns[i]:
+                                  result.applied_fluid_angular_Nms[i-3];
+        near(total_impulse[i],original+projection_impulse[i],1e-10,
+             "projection changes body-plus-fluid impulse ledger by measured correction");
+    }
+    check(std::isfinite(projection_energy),"finite pressure projection face energy");
+    double correction_norm=0.0;
+    for(double j:projection_impulse)correction_norm+=j*j;
+    check(correction_norm>1e-14,"projection must modify frozen face wrench");
     if(n==8&&sign==1&&!seeded) {
         // Rejection must be atomic, even for rank-deficient geometry.
         auto empty=scene.body;
@@ -199,7 +249,12 @@ void run(int n,double dx,int sign,bool seeded) {
         std::cout<<" ang"<<a<<"="<<result.applied_fluid_angular_Nms[a];
     std::cout<<" energy="<<result.fluid_face_energy_delta_proxy_J
              <<" maxdv="<<result.max_abs_face_delta_m_s
-             <<" divergence="<<result.max_divergence_after_s_inv<<"\n";
+             <<" divergence="<<result.max_divergence_after_s_inv
+             <<" postdiv="<<postdiv
+             <<" projenergy="<<projection_energy
+             <<" projimp0="<<projection_impulse[0]
+             <<" projimp1="<<projection_impulse[1]
+             <<" projimp2="<<projection_impulse[2]<<"\n";
 }
 }
 int main() {
