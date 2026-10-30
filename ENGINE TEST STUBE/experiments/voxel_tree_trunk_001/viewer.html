@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="de">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Virtual Voxel Printer – Baumstamm-Test 001</title>
+<style>
+:root{color-scheme:dark;font-family:Segoe UI,Arial,sans-serif;background:#101923;color:#e3edf4}
+body{max-width:1210px;margin:0 auto;padding:24px}
+header{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+h1{font-size:27px;margin:0 0 7px} h2{font-size:20px;margin:0 0 12px}
+p{color:#b3c6d4;line-height:1.5}.pill{background:#193f36;color:#9eedcb;padding:7px 12px;border-radius:14px}
+main{display:grid;grid-template-columns:minmax(330px,1.2fr) minmax(300px,1fr);gap:18px;margin-top:26px}
+section{padding:20px;background:#192735;border:1px solid #334a5a;border-radius:14px}
+img{object-fit:contain;max-width:100%;border-radius:8px;display:block;margin:auto}
+#stage{height:490px;max-width:100%;}#full{height:490px}
+input[type=range]{width:100%;accent-color:#72c2cd}.row{display:flex;justify-content:space-between;align-items:center;gap:10px}
+button{background:#2b495d;color:white;border:1px solid #486579;border-radius:8px;padding:8px;cursor:pointer}
+button:focus,button:hover{background:#3c647a}
+.legend{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
+.swatch{width:16px;height:16px;display:inline-block;border-radius:3px;vertical-align:middle;margin-right:7px}
+small{color:#b1bfca;line-height:1.6}
+footer{color:#9cb4c4;font-size:12px;margin-top:24px}
+@media(max-width:850px){main{grid-template-columns:1fr}#stage,#full{height:360px}}
+</style></head>
+<body>
+<header><div><h1>Virtual Voxel Printer – Baumstamm 001</h1><p>Echte UPC-Materialvoxel · Schichtdruck · Rinde, Kambium, Splintholz und Kernholz</p></div><span class="pill">C++ / UnifiedPhysicsCore: PASS</span></header>
+<main>
+<section>
+<h2>Schichtweiser Aufbau</h2>
+<img id="stage" src="output/tree_trunk_stage_010.png" alt="Voxel-Druckfortschritt Baumstamm">
+<div class="row"><b id="percent">10 % gedruckt</b><small>Höhe: <span id="height">0,13</span> m</small></div>
+<input id="print" aria-label="Druckfortschritt" type="range" min="0" max="4" value="0" step="1">
+<div class="row"><small>10 %</small><small>30 %</small><small>55 %</small><small>80 %</small><small>100 %</small></div>
+<p>Jede Ansicht wird aus demselben binären Materialvoxel-Datensatz abgeleitet. Das Volumen wächst von unten nach oben wie bei einem virtuellen 3D-Druck.</p>
+</section>
+<section>
+<h2>Baumstruktur prüfen</h2>
+<div class="row"><button type="button" onclick="show('full')">Ganze Rinde</button><button type="button" onclick="show('cut')">Aufgeschnitten</button><button type="button" onclick="show('cross')">Querschnitt</button></div>
+<img id="full" src="output/tree_trunk_cutaway.png" alt="Schnitt durch echten materialgefüllten Voxelstamm">
+<div class="legend">
+<div><span class="swatch" style="background:#7d492b"></span>Kernholz (1101)</div>
+<div><span class="swatch" style="background:#caa068"></span>Splintholz (1102)</div>
+<div><span class="swatch" style="background:#ecd088"></span>Kambium (1103)</div>
+<div><span class="swatch" style="background:#412a1f"></span>Rinde (1104)</div>
+</div>
+<p>Die gesamte Oberfläche und der sichtbare Querschnitt kommen aus den Material-IDs. Die Rindenrillen und Wurzelansätze entstehen durch mathematische Geometrieregeln.</p>
+</section>
+</main>
+<footer>Technischer Proof, keine native Blender-/UE-Laufzeitprüfung: Noch keine botanische Simulation, Lebensprozesse, fotorealistische Rinde, Knochen-/Aststruktur oder echter physischer Druck.</footer>
+<script>
+const percentages=[10,30,55,80,100];
+document.getElementById("print").addEventListener("input",e=>{
+const v=percentages[Number(e.target.value)];
+document.getElementById("stage").src="output/tree_trunk_stage_"+String(v).padStart(3,"0")+".png";
+document.getElementById("percent").textContent=v+" % gedruckt";
+document.getElementById("height").textContent=(v*1.344/100).toFixed(2).replace(".",",");
+});
+function show(which){
+const files={full:"tree_trunk_full.png",cut:"tree_trunk_cutaway.png",cross:"tree_trunk_cross_section.png"};
+document.getElementById("full").src="output/"+files[which];
+}
+</script></body></html>

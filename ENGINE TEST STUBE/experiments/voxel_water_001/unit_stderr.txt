@@ -1,0 +1,8 @@
+test_material_references (test_voxel_lab.VoxelTest.test_material_references) ... ok
+test_out_of_bounds (test_voxel_lab.VoxelTest.test_out_of_bounds) ... ok
+test_water_quantity_and_solid_cells (test_voxel_lab.VoxelTest.test_water_quantity_and_solid_cells) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.022s
+
+OK

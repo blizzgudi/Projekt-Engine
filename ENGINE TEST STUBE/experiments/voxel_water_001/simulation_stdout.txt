@@ -1,0 +1,59 @@
+{
+  "note": "Spielzeugmodell diskreter Zellenbewegung; kein physikalisch genauer Fluidsolver",
+  "grid": [
+    16,
+    12,
+    8
+  ],
+  "cell_size_m": 0.1,
+  "materials": {
+    "1": {
+      "name": "Wasser",
+      "density_kg_m3": 1000.0,
+      "viscosity_pa_s": 0.001,
+      "color": [
+        0.12,
+        0.52,
+        0.94
+      ]
+    },
+    "2": {
+      "name": "Wand",
+      "density_kg_m3": 2400.0,
+      "color": [
+        0.42,
+        0.45,
+        0.48
+      ]
+    }
+  },
+  "initial_water_cells": 240,
+  "water_volume_m3": 0.24000000000000005,
+  "water_mass_kg": 240.00000000000006,
+  "frames": [
+    {
+      "frame": 0,
+      "water_cells": 240,
+      "wall_cells": 556,
+      "triangles": 2832,
+      "vertices": 5664,
+      "file": "D:\\ENGINE TEST STUBE\\experiments\\voxel_water_001\\output\\frame_000.obj"
+    },
+    {
+      "frame": 8,
+      "water_cells": 240,
+      "wall_cells": 556,
+      "triangles": 3632,
+      "vertices": 7264,
+      "file": "D:\\ENGINE TEST STUBE\\experiments\\voxel_water_001\\output\\frame_008.obj"
+    },
+    {
+      "frame": 30,
+      "water_cells": 240,
+      "wall_cells": 556,
+      "triangles": 3632,
+      "vertices": 7264,
+      "file": "D:\\ENGINE TEST STUBE\\experiments\\voxel_water_001\\output\\frame_030.obj"
+    }
+  ]
+}
