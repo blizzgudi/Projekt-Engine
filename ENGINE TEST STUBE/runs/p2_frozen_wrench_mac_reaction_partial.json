@@ -1,0 +1,1260 @@
+{
+  "phase": "P2",
+  "milestone": "frozen_nonlinear_pressure_wrench_to_mac_6dof_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "generated_utc": "2026-10-30T19:24:16.377952+00:00",
+  "checks": [
+    {
+      "name": "native_exit",
+      "value": 0,
+      "pass": true
+    },
+    {
+      "name": "native_assertions",
+      "value": 34854,
+      "pass": true
+    },
+    {
+      "name": "full_ctest_87",
+      "value": true,
+      "pass": true
+    },
+    {
+      "name": "eight_cases",
+      "value": 8,
+      "pass": true
+    },
+    {
+      "name": "count_8_-1_0_0",
+      "value": 32.0,
+      "pass": true
+    },
+    {
+      "name": "count_8_-1_0_1",
+      "value": 32.0,
+      "pass": true
+    },
+    {
+      "name": "count_8_-1_0_2",
+      "value": 32.0,
+      "pass": true
+    },
+    {
+      "name": "lin_8_-1_0_0",
+      "value": 0.01861250000000001,
+      "pass": true
+    },
+    {
+      "name": "lin_8_-1_0_1",
+      "value": -0.012631250000000064,
+      "pass": true
+    },
+    {
+      "name": "lin_8_-1_0_2",
+      "value": 0.025000000000000012,
+      "pass": true
+    },
+    {
+      "name": "ang_8_-1_0_0",
+      "value": 4.3159374999999455e-05,
+      "pass": true
+    },
+    {
+      "name": "ang_8_-1_0_1",
+      "value": 5.374374999999718e-05,
+      "pass": true
+    },
+    {
+      "name": "ang_8_-1_0_2",
+      "value": -4.91093749999978e-06,
+      "pass": true
+    },
+    {
+      "name": "energy_8_-1_0",
+      "value": 2.437584912633711e-05,
+      "pass": true
+    },
+    {
+      "name": "maxdv_8_-1_0",
+      "value": 0.0013314001464843756,
+      "pass": true
+    },
+    {
+      "name": "divergence_8_-1_0",
+      "value": 0.016792864990234385,
+      "pass": true
+    },
+    {
+      "name": "linear_body_fluid_8_-1_0_0",
+      "value": -2.0816681711721685e-17,
+      "pass": true
+    },
+    {
+      "name": "angular_body_fluid_8_-1_0_0",
+      "value": -9.486769009248164e-19,
+      "pass": true
+    },
+    {
+      "name": "linear_body_fluid_8_-1_0_1",
+      "value": 2.949029909160572e-17,
+      "pass": true
+    },
+    {
+      "name": "angular_body_fluid_8_-1_0_1",
+      "value": -2.9680034471790684e-18,
+      "pass": true
+    },
+    {
+      "name": "linear_body_fluid_8_-1_0_2",
+      "value": 5.551115123125783e-17,
+      "pass": true
+    },
+    {
+      "name": "angular_body_fluid_8_-1_0_2",
+      "value": 1.2722434867759591e-18,
+      "pass": true
+    },
+    {
+      "name": "nonzero_unprojected_divergence_8_-1_0",
+      "value": 0.016792864990234385,
+      "pass": true
+    },
+    {
+      "name": "count_8_-1_1_0",
+      "value": 32.0,
+      "pass": true
+    },
+    {
+      "name": "count_8_-1_1_1",
+      "value": 32.0,
+      "pass": true
+    },
+    {
+      "name": "count_8_-1_1_2",
+      "value": 32.0,
+      "pass": true
+    },
+    {
+      "name": "lin_8_-1_1_0",
+      "value": 0.01861250000000001,
+      "pass": true
+    },
+    {
+      "name": "lin_8_-1_1_1",
+      "value": -0.012631250000000064,
+      "pass": true
+    },
+    {
+      "name": "lin_8_-1_1_2",
+      "value": 0.025000000000000012,
+      "pass": true
+    },
+    {
+      "name": "ang_8_-1_1_0",
+      "value": 4.3159374999999455e-05,
+      "pass": true
+    },
+    {
+      "name": "ang_8_-1_1_1",
+      "value": 5.374374999999718e-05,
+      "pass": true
+    },
+    {
+      "name": "ang_8_-1_1_2",
+      "value": -4.91093749999978e-06,
+      "pass": true
+    },
+    {
+      "name": "energy_8_-1_1",
+      "value": 0.0007554686030325862,
+      "pass": true
+    },
+    {
+      "name": "maxdv_8_-1_1",
+      "value": 0.0013314001464843756,
+      "pass": true
+    },
+    {
+      "name": "divergence_8_-1_1",
+      "value": 0.6,
+      "pass": true
+    },
+    {
+      "name": "linear_body_fluid_8_-1_1_0",
+      "value": -2.0816681711721685e-17,
+      "pass": true
+    },
+    {
+      "name": "angular_body_fluid_8_-1_1_0",
+      "value": -9.486769009248164e-19,
+      "pass": true
+    },
+    {
+      "name": "linear_body_fluid_8_-1_1_1",
+      "value": 2.949029909160572e-17,
+      "pass": true
+    },
+    {
+      "name": "angular_body_fluid_8_-1_1_1",
+      "value": -2.9680034471790684e-18,
+      "pass": true
+    },
+    {
+      "name": "linear_body_fluid_8_-1_1_2",
+      "value": 5.551115123125783e-17,
+      "pass": true
+    },
+    {
+      "name": "angular_body_fluid_8_-1_1_2",
+      "value": 1.2722434867759591e-18,
+      "pass": true
+    },
+    {
+      "name": "nonzero_unprojected_divergence_8_-1_1",
+      "value": 0.6,
+      "pass": true
+    },
+    {
+      "name": "count_8_1_0_0",
+      "value": 32.0,
+      "pass": true
+    },
+    {
+      "name": "count_8_1_0_1",
+      "value": 32.0,
+      "pass": true
+    },
+    {
+      "name": "count_8_1_0_2",
+      "value": 32.0,
+      "pass": true
+    },
+    {
+      "name": "lin_8_1_0_0",
+      "value": 0.01851250000000003,
+      "pass": true
+    },
+    {
+      "name": "lin_8_1_0_1",
+      "value": -0.01249375000000003,
+      "pass": true
+    },
+    {
+      "name": "lin_8_1_0_2",
+      "value": 0.024999999999999988,
+      "pass": true
+    },
+    {
+      "name": "ang_8_1_0_0",
+      "value": -4.377812500000194e-05,
+      "pass": true
+    },
+    {
+      "name": "ang_8_1_0_1",
+      "value": -5.4193750000001395e-05,
+      "pass": true
+    },
+    {
+      "name": "ang_8_1_0_2",
+      "value": 7.5890625000004835e-06,
+      "pass": true
+    },
+    {
+      "name": "energy_8_1_0",
+      "value": 2.444843233419231e-05,
+      "pass": true
+    },
+    {
+      "name": "maxdv_8_1_0",
+      "value": 0.0013422448730468746,
+      "pass": true
+    },
+    {
+      "name": "divergence_8_1_0",
+      "value": 0.01682348022460939,
+      "pass": true
+    },
+    {
+      "name": "linear_body_fluid_8_1_0_0",
+      "value": 3.469446951953614e-17,
+      "pass": true
+    },
+    {
+      "name": "angular_body_fluid_8_1_0_0",
+      "value": 2.032879073410321e-18,
+      "pass": true
+    },
+    {
+      "name": "linear_body_fluid_8_1_0_1",
+      "value": -5.204170427930421e-17,
+      "pass": true
+    },
+    {
+      "name": "angular_body_fluid_8_1_0_1",
+      "value": -2.879912020664621e-18,
+      "pass": true
+    },
+    {
+      "name": "linear_body_fluid_8_1_0_2",
+      "value": 2.42861286636753e-17,
+      "pass": true
+    },
+    {
+      "name": "angular_body_fluid_8_1_0_2",
+      "value": -3.8539999100070665e-18,
+      "pass": true
+    },
+    {
+      "name": "nonzero_unprojected_divergence_8_1_0",
+      "value": 0.01682348022460939,
+      "pass": true
+    },
+    {
+      "name": "count_8_1_1_0",
+      "value": 32.0,
+      "pass": true
+    },
+    {
+      "name": "count_8_1_1_1",
+      "value": 32.0,
+      "pass": true
+    },
+    {
+      "name": "count_8_1_1_2",
+      "value": 32.0,
+      "pass": true
+    },
+    {
+      "name": "lin_8_1_1_0",
+      "value": 0.01851250000000003,
+      "pass": true
+    },
+    {
+      "name": "lin_8_1_1_1",
+      "value": -0.01249375000000003,
+      "pass": true
+    },
+    {
+      "name": "lin_8_1_1_2",
+      "value": 0.024999999999999988,
+      "pass": true
+    },
+    {
+      "name": "ang_8_1_1_0",
+      "value": -4.377812500000194e-05,
+      "pass": true
+    },
+    {
+      "name": "ang_8_1_1_1",
+      "value": -5.4193750000001395e-05,
+      "pass": true
+    },
+    {
+      "name": "ang_8_1_1_2",
+      "value": 7.5890625000004835e-06,
+      "pass": true
+    },
+    {
+      "name": "energy_8_1_1",
+      "value": 0.0007577913424904416,
+      "pass": true
+    },
+    {
+      "name": "maxdv_8_1_1",
+      "value": 0.0013422448730468746,
+      "pass": true
+    },
+    {
+      "name": "divergence_8_1_1",
+      "value": 0.6,
+      "pass": true
+    },
+    {
+      "name": "linear_body_fluid_8_1_1_0",
+      "value": 3.469446951953614e-17,
+      "pass": true
+    },
+    {
+      "name": "angular_body_fluid_8_1_1_0",
+      "value": 2.032879073410321e-18,
+      "pass": true
+    },
+    {
+      "name": "linear_body_fluid_8_1_1_1",
+      "value": -5.204170427930421e-17,
+      "pass": true
+    },
+    {
+      "name": "angular_body_fluid_8_1_1_1",
+      "value": -2.879912020664621e-18,
+      "pass": true
+    },
+    {
+      "name": "linear_body_fluid_8_1_1_2",
+      "value": 2.42861286636753e-17,
+      "pass": true
+    },
+    {
+      "name": "angular_body_fluid_8_1_1_2",
+      "value": -3.8539999100070665e-18,
+      "pass": true
+    },
+    {
+      "name": "nonzero_unprojected_divergence_8_1_1",
+      "value": 0.6,
+      "pass": true
+    },
+    {
+      "name": "count_12_-1_0_0",
+      "value": 32.0,
+      "pass": true
+    },
+    {
+      "name": "count_12_-1_0_1",
+      "value": 32.0,
+      "pass": true
+    },
+    {
+      "name": "count_12_-1_0_2",
+      "value": 32.0,
+      "pass": true
+    },
+    {
+      "name": "lin_12_-1_0_0",
+      "value": 0.02908203124999994,
+      "pass": true
+    },
+    {
+      "name": "lin_12_-1_0_1",
+      "value": -0.01973632812499987,
+      "pass": true
+    },
+    {
+      "name": "lin_12_-1_0_2",
+      "value": 0.0390625,
+      "pass": true
+    },
+    {
+      "name": "ang_12_-1_0_0",
+      "value": 8.429565429687671e-05,
+      "pass": true
+    },
+    {
+      "name": "ang_12_-1_0_1",
+      "value": 0.000104968261718754,
+      "pass": true
+    },
+    {
+      "name": "ang_12_-1_0_2",
+      "value": -9.591674804683869e-06,
+      "pass": true
+    },
+    {
+      "name": "energy_12_-1_0",
+      "value": 3.04698114079212e-05,
+      "pass": true
+    },
+    {
+      "name": "maxdv_12_-1_0",
+      "value": 0.0010651201171874996,
+      "pass": true
+    },
+    {
+      "name": "divergence_12_-1_0",
+      "value": 0.010747433593749989,
+      "pass": true
+    },
+    {
+      "name": "linear_body_fluid_12_-1_0_0",
+      "value": -3.469446951953614e-18,
+      "pass": true
+    },
+    {
+      "name": "angular_body_fluid_12_-1_0_0",
+      "value": 2.520770051028798e-18,
+      "pass": true
+    },
+    {
+      "name": "linear_body_fluid_12_-1_0_1",
+      "value": 1.0061396160665481e-16,
+      "pass": true
+    },
+    {
+      "name": "angular_body_fluid_12_-1_0_1",
+      "value": 6.898236322439022e-18,
+      "pass": true
+    },
+    {
+      "name": "linear_body_fluid_12_-1_0_2",
+      "value": 1.249000902703301e-16,
+      "pass": true
+    },
+    {
+      "name": "angular_body_fluid_12_-1_0_2",
+      "value": 4.414735721089413e-18,
+      "pass": true
+    },
+    {
+      "name": "nonzero_unprojected_divergence_12_-1_0",
+      "value": 0.010747433593749989,
+      "pass": true
+    },
+    {
+      "name": "count_12_-1_1_0",
+      "value": 32.0,
+      "pass": true
+    },
+    {
+      "name": "count_12_-1_1_1",
+      "value": 32.0,
+      "pass": true
+    },
+    {
+      "name": "count_12_-1_1_2",
+      "value": 32.0,
+      "pass": true
+    },
+    {
+      "name": "lin_12_-1_1_0",
+      "value": 0.02908203124999994,
+      "pass": true
+    },
+    {
+      "name": "lin_12_-1_1_1",
+      "value": -0.01973632812499987,
+      "pass": true
+    },
+    {
+      "name": "lin_12_-1_1_2",
+      "value": 0.0390625,
+      "pass": true
+    },
+    {
+      "name": "ang_12_-1_1_0",
+      "value": 8.429565429687671e-05,
+      "pass": true
+    },
+    {
+      "name": "ang_12_-1_1_1",
+      "value": 0.000104968261718754,
+      "pass": true
+    },
+    {
+      "name": "ang_12_-1_1_2",
+      "value": -9.591674804683869e-06,
+      "pass": true
+    },
+    {
+      "name": "energy_12_-1_1",
+      "value": 0.001172802239386438,
+      "pass": true
+    },
+    {
+      "name": "maxdv_12_-1_1",
+      "value": 0.0010651201171874996,
+      "pass": true
+    },
+    {
+      "name": "divergence_12_-1_1",
+      "value": 0.488,
+      "pass": true
+    },
+    {
+      "name": "linear_body_fluid_12_-1_1_0",
+      "value": -3.469446951953614e-18,
+      "pass": true
+    },
+    {
+      "name": "angular_body_fluid_12_-1_1_0",
+      "value": 2.520770051028798e-18,
+      "pass": true
+    },
+    {
+      "name": "linear_body_fluid_12_-1_1_1",
+      "value": 1.0061396160665481e-16,
+      "pass": true
+    },
+    {
+      "name": "angular_body_fluid_12_-1_1_1",
+      "value": 6.898236322439022e-18,
+      "pass": true
+    },
+    {
+      "name": "linear_body_fluid_12_-1_1_2",
+      "value": 1.249000902703301e-16,
+      "pass": true
+    },
+    {
+      "name": "angular_body_fluid_12_-1_1_2",
+      "value": 4.414735721089413e-18,
+      "pass": true
+    },
+    {
+      "name": "nonzero_unprojected_divergence_12_-1_1",
+      "value": 0.488,
+      "pass": true
+    },
+    {
+      "name": "count_12_1_0_0",
+      "value": 32.0,
+      "pass": true
+    },
+    {
+      "name": "count_12_1_0_1",
+      "value": 32.0,
+      "pass": true
+    },
+    {
+      "name": "count_12_1_0_2",
+      "value": 32.0,
+      "pass": true
+    },
+    {
+      "name": "lin_12_1_0_0",
+      "value": 0.02892578124999994,
+      "pass": true
+    },
+    {
+      "name": "lin_12_1_0_1",
+      "value": -0.019521484375000037,
+      "pass": true
+    },
+    {
+      "name": "lin_12_1_0_2",
+      "value": 0.03906250000000006,
+      "pass": true
+    },
+    {
+      "name": "ang_12_1_0_0",
+      "value": -8.550415039062476e-05,
+      "pass": true
+    },
+    {
+      "name": "ang_12_1_0_1",
+      "value": -0.00010584716796875004,
+      "pass": true
+    },
+    {
+      "name": "ang_12_1_0_2",
+      "value": 1.4822387695310976e-05,
+      "pass": true
+    },
+    {
+      "name": "energy_12_1_0",
+      "value": 3.056054041774039e-05,
+      "pass": true
+    },
+    {
+      "name": "maxdv_12_1_0",
+      "value": 0.001073795898437502,
+      "pass": true
+    },
+    {
+      "name": "divergence_12_1_0",
+      "value": 0.010767027343750003,
+      "pass": true
+    },
+    {
+      "name": "linear_body_fluid_12_1_0_0",
+      "value": -6.245004513516506e-17,
+      "pass": true
+    },
+    {
+      "name": "angular_body_fluid_12_1_0_0",
+      "value": -1.748276003132876e-18,
+      "pass": true
+    },
+    {
+      "name": "linear_body_fluid_12_1_0_1",
+      "value": 5.204170427930421e-17,
+      "pass": true
+    },
+    {
+      "name": "angular_body_fluid_12_1_0_1",
+      "value": -2.9002408113987244e-18,
+      "pass": true
+    },
+    {
+      "name": "linear_body_fluid_12_1_0_2",
+      "value": -2.7755575615628914e-17,
+      "pass": true
+    },
+    {
+      "name": "angular_body_fluid_12_1_0_2",
+      "value": -6.640738306473715e-18,
+      "pass": true
+    },
+    {
+      "name": "nonzero_unprojected_divergence_12_1_0",
+      "value": 0.010767027343750003,
+      "pass": true
+    },
+    {
+      "name": "count_12_1_1_0",
+      "value": 32.0,
+      "pass": true
+    },
+    {
+      "name": "count_12_1_1_1",
+      "value": 32.0,
+      "pass": true
+    },
+    {
+      "name": "count_12_1_1_2",
+      "value": 32.0,
+      "pass": true
+    },
+    {
+      "name": "lin_12_1_1_0",
+      "value": 0.02892578124999994,
+      "pass": true
+    },
+    {
+      "name": "lin_12_1_1_1",
+      "value": -0.019521484375000037,
+      "pass": true
+    },
+    {
+      "name": "lin_12_1_1_2",
+      "value": 0.03906250000000006,
+      "pass": true
+    },
+    {
+      "name": "ang_12_1_1_0",
+      "value": -8.550415039062476e-05,
+      "pass": true
+    },
+    {
+      "name": "ang_12_1_1_1",
+      "value": -0.00010584716796875004,
+      "pass": true
+    },
+    {
+      "name": "ang_12_1_1_2",
+      "value": 1.4822387695310976e-05,
+      "pass": true
+    },
+    {
+      "name": "energy_12_1_1",
+      "value": 0.001176408837536881,
+      "pass": true
+    },
+    {
+      "name": "maxdv_12_1_1",
+      "value": 0.001073795898437502,
+      "pass": true
+    },
+    {
+      "name": "divergence_12_1_1",
+      "value": 0.488,
+      "pass": true
+    },
+    {
+      "name": "linear_body_fluid_12_1_1_0",
+      "value": -6.245004513516506e-17,
+      "pass": true
+    },
+    {
+      "name": "angular_body_fluid_12_1_1_0",
+      "value": -1.748276003132876e-18,
+      "pass": true
+    },
+    {
+      "name": "linear_body_fluid_12_1_1_1",
+      "value": 5.204170427930421e-17,
+      "pass": true
+    },
+    {
+      "name": "angular_body_fluid_12_1_1_1",
+      "value": -2.9002408113987244e-18,
+      "pass": true
+    },
+    {
+      "name": "linear_body_fluid_12_1_1_2",
+      "value": -2.7755575615628914e-17,
+      "pass": true
+    },
+    {
+      "name": "angular_body_fluid_12_1_1_2",
+      "value": -6.640738306473715e-18,
+      "pass": true
+    },
+    {
+      "name": "nonzero_unprojected_divergence_12_1_1",
+      "value": 0.488,
+      "pass": true
+    },
+    {
+      "name": "unique_cases",
+      "value": 8,
+      "pass": true
+    },
+    {
+      "name": "source_hashes",
+      "value": 11,
+      "pass": true
+    }
+  ],
+  "reference": [
+    {
+      "n": 8,
+      "dx": 0.1,
+      "sign": -1,
+      "seeded": 0,
+      "native": {
+        "count": [
+          32.0,
+          32.0,
+          32.0
+        ],
+        "lin": [
+          0.01861250000000001,
+          -0.012631250000000064,
+          0.025000000000000012
+        ],
+        "ang": [
+          4.3159374999999455e-05,
+          5.374374999999718e-05,
+          -4.91093749999978e-06
+        ],
+        "energy": 2.437584912633711e-05,
+        "maxdv": 0.0013314001464843756,
+        "divergence": 0.016792864990234385
+      },
+      "independent_reference": {
+        "count": [
+          32,
+          32,
+          32
+        ],
+        "lin": [
+          0.018612500000000032,
+          -0.012631250000000097,
+          0.02499999999999995
+        ],
+        "ang": [
+          4.3159375000000654e-05,
+          5.374374999999988e-05,
+          -4.910937500001443e-06
+        ],
+        "energy": 2.4375849126337087e-05,
+        "maxdv": 0.0013314001464843734,
+        "divergence": 0.016792864990234375,
+        "target": [
+          0.018612500000000032,
+          -0.012631250000000094,
+          0.024999999999999956,
+          4.3159375000000404e-05,
+          5.374375000000015e-05,
+          -4.910937500001052e-06
+        ],
+        "faces": 96
+      }
+    },
+    {
+      "n": 8,
+      "dx": 0.1,
+      "sign": -1,
+      "seeded": 1,
+      "native": {
+        "count": [
+          32.0,
+          32.0,
+          32.0
+        ],
+        "lin": [
+          0.01861250000000001,
+          -0.012631250000000064,
+          0.025000000000000012
+        ],
+        "ang": [
+          4.3159374999999455e-05,
+          5.374374999999718e-05,
+          -4.91093749999978e-06
+        ],
+        "energy": 0.0007554686030325862,
+        "maxdv": 0.0013314001464843756,
+        "divergence": 0.6
+      },
+      "independent_reference": {
+        "count": [
+          32,
+          32,
+          32
+        ],
+        "lin": [
+          0.018612500000000032,
+          -0.012631250000000097,
+          0.02499999999999995
+        ],
+        "ang": [
+          4.3159375000000654e-05,
+          5.374374999999988e-05,
+          -4.910937500001443e-06
+        ],
+        "energy": 0.0007554686030325844,
+        "maxdv": 0.0013314001464843734,
+        "divergence": 0.6,
+        "target": [
+          0.018612500000000032,
+          -0.012631250000000094,
+          0.024999999999999956,
+          4.3159375000000404e-05,
+          5.374375000000015e-05,
+          -4.910937500001052e-06
+        ],
+        "faces": 96
+      }
+    },
+    {
+      "n": 8,
+      "dx": 0.1,
+      "sign": 1,
+      "seeded": 0,
+      "native": {
+        "count": [
+          32.0,
+          32.0,
+          32.0
+        ],
+        "lin": [
+          0.01851250000000003,
+          -0.01249375000000003,
+          0.024999999999999988
+        ],
+        "ang": [
+          -4.377812500000194e-05,
+          -5.4193750000001395e-05,
+          7.5890625000004835e-06
+        ],
+        "energy": 2.444843233419231e-05,
+        "maxdv": 0.0013422448730468746,
+        "divergence": 0.01682348022460939
+      },
+      "independent_reference": {
+        "count": [
+          32,
+          32,
+          32
+        ],
+        "lin": [
+          0.01851249999999999,
+          -0.012493749999999982,
+          0.024999999999999963
+        ],
+        "ang": [
+          -4.3778125000004e-05,
+          -5.419374999999802e-05,
+          7.589062500003916e-06
+        ],
+        "energy": 2.4448432334192257e-05,
+        "maxdv": 0.0013422448730468738,
+        "divergence": 0.01682348022460936,
+        "target": [
+          0.018512499999999994,
+          -0.012493749999999977,
+          0.024999999999999963,
+          -4.377812500000397e-05,
+          -5.4193749999998515e-05,
+          7.5890625000043375e-06
+        ],
+        "faces": 96
+      }
+    },
+    {
+      "n": 8,
+      "dx": 0.1,
+      "sign": 1,
+      "seeded": 1,
+      "native": {
+        "count": [
+          32.0,
+          32.0,
+          32.0
+        ],
+        "lin": [
+          0.01851250000000003,
+          -0.01249375000000003,
+          0.024999999999999988
+        ],
+        "ang": [
+          -4.377812500000194e-05,
+          -5.4193750000001395e-05,
+          7.5890625000004835e-06
+        ],
+        "energy": 0.0007577913424904416,
+        "maxdv": 0.0013422448730468746,
+        "divergence": 0.6
+      },
+      "independent_reference": {
+        "count": [
+          32,
+          32,
+          32
+        ],
+        "lin": [
+          0.01851249999999999,
+          -0.012493749999999982,
+          0.024999999999999963
+        ],
+        "ang": [
+          -4.3778125000004e-05,
+          -5.419374999999802e-05,
+          7.589062500003916e-06
+        ],
+        "energy": 0.0007577913424904415,
+        "maxdv": 0.0013422448730468738,
+        "divergence": 0.6,
+        "target": [
+          0.018512499999999994,
+          -0.012493749999999977,
+          0.024999999999999963,
+          -4.377812500000397e-05,
+          -5.4193749999998515e-05,
+          7.5890625000043375e-06
+        ],
+        "faces": 96
+      }
+    },
+    {
+      "n": 12,
+      "dx": 0.125,
+      "sign": -1,
+      "seeded": 0,
+      "native": {
+        "count": [
+          32.0,
+          32.0,
+          32.0
+        ],
+        "lin": [
+          0.02908203124999994,
+          -0.01973632812499987,
+          0.0390625
+        ],
+        "ang": [
+          8.429565429687671e-05,
+          0.000104968261718754,
+          -9.591674804683869e-06
+        ],
+        "energy": 3.04698114079212e-05,
+        "maxdv": 0.0010651201171874996,
+        "divergence": 0.010747433593749989
+      },
+      "independent_reference": {
+        "count": [
+          32,
+          32,
+          32
+        ],
+        "lin": [
+          0.029082031249999946,
+          -0.019736328124999973,
+          0.03906249999999988
+        ],
+        "ang": [
+          8.429565429687354e-05,
+          0.00010496826171874832,
+          -9.591674804688734e-06
+        ],
+        "energy": 3.046981140792116e-05,
+        "maxdv": 0.0010651201171874968,
+        "divergence": 0.010747433593749973,
+        "target": [
+          0.029082031249999942,
+          -0.01973632812499997,
+          0.039062499999999875,
+          8.429565429687419e-05,
+          0.0001049682617187471,
+          -9.591674804688283e-06
+        ],
+        "faces": 96
+      }
+    },
+    {
+      "n": 12,
+      "dx": 0.125,
+      "sign": -1,
+      "seeded": 1,
+      "native": {
+        "count": [
+          32.0,
+          32.0,
+          32.0
+        ],
+        "lin": [
+          0.02908203124999994,
+          -0.01973632812499987,
+          0.0390625
+        ],
+        "ang": [
+          8.429565429687671e-05,
+          0.000104968261718754,
+          -9.591674804683869e-06
+        ],
+        "energy": 0.001172802239386438,
+        "maxdv": 0.0010651201171874996,
+        "divergence": 0.488
+      },
+      "independent_reference": {
+        "count": [
+          32,
+          32,
+          32
+        ],
+        "lin": [
+          0.029082031249999946,
+          -0.019736328124999973,
+          0.03906249999999988
+        ],
+        "ang": [
+          8.429565429687354e-05,
+          0.00010496826171874832,
+          -9.591674804688734e-06
+        ],
+        "energy": 0.0011728022393864333,
+        "maxdv": 0.0010651201171874968,
+        "divergence": 0.488,
+        "target": [
+          0.029082031249999942,
+          -0.01973632812499997,
+          0.039062499999999875,
+          8.429565429687419e-05,
+          0.0001049682617187471,
+          -9.591674804688283e-06
+        ],
+        "faces": 96
+      }
+    },
+    {
+      "n": 12,
+      "dx": 0.125,
+      "sign": 1,
+      "seeded": 0,
+      "native": {
+        "count": [
+          32.0,
+          32.0,
+          32.0
+        ],
+        "lin": [
+          0.02892578124999994,
+          -0.019521484375000037,
+          0.03906250000000006
+        ],
+        "ang": [
+          -8.550415039062476e-05,
+          -0.00010584716796875004,
+          1.4822387695310976e-05
+        ],
+        "energy": 3.056054041774039e-05,
+        "maxdv": 0.001073795898437502,
+        "divergence": 0.010767027343750003
+      },
+      "independent_reference": {
+        "count": [
+          32,
+          32,
+          32
+        ],
+        "lin": [
+          0.028925781250000004,
+          -0.019521484375000092,
+          0.03906250000000008
+        ],
+        "ang": [
+          -8.550415039062305e-05,
+          -0.00010584716796874614,
+          1.4822387695318708e-05
+        ],
+        "energy": 3.056054041774048e-05,
+        "maxdv": 0.001073795898437503,
+        "divergence": 0.010767027343750018,
+        "target": [
+          0.02892578125,
+          -0.01952148437500009,
+          0.03906250000000009,
+          -8.550415039062301e-05,
+          -0.00010584716796874714,
+          1.4822387695317617e-05
+        ],
+        "faces": 96
+      }
+    },
+    {
+      "n": 12,
+      "dx": 0.125,
+      "sign": 1,
+      "seeded": 1,
+      "native": {
+        "count": [
+          32.0,
+          32.0,
+          32.0
+        ],
+        "lin": [
+          0.02892578124999994,
+          -0.019521484375000037,
+          0.03906250000000006
+        ],
+        "ang": [
+          -8.550415039062476e-05,
+          -0.00010584716796875004,
+          1.4822387695310976e-05
+        ],
+        "energy": 0.001176408837536881,
+        "maxdv": 0.001073795898437502,
+        "divergence": 0.488
+      },
+      "independent_reference": {
+        "count": [
+          32,
+          32,
+          32
+        ],
+        "lin": [
+          0.028925781250000004,
+          -0.019521484375000092,
+          0.03906250000000008
+        ],
+        "ang": [
+          -8.550415039062305e-05,
+          -0.00010584716796874614,
+          1.4822387695318708e-05
+        ],
+        "energy": 0.001176408837536882,
+        "maxdv": 0.001073795898437503,
+        "divergence": 0.488,
+        "target": [
+          0.02892578125,
+          -0.01952148437500009,
+          0.03906250000000009,
+          -8.550415039062301e-05,
+          -0.00010584716796874714,
+          1.4822387695317617e-05
+        ],
+        "faces": 96
+      }
+    }
+  ],
+  "native_assertions": 34854,
+  "native_stdout": "CASE n=8 dx=0.10000000000000001 sign=-1 seeded=0 count0=32 count1=32 count2=32 lin0=0.018612500000000011 lin1=-0.012631250000000064 lin2=0.025000000000000012 ang0=4.3159374999999455e-05 ang1=5.3743749999997183e-05 ang2=-4.9109374999997797e-06 energy=2.4375849126337111e-05 maxdv=0.0013314001464843756 divergence=0.016792864990234385\nCASE n=8 dx=0.10000000000000001 sign=-1 seeded=1 count0=32 count1=32 count2=32 lin0=0.018612500000000011 lin1=-0.012631250000000064 lin2=0.025000000000000012 ang0=4.3159374999999455e-05 ang1=5.3743749999997183e-05 ang2=-4.9109374999997797e-06 energy=0.00075546860303258624 maxdv=0.0013314001464843756 divergence=0.59999999999999998\nCASE n=8 dx=0.10000000000000001 sign=1 seeded=0 count0=32 count1=32 count2=32 lin0=0.018512500000000029 lin1=-0.012493750000000029 lin2=0.024999999999999988 ang0=-4.377812500000194e-05 ang1=-5.4193750000001395e-05 ang2=7.5890625000004835e-06 energy=2.4448432334192311e-05 maxdv=0.0013422448730468746 divergence=0.016823480224609388\nCASE n=8 dx=0.10000000000000001 sign=1 seeded=1 count0=32 count1=32 count2=32 lin0=0.018512500000000029 lin1=-0.012493750000000029 lin2=0.024999999999999988 ang0=-4.377812500000194e-05 ang1=-5.4193750000001395e-05 ang2=7.5890625000004835e-06 energy=0.00075779134249044156 maxdv=0.0013422448730468746 divergence=0.59999999999999998\nCASE n=12 dx=0.125 sign=-1 seeded=0 count0=32 count1=32 count2=32 lin0=0.029082031249999939 lin1=-0.019736328124999869 lin2=0.0390625 ang0=8.4295654296876707e-05 ang1=0.000104968261718754 ang2=-9.5916748046838686e-06 energy=3.0469811407921199e-05 maxdv=0.0010651201171874996 divergence=0.010747433593749989\nCASE n=12 dx=0.125 sign=-1 seeded=1 count0=32 count1=32 count2=32 lin0=0.029082031249999939 lin1=-0.019736328124999869 lin2=0.0390625 ang0=8.4295654296876707e-05 ang1=0.000104968261718754 ang2=-9.5916748046838686e-06 energy=0.0011728022393864381 maxdv=0.0010651201171874996 divergence=0.48799999999999999\nCASE n=12 dx=0.125 sign=1 seeded=0 count0=32 count1=32 count2=32 lin0=0.028925781249999939 lin1=-0.019521484375000037 lin2=0.039062500000000062 ang0=-8.5504150390624758e-05 ang1=-0.00010584716796875004 ang2=1.4822387695310976e-05 energy=3.0560540417740389e-05 maxdv=0.0010737958984375019 divergence=0.010767027343750003\nCASE n=12 dx=0.125 sign=1 seeded=1 count0=32 count1=32 count2=32 lin0=0.028925781249999939 lin1=-0.019521484375000037 lin2=0.039062500000000062 ang0=-8.5504150390624758e-05 ang1=-0.00010584716796875004 ang2=1.4822387695310976e-05 energy=0.0011764088375368811 maxdv=0.0010737958984375019 divergence=0.48799999999999999\nPASS: 34854 native frozen-wrench MAC reaction assertions\n",
+  "native_stderr": "",
+  "source_sha256": {
+    "include/upc/p2_frozen_wrench_mac_reaction3d.hpp": "36a37ddf24e0a4f5044afbbc7a682eec4265fdb022ca1b98edb64ea3a984cca4",
+    "include/upc/p2_frozen_wrench_rigid_step3d.hpp": "56a3097a0039820a62ca855f2b3949888a18c803148abb8e48fc1946e167b429",
+    "include/upc/p2_pressure_wrench_reference3d.hpp": "4e7d5a429e6a0b6ede5f08d52451b083277a1f9ab861607ac6f1912a894fadc4",
+    "include/upc/mac3d.hpp": "9bb4659c5b6e6fd3a512301ae4a3a083fa96b1e67d50363ec8f5634e1038fdc5",
+    "tests/p2_frozen_wrench_mac_reaction3d_tests.cpp": "13e18014d62bfeffd0331c0d9a8559c0e947227569df64fd78b57ed546eeaca6",
+    "scripts/p2_frozen_wrench_mac_reaction_full_build.cmd": "9304ad0ae9735cff6b447358093f8a46af7c73026bdf1467b4701b0fd25f94f8",
+    "scripts/p2_frozen_wrench_mac_reaction_acceptance.py": "7982124a264b21d1610ed4c3d694a1fb025c4f8636db5654f30d6390ff38083b",
+    "scripts/p2_frozen_wrench_rigid_acceptance.py": "d630a35d472128a02eadd3cc51127da182e7bac9e94628535422587ab932fa36",
+    "docs/P2_FROZEN_WRENCH_MAC_REACTION_PARTIAL.md": "6ac6685c4015c5f38f7b42ed8ef950252f54bec86e021eb7b2b24fa7b894532b",
+    "docs/PHASENPLAN.md": "a8f289c589364499cb782d6badac6ef5f85932fd73228df16f089251ed1da8e6",
+    "scripts/phase_gate.py": "01065438e2b72b3fe83e7e3ba3decbf54925c84c5f9424b15ad15a8197f59cd6"
+  },
+  "native_binary_sha256": "fd095ecfe8a817f0a73fbc37d6f65d57ff22466ee5366933712a89a0a525d1ab",
+  "ctest_log_sha256": "d9cc373145e6dad50732dbf95cedb3d4b973d04ad4b323d3d27fbb351e9739ce",
+  "limitations": "Frozen pressure and static voxel mask; MAC face mass is a discrete proxy, no rotating geometry, no post-reaction pressure projection, no physical FSI momentum/energy closure, no measured 3D CFD and no Unreal 5.8 Native-E2E for this adapter."
+}

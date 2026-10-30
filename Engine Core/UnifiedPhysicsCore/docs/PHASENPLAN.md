@@ -1533,3 +1533,25 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
   aktualisierter rotierender Geometrie, kein MAC-Gegenimpuls, keine
   globale Fluidenergie, keine externe 3D-CFD-Messvalidierung und
   keine Unreal-5.8-Native-E2E-Abnahme dieses Pfades.
+
+## P2 Teilfortschritt: angewendeter 6-DOF-MAC-Gegenimpuls (30.10.2026)
+
+- Opt-in C++17-Adapter `P2FrozenWrenchMacReaction3D`: der echte
+  nichtlineare fraktionale Druckwrench wird erst in die gefrorene
+  Starrkoerper-ODE integriert und sein negativer linearer UND angularer
+  Impuls dann auf benachbarte nasse MAC-Innenflaechen angewendet.
+- 6x6 diagonal skalierte Minimum-Norm-Nebenbedingung, Rangdefizienz-
+  Ablehnung und transaktionales Preflight vor dem Schreiben; aussen,
+  trocken und festkoerpernormal bleiben unveraendert.
+- Native 8^3/12^3, beide Boxbewegungsrichtungen und ruhende/vorbelegte
+  Face-Felder: 34854 Assertions PASS. Volle bestehende MSVC-Release-
+  Regression: 87/87 CTest PASS. Unabhaengige Python-6x6-Referenz und
+  Source-/Binaer-/CTest-SHA256-Teilgate:
+  `scripts/p2_frozen_wrench_mac_reaction_acceptance.py`;
+  `docs/P2_FROZEN_WRENCH_MAC_REACTION_PARTIAL.md`;
+  `ENGINE TEST STUBE/runs/p2_frozen_wrench_mac_reaction_partial.json`.
+- **P2-P8 INCOMPLETE; ALL_COMPLETE=False**: nur diskrete staggered-
+  Face-Impulsbilanz vor der Druckprojektion, statische Koerpermaske,
+  eingefrorene Drucklast, keine echte orientierte Rotationsgeometrie,
+  keine globale physikalische FSI-Energie-/Impulserhaltung, keine
+  unabhaengige 3D-CFD-Messvalidierung oder Unreal-5.8-Native-E2E.
