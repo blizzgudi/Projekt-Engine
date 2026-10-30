@@ -138,6 +138,105 @@ public:
             throw std::logic_error("Diffusive tracer mass not conserved");
         return out;
     }
+
+    // Cell-wise diagonal diffusivity: harmonic face transmissivity across
+    // heterogeneous material boundaries. Zero D blocks the interface.
+    // This is a prescribed passive transport model, NOT calibrated soil FSI.
+    static P2CutCellTracerDiffusionResult3D step_heterogeneous(
+        std::size_t nx,std::size_t ny,std::size_t nz,double dx,double dt,
+        const P2Box3D& stationary_box,const std::vector<double>& fraction,
+        const std::vector<double>& concentration_kg_m3,
+        const std::vector<double>& u_m_s,const std::vector<double>& v_m_s,
+        const std::vector<double>& w_m_s,
+        const std::array<std::vector<double>,3>& diffusivity_cell_axis_m2_s) {
+        const std::size_t n=fraction.size();
+        for(const auto& axis:diffusivity_cell_axis_m2_s) {
+            if(axis.size()!=n)throw std::invalid_argument("Heterogeneous diffusivity size");
+            for(double d:axis)
+                if(!std::isfinite(d)||d<0.0)
+                    throw std::invalid_argument("Invalid heterogeneous diffusivity");
+        }
+        auto out=step_anisotropic(nx,ny,nz,dx,dt,stationary_box,fraction,
+            concentration_kg_m3,u_m_s,v_m_s,w_m_s,{0.0,0.0,0.0});
+        const auto geom=P2MovingBoxFaceApertures3D::sample(
+            nx,ny,nz,dx,dt,stationary_box,stationary_box);
+        const auto& f=out.advected.water.fraction_after;
+        const double cell=dx*dx*dx;
+        std::vector<double> water(n),mass(n),sum_g(n,0.0);
+        double max_c=0.0;
+        for(std::size_t i=0;i<n;++i) {
+            water[i]=geom.cell_geometry.alpha_old[i]*cell*f[i];
+            mass[i]=water[i]*out.concentration_after_kg_m3[i];
+            max_c=std::max(max_c,out.concentration_after_kg_m3[i]);
+            if(!std::isfinite(water[i])||!std::isfinite(mass[i]))
+                throw std::invalid_argument("Nonfinite heterogeneous inventory");
+        }
+        const auto id=[&](std::size_t x,std::size_t y,std::size_t z) {
+            return (z*ny+y)*nx+x;
+        };
+        const auto transfer=[&](std::size_t axis,double aperture,
+                                std::size_t a,std::size_t b) {
+            const double da=diffusivity_cell_axis_m2_s[axis][a];
+            const double db=diffusivity_cell_axis_m2_s[axis][b];
+            if(aperture<=0.0||f[a]<=0.0||f[b]<=0.0||da==0.0||db==0.0)
+                return 0.0;
+            // Stable harmonic mean, avoiding overflow in da*db.
+            const double d=2.0/(1.0/da+1.0/db);
+            const double g=d*dt*dx*aperture*std::min(f[a],f[b]);
+            if(!std::isfinite(g)||g<0.0)
+                throw std::invalid_argument("Nonfinite heterogeneous conductance");
+            sum_g[a]+=g;sum_g[b]+=g;
+            const double flux=g*(out.advected.concentration_after_kg_m3[a]-
+                                 out.advected.concentration_after_kg_m3[b]);
+            if(!std::isfinite(flux))
+                throw std::invalid_argument("Nonfinite heterogeneous flux");
+            mass[a]-=flux;mass[b]+=flux;
+            return flux;
+        };
+        std::size_t face=0;
+        for(std::size_t z=0;z<nz;++z)
+        for(std::size_t y=0;y<ny;++y)
+        for(std::size_t x=0;x<=nx;++x,++face)
+            if(x>0&&x<nx)
+                out.u_diffusion_flux_kg[face]=transfer(
+                    0,geom.u_open[face],id(x-1,y,z),id(x,y,z));
+        face=0;
+        for(std::size_t z=0;z<nz;++z)
+        for(std::size_t y=0;y<=ny;++y)
+        for(std::size_t x=0;x<nx;++x,++face)
+            if(y>0&&y<ny)
+                out.v_diffusion_flux_kg[face]=transfer(
+                    1,geom.v_open[face],id(x,y-1,z),id(x,y,z));
+        face=0;
+        for(std::size_t z=0;z<=nz;++z)
+        for(std::size_t y=0;y<ny;++y)
+        for(std::size_t x=0;x<nx;++x,++face)
+            if(z>0&&z<nz)
+                out.w_diffusion_flux_kg[face]=transfer(
+                    2,geom.w_open[face],id(x,y,z-1),id(x,y,z));
+        const double tol=1e-11*std::max(1.0,out.advected.tracer_after_kg);
+        out.tracer_after_kg=0.0;
+        for(std::size_t i=0;i<n;++i) {
+            if(water[i]==0.0) {
+                if(sum_g[i]!=0.0||std::abs(mass[i])>tol)
+                    throw std::logic_error("Heterogeneous solute in dry cell");
+                continue;
+            }
+            const double cfl=sum_g[i]/water[i];
+            if(!std::isfinite(cfl)||cfl>1.0+1e-12)
+                throw std::invalid_argument("Heterogeneous diffusion CFL exceeded");
+            out.max_diffusion_cfl=std::max(out.max_diffusion_cfl,cfl);
+            if(!std::isfinite(mass[i])||mass[i]<-tol||
+               mass[i]>water[i]*max_c+tol)
+                throw std::logic_error("Heterogeneous concentration bounds");
+            out.concentration_after_kg_m3[i]=std::max(0.0,mass[i]/water[i]);
+            out.tracer_after_kg+=water[i]*out.concentration_after_kg_m3[i];
+        }
+        if(!std::isfinite(out.tracer_after_kg)||
+           std::abs(out.tracer_after_kg-out.advected.tracer_after_kg)>tol)
+            throw std::logic_error("Heterogeneous tracer mass not conserved");
+        return out;
+    }
     // Conservative opt-in: one prescribed-MAC advection step followed by
     // bounded explicit anisotropic diffusion on the resulting wet geometry.
     // A conservative six-neighbor bound accounts for small cut-cell volumes.

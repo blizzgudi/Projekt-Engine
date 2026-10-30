@@ -1343,3 +1343,20 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
 - **P2-P8 PARTIAL, ALL_COMPLETE=False.** Keine gekoppelte Navier-Stokes-
   Fluid-/Boden-/Thermal-/FSI-Gesamtphysik, keine unabhaengigen 3D-CFD-
   Messdaten oder UE5.8-Native-E2E-Abnahme dieses Pfades.
+
+## P2 Teilfortschritt: zellweise heterogene 3D-Stoffdiffusion (30.10.2026)
+
+- Neuer opt-in Operator P2CutCellTracerDiffusion3D::step_heterogeneous:
+  zellweise D_x/D_y/D_z [m2/s] und harmonische Face-Leitwerte an
+  Materialgrenzen; Null-D blockiert den Stofffluss. Vorhandene
+  3D-MAC/VOF-Advektion bleibt vorgeschrieben, Festkoerper stationaer.
+- Unabhaengige 8^3/12^3-Referenz: D_x links=1, Mitte=2, rechts=4,
+  dt=0.1 s; Zentrum=0.6 kg, links=2/15 kg, rechts=4/15 kg,
+  Gesamtmasse=1 kg, CFL=0.4. Signierte Face-Fluesse und unabhaengige
+  zellweise 3D-Massenbilanzen sowie uniforme D-Paritaet getestet.
+  Ungueltige Feldgroessen, negative/nichtfinite D und CFL-Verletzung
+  werden abgelehnt. Native Release, CTest und SHA256-Teilgate dokumentiert
+  in docs/P2_STATIC_CUT_CELL_VOF_PARTIAL.md.
+- **P2-P8 PARTIAL; ALL_COMPLETE=False.** Keine experimentelle
+  Bodenparametrisierung, echte 3D-Navier-Stokes-/FSI-Gegenreaktion,
+  Gesamtimpuls-/Energievalidierung oder neue UE5.8-Native-E2E.

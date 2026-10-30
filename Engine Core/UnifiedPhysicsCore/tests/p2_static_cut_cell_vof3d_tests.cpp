@@ -1127,6 +1127,96 @@ void diffusion_subcycling_moving_and_fractional(int n) {
              <<initial_mass<<" "<<r.tracer_after_kg<<" "
              <<r.max_diffusion_cfl<<" "<<residual<<"\n";
 }
+
+void heterogeneous_diffusion_reference(int n) {
+    using Diff=upc::P2CutCellTracerDiffusion3D;
+    Setup s(n);
+    std::fill(s.u.begin(),s.u.end(),0.0);
+    std::fill(s.v.begin(),s.v.end(),0.0);
+    std::fill(s.w.begin(),s.w.end(),0.0);
+    std::fill(s.f.begin(),s.f.end(),1.0);
+    s.f[s.id(3,3,3)]=0.0; // Exact stationary blocked voxel.
+    std::vector<double> c(s.f.size(),0.0);
+    const int x=1,y=1,z=1;
+    c[s.id(x,y,z)]=1.0;
+    std::array<std::vector<double>,3> d;
+    for(auto& axis:d)axis.assign(s.f.size(),0.0);
+    d[0][s.id(x-1,y,z)]=1.0;
+    d[0][s.id(x,y,z)]=2.0;
+    d[0][s.id(x+1,y,z)]=4.0;
+    const auto a=Diff::step_heterogeneous(
+        n,n,n,1.0,0.1,s.box,s.f,c,s.u,s.v,s.w,d);
+    near(a.concentration_after_kg_m3[s.id(x,y,z)],0.6,1e-13,
+         "independent harmonic-interface center mass");
+    near(a.concentration_after_kg_m3[s.id(x-1,y,z)],2.0/15.0,1e-13,
+         "harmonic left D=4/3, flux=2/15 kg");
+    near(a.concentration_after_kg_m3[s.id(x+1,y,z)],4.0/15.0,1e-13,
+         "harmonic right D=8/3, flux=4/15 kg");
+    near(a.u_diffusion_flux_kg[s.ui(x,y,z)],-2.0/15.0,1e-13,
+         "negative signed left heterogeneous flux");
+    near(a.u_diffusion_flux_kg[s.ui(x+1,y,z)],4.0/15.0,1e-13,
+         "positive signed right heterogeneous flux");
+    near(a.tracer_after_kg,1.0,1e-13,"heterogeneous total mass");
+    near(a.max_diffusion_cfl,0.4,1e-13,"heterogeneous local CFL");
+    // Independently reconstruct every cell's signed finite-volume balance.
+    double max_residual=0.0;
+    for(int zz=0;zz<n;++zz)
+    for(int yy=0;yy<n;++yy)
+    for(int xx=0;xx<n;++xx) {
+        const auto i=s.id(xx,yy,zz);
+        const double signed_in=
+            a.u_diffusion_flux_kg[s.ui(xx,yy,zz)]-
+            a.u_diffusion_flux_kg[s.ui(xx+1,yy,zz)]+
+            a.v_diffusion_flux_kg[s.vi(xx,yy,zz)]-
+            a.v_diffusion_flux_kg[s.vi(xx,yy+1,zz)]+
+            a.w_diffusion_flux_kg[s.wi(xx,yy,zz)]-
+            a.w_diffusion_flux_kg[s.wi(xx,yy,zz+1)];
+        const double expected=c[i]+signed_in;
+        const double actual=a.concentration_after_kg_m3[i];
+        max_residual=std::max(max_residual,std::abs(expected-actual));
+        near(actual,expected,1e-12,"heterogeneous per-cell U/V/W ledger");
+    }
+    // Homogeneous per-cell D agrees with the existing axis operator.
+    for(std::size_t axis=0;axis<3;++axis)
+        std::fill(d[axis].begin(),d[axis].end(),0.01*(axis+1));
+    const auto uniform=Diff::step_heterogeneous(
+        n,n,n,1.0,0.1,s.box,s.f,c,s.u,s.v,s.w,d);
+    const auto old=Diff::step_anisotropic(
+        n,n,n,1.0,0.1,s.box,s.f,c,s.u,s.v,s.w,{0.01,0.02,0.03});
+    for(std::size_t i=0;i<c.size();++i)
+        near(uniform.concentration_after_kg_m3[i],
+             old.concentration_after_kg_m3[i],1e-13,
+             "uniform heterogeneous equals anisotropic reference");
+    near(uniform.tracer_after_kg,old.tracer_after_kg,1e-12,
+         "uniform heterogeneous total mass parity");
+    d[0].pop_back();
+    rejects([&]{Diff::step_heterogeneous(
+        n,n,n,1.0,0.1,s.box,s.f,c,s.u,s.v,s.w,d);},
+        "heterogeneous coefficient dimension mismatch");
+    d[0].push_back(0.01);
+    d[0][s.id(x,y,z)]=-0.1;
+    rejects([&]{Diff::step_heterogeneous(
+        n,n,n,1.0,0.1,s.box,s.f,c,s.u,s.v,s.w,d);},
+        "negative heterogeneous coefficient");
+    d[0][s.id(x,y,z)]=std::numeric_limits<double>::quiet_NaN();
+    rejects([&]{Diff::step_heterogeneous(
+        n,n,n,1.0,0.1,s.box,s.f,c,s.u,s.v,s.w,d);},
+        "nonfinite heterogeneous coefficient");
+    d[0][s.id(x,y,z)]=2.0;
+    d[0][s.id(x-1,y,z)]=1.0;
+    d[0][s.id(x+1,y,z)]=4.0;
+    std::fill(d[1].begin(),d[1].end(),0.0);
+    std::fill(d[2].begin(),d[2].end(),0.0);
+    rejects([&]{Diff::step_heterogeneous(
+        n,n,n,1.0,0.5,s.box,s.f,c,s.u,s.v,s.w,d);},
+        "heterogeneous CFL violation");
+    std::cout<<std::setprecision(17)<<"VOF_TRACER_HETEROGENEOUS "
+             <<n<<" "<<a.concentration_after_kg_m3[s.id(x,y,z)]
+             <<" "<<a.concentration_after_kg_m3[s.id(x-1,y,z)]
+             <<" "<<a.concentration_after_kg_m3[s.id(x+1,y,z)]
+             <<" "<<a.tracer_after_kg<<" "<<a.max_diffusion_cfl
+             <<" "<<max_residual<<"\n";
+}
 void diffusion_analytic_and_partial() {
     using Diff=upc::P2CutCellTracerDiffusion3D;
     Setup s(8);
@@ -1285,6 +1375,8 @@ int main() {
         diffusion_subcycling_reference(12);
         diffusion_subcycling_moving_and_fractional(8);
         diffusion_subcycling_moving_and_fractional(12);
+        heterogeneous_diffusion_reference(8);
+        heterogeneous_diffusion_reference(12);
         negatives();
         std::cout<<"PASS: "<<assertions
                  <<" native static 3D cut-cell VOF assertions\n";

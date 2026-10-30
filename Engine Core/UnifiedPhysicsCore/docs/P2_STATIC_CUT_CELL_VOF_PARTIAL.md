@@ -159,3 +159,29 @@ P2 und P3-P8 bleiben PARTIAL.
   Stoff-Diffusionssubcycling nach einem Wasser-Advektionsschritt, kein
   gemeinsames physikalisches Fluid-/Boden-/Thermal-/FSI-Zeitintegrationsmodell,
   keine externen 3D-Messdaten und keine UE5.8-Native-E2E-Abnahme.
+
+## 30.10.2026: heterogene zellweise Stoffdiffusion (Teilabnahme)
+
+- Neuer opt-in P2CutCellTracerDiffusion3D::step_heterogeneous mit
+  drei zellweisen diagonalen Diffusivitaetsfeldern D_x/D_y/D_z in m2/s.
+  An Materialgrenzen wird der harmonische Face-Mittelwert verwendet,
+  bei D=0 ist die Face-Diffusion gesperrt. Benetzte stationaere
+  Cut-Cell-Aperturen und konservative signierte U/V/W-Stofffluesse
+  bleiben erhalten; lokale explizite CFL muss <=1 sein.
+- Native analytische Referenz auf 8^3 und 12^3, dt=0.1 s:
+  D_x=(1,2,4) fuer drei aufeinanderfolgende Zellen,
+  D_y=D_z=0. Harmonik D_left=4/3, D_right=8/3.
+  Zentrum=0.6000000000000001 kg, links=0.13333333333333333 kg,
+  rechts=0.26666666666666666 kg; 1 kg Gesamtmasse und CFL=0.4.
+  Signierte U-Fluesse -2/15 und +4/15 kg; unabhaengige
+  zellweise U/V/W-Finite-Volumen-Bilanz max. 1.11e-16 kg.
+  Uniforme Koeffizienten stimmen mit dem vorhandenen anisotropen
+  Operator ueberein. Vier Negativtests: Feldgroesse, negatives D,
+  NaN-D, instabile CFL.
+- MSVC Release und vollstaendiger CTest, native Assertions und
+  JSON/SHA256-Pruefung: scripts/p2_static_cut_cell_vof_acceptance.py;
+  ENGINE TEST STUBE/runs/p2_static_cut_cell_vof_partial.json.
+- **P2-P8 bleiben PARTIAL, ALL_COMPLETE=False.** Keine kalibrierten
+  Bodenparameter, keine bewegte Geometrie, keine physikalische
+  Fluid-/Festkoerper-Impuls- und Energiebilanz, keine unabhaengige
+  gemessene 3D-CFD-Validierung oder neue UE5.8-Native-E2E.

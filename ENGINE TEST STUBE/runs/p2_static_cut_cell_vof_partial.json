@@ -4,7 +4,7 @@
   "partial_accepted": true,
   "phase_complete": false,
   "ctest_suites": 87,
-  "native_assertions": 270388,
+  "native_assertions": 274892,
   "checks": [
     {
       "name": "87/87 full native CTest suites",
@@ -17,9 +17,9 @@
       "detail": null
     },
     {
-      "name": "native assertions >= 90000",
+      "name": "native assertions >= 274000",
       "pass": true,
-      "detail": 270388
+      "detail": 274892
     },
     {
       "name": "two grid sizes",
@@ -839,27 +839,84 @@
       "name": "12 cubed fractional independent cellwise ledger",
       "pass": true,
       "detail": 1.6653345369377348e-16
+    },
+    {
+      "name": "harmonic material-interface 3D diffusion on two grids",
+      "pass": true,
+      "detail": [
+        "8",
+        "12"
+      ]
+    },
+    {
+      "name": "8 cubed independent harmonic face reference",
+      "pass": true,
+      "detail": [
+        0.6000000000000001,
+        0.13333333333333333,
+        0.26666666666666666
+      ]
+    },
+    {
+      "name": "8 cubed heterogeneous total mass",
+      "pass": true,
+      "detail": 1.0
+    },
+    {
+      "name": "8 cubed heterogeneous explicit CFL",
+      "pass": true,
+      "detail": 0.4
+    },
+    {
+      "name": "8 cubed independent signed U/V/W cell balance",
+      "pass": true,
+      "detail": 1.1102230246251565e-16
+    },
+    {
+      "name": "12 cubed independent harmonic face reference",
+      "pass": true,
+      "detail": [
+        0.6000000000000001,
+        0.13333333333333333,
+        0.26666666666666666
+      ]
+    },
+    {
+      "name": "12 cubed heterogeneous total mass",
+      "pass": true,
+      "detail": 1.0
+    },
+    {
+      "name": "12 cubed heterogeneous explicit CFL",
+      "pass": true,
+      "detail": 0.4
+    },
+    {
+      "name": "12 cubed independent signed U/V/W cell balance",
+      "pass": true,
+      "detail": 1.1102230246251565e-16
     }
   ],
   "source_sha256": {
     "CMakeLists.txt": "3bafa076a16a2405214fcf378271d64585cf73a5dd44912d6040054beca9f59c",
-    "docs/PHASENPLAN.md": "d749c27e26e1bb76ce04a5fd9e635d4ff9a5a88d8c306c081a7c2fa9b84e1a40",
-    "docs/P2_STATIC_CUT_CELL_VOF_PARTIAL.md": "d847eb72d344552f064c80da47fafd578bfb57a2ee60be5ab2c6efd1ac1f9a68",
-    "include/upc/p2_cut_cell_tracer_diffusion3d.hpp": "1b113f89004f7f88cbd8630a0f8fb8a56a624f3ca9d484afe6056dcab1d26967",
+    "docs/PHASENPLAN.md": "8a63f076daef7734986409566f1333dbc958b495d67d55ba971b3da763679738",
+    "docs/P2_STATIC_CUT_CELL_VOF_PARTIAL.md": "7981a4c67da99323626fd61edd0df380996ce646a2c928d266b8454f0dd97e87",
+    "include/upc/p2_cut_cell_tracer_diffusion3d.hpp": "e9ded43efc34e8ac70f64ab9867164a9c4b211f603c4582443c6cba541265b8b",
     "include/upc/p2_static_cut_cell_vof3d.hpp": "303a96b04d72e405d0eaf2c0ca40b2317cbfc2f20b85727fb241dc24ce52727f",
     "include/upc/p2_moving_box_mac_apertures3d.hpp": "c5fbdae598166771f6a28359c31960178239d3a59e0ccbb60f89f47b38f29ad3",
     "include/upc/p2_moving_box_open_volume3d.hpp": "270ecc419fa312212e47dbcfbd7fa8f2b172fde153b6d66e19f226be5cbedbb2",
-    "tests/p2_static_cut_cell_vof3d_tests.cpp": "cd69b4df0bc9e08554a5233c18c428fe327e85ca11d75a70b6189dee90ed0f83",
-    "scripts/p2_static_cut_cell_vof_acceptance.py": "8ac95d9db52be441f5fe0d0bbadcedc96e31fde8eafd6bb74ab9fe113dbdaf46",
+    "tests/p2_static_cut_cell_vof3d_tests.cpp": "e1ed99cd00960639510c7a7f2705c165949fe5d7bf3bbd505e1ddc223aa5f4a1",
+    "scripts/p2_static_cut_cell_vof_acceptance.py": "7d3c92511d4074a61794af17edb1d4dc3aec4e17d470d38a0cda6f26bd4d41a3",
     "scripts/p2_static_cut_cell_vof_full_build.cmd": "73075d11a3e65c5ba16a8b77ae7bec36e31b7816746b17ec8740c90f336b2168"
   },
-  "ctest_log_sha256": "9bf061cdab1f110506a06eb24cbbf3f8833801b8841ee5fb1a157f491d903442",
+  "ctest_log_sha256": "4ca5bfb94d8ff2983e91a1dedec482e0f3a51ee38a1f0beba562a7f9eea518cd",
   "limitations": [
     "prescribed solenoidal MAC velocity and stationary cut-cell geometry",
     "first-order diffusive donor-cell advection, no interface reconstruction",
     "bounded geometric CFL subcycling of water and passive tracer on prescribed fields, not adaptive CFD",
     "explicit Fick-type tracer diffusion uses approximate wetted cut-cell apertures, not measured interfacial physics",
     "diagonal grid-aligned anisotropic diffusivity only; no cross-tensor terms or measured soil calibration",
+    "heterogeneous cell-wise diffusivity uses harmonic face mixing, not calibrated porous media or thermodynamic transport",
     "opt-in conservative diffusion-only CFL subcycling after one prescribed-MAC advection, not fully coupled time integration",
     "no pressure/impulse time integration or moving-solid counterreaction",
     "no global physical FSI energy/momentum conservation",
