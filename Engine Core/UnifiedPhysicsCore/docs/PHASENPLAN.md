@@ -1489,3 +1489,22 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
 - Zusaetzlicher nativer MSVC-Test fuer 40 reale 3D-MAC-Viskositaetszeitschritte mit vorgeschriebener tangentialer Festkoerper-Ghostgeschwindigkeit. Zwei Aufloesungen (8x8x5 und 12x12x7 aktive Wasserzellen in y/z/x) und gemischte feste/wasserfreie Randbedingungen.
 - Unabhaengige diskrete Tensorprodukt-Sinusloesung prueft alle y-Faces und die 3D-Quergradienten; x/z bleiben null. Reproduzierbarer separater Build, kompletter bestehender CTest-Lauf und Python-Gate mit SHA256. Siehe docs/P2_DRIVEN_WALL_SPECTRAL_PARTIAL.md.
 - P2-P8 bleiben PARTIAL: statische Geometrie, kein bewegter Koerper/Impuls-Gegenreaktion, keine physikalische Gesamtenergie, keine externen 3D-CFD-Messdaten und kein neuer UE5.8-Native-E2E.
+
+## P2 Teilfortschritt: fraktionale dreiachsige 3D-Druckarbeit (30.10.2026)
+
+- Eigenstaendiger nativer Test des vorhandenen Cut-Cell-Drucklastoperators
+  bei simultaner Subzellen-Translation eines 2.5^3-Quaders entlang x/y/z.
+  Zellmittel-Druckgradienten (+12,-7,+5) Pa/Zelle liefern analytisch
+  F=(-150,+87.5,-62.5)*dx^2 N und W=-29.125*dx^3 J.
+- Zwei 3D-Gitter (8^3, dx=0.1 m; 12^3, dx=0.125 m), beide
+  Bewegungsrichtungen und drei Einzelachsen; Gauge-Verschiebung +500 Pa,
+  Druck-/Geometrie-Negativfaelle, diagnostischer Gegenimpuls und
+  Druckarbeitsparitaet. Native MSVC-Release 355 Assertions und
+  87/87 bestehende CTest-Suites bestanden.
+- Test, Build, Python-Gate und Quellen-/CTest-SHA256-Nachweis:
+  docs/P2_FRACTIONAL_PRESSURE_WORK_PARTIAL.md und
+  ENGINE TEST STUBE/runs/p2_fractional_pressure_work_partial.json.
+- P2 bleibt INCOMPLETE, ebenso P3-P8: nur vorgeschriebene Geometrie,
+  keine nachprojizierte bidirektionale FSI, keine physikalische globale
+  Energie-/Impulserhaltung, keine externen CFD-Messdaten und keine neue
+  UE5.8-Native-E2E-Abnahme.

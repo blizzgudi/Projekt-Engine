@@ -1,0 +1,251 @@
+{
+  "phase": "P2",
+  "milestone": "fractional_3d_pressure_work_and_gauge_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "generated_utc": "2026-10-30T15:37:11.605083+00:00",
+  "checks": [
+    {
+      "name": "native_exit",
+      "value": 0,
+      "pass": true
+    },
+    {
+      "name": "native_assertions",
+      "value": 355,
+      "pass": true
+    },
+    {
+      "name": "four_diagonal_3d_cases",
+      "value": 4,
+      "pass": true
+    },
+    {
+      "name": "force_8_-1_0",
+      "value": -1.4999999999999991,
+      "pass": true
+    },
+    {
+      "name": "force_8_-1_1",
+      "value": 0.8750000000000004,
+      "pass": true
+    },
+    {
+      "name": "force_8_-1_2",
+      "value": -0.6249999999999988,
+      "pass": true
+    },
+    {
+      "name": "work_8_-1",
+      "value": 0.029125000000000036,
+      "pass": true
+    },
+    {
+      "name": "work_residual_8_-1",
+      "value": -2.7755575615628914e-17,
+      "pass": true
+    },
+    {
+      "name": "force_8_1_0",
+      "value": -1.4999999999999978,
+      "pass": true
+    },
+    {
+      "name": "force_8_1_1",
+      "value": 0.8750000000000012,
+      "pass": true
+    },
+    {
+      "name": "force_8_1_2",
+      "value": -0.6249999999999992,
+      "pass": true
+    },
+    {
+      "name": "work_8_1",
+      "value": -0.02912499999999997,
+      "pass": true
+    },
+    {
+      "name": "work_residual_8_1",
+      "value": -3.469446951953614e-17,
+      "pass": true
+    },
+    {
+      "name": "force_12_-1_0",
+      "value": -2.34375,
+      "pass": true
+    },
+    {
+      "name": "force_12_-1_1",
+      "value": 1.3671875000000013,
+      "pass": true
+    },
+    {
+      "name": "force_12_-1_2",
+      "value": -0.9765624999999996,
+      "pass": true
+    },
+    {
+      "name": "work_12_-1",
+      "value": 0.056884765625000805,
+      "pass": true
+    },
+    {
+      "name": "work_residual_12_-1",
+      "value": -8.326672684688674e-16,
+      "pass": true
+    },
+    {
+      "name": "force_12_1_0",
+      "value": -2.3437499999999982,
+      "pass": true
+    },
+    {
+      "name": "force_12_1_1",
+      "value": 1.3671875000000013,
+      "pass": true
+    },
+    {
+      "name": "force_12_1_2",
+      "value": -0.9765625000000007,
+      "pass": true
+    },
+    {
+      "name": "work_12_1",
+      "value": -0.056884765625000826,
+      "pass": true
+    },
+    {
+      "name": "work_residual_12_1",
+      "value": 8.673617379884035e-16,
+      "pass": true
+    },
+    {
+      "name": "all_grids_and_directions",
+      "value": [
+        [
+          8,
+          -1
+        ],
+        [
+          8,
+          1
+        ],
+        [
+          12,
+          -1
+        ],
+        [
+          12,
+          1
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "name": "full_ctest_exit",
+      "value": 0,
+      "pass": true
+    },
+    {
+      "name": "existing_ctest_suites",
+      "value": 87,
+      "pass": true
+    },
+    {
+      "name": "source_hash_count",
+      "value": 8,
+      "pass": true
+    }
+  ],
+  "reference": [
+    {
+      "grid": 8,
+      "dx_m": 0.1,
+      "direction": -1,
+      "force_N": [
+        -1.4999999999999991,
+        0.8750000000000004,
+        -0.6249999999999988
+      ],
+      "expected_force_N": [
+        -1.5,
+        0.875,
+        -0.625
+      ],
+      "geometric_work_J": 0.029125000000000036,
+      "expected_work_J": 0.029125,
+      "traction_work_residual_J": -2.7755575615628914e-17
+    },
+    {
+      "grid": 8,
+      "dx_m": 0.1,
+      "direction": 1,
+      "force_N": [
+        -1.4999999999999978,
+        0.8750000000000012,
+        -0.6249999999999992
+      ],
+      "expected_force_N": [
+        -1.5,
+        0.875,
+        -0.625
+      ],
+      "geometric_work_J": -0.02912499999999997,
+      "expected_work_J": -0.029125,
+      "traction_work_residual_J": -3.469446951953614e-17
+    },
+    {
+      "grid": 12,
+      "dx_m": 0.125,
+      "direction": -1,
+      "force_N": [
+        -2.34375,
+        1.3671875000000013,
+        -0.9765624999999996
+      ],
+      "expected_force_N": [
+        -2.34375,
+        1.3671875,
+        -0.9765625
+      ],
+      "geometric_work_J": 0.056884765625000805,
+      "expected_work_J": 0.056884765625,
+      "traction_work_residual_J": -8.326672684688674e-16
+    },
+    {
+      "grid": 12,
+      "dx_m": 0.125,
+      "direction": 1,
+      "force_N": [
+        -2.3437499999999982,
+        1.3671875000000013,
+        -0.9765625000000007
+      ],
+      "expected_force_N": [
+        -2.34375,
+        1.3671875,
+        -0.9765625
+      ],
+      "geometric_work_J": -0.056884765625000826,
+      "expected_work_J": -0.056884765625,
+      "traction_work_residual_J": 8.673617379884035e-16
+    }
+  ],
+  "native_stdout": "CASE n=8 dx=0.10000000000000001 sign=-1 fx=-1.4999999999999991 fy=0.87500000000000044 fz=-0.62499999999999878 work=0.029125000000000036 residual=-2.7755575615628914e-17\nCASE n=8 dx=0.10000000000000001 sign=1 fx=-1.4999999999999978 fy=0.87500000000000122 fz=-0.62499999999999922 work=-0.02912499999999997 residual=-3.4694469519536142e-17\nCASE n=12 dx=0.125 sign=-1 fx=-2.34375 fy=1.3671875000000013 fz=-0.97656249999999956 work=0.056884765625000805 residual=-8.3266726846886741e-16\nCASE n=12 dx=0.125 sign=1 fx=-2.3437499999999982 fy=1.3671875000000013 fz=-0.97656250000000067 work=-0.056884765625000826 residual=8.6736173798840355e-16\nPASS: 355 native fractional 3D pressure-work assertions\n",
+  "native_stderr": "",
+  "ctest_count": 87,
+  "ctest_sha256": "bb923fdca932f425279c457e7277493632da833ae054ca6e44aa0d4f7917b3d6",
+  "native_binary_sha256": "1934391982465af631bee14a0e9b545d5824cb73bfe06f77e64727b05b56bfcb",
+  "source_sha256": {
+    "include/upc/p2_moving_box_pressure_traction3d.hpp": "261ed5769c7fe24d078802592b8db55df076ccc3015634ed818b301dbaa9fa53",
+    "include/upc/p2_moving_box_open_volume3d.hpp": "270ecc419fa312212e47dbcfbd7fa8f2b172fde153b6d66e19f226be5cbedbb2",
+    "tests/p2_fractional_pressure_work3d_tests.cpp": "465f9651e7e92ec74b1119a0b6c3c56db4362c5536d592a98d8340514ef52dfc",
+    "scripts/p2_fractional_pressure_work_full_build.cmd": "92298115dcdb44ea928e1a4a025980c98a832fa0963a1754b8f31da8ea8d8212",
+    "scripts/p2_fractional_pressure_work_acceptance.py": "78e3a51c9f6e30392ac9e56fbe922baaeb199d9bd72fee8e73c243b0c8f34645",
+    "docs/P2_FRACTIONAL_PRESSURE_WORK_PARTIAL.md": "cc3f5a9a6e7de97de12bb90ef948cad5fa3654b11c71853cce2f4980287b2ecb",
+    "docs/PHASENPLAN.md": "16380ad33de8efeffd02eba3667c61efb6d9a9cb5821bc14e3c3f94b4bb42897",
+    "scripts/phase_gate.py": "01065438e2b72b3fe83e7e3ba3decbf54925c84c5f9424b15ad15a8197f59cd6"
+  },
+  "limitations": "Prescribed subcell box motion and piecewise constant pressure only; not dynamic post-projection two-way FSI, physical global momentum/energy closure, measured CFD validation or UE5.8 native E2E."
+}
