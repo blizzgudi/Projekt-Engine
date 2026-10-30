@@ -86,3 +86,28 @@ separates Einzelschritt-Replay geprueft. Analytischer positiver U-Transport:
 0.06 kg. Das ist eine diskrete Transportbilanz, keine Validierung einer
 chemischen Reaktion, Navier-Stokes-Dynamik oder Fluid-Festkoerper-Impulsbilanz.
 P2 und P3-P8 bleiben PARTIAL.
+
+## 30.10.2026: opt-in konservative 3D-Tracerdiffusion auf stationaeren Cut-Cells
+
+- P2CutCellTracerDiffusion3D::step koppelt den bestehenden konservativen
+  3D-Upwind-Wasser-/Tracer-Einzelschritt an einen expliziten Fick-artigen
+  Stoffaustausch. Die Wassermenge und die alte API bleiben unveraendert.
+- Der Transport nutzt D*dt*dx*face_aperture*min(VOF_a,VOF_b) als
+  angenaehertes benetztes Leitvolumen. Signierte U/V/W-Diffusionsmassen
+  werden separat vom advektiven Ledger ausgegeben. Geschlossene
+  Aussen- und Festkoerperwaende haben Nullfluss.
+- Der lokale explizite Diffusions-CFL sum(conductance)/water_volume <= 1
+  verhindert negative Konzentrationen; D=0 ist exakt kompatibel.
+  Negative, NaN-/Inf-Diffusivitaeten, ungueltige Konzentrationen und
+  instabile Diffusions-CFL werden abgelehnt.
+- Unabhaengige diskrete Sechs-Nachbar-Referenz bei D=0.05 m2/s,
+  dt=0.1 s, dx=1 m: Start 1 kg im Zentrum, 0.97 kg verbleiben,
+  je 0.005 kg an sechs Nachbarn, CFL=0.03. Weitere Tests auf
+  8^3/12^3, je 40 echte advektiv-diffusive Schritte, fraktionale
+  Cut-Cells und zellweise Ledger-Bilanzen. Native CTest + SHA-JSON-Gate.
+- Nur P2-Teilfortschritt: benetzte Apertur ist ein numerisches
+  Interface-Proxy, kein aufgeloestes Zweiphasen-Diffusionsgesetz;
+  vorgeschriebene MAC-Geschwindigkeiten und stationaere Geometrie.
+  Keine dynamische Navier-Stokes-/FSI-Kopplung, keine physikalische
+  Gesamtimpuls-/Energieerhaltung, externe CFD-Messvalidierung oder
+  neue UE5.8-Native-E2E-Abnahme. P2-P8 bleiben PARTIAL.

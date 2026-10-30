@@ -4,7 +4,7 @@
   "partial_accepted": true,
   "phase_complete": false,
   "ctest_suites": 87,
-  "native_assertions": 241477,
+  "native_assertions": 246868,
   "checks": [
     {
       "name": "87/87 full native CTest suites",
@@ -19,7 +19,7 @@
     {
       "name": "native assertions >= 90000",
       "pass": true,
-      "detail": 241477
+      "detail": 246868
     },
     {
       "name": "two grid sizes",
@@ -543,6 +543,114 @@
       "detail": null
     },
     {
+      "name": "diffusive tracer runs on both 3D grids",
+      "pass": true,
+      "detail": [
+        [
+          "8",
+          "40",
+          "68.083200000000033",
+          "68.083199999999962",
+          "5.5511151231257827e-17",
+          "0.023636363636363639"
+        ],
+        [
+          "12",
+          "40",
+          "355.16160000000008",
+          "355.16160000000099",
+          "1.1102230246251565e-16",
+          "0.023733333333333332"
+        ]
+      ]
+    },
+    {
+      "name": "8 cubed 40 coupled advection/diffusion steps",
+      "pass": true,
+      "detail": [
+        8,
+        40
+      ]
+    },
+    {
+      "name": "8 cubed conservative diffusive tracer",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "8 cubed independent advection+diffusion face balance",
+      "pass": true,
+      "detail": 5.551115123125783e-17
+    },
+    {
+      "name": "8 cubed stable explicit Fick CFL",
+      "pass": true,
+      "detail": 0.02363636363636364
+    },
+    {
+      "name": "12 cubed 40 coupled advection/diffusion steps",
+      "pass": true,
+      "detail": [
+        12,
+        40
+      ]
+    },
+    {
+      "name": "12 cubed conservative diffusive tracer",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "12 cubed independent advection+diffusion face balance",
+      "pass": true,
+      "detail": 1.1102230246251565e-16
+    },
+    {
+      "name": "12 cubed stable explicit Fick CFL",
+      "pass": true,
+      "detail": 0.023733333333333332
+    },
+    {
+      "name": "six-face analytic 3D Fick reference",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "analytic 3D center loss",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "analytic 3D neighbor gain",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "analytic six-face mass balance",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "analytic diffusion CFL",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "fractional 3D cut-cell diffusion",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "fractional aperture diffusion conserves solute",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "five invalid diffusion inputs rejected",
+      "pass": true,
+      "detail": null
+    },
+    {
       "name": "eight physical/numeric rejection tests",
       "pass": true,
       "detail": null
@@ -550,20 +658,22 @@
   ],
   "source_sha256": {
     "CMakeLists.txt": "3bafa076a16a2405214fcf378271d64585cf73a5dd44912d6040054beca9f59c",
-    "docs/PHASENPLAN.md": "d81005758117224f75c42fd85940e45173f496fef52e7a5ee6d2e7e8025887b5",
-    "docs/P2_STATIC_CUT_CELL_VOF_PARTIAL.md": "8ab4722c5ee6d07ae8f538347f5a9ce631a860f4dd5fba0d90f53fe4a063bdd7",
+    "docs/PHASENPLAN.md": "253d79efa1590b078bf9c5bfcddd2ea5c64d332f4016391aa3aed5e4a04fa85a",
+    "docs/P2_STATIC_CUT_CELL_VOF_PARTIAL.md": "bac88e30ee635be18e2d6de561ae1109d6a90938a9b0a9d36eadfb905c1e4f95",
+    "include/upc/p2_cut_cell_tracer_diffusion3d.hpp": "99fb1992cbd28f84558362a9f9c447c438dd0af81c1cd93dc22dd12074021299",
     "include/upc/p2_static_cut_cell_vof3d.hpp": "303a96b04d72e405d0eaf2c0ca40b2317cbfc2f20b85727fb241dc24ce52727f",
     "include/upc/p2_moving_box_mac_apertures3d.hpp": "c5fbdae598166771f6a28359c31960178239d3a59e0ccbb60f89f47b38f29ad3",
     "include/upc/p2_moving_box_open_volume3d.hpp": "270ecc419fa312212e47dbcfbd7fa8f2b172fde153b6d66e19f226be5cbedbb2",
-    "tests/p2_static_cut_cell_vof3d_tests.cpp": "55d4727f9902870eaf83f28edacfd86dc9bc0f7ea3dc4702a68618d25d0bb437",
-    "scripts/p2_static_cut_cell_vof_acceptance.py": "6c2d320728aa48e6a2c6ce4828b083ebdd55c8253b27c421dedbbd057c6152ea",
+    "tests/p2_static_cut_cell_vof3d_tests.cpp": "27d8ed4eafbe307796f34f4915b2345de24d1f69904540477ba66820f2ffc3f6",
+    "scripts/p2_static_cut_cell_vof_acceptance.py": "404a0cf876b7be7e6a53f632fea835562aa3dcb896319722a47875a5b782e6e5",
     "scripts/p2_static_cut_cell_vof_full_build.cmd": "73075d11a3e65c5ba16a8b77ae7bec36e31b7816746b17ec8740c90f336b2168"
   },
-  "ctest_log_sha256": "a30242d302cbcb371951bee6fc78f81a78f8d9551b0812cda8f52ae70177418e",
+  "ctest_log_sha256": "caf203bc2b4a61fe22112311216ea622c3a1784e157be9eb1ce70602382d0a3c",
   "limitations": [
     "prescribed solenoidal MAC velocity and stationary cut-cell geometry",
     "first-order diffusive donor-cell advection, no interface reconstruction",
     "bounded geometric CFL subcycling of water and passive tracer on prescribed fields, not adaptive CFD",
+    "explicit Fick-type tracer diffusion uses approximate wetted cut-cell apertures, not measured interfacial physics",
     "no pressure/impulse time integration or moving-solid counterreaction",
     "no global physical FSI energy/momentum conservation",
     "no external measured 3D CFD or new Unreal 5.8 Native-E2E"

@@ -1,3 +1,4 @@
+#include "upc/p2_cut_cell_tracer_diffusion3d.hpp"
 #include "upc/p2_static_cut_cell_vof3d.hpp"
 #include <algorithm>
 #include <cmath>
@@ -787,6 +788,178 @@ void adaptive_passive_tracer(int n) {
              <<actual.tracer_after_kg<<" "<<actual.water.water_before_m3
              <<" "<<actual.water.water_after_m3<<" "<<error<<"\n";
 }
+void diffusive_tracer(int n) {
+    Setup s(n);
+    using Diff=upc::P2CutCellTracerDiffusion3D;
+    using Vof=upc::P2StaticCutCellVof3D;
+    std::vector<double> c(s.f.size(),0.0);
+    for(int z=0;z<n;++z)
+    for(int y=0;y<n;++y)
+    for(int x=0;x<n;++x)
+        if(s.f[s.id(x,y,z)]>0)
+            c[s.id(x,y,z)]=0.3+0.01*(x+2*y+3*z);
+    const auto adv=Vof::step_passive_tracer(
+        n,n,n,1.0,0.1,s.box,s.f,c,s.u,s.v,s.w);
+    const auto zero=Diff::step(
+        n,n,n,1.0,0.1,s.box,s.f,c,s.u,s.v,s.w,0.0);
+    check(zero.concentration_after_kg_m3==adv.concentration_after_kg_m3&&
+          zero.tracer_after_kg==adv.tracer_after_kg,
+          "D=0 must exactly preserve legacy advection");
+    const auto first=Diff::step(
+        n,n,n,1.0,0.1,s.box,s.f,c,s.u,s.v,s.w,0.04);
+    check(first.advected.water.fraction_after==adv.water.fraction_after,
+          "diffusion opt-in cannot alter water transport");
+    check(first.max_diffusion_cfl>0&&first.max_diffusion_cfl<1,
+          "3D diffusion explicit CFL safe");
+    double residual=0.0;
+    for(int z=0;z<n;++z)
+    for(int y=0;y<n;++y)
+    for(int x=0;x<n;++x) {
+        const auto i=s.id(x,y,z);
+        const auto& a=first.advected;
+        const auto U=[&](int xx) {
+            auto j=s.ui(xx,y,z);
+            return a.u_tracer_flux_kg[j]+first.u_diffusion_flux_kg[j];
+        };
+        const auto V=[&](int yy) {
+            auto j=s.vi(x,yy,z);
+            return a.v_tracer_flux_kg[j]+first.v_diffusion_flux_kg[j];
+        };
+        const auto W=[&](int zz) {
+            auto j=s.wi(x,y,zz);
+            return a.w_tracer_flux_kg[j]+first.w_diffusion_flux_kg[j];
+        };
+        const double expected=s.f[i]*c[i]-
+            (U(x+1)-U(x)+V(y+1)-V(y)+W(z+1)-W(z));
+        const double actual=a.water.fraction_after[i]*
+            first.concentration_after_kg_m3[i];
+        residual=std::max(residual,std::abs(actual-expected));
+        near(actual,expected,1e-12,"independent 3D advective+diffusive face balance");
+        check(first.concentration_after_kg_m3[i]>=0.0,
+              "diffusive concentration remains nonnegative");
+    }
+    const double mass=first.advected.tracer_before_kg;
+    for(int t=0;t<40;++t) {
+        auto next=Diff::step(
+            n,n,n,1.0,0.1,s.box,s.f,c,s.u,s.v,s.w,0.04);
+        near(next.tracer_after_kg,mass,1e-10,
+             "40-step advective+diffusive tracer mass conserved");
+        near(next.advected.water.water_after_m3,
+             next.advected.water.water_before_m3,1e-10,
+             "40-step diffusion leaves water mass invariant");
+        check(next.max_diffusion_cfl<=1.0,"diffusion CFL bounded over 40 steps");
+        s.f=std::move(next.advected.water.fraction_after);
+        c=std::move(next.concentration_after_kg_m3);
+    }
+    std::cout<<"VOF_TRACER_DIFFUSION "<<n<<" 40 "<<std::setprecision(17)
+             <<mass<<" "<<first.tracer_after_kg<<" "<<residual<<" "
+             <<first.max_diffusion_cfl<<"\n";
+}
+void diffusion_analytic_and_partial() {
+    using Diff=upc::P2CutCellTracerDiffusion3D;
+    Setup s(8);
+    std::fill(s.u.begin(),s.u.end(),0.0);
+    std::fill(s.v.begin(),s.v.end(),0.0);
+    std::fill(s.w.begin(),s.w.end(),0.0);
+    std::fill(s.f.begin(),s.f.end(),1.0);
+    s.f[s.id(3,3,3)]=0.0;
+    std::vector<double> c(s.f.size(),0.0);
+    c[s.id(1,1,1)]=1.0;
+    const auto r=Diff::step(
+        8,8,8,1.0,0.1,s.box,s.f,c,s.u,s.v,s.w,0.05);
+    near(r.concentration_after_kg_m3[s.id(1,1,1)],0.97,1e-14,
+         "independent six-face 3D Fick center 1-6*0.005");
+    for(const auto& p:std::vector<std::vector<int>>{
+        {0,1,1},{2,1,1},{1,0,1},{1,2,1},{1,1,0},{1,1,2}})
+        near(r.concentration_after_kg_m3[s.id(p[0],p[1],p[2])],0.005,1e-14,
+             "independent six-neighbor 3D Fick reference");
+    near(r.u_diffusion_flux_kg[s.ui(2,1,1)],0.005,1e-14,
+         "positive U-face Fick mass");
+    near(r.v_diffusion_flux_kg[s.vi(1,2,1)],0.005,1e-14,
+         "positive V-face Fick mass");
+    near(r.w_diffusion_flux_kg[s.wi(1,1,2)],0.005,1e-14,
+         "positive W-face Fick mass");
+    near(r.tracer_after_kg,1.0,1e-13,"six-face Fick mass conserved");
+    near(r.max_diffusion_cfl,0.03,1e-14,
+         "six-neighbor analytic diffusion CFL");
+    std::cout<<"VOF_TRACER_DIFFUSION_ANALYTIC "<<std::setprecision(17)
+             <<r.concentration_after_kg_m3[s.id(1,1,1)]<<" "
+             <<r.concentration_after_kg_m3[s.id(2,1,1)]<<" "
+             <<r.tracer_after_kg<<" "<<r.max_diffusion_cfl<<"\n";
+    // A partially blocked 3D box leaves fractional cell volumes/apertures.
+    s.box={{3.2,3.2,3.2},{4.8,4.8,4.8}};
+    std::fill(s.f.begin(),s.f.end(),1.0);
+    for(int z=0;z<8;++z)
+    for(int y=0;y<8;++y)
+    for(int x=0;x<8;++x)c[s.id(x,y,z)]=0.5+0.02*x;
+    const auto g=upc::P2MovingBoxFaceApertures3D::sample(
+        8,8,8,1.0,0.1,s.box,s.box);
+    int partial=0;
+    for(double a:g.u_open)if(a>0&&a<1)++partial;
+    for(double a:g.v_open)if(a>0&&a<1)++partial;
+    for(double a:g.w_open)if(a>0&&a<1)++partial;
+    check(partial>0,"partial 3D face apertures exist");
+    const auto q=Diff::step(
+        8,8,8,1.0,0.1,s.box,s.f,c,s.u,s.v,s.w,0.02);
+    near(q.tracer_after_kg,q.advected.tracer_before_kg,1e-10,
+         "fractional cut-cell Fick mass conserved");
+    check(q.max_diffusion_cfl>0&&q.max_diffusion_cfl<1,
+          "fractional cut-cell Fick CFL safe");
+    int checked_partial=0,checked_sealed=0;
+    for(int z=0;z<8;++z)
+    for(int y=0;y<8;++y)
+    for(int x=0;x<=8;++x) {
+        const auto j=s.ui(x,y,z);
+        if(x==0||x==8||g.u_open[j]==0.0) {
+            near(q.u_diffusion_flux_kg[j],0.0,0.0,
+                 "sealed U-face cannot carry diffusive tracer");
+            ++checked_sealed;
+        } else if(g.u_open[j]>0&&g.u_open[j]<1) {
+            const double expected=0.02*0.1*g.u_open[j]*
+                (c[s.id(x-1,y,z)]-c[s.id(x,y,z)]);
+            near(q.u_diffusion_flux_kg[j],expected,1e-15,
+                 "fractional U-face Fick conductance scales with aperture");
+            ++checked_partial;
+        }
+    }
+    check(checked_partial>0&&checked_sealed>0,
+          "fractional Fick aperture and sealed walls independently tested");
+    // A uniform dissolved concentration is invariant under no-flux Fick
+    // diffusion, including at the stationary solid boundary.
+    s.box={{3.0,3.0,3.0},{4.0,4.0,4.0}};
+    std::fill(s.f.begin(),s.f.end(),1.0);
+    s.f[s.id(3,3,3)]=0.0;
+    std::fill(c.begin(),c.end(),2.0);
+    c[s.id(3,3,3)]=0.0;
+    const auto uniform=Diff::step(
+        8,8,8,1.0,0.1,s.box,s.f,c,s.u,s.v,s.w,0.05);
+    for(std::size_t i=0;i<c.size();++i)
+        near(uniform.concentration_after_kg_m3[i],c[i],1e-14,
+             "uniform concentration invariant at impermeable solid");
+    std::cout<<"VOF_TRACER_DIFFUSION_PARTIAL "<<partial<<" "
+             <<std::setprecision(17)<<q.advected.tracer_before_kg<<" "
+             <<q.tracer_after_kg<<"\n";
+    rejects([&]{Diff::step(
+        8,8,8,1,0.1,s.box,s.f,c,s.u,s.v,s.w,-0.1);},
+        "negative diffusivity rejected");
+    rejects([&]{Diff::step(
+        8,8,8,1,0.1,s.box,s.f,c,s.u,s.v,s.w,
+        std::numeric_limits<double>::quiet_NaN());},
+        "NaN diffusivity rejected");
+    rejects([&]{Diff::step(
+        8,8,8,1,1.0,s.box,s.f,c,s.u,s.v,s.w,10.0);},
+        "unstable explicit diffusion CFL rejected");
+    rejects([&]{Diff::step(
+        8,8,8,1,0.1,s.box,s.f,c,s.u,s.v,s.w,
+        std::numeric_limits<double>::infinity());},
+        "infinite diffusivity rejected");
+    auto bad=c;
+    bad[s.id(1,1,1)]=-0.1;
+    rejects([&]{Diff::step(
+        8,8,8,1,0.1,s.box,s.f,bad,s.u,s.v,s.w,0.02);},
+        "negative initial tracer rejected");
+    std::cout<<"VOF_TRACER_DIFFUSION_NEGATIVE 5\n";
+}
 void negatives() {
     Setup s(8);
     auto bad=s;
@@ -831,6 +1004,9 @@ int main() {
         passive_tracer(12);
         adaptive_passive_tracer(8);
         adaptive_passive_tracer(12);
+        diffusive_tracer(8);
+        diffusive_tracer(12);
+        diffusion_analytic_and_partial();
         negatives();
         std::cout<<"PASS: "<<assertions
                  <<" native static 3D cut-cell VOF assertions\n";

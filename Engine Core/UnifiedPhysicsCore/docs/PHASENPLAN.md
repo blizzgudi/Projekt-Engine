@@ -1292,3 +1292,21 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
   keine dynamische Fluid-Festkoerper-Gegenreaktion, globale physikalische
   Impuls-/Energiebilanz, externe 3D-CFD-Messvalidierung oder neuer
   UE5.8-Native-E2E fuer diesen Pfad.
+
+## P2 Teilfortschritt: konservative 3D-Fick-Tracerdiffusion (30.10.2026)
+
+- P2CutCellTracerDiffusion3D::step transportiert nach dem vorhandenen
+  Upwind-VOF-/Tracer-Einzelschritt geloeste Stoffe ueber benetzte
+  Cut-Cell-U/V/W-Flaechen, konservativ und mit separatem signiertem
+  Diffusionsledger. Lokale Diffusions-CFL, Positivitaet, Nullfluss-
+  Waende und exakte D=0-Paritaet.
+- 8^3/12^3 mit je 40 Schritten, analytischer Sechs-Nachbar-
+  Diffusionsreferenz, zellweiser 3D-Massenbilanz, fraktionalen
+  Cut-Cells und Negativfaellen. Nachweise:
+  docs/P2_STATIC_CUT_CELL_VOF_PARTIAL.md,
+  scripts/p2_static_cut_cell_vof_acceptance.py und
+  ENGINE TEST STUBE/runs/p2_static_cut_cell_vof_partial.json.
+- P2-P8 PARTIAL, ALL_COMPLETE=False. Die Wasserbenetzung ist
+  angenaehert; keine dynamische Navier-Stokes-/FSI-Gegenreaktion,
+  keine physikalische Gesamtimpuls-/Energiebilanz, externe
+  3D-CFD-Messvalidierung oder UE5.8-Native-E2E dieses Pfads.

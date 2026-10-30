@@ -15,6 +15,7 @@ REPORT=RUNS/"p2_static_cut_cell_vof_partial.json"
 SOURCES=[
     "CMakeLists.txt","docs/PHASENPLAN.md",
     "docs/P2_STATIC_CUT_CELL_VOF_PARTIAL.md",
+    "include/upc/p2_cut_cell_tracer_diffusion3d.hpp",
     "include/upc/p2_static_cut_cell_vof3d.hpp",
     "include/upc/p2_moving_box_mac_apertures3d.hpp",
     "include/upc/p2_moving_box_open_volume3d.hpp",
@@ -193,6 +194,42 @@ def main():
               boundary==0.0,boundary)
     check("six invalid adaptive tracer inputs rejected",
           "VOF_TRACER_ADAPTIVE_NEGATIVE 6" in output)
+    diffusion=re.findall(
+        r"^VOF_TRACER_DIFFUSION (\d+) (\d+) ([\d.eE+-]+) "
+        r"([\d.eE+-]+) ([\d.eE+-]+) ([\d.eE+-]+)$",
+        output,re.MULTILINE)
+    check("diffusive tracer runs on both 3D grids",len(diffusion)==2,diffusion)
+    for row in diffusion:
+        n,steps=int(row[0]),int(row[1])
+        before,after,residual,cfl=map(float,row[2:])
+        check(f"{n} cubed 40 coupled advection/diffusion steps",
+              n in (8,12) and steps==40,(n,steps))
+        check(f"{n} cubed conservative diffusive tracer",
+              math.isfinite(before) and before>0 and abs(after-before)<1e-10)
+        check(f"{n} cubed independent advection+diffusion face balance",
+              math.isfinite(residual) and residual<1e-12,residual)
+        check(f"{n} cubed stable explicit Fick CFL",0<cfl<1,cfl)
+    analytic=re.search(
+        r"^VOF_TRACER_DIFFUSION_ANALYTIC ([\d.eE+-]+) "
+        r"([\d.eE+-]+) ([\d.eE+-]+) ([\d.eE+-]+)$",
+        output,re.MULTILINE)
+    check("six-face analytic 3D Fick reference",analytic is not None)
+    if analytic:
+        center,neighbor,mass,cfl=map(float,analytic.groups())
+        check("analytic 3D center loss",abs(center-0.97)<1e-13)
+        check("analytic 3D neighbor gain",abs(neighbor-0.005)<1e-13)
+        check("analytic six-face mass balance",abs(mass-1)<1e-13)
+        check("analytic diffusion CFL",abs(cfl-0.03)<1e-13)
+    partial_diff=re.search(
+        r"^VOF_TRACER_DIFFUSION_PARTIAL (\d+) ([\d.eE+-]+) "
+        r"([\d.eE+-]+)$",output,re.MULTILINE)
+    check("fractional 3D cut-cell diffusion",partial_diff is not None)
+    if partial_diff:
+        faces,before,after=partial_diff.groups()
+        check("fractional aperture diffusion conserves solute",
+              int(faces)>0 and abs(float(before)-float(after))<1e-10)
+    check("five invalid diffusion inputs rejected",
+          "VOF_TRACER_DIFFUSION_NEGATIVE 5" in output)
     check("eight physical/numeric rejection tests",
           "VOF_NEGATIVE 8" in output)
     hashes={name:sha(CORE/name) for name in SOURCES}
@@ -206,6 +243,7 @@ def main():
             "prescribed solenoidal MAC velocity and stationary cut-cell geometry",
             "first-order diffusive donor-cell advection, no interface reconstruction",
             "bounded geometric CFL subcycling of water and passive tracer on prescribed fields, not adaptive CFD",
+            "explicit Fick-type tracer diffusion uses approximate wetted cut-cell apertures, not measured interfacial physics",
             "no pressure/impulse time integration or moving-solid counterreaction",
             "no global physical FSI energy/momentum conservation",
             "no external measured 3D CFD or new Unreal 5.8 Native-E2E",
