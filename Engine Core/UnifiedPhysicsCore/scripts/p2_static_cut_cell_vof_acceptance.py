@@ -42,7 +42,7 @@ def main():
     output=result.stdout
     match=re.search(r"PASS: (\d+) native static 3D cut-cell VOF assertions",output)
     count=int(match.group(1)) if match else 0
-    check("native assertions >= 274000",count>=274000,count)
+    check("native assertions >= 274000",count>=288000,count)
     rows=re.findall(r"^VOF_CASE (\d+) (\d+) ([\d.eE+-]+) "
                     r"([\d.eE+-]+) ([\d.eE+-]+) ([\d.eE+-]+)$",
                     output,re.MULTILINE)
@@ -312,6 +312,43 @@ def main():
               abs(cfl-0.4)<1e-12,cfl)
         check(f"{n} cubed independent signed U/V/W cell balance",
               math.isfinite(residual) and residual<1e-12,residual)
+
+    hetero_subcycle=re.findall(
+        r"^VOF_TRACER_HET_SUBCYCLE (\d+) (\d+) "
+        r"([\d.eE+-]+) ([\d.eE+-]+) ([\d.eE+-]+)$",
+        output,re.MULTILINE)
+    check("heterogeneous harmonic CFL subcycling on two 3D grids",
+          len(hetero_subcycle)==2,[r[0] for r in hetero_subcycle])
+    for row in hetero_subcycle:
+        n,k=int(row[0]),int(row[1])
+        mass,cfl,residual=map(float,row[2:])
+        check(f"{n} cubed harmonic interface exact 3 substeps",
+              n in (8,12) and k==3,k)
+        check(f"{n} cubed subcycled heterogeneous solute mass",
+              abs(mass-1.0)<1e-12,mass)
+        check(f"{n} cubed exact per-cell harmonic CFL",
+              abs(cfl-2/3)<1e-12,cfl)
+        check(f"{n} cubed independent cumulative U/V/W mass ledger",
+              math.isfinite(residual) and residual<1e-12,residual)
+    hetero_fractional=re.findall(
+        r"^VOF_TRACER_HET_SUBCYCLE_PARTIAL (\d+) (\d+) "
+        r"([\d.eE+-]+) ([\d.eE+-]+) ([\d.eE+-]+) (\d+)$",
+        output,re.MULTILINE)
+    check("heterogeneous fractional cut-cell subcycling on two 3D grids",
+          len(hetero_fractional)==2,[r[0] for r in hetero_fractional])
+    for row in hetero_fractional:
+        n,k=int(row[0]),int(row[1])
+        mass,cfl,residual=map(float,row[2:5])
+        partial=int(row[5])
+        expected={8:113.00864,12:504.52864}.get(n,0)
+        check(f"{n} cubed fractional cut-cell CFL substeps",
+              k==2 and partial>=8,(k,partial))
+        check(f"{n} cubed fractional heterogeneous mass reference",
+              abs(mass-expected)<1e-9,mass)
+        check(f"{n} cubed fractional heterogeneous local CFL",
+              0<cfl<=0.7+1e-12,cfl)
+        check(f"{n} cubed fractional independent cellwise mass ledger",
+              math.isfinite(residual) and residual<1e-12,residual)
     hashes={name:sha(CORE/name) for name in SOURCES}
     report={
         "phase":"P2","milestone":"static_cut_cell_3d_donor_vof_partial",
@@ -326,6 +363,7 @@ def main():
             "explicit Fick-type tracer diffusion uses approximate wetted cut-cell apertures, not measured interfacial physics",
             "diagonal grid-aligned anisotropic diffusivity only; no cross-tensor terms or measured soil calibration",
             "heterogeneous cell-wise diffusivity uses harmonic face mixing, not calibrated porous media or thermodynamic transport",
+            "heterogeneous diffusion-only CFL subcycling uses stationary wetted cut cells, not a coupled Navier-Stokes or reactive solver",
             "opt-in conservative diffusion-only CFL subcycling after one prescribed-MAC advection, not fully coupled time integration",
             "no pressure/impulse time integration or moving-solid counterreaction",
             "no global physical FSI energy/momentum conservation",

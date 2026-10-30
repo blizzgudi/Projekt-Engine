@@ -1217,6 +1217,142 @@ void heterogeneous_diffusion_reference(int n) {
              <<" "<<a.tracer_after_kg<<" "<<a.max_diffusion_cfl
              <<" "<<max_residual<<"\n";
 }
+
+void heterogeneous_subcycle_reference(int n) {
+    using Diff=upc::P2CutCellTracerDiffusion3D;
+    Setup s(n);
+    std::fill(s.u.begin(),s.u.end(),0.0);
+    std::fill(s.v.begin(),s.v.end(),0.0);
+    std::fill(s.w.begin(),s.w.end(),0.0);
+    std::fill(s.f.begin(),s.f.end(),1.0);
+    s.f[s.id(3,3,3)]=0.0;
+    std::vector<double> c(s.f.size(),0.0);
+    c[s.id(1,1,1)]=1.0;
+    std::array<std::vector<double>,3> d;
+    for(auto& axis:d)axis.assign(s.f.size(),0.0);
+    d[0][s.id(0,1,1)]=1.0;
+    d[0][s.id(1,1,1)]=2.0;
+    d[0][s.id(2,1,1)]=4.0;
+    rejects([&]{Diff::step_heterogeneous(
+        n,n,n,1,0.5,s.box,s.f,c,s.u,s.v,s.w,d);},
+        "heterogeneous single-step CFL rejects");
+    const auto r=Diff::step_diffusion_subcycled_heterogeneous(
+        n,n,n,1,0.5,s.box,s.f,c,s.u,s.v,s.w,d);
+    check(r.diffusion_substeps==3,"harmonic CFL requires 3 substeps");
+    near(r.max_diffusion_cfl,2.0/3.0,1e-13,"harmonic substep CFL");
+    near(r.tracer_after_kg,1.0,1e-12,"heterogeneous mass");
+    std::vector<double> replay=c;
+    std::vector<double> uf(r.u_diffusion_flux_kg.size(),0.0);
+    std::vector<double> vf(r.v_diffusion_flux_kg.size(),0.0);
+    std::vector<double> wf(r.w_diffusion_flux_kg.size(),0.0);
+    for(int k=0;k<3;++k) {
+        const auto part=Diff::step_heterogeneous(
+            n,n,n,1,0.5/3,s.box,s.f,replay,s.u,s.v,s.w,d);
+        replay=part.concentration_after_kg_m3;
+        for(std::size_t i=0;i<uf.size();++i)uf[i]+=part.u_diffusion_flux_kg[i];
+        for(std::size_t i=0;i<vf.size();++i)vf[i]+=part.v_diffusion_flux_kg[i];
+        for(std::size_t i=0;i<wf.size();++i)wf[i]+=part.w_diffusion_flux_kg[i];
+    }
+    double residual=0.0;
+    for(int z=0;z<n;++z)for(int y=0;y<n;++y)for(int x=0;x<n;++x) {
+        const auto i=s.id(x,y,z);
+        near(r.concentration_after_kg_m3[i],replay[i],1e-14,
+             "manual heterogeneous replay");
+        const double expected=s.f[i]*c[i]-
+            (r.u_diffusion_flux_kg[s.ui(x+1,y,z)]-
+             r.u_diffusion_flux_kg[s.ui(x,y,z)]+
+             r.v_diffusion_flux_kg[s.vi(x,y+1,z)]-
+             r.v_diffusion_flux_kg[s.vi(x,y,z)]+
+             r.w_diffusion_flux_kg[s.wi(x,y,z+1)]-
+             r.w_diffusion_flux_kg[s.wi(x,y,z)]);
+        const double actual=s.f[i]*r.concentration_after_kg_m3[i];
+        residual=std::max(residual,std::abs(actual-expected));
+        near(actual,expected,1e-12,"heterogeneous cell mass ledger");
+    }
+    for(std::size_t i=0;i<uf.size();++i)
+        near(uf[i],r.u_diffusion_flux_kg[i],1e-14,"U replay ledger");
+    for(std::size_t i=0;i<vf.size();++i)
+        near(vf[i],r.v_diffusion_flux_kg[i],1e-14,"V replay ledger");
+    for(std::size_t i=0;i<wf.size();++i)
+        near(wf[i],r.w_diffusion_flux_kg[i],1e-14,"W replay ledger");
+    rejects([&]{Diff::step_diffusion_subcycled_heterogeneous(
+        n,n,n,1,0.5,s.box,s.f,c,s.u,s.v,s.w,d,0.8,2);},
+        "heterogeneous subcycle insufficient budget");
+    rejects([&]{Diff::step_diffusion_subcycled_heterogeneous(
+        n,n,n,1,0.5,s.box,s.f,c,s.u,s.v,s.w,d,0.0);},
+        "heterogeneous zero CFL target");
+    rejects([&]{Diff::step_diffusion_subcycled_heterogeneous(
+        n,n,n,1,0.5,s.box,s.f,c,s.u,s.v,s.w,d,1.1);},
+        "heterogeneous CFL target over one");
+    rejects([&]{Diff::step_diffusion_subcycled_heterogeneous(
+        n,n,n,1,0.5,s.box,s.f,c,s.u,s.v,s.w,d,0.8,0);},
+        "heterogeneous zero budget");
+    auto invalid=d;
+    invalid[1].pop_back();
+    rejects([&]{Diff::step_diffusion_subcycled_heterogeneous(
+        n,n,n,1,0.5,s.box,s.f,c,s.u,s.v,s.w,invalid);},
+        "heterogeneous bad field size");
+    invalid=d;invalid[0][s.id(1,1,1)]=-1;
+    rejects([&]{Diff::step_diffusion_subcycled_heterogeneous(
+        n,n,n,1,0.5,s.box,s.f,c,s.u,s.v,s.w,invalid);},
+        "heterogeneous negative D");
+    invalid=d;invalid[0][s.id(1,1,1)]=std::numeric_limits<double>::infinity();
+    rejects([&]{Diff::step_diffusion_subcycled_heterogeneous(
+        n,n,n,1,0.5,s.box,s.f,c,s.u,s.v,s.w,invalid);},
+        "heterogeneous nonfinite D");
+    for(auto& axis:d)std::fill(axis.begin(),axis.end(),0.0);
+    const auto zero=Diff::step_diffusion_subcycled_heterogeneous(
+        n,n,n,1,0.5,s.box,s.f,c,s.u,s.v,s.w,d);
+    check(zero.diffusion_substeps==1&&zero.concentration_after_kg_m3==c,
+          "zero D exact advection parity");
+    std::cout<<"VOF_TRACER_HET_SUBCYCLE "<<n<<" "<<r.diffusion_substeps
+             <<" "<<std::setprecision(17)<<r.tracer_after_kg<<" "
+             <<r.max_diffusion_cfl<<" "<<residual<<"\n";
+    s.box={{3.2,3.2,3.2},{4.8,4.8,4.8}};
+    std::fill(s.f.begin(),s.f.end(),1.0);
+    for(int z=0;z<n;++z)for(int y=0;y<n;++y)for(int x=0;x<n;++x) {
+        const auto i=s.id(x,y,z);
+        c[i]=0.1+0.01*x+0.02*y+0.005*z;
+        d[0][i]=0.1+0.02*x;
+        d[1][i]=0.05+0.01*y;
+        d[2][i]=0.03+0.005*z;
+    }
+    const auto fractional=Diff::step_diffusion_subcycled_heterogeneous(
+        n,n,n,1,1.2,s.box,s.f,c,s.u,s.v,s.w,d,0.7);
+    check(fractional.diffusion_substeps>=2,
+          "fractional heterogeneous cut cells trigger subcycling");
+    check(fractional.max_diffusion_cfl>0&&
+          fractional.max_diffusion_cfl<=0.7+1e-12,
+          "fractional heterogeneous CFL bound");
+    near(fractional.tracer_after_kg,
+         fractional.advected.tracer_after_kg,1e-10,
+         "fractional heterogeneous solute mass");
+    const auto geom=upc::P2MovingBoxFaceApertures3D::sample(
+        n,n,n,1,1.2,s.box,s.box);
+    double partial_residual=0.0;
+    int partial_cells=0;
+    for(int z=0;z<n;++z)for(int y=0;y<n;++y)for(int x=0;x<n;++x) {
+        const auto i=s.id(x,y,z);
+        const double alpha=geom.cell_geometry.alpha_old[i];
+        if(alpha>0&&alpha<1)++partial_cells;
+        const double expected=alpha*c[i]-
+            (fractional.u_diffusion_flux_kg[s.ui(x+1,y,z)]-
+             fractional.u_diffusion_flux_kg[s.ui(x,y,z)]+
+             fractional.v_diffusion_flux_kg[s.vi(x,y+1,z)]-
+             fractional.v_diffusion_flux_kg[s.vi(x,y,z)]+
+             fractional.w_diffusion_flux_kg[s.wi(x,y,z+1)]-
+             fractional.w_diffusion_flux_kg[s.wi(x,y,z)]);
+        const double actual=alpha*fractional.concentration_after_kg_m3[i];
+        partial_residual=std::max(partial_residual,std::abs(actual-expected));
+        near(actual,expected,1e-11,"fractional heterogeneous cell ledger");
+    }
+    check(partial_cells>0,"actual fractional cut cells");
+    std::cout<<"VOF_TRACER_HET_SUBCYCLE_PARTIAL "<<n<<" "
+             <<fractional.diffusion_substeps<<" "<<std::setprecision(17)
+             <<fractional.tracer_after_kg<<" "
+             <<fractional.max_diffusion_cfl<<" "<<partial_residual<<" "
+             <<partial_cells<<"\n";
+}
 void diffusion_analytic_and_partial() {
     using Diff=upc::P2CutCellTracerDiffusion3D;
     Setup s(8);
@@ -1377,6 +1513,8 @@ int main() {
         diffusion_subcycling_moving_and_fractional(12);
         heterogeneous_diffusion_reference(8);
         heterogeneous_diffusion_reference(12);
+        heterogeneous_subcycle_reference(8);
+        heterogeneous_subcycle_reference(12);
         negatives();
         std::cout<<"PASS: "<<assertions
                  <<" native static 3D cut-cell VOF assertions\n";

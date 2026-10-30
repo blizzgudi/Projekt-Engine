@@ -185,3 +185,12 @@ P2 und P3-P8 bleiben PARTIAL.
   Bodenparameter, keine bewegte Geometrie, keine physikalische
   Fluid-/Festkoerper-Impuls- und Energiebilanz, keine unabhaengige
   gemessene 3D-CFD-Validierung oder neue UE5.8-Native-E2E.
+
+## 30.10.2026: heterogenes Diffusionssubcycling mit lokaler CFL (Teilabnahme)
+
+- Neuer opt-in P2CutCellTracerDiffusion3D::step_diffusion_subcycled_heterogeneous kombiniert einen vorgeschriebenen MAC-VOF-/Tracer-Advektionsschritt mit mehreren expliziten konservativen Diffusionsschritten fuer zellweise unterschiedliche D_x/D_y/D_z. Die Substepzahl folgt der tatsaechlichen Summe der harmonischen benetzten Face-Leitwerte pro Wasservolumen, nicht einem globalen D-Maximum; maximales Budget 1024.
+- Nach jedem Diffusionssubstep wird die Konzentration aktualisiert. Die U/V/W-Face-Stoffmassenledger werden kumuliert. Unveraenderte Festkoerpergeometrie, null Aussenfluss und Null-D-Paritaet. Eingabevalidierung: Feldlaengen, D<0/NaN/Inf, CFL-Ziel und Teilstepbudget.
+- Native 8^3 und 12^3: ein Einzelschritt dt=0.5 s mit lokaler CFL 2.0 wird abgelehnt; die neue Methode verwendet je 3 Substeps (CFL 2/3), bewahrt 1 kg Stoff und stimmt mit drei manuell ausgefuehrten heterogenen Referenzschritten einschliesslich kumulierter U/V/W-Face-Ledger ueberein. Maximales unabhaengiges zellweises Massenresiduum 5.5511151231257827e-17 kg.
+- Echte fraktionale 3D-Cut-Cells (8 pro Gitter) auf 8^3/12^3: je 2 Substeps, lokale CFL 0.54728663510270337 / 0.63530549094953981, Stoffmasse 113.00864000000004 / 504.52863999999994 kg, zellweises Residuum 1.1102230246251565e-16 kg. Die Stoffmassen folgen dem tatsaechlichen freien Zellvolumen.
+- MSVC Release, 87/87 CTest, 288988 native Assertions. Quantitatives Gate scripts/p2_static_cut_cell_vof_acceptance.py und JSON ENGINE TEST STUBE/runs/p2_static_cut_cell_vof_partial.json mit Quell-SHA256 und CTest-Log-SHA256.
+- **Keine P2-Vollabnahme**: keine dynamische Navier-Stokes-/Fluid-Festkoerper-Gegenreaktion, keine Gesamtimpuls-/Energiebilanz, keine externe 3D-CFD-Messvalidierung und kein neuer UE5.8-Native-E2E-Lauf. P2-P8 bleiben PARTIAL.

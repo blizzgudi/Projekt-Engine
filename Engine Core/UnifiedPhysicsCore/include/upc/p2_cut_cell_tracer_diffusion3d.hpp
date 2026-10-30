@@ -237,6 +237,121 @@ public:
             throw std::logic_error("Heterogeneous tracer mass not conserved");
         return out;
     }
+
+    // Optional heterogeneous diffusion subcycling after ONE prescribed-MAC
+    // advection. The exact per-cell conductance sum (not the maximum global
+    // material D) determines the explicit stability budget on the wet geometry.
+    // Flux ledgers accumulate each substep's updated donor concentrations.
+    // Stationary geometry only; no porous-media calibration or FSI.
+    static P2CutCellTracerDiffusionResult3D step_diffusion_subcycled_heterogeneous(
+        std::size_t nx,std::size_t ny,std::size_t nz,double dx,double dt,
+        const P2Box3D& stationary_box,const std::vector<double>& fraction,
+        const std::vector<double>& concentration_kg_m3,
+        const std::vector<double>& u_m_s,const std::vector<double>& v_m_s,
+        const std::vector<double>& w_m_s,
+        const std::array<std::vector<double>,3>& diffusivity_cell_axis_m2_s,
+        double target_diffusion_cfl=0.8,std::size_t max_substeps=1024) {
+        if(!std::isfinite(target_diffusion_cfl)||
+           target_diffusion_cfl<=0.0||target_diffusion_cfl>1.0||
+           max_substeps==0||max_substeps>1024)
+            throw std::invalid_argument("Invalid heterogeneous diffusion subcycle budget");
+        const std::size_t n=fraction.size();
+        bool any_diffusion=false;
+        for(const auto& axis:diffusivity_cell_axis_m2_s) {
+            if(axis.size()!=n)
+                throw std::invalid_argument("Heterogeneous diffusivity size");
+            for(double d:axis) {
+                if(!std::isfinite(d)||d<0.0)
+                    throw std::invalid_argument("Invalid heterogeneous diffusivity");
+                any_diffusion=any_diffusion||(d>0.0);
+            }
+        }
+        auto out=step_anisotropic(nx,ny,nz,dx,dt,stationary_box,fraction,
+            concentration_kg_m3,u_m_s,v_m_s,w_m_s,{0.0,0.0,0.0});
+        if(!any_diffusion)return out; // Preserve exact zero-D advection.
+        const auto geom=P2MovingBoxFaceApertures3D::sample(
+            nx,ny,nz,dx,dt,stationary_box,stationary_box);
+        const auto& f=out.advected.water.fraction_after;
+        const double cell=dx*dx*dx;
+        std::vector<double> conductance_sum(n,0.0);
+        const auto id=[&](std::size_t x,std::size_t y,std::size_t z) {
+            return (z*ny+y)*nx+x;
+        };
+        const auto add_face=[&](std::size_t axis,double aperture,
+                                std::size_t a,std::size_t b) {
+            const double da=diffusivity_cell_axis_m2_s[axis][a];
+            const double db=diffusivity_cell_axis_m2_s[axis][b];
+            if(aperture<=0.0||f[a]<=0.0||f[b]<=0.0||
+               da==0.0||db==0.0)return;
+            const double d=2.0/(1.0/da+1.0/db);
+            const double g=d*dt*dx*aperture*std::min(f[a],f[b]);
+            if(!std::isfinite(g)||g<0.0)
+                throw std::invalid_argument("Nonfinite heterogeneous conductance");
+            conductance_sum[a]+=g;
+            conductance_sum[b]+=g;
+        };
+        std::size_t face=0;
+        for(std::size_t z=0;z<nz;++z)
+        for(std::size_t y=0;y<ny;++y)
+        for(std::size_t x=0;x<=nx;++x,++face)
+            if(x>0&&x<nx)
+                add_face(0,geom.u_open[face],id(x-1,y,z),id(x,y,z));
+        face=0;
+        for(std::size_t z=0;z<nz;++z)
+        for(std::size_t y=0;y<=ny;++y)
+        for(std::size_t x=0;x<nx;++x,++face)
+            if(y>0&&y<ny)
+                add_face(1,geom.v_open[face],id(x,y-1,z),id(x,y,z));
+        face=0;
+        for(std::size_t z=0;z<=nz;++z)
+        for(std::size_t y=0;y<ny;++y)
+        for(std::size_t x=0;x<nx;++x,++face)
+            if(z>0&&z<nz)
+                add_face(2,geom.w_open[face],id(x,y,z-1),id(x,y,z));
+        double max_full_cfl=0.0;
+        for(std::size_t i=0;i<n;++i) {
+            const double water=geom.cell_geometry.alpha_old[i]*cell*f[i];
+            if(water==0.0) {
+                if(conductance_sum[i]!=0.0)
+                    throw std::logic_error("Diffusion conductance in dry cell");
+                continue;
+            }
+            const double local=conductance_sum[i]/water;
+            if(!std::isfinite(local)||local<0.0)
+                throw std::invalid_argument("Nonfinite heterogeneous diffusion CFL");
+            max_full_cfl=std::max(max_full_cfl,local);
+        }
+        const double needed=std::ceil(max_full_cfl/target_diffusion_cfl);
+        if(!std::isfinite(needed)||needed>static_cast<double>(max_substeps))
+            throw std::invalid_argument("Heterogeneous diffusion subcycle budget exceeded");
+        const std::size_t steps=std::max<std::size_t>(
+            1,static_cast<std::size_t>(needed));
+        out.diffusion_substeps=steps;
+        const std::vector<double> zero_u(u_m_s.size(),0.0);
+        const std::vector<double> zero_v(v_m_s.size(),0.0);
+        const std::vector<double> zero_w(w_m_s.size(),0.0);
+        const double sub_dt=dt/static_cast<double>(steps);
+        for(std::size_t k=0;k<steps;++k) {
+            const auto part=step_heterogeneous(nx,ny,nz,dx,sub_dt,
+                stationary_box,f,out.concentration_after_kg_m3,
+                zero_u,zero_v,zero_w,diffusivity_cell_axis_m2_s);
+            for(std::size_t i=0;i<out.u_diffusion_flux_kg.size();++i)
+                out.u_diffusion_flux_kg[i]+=part.u_diffusion_flux_kg[i];
+            for(std::size_t i=0;i<out.v_diffusion_flux_kg.size();++i)
+                out.v_diffusion_flux_kg[i]+=part.v_diffusion_flux_kg[i];
+            for(std::size_t i=0;i<out.w_diffusion_flux_kg.size();++i)
+                out.w_diffusion_flux_kg[i]+=part.w_diffusion_flux_kg[i];
+            out.concentration_after_kg_m3=part.concentration_after_kg_m3;
+            out.tracer_after_kg=part.tracer_after_kg;
+            out.max_diffusion_cfl=std::max(out.max_diffusion_cfl,
+                                            part.max_diffusion_cfl);
+        }
+        const double tol=1e-10*std::max(1.0,out.advected.tracer_after_kg);
+        if(std::abs(out.tracer_after_kg-out.advected.tracer_after_kg)>tol)
+            throw std::logic_error("Subcycled heterogeneous tracer mass not conserved");
+        return out;
+    }
+
     // Conservative opt-in: one prescribed-MAC advection step followed by
     // bounded explicit anisotropic diffusion on the resulting wet geometry.
     // A conservative six-neighbor bound accounts for small cut-cell volumes.

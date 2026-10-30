@@ -1360,3 +1360,10 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
 - **P2-P8 PARTIAL; ALL_COMPLETE=False.** Keine experimentelle
   Bodenparametrisierung, echte 3D-Navier-Stokes-/FSI-Gegenreaktion,
   Gesamtimpuls-/Energievalidierung oder neue UE5.8-Native-E2E.
+
+## P2 Teilfortschritt: adaptives Subcycling zellweise heterogener 3D-Diffusion (30.10.2026)
+
+- Neuer opt-in Operator P2CutCellTracerDiffusion3D::step_diffusion_subcycled_heterogeneous: nach EINEM vorgeschriebenen 3D-MAC/VOF-Advektionsschritt konservative explizite Diffusions-Substeps mit zellweisen D_x/D_y/D_z, harmonischen Face-Leitwerten und stationaeren Cut-Cell-Aperturen.
+- Die exakte lokale Summe der benetzten Face-Leitwerte relativ zum Wasservolumen bestimmt die Substepzahl (CFL-Ziel <=1, Budget maximal 1024); U/V/W-Stoffmassenledger werden aus jedem aktualisierten Substep akkumuliert. Null-D behaelt den bisherigen passiven Advektionszustand exakt bei.
+- MSVC Release, 87/87 CTest, 288988 native Assertions im P2-Test. 8^3/12^3: 3 Substeps bei maximaler CFL 2/3, 1 kg Stoffmasse, Zellbilanz-Residuum 5.55e-17 kg. Fraktionale Cut-Cells: 2 Substeps, 8 partielle Zellen, Residuum 1.11e-16 kg. Manuelles Replay und Negativtests. JSON/Quellhash/CTest-Gate: scripts/p2_static_cut_cell_vof_acceptance.py.
+- **P2-P8 PARTIAL, ALL_COMPLETE=False.** Nur numerischer passiver Stofftransport bei vorgeschriebenen MAC-Geschwindigkeiten und statischer Geometrie, keine kalibrierte Bodenchemie, dynamische 3D-Navier-Stokes-/FSI-Kopplung, physikalische Gesamtimpuls-/Energiebilanz, externe CFD-Messvalidierung oder neue Unreal-5.8-Native-E2E.
