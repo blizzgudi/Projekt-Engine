@@ -1515,3 +1515,21 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
 - Fraktionale 3D-Box und nichtlineares Druckfeld mit echtem intrinsischem Drehmoment: native MSVC-Tests auf 8^3/12^3, beide Bewegungsrichtungen, Gauge-Invarianz, geometrische Druckarbeit, Ablehnung der Translation-only-Dynamik bei Drehmoment.
 - Unabhaengige Python-Referenz und SHA256: `scripts/p2_pressure_wrench_reference_acceptance.py`, `docs/P2_PRESSURE_WRENCH_REFERENCE_PARTIAL.md`, `ENGINE TEST STUBE/runs/p2_pressure_wrench_reference_partial.json`. Die volle CTest-Regression muss weiter gruen bleiben.
 - **P2 bleibt INCOMPLETE**: kein orientierter rotierender Koerper, keine dynamische zweigerichtete MAC-Impulsrueckgabe, keine externe CFD-Messvalidierung und keine neue UE5.8-Native-E2E-Abnahme. P3-P8 bleiben ebenfalls offen.
+
+## P2 Teilfortschritt: Druckwrench auf gefrorene Starrkoerper-ODE (30.10.2026)
+
+- Neuer optionaler C++17-Adapter `P2FrozenWrenchRigidStep3D` koppelt den
+  nichtlinearen, fraktionalen 3D-Druckwrench an den vorhandenen
+  RigidPressureResponse3D-ODE-Schritt mit Translation **und** Winkelgeschwindigkeit.
+  Referenzpunktverschiebung, Anfangs-Koerpermitte, Diagonaltraegheit und
+  die Differenz zur vorgeschriebenen Boxbewegung werden explizit geprueft.
+- 8^3/12^3, beide Bewegungsrichtungen, analytische unabhaengige
+  Druckflaechen-/ODE-Referenzen, Gauge- und Referenzpunktinvarianz,
+  176 native Assertions, volle 87/87 CTest-Suite.
+- Nachweise: `docs/P2_FROZEN_WRENCH_RIGID_PARTIAL.md`,
+  `scripts/p2_frozen_wrench_rigid_acceptance.py`,
+  `ENGINE TEST STUBE/runs/p2_frozen_wrench_rigid_partial.json`.
+- **P2-P8 weiterhin INCOMPLETE**: gefrorene Last, vorgegebene Box statt
+  aktualisierter rotierender Geometrie, kein MAC-Gegenimpuls, keine
+  globale Fluidenergie, keine externe 3D-CFD-Messvalidierung und
+  keine Unreal-5.8-Native-E2E-Abnahme dieses Pfades.
