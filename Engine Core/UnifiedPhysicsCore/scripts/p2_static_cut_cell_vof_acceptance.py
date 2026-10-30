@@ -393,6 +393,44 @@ def main():
               (before,after,loss))
         check(f"{n} cubed partial Q difference closes",
               abs(before-after-loss)<1e-10,(before,after,loss))
+    # Independent exact three-cell forward-Euler dissipation reference.
+    ref_left,ref_center,ref_right=0.0,1.0,0.0
+    ref_drive=ref_correction=0.0
+    for _ in range(3):
+        jl=(2/9)*(ref_center-ref_left)
+        jr=(4/9)*(ref_center-ref_right)
+        ref_drive+=2*(jl*(ref_center-ref_left)+jr*(ref_center-ref_right))
+        ref_correction+=jl*jl+jr*jr+(jl+jr)**2
+        ref_left+=jl
+        ref_right+=jr
+        ref_center-=jl+jr
+    identity=re.findall(
+        r"^VOF_TRACER_HET_QUADRATIC_IDENTITY (\d+) "
+        r"([\d.eE+-]+) ([\d.eE+-]+) ([\d.eE+-]+)$",
+        output,re.MULTILINE)
+    check("3D face-gradient Euler identity on both grids",
+          len(identity)==2,[row[0] for row in identity])
+    for row in identity:
+        n=int(row[0]);drive,correction,residual=map(float,row[1:])
+        check(f"{n} cubed independent face-gradient dissipation",
+              n in (8,12) and abs(drive-ref_drive)<1e-12,drive)
+        check(f"{n} cubed independent explicit Euler correction",
+              abs(correction-ref_correction)<1e-12,correction)
+        check(f"{n} cubed exact three-cell quadratic balance",
+              abs(drive-correction-39004/59049)<1e-12 and
+              math.isfinite(residual) and abs(residual)<1e-12,residual)
+    fractional_identity=re.findall(
+        r"^VOF_TRACER_HET_QUADRATIC_IDENTITY_PARTIAL (\d+) "
+        r"([\d.eE+-]+) ([\d.eE+-]+) ([\d.eE+-]+)$",
+        output,re.MULTILINE)
+    check("fractional 3D Euler identity on both grids",
+          len(fractional_identity)==2,[row[0] for row in fractional_identity])
+    for row in fractional_identity:
+        n=int(row[0]);drive,correction,residual=map(float,row[1:])
+        check(f"{n} cubed fractional face dissipation exceeds correction",
+              n in (8,12) and drive>correction>0.0,(drive,correction))
+        check(f"{n} cubed fractional discrete quadratic balance",
+              math.isfinite(residual) and abs(residual)<1e-10,residual)
     hashes={name:sha(CORE/name) for name in SOURCES}
     report={
         "phase":"P2","milestone":"static_cut_cell_3d_donor_vof_partial",
@@ -409,6 +447,7 @@ def main():
             "heterogeneous cell-wise diffusivity uses harmonic face mixing, not calibrated porous media or thermodynamic transport",
             "heterogeneous diffusion-only CFL subcycling uses stationary wetted cut cells, not a coupled Navier-Stokes or reactive solver",
             "extreme harmonic mean is numerical robustness, not measured physical material calibration",
+            "face-gradient and Euler-correction ledger audits numerical quadratic dissipation, NOT physical energy",
             "opt-in conservative diffusion-only CFL subcycling after one prescribed-MAC advection, not fully coupled time integration",
             "no pressure/impulse time integration or moving-solid counterreaction",
             "no global physical FSI energy/momentum conservation",

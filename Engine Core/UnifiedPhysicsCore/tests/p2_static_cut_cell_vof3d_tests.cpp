@@ -1251,6 +1251,33 @@ void heterogeneous_subcycle_reference(int n) {
          "independent three-step heterogeneous Q after");
     near(r.diffusive_quadratic_loss_kg2_m3,39004.0/59049.0,1e-13,
          "independent heterogeneous quadratic dissipation");
+    // Independent three-cell explicit Euler face-transfer identity.
+    // Each unit-volume cell contributes (delta concentration)^2.
+    double ref_left=0.0,ref_center=1.0,ref_right=0.0;
+    double ref_drive=0.0,ref_correction=0.0;
+    for(int k=0;k<3;++k) {
+        const double jl=(2.0/9.0)*(ref_center-ref_left);
+        const double jr=(4.0/9.0)*(ref_center-ref_right);
+        ref_drive+=2.0*(jl*(ref_center-ref_left)+
+                        jr*(ref_center-ref_right));
+        ref_correction+=jl*jl+jr*jr+(jl+jr)*(jl+jr);
+        ref_left+=jl;ref_right+=jr;ref_center-=jl+jr;
+    }
+    near(r.diffusive_quadratic_face_drive_kg2_m3,ref_drive,1e-13,
+         "independent face-gradient quadratic drive");
+    near(r.diffusive_quadratic_euler_correction_kg2_m3,ref_correction,1e-13,
+         "independent explicit Euler quadratic correction");
+    near(ref_drive-ref_correction,39004.0/59049.0,1e-13,
+         "independent three-cell dissipation identity");
+    near(r.diffusive_quadratic_identity_residual_kg2_m3,0.0,1e-13,
+         "native quadratic identity residual");
+    check(ref_drive>ref_correction&&ref_correction>0.0,
+          "positive discrete drive and Euler correction");
+    std::cout<<"VOF_TRACER_HET_QUADRATIC_IDENTITY "<<n<<" "
+             <<std::setprecision(17)
+             <<r.diffusive_quadratic_face_drive_kg2_m3<<" "
+             <<r.diffusive_quadratic_euler_correction_kg2_m3<<" "
+             <<r.diffusive_quadratic_identity_residual_kg2_m3<<"\n";
     std::cout<<"VOF_TRACER_HET_QUADRATIC "<<n<<" "<<std::setprecision(17)
              <<r.diffusive_quadratic_before_kg2_m3<<" "
              <<r.diffusive_quadratic_after_kg2_m3<<" "
@@ -1363,6 +1390,17 @@ void heterogeneous_subcycle_reference(int n) {
     near(fractional.diffusive_quadratic_loss_kg2_m3,
          independent_q_before-independent_q_after,1e-11,
          "independent fractional Q loss");
+    near(fractional.diffusive_quadratic_identity_residual_kg2_m3,
+         0.0,1e-11,"fractional 3D quadratic identity closes");
+    check(fractional.diffusive_quadratic_face_drive_kg2_m3>
+          fractional.diffusive_quadratic_euler_correction_kg2_m3 &&
+          fractional.diffusive_quadratic_euler_correction_kg2_m3>0.0,
+          "fractional 3D face-gradient dissipation dominates correction");
+    std::cout<<"VOF_TRACER_HET_QUADRATIC_IDENTITY_PARTIAL "<<n<<" "
+             <<std::setprecision(17)
+             <<fractional.diffusive_quadratic_face_drive_kg2_m3<<" "
+             <<fractional.diffusive_quadratic_euler_correction_kg2_m3<<" "
+             <<fractional.diffusive_quadratic_identity_residual_kg2_m3<<"\n";
     std::cout<<"VOF_TRACER_HET_QUADRATIC_PARTIAL "<<n<<" "
              <<std::setprecision(17)<<independent_q_before<<" "
              <<independent_q_after<<" "

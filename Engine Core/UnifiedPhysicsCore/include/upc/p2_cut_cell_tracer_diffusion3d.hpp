@@ -25,6 +25,12 @@ struct P2CutCellTracerDiffusionResult3D {
     double diffusive_quadratic_before_kg2_m3=0.0;
     double diffusive_quadratic_after_kg2_m3=0.0;
     double diffusive_quadratic_loss_kg2_m3=0.0;
+    // Exact forward-Euler no-flux identity, NOT physical energy:
+    // Q_before-Q_after = 2*sum_faces(J*(c_a-c_b))
+    //                    - sum_cells(V*(c_after-c_before)^2).
+    double diffusive_quadratic_face_drive_kg2_m3=0.0;
+    double diffusive_quadratic_euler_correction_kg2_m3=0.0;
+    double diffusive_quadratic_identity_residual_kg2_m3=0.0;
 };
 class P2CutCellTracerDiffusion3D {
     // Scaled harmonic mean avoids reciprocal overflow for subnormal D
@@ -367,6 +373,37 @@ public:
             const auto part=step_heterogeneous(nx,ny,nz,dx,sub_dt,
                 stationary_box,f,out.concentration_after_kg_m3,
                 zero_u,zero_v,zero_w,diffusivity_cell_axis_m2_s);
+            // Each signed face flux is paired with its PRE-substep gradient.
+            const auto& pre=out.concentration_after_kg_m3;
+            std::size_t qface=0;
+            for(std::size_t z=0;z<nz;++z)
+            for(std::size_t y=0;y<ny;++y)
+            for(std::size_t x=0;x<=nx;++x,++qface)
+                if(x>0&&x<nx)
+                    out.diffusive_quadratic_face_drive_kg2_m3+=
+                        2.0*part.u_diffusion_flux_kg[qface]*
+                        (pre[id(x-1,y,z)]-pre[id(x,y,z)]);
+            qface=0;
+            for(std::size_t z=0;z<nz;++z)
+            for(std::size_t y=0;y<=ny;++y)
+            for(std::size_t x=0;x<nx;++x,++qface)
+                if(y>0&&y<ny)
+                    out.diffusive_quadratic_face_drive_kg2_m3+=
+                        2.0*part.v_diffusion_flux_kg[qface]*
+                        (pre[id(x,y-1,z)]-pre[id(x,y,z)]);
+            qface=0;
+            for(std::size_t z=0;z<=nz;++z)
+            for(std::size_t y=0;y<ny;++y)
+            for(std::size_t x=0;x<nx;++x,++qface)
+                if(z>0&&z<nz)
+                    out.diffusive_quadratic_face_drive_kg2_m3+=
+                        2.0*part.w_diffusion_flux_kg[qface]*
+                        (pre[id(x,y,z-1)]-pre[id(x,y,z)]);
+            for(std::size_t i=0;i<n;++i) {
+                const double dc=part.concentration_after_kg_m3[i]-pre[i];
+                const double volume=geom.cell_geometry.alpha_old[i]*cell*f[i];
+                out.diffusive_quadratic_euler_correction_kg2_m3+=volume*dc*dc;
+            }
             for(std::size_t i=0;i<out.u_diffusion_flux_kg.size();++i)
                 out.u_diffusion_flux_kg[i]+=part.u_diffusion_flux_kg[i];
             for(std::size_t i=0;i<out.v_diffusion_flux_kg.size();++i)
@@ -386,6 +423,14 @@ public:
         out.diffusive_quadratic_loss_kg2_m3=
             out.diffusive_quadratic_before_kg2_m3-
             out.diffusive_quadratic_after_kg2_m3;
+        out.diffusive_quadratic_identity_residual_kg2_m3=
+            out.diffusive_quadratic_loss_kg2_m3-
+            (out.diffusive_quadratic_face_drive_kg2_m3-
+             out.diffusive_quadratic_euler_correction_kg2_m3);
+        if(!std::isfinite(out.diffusive_quadratic_identity_residual_kg2_m3)||
+           std::abs(out.diffusive_quadratic_identity_residual_kg2_m3)>
+               1e-10*std::max(1.0,out.diffusive_quadratic_before_kg2_m3))
+            throw std::logic_error("Heterogeneous diffusion quadratic identity failed");
         if(out.diffusive_quadratic_loss_kg2_m3 <
            -1e-11*std::max(1.0,out.diffusive_quadratic_before_kg2_m3))
             throw std::logic_error("Heterogeneous diffusion increased solute quadratic");

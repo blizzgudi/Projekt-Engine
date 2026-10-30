@@ -1403,3 +1403,15 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
   Mischungs-/Monotonienachweis, keine thermodynamische Entropie,
   physikalische Fluid-/FSI-Energiebilanz, externe CFD-Messvalidierung
   oder UE5.8-Native-E2E-Abnahme dieses Transportpfads.
+
+## P2 Teilfortschritt: diskrete Euler-Mischungsidentitaet (30.10.2026)
+
+- Fuer heterogene 3D-Cut-Cell-Tracerdiffusion wird der numerische
+  Q-Verlust unabhaengig aus Face-Gradienten-Drive und
+  expliziter Euler-Korrektur pro Substep bilanziert.
+- 8^3/12^3 Dreizell-Referenz sowie fraktionale Cut-Cells;
+  Quell-/CTest-Hashes und CTest-Gesamtlauf sind Gate-Pflicht.
+  Details: docs/P2_STATIC_CUT_CELL_VOF_PARTIAL.md.
+- Dies ist **nur eine numerische Teilabnahme**. P2 bleibt PARTIAL;
+  echte dynamische 3D-FSI, globale physikalische Energie/Impuls,
+  externe CFD-Referenzen und UE5.8-Native-E2E bleiben offen.

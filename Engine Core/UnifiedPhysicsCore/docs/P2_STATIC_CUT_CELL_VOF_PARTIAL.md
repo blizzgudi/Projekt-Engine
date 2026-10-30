@@ -243,3 +243,30 @@ P2 und P3-P8 bleiben PARTIAL.
   Energie noch thermodynamische Entropie. Kein Nachweis bewegter
   Fluid-Festkoerper-Interaktion, vollstaendiger Navier-Stokes-Physik,
   externer 3D-CFD-Messdaten oder neuer UE5.8-Native-E2E-Abnahme.
+
+## 30.10.2026: exakte diskrete Diffusions-Q-Identitaet (Teilabnahme)
+
+- Fuer jeden heterogenen 3D-Diffusions-Teilzeitschritt werden die
+  **vorherigen** Zellkonzentrationen, signierten U/V/W-Face-Fluesse
+  und die benetzten Cut-Cell-Volumina getrennt bilanziert.
+  Exakte explizite Euler-Identitaet:
+  Q_vor - Q_nach = 2 * Summe_Faces[J * (c_links-c_rechts)]
+                   - Summe_Zellen[V_wet * (c_neu-c_alt)^2].
+  Die ersten beiden Terme werden als
+  diffusive_quadratic_face_drive_kg2_m3 und
+  diffusive_quadratic_euler_correction_kg2_m3 ausgegeben.
+  diffusive_quadratic_identity_residual_kg2_m3 kontrolliert die
+  Schliessung; Abweichungen oberhalb der numerischen Toleranz
+  verursachen einen Fehler statt einer falschen Erfolgsmeldung.
+- Analytisch unabhaengige 3-Zell-Euler-Referenz auf 8^3 und 12^3,
+  drei Schritte, 2/9- und 4/9-Face-Transfers:
+  Face-Drive=1.356500533455266,
+  Euler-Korrektur=0.6959643685752509,
+  Q-Verlust=39004/59049.
+  Fraktionale 3D-Cut-Cells pruefen ebenfalls beide Terme und
+  die Schliessung. Reale native Tests und quantitativer
+  Source-/CTest-SHA256-Gate erforderlich.
+- **Keine physikalische Energiebilanz**: Der Ausdruck ist ein
+  numerisches Mischungsfunktional passiver gelöster Stoffe.
+  Keine bewegten Koerper, externe 3D-CFD-Messvalidierung oder
+  neue UE5.8-Native-E2E-Abnahme. P2-P8 bleiben unvollstaendig.
