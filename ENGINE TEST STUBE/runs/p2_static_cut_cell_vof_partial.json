@@ -4,7 +4,7 @@
   "partial_accepted": true,
   "phase_complete": false,
   "ctest_suites": 87,
-  "native_assertions": 301844,
+  "native_assertions": 302276,
   "checks": [
     {
       "name": "87/87 full native CTest suites",
@@ -19,7 +19,7 @@
     {
       "name": "native assertions >= 288000",
       "pass": true,
-      "detail": 301844
+      "detail": 302276
     },
     {
       "name": "two grid sizes",
@@ -1319,21 +1319,97 @@
         "12": 0.0006227491326177281,
         "16": 0.00034923388841878733
       }
+    },
+    {
+      "name": "two 3D disconnected diffusion compartment cases",
+      "pass": true,
+      "detail": [
+        "8",
+        "12"
+      ]
+    },
+    {
+      "name": "8 cubed three independent wet compartments",
+      "pass": true,
+      "detail": [
+        8,
+        3
+      ]
+    },
+    {
+      "name": "8 cubed diffusion CFL requires three substeps",
+      "pass": true,
+      "detail": 3
+    },
+    {
+      "name": "8 cubed independent per-compartment solute masses",
+      "pass": true,
+      "detail": [
+        [
+          281.7900000000001,
+          207.68,
+          991.6799999999998
+        ],
+        [
+          281.78999999999985,
+          207.68000000000004,
+          991.6800000000002
+        ]
+      ]
+    },
+    {
+      "name": "8 cubed compartment ledger closes",
+      "pass": true,
+      "detail": 3.410605131648481e-13
+    },
+    {
+      "name": "12 cubed three independent wet compartments",
+      "pass": true,
+      "detail": [
+        12,
+        3
+      ]
+    },
+    {
+      "name": "12 cubed diffusion CFL requires three substeps",
+      "pass": true,
+      "detail": 3
+    },
+    {
+      "name": "12 cubed independent per-compartment solute masses",
+      "pass": true,
+      "detail": [
+        [
+          669.9499999999994,
+          487.44,
+          5286.9600000000055
+        ],
+        [
+          669.9499999999995,
+          487.44,
+          5286.960000000002
+        ]
+      ]
+    },
+    {
+      "name": "12 cubed compartment ledger closes",
+      "pass": true,
+      "detail": 3.637978807091713e-12
     }
   ],
   "source_sha256": {
     "CMakeLists.txt": "3bafa076a16a2405214fcf378271d64585cf73a5dd44912d6040054beca9f59c",
-    "docs/PHASENPLAN.md": "e21aba785f542e044204cd407842627ce84368bbff90b589320644ca73614ed1",
-    "docs/P2_STATIC_CUT_CELL_VOF_PARTIAL.md": "0933dfa3a5da5c2df898a71ad1e63a352d681b6fe1241809f8eaa31a8e7691c4",
-    "include/upc/p2_cut_cell_tracer_diffusion3d.hpp": "47f5566ed5380bcf4d5ee4d229d239066e47c58aef38a9b4cf774bfb95599650",
+    "docs/PHASENPLAN.md": "cdefa70838481771b15e3d3a67faa84d9b14c162cd35ac0fd675beefe11193ee",
+    "docs/P2_STATIC_CUT_CELL_VOF_PARTIAL.md": "87fbfcc030b82380cbf7df099e8e068a0502535cf6b25a6bce03feedec8d7c22",
+    "include/upc/p2_cut_cell_tracer_diffusion3d.hpp": "d58dd2cc45464c2e23af2c8a51cb8d4ac35ae0becc670186ff267a2f06287a28",
     "include/upc/p2_static_cut_cell_vof3d.hpp": "303a96b04d72e405d0eaf2c0ca40b2317cbfc2f20b85727fb241dc24ce52727f",
     "include/upc/p2_moving_box_mac_apertures3d.hpp": "c5fbdae598166771f6a28359c31960178239d3a59e0ccbb60f89f47b38f29ad3",
     "include/upc/p2_moving_box_open_volume3d.hpp": "270ecc419fa312212e47dbcfbd7fa8f2b172fde153b6d66e19f226be5cbedbb2",
-    "tests/p2_static_cut_cell_vof3d_tests.cpp": "38489b07a644b2a9c6515a43d5daee3af23cabae838cf62f5d990c4c1b673cc5",
-    "scripts/p2_static_cut_cell_vof_acceptance.py": "63cfe69409c5aee7877d8aacd9885bb71be174d7cb357822c79c4450515060d9",
+    "tests/p2_static_cut_cell_vof3d_tests.cpp": "b471fd1e35678662d351bdf14296e7d2d66f1e5824f5de9b0844d013ed6867c1",
+    "scripts/p2_static_cut_cell_vof_acceptance.py": "98af67364385a1a0c6092282eb1734982659df880556b07f0bd9c7e37ea1d7f8",
     "scripts/p2_static_cut_cell_vof_full_build.cmd": "73075d11a3e65c5ba16a8b77ae7bec36e31b7816746b17ec8740c90f336b2168"
   },
-  "ctest_log_sha256": "bd780a297cef722468b4ff9e39217aa0b7a983eff4e845def001a86441f89ef0",
+  "ctest_log_sha256": "71efe631cd7a6473329af47e6fa6b20e2d0a538f91400c8a7a872a46d1cf330b",
   "limitations": [
     "prescribed solenoidal MAC velocity and stationary cut-cell geometry",
     "first-order diffusive donor-cell advection, no interface reconstruction",
@@ -1345,6 +1421,7 @@
     "extreme harmonic mean is numerical robustness, not measured physical material calibration",
     "face-gradient and Euler-correction ledger audits numerical quadratic dissipation, NOT physical energy",
     "3D Neumann eigenmode validates passive solute diffusion, not measured Navier-Stokes CFD",
+    "diffusion-connected compartment mass audit covers fixed zero-D barriers, not moving porous or FSI boundaries",
     "opt-in conservative diffusion-only CFL subcycling after one prescribed-MAC advection, not fully coupled time integration",
     "no pressure/impulse time integration or moving-solid counterreaction",
     "no global physical FSI energy/momentum conservation",

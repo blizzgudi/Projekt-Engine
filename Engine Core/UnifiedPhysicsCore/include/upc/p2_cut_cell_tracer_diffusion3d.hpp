@@ -7,6 +7,7 @@
 #include <array>
 #include <cmath>
 #include <cstddef>
+#include <numeric>
 #include <stdexcept>
 #include <vector>
 
@@ -22,6 +23,11 @@ struct P2CutCellTracerDiffusionResult3D {
     // [kg^2/m^3], NOT kinetic/thermal energy or thermodynamic entropy.
     // Populated only by the heterogeneous diffusion-subcycle path.
     bool diffusive_quadratic_audited=false;
+    // Diffusion-only connected wet components (positive conductance faces).
+    // Local solute mass closure; NOT coupled fluid/solid mass or FSI.
+    bool diffusive_compartment_audited=false;
+    std::size_t diffusive_compartments=0;
+    double diffusive_max_compartment_mass_residual_kg=0.0;
     double diffusive_quadratic_before_kg2_m3=0.0;
     double diffusive_quadratic_after_kg2_m3=0.0;
     double diffusive_quadratic_loss_kg2_m3=0.0;
@@ -312,6 +318,24 @@ public:
         out.diffusive_quadratic_before_kg2_m3=
             quadratic(out.advected.concentration_after_kg_m3);
         std::vector<double> conductance_sum(n,0.0);
+        // Union-find of the actual positive-conductance wet face graph.
+        // A zero-D material interface is a sealed compartment boundary.
+        std::vector<std::size_t> parent(n),component_size(n,1);
+        std::iota(parent.begin(),parent.end(),std::size_t{0});
+        const auto root=[&](std::size_t a) {
+            while(parent[a]!=a) {
+                parent[a]=parent[parent[a]];
+                a=parent[a];
+            }
+            return a;
+        };
+        const auto join=[&](std::size_t a,std::size_t b) {
+            a=root(a);b=root(b);
+            if(a==b)return;
+            if(component_size[a]<component_size[b])std::swap(a,b);
+            parent[b]=a;
+            component_size[a]+=component_size[b];
+        };
         const auto id=[&](std::size_t x,std::size_t y,std::size_t z) {
             return (z*ny+y)*nx+x;
         };
@@ -327,6 +351,7 @@ public:
                 throw std::invalid_argument("Nonfinite heterogeneous conductance");
             conductance_sum[a]+=g;
             conductance_sum[b]+=g;
+            if(g>0.0)join(a,b);
         };
         std::size_t face=0;
         for(std::size_t z=0;z<nz;++z)
@@ -358,6 +383,15 @@ public:
             if(!std::isfinite(local)||local<0.0)
                 throw std::invalid_argument("Nonfinite heterogeneous diffusion CFL");
             max_full_cfl=std::max(max_full_cfl,local);
+        }
+        // Compute the independent inventory of every diffusion-connected
+        // compartment BEFORE any substeps; prescribed advection has ended.
+        std::vector<double> compartment_before(n,0.0);
+        for(std::size_t i=0;i<n;++i) {
+            const double water=geom.cell_geometry.alpha_old[i]*cell*f[i];
+            if(water>0.0)
+                compartment_before[root(i)]+=
+                    water*out.concentration_after_kg_m3[i];
         }
         const double needed=std::ceil(max_full_cfl/target_diffusion_cfl);
         if(!std::isfinite(needed)||needed>static_cast<double>(max_substeps))
@@ -418,6 +452,27 @@ public:
         const double tol=1e-10*std::max(1.0,out.advected.tracer_after_kg);
         if(std::abs(out.tracer_after_kg-out.advected.tracer_after_kg)>tol)
             throw std::logic_error("Subcycled heterogeneous tracer mass not conserved");
+        std::vector<double> compartment_after(n,0.0);
+        for(std::size_t i=0;i<n;++i) {
+            const double water=geom.cell_geometry.alpha_old[i]*cell*f[i];
+            if(water>0.0)
+                compartment_after[root(i)]+=
+                    water*out.concentration_after_kg_m3[i];
+        }
+        for(std::size_t i=0;i<n;++i) {
+            if(parent[i]!=i)continue;
+            if(component_size[i]==1&&
+               geom.cell_geometry.alpha_old[i]*cell*f[i]==0.0)continue;
+            ++out.diffusive_compartments;
+            const double residual=std::abs(compartment_after[i]-
+                                           compartment_before[i]);
+            if(!std::isfinite(residual)||
+               residual>1e-10*std::max(1.0,compartment_before[i]))
+                throw std::logic_error("Diffusion compartment mass not conserved");
+            out.diffusive_max_compartment_mass_residual_kg=std::max(
+                out.diffusive_max_compartment_mass_residual_kg,residual);
+        }
+        out.diffusive_compartment_audited=true;
         out.diffusive_quadratic_after_kg2_m3=
             quadratic(out.concentration_after_kg_m3);
         out.diffusive_quadratic_loss_kg2_m3=

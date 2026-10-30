@@ -297,3 +297,27 @@ P2 und P3-P8 bleiben PARTIAL.
   It is NOT independent measured 3D CFD, dynamic Navier-Stokes,
   physical FSI energy/momentum, water/soil calibration or UE5.8 E2E.
   P2-P8 remain PARTIAL; ALL_COMPLETE=False.
+
+## P2 partial: diffusion-connected 3D compartment mass audit (30.10.2026)
+
+- Optional heterogeneous 3D cut-cell tracer subcycling now constructs
+  connected components from *positive actual wet-face conductance* using
+  union-find. Every compartment's dissolved mass is audited before and
+  after the diffusion substeps. Zero-diffusivity material interfaces,
+  dry cells, and sealed faces cannot transfer solute between components.
+- Independent 8^3 and 12^3 native tests construct three 3D water
+  compartments separated by a zero-X-diffusivity plane, with nontrivial
+  Y/Z diffusion and a fixed solid voxel. The Python acceptance gate
+  recomputes each compartment's initial mass from its analytic
+  concentration field, independently of the C++ audit. Signed fluxes
+  across both sealed X-face planes must remain exactly zero.
+- This is a local conservation check for *passive diffusion after
+  prescribed-MAC advection*, not global fluid/solid mass, physical
+  energy or impulse. No moving body, measured CFD/soil reference,
+  or new Unreal 5.8 Native-E2E. P2-P8 remain PARTIAL.
+- Verified MSVC Release, 87/87 CTest, 302276 native assertions and
+  219/219 quantitative partial checks. Compartment masses (kg):
+  8^3: 281.79 / 207.68 / 991.68, maximum residual 3.41e-13 kg;
+  12^3: 669.95 / 487.44 / 5286.96, maximum residual 3.64e-12 kg.
+  Three stable diffusion substeps in both cases. Source and CTest
+  SHA256 are recorded in p2_static_cut_cell_vof_partial.json.

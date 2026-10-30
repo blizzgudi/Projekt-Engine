@@ -1559,6 +1559,74 @@ void heterogeneous_neumann_eigenmode(int n) {
              <<continuum<<" "<<2.0<<" "<<continuum_error<<" "<<cfl<<"\n";
 }
 
+
+void heterogeneous_compartment_conservation(int n) {
+    using Diff=upc::P2CutCellTracerDiffusion3D;
+    Setup s(n);
+    std::fill(s.u.begin(),s.u.end(),0.0);
+    std::fill(s.v.begin(),s.v.end(),0.0);
+    std::fill(s.w.begin(),s.w.end(),0.0);
+    std::fill(s.f.begin(),s.f.end(),1.0);
+    s.f[s.id(3,3,3)]=0.0;
+    std::vector<double> c(s.f.size(),0.0);
+    std::array<std::vector<double>,3> d{
+        std::vector<double>(s.f.size(),0.1),
+        std::vector<double>(s.f.size(),0.1),
+        std::vector<double>(s.f.size(),0.1)};
+    // Zero X diffusivity across the x=4 plane creates three isolated
+    // 3D wet compartments: x<=3, x=4, and x>=5. Y/Z still diffuse.
+    double initial[3]={0,0,0};
+    for(int z=0;z<n;++z)
+    for(int y=0;y<n;++y)
+    for(int x=0;x<n;++x) {
+        const auto i=s.id(x,y,z);
+        const int part=x<4?0:(x==4?1:2);
+        c[i]=part==0?1.0+0.02*y+0.01*z:
+             (part==1?3.0+0.03*y+0.04*z:
+                      5.0+0.01*x+0.02*y+0.01*z);
+        if(x==4)d[0][i]=0.0;
+        if(s.f[i]>0.0)initial[part]+=c[i];
+        else c[i]=0.0; // The fixed solid must carry no tracer.
+    }
+    const auto r=Diff::step_diffusion_subcycled_heterogeneous(
+        n,n,n,1.0,3.0,s.box,s.f,c,s.u,s.v,s.w,d,0.8);
+    check(r.diffusive_compartment_audited,
+          "positive-conductance compartment audit active");
+    check(r.diffusive_compartments==3,
+          "independent 3D zero-D plane forms exactly three compartments");
+    check(r.diffusion_substeps>=2,
+          "compartment test exercises diffusion CFL subcycling");
+    check(r.diffusive_max_compartment_mass_residual_kg<1e-10,
+          "compartment native mass audit closes");
+    double after[3]={0,0,0},change=0.0;
+    for(int z=0;z<n;++z)
+    for(int y=0;y<n;++y)
+    for(int x=0;x<n;++x) {
+        const auto i=s.id(x,y,z);
+        if(s.f[i]==0.0)continue;
+        const int part=x<4?0:(x==4?1:2);
+        after[part]+=r.concentration_after_kg_m3[i];
+        change=std::max(change,
+            std::abs(c[i]-r.concentration_after_kg_m3[i]));
+    }
+    for(int i=0;i<3;++i)
+        near(after[i],initial[i],1e-10,
+             "independent 3D compartment solute inventory conserved");
+    check(change>1e-4,"nontrivial 3D within-compartment mixing");
+    for(int z=0;z<n;++z)
+    for(int y=0;y<n;++y) {
+        near(r.u_diffusion_flux_kg[s.ui(4,y,z)],0.0,0.0,
+             "zero-D left compartment barrier");
+        near(r.u_diffusion_flux_kg[s.ui(5,y,z)],0.0,0.0,
+             "zero-D right compartment barrier");
+    }
+    std::cout<<"VOF_TRACER_HET_COMPARTMENTS "<<n<<" "
+             <<r.diffusive_compartments<<" "<<std::setprecision(17)
+             <<r.diffusive_max_compartment_mass_residual_kg<<" "
+             <<after[0]<<" "<<after[1]<<" "<<after[2]<<" "
+             <<r.diffusion_substeps<<"\n";
+}
+
 void diffusion_analytic_and_partial() {
     using Diff=upc::P2CutCellTracerDiffusion3D;
     Setup s(8);
@@ -1726,6 +1794,8 @@ int main() {
         heterogeneous_neumann_eigenmode(8);
         heterogeneous_neumann_eigenmode(12);
         heterogeneous_neumann_eigenmode(16);
+        heterogeneous_compartment_conservation(8);
+        heterogeneous_compartment_conservation(12);
         negatives();
         std::cout<<"PASS: "<<assertions
                  <<" native static 3D cut-cell VOF assertions\n";

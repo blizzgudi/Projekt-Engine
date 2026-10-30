@@ -465,6 +465,37 @@ def main():
     check("3D Neumann continuum second-order refinement trend",
           2.0<errors[8]/errors[12]<2.6 and
           1.6<errors[12]/errors[16]<2.0,errors)
+    compartments=re.findall(
+        r"^VOF_TRACER_HET_COMPARTMENTS (\d+) (\d+) "
+        r"([\d.eE+-]+) ([\d.eE+-]+) ([\d.eE+-]+) "
+        r"([\d.eE+-]+) (\d+)$",output,re.MULTILINE)
+    check("two 3D disconnected diffusion compartment cases",
+          len(compartments)==2,[row[0] for row in compartments])
+    for row in compartments:
+        n,number=int(row[0]),int(row[1])
+        residual=float(row[2])
+        masses=list(map(float,row[3:6]))
+        steps=int(row[6])
+        expected=[0.0,0.0,0.0]
+        for z in range(n):
+            for y in range(n):
+                for x in range(n):
+                    if (x,y,z)==(3,3,3):
+                        continue
+                    group=0 if x<4 else (1 if x==4 else 2)
+                    value=(1+0.02*y+0.01*z if group==0 else
+                           (3+0.03*y+0.04*z if group==1 else
+                            5+0.01*x+0.02*y+0.01*z))
+                    expected[group]+=value
+        check(f"{n} cubed three independent wet compartments",
+              n in (8,12) and number==3,(n,number))
+        check(f"{n} cubed diffusion CFL requires three substeps",
+              steps==3,steps)
+        check(f"{n} cubed independent per-compartment solute masses",
+              all(abs(a-b)<1e-9 for a,b in zip(masses,expected)),
+              (masses,expected))
+        check(f"{n} cubed compartment ledger closes",
+              math.isfinite(residual) and 0<=residual<1e-10,residual)
     hashes={name:sha(CORE/name) for name in SOURCES}
     report={
         "phase":"P2","milestone":"static_cut_cell_3d_donor_vof_partial",
@@ -483,6 +514,7 @@ def main():
             "extreme harmonic mean is numerical robustness, not measured physical material calibration",
             "face-gradient and Euler-correction ledger audits numerical quadratic dissipation, NOT physical energy",
             "3D Neumann eigenmode validates passive solute diffusion, not measured Navier-Stokes CFD",
+            "diffusion-connected compartment mass audit covers fixed zero-D barriers, not moving porous or FSI boundaries",
             "opt-in conservative diffusion-only CFL subcycling after one prescribed-MAC advection, not fully coupled time integration",
             "no pressure/impulse time integration or moving-solid counterreaction",
             "no global physical FSI energy/momentum conservation",
