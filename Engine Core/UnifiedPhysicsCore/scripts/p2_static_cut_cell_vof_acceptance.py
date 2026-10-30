@@ -496,6 +496,25 @@ def main():
               (masses,expected))
         check(f"{n} cubed compartment ledger closes",
               math.isfinite(residual) and 0<=residual<1e-10,residual)
+    pair=re.findall(
+        r"^VOF_TRACER_HET_FRACTIONAL_PAIR (\d+) (\d+) "
+        r"([\d.eE+-]+) ([\d.eE+-]+) ([\d.eE+-]+) "
+        r"([\d.eE+-]+) ([\d.eE+-]+)$",output,re.MULTILINE)
+    check("fractional heterogeneous two-volume relaxation on two 3D grids",
+          len(pair)==2,[(row[0],row[1]) for row in pair])
+    for row in pair:
+        n,steps=int(row[0]),int(row[1])
+        left,right,mass,cfl,loss=map(float,row[2:])
+        decay=(1-0.16*0.25*(1/0.25+1))**24
+        check(f"{n} cubed analytic unequal-volume donor relaxation",
+              n in (8,12) and steps==24 and
+              abs(left-(0.8+3.2*decay))<2e-12,left)
+        check(f"{n} cubed analytic unequal-volume receiver relaxation",
+              abs(right-(0.8-0.8*decay))<2e-12,right)
+        check(f"{n} cubed conserved one-kilogram inventory",
+              abs(mass-1.0)<1e-12 and abs(0.25*left+right-1)<1e-12,mass)
+        check(f"{n} cubed fractional CFL and mixing dissipation",
+              abs(cfl-0.16)<1e-13 and 0<loss<0.1,(cfl,loss))
     hashes={name:sha(CORE/name) for name in SOURCES}
     report={
         "phase":"P2","milestone":"static_cut_cell_3d_donor_vof_partial",

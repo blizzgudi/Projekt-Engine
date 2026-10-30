@@ -321,3 +321,26 @@ P2 und P3-P8 bleiben PARTIAL.
   12^3: 669.95 / 487.44 / 5286.96, maximum residual 3.64e-12 kg.
   Three stable diffusion substeps in both cases. Source and CTest
   SHA256 are recorded in p2_static_cut_cell_vof_partial.json.
+
+
+## 30.10.2026: analytische Zwei-Volumen-Relaxation mit partieller Wasserfuellung
+
+- Neuer unabhaengiger nativer 3D-Test fuer zwei verbundene Wasserzellen mit
+  unterschiedlichen Fuellvolumina (0.25/1.0 m3), Materialdiffusivitaeten
+  D_x=(0.1,0.4) m2/s und nullleitfaehigen Aussenflaechen. Die harmonische
+  Interface-Diffusivitaet ist 0.16 m2/s, der signierte erste U-Transport
+  0.16 kg und die lokale CFL 0.16.
+- Exakte diskrete Eigenmode des Zweizellenmodells: Differenzfaktor 0.8
+  je Sekunde, Gleichgewichtskonzentration 0.8 kg/m3. Nach 24 Schritten:
+  c_0=0.81511157274518276, c_1=0.79622210681370409 kg/m3;
+  Gesamtstoffmasse 1 kg (numerisches Residuum 2.22e-16 kg).
+  Jeweils 8^3/12^3-Gitter, eine leitfaehige Komponente, Quadratik-Dissipation,
+  Zellvolumen- und Substep-CFL-Pruefung.
+- MSVC Release 87/87 CTest, 302618 native Assertions und 228/228 quantitative
+  P2-Teilchecks. Nachweis: scripts/p2_static_cut_cell_vof_acceptance.py,
+  ENGINE TEST STUBE/runs/p2_static_cut_cell_vof_partial.json und
+  p2_static_cut_cell_vof_full_ctest_20261029.txt mit SHA256.
+- Dies ist eine diskrete analytische Referenz fuer passive Diffusion bei
+  stationaeren Cut-Cells, **keine** gemessene CFD-Validierung, keine
+  dynamische Navier-Stokes-/FSI-Kopplung und kein neuer UE5.8-Native-E2E.
+  P2-P8 bleiben INCOMPLETE, ALL_COMPLETE=False.

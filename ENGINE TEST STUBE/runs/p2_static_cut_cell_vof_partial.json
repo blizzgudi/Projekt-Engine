@@ -4,7 +4,7 @@
   "partial_accepted": true,
   "phase_complete": false,
   "ctest_suites": 87,
-  "native_assertions": 302276,
+  "native_assertions": 302618,
   "checks": [
     {
       "name": "87/87 full native CTest suites",
@@ -19,7 +19,7 @@
     {
       "name": "native assertions >= 288000",
       "pass": true,
-      "detail": 302276
+      "detail": 302618
     },
     {
       "name": "two grid sizes",
@@ -1395,21 +1395,81 @@
       "name": "12 cubed compartment ledger closes",
       "pass": true,
       "detail": 3.637978807091713e-12
+    },
+    {
+      "name": "fractional heterogeneous two-volume relaxation on two 3D grids",
+      "pass": true,
+      "detail": [
+        [
+          "8",
+          "24"
+        ],
+        [
+          "12",
+          "24"
+        ]
+      ]
+    },
+    {
+      "name": "8 cubed analytic unequal-volume donor relaxation",
+      "pass": true,
+      "detail": 0.8151115727451828
+    },
+    {
+      "name": "8 cubed analytic unequal-volume receiver relaxation",
+      "pass": true,
+      "detail": 0.7962221068137041
+    },
+    {
+      "name": "8 cubed conserved one-kilogram inventory",
+      "pass": true,
+      "detail": 0.9999999999999998
+    },
+    {
+      "name": "8 cubed fractional CFL and mixing dissipation",
+      "pass": true,
+      "detail": [
+        0.16,
+        4.0141341357324833e-05
+      ]
+    },
+    {
+      "name": "12 cubed analytic unequal-volume donor relaxation",
+      "pass": true,
+      "detail": 0.8151115727451828
+    },
+    {
+      "name": "12 cubed analytic unequal-volume receiver relaxation",
+      "pass": true,
+      "detail": 0.7962221068137041
+    },
+    {
+      "name": "12 cubed conserved one-kilogram inventory",
+      "pass": true,
+      "detail": 0.9999999999999998
+    },
+    {
+      "name": "12 cubed fractional CFL and mixing dissipation",
+      "pass": true,
+      "detail": [
+        0.16,
+        4.0141341357324833e-05
+      ]
     }
   ],
   "source_sha256": {
     "CMakeLists.txt": "3bafa076a16a2405214fcf378271d64585cf73a5dd44912d6040054beca9f59c",
-    "docs/PHASENPLAN.md": "cdefa70838481771b15e3d3a67faa84d9b14c162cd35ac0fd675beefe11193ee",
-    "docs/P2_STATIC_CUT_CELL_VOF_PARTIAL.md": "87fbfcc030b82380cbf7df099e8e068a0502535cf6b25a6bce03feedec8d7c22",
+    "docs/PHASENPLAN.md": "b56cd60a2ae7faec4ff83753207bb2d29b087b18985ba7f69c91199425a337a0",
+    "docs/P2_STATIC_CUT_CELL_VOF_PARTIAL.md": "76e46bc8cad6c8352c6b94427e1565f32a12bb806cfb67507463a26d4f279eca",
     "include/upc/p2_cut_cell_tracer_diffusion3d.hpp": "d58dd2cc45464c2e23af2c8a51cb8d4ac35ae0becc670186ff267a2f06287a28",
     "include/upc/p2_static_cut_cell_vof3d.hpp": "303a96b04d72e405d0eaf2c0ca40b2317cbfc2f20b85727fb241dc24ce52727f",
     "include/upc/p2_moving_box_mac_apertures3d.hpp": "c5fbdae598166771f6a28359c31960178239d3a59e0ccbb60f89f47b38f29ad3",
     "include/upc/p2_moving_box_open_volume3d.hpp": "270ecc419fa312212e47dbcfbd7fa8f2b172fde153b6d66e19f226be5cbedbb2",
-    "tests/p2_static_cut_cell_vof3d_tests.cpp": "b471fd1e35678662d351bdf14296e7d2d66f1e5824f5de9b0844d013ed6867c1",
-    "scripts/p2_static_cut_cell_vof_acceptance.py": "98af67364385a1a0c6092282eb1734982659df880556b07f0bd9c7e37ea1d7f8",
+    "tests/p2_static_cut_cell_vof3d_tests.cpp": "bb828dd9b66c51fca3adc7d147fbd84908469b27acd53f7e89787f5bfed494bd",
+    "scripts/p2_static_cut_cell_vof_acceptance.py": "2aec54bcd1873eb9006c811489ffd47af23da5a4a9a3f6a85472fccd045b8e4f",
     "scripts/p2_static_cut_cell_vof_full_build.cmd": "73075d11a3e65c5ba16a8b77ae7bec36e31b7816746b17ec8740c90f336b2168"
   },
-  "ctest_log_sha256": "71efe631cd7a6473329af47e6fa6b20e2d0a538f91400c8a7a872a46d1cf330b",
+  "ctest_log_sha256": "75933375054b0fb9373ef0bfb08682caab9e39da75fbd7b8f6a2cb05c8929461",
   "limitations": [
     "prescribed solenoidal MAC velocity and stationary cut-cell geometry",
     "first-order diffusive donor-cell advection, no interface reconstruction",

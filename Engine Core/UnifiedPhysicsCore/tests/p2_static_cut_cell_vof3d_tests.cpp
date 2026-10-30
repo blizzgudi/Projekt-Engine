@@ -1627,6 +1627,65 @@ void heterogeneous_compartment_conservation(int n) {
              <<r.diffusion_substeps<<"\n";
 }
 
+// Exact two-volume relaxation: fractional VOF, unequal material diffusivity,
+// sealed 3D exterior, and a single positive-conductance interface.
+void heterogeneous_fractional_pair_relaxation(int n) {
+    using Diff=upc::P2CutCellTracerDiffusion3D;
+    Setup s(n);
+    s.box={{0.0,0.0,0.0},{1e-9,1e-9,1e-9}};
+    std::fill(s.f.begin(),s.f.end(),0.0);
+    std::fill(s.u.begin(),s.u.end(),0.0);
+    std::fill(s.v.begin(),s.v.end(),0.0);
+    std::fill(s.w.begin(),s.w.end(),0.0);
+    const auto left=s.id(1,1,1),right=s.id(2,1,1);
+    s.f[left]=0.25;s.f[right]=1.0;
+    std::vector<double> c(s.f.size(),0.0);
+    c[left]=4.0; // 0.25 m3 * 4 kg/m3 = 1 kg total.
+    std::array<std::vector<double>,3> d{
+        std::vector<double>(c.size(),0.0),
+        std::vector<double>(c.size(),0.0),
+        std::vector<double>(c.size(),0.0)};
+    d[0][left]=0.1;d[0][right]=0.4;
+    // Harmonic D_face=0.16, wetted area proxy=min(f)=0.25:
+    // g=0.04 m3 per step. Two-volume difference decays by
+    // lambda=1-g*(1/0.25+1/1)=0.8 exactly in the discrete model.
+    double final_cfl=0.0,final_loss=0.0;
+    for(int k=1;k<=24;++k) {
+        const auto r=Diff::step_diffusion_subcycled_heterogeneous(
+            n,n,n,1.0,1.0,s.box,s.f,c,s.u,s.v,s.w,d);
+        check(r.diffusion_substeps==1,
+              "fractional two-cell relaxation uses stable single substep");
+        check(r.diffusive_compartment_audited&&r.diffusive_compartments==1,
+              "two wet cells form one diffusion-connected compartment");
+        near(r.tracer_after_kg,1.0,1e-12,
+             "two unequal water volumes conserve exactly one kg solute");
+        const double decay=std::pow(0.8,k);
+        near(r.concentration_after_kg_m3[left],0.8+3.2*decay,2e-12,
+             "fractional donor matches independent two-volume eigenmode");
+        near(r.concentration_after_kg_m3[right],0.8-0.8*decay,2e-12,
+             "full receiver matches independent two-volume eigenmode");
+        near(r.max_diffusion_cfl,0.16,1e-13,
+             "fractional two-cell local CFL is volume weighted");
+        check(r.diffusive_quadratic_audited&&
+              r.diffusive_quadratic_loss_kg2_m3>=-1e-12,
+              "fractional pair decreases quadratic mixing functional");
+        if(k==1) {
+            near(r.u_diffusion_flux_kg[s.ui(2,1,1)],0.16,1e-13,
+                 "harmonic first-step signed U-face flux");
+            near(r.concentration_after_kg_m3[left],3.36,1e-13,
+                 "quarter-filled donor changes by flux / 0.25 m3");
+            near(r.concentration_after_kg_m3[right],0.16,1e-13,
+                 "full receiver changes by flux / 1 m3");
+        }
+        c=r.concentration_after_kg_m3;
+        final_cfl=r.max_diffusion_cfl;
+        final_loss=r.diffusive_quadratic_loss_kg2_m3;
+    }
+    std::cout<<"VOF_TRACER_HET_FRACTIONAL_PAIR "<<n<<" 24 "
+             <<std::setprecision(17)<<c[left]<<" "<<c[right]<<" "
+             <<0.25*c[left]+c[right]<<" "<<final_cfl<<" "<<final_loss<<"\n";
+}
+
 void diffusion_analytic_and_partial() {
     using Diff=upc::P2CutCellTracerDiffusion3D;
     Setup s(8);
@@ -1796,6 +1855,8 @@ int main() {
         heterogeneous_neumann_eigenmode(16);
         heterogeneous_compartment_conservation(8);
         heterogeneous_compartment_conservation(12);
+        heterogeneous_fractional_pair_relaxation(8);
+        heterogeneous_fractional_pair_relaxation(12);
         negatives();
         std::cout<<"PASS: "<<assertions
                  <<" native static 3D cut-cell VOF assertions\n";

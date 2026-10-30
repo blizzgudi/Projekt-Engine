@@ -1466,3 +1466,20 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
   12^3: 669.95 / 487.44 / 5286.96, maximum residual 3.64e-12 kg.
   Three stable diffusion substeps in both cases. Source and CTest
   SHA256 are recorded in p2_static_cut_cell_vof_partial.json.
+
+
+## P2 Teilfortschritt: fraktionale heterogene Zwei-Volumen-Relaxation (30.10.2026)
+
+- Unabhaengiger diskreter 3D-Eigenmode-Test der konservativen
+  Cut-Cell-Stoffdiffusion: ungleiche Wasserzellvolumina 0.25/1 m3,
+  harmonischer Materialuebergang D=(0.1,0.4) m2/s, exakter
+  Relaxationsfaktor 0.8 pro Schritt und Gleichgewicht 0.8 kg/m3.
+- Nach 24 Schritten: Konzentrationen 0.81511157274518276 /
+  0.79622210681370409 kg/m3, 1 kg erhalten, CFL 0.16;
+  8^3 und 12^3. MSVC Release 87/87 CTest, 302618 Assertions,
+  228/228 quantitative Teilchecks mit Quell-/CTest-Hashes.
+- docs/P2_STATIC_CUT_CELL_VOF_PARTIAL.md und
+  ENGINE TEST STUBE/runs/p2_static_cut_cell_vof_partial.json.
+  **P2-P8 weiterhin INCOMPLETE**: keine externe 3D-CFD-Messvalidierung,
+  keine dynamische Gesamtimpuls-/Energieerhaltung oder UE5.8-Native-E2E
+  dieses Tracer-Pfades.
