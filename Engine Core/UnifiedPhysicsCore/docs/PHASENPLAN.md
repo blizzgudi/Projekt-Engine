@@ -1240,3 +1240,17 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
 - P2-P8 PARTIAL, ALL_COMPLETE=False: weiterhin vorgeschriebene
   MAC-Felder, stationaere Cut-Cells, keine physikalische FSI-
   Impuls-/Energieerhaltung oder externe CFD-/UE5.8-Native-E2E-Abnahme.
+
+## P2 Zusatz: konservatives signiertes MAC-Face-Wasserledger (30.10.2026)
+
+- P2StaticCutCellVof3D gibt fuer jeden U/V/W-Face das signierte
+  transportierte Wasservolumen in m^3 zurueck. Zeitfolgen und
+  Subcycling akkumulieren diese Face-Volumina ueber alle Teilsteps.
+- Unabhaengige zellweise Finite-Volumen-Pruefung fuer 8^3/12^3,
+  stationaere und fraktionale Cut-Cells, vier Transportmodi,
+  beidseitige Fluesse und Nullfluss an geschlossenen Aussenraendern.
+  Native CTest, JSON-Teilgate und SHA256 in
+  docs/P2_STATIC_CUT_CELL_VOF_PARTIAL.md.
+- **P2-P8 PARTIAL, ALL_COMPLETE=False.** Dies ist ein passives
+  Wassertransport-Ledger, keine gekoppelte Fluid-Impuls-/Energie-
+  integration, keine reale FSI-Gegenreaktion oder UE5.8-Native-E2E.

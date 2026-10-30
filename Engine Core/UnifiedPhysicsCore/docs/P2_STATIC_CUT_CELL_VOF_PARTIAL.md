@@ -20,6 +20,13 @@
 - Native 8^3/12^3: vier ungleiche Zeitscheiben mit wechselnden dreiachsigen Wirbelfeldern, unabhaengige manuelle CFL-/Teilstep-Referenz, exakte Zellparitaet, Massenbilanz und Fuellgrenzen. Spaetere NaN-/Divergenz-/Zeitfehler und unzureichendes Gesamtbudget werden abgewiesen.
 - Die bisherigen Methoden bleiben unveraendert. Dies ist keine Navier-Stokes-Zeitintegration und keine bewegte FSI. P2-P8 bleiben PARTIAL.
 
+## Zusatz: signiertes 3D-Face-Wasservolumen-Ledger (30.10.2026)
+
+- Der opt-in P2StaticCutCellVof3D-Operator gibt nun fuer jede U/V/W-Face das tatsaechlich mit first-order Upwind transportierte, vorzeichenbehaftete Wasservolumen [m^3] zurueck. Stationaere/versiegelte Randflaechen bleiben null.
+- Subcycling, konstante und zeitlich variable Sequenzen summieren die Face-Volumina ueber alle real ausgefuehrten Teilschritte. Dadurch ist eine unabhängige zellweise Finite-Volumen-Nachrechnung des gesamten Wasserinventars moeglich, ohne auf den internen Zell-Akkumulator zuzugreifen.
+- Native Pruefungen auf 8^3/12^3, vier Zeitintegrationsmodi sowie ein fraktionales 3D-Cut-Cell-Gitter: positive/negative U/V/W-Fluesse, Formate, geschlossene Aussenraender, zellweise Wasserbilanz und globale Konservierung. Das maschinenlesbare Teilgate prueft die gemessenen Residuen und Source-/CTest-SHA256.
+- Dies ist **keine** dynamische MAC-Impulsadvektion, keine physikalische FSI-Gegenreaktion, keine Energieerhaltung der bewegten Festkoerper und kein P2-Vollphasenabschluss. P2-P8 bleiben PARTIAL.
+
 ## Grenzen
 - Nur passiver Skalartransport auf vorgeschriebenem, stationaerem MAC-Geschwindigkeitsfeld, **kein** eigenstaendiger Navier-Stokes-Druck-/Impulsschritt.
 - Kein Moving-Cut-Cell-GCL, keine bewegte Festkoerper-Gegenreaktion, keine dynamisch berechnete Oberflaechenspannung, keine VOF-Interface-Rekonstruktion (nur diffusive first-order Upwind-Advektion).

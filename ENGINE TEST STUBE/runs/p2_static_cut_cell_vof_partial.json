@@ -4,7 +4,7 @@
   "partial_accepted": true,
   "phase_complete": false,
   "ctest_suites": 87,
-  "native_assertions": 101595,
+  "native_assertions": 142185,
   "checks": [
     {
       "name": "87/87 full native CTest suites",
@@ -19,7 +19,7 @@
     {
       "name": "native assertions >= 90000",
       "pass": true,
-      "detail": 101595
+      "detail": 142185
     },
     {
       "name": "two grid sizes",
@@ -302,6 +302,74 @@
       "detail": 0.8
     },
     {
+      "name": "signed finite-volume face ledgers on both 3D grids",
+      "pass": true,
+      "detail": [
+        [
+          "8",
+          "5",
+          "2.7755575615628914e-17",
+          "0",
+          "20",
+          "15"
+        ],
+        [
+          "12",
+          "4",
+          "2.7755575615628914e-17",
+          "0",
+          "16",
+          "12"
+        ]
+      ]
+    },
+    {
+      "name": "8 cubed direct/subcycle/sequence/adaptive and partial cases",
+      "pass": true,
+      "detail": 5
+    },
+    {
+      "name": "8 cubed independent cellwise face-flux water balance",
+      "pass": true,
+      "detail": 2.7755575615628914e-17
+    },
+    {
+      "name": "8 cubed sealed outer face water flux",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "8 cubed bidirectional signed transported volumes",
+      "pass": true,
+      "detail": [
+        20,
+        15
+      ]
+    },
+    {
+      "name": "12 cubed direct/subcycle/sequence/adaptive and partial cases",
+      "pass": true,
+      "detail": 4
+    },
+    {
+      "name": "12 cubed independent cellwise face-flux water balance",
+      "pass": true,
+      "detail": 2.7755575615628914e-17
+    },
+    {
+      "name": "12 cubed sealed outer face water flux",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "12 cubed bidirectional signed transported volumes",
+      "pass": true,
+      "detail": [
+        16,
+        12
+      ]
+    },
+    {
       "name": "eight physical/numeric rejection tests",
       "pass": true,
       "detail": null
@@ -309,16 +377,16 @@
   ],
   "source_sha256": {
     "CMakeLists.txt": "3bafa076a16a2405214fcf378271d64585cf73a5dd44912d6040054beca9f59c",
-    "docs/PHASENPLAN.md": "0f224ff0f4ccd21ec3ad6dfadb1175db485df850ea414f7e5c0b0bb8b688e578",
-    "docs/P2_STATIC_CUT_CELL_VOF_PARTIAL.md": "bca45cee20e80a37626c1b814a4a89a805d3a0ed94ba9bbcb6942c25cfcc3413",
-    "include/upc/p2_static_cut_cell_vof3d.hpp": "33ad494e06020b34c800718e5d89d83bd23ae8bccf7422697e75c2e1e48399b5",
+    "docs/PHASENPLAN.md": "f67d368e59022017f51cd7fc7aca915840022bb12717e237cc37b77498553657",
+    "docs/P2_STATIC_CUT_CELL_VOF_PARTIAL.md": "c6836e7a0e4355625525339f99f618edfb328c2e28e98ac3b8c6a344992f7298",
+    "include/upc/p2_static_cut_cell_vof3d.hpp": "163967abe6a52e0e30f553d9e16a9f37cb5063303947983319a65abb228fc54d",
     "include/upc/p2_moving_box_mac_apertures3d.hpp": "c5fbdae598166771f6a28359c31960178239d3a59e0ccbb60f89f47b38f29ad3",
     "include/upc/p2_moving_box_open_volume3d.hpp": "270ecc419fa312212e47dbcfbd7fa8f2b172fde153b6d66e19f226be5cbedbb2",
-    "tests/p2_static_cut_cell_vof3d_tests.cpp": "d27da8a032293a889c995094c44f3b0e3767fddf928b3f625d9965e9fe7cb643",
-    "scripts/p2_static_cut_cell_vof_acceptance.py": "8896fa704d0376fbdadece3899b73e311d34bb5c7b62391c4064bb8a75dba052",
+    "tests/p2_static_cut_cell_vof3d_tests.cpp": "5b1d8146f297b00f5488499705e243af1773b88ead456600536ee5663351a205",
+    "scripts/p2_static_cut_cell_vof_acceptance.py": "6bd6e2efa66fab28c5f12766d1de2e54b88f05284791eb74f1f308b1deec2b16",
     "scripts/p2_static_cut_cell_vof_full_build.cmd": "73075d11a3e65c5ba16a8b77ae7bec36e31b7816746b17ec8740c90f336b2168"
   },
-  "ctest_log_sha256": "5139a5951bab37f3f77fad5cd8f4bfaee504cb0e7985ca3f81ec7984c87fe3d5",
+  "ctest_log_sha256": "9ed17aabc3ad76a8468b8ffbed17cb80d3ec317ef486778c4a5956d9816d196e",
   "limitations": [
     "prescribed solenoidal MAC velocity and stationary cut-cell geometry",
     "first-order diffusive donor-cell advection, no interface reconstruction",

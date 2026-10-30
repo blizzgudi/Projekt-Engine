@@ -97,6 +97,8 @@ void analytic_upwind_reference() {
          "independent positive-u donor cell");
     near(r.fraction_after[s.id(1,0,1)],0.02,1e-14,
          "independent positive-u receiver cell");
+    near(r.u_water_flux_m3[s.ui(1,0,1)],0.02,1e-14,
+         "analytic signed U-face water volume equals 0.02 cubic metres");
     near(r.water_before_m3,0.5,1e-14,"isolated initial inventory");
     near(r.water_after_m3,0.5,1e-14,"isolated final inventory");
     std::cout<<"VOF_ANALYTIC 0.48 0.02 0.5\n";
@@ -358,6 +360,96 @@ void adaptive_velocity_sequence(int n) {
              <<std::setprecision(17)<<actual.water_before_m3<<" "
              <<actual.water_after_m3<<" "<<actual.max_donor_cfl<<"\n";
 }
+// Independently reconstruct each cell's final water inventory from signed
+// face-integrated VOF fluxes. This tests the ledger, not a momentum equation.
+void face_water_flux_ledger(int n) {
+    Setup s(n);
+    using Vof=upc::P2StaticCutCellVof3D;
+    std::vector<upc::P2StaticCutCellVofResult3D> cases;
+    cases.push_back(s.run(s.f));
+    cases.push_back(Vof::step_subcycled(
+        n,n,n,1.0,0.2,s.box,s.f,s.u,s.v,s.w,4));
+    cases.push_back(Vof::step_velocity_sequence(
+        n,n,n,1.0,0.2,s.box,s.f,{s.u,s.u},{s.v,s.v},{s.w,s.w}));
+    cases.push_back(Vof::step_velocity_sequence_adaptive(
+        n,n,n,1.0,s.box,s.f,{0.08,0.04},{s.u,s.u},
+        {s.v,s.v},{s.w,s.w}));
+    if(n==8) {
+        Setup partial(n);
+        partial.box={{3.2,3.2,3.2},{4.8,4.8,4.8}};
+        cases.push_back(partial.run(partial.f));
+    }
+    double maximum_error=0,maximum_boundary=0;
+    int positive=0,negative=0;
+    for(std::size_t c=0;c<cases.size();++c) {
+        const auto& r=cases[c];
+        Setup geometry_source=s;
+        if(c==4)geometry_source.box={{3.2,3.2,3.2},{4.8,4.8,4.8}};
+        const auto geom=upc::P2MovingBoxFaceApertures3D::sample(
+            n,n,n,1.0,0.1,geometry_source.box,geometry_source.box);
+        check(r.u_water_flux_m3.size()==s.u.size()&&
+              r.v_water_flux_m3.size()==s.v.size()&&
+              r.w_water_flux_m3.size()==s.w.size(),
+              "VOF signed face ledger has correct MAC shape");
+        for(double x:r.u_water_flux_m3) {
+            check(std::isfinite(x),"finite U water face flux");
+            positive+=(x>1e-15); negative+=(x< -1e-15);
+        }
+        for(double x:r.v_water_flux_m3) {
+            check(std::isfinite(x),"finite V water face flux");
+            positive+=(x>1e-15); negative+=(x< -1e-15);
+        }
+        for(double x:r.w_water_flux_m3) {
+            check(std::isfinite(x),"finite W water face flux");
+            positive+=(x>1e-15); negative+=(x< -1e-15);
+        }
+        for(int z=0;z<n;++z)
+        for(int y=0;y<n;++y)
+        for(int x=0;x<n;++x) {
+            const auto i=s.id(x,y,z);
+            const double div=
+                r.u_water_flux_m3[s.ui(x+1,y,z)]-
+                r.u_water_flux_m3[s.ui(x,y,z)]+
+                r.v_water_flux_m3[s.vi(x,y+1,z)]-
+                r.v_water_flux_m3[s.vi(x,y,z)]+
+                r.w_water_flux_m3[s.wi(x,y,z+1)]-
+                r.w_water_flux_m3[s.wi(x,y,z)];
+            const double capacity=geom.cell_geometry.alpha_old[i];
+            const double expected=capacity*geometry_source.f[i]-div;
+            const double actual=capacity*r.fraction_after[i];
+            const double error=std::abs(expected-actual);
+            maximum_error=std::max(maximum_error,error);
+            near(actual,expected,1e-12,
+                 "independent cellwise finite-volume face ledger");
+        }
+        for(int z=0;z<n;++z)
+        for(int y=0;y<n;++y) {
+            maximum_boundary=std::max(maximum_boundary,
+                std::abs(r.u_water_flux_m3[s.ui(0,y,z)]));
+            maximum_boundary=std::max(maximum_boundary,
+                std::abs(r.u_water_flux_m3[s.ui(n,y,z)]));
+        }
+        for(int z=0;z<n;++z)
+        for(int x=0;x<n;++x) {
+            maximum_boundary=std::max(maximum_boundary,
+                std::abs(r.v_water_flux_m3[s.vi(x,0,z)]));
+            maximum_boundary=std::max(maximum_boundary,
+                std::abs(r.v_water_flux_m3[s.vi(x,n,z)]));
+        }
+        for(int y=0;y<n;++y)
+        for(int x=0;x<n;++x) {
+            maximum_boundary=std::max(maximum_boundary,
+                std::abs(r.w_water_flux_m3[s.wi(x,y,0)]));
+            maximum_boundary=std::max(maximum_boundary,
+                std::abs(r.w_water_flux_m3[s.wi(x,y,n)]));
+        }
+    }
+    check(positive>0&&negative>0,"signed water transport in both directions");
+    near(maximum_boundary,0.0,1e-14,"closed basin has no boundary water flux");
+    std::cout<<"VOF_FACE_LEDGER "<<n<<" "<<cases.size()<<" "
+             <<std::setprecision(17)<<maximum_error<<" "
+             <<maximum_boundary<<" "<<positive<<" "<<negative<<"\n";
+}
 void negatives() {
     Setup s(8);
     auto bad=s;
@@ -396,6 +488,8 @@ int main() {
         velocity_sequence(12);
         adaptive_velocity_sequence(8);
         adaptive_velocity_sequence(12);
+        face_water_flux_ledger(8);
+        face_water_flux_ledger(12);
         negatives();
         std::cout<<"PASS: "<<assertions
                  <<" native static 3D cut-cell VOF assertions\n";

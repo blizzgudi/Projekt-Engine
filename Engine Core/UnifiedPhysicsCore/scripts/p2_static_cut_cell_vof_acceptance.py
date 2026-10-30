@@ -122,6 +122,23 @@ def main():
               abs(before-after)<1e-10,(before,after))
         check(f"{n} adaptive sequence geometric CFL",
               0<cfl<=0.8+1e-12,cfl)
+    ledger=re.findall(r"^VOF_FACE_LEDGER (\d+) (\d+) ([\d.eE+-]+) "
+                      r"([\d.eE+-]+) (\d+) (\d+)$",
+                      output,re.MULTILINE)
+    check("signed finite-volume face ledgers on both 3D grids",
+          len(ledger)==2,ledger)
+    for row in ledger:
+        n,cases=int(row[0]),int(row[1])
+        error,boundary=float(row[2]),float(row[3])
+        positive,negative=int(row[4]),int(row[5])
+        check(f"{n} cubed direct/subcycle/sequence/adaptive and partial cases",
+              n in (8,12) and cases==(5 if n==8 else 4),cases)
+        check(f"{n} cubed independent cellwise face-flux water balance",
+              math.isfinite(error) and error<1e-12,error)
+        check(f"{n} cubed sealed outer face water flux",
+              boundary==0.0,boundary)
+        check(f"{n} cubed bidirectional signed transported volumes",
+              positive>0 and negative>0,(positive,negative))
     check("eight physical/numeric rejection tests",
           "VOF_NEGATIVE 8" in output)
     hashes={name:sha(CORE/name) for name in SOURCES}

@@ -17,8 +17,31 @@ struct P2StaticCutCellVofResult3D {
     double max_cell_volume_divergence_m3=0.0;
     double max_donor_cfl=0.0;
     std::size_t substeps_used=1;
+    // Signed water volumes crossing positive U/V/W MAC faces [m^3].
+    // Time-sequence/subcycling results contain cumulative face fluxes.
+    // Diagnostic finite-volume transport only, NOT fluid momentum/FSI.
+    std::vector<double> u_water_flux_m3,v_water_flux_m3,w_water_flux_m3;
 };
 class P2StaticCutCellVof3D {
+    // Accumulate signed water volumes across every face, not only total mass.
+    // This ledger telescopes over any prescribed-velocity time sequence.
+    static void add_water_fluxes(P2StaticCutCellVofResult3D& total,
+                                 const P2StaticCutCellVofResult3D& next) {
+        const auto add=[](std::vector<double>& dst,
+                          const std::vector<double>& src) {
+            if(dst.empty())dst.assign(src.size(),0.0);
+            if(dst.size()!=src.size())
+                throw std::logic_error("Incompatible VOF face flux ledger");
+            for(std::size_t i=0;i<src.size();++i) {
+                dst[i]+=src[i];
+                if(!std::isfinite(dst[i]))
+                    throw std::logic_error("Nonfinite cumulative VOF flux");
+            }
+        };
+        add(total.u_water_flux_m3,next.u_water_flux_m3);
+        add(total.v_water_flux_m3,next.v_water_flux_m3);
+        add(total.w_water_flux_m3,next.w_water_flux_m3);
+    }
 public:
     static P2StaticCutCellVofResult3D step(
         std::size_t nx,std::size_t ny,std::size_t nz,double dx,double dt,
@@ -39,6 +62,9 @@ public:
                             outgoing(n,0.0);
         P2StaticCutCellVofResult3D out;
         out.fraction_after.assign(n,0.0);
+        out.u_water_flux_m3.assign(u_m_s.size(),0.0);
+        out.v_water_flux_m3.assign(v_m_s.size(),0.0);
+        out.w_water_flux_m3.assign(w_m_s.size(),0.0);
         for(std::size_t i=0;i<n;++i) {
             if(!std::isfinite(fraction[i])||fraction[i]<0||fraction[i]>1)
                 throw std::invalid_argument("Invalid VOF fraction");
@@ -57,7 +83,7 @@ public:
             if(boundary||aperture<=1e-14) {
                 if(std::abs(velocity)>1e-12)
                     throw std::invalid_argument("Flow through sealed face");
-                return;
+                return 0.0;
             }
             const double q=velocity*aperture*dx*dx*dt;
             if(!std::isfinite(q))
@@ -69,24 +95,28 @@ public:
             divergence[b]-=q;
             if(q>=0)outgoing[a]+=q;
             else outgoing[b]-=q;
+            return water;
         };
         std::size_t face=0;
         for(std::size_t z=0;z<nz;++z)
         for(std::size_t y=0;y<ny;++y)
         for(std::size_t x=0;x<=nx;++x,++face)
-            apply(u_m_s[face],geom.u_open[face],x==0||x==nx,
+            out.u_water_flux_m3[face]=apply(
+                  u_m_s[face],geom.u_open[face],x==0||x==nx,
                   x? id(x-1,y,z):0,x<nx?id(x,y,z):0);
         face=0;
         for(std::size_t z=0;z<nz;++z)
         for(std::size_t y=0;y<=ny;++y)
         for(std::size_t x=0;x<nx;++x,++face)
-            apply(v_m_s[face],geom.v_open[face],y==0||y==ny,
+            out.v_water_flux_m3[face]=apply(
+                  v_m_s[face],geom.v_open[face],y==0||y==ny,
                   y?id(x,y-1,z):0,y<ny?id(x,y,z):0);
         face=0;
         for(std::size_t z=0;z<=nz;++z)
         for(std::size_t y=0;y<ny;++y)
         for(std::size_t x=0;x<nx;++x,++face)
-            apply(w_m_s[face],geom.w_open[face],z==0||z==nz,
+            out.w_water_flux_m3[face]=apply(
+                  w_m_s[face],geom.w_open[face],z==0||z==nz,
                   z?id(x,y,z-1):0,z<nz?id(x,y,z):0);
         for(std::size_t i=0;i<n;++i) {
             out.max_cell_volume_divergence_m3=std::max(
@@ -130,6 +160,7 @@ public:
             auto next=step(nx,ny,nz,dx,h,stationary_box,state,u_m_s,v_m_s,w_m_s);
             if(k==0)total.water_before_m3=next.water_before_m3;
             total.water_after_m3=next.water_after_m3;
+            add_water_fluxes(total,next);
             total.max_donor_cfl=std::max(total.max_donor_cfl,next.max_donor_cfl);
             total.max_cell_volume_divergence_m3=std::max(
                 total.max_cell_volume_divergence_m3,
@@ -162,6 +193,7 @@ public:
                            u_steps[k],v_steps[k],w_steps[k]);
             if(k==0)total.water_before_m3=next.water_before_m3;
             total.water_after_m3=next.water_after_m3;
+            add_water_fluxes(total,next);
             total.max_donor_cfl=std::max(total.max_donor_cfl,next.max_donor_cfl);
             total.max_cell_volume_divergence_m3=std::max(
                 total.max_cell_volume_divergence_m3,
@@ -202,6 +234,7 @@ public:
                 u_steps[k],v_steps[k],w_steps[k],target_donor_cfl,remaining);
             if(k==0)total.water_before_m3=next.water_before_m3;
             total.water_after_m3=next.water_after_m3;
+            add_water_fluxes(total,next);
             total.max_donor_cfl=std::max(total.max_donor_cfl,next.max_donor_cfl);
             total.max_cell_volume_divergence_m3=std::max(
                 total.max_cell_volume_divergence_m3,
