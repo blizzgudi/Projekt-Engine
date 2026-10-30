@@ -1483,3 +1483,9 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
   **P2-P8 weiterhin INCOMPLETE**: keine externe 3D-CFD-Messvalidierung,
   keine dynamische Gesamtimpuls-/Energieerhaltung oder UE5.8-Native-E2E
   dieses Tracer-Pfades.
+
+## P2 Teilfortschritt: transiente 3D-Wandscherung mit spektraler Referenz (30.10.2026)
+
+- Zusaetzlicher nativer MSVC-Test fuer 40 reale 3D-MAC-Viskositaetszeitschritte mit vorgeschriebener tangentialer Festkoerper-Ghostgeschwindigkeit. Zwei Aufloesungen (8x8x5 und 12x12x7 aktive Wasserzellen in y/z/x) und gemischte feste/wasserfreie Randbedingungen.
+- Unabhaengige diskrete Tensorprodukt-Sinusloesung prueft alle y-Faces und die 3D-Quergradienten; x/z bleiben null. Reproduzierbarer separater Build, kompletter bestehender CTest-Lauf und Python-Gate mit SHA256. Siehe docs/P2_DRIVEN_WALL_SPECTRAL_PARTIAL.md.
+- P2-P8 bleiben PARTIAL: statische Geometrie, kein bewegter Koerper/Impuls-Gegenreaktion, keine physikalische Gesamtenergie, keine externen 3D-CFD-Messdaten und kein neuer UE5.8-Native-E2E.

@@ -1,0 +1,111 @@
+{
+  "phase": "P2",
+  "milestone": "transient_3d_driven_wall_discrete_spectral_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "generated_utc": "2026-10-30T14:49:28.523957+00:00",
+  "native_stdout": "PASS P2 3D driven wall spectral: checks=11882 n8_center=0.21970222804462206 n8_reference=0.21970222804462192 n8_error=2.2204460492503131e-16 n8_energy=0.0011171250888508948 n12_center=0.22204276223606123 n12_reference=0.22204276223606115 n12_error=3.6082248300317588e-16 n12_energy=0.0030631713360417092 alpha=0.03599999999999999 steps=40",
+  "native_stderr": "",
+  "ctest_count": 87,
+  "ctest_sha256": "78ff690d9406a30982ce4212ba7ffb40963eb05f5bcc69d8b99ded2e860daa07",
+  "source_sha256": {
+    "include/upc/mac3d.hpp": "9bb4659c5b6e6fd3a512301ae4a3a083fa96b1e67d50363ec8f5634e1038fdc5",
+    "include/upc/viscous_mac3d.hpp": "b091da38edc446f962b0c946f7f2f5e5211fff1e69b7c718e1bafea3d01c5181",
+    "tests/p2_driven_wall_spectral3d_tests.cpp": "79ec46f0b80964df6600244bc9732363e56fe59564b2e91a7e06789eba87ece2",
+    "scripts/p2_driven_wall_spectral_full_build.cmd": "dfefe0f3f7b3b813f9d370842541054f36b6497f7578707eed863ec48c113423",
+    "scripts/p2_driven_wall_spectral_acceptance.py": "eff2d74b060594037263041e2d840418621d82be57e881fc7c3402b300c7d581",
+    "docs/P2_DRIVEN_WALL_SPECTRAL_PARTIAL.md": "2cdd9f96f207bf269e899849e0898015ea47d3548e4b766c5fd51664ea8b4dbe",
+    "docs/PHASENPLAN.md": "e9a45f5f76e8921b39ff9ad4d17660fa4aa8405fbd4933d83736775f7cd6fb2f",
+    "scripts/phase_gate.py": "01065438e2b72b3fe83e7e3ba3decbf54925c84c5f9424b15ad15a8197f59cd6"
+  },
+  "checks": [
+    {
+      "name": "native_exit",
+      "value": 0,
+      "pass": true
+    },
+    {
+      "name": "native_assertions",
+      "value": 11882.0,
+      "pass": true
+    },
+    {
+      "name": "40_stable_explicit_steps",
+      "value": 40.0,
+      "pass": true
+    },
+    {
+      "name": "explicit_CFL",
+      "value": 0.03599999999999999,
+      "pass": true
+    },
+    {
+      "name": "independent_3d_spectral_center_n8",
+      "value": {
+        "actual": 0.21970222804462206,
+        "python": 0.2197022280446219
+      },
+      "pass": true
+    },
+    {
+      "name": "native_spectral_parity_n8",
+      "value": {
+        "native": 0.21970222804462192,
+        "python": 0.2197022280446219
+      },
+      "pass": true
+    },
+    {
+      "name": "all_3d_faces_n8",
+      "value": 2.220446049250313e-16,
+      "pass": true
+    },
+    {
+      "name": "positive_face_energy_n8",
+      "value": 0.0011171250888508948,
+      "pass": true
+    },
+    {
+      "name": "independent_3d_spectral_center_n12",
+      "value": {
+        "actual": 0.22204276223606123,
+        "python": 0.2220427622360612
+      },
+      "pass": true
+    },
+    {
+      "name": "native_spectral_parity_n12",
+      "value": {
+        "native": 0.22204276223606115,
+        "python": 0.2220427622360612
+      },
+      "pass": true
+    },
+    {
+      "name": "all_3d_faces_n12",
+      "value": 3.608224830031759e-16,
+      "pass": true
+    },
+    {
+      "name": "positive_face_energy_n12",
+      "value": 0.003063171336041709,
+      "pass": true
+    },
+    {
+      "name": "full_ctest_exit",
+      "value": 0,
+      "pass": true
+    },
+    {
+      "name": "existing_ctest_count",
+      "value": 87,
+      "pass": true
+    },
+    {
+      "name": "source_fingerprints",
+      "value": 8,
+      "pass": true
+    }
+  ],
+  "limitations": "Prescribed tangential ghost on fixed solid voxels, not moving body geometry or momentum reaction. Discrete diffusion-only spectral reference, not measured 3D Navier-Stokes/FSI, global physical energy closure, or UE5.8 Native-E2E."
+}
