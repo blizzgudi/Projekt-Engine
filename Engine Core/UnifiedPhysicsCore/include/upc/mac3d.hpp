@@ -8,6 +8,7 @@
 #include <cstddef>
 #include <limits>
 #include <stdexcept>
+#include <utility>
 #include <vector>
 
 namespace upc {
@@ -165,6 +166,38 @@ public:
                 const double ghost=is_liquid((int)x,(int)y,(int)z)!=is_liquid((int)x,(int)y,(int)z-1)?2.0:1.0;
                 w_[fw(x,y,z)]-=scale*ghost*(p((int)x,(int)y,(int)z)-p((int)x,(int)y,(int)z-1));
             }
+    }
+    // Opt-in P2 safeguard: never publish an under-converged pressure solve.
+    // The legacy project() remains unchanged for existing prototype callers.
+    // This checks the ACTUAL wet-cell divergence, not the Gauss-Seidel
+    // pressure-delta stopping condition. Full MAC state is transactional.
+    double project_verified(double dt,int iterations=500,
+                            double max_divergence_s_inv=1e-8){
+        if(!std::isfinite(max_divergence_s_inv)||max_divergence_s_inv<=0)
+            throw std::invalid_argument("Invalid MAC divergence tolerance");
+        MacProjection3D candidate=*this;
+        candidate.project(dt,iterations);
+        const auto finite=[](const std::vector<double>& values){
+            return std::all_of(values.begin(),values.end(),
+                               [](double v){return std::isfinite(v);});
+        };
+        if(!finite(candidate.pressure_)||!finite(candidate.u_)||
+           !finite(candidate.v_)||!finite(candidate.w_))
+            throw std::runtime_error("Nonfinite MAC pressure/velocity after projection");
+        double maximum=0;
+        for(std::size_t z=0;z<nz_;++z)
+        for(std::size_t y=0;y<ny_;++y)
+        for(std::size_t x=0;x<nx_;++x)
+            if(candidate.fluid_[candidate.cell(x,y,z)]){
+                const double d=candidate.divergence(x,y,z);
+                if(!std::isfinite(d))
+                    throw std::runtime_error("Nonfinite MAC divergence");
+                maximum=std::max(maximum,std::abs(d));
+            }
+        if(maximum>max_divergence_s_inv)
+            throw std::runtime_error("MAC projection divergence tolerance not met");
+        *this=std::move(candidate);
+        return maximum;
     }
 };
 } // namespace upc

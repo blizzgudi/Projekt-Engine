@@ -1626,3 +1626,25 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
   Numerische Face-Proxies sind keine globale physikalische
   FSI-Impuls-/Energieerhaltung. Rotierende Geometrie, externe 3D-CFD-
   Messdaten und Unreal-5.8-Native-E2E dieses Pfades bleiben offen.
+
+## P2 Teilfortschritt: transaktionale, residualgepruefte 3D-MAC-Projektion (31.10.2026)
+
+- Neue opt-in `MacProjection3D::project_verified`: vollstaendige lokale
+  Kandidatenkopie, Endlichkeitspruefung fuer Druck/alle Face-Vektoren,
+  tatsaechliche Divergenz aller nassen 3D-Zellen als Akzeptanzgrenze;
+  keine Mutation des Originalzustands bei Unterkonvergenz.
+  Die bestehende `project()`-API bleibt unveraendert und ungeprueft.
+- Unabhaengige analytische Zwei-Wasserzellen-Poisson-Referenz
+  mit fuenf Wasser-Luft-Grenzen pro Zelle: p=(-R/12,+R/12),
+  u_innen=0.10 m/s. 8^3/12^3, jeweils ein bewusst zu kurzer
+  und ein konvergierter Lauf; 1-Zellen-Referenz mit exakt
+  einer Iteration; Null-/NaN-Toleranz, invalides dt, vollstaendige
+  bitgenaue 3D-Rollback-Pruefung.
+- MSVC-Release, 89/89 CTest-Suites und 38360 native Assertions PASS.
+  Nachweis: docs/P2_VERIFIED_MAC_PROJECTION_PARTIAL.md,
+  scripts/p2_verified_mac_projection_acceptance.py,
+  ENGINE TEST STUBE/runs/p2_verified_mac_projection_partial.json.
+- **P2-P8 weiterhin INCOMPLETE; ALL_COMPLETE=False.** Keine
+  dynamische rotierende Zweiwege-FSI, keine globale physikalische
+  Impuls-/Energieerhaltung, keine unabhaengigen CFD-Messdaten und
+  kein Unreal-5.8-Native-E2E dieses neuen Pfades.

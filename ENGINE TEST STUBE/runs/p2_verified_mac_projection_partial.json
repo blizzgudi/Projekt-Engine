@@ -1,0 +1,158 @@
+{
+  "phase": "P2",
+  "milestone": "verified_transactional_mac_projection_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "generated_utc": "2026-10-30T23:43:37.082555+00:00",
+  "checks": [
+    {
+      "name": "native_exit",
+      "value": 0,
+      "pass": true
+    },
+    {
+      "name": "rollback_all_faces_native_assertions",
+      "value": 38360,
+      "pass": true
+    },
+    {
+      "name": "all_89_ctest",
+      "value": true,
+      "pass": true
+    },
+    {
+      "name": "two_distinct_3d_grids",
+      "value": 2,
+      "pass": true
+    },
+    {
+      "name": "8_grid",
+      "value": 8,
+      "pass": true
+    },
+    {
+      "name": "8_parameters",
+      "value": [
+        0.1,
+        1000.0,
+        0.02
+      ],
+      "pass": true
+    },
+    {
+      "name": "8_p_left_independent_poisson",
+      "value": -1.4495071809506044e-12,
+      "pass": true
+    },
+    {
+      "name": "8_p_right_independent_poisson",
+      "value": -1.3500311979441904e-13,
+      "pass": true
+    },
+    {
+      "name": "8_u_internal_independent_poisson",
+      "value": -2.7755575615628914e-16,
+      "pass": true
+    },
+    {
+      "name": "8_actual_wet_divergence",
+      "value": 3.164135620181696e-14,
+      "pass": true
+    },
+    {
+      "name": "8_one_iteration_one_cell_converges",
+      "value": 2.0816681711721685e-16,
+      "pass": true
+    },
+    {
+      "name": "12_grid",
+      "value": 12,
+      "pass": true
+    },
+    {
+      "name": "12_parameters",
+      "value": [
+        0.08,
+        1100.0,
+        0.015
+      ],
+      "pass": true
+    },
+    {
+      "name": "12_p_left_independent_poisson",
+      "value": -1.7053025658242404e-12,
+      "pass": true
+    },
+    {
+      "name": "12_p_right_independent_poisson",
+      "value": -1.4210854715202004e-13,
+      "pass": true
+    },
+    {
+      "name": "12_u_internal_independent_poisson",
+      "value": -2.7755575615628914e-16,
+      "pass": true
+    },
+    {
+      "name": "12_actual_wet_divergence",
+      "value": 3.929148673087468e-14,
+      "pass": true
+    },
+    {
+      "name": "12_one_iteration_one_cell_converges",
+      "value": 3.469446951953614e-16,
+      "pass": true
+    },
+    {
+      "name": "distinct_pressure_references",
+      "value": [
+        50.0,
+        58.66666666666666
+      ],
+      "pass": true
+    },
+    {
+      "name": "eight_source_hashes",
+      "value": 8,
+      "pass": true
+    }
+  ],
+  "native_assertions": 38360,
+  "independent_reference": [
+    {
+      "n": 8,
+      "dx_m": 0.1,
+      "rho_kg_m3": 1000.0,
+      "dt_s": 0.02,
+      "p_left_pa": -50.0,
+      "p_right_pa": 50.0,
+      "internal_face_velocity_m_s": 0.1,
+      "observed_divergence_s_inv": 3.164135620181696e-14,
+      "one_cell_divergence_s_inv": 2.0816681711721685e-16
+    },
+    {
+      "n": 12,
+      "dx_m": 0.08,
+      "rho_kg_m3": 1100.0,
+      "dt_s": 0.015,
+      "p_left_pa": -58.66666666666666,
+      "p_right_pa": 58.66666666666666,
+      "internal_face_velocity_m_s": 0.1,
+      "observed_divergence_s_inv": 3.929148673087468e-14,
+      "one_cell_divergence_s_inv": 3.469446951953614e-16
+    }
+  ],
+  "source_sha256": {
+    "include/upc/mac3d.hpp": "8e20bfc2e5367a9df7f8a412908c7f5fbe6b50c5a9f57a771127c83441187808",
+    "tests/p2_verified_mac_projection3d_tests.cpp": "c234b836dba874bad5cde1fab817d19a263d810df481d0ed94a3209031d14d17",
+    "scripts/p2_verified_mac_projection_full_build.cmd": "ed086393184e9c764b90072919cbf8f44ab0499562836b5c060115416a35a3ba",
+    "scripts/p2_verified_mac_projection_acceptance.py": "a95461566a62f294372cb4efc5211e2cf7529e6e518c26cfb454b0967514bf8b",
+    "docs/P2_VERIFIED_MAC_PROJECTION_PARTIAL.md": "3361efbf2197eeb2c4753381e4e6a30e061be31baaf78a0101b90c30044e0260",
+    "docs/PHASENPLAN.md": "7a406e442bcffb21b87f88815dba3acd96c999056b8d01c0e8729fc84e9d9ba8",
+    "scripts/phase_gate.py": "01065438e2b72b3fe83e7e3ba3decbf54925c84c5f9424b15ad15a8197f59cd6",
+    "CMakeLists.txt": "87a0ae48569342b69e07451c915e8da1e7ce99d8834332483327054f98edc596"
+  },
+  "native_binary_sha256": "010dbd351ae9754e0913f7407dd0c216c8221422c906fa0bb579c998116c7307",
+  "ctest_log_sha256": "7a56bbd6f36c63cc1c8b20cdabd6b31eec91104ea2ae71a9a0ed5f22246dc544",
+  "limitations": "Opt-in rollback and divergence check only. Legacy project() unchanged. No dynamic rotating FSI, physical global momentum/energy proof, external 3D CFD measurements, or new Unreal 5.8 Native E2E."
+}

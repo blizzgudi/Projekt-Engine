@@ -475,3 +475,9 @@ add_test(NAME physics_p2_static_cut_cell_vof_partial COMMAND upc_p2_static_cut_c
 add_executable(upc_p2_projection_gradient_budget_tests tests/p2_projection_gradient_budget3d_tests.cpp)
 target_link_libraries(upc_p2_projection_gradient_budget_tests PRIVATE upc)
 add_test(NAME physics_p2_projection_gradient_budget_partial COMMAND upc_p2_projection_gradient_budget_tests)
+
+# P2 partial: opt-in verified MAC projection, atomic rollback when the
+# actual wet-cell divergence fails tolerance (legacy project() unchanged).
+add_executable(upc_p2_verified_mac_projection_tests tests/p2_verified_mac_projection3d_tests.cpp)
+target_link_libraries(upc_p2_verified_mac_projection_tests PRIVATE upc)
+add_test(NAME physics_p2_verified_mac_projection_partial COMMAND upc_p2_verified_mac_projection_tests)
