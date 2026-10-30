@@ -247,6 +247,79 @@ public:
             throw std::logic_error("Passive tracer mass not conserved");
         return out;
     }
+    // Carry passive dissolved tracer through every actual adaptive VOF
+    // substep. A cumulative water-flux ledger cannot be used with one
+    // initial concentration: donor concentration evolves after each step.
+    // All velocities are prescribed and the cut-cell geometry is stationary.
+    // This is NOT reactive chemistry, Navier-Stokes, or two-way FSI.
+    static P2StaticCutCellTracerResult3D step_passive_tracer_sequence_adaptive(
+        std::size_t nx,std::size_t ny,std::size_t nz,double dx,
+        const P2Box3D& stationary_box,const std::vector<double>& fraction,
+        const std::vector<double>& concentration_kg_m3,
+        const std::vector<double>& durations_s,
+        const std::vector<std::vector<double>>& u_steps,
+        const std::vector<std::vector<double>>& v_steps,
+        const std::vector<std::vector<double>>& w_steps,
+        double target_donor_cfl=0.8,std::size_t max_total_substeps=1024) {
+        const auto slices=durations_s.size();
+        if(slices==0||slices>1024||u_steps.size()!=slices||
+           v_steps.size()!=slices||w_steps.size()!=slices||
+           max_total_substeps==0||max_total_substeps>1024||
+           slices>max_total_substeps||
+           !std::isfinite(target_donor_cfl)||target_donor_cfl<=0||
+           target_donor_cfl>1)
+            throw std::invalid_argument("Invalid adaptive tracer sequence controls");
+        auto state=fraction;
+        auto concentration=concentration_kg_m3;
+        P2StaticCutCellTracerResult3D total;
+        total.water.substeps_used=0;
+        for(std::size_t k=0;k<slices;++k) {
+            const double dt=durations_s[k];
+            if(!std::isfinite(dt)||dt<=0)
+                throw std::invalid_argument("Invalid adaptive tracer slice duration");
+            const auto remaining=max_total_substeps-total.water.substeps_used;
+            const double pilot_dt=dt/static_cast<double>(remaining);
+            if(!std::isfinite(pilot_dt)||pilot_dt<=0)
+                throw std::invalid_argument("Invalid adaptive tracer pilot duration");
+            const auto pilot=step(nx,ny,nz,dx,pilot_dt,stationary_box,
+                                  state,u_steps[k],v_steps[k],w_steps[k]);
+            const double ratio=pilot.max_donor_cfl*
+                               static_cast<double>(remaining)/target_donor_cfl;
+            if(!std::isfinite(ratio)||ratio>static_cast<double>(remaining))
+                throw std::invalid_argument("Adaptive tracer CFL budget exceeded");
+            const auto count=std::max<std::size_t>(
+                1,static_cast<std::size_t>(std::ceil(ratio)));
+            const double h=dt/static_cast<double>(count);
+            if(!std::isfinite(h)||h<=0)
+                throw std::invalid_argument("Invalid adaptive tracer substep");
+            for(std::size_t j=0;j<count;++j) {
+                auto next=step_passive_tracer(
+                    nx,ny,nz,dx,h,stationary_box,state,concentration,
+                    u_steps[k],v_steps[k],w_steps[k]);
+                if(k==0&&j==0) {
+                    total.water.water_before_m3=next.water.water_before_m3;
+                    total.tracer_before_kg=next.tracer_before_kg;
+                }
+                total.water.water_after_m3=next.water.water_after_m3;
+                total.tracer_after_kg=next.tracer_after_kg;
+                add_water_fluxes(total.water,next.water);
+                total.water.max_donor_cfl=std::max(
+                    total.water.max_donor_cfl,next.water.max_donor_cfl);
+                total.water.max_cell_volume_divergence_m3=std::max(
+                    total.water.max_cell_volume_divergence_m3,
+                    next.water.max_cell_volume_divergence_m3);
+                state=std::move(next.water.fraction_after);
+                concentration=std::move(next.concentration_after_kg_m3);
+            }
+            total.water.substeps_used+=count;
+        }
+        total.water.fraction_after=std::move(state);
+        total.concentration_after_kg_m3=std::move(concentration);
+        if(std::abs(total.tracer_after_kg-total.tracer_before_kg)>
+           1e-9*std::max(1.0,total.tracer_before_kg))
+            throw std::logic_error("Adaptive tracer mass drift");
+        return total;
+    }
     // Explicit temporal subcycling; prescribed MAC velocity and fixed geometry.
     // This is not a dynamic Navier-Stokes or two-way FSI integration.
     static P2StaticCutCellVofResult3D step_subcycled(

@@ -4,7 +4,7 @@
   "partial_accepted": true,
   "phase_complete": false,
   "ctest_suites": 87,
-  "native_assertions": 234710,
+  "native_assertions": 239230,
   "checks": [
     {
       "name": "87/87 full native CTest suites",
@@ -19,7 +19,7 @@
     {
       "name": "native assertions >= 90000",
       "pass": true,
-      "detail": 234710
+      "detail": 239230
     },
     {
       "name": "two grid sizes",
@@ -430,6 +430,65 @@
       "detail": null
     },
     {
+      "name": "adaptive dissolved tracer on two 3D grids",
+      "pass": true,
+      "detail": [
+        "8",
+        "12"
+      ]
+    },
+    {
+      "name": "8 cubed six adaptive tracer substeps",
+      "pass": true,
+      "detail": [
+        8,
+        6
+      ]
+    },
+    {
+      "name": "8 cubed adaptive tracer mass conserved",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "8 cubed adaptive water volume conserved",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "8 cubed manual per-substep tracer/water/face-ledger parity",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "12 cubed six adaptive tracer substeps",
+      "pass": true,
+      "detail": [
+        12,
+        6
+      ]
+    },
+    {
+      "name": "12 cubed adaptive tracer mass conserved",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "12 cubed adaptive water volume conserved",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "12 cubed manual per-substep tracer/water/face-ledger parity",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "six invalid adaptive tracer inputs rejected",
+      "pass": true,
+      "detail": null
+    },
+    {
       "name": "eight physical/numeric rejection tests",
       "pass": true,
       "detail": null
@@ -437,20 +496,20 @@
   ],
   "source_sha256": {
     "CMakeLists.txt": "3bafa076a16a2405214fcf378271d64585cf73a5dd44912d6040054beca9f59c",
-    "docs/PHASENPLAN.md": "10c632beaf17b7adf932ab2c5a6330b1e2f4828de7e3797756145b525f1f8916",
-    "docs/P2_STATIC_CUT_CELL_VOF_PARTIAL.md": "134f735145039980e26072942bd052841b263bfe7f723f15465fa19951eb6078",
-    "include/upc/p2_static_cut_cell_vof3d.hpp": "63d2d16102995e61d6abe5026b87214594f266204240212e006202a78cf19401",
+    "docs/PHASENPLAN.md": "3e734181eec2f3ecce0395aedfa86445a10ac3b50eef3e733e9b3230dc74b0e6",
+    "docs/P2_STATIC_CUT_CELL_VOF_PARTIAL.md": "6cc0bea5fcda0a2f65b12798ed863c68d0d960e1873cd031252d7c5174a63a78",
+    "include/upc/p2_static_cut_cell_vof3d.hpp": "5830cca3bd59ea74351686a6ddfc04636c976e6727652f13608cf6871e990616",
     "include/upc/p2_moving_box_mac_apertures3d.hpp": "c5fbdae598166771f6a28359c31960178239d3a59e0ccbb60f89f47b38f29ad3",
     "include/upc/p2_moving_box_open_volume3d.hpp": "270ecc419fa312212e47dbcfbd7fa8f2b172fde153b6d66e19f226be5cbedbb2",
-    "tests/p2_static_cut_cell_vof3d_tests.cpp": "c07c16272103edf6818cecf607eebb01757c6fe4308e017ee2f0cef0cc71867c",
-    "scripts/p2_static_cut_cell_vof_acceptance.py": "6b8904854a6549472ed979084e3d22785981bf878612e8a4a67d9bc907c79ee9",
+    "tests/p2_static_cut_cell_vof3d_tests.cpp": "a478bbd9cda7e3978c683f37a36ef59eb11d91d96e930501a3568f2a8ed56e2d",
+    "scripts/p2_static_cut_cell_vof_acceptance.py": "24acd728aa4b8b125f4fe31f6352b7d2de77fd43fa020de5e768e0e0b4e9ac06",
     "scripts/p2_static_cut_cell_vof_full_build.cmd": "73075d11a3e65c5ba16a8b77ae7bec36e31b7816746b17ec8740c90f336b2168"
   },
-  "ctest_log_sha256": "d9eff0a3d9f396d01ea36d2619dfe22cc781580156838891c8cf67c3bd91e235",
+  "ctest_log_sha256": "2f5c3bf7f7c1d1480674e1e6eee156c9f1c7b28c8a94751e223bde3feefa8d74",
   "limitations": [
     "prescribed solenoidal MAC velocity and stationary cut-cell geometry",
     "first-order diffusive donor-cell advection, no interface reconstruction",
-    "bounded geometric CFL subcycling on prescribed fields, not adaptive CFD",
+    "bounded geometric CFL subcycling of water and passive tracer on prescribed fields, not adaptive CFD",
     "no pressure/impulse time integration or moving-solid counterreaction",
     "no global physical FSI energy/momentum conservation",
     "no external measured 3D CFD or new Unreal 5.8 Native-E2E"

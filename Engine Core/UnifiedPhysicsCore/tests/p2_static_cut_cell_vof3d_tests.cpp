@@ -571,6 +571,156 @@ void passive_tracer(int n) {
     std::cout<<"VOF_TRACER "<<n<<" 40 "<<std::setprecision(17)
              <<mass<<" "<<initial.tracer_after_kg<<" "<<error<<"\n";
 }
+// Multi-slice tracer advection must update the DONOR concentration after
+// each actual CFL substep. Compare to independently scheduled one-step calls.
+void adaptive_passive_tracer(int n) {
+    Setup s(n);
+    if(n==8)s.box={{3.2,3.2,3.2},{4.8,4.8,4.8}};
+    using Vof=upc::P2StaticCutCellVof3D;
+    std::vector<double> initial_c(s.f.size(),0.0);
+    for(int z=0;z<n;++z)
+    for(int y=0;y<n;++y)
+    for(int x=0;x<n;++x)
+        if(s.f[s.id(x,y,z)]>0)
+            initial_c[s.id(x,y,z)]=0.3+0.01*(x+2*y+3*z);
+    const std::vector<double> durations{0.1,0.025,0.08,0.05};
+    const std::vector<double> factors{40.0,-30.0,50.0,-20.0};
+    std::vector<std::vector<double>> us,vs,ws;
+    for(double factor:factors) {
+        auto u=s.u,v=s.v,w=s.w;
+        for(double& x:u)x*=factor;
+        for(double& x:v)x*=factor;
+        for(double& x:w)x*=factor;
+        us.push_back(std::move(u));
+        vs.push_back(std::move(v));
+        ws.push_back(std::move(w));
+    }
+    const auto actual=Vof::step_passive_tracer_sequence_adaptive(
+        n,n,n,1.0,s.box,s.f,initial_c,durations,us,vs,ws);
+    const auto water_only=Vof::step_velocity_sequence_adaptive(
+        n,n,n,1.0,s.box,s.f,durations,us,vs,ws);
+    check(actual.water.fraction_after==water_only.fraction_after,
+          "adaptive tracer does not modify water-only transport");
+    auto f=s.f,c=initial_c;
+    std::vector<double> lu(s.u.size(),0.0),lv(s.v.size(),0.0),
+                        lw(s.w.size(),0.0);
+    std::size_t steps=0;
+    double initial_mass=0.0,initial_water=0.0;
+    for(std::size_t k=0;k<durations.size();++k) {
+        const auto remaining=1024-steps;
+        const auto pilot=Vof::step(n,n,n,1.0,
+            durations[k]/static_cast<double>(remaining),
+            s.box,f,us[k],vs[k],ws[k]);
+        const auto count=std::max<std::size_t>(1,static_cast<std::size_t>(
+            std::ceil(pilot.max_donor_cfl*static_cast<double>(remaining)/0.8)));
+        for(std::size_t j=0;j<count;++j) {
+            auto r=Vof::step_passive_tracer(
+                n,n,n,1.0,durations[k]/static_cast<double>(count),
+                s.box,f,c,us[k],vs[k],ws[k]);
+            if(k==0&&j==0) {
+                initial_mass=r.tracer_before_kg;
+                initial_water=r.water.water_before_m3;
+            }
+            near(r.tracer_after_kg,initial_mass,1e-10,
+                 "independent tracer substep mass conserved");
+            for(std::size_t i=0;i<lu.size();++i)
+                lu[i]+=r.water.u_water_flux_m3[i];
+            for(std::size_t i=0;i<lv.size();++i)
+                lv[i]+=r.water.v_water_flux_m3[i];
+            for(std::size_t i=0;i<lw.size();++i)
+                lw[i]+=r.water.w_water_flux_m3[i];
+            f=std::move(r.water.fraction_after);
+            c=std::move(r.concentration_after_kg_m3);
+        }
+        steps+=count;
+    }
+    check(steps>durations.size()&&steps<=1024,
+          "adaptive tracer requires real CFL substeps");
+    check(actual.water.substeps_used==steps,
+          "adaptive tracer work count matches independent schedule");
+    double error=0.0,difference=0.0;
+    for(std::size_t i=0;i<f.size();++i) {
+        error=std::max(error,std::abs(f[i]-actual.water.fraction_after[i]));
+        error=std::max(error,
+                       std::abs(c[i]-actual.concentration_after_kg_m3[i]));
+        difference=std::max(difference,
+                            std::abs(c[i]-initial_c[i]));
+        check(actual.water.fraction_after[i]>=0&&
+              actual.water.fraction_after[i]<=1,
+              "adaptive tracer water bounded");
+        check(actual.concentration_after_kg_m3[i]>=0&&
+              actual.concentration_after_kg_m3[i]<=
+                  0.3+0.01*(n-1)*6+1e-12,
+              "adaptive tracer concentration bounded");
+    }
+    for(std::size_t i=0;i<lu.size();++i)
+        error=std::max(error,std::abs(lu[i]-actual.water.u_water_flux_m3[i]));
+    for(std::size_t i=0;i<lv.size();++i)
+        error=std::max(error,std::abs(lv[i]-actual.water.v_water_flux_m3[i]));
+    for(std::size_t i=0;i<lw.size();++i)
+        error=std::max(error,std::abs(lw[i]-actual.water.w_water_flux_m3[i]));
+    check(difference>1e-5,"adaptive tracer physically moves in 3D");
+    near(error,0.0,1e-13,"adaptive tracer matches independent one-step replay");
+    near(actual.tracer_before_kg,initial_mass,1e-10,
+         "adaptive tracer initial mass");
+    near(actual.tracer_after_kg,initial_mass,1e-10,
+         "adaptive tracer final mass");
+    near(actual.water.water_before_m3,initial_water,1e-10,
+         "adaptive tracer initial water");
+    near(actual.water.water_after_m3,initial_water,1e-10,
+         "adaptive tracer final water");
+    check(actual.water.max_donor_cfl>0&&
+          actual.water.max_donor_cfl<=0.8+1e-12,
+          "adaptive tracer geometric CFL");
+    if(n==8) {
+        const auto geom=upc::P2MovingBoxFaceApertures3D::sample(
+            n,n,n,1.0,0.1,s.box,s.box);
+        check(std::any_of(geom.cell_geometry.alpha_old.begin(),
+              geom.cell_geometry.alpha_old.end(),
+              [](double a){return a>0&&a<1;}),
+              "adaptive tracer uses fractional cut-cell geometry");
+        auto one=Vof::step_passive_tracer_sequence_adaptive(
+            n,n,n,1.0,s.box,s.f,initial_c,{0.001},{s.u},{s.v},{s.w});
+        auto reference=Vof::step_passive_tracer(
+            n,n,n,1.0,0.001,s.box,s.f,initial_c,s.u,s.v,s.w);
+        check(one.water.substeps_used==1&&
+              one.water.fraction_after==reference.water.fraction_after&&
+              one.concentration_after_kg_m3==
+                  reference.concentration_after_kg_m3,
+              "one safe tracer slice equals legacy one-step");
+        rejects([&]{Vof::step_passive_tracer_sequence_adaptive(
+            n,n,n,1.0,s.box,s.f,initial_c,{}, {}, {}, {});},
+            "empty adaptive tracer schedule rejected");
+        auto bad_times=durations;
+        bad_times[2]=0;
+        rejects([&]{Vof::step_passive_tracer_sequence_adaptive(
+            n,n,n,1.0,s.box,s.f,initial_c,bad_times,us,vs,ws);},
+            "zero later tracer slice rejected");
+        auto bad_c=initial_c;
+        bad_c[s.id(0,0,0)]=std::numeric_limits<double>::quiet_NaN();
+        rejects([&]{Vof::step_passive_tracer_sequence_adaptive(
+            n,n,n,1.0,s.box,s.f,bad_c,durations,us,vs,ws);},
+            "nonfinite tracer input rejected");
+        bad_c=initial_c;
+        bad_c[s.id(3,3,3)]=1.0;
+        rejects([&]{Vof::step_passive_tracer_sequence_adaptive(
+            n,n,n,1.0,s.box,s.f,bad_c,durations,us,vs,ws);},
+            "dry-cell tracer input rejected");
+        rejects([&]{Vof::step_passive_tracer_sequence_adaptive(
+            n,n,n,1.0,s.box,s.f,initial_c,durations,us,vs,ws,0.8,steps-1);},
+            "insufficient shared tracer CFL budget rejected");
+        auto bad_u=us;
+        bad_u[2][s.ui(1,0,1)]+=0.1;
+        rejects([&]{Vof::step_passive_tracer_sequence_adaptive(
+            n,n,n,1.0,s.box,s.f,initial_c,durations,bad_u,vs,ws);},
+            "non-solenoidal later tracer field rejected");
+        std::cout<<"VOF_TRACER_ADAPTIVE_NEGATIVE 6\n";
+    }
+    std::cout<<"VOF_TRACER_ADAPTIVE "<<n<<" "<<steps<<" "
+             <<std::setprecision(17)<<actual.tracer_before_kg<<" "
+             <<actual.tracer_after_kg<<" "<<actual.water.water_before_m3
+             <<" "<<actual.water.water_after_m3<<" "<<error<<"\n";
+}
 void negatives() {
     Setup s(8);
     auto bad=s;
@@ -613,6 +763,8 @@ int main() {
         face_water_flux_ledger(12);
         passive_tracer(8);
         passive_tracer(12);
+        adaptive_passive_tracer(8);
+        adaptive_passive_tracer(12);
         negatives();
         std::cout<<"PASS: "<<assertions
                  <<" native static 3D cut-cell VOF assertions\n";

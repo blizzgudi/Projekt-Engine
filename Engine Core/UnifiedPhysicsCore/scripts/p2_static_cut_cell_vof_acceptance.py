@@ -158,6 +158,27 @@ def main():
           "VOF_TRACER_ANALYTIC 1.5 0.06 3" in output)
     check("four invalid tracer inputs rejected",
           "VOF_TRACER_NEGATIVE 4" in output)
+    adaptive_tracer=re.findall(
+        r"^VOF_TRACER_ADAPTIVE (\d+) (\d+) ([\d.eE+-]+) "
+        r"([\d.eE+-]+) ([\d.eE+-]+) ([\d.eE+-]+) "
+        r"([\d.eE+-]+)$",output,re.MULTILINE)
+    check("adaptive dissolved tracer on two 3D grids",
+          len(adaptive_tracer)==2,[r[0] for r in adaptive_tracer])
+    for row in adaptive_tracer:
+        n,steps=int(row[0]),int(row[1])
+        tracer_before,tracer_after,water_before,water_after,error=map(float,row[2:])
+        check(f"{n} cubed six adaptive tracer substeps",
+              n in (8,12) and steps==6,(n,steps))
+        check(f"{n} cubed adaptive tracer mass conserved",
+              math.isfinite(tracer_before) and tracer_before>0 and
+              abs(tracer_after-tracer_before)<1e-10)
+        check(f"{n} cubed adaptive water volume conserved",
+              math.isfinite(water_before) and water_before>0 and
+              abs(water_after-water_before)<1e-10)
+        check(f"{n} cubed manual per-substep tracer/water/face-ledger parity",
+              math.isfinite(error) and error<1e-12,error)
+    check("six invalid adaptive tracer inputs rejected",
+          "VOF_TRACER_ADAPTIVE_NEGATIVE 6" in output)
     check("eight physical/numeric rejection tests",
           "VOF_NEGATIVE 8" in output)
     hashes={name:sha(CORE/name) for name in SOURCES}
@@ -170,7 +191,7 @@ def main():
         "limitations":[
             "prescribed solenoidal MAC velocity and stationary cut-cell geometry",
             "first-order diffusive donor-cell advection, no interface reconstruction",
-            "bounded geometric CFL subcycling on prescribed fields, not adaptive CFD",
+            "bounded geometric CFL subcycling of water and passive tracer on prescribed fields, not adaptive CFD",
             "no pressure/impulse time integration or moving-solid counterreaction",
             "no global physical FSI energy/momentum conservation",
             "no external measured 3D CFD or new Unreal 5.8 Native-E2E",
