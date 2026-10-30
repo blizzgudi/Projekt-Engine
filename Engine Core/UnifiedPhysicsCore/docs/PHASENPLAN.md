@@ -1508,3 +1508,10 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
   keine nachprojizierte bidirektionale FSI, keine physikalische globale
   Energie-/Impulserhaltung, keine externen CFD-Messdaten und keine neue
   UE5.8-Native-E2E-Abnahme.
+
+## P2 Teilfortschritt: Nichtlineares 3D-Druckmoment und Referenzpunkt-Impuls (30.10.2026)
+
+- Neuer optionaler, isolierter C++17-Diagnoseadapter `P2PressureWrenchReference3D` fuer diskrete Druckkraft und Drehmoment um einen frei waehlbaren Referenzpunkt: `M_ref=M_center+(center-ref) x F`; linearer und angularer Gegenimpuls sind nur Buchung, **keine** Fluid-FSI-Rueckwirkung.
+- Fraktionale 3D-Box und nichtlineares Druckfeld mit echtem intrinsischem Drehmoment: native MSVC-Tests auf 8^3/12^3, beide Bewegungsrichtungen, Gauge-Invarianz, geometrische Druckarbeit, Ablehnung der Translation-only-Dynamik bei Drehmoment.
+- Unabhaengige Python-Referenz und SHA256: `scripts/p2_pressure_wrench_reference_acceptance.py`, `docs/P2_PRESSURE_WRENCH_REFERENCE_PARTIAL.md`, `ENGINE TEST STUBE/runs/p2_pressure_wrench_reference_partial.json`. Die volle CTest-Regression muss weiter gruen bleiben.
+- **P2 bleibt INCOMPLETE**: kein orientierter rotierender Koerper, keine dynamische zweigerichtete MAC-Impulsrueckgabe, keine externe CFD-Messvalidierung und keine neue UE5.8-Native-E2E-Abnahme. P3-P8 bleiben ebenfalls offen.

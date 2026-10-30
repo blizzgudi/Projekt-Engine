@@ -1,0 +1,467 @@
+{
+  "phase": "P2",
+  "milestone": "nonlinear_3d_pressure_wrench_reference_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "generated_utc": "2026-10-30T16:45:03.271888+00:00",
+  "checks": [
+    {
+      "name": "native_exit",
+      "value": 0,
+      "pass": true
+    },
+    {
+      "name": "native_assertions",
+      "value": 108,
+      "pass": true
+    },
+    {
+      "name": "full_ctest_87",
+      "value": true,
+      "pass": true
+    },
+    {
+      "name": "four_3d_grids_and_directions",
+      "value": 4,
+      "pass": true
+    },
+    {
+      "name": "force_8_-1_0",
+      "value": -0.3722500000000002,
+      "pass": true
+    },
+    {
+      "name": "force_8_-1_1",
+      "value": 0.2526250000000011,
+      "pass": true
+    },
+    {
+      "name": "force_8_-1_2",
+      "value": -0.4999999999999999,
+      "pass": true
+    },
+    {
+      "name": "torque_8_-1_0",
+      "value": -2.7755575615628914e-17,
+      "pass": true
+    },
+    {
+      "name": "torque_8_-1_1",
+      "value": 4.163336342344337e-17,
+      "pass": true
+    },
+    {
+      "name": "torque_8_-1_2",
+      "value": -1.3437500000143543e-06,
+      "pass": true
+    },
+    {
+      "name": "reference_torque_8_-1_0",
+      "value": 0.015268687499999949,
+      "pass": true
+    },
+    {
+      "name": "reference_torque_8_-1_1",
+      "value": 0.03467387500000004,
+      "pass": true
+    },
+    {
+      "name": "reference_torque_8_-1_2",
+      "value": 0.006150093750000078,
+      "pass": true
+    },
+    {
+      "name": "geometric_work_8_-1",
+      "value": 0.010615750000000042,
+      "pass": true
+    },
+    {
+      "name": "nonzero_intrinsic_torque_8_-1",
+      "value": -1.3437500000143543e-06,
+      "pass": true
+    },
+    {
+      "name": "midpoint_work_residual_8_-1",
+      "value": -2.2551405187698492e-17,
+      "pass": true
+    },
+    {
+      "name": "force_8_1_0",
+      "value": -0.37025000000000063,
+      "pass": true
+    },
+    {
+      "name": "force_8_1_1",
+      "value": 0.2498750000000005,
+      "pass": true
+    },
+    {
+      "name": "force_8_1_2",
+      "value": -0.49999999999999956,
+      "pass": true
+    },
+    {
+      "name": "torque_8_1_0",
+      "value": 0.0,
+      "pass": true
+    },
+    {
+      "name": "torque_8_1_1",
+      "value": 2.0816681711721685e-17,
+      "pass": true
+    },
+    {
+      "name": "torque_8_1_2",
+      "value": -4.509375000003035e-05,
+      "pass": true
+    },
+    {
+      "name": "reference_torque_8_1_0",
+      "value": 0.017131187499999978,
+      "pass": true
+    },
+    {
+      "name": "reference_torque_8_1_1",
+      "value": 0.036922624999999966,
+      "pass": true
+    },
+    {
+      "name": "reference_torque_8_1_2",
+      "value": 0.0057213437499999825,
+      "pass": true
+    },
+    {
+      "name": "geometric_work_8_1",
+      "value": -0.01057174999999996,
+      "pass": true
+    },
+    {
+      "name": "nonzero_intrinsic_torque_8_1",
+      "value": -4.509375000003035e-05,
+      "pass": true
+    },
+    {
+      "name": "midpoint_work_residual_8_1",
+      "value": -5.551115123125783e-17,
+      "pass": true
+    },
+    {
+      "name": "force_12_-1_0",
+      "value": -0.5816406249999987,
+      "pass": true
+    },
+    {
+      "name": "force_12_-1_1",
+      "value": 0.3947265624999975,
+      "pass": true
+    },
+    {
+      "name": "force_12_-1_2",
+      "value": -0.78125,
+      "pass": true
+    },
+    {
+      "name": "torque_12_-1_0",
+      "value": -1.3877787807814457e-17,
+      "pass": true
+    },
+    {
+      "name": "torque_12_-1_1",
+      "value": 2.7755575615628914e-17,
+      "pass": true
+    },
+    {
+      "name": "torque_12_-1_2",
+      "value": -2.624511718798961e-06,
+      "pass": true
+    },
+    {
+      "name": "reference_torque_12_-1_0",
+      "value": 0.02982165527343767,
+      "pass": true
+    },
+    {
+      "name": "reference_torque_12_-1_1",
+      "value": 0.06772241210937505,
+      "pass": true
+    },
+    {
+      "name": "reference_torque_12_-1_2",
+      "value": 0.012011901855468403,
+      "pass": true
+    },
+    {
+      "name": "geometric_work_12_-1",
+      "value": 0.02073388671875064,
+      "pass": true
+    },
+    {
+      "name": "nonzero_intrinsic_torque_12_-1",
+      "value": -2.624511718798961e-06,
+      "pass": true
+    },
+    {
+      "name": "midpoint_work_residual_12_-1",
+      "value": -7.008282842946301e-16,
+      "pass": true
+    },
+    {
+      "name": "force_12_1_0",
+      "value": -0.5785156249999991,
+      "pass": true
+    },
+    {
+      "name": "force_12_1_1",
+      "value": 0.39042968750000107,
+      "pass": true
+    },
+    {
+      "name": "force_12_1_2",
+      "value": -0.7812500000000012,
+      "pass": true
+    },
+    {
+      "name": "torque_12_1_0",
+      "value": -2.7755575615628914e-17,
+      "pass": true
+    },
+    {
+      "name": "torque_12_1_1",
+      "value": -4.163336342344337e-17,
+      "pass": true
+    },
+    {
+      "name": "torque_12_1_2",
+      "value": -8.807373046876288e-05,
+      "pass": true
+    },
+    {
+      "name": "reference_torque_12_1_0",
+      "value": 0.03345935058593756,
+      "pass": true
+    },
+    {
+      "name": "reference_torque_12_1_1",
+      "value": 0.07211450195312526,
+      "pass": true
+    },
+    {
+      "name": "reference_torque_12_1_2",
+      "value": 0.011174499511718936,
+      "pass": true
+    },
+    {
+      "name": "geometric_work_12_1",
+      "value": -0.020647949218750686,
+      "pass": true
+    },
+    {
+      "name": "nonzero_intrinsic_torque_12_1",
+      "value": -8.807373046876288e-05,
+      "pass": true
+    },
+    {
+      "name": "midpoint_work_residual_12_1",
+      "value": 6.938893903907228e-16,
+      "pass": true
+    },
+    {
+      "name": "cases_unique",
+      "value": 4,
+      "pass": true
+    },
+    {
+      "name": "all_source_hashes",
+      "value": 10,
+      "pass": true
+    }
+  ],
+  "reference": [
+    {
+      "n": 8,
+      "dx": 0.1,
+      "direction": -1,
+      "native": {
+        "force": [
+          -0.3722500000000002,
+          0.2526250000000011,
+          -0.4999999999999999
+        ],
+        "torque": [
+          -2.7755575615628914e-17,
+          4.163336342344337e-17,
+          -1.3437500000143543e-06
+        ],
+        "reference_torque": [
+          0.015268687499999949,
+          0.03467387500000004,
+          0.006150093750000078
+        ],
+        "work": 0.010615750000000042,
+        "work_mismatch": -2.2551405187698492e-17
+      },
+      "independent_reference": {
+        "force": [
+          -0.37225000000000064,
+          0.2526250000000019,
+          -0.4999999999999991
+        ],
+        "torque": [
+          -2.0816681711721685e-17,
+          -3.469446951953614e-17,
+          -1.3437499999865987e-06
+        ],
+        "reference_torque": [
+          0.015268687499999871,
+          0.03467387499999988,
+          0.006150093750000172
+        ],
+        "work": 0.010615749999999976
+      }
+    },
+    {
+      "n": 8,
+      "dx": 0.1,
+      "direction": 1,
+      "native": {
+        "force": [
+          -0.37025000000000063,
+          0.2498750000000005,
+          -0.49999999999999956
+        ],
+        "torque": [
+          0.0,
+          2.0816681711721685e-17,
+          -4.509375000003035e-05
+        ],
+        "reference_torque": [
+          0.017131187499999978,
+          0.036922624999999966,
+          0.0057213437499999825
+        ],
+        "work": -0.01057174999999996,
+        "work_mismatch": -5.551115123125783e-17
+      },
+      "independent_reference": {
+        "force": [
+          -0.37024999999999986,
+          0.24987499999999951,
+          -0.4999999999999992
+        ],
+        "torque": [
+          6.938893903907228e-17,
+          -2.0816681711721685e-17,
+          -4.5093750000071986e-05
+        ],
+        "reference_torque": [
+          0.017131187500000075,
+          0.036922624999999897,
+          0.005721343749999861
+        ],
+        "work": -0.010571750000000046
+      }
+    },
+    {
+      "n": 12,
+      "dx": 0.125,
+      "direction": -1,
+      "native": {
+        "force": [
+          -0.5816406249999987,
+          0.3947265624999975,
+          -0.78125
+        ],
+        "torque": [
+          -1.3877787807814457e-17,
+          2.7755575615628914e-17,
+          -2.624511718798961e-06
+        ],
+        "reference_torque": [
+          0.02982165527343767,
+          0.06772241210937505,
+          0.012011901855468403
+        ],
+        "work": 0.02073388671875064,
+        "work_mismatch": -7.008282842946301e-16
+      },
+      "independent_reference": {
+        "force": [
+          -0.5816406249999988,
+          0.3947265624999994,
+          -0.7812499999999974
+        ],
+        "torque": [
+          1.3877787807814457e-17,
+          2.7755575615628914e-17,
+          -2.6245117187434497e-06
+        ],
+        "reference_torque": [
+          0.029821655273437435,
+          0.06772241210937481,
+          0.012011901855468729
+        ],
+        "work": 0.020733886718750594
+      }
+    },
+    {
+      "n": 12,
+      "dx": 0.125,
+      "direction": 1,
+      "native": {
+        "force": [
+          -0.5785156249999991,
+          0.39042968750000107,
+          -0.7812500000000012
+        ],
+        "torque": [
+          -2.7755575615628914e-17,
+          -4.163336342344337e-17,
+          -8.807373046876288e-05
+        ],
+        "reference_torque": [
+          0.03345935058593756,
+          0.07211450195312526,
+          0.011174499511718936
+        ],
+        "work": -0.020647949218750686,
+        "work_mismatch": 6.938893903907228e-16
+      },
+      "independent_reference": {
+        "force": [
+          -0.578515625,
+          0.39042968750000173,
+          -0.7812500000000018
+        ],
+        "torque": [
+          -4.163336342344337e-17,
+          -4.163336342344337e-17,
+          -8.807373046884615e-05
+        ],
+        "reference_torque": [
+          0.03345935058593755,
+          0.0721145019531252,
+          0.011174499511718838
+        ],
+        "work": -0.020647949218750686
+      }
+    }
+  ],
+  "native_assertions": 108,
+  "native_stdout": "CASE n=8 dx=0.10000000000000001 sign=-1 fx=-0.37225000000000019 fy=0.2526250000000011 fz=-0.49999999999999989 tx=-2.7755575615628914e-17 ty=4.163336342344337e-17 tz=-1.3437500000143543e-06 rx=0.015268687499999949 ry=0.034673875000000041 rz=0.0061500937500000782 work=0.010615750000000042 mismatch=-2.2551405187698492e-17\nCASE n=8 dx=0.10000000000000001 sign=1 fx=-0.37025000000000063 fy=0.24987500000000051 fz=-0.49999999999999956 tx=0 ty=2.0816681711721685e-17 tz=-4.5093750000030353e-05 rx=0.017131187499999978 ry=0.036922624999999966 rz=0.0057213437499999825 work=-0.01057174999999996 mismatch=-5.5511151231257827e-17\nCASE n=12 dx=0.125 sign=-1 fx=-0.58164062499999869 fy=0.39472656249999749 fz=-0.78125 tx=-1.3877787807814457e-17 ty=2.7755575615628914e-17 tz=-2.6245117187989608e-06 rx=0.029821655273437671 ry=0.067722412109375046 rz=0.012011901855468403 work=0.020733886718750639 mismatch=-7.0082828429463007e-16\nCASE n=12 dx=0.125 sign=1 fx=-0.57851562499999909 fy=0.39042968750000107 fz=-0.78125000000000122 tx=-2.7755575615628914e-17 ty=-4.163336342344337e-17 tz=-8.8073730468762879e-05 rx=0.033459350585937561 ry=0.072114501953125257 rz=0.011174499511718936 work=-0.020647949218750686 mismatch=6.9388939039072284e-16\nPASS: 108 native nonlinear 3D pressure-wrench assertions\n",
+  "native_stderr": "",
+  "source_sha256": {
+    "include/upc/p2_pressure_wrench_reference3d.hpp": "4e7d5a429e6a0b6ede5f08d52451b083277a1f9ab861607ac6f1912a894fadc4",
+    "include/upc/p2_moving_box_pressure_traction3d.hpp": "261ed5769c7fe24d078802592b8db55df076ccc3015634ed818b301dbaa9fa53",
+    "include/upc/p2_moving_box_open_volume3d.hpp": "270ecc419fa312212e47dbcfbd7fa8f2b172fde153b6d66e19f226be5cbedbb2",
+    "include/upc/p2_moving_box_dynamic_pressure3d.hpp": "0542c4c40eb5f4ea855c105ad639437d15a0936a6025de8614d910780d6c57be",
+    "tests/p2_pressure_wrench_reference3d_tests.cpp": "b5df9fb007bbe706b7d79a82813d7cc4a030582ae7e4ce78bca7e9514cde9641",
+    "scripts/p2_pressure_wrench_reference_full_build.cmd": "9c6552d60c2f81833e2ac8045ccf8183a2805723db257a6b3ab4e0cb45629043",
+    "scripts/p2_pressure_wrench_reference_acceptance.py": "c5af98f5417db131a9ccddd944eac5692a1b07c347ad78d56d2152874c481ee9",
+    "docs/P2_PRESSURE_WRENCH_REFERENCE_PARTIAL.md": "ecf7d919bafaa346017af6487c33f3aefd0c41ca971971d4220ed7dbb8a0b2e5",
+    "docs/PHASENPLAN.md": "f0bd54f4e5fa9ce944e81df1f4f36efd8ec50c21830ce20c1f0c6ab7f6e40a87",
+    "scripts/phase_gate.py": "01065438e2b72b3fe83e7e3ba3decbf54925c84c5f9424b15ad15a8197f59cd6"
+  },
+  "native_binary_sha256": "cfc0ba7efb3e40707387fcf601eabefa8dcd84ae559d4fd0d594a3e3f4f8207b",
+  "ctest_log_sha256": "637061a1292e86de1d0b92585c6af0b3ee60cc9858f9c1ef033625a6d63a37a7",
+  "limitations": "Diagnostic angular reaction only; no rotating body, fluid momentum feedback, stress-correct free surface or Native UE E2E."
+}
