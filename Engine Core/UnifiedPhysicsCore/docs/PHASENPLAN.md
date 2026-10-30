@@ -1415,3 +1415,30 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
 - Dies ist **nur eine numerische Teilabnahme**. P2 bleibt PARTIAL;
   echte dynamische 3D-FSI, globale physikalische Energie/Impuls,
   externe CFD-Referenzen und UE5.8-Native-E2E bleiben offen.
+
+## P2 partial validation: independent 3D Neumann eigenmode (30.10.2026)
+
+- A three-axis cosine concentration mode in a closed 1 m cube is diffused
+  with zero prescribed MAC velocity, uniform D=0.03 m2/s, and T=0.2 s.
+  The exact continuum reference is exp(-3*pi^2*D*T). The independently
+  computed discrete finite-volume reference is
+  [1-12*D*dt/dx^2*sin^2(pi/(2*n))]^steps.
+- Three real native grids (8^3/12^3/16^3), with 4/9/16 explicit time
+  steps, verify pointwise 3D eigenmode preservation, nonnegative
+  concentrations, solute mass 2 kg, the diffusion CFL and monotone
+  quadratic mixing. The separate Python gate independently recomputes
+  both eigenvalues and verifies the second-order grid-refinement trend.
+- Verified MSVC Release + 87/87 CTest PASS, 301844 native assertions,
+  210/210 quantitative Python partial checks. Measured mode gains:
+  n=8: 0.83581949087047847; n=12: 0.83661024489195246;
+  n=16: 0.8368837601361514. Continuum gain: 0.83723299402457019.
+  Absolute amplitude errors: 0.00141350315409, 0.000622749132618,
+  0.000349233888419; 3D diffusion CFL 0.576 and total mass 2 kg.
+  A 1e-9 m corner solid satisfies the geometry API's mandatory in-domain
+  box without measurably changing the unit-cube Neumann stencil.
+  Reproducible report: ENGINE TEST STUBE/runs/p2_static_cut_cell_vof_partial.json,
+  CTest log p2_static_cut_cell_vof_full_ctest_20261029.txt, source SHA256.
+- This is a manufactured/analytic *passive solute diffusion* benchmark.
+  It is NOT independent measured 3D CFD, dynamic Navier-Stokes,
+  physical FSI energy/momentum, water/soil calibration or UE5.8 E2E.
+  P2-P8 remain PARTIAL; ALL_COMPLETE=False.

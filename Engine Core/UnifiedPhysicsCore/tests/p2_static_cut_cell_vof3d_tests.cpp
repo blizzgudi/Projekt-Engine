@@ -1487,6 +1487,78 @@ void heterogeneous_harmonic_extremes(int n) {
              <<" "<<sub.diffusion_substeps<<" "<<r.tracer_after_kg<<"\n";
 }
 
+// Independent three-dimensional continuum Neumann eigenmode validation.
+// Zero prescribed MAC velocities and negligible corner obstacle; this is a solute diffusion
+// benchmark, NOT a Navier-Stokes or coupled FSI validation.
+void heterogeneous_neumann_eigenmode(int n) {
+    using Diff=upc::P2CutCellTracerDiffusion3D;
+    Setup s(n);
+    // Geometry requires an in-domain positive box: 1e-9 m corner width
+    // is below floating-point volume/aperture resolution of this benchmark.
+    s.box={{0.0,0.0,0.0},{1e-9,1e-9,1e-9}};
+    std::fill(s.f.begin(),s.f.end(),1.0);
+    std::fill(s.u.begin(),s.u.end(),0.0);
+    std::fill(s.v.begin(),s.v.end(),0.0);
+    std::fill(s.w.begin(),s.w.end(),0.0);
+    const double pi=std::acos(-1.0);
+    const double diffusivity=0.03,final_time=0.2,dx=1.0/n;
+    const int steps=n*n/16; // 4, 9, 16: dt proportional to dx^2.
+    const double dt=final_time/steps;
+    std::vector<double> c(s.f.size()),mode(s.f.size());
+    std::array<std::vector<double>,3> d{
+        std::vector<double>(s.f.size(),diffusivity),
+        std::vector<double>(s.f.size(),diffusivity),
+        std::vector<double>(s.f.size(),diffusivity)};
+    for(int z=0;z<n;++z)
+    for(int y=0;y<n;++y)
+    for(int x=0;x<n;++x) {
+        const auto i=s.id(x,y,z);
+        mode[i]=std::cos(pi*(x+0.5)/n)*
+                std::cos(pi*(y+0.5)/n)*
+                std::cos(pi*(z+0.5)/n);
+        c[i]=2.0+0.5*mode[i]; // Nonnegative, nontrivial on all axes.
+    }
+    double cfl=0.0;
+    for(int k=0;k<steps;++k) {
+        const auto r=Diff::step_diffusion_subcycled_heterogeneous(
+            n,n,n,dx,dt,s.box,s.f,c,s.u,s.v,s.w,d,0.8);
+        check(r.diffusion_substeps==1,"Neumann mode stable one-step CFL");
+        check(r.diffusive_quadratic_audited,
+              "Neumann mode quadratic diffusion audit executed");
+        check(r.diffusive_quadratic_loss_kg2_m3>=-1e-12,
+              "Neumann mode numerical mixing nonincreasing");
+        near(r.tracer_after_kg,2.0,1e-11,
+             "Neumann mode conserves physical solute mass");
+        c=r.concentration_after_kg_m3;
+        cfl=std::max(cfl,r.max_diffusion_cfl);
+    }
+    double dot=0.0,norm=0.0,max_error=0.0;
+    const double eigenvalue=12.0*diffusivity/(dx*dx)*
+        std::pow(std::sin(pi/(2*n)),2);
+    const double discrete=std::pow(1.0-eigenvalue*dt,steps);
+    const double continuum=std::exp(-3.0*pi*pi*diffusivity*final_time);
+    for(std::size_t i=0;i<c.size();++i) {
+        dot+=mode[i]*(c[i]-2.0);
+        norm+=mode[i]*mode[i];
+        const double expected=2.0+0.5*discrete*mode[i];
+        max_error=std::max(max_error,std::abs(c[i]-expected));
+        near(c[i],expected,3e-12,
+             "Neumann mode exact discrete 3D eigenfunction");
+        check(c[i]>=0.0,"Neumann mode concentration stays positive");
+    }
+    const double amplitude=dot/(0.5*norm);
+    near(amplitude,discrete,3e-12,
+         "Neumann mode exact discrete amplification factor");
+    check(max_error<3e-12,"Neumann mode pointwise discrete reference");
+    check(cfl>0.0&&cfl<0.8,"Neumann mode stable 3D diffusion CFL");
+    const double continuum_error=std::abs(amplitude-continuum);
+    check(continuum_error>0.0&&continuum_error<0.002,
+          "Neumann continuum eigenmode resolved");
+    std::cout<<"VOF_TRACER_NEUMANN_3D "<<n<<" "<<steps<<" "
+             <<std::setprecision(17)<<amplitude<<" "<<discrete<<" "
+             <<continuum<<" "<<2.0<<" "<<continuum_error<<" "<<cfl<<"\n";
+}
+
 void diffusion_analytic_and_partial() {
     using Diff=upc::P2CutCellTracerDiffusion3D;
     Setup s(8);
@@ -1651,6 +1723,9 @@ int main() {
         heterogeneous_subcycle_reference(12);
         heterogeneous_harmonic_extremes(8);
         heterogeneous_harmonic_extremes(12);
+        heterogeneous_neumann_eigenmode(8);
+        heterogeneous_neumann_eigenmode(12);
+        heterogeneous_neumann_eigenmode(16);
         negatives();
         std::cout<<"PASS: "<<assertions
                  <<" native static 3D cut-cell VOF assertions\n";

@@ -431,6 +431,40 @@ def main():
               n in (8,12) and drive>correction>0.0,(drive,correction))
         check(f"{n} cubed fractional discrete quadratic balance",
               math.isfinite(residual) and abs(residual)<1e-10,residual)
+    # Independent continuum Neumann cosine eigenmode on three 3D grids.
+    # The reference is recomputed analytically here, not read from C++.
+    neumann=re.findall(
+        r"^VOF_TRACER_NEUMANN_3D (\d+) (\d+) ([\d.eE+-]+) "
+        r"([\d.eE+-]+) ([\d.eE+-]+) ([\d.eE+-]+) "
+        r"([\d.eE+-]+) ([\d.eE+-]+)$",output,re.MULTILINE)
+    check("independent 3D Neumann eigenmode on three grids",
+          len(neumann)==3,[r[0] for r in neumann])
+    errors={}
+    for row in neumann:
+        n,steps=int(row[0]),int(row[1])
+        amp,discrete,continuum,mass,error,cfl=map(float,row[2:])
+        expected_steps={8:4,12:9,16:16}.get(n)
+        check(f"{n} cubed eigenmode time refinement",
+              expected_steps==steps,(n,steps))
+        dx=1.0/n
+        dt=0.2/steps
+        eigenvalue=12*0.03/(dx*dx)*math.sin(math.pi/(2*n))**2
+        ref_discrete=(1-eigenvalue*dt)**steps
+        ref_continuum=math.exp(-3*math.pi**2*0.03*0.2)
+        check(f"{n} cubed exact 3D discrete Neumann eigenvalue",
+              abs(amp-ref_discrete)<3e-12 and
+              abs(discrete-ref_discrete)<3e-12,(amp,ref_discrete))
+        check(f"{n} cubed independent continuum Neumann reference",
+              abs(continuum-ref_continuum)<1e-13 and
+              abs(error-abs(amp-ref_continuum))<1e-13,error)
+        check(f"{n} cubed eigenmode conservative stable CFL",
+              abs(mass-2.0)<1e-11 and 0<cfl<0.8,(mass,cfl))
+        errors[n]=error
+    check("3D Neumann continuum error decreases under refinement",
+          errors[8]>errors[12]>errors[16],errors)
+    check("3D Neumann continuum second-order refinement trend",
+          2.0<errors[8]/errors[12]<2.6 and
+          1.6<errors[12]/errors[16]<2.0,errors)
     hashes={name:sha(CORE/name) for name in SOURCES}
     report={
         "phase":"P2","milestone":"static_cut_cell_3d_donor_vof_partial",
@@ -448,6 +482,7 @@ def main():
             "heterogeneous diffusion-only CFL subcycling uses stationary wetted cut cells, not a coupled Navier-Stokes or reactive solver",
             "extreme harmonic mean is numerical robustness, not measured physical material calibration",
             "face-gradient and Euler-correction ledger audits numerical quadratic dissipation, NOT physical energy",
+            "3D Neumann eigenmode validates passive solute diffusion, not measured Navier-Stokes CFD",
             "opt-in conservative diffusion-only CFL subcycling after one prescribed-MAC advection, not fully coupled time integration",
             "no pressure/impulse time integration or moving-solid counterreaction",
             "no global physical FSI energy/momentum conservation",
