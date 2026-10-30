@@ -1607,3 +1607,22 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
   keine physikalische Wandkraft-/FSI-Impuls- oder Gesamtenergiebilanz.
   Bewegliche Geometrie, externe 3D-CFD-Daten und UE5.8-Native-E2E
   dieser Erweiterung fehlen. P3–P8 ebenfalls offen.
+
+## P2 Teilfortschritt: vollstaendige MAC-Face-Projektionspartition (31.10.2026)
+
+- Neuer read-only C++17-Adapter `ProjectionFaceClosureAudit3D` summiert
+  alle aktiven staggered MAC-Face-Impuls- und Energie-Proxies unabhaengig
+  von der Druckgradient-/Solid-/Aussen-Clamp-Zerlegung. Luft/Luft-Faces
+  werden separat gezaehlt und auf unveraenderte Geschwindigkeit geprueft.
+- Unabhaengige analytische Fuenf-Face-Poisson-Referenz mit einem
+  Solid-Nachbarn, 8^3/12^3, drei absichtlichen Fehler-Injektionen.
+  Native MSVC-Release-Tests: 82 Assertions PASS; 88/88 bestehende CTest PASS.
+  Maximaler Partitionsrest 1.39e-17, Gradientengeschwindigkeitsrest
+  5.21e-18 m/s.
+- Nachweise: docs/P2_PROJECTION_FACE_CLOSURE_PARTIAL.md;
+  scripts/p2_projection_face_closure_acceptance.py;
+  ENGINE TEST STUBE/runs/p2_projection_face_closure_partial.json.
+- **P2 bleibt INCOMPLETE, P3-P8 ebenfalls; ALL_COMPLETE=False.**
+  Numerische Face-Proxies sind keine globale physikalische
+  FSI-Impuls-/Energieerhaltung. Rotierende Geometrie, externe 3D-CFD-
+  Messdaten und Unreal-5.8-Native-E2E dieses Pfades bleiben offen.

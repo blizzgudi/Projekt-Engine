@@ -1,0 +1,275 @@
+{
+  "phase": "P2",
+  "milestone": "all_face_projection_partition_fault_detection_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "generated_utc": "2026-10-30T23:23:38.932015+00:00",
+  "checks": [
+    {
+      "name": "native_exit",
+      "value": 0,
+      "pass": true
+    },
+    {
+      "name": "native_assertions",
+      "value": 82,
+      "pass": true
+    },
+    {
+      "name": "88_ctest_regression",
+      "value": true,
+      "pass": true
+    },
+    {
+      "name": "two_3d_grids",
+      "value": 2,
+      "pass": true
+    },
+    {
+      "name": "grid_8",
+      "value": 8,
+      "pass": true
+    },
+    {
+      "name": "valid_parameters_8",
+      "value": [
+        0.1,
+        1000.0,
+        0.02
+      ],
+      "pass": true
+    },
+    {
+      "name": "8_pressure",
+      "value": 0.0,
+      "pass": true
+    },
+    {
+      "name": "8_px",
+      "value": 5.551115123125783e-17,
+      "pass": true
+    },
+    {
+      "name": "8_py",
+      "value": -2.7755575615628914e-17,
+      "pass": true
+    },
+    {
+      "name": "8_pz",
+      "value": 5.551115123125783e-17,
+      "pass": true
+    },
+    {
+      "name": "8_Lx",
+      "value": 3.469446951953614e-18,
+      "pass": true
+    },
+    {
+      "name": "8_Ly",
+      "value": 1.6263032587282567e-19,
+      "pass": true
+    },
+    {
+      "name": "8_Lz",
+      "value": -1.3877787807814457e-17,
+      "pass": true
+    },
+    {
+      "name": "8_energy",
+      "value": 1.3877787807814457e-17,
+      "pass": true
+    },
+    {
+      "name": "8_pressure_faces",
+      "value": 0.0,
+      "pass": true
+    },
+    {
+      "name": "8_clamped_faces",
+      "value": 0.0,
+      "pass": true
+    },
+    {
+      "name": "8_dry_faces",
+      "value": 0.0,
+      "pass": true
+    },
+    {
+      "name": "8_dry_changed",
+      "value": 0.0,
+      "pass": true
+    },
+    {
+      "name": "8_clamp_nonzero",
+      "value": 0.0,
+      "pass": true
+    },
+    {
+      "name": "8_max_residual",
+      "value": 1.3877787807814457e-17,
+      "pass": true
+    },
+    {
+      "name": "8_gradient_error",
+      "value": 5.204170427930421e-18,
+      "pass": true
+    },
+    {
+      "name": "8_all_faces_partition",
+      "value": 1728,
+      "pass": true
+    },
+    {
+      "name": "grid_12",
+      "value": 12,
+      "pass": true
+    },
+    {
+      "name": "valid_parameters_12",
+      "value": [
+        0.08,
+        1100.0,
+        0.015
+      ],
+      "pass": true
+    },
+    {
+      "name": "12_pressure",
+      "value": 0.0,
+      "pass": true
+    },
+    {
+      "name": "12_px",
+      "value": 2.7755575615628914e-17,
+      "pass": true
+    },
+    {
+      "name": "12_py",
+      "value": -2.7755575615628914e-17,
+      "pass": true
+    },
+    {
+      "name": "12_pz",
+      "value": 5.551115123125783e-17,
+      "pass": true
+    },
+    {
+      "name": "12_Lx",
+      "value": 1.734723475976807e-18,
+      "pass": true
+    },
+    {
+      "name": "12_Ly",
+      "value": -7.589415207398531e-19,
+      "pass": true
+    },
+    {
+      "name": "12_Lz",
+      "value": -6.938893903907228e-18,
+      "pass": true
+    },
+    {
+      "name": "12_energy",
+      "value": 1.3877787807814457e-17,
+      "pass": true
+    },
+    {
+      "name": "12_pressure_faces",
+      "value": 0.0,
+      "pass": true
+    },
+    {
+      "name": "12_clamped_faces",
+      "value": 0.0,
+      "pass": true
+    },
+    {
+      "name": "12_dry_faces",
+      "value": 0.0,
+      "pass": true
+    },
+    {
+      "name": "12_dry_changed",
+      "value": 0.0,
+      "pass": true
+    },
+    {
+      "name": "12_clamp_nonzero",
+      "value": 0.0,
+      "pass": true
+    },
+    {
+      "name": "12_max_residual",
+      "value": 6.938893903907228e-18,
+      "pass": true
+    },
+    {
+      "name": "12_gradient_error",
+      "value": 5.204170427930421e-18,
+      "pass": true
+    },
+    {
+      "name": "12_all_faces_partition",
+      "value": 5616,
+      "pass": true
+    },
+    {
+      "name": "nine_source_hashes",
+      "value": 9,
+      "pass": true
+    }
+  ],
+  "native_assertions": 82,
+  "independent_reference": [
+    {
+      "n": 8,
+      "dx_m": 0.1,
+      "rho_kg_m3": 1000.0,
+      "pressure_pa": 25.0,
+      "linear_face_proxy_Ns": [
+        -0.26000000000000006,
+        0.17000000000000004,
+        -0.31000000000000005
+      ],
+      "angular_face_proxy_Nms": [
+        -0.02455,
+        0.00019999999999999706,
+        0.03770000000000001
+      ],
+      "energy_face_proxy_J": -0.09400000000000003,
+      "partition_faces": 1728
+    },
+    {
+      "n": 12,
+      "dx_m": 0.08,
+      "rho_kg_m3": 1100.0,
+      "pressure_pa": 29.333333333333336,
+      "linear_face_proxy_Ns": [
+        -0.14643200000000003,
+        0.09574400000000004,
+        -0.17459200000000005
+      ],
+      "angular_face_proxy_Nms": [
+        -0.011061247999999997,
+        9.011199999999896e-05,
+        0.016986111999999998
+      ],
+      "energy_face_proxy_J": -0.05294080000000002,
+      "partition_faces": 5616
+    }
+  ],
+  "source_sha256": {
+    "include/upc/p2_projection_face_closure3d.hpp": "c8e8a80689b6ead730c4e44913e69afea88f8ad4faf88bd0dfd1f1d0a0ff0caf",
+    "include/upc/p2_projection_gradient_budget3d.hpp": "33fd2ce6ff82140c96382219f6e02bdb59501c093a0d95b67a7e1afb1388cbeb",
+    "include/upc/mac3d.hpp": "9bb4659c5b6e6fd3a512301ae4a3a083fa96b1e67d50363ec8f5634e1038fdc5",
+    "tests/p2_projection_face_closure3d_tests.cpp": "13020e63dabc1b3592bcc26db8dbc5b07b8aad89ae4c0b792d50df26c6214905",
+    "scripts/p2_projection_face_closure_full_build.cmd": "8db36546ffc0df7db99b7c53c2b0077553bd457e772ba864dcb37dd8310a0f18",
+    "scripts/p2_projection_face_closure_acceptance.py": "ff54a824874f15703b65152988ca4716d65ad35e1f430418294ebbc30fbbb06f",
+    "docs/P2_PROJECTION_FACE_CLOSURE_PARTIAL.md": "cdf6a2eb948cdd393da596c7a7d05385d4f7d5c6c7fda43d3c4f12645adad749",
+    "docs/PHASENPLAN.md": "ebacee23debe74079415ec5831487962faecfdb92f1f0c883ad1ddc54333993e",
+    "scripts/phase_gate.py": "01065438e2b72b3fe83e7e3ba3decbf54925c84c5f9424b15ad15a8197f59cd6"
+  },
+  "native_binary_sha256": "d72813e9039886f7df53ff1046072dd7f32242730751a4802f19ff14815a6359",
+  "ctest_log_sha256": "b7cf5054da1fd962b049d19ee343a72ea4eaaa22f6e3f675e170c2df9d6292d7",
+  "limitations": "Staggered face mass proxies only; no dynamic FSI physical impulse or energy conservation, moving collision geometry, external 3D CFD measurement or Unreal 5.8 Native E2E."
+}
