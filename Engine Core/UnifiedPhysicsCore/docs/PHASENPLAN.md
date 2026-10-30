@@ -1326,3 +1326,20 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
   Diffusion bei stationaeren Cut-Cells und vorgeschriebenen MAC-Feldern.
   Keine gemessene Bodenanisotropie, Navier-Stokes-/FSI-Gegenreaktion,
   globale physikalische Energie-/Impulsbilanz oder neue UE5.8-E2E.
+
+
+## P2 Teilfortschritt: begrenztes 3D-Diffusions-CFL-Subcycling (30.10.2026)
+
+- Opt-in konservativer 3D-Tracer-Diffusions-Teilstepoperator nach einem
+  vorgeschriebenen MAC-Wasser-Advektionsschritt; anisotrope Diagonalwerte,
+  konservative Cut-Cell-CFL-Obergrenze und begrenztes 1024-Step-Budget.
+- Native 8^3/12^3, analytische Zwei-Schritt-Pulsreferenz (0.15625 kg
+  Zentrum, 1 kg gesamt, CFL 0.75), U/V/W-Massenledger, Replay,
+  fraktionale Cut-Cells (0.784 kg, 3 Schritte, Residuum <2e-16 kg),
+  Negativtests und vorhandene dynamische MAC-Paritaet.
+  MSVC Release 87/87 CTest PASS, 270388 native Assertions.
+  JSON-/CTest-/Quellhash-Nachweis in
+  scripts/p2_static_cut_cell_vof_acceptance.py.
+- **P2-P8 PARTIAL, ALL_COMPLETE=False.** Keine gekoppelte Navier-Stokes-
+  Fluid-/Boden-/Thermal-/FSI-Gesamtphysik, keine unabhaengigen 3D-CFD-
+  Messdaten oder UE5.8-Native-E2E-Abnahme dieses Pfades.

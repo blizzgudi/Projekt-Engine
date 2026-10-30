@@ -969,6 +969,164 @@ void anisotropic_diffusion_reference(int n) {
              <<a.tracer_after_kg<<" "<<a.max_diffusion_cfl<<" "
              <<residual<<"\n";
 }
+void diffusion_subcycling_reference(int n) {
+    using Diff=upc::P2CutCellTracerDiffusion3D;
+    Setup s(n);
+    std::fill(s.u.begin(),s.u.end(),0.0);
+    std::fill(s.v.begin(),s.v.end(),0.0);
+    std::fill(s.w.begin(),s.w.end(),0.0);
+    std::fill(s.f.begin(),s.f.end(),1.0);
+    s.f[s.id(3,3,3)]=0.0;
+    std::vector<double> c(s.f.size(),0.0);
+    c[s.id(1,1,1)]=1.0;
+    const std::array<double,3> d={0.1,0.1,0.1};
+    const auto result=Diff::step_diffusion_subcycled_anisotropic(
+        n,n,n,1.0,2.5,s.box,s.f,c,s.u,s.v,s.w,d,0.8,8);
+    check(result.diffusion_substeps==2,"auto diffusion chooses two stable substeps");
+    near(result.max_diffusion_cfl,0.75,1e-13,
+         "actual maximum subcycled 3D diffusion CFL");
+    near(result.concentration_after_kg_m3[s.id(1,1,1)],0.15625,1e-13,
+         "independent two-step 3D center stencil");
+    near(result.concentration_after_kg_m3[s.id(2,1,1)],0.0625,1e-13,
+         "independent two-step first neighbor");
+    near(result.concentration_after_kg_m3[s.id(3,1,1)],0.015625,1e-13,
+         "independent two-step axial second neighbor");
+    near(result.concentration_after_kg_m3[s.id(2,2,1)],0.03125,1e-13,
+         "independent two-step diagonal neighbor");
+    near(result.tracer_after_kg,1.0,1e-12,"subcycled total tracer mass");
+    near(result.advected.water.water_after_m3,double(n*n*n-1),1e-10,
+         "subcycled water mass unchanged");
+    std::vector<double> replay=c;
+    std::vector<double> uflux(s.u.size(),0),vflux(s.v.size(),0),wflux(s.w.size(),0);
+    for(int k=0;k<2;++k) {
+        const auto part=Diff::step_anisotropic(
+            n,n,n,1.0,1.25,s.box,s.f,replay,s.u,s.v,s.w,d);
+        replay=part.concentration_after_kg_m3;
+        for(std::size_t i=0;i<uflux.size();++i)
+            uflux[i]+=part.u_diffusion_flux_kg[i];
+        for(std::size_t i=0;i<vflux.size();++i)
+            vflux[i]+=part.v_diffusion_flux_kg[i];
+        for(std::size_t i=0;i<wflux.size();++i)
+            wflux[i]+=part.w_diffusion_flux_kg[i];
+    }
+    double residual=0.0;
+    for(int z=0;z<n;++z)
+    for(int y=0;y<n;++y)
+    for(int x=0;x<n;++x) {
+        const auto i=s.id(x,y,z);
+        near(result.concentration_after_kg_m3[i],replay[i],1e-14,
+             "manual diffusion replay cellwise");
+        const double expected=s.f[i]*c[i]-
+            (result.u_diffusion_flux_kg[s.ui(x+1,y,z)]-
+             result.u_diffusion_flux_kg[s.ui(x,y,z)]+
+             result.v_diffusion_flux_kg[s.vi(x,y+1,z)]-
+             result.v_diffusion_flux_kg[s.vi(x,y,z)]+
+             result.w_diffusion_flux_kg[s.wi(x,y,z+1)]-
+             result.w_diffusion_flux_kg[s.wi(x,y,z)]);
+        const double actual=s.f[i]*result.concentration_after_kg_m3[i];
+        residual=std::max(residual,std::abs(expected-actual));
+        near(actual,expected,1e-13,"independent subcycle cellwise face balance");
+    }
+    for(std::size_t i=0;i<uflux.size();++i)
+        near(result.u_diffusion_flux_kg[i],uflux[i],1e-14,
+             "U cumulative diffusion ledger replay");
+    for(std::size_t i=0;i<vflux.size();++i)
+        near(result.v_diffusion_flux_kg[i],vflux[i],1e-14,
+             "V cumulative diffusion ledger replay");
+    for(std::size_t i=0;i<wflux.size();++i)
+        near(result.w_diffusion_flux_kg[i],wflux[i],1e-14,
+             "W cumulative diffusion ledger replay");
+    rejects([&]{Diff::step_diffusion_subcycled_anisotropic(
+        n,n,n,1.0,2.5,s.box,s.f,c,s.u,s.v,s.w,d,0.8,1);},
+        "insufficient diffusion subcycle budget rejected");
+    rejects([&]{Diff::step_diffusion_subcycled_anisotropic(
+        n,n,n,1.0,2.5,s.box,s.f,c,s.u,s.v,s.w,d,0.0,8);},
+        "zero diffusion CFL target rejected");
+    rejects([&]{Diff::step_diffusion_subcycled_anisotropic(
+        n,n,n,1.0,2.5,s.box,s.f,c,s.u,s.v,s.w,d,1.1,8);},
+        "diffusion CFL target greater than one rejected");
+    rejects([&]{Diff::step_diffusion_subcycled_anisotropic(
+        n,n,n,1.0,2.5,s.box,s.f,c,s.u,s.v,s.w,d,0.8,0);},
+        "zero diffusion subcycle budget rejected");
+    rejects([&]{Diff::step_diffusion_subcycled_anisotropic(
+        n,n,n,1.0,2.5,s.box,s.f,c,s.u,s.v,s.w,
+        {0.1,std::numeric_limits<double>::quiet_NaN(),0.1},0.8,8);},
+        "nonfinite anisotropic subcycle diffusivity rejected");
+    const auto zero=Diff::step_diffusion_subcycled_anisotropic(
+        n,n,n,1.0,2.5,s.box,s.f,c,s.u,s.v,s.w,{0,0,0});
+    check(zero.diffusion_substeps==1 &&
+          zero.concentration_after_kg_m3==c,
+          "zero diffusivity exactly preserves stationary tracer");
+    std::cout<<"VOF_TRACER_DIFFUSION_SUBCYCLE "<<n<<" "
+             <<result.diffusion_substeps<<" "<<std::setprecision(17)
+             <<result.concentration_after_kg_m3[s.id(1,1,1)]<<" "
+             <<result.tracer_after_kg<<" "<<result.max_diffusion_cfl<<" "
+             <<residual<<"\n";
+}
+void diffusion_subcycling_moving_and_fractional(int n) {
+    using Diff=upc::P2CutCellTracerDiffusion3D;
+    Setup moving(n);
+    std::vector<double> c(moving.f.size(),0.0);
+    for(std::size_t i=0;i<c.size();++i)
+        if(moving.f[i]>0.0)c[i]=0.2+0.001*i;
+    const std::array<double,3> d={0.02,0.03,0.01};
+    const auto legacy=Diff::step_anisotropic(
+        n,n,n,1.0,0.1,moving.box,moving.f,c,
+        moving.u,moving.v,moving.w,d);
+    const auto adaptive=Diff::step_diffusion_subcycled_anisotropic(
+        n,n,n,1.0,0.1,moving.box,moving.f,c,
+        moving.u,moving.v,moving.w,d);
+    check(adaptive.diffusion_substeps==1,
+          "low-CFL moving MAC requires only one diffusion substep");
+    for(std::size_t i=0;i<c.size();++i)
+        near(adaptive.concentration_after_kg_m3[i],
+             legacy.concentration_after_kg_m3[i],1e-13,
+             "nonzero MAC advection followed by one diffusion substep");
+    near(adaptive.tracer_after_kg,legacy.tracer_after_kg,1e-12,
+         "nonzero MAC tracer inventory parity");
+    Setup s(n);
+    std::fill(s.u.begin(),s.u.end(),0.0);
+    std::fill(s.v.begin(),s.v.end(),0.0);
+    std::fill(s.w.begin(),s.w.end(),0.0);
+    std::fill(s.f.begin(),s.f.end(),1.0);
+    const upc::P2Box3D partial_box{{3.2,3.2,3.2},{3.8,3.8,3.8}};
+    std::vector<double> initial(s.f.size(),0.0);
+    initial[s.id(3,3,3)]=1.0;
+    const auto r=Diff::step_diffusion_subcycled_anisotropic(
+        n,n,n,1.0,2.5,partial_box,s.f,initial,s.u,s.v,s.w,
+        {0.1,0.1,0.1},0.8,8);
+    check(r.diffusion_substeps>=2&&r.diffusion_substeps<=8,
+          "fractional cut-cell diffusion subcycling");
+    check(r.max_diffusion_cfl<=0.8+1e-12,
+          "fractional cut-cell per-substep CFL bound");
+    const auto geom=upc::P2MovingBoxFaceApertures3D::sample(
+        n,n,n,1.0,2.5,partial_box,partial_box);
+    const double initial_mass=geom.cell_geometry.alpha_old[s.id(3,3,3)];
+    near(r.tracer_after_kg,initial_mass,1e-12,
+         "fractional cut-cell dissolved mass conserved");
+    double residual=0;
+    for(int z=0;z<n;++z)
+    for(int y=0;y<n;++y)
+    for(int x=0;x<n;++x) {
+        const auto i=s.id(x,y,z);
+        const double expected=geom.cell_geometry.alpha_old[i]*initial[i]-
+            (r.u_diffusion_flux_kg[s.ui(x+1,y,z)]-
+             r.u_diffusion_flux_kg[s.ui(x,y,z)]+
+             r.v_diffusion_flux_kg[s.vi(x,y+1,z)]-
+             r.v_diffusion_flux_kg[s.vi(x,y,z)]+
+             r.w_diffusion_flux_kg[s.wi(x,y,z+1)]-
+             r.w_diffusion_flux_kg[s.wi(x,y,z)]);
+        const double actual=geom.cell_geometry.alpha_old[i]*
+            r.concentration_after_kg_m3[i];
+        residual=std::max(residual,std::abs(actual-expected));
+        near(actual,expected,1e-12,
+             "fractional cut-cell independent cumulative face balance");
+    }
+    std::cout<<"VOF_TRACER_DIFFUSION_SUBCYCLE_PARTIAL "<<n<<" "
+             <<r.diffusion_substeps<<" "<<std::setprecision(17)
+             <<initial_mass<<" "<<r.tracer_after_kg<<" "
+             <<r.max_diffusion_cfl<<" "<<residual<<"\n";
+}
 void diffusion_analytic_and_partial() {
     using Diff=upc::P2CutCellTracerDiffusion3D;
     Setup s(8);
@@ -1123,6 +1281,10 @@ int main() {
         diffusion_analytic_and_partial();
         anisotropic_diffusion_reference(8);
         anisotropic_diffusion_reference(12);
+        diffusion_subcycling_reference(8);
+        diffusion_subcycling_reference(12);
+        diffusion_subcycling_moving_and_fractional(8);
+        diffusion_subcycling_moving_and_fractional(12);
         negatives();
         std::cout<<"PASS: "<<assertions
                  <<" native static 3D cut-cell VOF assertions\n";

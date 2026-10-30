@@ -17,6 +17,7 @@ struct P2CutCellTracerDiffusionResult3D {
     std::vector<double> u_diffusion_flux_kg,v_diffusion_flux_kg,w_diffusion_flux_kg;
     double tracer_after_kg=0.0;
     double max_diffusion_cfl=0.0;
+    std::size_t diffusion_substeps=1;
 };
 class P2CutCellTracerDiffusion3D {
 public:
@@ -135,6 +136,75 @@ public:
         if(!std::isfinite(out.tracer_after_kg)||
            std::abs(out.tracer_after_kg-out.advected.tracer_after_kg)>tol)
             throw std::logic_error("Diffusive tracer mass not conserved");
+        return out;
+    }
+    // Conservative opt-in: one prescribed-MAC advection step followed by
+    // bounded explicit anisotropic diffusion on the resulting wet geometry.
+    // A conservative six-neighbor bound accounts for small cut-cell volumes.
+    // No moving geometry, momentum exchange or resolved interface physics.
+    static P2CutCellTracerDiffusionResult3D step_diffusion_subcycled_anisotropic(
+        std::size_t nx,std::size_t ny,std::size_t nz,double dx,double dt,
+        const P2Box3D& stationary_box,const std::vector<double>& fraction,
+        const std::vector<double>& concentration_kg_m3,
+        const std::vector<double>& u_m_s,const std::vector<double>& v_m_s,
+        const std::vector<double>& w_m_s,
+        const std::array<double,3>& diffusivity_axis_m2_s,
+        double target_diffusion_cfl=0.8,std::size_t max_substeps=1024) {
+        if(!std::isfinite(target_diffusion_cfl)||
+           target_diffusion_cfl<=0.0||target_diffusion_cfl>1.0||
+           max_substeps==0||max_substeps>1024)
+            throw std::invalid_argument("Invalid diffusion subcycle budget/CFL");
+        for(double d:diffusivity_axis_m2_s)
+            if(!std::isfinite(d)||d<0.0)
+                throw std::invalid_argument("Invalid axis tracer diffusivity");
+        auto out=step_anisotropic(nx,ny,nz,dx,dt,stationary_box,fraction,
+            concentration_kg_m3,u_m_s,v_m_s,w_m_s,{0.0,0.0,0.0});
+        if(diffusivity_axis_m2_s[0]==0.0&&diffusivity_axis_m2_s[1]==0.0&&
+           diffusivity_axis_m2_s[2]==0.0)return out;
+        const auto geom=P2MovingBoxFaceApertures3D::sample(
+            nx,ny,nz,dx,dt,stationary_box,stationary_box);
+        const auto& f=out.advected.water.fraction_after;
+        double min_wet_alpha=1.0;
+        for(std::size_t i=0;i<f.size();++i)
+            if(f[i]>0.0) {
+                const double alpha=geom.cell_geometry.alpha_old[i];
+                if(!std::isfinite(alpha)||alpha<=0.0)
+                    throw std::logic_error("Wet tracer in closed cut cell");
+                min_wet_alpha=std::min(min_wet_alpha,alpha);
+            }
+        // Since min(f_a,f_b)<=f_a and every face aperture<=1,
+        // local sum(g)/water <= 2*dt*sum(D)/(alpha*dx^2).
+        const double bound=2.0*dt*(diffusivity_axis_m2_s[0]+
+            diffusivity_axis_m2_s[1]+diffusivity_axis_m2_s[2])/
+            (min_wet_alpha*dx*dx);
+        const double needed=std::ceil(bound/target_diffusion_cfl);
+        if(!std::isfinite(needed)||needed>static_cast<double>(max_substeps))
+            throw std::invalid_argument("Diffusion subcycle budget exceeded");
+        const std::size_t steps=std::max<std::size_t>(
+            1,static_cast<std::size_t>(needed));
+        out.diffusion_substeps=steps;
+        const std::vector<double> zero_u(u_m_s.size(),0.0);
+        const std::vector<double> zero_v(v_m_s.size(),0.0);
+        const std::vector<double> zero_w(w_m_s.size(),0.0);
+        const double sub_dt=dt/static_cast<double>(steps);
+        for(std::size_t k=0;k<steps;++k) {
+            const auto part=step_anisotropic(nx,ny,nz,dx,sub_dt,
+                stationary_box,f,out.concentration_after_kg_m3,
+                zero_u,zero_v,zero_w,diffusivity_axis_m2_s);
+            for(std::size_t i=0;i<out.u_diffusion_flux_kg.size();++i)
+                out.u_diffusion_flux_kg[i]+=part.u_diffusion_flux_kg[i];
+            for(std::size_t i=0;i<out.v_diffusion_flux_kg.size();++i)
+                out.v_diffusion_flux_kg[i]+=part.v_diffusion_flux_kg[i];
+            for(std::size_t i=0;i<out.w_diffusion_flux_kg.size();++i)
+                out.w_diffusion_flux_kg[i]+=part.w_diffusion_flux_kg[i];
+            out.concentration_after_kg_m3=part.concentration_after_kg_m3;
+            out.tracer_after_kg=part.tracer_after_kg;
+            out.max_diffusion_cfl=std::max(out.max_diffusion_cfl,
+                                            part.max_diffusion_cfl);
+        }
+        const double tol=1e-10*std::max(1.0,out.advected.tracer_after_kg);
+        if(std::abs(out.tracer_after_kg-out.advected.tracer_after_kg)>tol)
+            throw std::logic_error("Subcycled diffusion mass not conserved");
         return out;
     }
 };

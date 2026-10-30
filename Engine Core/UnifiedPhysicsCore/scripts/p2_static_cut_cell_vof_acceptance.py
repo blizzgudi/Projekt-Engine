@@ -255,6 +255,43 @@ def main():
     check("anisotropic zero axes, scalar parity, and four negative cases",
           "VOF_TRACER_ANISOTROPIC 8 " in output and
           "VOF_TRACER_ANISOTROPIC 12 " in output)
+    subcycled_diffusion=re.findall(
+        r"^VOF_TRACER_DIFFUSION_SUBCYCLE (\d+) (\d+) ([\d.eE+-]+) "
+        r"([\d.eE+-]+) ([\d.eE+-]+) ([\d.eE+-]+)$",
+        output,re.MULTILINE)
+    check("bounded anisotropic diffusion subcycles on both 3D grids",
+          len(subcycled_diffusion)==2,[r[0] for r in subcycled_diffusion])
+    for row in subcycled_diffusion:
+        n,k=int(row[0]),int(row[1])
+        center,mass,cfl,residual=map(float,row[2:])
+        check(f"{n} cubed automatic two-step diffusion",n in (8,12) and k==2)
+        check(f"{n} cubed independent two-step 3D pulse center",
+              abs(center-0.15625)<1e-13,center)
+        check(f"{n} cubed subcycled tracer mass conservation",
+              abs(mass-1.0)<1e-12,mass)
+        check(f"{n} cubed actual substep diffusion CFL",
+              0<cfl<=0.8+1e-12 and abs(cfl-0.75)<1e-12,cfl)
+        check(f"{n} cubed independent cumulative diffusion face balance",
+              math.isfinite(residual) and residual<1e-12,residual)
+    subcycled_partial=re.findall(
+        r"^VOF_TRACER_DIFFUSION_SUBCYCLE_PARTIAL (\d+) (\d+) "
+        r"([\d.eE+-]+) ([\d.eE+-]+) ([\d.eE+-]+) ([\d.eE+-]+)$",
+        output,re.MULTILINE)
+    check("fractional cut-cell diffusion subcycles on both 3D grids",
+          len(subcycled_partial)==2,[r[0] for r in subcycled_partial])
+    for row in subcycled_partial:
+        n,k=int(row[0]),int(row[1])
+        before,after,cfl,residual=map(float,row[2:])
+        check(f"{n} cubed fractional diffusion subcycle count",
+              n in (8,12) and k==3,k)
+        check(f"{n} cubed fractional initial solute volume",
+              abs(before-0.784)<1e-12,before)
+        check(f"{n} cubed fractional subcycled mass conservation",
+              abs(after-before)<1e-12,(before,after))
+        check(f"{n} cubed fractional per-substep CFL",
+              0<cfl<=0.8+1e-12,cfl)
+        check(f"{n} cubed fractional independent cellwise ledger",
+              math.isfinite(residual) and residual<1e-12,residual)
     hashes={name:sha(CORE/name) for name in SOURCES}
     report={
         "phase":"P2","milestone":"static_cut_cell_3d_donor_vof_partial",
@@ -268,6 +305,7 @@ def main():
             "bounded geometric CFL subcycling of water and passive tracer on prescribed fields, not adaptive CFD",
             "explicit Fick-type tracer diffusion uses approximate wetted cut-cell apertures, not measured interfacial physics",
             "diagonal grid-aligned anisotropic diffusivity only; no cross-tensor terms or measured soil calibration",
+            "opt-in conservative diffusion-only CFL subcycling after one prescribed-MAC advection, not fully coupled time integration",
             "no pressure/impulse time integration or moving-solid counterreaction",
             "no global physical FSI energy/momentum conservation",
             "no external measured 3D CFD or new Unreal 5.8 Native-E2E",

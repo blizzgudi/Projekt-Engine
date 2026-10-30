@@ -132,3 +132,30 @@ P2 und P3-P8 bleiben PARTIAL.
   gitterachsenorientiert. Kein voller Diffusionstensor, keine
   experimentelle Bodenanisotropie oder Zwei-Phasen-Kalibrierung.
   **P2-P8 bleiben PARTIAL; ALL_COMPLETE=False.**
+
+
+## 30.10.2026: konservatives Diffusions-CFL-Subcycling (Teilabnahme)
+
+- Opt-in P2CutCellTracerDiffusion3D::step_diffusion_subcycled_anisotropic:
+  genau ein vorgeschriebener 3D-MAC-Advektionsschritt, danach begrenzte
+  explizite Diffusions-Teilsteps auf der resultierenden stationaeren
+  Wasser-/Cut-Cell-Geometrie. Diagonal anisotrope Koeffizienten bleiben
+  moeglich. Der konservative CFL-Oberwert beruecksichtigt das kleinste
+  benetzte Cut-Cell-Volumen; maximal 1024 Teilsteps, Standardziel 0.8.
+- Native MSVC Release: 87/87 CTest-Suites; 270388 Assertions im betroffenen
+  Test. 8^3/12^3 mit analytischer zweistufiger 3D-Pulsreferenz:
+  Zentrum 0.15625 kg, Gesamtmasse 1 kg, 2 Schritte, CFL 0.75,
+  zellweises Ledger-Residuum 0 kg. Manuelles Replay und U/V/W-Fluxledger
+  stimmen ueberein; Grenzwerte und unzureichendes Budget werden abgelehnt.
+- Fraktionale Cut-Cells mit 0.784 m3 Anfangsvolumen: 3 Teilsteps,
+  0.6377551020408162 maximale lokale CFL, erhaltene 0.784 kg Stoffmasse,
+  maximale zellweise Bilanzabweichung 1.6653345369377348e-16 kg.
+  Einfache 3D-MAC-Advektion bei niedriger CFL wird separat mit dem
+  bisherigen Advektions-/Diffusionsoperator verglichen.
+- Maschinenlesbare quantitative Teilabnahme mit Quell- und CTest-Hashes:
+  scripts/p2_static_cut_cell_vof_acceptance.py,
+  ENGINE TEST STUBE/runs/p2_static_cut_cell_vof_partial.json.
+- **P2-P8 PARTIAL, ALL_COMPLETE=False.** Das ist konservatives numerisches
+  Stoff-Diffusionssubcycling nach einem Wasser-Advektionsschritt, kein
+  gemeinsames physikalisches Fluid-/Boden-/Thermal-/FSI-Zeitintegrationsmodell,
+  keine externen 3D-Messdaten und keine UE5.8-Native-E2E-Abnahme.
