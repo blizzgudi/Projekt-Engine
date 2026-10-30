@@ -1275,3 +1275,20 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
 - step_passive_tracer_sequence_adaptive koppelt den konservativen passiven Stofftransport an jeden echten MAC-VOF-CFL-Teilstep statt an nur aufsummierte Face-Wasserfluesse. Zeitlich variable vorgeschriebene U/V/W-Felder und fraktionale stationaere Cut-Cells getestet.
 - MSVC Release 87/87 CTest, 239230 native Assertions; 8^3/12^3 mit je sechs Teilsteps, manuelle Wasser-/Stoff-/Face-Ledger-Referenz und sechs Negativtests. Quell- und CTest-SHA im JSON-Teilgate. Details: docs/P2_STATIC_CUT_CELL_VOF_PARTIAL.md.
 - **P2-P8 bleiben PARTIAL, ALL_COMPLETE=False.** Keine echte Navier-Stokes-/FSI-Gegenreaktion, keine physikalische Gesamtenergie-/Impulserhaltung, keine externe 3D-CFD-Messvalidierung und kein UE5.8-Native-E2E dieses Pfades.
+
+
+## P2 Teilfortschritt: signiertes 3D-Tracer-Face-Ledger (30.10.2026)
+
+- P2StaticCutCellVof3D gibt jetzt pro U/V/W-MAC-Face die tatsaechlich
+  transportierte signierte passive Stoffmasse [kg] aus. Adaptive Zeitfolgen
+  akkumulieren diese Massentransfers aus jedem aktualisierten Donorzustand.
+- Native Tests: 8^3 und 12^3, sechs adaptive Schritte mit wechselnden
+  vorgeschriebenen Geschwindigkeiten, Vergleich mit separatem Replay,
+  zellweise Finite-Volumen-Bilanz aus kumulierten Face-Massen,
+  geschlossene Randflaechen und analytische 0.06-kg-Referenz.
+  CTest/JSON/Quellhash-Nachweis: scripts/p2_static_cut_cell_vof_acceptance.py.
+- **P2-P8 PARTIAL; ALL_COMPLETE=False.** Nur passiver Stofftransport
+  bei stationaerer Geometrie und externen MAC-Geschwindigkeiten;
+  keine dynamische Fluid-Festkoerper-Gegenreaktion, globale physikalische
+  Impuls-/Energiebilanz, externe 3D-CFD-Messvalidierung oder neuer
+  UE5.8-Native-E2E fuer diesen Pfad.

@@ -67,3 +67,22 @@
 - Native 8^3/12^3: vier ungleich lange Zeitscheiben, je sechs tatsaechliche Teilsteps, separat geplante manuelle Einzelschritt-Referenz inklusive Wasser-, Konzentrations- und kumulativer Face-Flux-Paritaet. 8^3 verwendet fraktionale 3D-Cut-Cells. Sechs negative Eingabefaelle und Einzelschritt-Paritaet. Gemessene Wasserinventare 129.3984 / 544.08 m^3, geloeste Stoffinventare 67.6088832 / 355.1616 kg; zellweises Paritaetsresiduum 0.
 - MSVC Release und 87/87 native CTest-Suites PASS, 239230 Assertions im betroffenen Native-Test. JSON-/Quell-/CTest-Hash-Gate: scripts/p2_static_cut_cell_vof_acceptance.py und ENGINE TEST STUBE/runs/p2_static_cut_cell_vof_partial.json.
 - **P2-P8 PARTIAL, ALL_COMPLETE=False.** Weiterhin stationaere Geometrie, extern vorgeschriebene MAC-Geschwindigkeiten und passiver Stoff ohne Diffusion, Chemie oder Waerme. Keine dynamische Druck-/Impulsintegration, physikalische FSI-Gegenreaktion, externe 3D-CFD-Messreferenz oder UE5.8-Native-E2E fuer diesen Pfad.
+
+
+## Signierte passive Stoff-Face-Fluesse (30.10.2026)
+
+Die opt-in-Tracer-Ergebnisse enthalten jetzt u_tracer_flux_kg,
+v_tracer_flux_kg, w_tracer_flux_kg. Jede Komponente ist der signierte
+tatsaechliche Stoffmassentransfer ueber dieselbe U/V/W-Face wie der
+VOF-Wasserfluss. Die adaptive Sequenz summiert die **jeweils neu berechneten**
+Donor-Massentransfers, nicht eine Endkonzentration mal kumulierten Wasserfluss.
+
+Die native Referenzpruefung rekonstruiert die Endmasse jeder 3D-Zelle aus
+Anfangsmasse und Divergenz der kumulierten Face-Stoffmassen. Bei 8^3 und
+12^3 sowie je sechs adaptiven Schritten liegt das maximale absolute
+zellweise Residuum bei 2.0816681711721685e-17 kg; der maximale aeussere
+Randfluss ist 0 kg. Zusaetzlich wurden die drei Face-Arrays gegen ein
+separates Einzelschritt-Replay geprueft. Analytischer positiver U-Transport:
+0.06 kg. Das ist eine diskrete Transportbilanz, keine Validierung einer
+chemischen Reaktion, Navier-Stokes-Dynamik oder Fluid-Festkoerper-Impulsbilanz.
+P2 und P3-P8 bleiben PARTIAL.

@@ -464,9 +464,13 @@ void passive_tracer(int n) {
     const auto initial=Vof::step_passive_tracer(
         n,n,n,1.0,0.1,s.box,s.f,c,s.u,s.v,s.w);
     const auto plain=s.run(s.f);
+    check(initial.u_tracer_flux_kg.size()==s.u.size()&&
+          initial.v_tracer_flux_kg.size()==s.v.size()&&
+          initial.w_tracer_flux_kg.size()==s.w.size(),
+          "solute ledger matches 3D MAC face topology");
     check(initial.water.fraction_after==plain.fraction_after,
           "tracer opt-in does not change water step");
-    double error=0.0;
+    double error=0.0,ledger_error=0.0;
     const auto transported=[&](double q,std::size_t a,std::size_t b) {
         return q*(q>=0?c[a]:c[b]);
     };
@@ -487,13 +491,27 @@ void passive_tracer(int n) {
             r.w_water_flux_m3[s.wi(x,y,z+1)],i,s.id(x,y,z+1)):0;
         const double bottom=z>0?transported(
             r.w_water_flux_m3[s.wi(x,y,z)],s.id(x,y,z-1),i):0;
+        const auto& tr=initial;
+        const double te=x+1<n?tr.u_tracer_flux_kg[s.ui(x+1,y,z)]:0;
+        const double tw=x>0?tr.u_tracer_flux_kg[s.ui(x,y,z)]:0;
+        const double tn=y+1<n?tr.v_tracer_flux_kg[s.vi(x,y+1,z)]:0;
+        const double ts=y>0?tr.v_tracer_flux_kg[s.vi(x,y,z)]:0;
+        const double tt=z+1<n?tr.w_tracer_flux_kg[s.wi(x,y,z+1)]:0;
+        const double tb=z>0?tr.w_tracer_flux_kg[s.wi(x,y,z)]:0;
+        ledger_error=std::max(ledger_error,std::abs(east-te));
+        ledger_error=std::max(ledger_error,std::abs(west-tw));
+        ledger_error=std::max(ledger_error,std::abs(north-tn));
+        ledger_error=std::max(ledger_error,std::abs(south-ts));
+        ledger_error=std::max(ledger_error,std::abs(top-tt));
+        ledger_error=std::max(ledger_error,std::abs(bottom-tb));
         const double expected=s.f[i]*c[i]-
-            (east-west+north-south+top-bottom);
+            (te-tw+tn-ts+tt-tb);
         const double actual=r.fraction_after[i]*
             initial.concentration_after_kg_m3[i];
         error=std::max(error,std::abs(actual-expected));
         near(actual,expected,1e-12,"independent solute face balance");
     }
+    near(ledger_error,0.0,1e-14,"independent signed tracer ledger reference");
     const double mass=initial.tracer_before_kg;
     for(int t=0;t<40;++t) {
         auto next=Vof::step_passive_tracer(
@@ -528,6 +546,8 @@ void passive_tracer(int n) {
              "analytic donor concentration");
         near(r.concentration_after_kg_m3[analytic.id(1,0,1)],3.0,1e-14,
              "analytic receiving concentration");
+        near(r.u_tracer_flux_kg[analytic.ui(1,0,1)],
+             0.06,1e-14,"analytic signed U-face solute mass");
         near(r.water.u_water_flux_m3[analytic.ui(1,0,1)]*3.0,
              0.06,1e-14,"analytic transported tracer mass");
         std::cout<<"VOF_TRACER_ANALYTIC 1.5 0.06 3\n";
@@ -604,6 +624,8 @@ void adaptive_passive_tracer(int n) {
     auto f=s.f,c=initial_c;
     std::vector<double> lu(s.u.size(),0.0),lv(s.v.size(),0.0),
                         lw(s.w.size(),0.0);
+    std::vector<double> tu(s.u.size(),0.0),tv(s.v.size(),0.0),
+                        tw(s.w.size(),0.0);
     std::size_t steps=0;
     double initial_mass=0.0,initial_water=0.0;
     for(std::size_t k=0;k<durations.size();++k) {
@@ -629,6 +651,12 @@ void adaptive_passive_tracer(int n) {
                 lv[i]+=r.water.v_water_flux_m3[i];
             for(std::size_t i=0;i<lw.size();++i)
                 lw[i]+=r.water.w_water_flux_m3[i];
+            for(std::size_t i=0;i<tu.size();++i)
+                tu[i]+=r.u_tracer_flux_kg[i];
+            for(std::size_t i=0;i<tv.size();++i)
+                tv[i]+=r.v_tracer_flux_kg[i];
+            for(std::size_t i=0;i<tw.size();++i)
+                tw[i]+=r.w_tracer_flux_kg[i];
             f=std::move(r.water.fraction_after);
             c=std::move(r.concentration_after_kg_m3);
         }
@@ -659,6 +687,42 @@ void adaptive_passive_tracer(int n) {
         error=std::max(error,std::abs(lv[i]-actual.water.v_water_flux_m3[i]));
     for(std::size_t i=0;i<lw.size();++i)
         error=std::max(error,std::abs(lw[i]-actual.water.w_water_flux_m3[i]));
+    for(std::size_t i=0;i<tu.size();++i)
+        error=std::max(error,std::abs(tu[i]-actual.u_tracer_flux_kg[i]));
+    for(std::size_t i=0;i<tv.size();++i)
+        error=std::max(error,std::abs(tv[i]-actual.v_tracer_flux_kg[i]));
+    for(std::size_t i=0;i<tw.size();++i)
+        error=std::max(error,std::abs(tw[i]-actual.w_tracer_flux_kg[i]));
+    // A telescoping signed-face ledger must reconstruct the FINAL
+    // solute inventory from the INITIAL state, even across changing donors.
+    const auto geom=upc::P2MovingBoxFaceApertures3D::sample(
+        n,n,n,1.0,0.1,s.box,s.box);
+    double cell_error=0.0,outer=0.0;
+    for(int z=0;z<n;++z)
+    for(int y=0;y<n;++y)
+    for(int x=0;x<n;++x) {
+        const auto i=s.id(x,y,z);
+        const double east=actual.u_tracer_flux_kg[s.ui(x+1,y,z)];
+        const double west=actual.u_tracer_flux_kg[s.ui(x,y,z)];
+        const double north=actual.v_tracer_flux_kg[s.vi(x,y+1,z)];
+        const double south=actual.v_tracer_flux_kg[s.vi(x,y,z)];
+        const double top=actual.w_tracer_flux_kg[s.wi(x,y,z+1)];
+        const double bottom=actual.w_tracer_flux_kg[s.wi(x,y,z)];
+        const double vol=geom.cell_geometry.alpha_old[i];
+        const double expected=vol*s.f[i]*initial_c[i]-
+            (east-west+north-south+top-bottom);
+        const double observed=vol*actual.water.fraction_after[i]*
+            actual.concentration_after_kg_m3[i];
+        cell_error=std::max(cell_error,std::abs(expected-observed));
+        near(observed,expected,1e-11,"adaptive cumulative local tracer balance");
+        if(x==0)outer=std::max(outer,std::abs(west));
+        if(x==n-1)outer=std::max(outer,std::abs(east));
+        if(y==0)outer=std::max(outer,std::abs(south));
+        if(y==n-1)outer=std::max(outer,std::abs(north));
+        if(z==0)outer=std::max(outer,std::abs(bottom));
+        if(z==n-1)outer=std::max(outer,std::abs(top));
+    }
+    near(outer,0.0,0.0,"sealed outer tracer faces");
     check(difference>1e-5,"adaptive tracer physically moves in 3D");
     near(error,0.0,1e-13,"adaptive tracer matches independent one-step replay");
     near(actual.tracer_before_kg,initial_mass,1e-10,
@@ -716,6 +780,8 @@ void adaptive_passive_tracer(int n) {
             "non-solenoidal later tracer field rejected");
         std::cout<<"VOF_TRACER_ADAPTIVE_NEGATIVE 6\n";
     }
+    std::cout<<"VOF_TRACER_FACE_LEDGER "<<n<<" "<<steps<<" "
+             <<std::setprecision(17)<<cell_error<<" "<<outer<<"\n";
     std::cout<<"VOF_TRACER_ADAPTIVE "<<n<<" "<<steps<<" "
              <<std::setprecision(17)<<actual.tracer_before_kg<<" "
              <<actual.tracer_after_kg<<" "<<actual.water.water_before_m3

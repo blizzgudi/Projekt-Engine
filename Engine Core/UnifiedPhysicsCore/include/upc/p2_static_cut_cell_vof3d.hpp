@@ -30,6 +30,9 @@ struct P2StaticCutCellTracerResult3D {
     std::vector<double> concentration_after_kg_m3;
     double tracer_before_kg=0.0;
     double tracer_after_kg=0.0;
+    // Signed solute mass through positive U/V/W faces [kg].
+    // In adaptive runs these are sums of actual evolving-donor substeps.
+    std::vector<double> u_tracer_flux_kg,v_tracer_flux_kg,w_tracer_flux_kg;
 };
 class P2StaticCutCellVof3D {
     // Accumulate signed water volumes across every face, not only total mass.
@@ -50,6 +53,23 @@ class P2StaticCutCellVof3D {
         add(total.u_water_flux_m3,next.u_water_flux_m3);
         add(total.v_water_flux_m3,next.v_water_flux_m3);
         add(total.w_water_flux_m3,next.w_water_flux_m3);
+    }
+    static void add_tracer_fluxes(P2StaticCutCellTracerResult3D& total,
+                                  const P2StaticCutCellTracerResult3D& next) {
+        const auto add=[](std::vector<double>& dst,
+                          const std::vector<double>& src) {
+            if(dst.empty())dst.assign(src.size(),0.0);
+            if(dst.size()!=src.size())
+                throw std::logic_error("Incompatible tracer face flux ledger");
+            for(std::size_t i=0;i<src.size();++i) {
+                dst[i]+=src[i];
+                if(!std::isfinite(dst[i]))
+                    throw std::logic_error("Nonfinite cumulative tracer flux");
+            }
+        };
+        add(total.u_tracer_flux_kg,next.u_tracer_flux_kg);
+        add(total.v_tracer_flux_kg,next.v_tracer_flux_kg);
+        add(total.w_tracer_flux_kg,next.w_tracer_flux_kg);
     }
 public:
     static P2StaticCutCellVofResult3D step(
@@ -190,8 +210,11 @@ public:
         const auto id=[&](std::size_t x,std::size_t y,std::size_t z) {
             return (z*ny+y)*nx+x;
         };
+        out.u_tracer_flux_kg.assign(out.water.u_water_flux_m3.size(),0.0);
+        out.v_tracer_flux_kg.assign(out.water.v_water_flux_m3.size(),0.0);
+        out.w_tracer_flux_kg.assign(out.water.w_water_flux_m3.size(),0.0);
         const auto transfer=[&](double water,std::size_t a,std::size_t b) {
-            if(water==0.0)return;
+            if(water==0.0)return 0.0;
             const double solute=water*(water>=0?
                                       concentration_kg_m3[a]:
                                       concentration_kg_m3[b]);
@@ -199,27 +222,28 @@ public:
                 throw std::invalid_argument("Nonfinite transported tracer");
             inventory[a]-=solute;
             inventory[b]+=solute;
+            return solute;
         };
         std::size_t face=0;
         for(std::size_t z=0;z<nz;++z)
         for(std::size_t y=0;y<ny;++y)
         for(std::size_t x=0;x<=nx;++x,++face)
             if(x>0&&x<nx)
-                transfer(out.water.u_water_flux_m3[face],
+                out.u_tracer_flux_kg[face]=transfer(out.water.u_water_flux_m3[face],
                          id(x-1,y,z),id(x,y,z));
         face=0;
         for(std::size_t z=0;z<nz;++z)
         for(std::size_t y=0;y<=ny;++y)
         for(std::size_t x=0;x<nx;++x,++face)
             if(y>0&&y<ny)
-                transfer(out.water.v_water_flux_m3[face],
+                out.v_tracer_flux_kg[face]=transfer(out.water.v_water_flux_m3[face],
                          id(x,y-1,z),id(x,y,z));
         face=0;
         for(std::size_t z=0;z<=nz;++z)
         for(std::size_t y=0;y<ny;++y)
         for(std::size_t x=0;x<nx;++x,++face)
             if(z>0&&z<nz)
-                transfer(out.water.w_water_flux_m3[face],
+                out.w_tracer_flux_kg[face]=transfer(out.water.w_water_flux_m3[face],
                          id(x,y,z-1),id(x,y,z));
         out.concentration_after_kg_m3.assign(n,0.0);
         const double tolerance=1e-11*std::max(1.0,out.tracer_before_kg);
@@ -303,6 +327,7 @@ public:
                 total.water.water_after_m3=next.water.water_after_m3;
                 total.tracer_after_kg=next.tracer_after_kg;
                 add_water_fluxes(total.water,next.water);
+                add_tracer_fluxes(total,next);
                 total.water.max_donor_cfl=std::max(
                     total.water.max_donor_cfl,next.water.max_donor_cfl);
                 total.water.max_cell_volume_divergence_m3=std::max(

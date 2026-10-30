@@ -4,7 +4,7 @@
   "partial_accepted": true,
   "phase_complete": false,
   "ctest_suites": 87,
-  "native_assertions": 239230,
+  "native_assertions": 241477,
   "checks": [
     {
       "name": "87/87 full native CTest suites",
@@ -19,7 +19,7 @@
     {
       "name": "native assertions >= 90000",
       "pass": true,
-      "detail": 239230
+      "detail": 241477
     },
     {
       "name": "two grid sizes",
@@ -484,6 +484,60 @@
       "detail": 0.0
     },
     {
+      "name": "signed cumulative solute ledger on both 3D grids",
+      "pass": true,
+      "detail": [
+        [
+          "8",
+          "6",
+          "2.0816681711721685e-17",
+          "0"
+        ],
+        [
+          "12",
+          "6",
+          "2.0816681711721685e-17",
+          "0"
+        ]
+      ]
+    },
+    {
+      "name": "8 cubed tracer ledger spans six adaptive substeps",
+      "pass": true,
+      "detail": [
+        8,
+        6
+      ]
+    },
+    {
+      "name": "8 cubed independently closed local tracer inventory",
+      "pass": true,
+      "detail": 2.0816681711721685e-17
+    },
+    {
+      "name": "8 cubed no tracer escapes sealed boundaries",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
+      "name": "12 cubed tracer ledger spans six adaptive substeps",
+      "pass": true,
+      "detail": [
+        12,
+        6
+      ]
+    },
+    {
+      "name": "12 cubed independently closed local tracer inventory",
+      "pass": true,
+      "detail": 2.0816681711721685e-17
+    },
+    {
+      "name": "12 cubed no tracer escapes sealed boundaries",
+      "pass": true,
+      "detail": 0.0
+    },
+    {
       "name": "six invalid adaptive tracer inputs rejected",
       "pass": true,
       "detail": null
@@ -496,16 +550,16 @@
   ],
   "source_sha256": {
     "CMakeLists.txt": "3bafa076a16a2405214fcf378271d64585cf73a5dd44912d6040054beca9f59c",
-    "docs/PHASENPLAN.md": "3e734181eec2f3ecce0395aedfa86445a10ac3b50eef3e733e9b3230dc74b0e6",
-    "docs/P2_STATIC_CUT_CELL_VOF_PARTIAL.md": "6cc0bea5fcda0a2f65b12798ed863c68d0d960e1873cd031252d7c5174a63a78",
-    "include/upc/p2_static_cut_cell_vof3d.hpp": "5830cca3bd59ea74351686a6ddfc04636c976e6727652f13608cf6871e990616",
+    "docs/PHASENPLAN.md": "d81005758117224f75c42fd85940e45173f496fef52e7a5ee6d2e7e8025887b5",
+    "docs/P2_STATIC_CUT_CELL_VOF_PARTIAL.md": "8ab4722c5ee6d07ae8f538347f5a9ce631a860f4dd5fba0d90f53fe4a063bdd7",
+    "include/upc/p2_static_cut_cell_vof3d.hpp": "303a96b04d72e405d0eaf2c0ca40b2317cbfc2f20b85727fb241dc24ce52727f",
     "include/upc/p2_moving_box_mac_apertures3d.hpp": "c5fbdae598166771f6a28359c31960178239d3a59e0ccbb60f89f47b38f29ad3",
     "include/upc/p2_moving_box_open_volume3d.hpp": "270ecc419fa312212e47dbcfbd7fa8f2b172fde153b6d66e19f226be5cbedbb2",
-    "tests/p2_static_cut_cell_vof3d_tests.cpp": "a478bbd9cda7e3978c683f37a36ef59eb11d91d96e930501a3568f2a8ed56e2d",
-    "scripts/p2_static_cut_cell_vof_acceptance.py": "24acd728aa4b8b125f4fe31f6352b7d2de77fd43fa020de5e768e0e0b4e9ac06",
+    "tests/p2_static_cut_cell_vof3d_tests.cpp": "55d4727f9902870eaf83f28edacfd86dc9bc0f7ea3dc4702a68618d25d0bb437",
+    "scripts/p2_static_cut_cell_vof_acceptance.py": "6c2d320728aa48e6a2c6ce4828b083ebdd55c8253b27c421dedbbd057c6152ea",
     "scripts/p2_static_cut_cell_vof_full_build.cmd": "73075d11a3e65c5ba16a8b77ae7bec36e31b7816746b17ec8740c90f336b2168"
   },
-  "ctest_log_sha256": "2f5c3bf7f7c1d1480674e1e6eee156c9f1c7b28c8a94751e223bde3feefa8d74",
+  "ctest_log_sha256": "a30242d302cbcb371951bee6fc78f81a78f8d9551b0812cda8f52ae70177418e",
   "limitations": [
     "prescribed solenoidal MAC velocity and stationary cut-cell geometry",
     "first-order diffusive donor-cell advection, no interface reconstruction",

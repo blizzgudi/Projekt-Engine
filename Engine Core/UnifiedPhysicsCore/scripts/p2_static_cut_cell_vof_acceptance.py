@@ -177,6 +177,20 @@ def main():
               abs(water_after-water_before)<1e-10)
         check(f"{n} cubed manual per-substep tracer/water/face-ledger parity",
               math.isfinite(error) and error<1e-12,error)
+    solute_ledger=re.findall(
+        r"^VOF_TRACER_FACE_LEDGER (\d+) (\d+) ([\d.eE+-]+) "
+        r"([\d.eE+-]+)$",output,re.MULTILINE)
+    check("signed cumulative solute ledger on both 3D grids",
+          len(solute_ledger)==2,solute_ledger)
+    for row in solute_ledger:
+        n,steps=int(row[0]),int(row[1])
+        residual,boundary=float(row[2]),float(row[3])
+        check(f"{n} cubed tracer ledger spans six adaptive substeps",
+              n in (8,12) and steps==6,(n,steps))
+        check(f"{n} cubed independently closed local tracer inventory",
+              math.isfinite(residual) and residual<1e-12,residual)
+        check(f"{n} cubed no tracer escapes sealed boundaries",
+              boundary==0.0,boundary)
     check("six invalid adaptive tracer inputs rejected",
           "VOF_TRACER_ADAPTIVE_NEGATIVE 6" in output)
     check("eight physical/numeric rejection tests",
