@@ -1915,3 +1915,24 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
 - Bitgleiche Referenz gegen die bestehende adaptive Einzelschritt-Implementierung sowie manuell sequenzierte 2-Intervall-Felder; unabhängige analytische periodische 3D-Quader-Netto-Translation und zeitlich variierendes diskret solenoidales MAC-Curl-Feld. Negative Fälle einschließlich zweitem nichtsolenoidalem Intervall und erschöpftem Gesamtbudget.
 - Reproduzierbare Native-Tests und quantitative Teilabnahme: `docs/P2_PLIC_TEMPORAL_SCHEDULE_PARTIAL.md`, `scripts/p2_plic_temporal_acceptance.py`, `ENGINE TEST STUBE/runs/p2_plic_temporal_partial.json`.
 - **P2–P8 INCOMPLETE; ALL_COMPLETE=False.** Vorgegebene Geschwindigkeiten sind kein Navier-Stokes-Update. Keine bewegte Zweiwege-FSI, unabhängige 3D-CFD-Messvalidierung, globale physikalische Energie-/Impulserhaltung oder neue UE5.8-Native-E2E-Abnahme.
+
+## P2 Teilfortschritt: periodische Viskositaet + nichtlinearer MAC/PLIC-Schritt (31.10.2026)
+
+- Neuer optionaler Adapter `p2_viscous_nonlinear_mac_plic3d.hpp`: explizite
+  periodische 3D-MAC-Viskositaet (7-Punkt-Stencil, alpha<=1/8, Subcycling),
+  anschliessend bestehende nichtlineare Impulsadvektion, Druckprojektion und
+  geometrisch konservativer passiver 3D-PLIC-Wassertransport. `nu=0` bleibt
+  bitgleich zum bisherigen Schritt; ungueltige Naehte/CFL-Budgets fail-closed.
+- Analytische diskrete Fourier-Scher-Eigenmode auf 8^3 und 12^3 mit 1/2
+  Viskositaets-Substeps: max. Fehler 1.39e-17; Face-Quadratsumme sinkt,
+  periodische Geschwindigkeitskomponentensummen bleiben erhalten.
+  Gemischter 12^3-Wasserblock wird tatsaechlich advehiert und die Wasserbilanz
+  schliesst. MSVC Release PASS, 106/106 CTest PASS, 11339 native Assertions,
+  25/25 quantitative Teilabnahmechecks PASS.
+- Nachweis: `docs/P2_VISCOUS_NONLINEAR_MAC_PLIC_PARTIAL.md`,
+  `scripts/p2_viscous_nonlinear_mac_plic_acceptance.py`,
+  `ENGINE TEST STUBE/runs/p2_viscous_nonlinear_mac_plic_partial.json`.
+- **P2-P8 INCOMPLETE; ALL_COMPLETE=False.** Konstante Dichte, periodische
+  Raender, passive VOF, keine spannungskonsistente freie Oberflaeche,
+  bewegte Zweiwege-FSI, gemessene 3D-CFD-Referenzen, globale physikalische
+  Energie-/Impulsbilanz oder neue UE5.8-Native-E2E-Abnahme.

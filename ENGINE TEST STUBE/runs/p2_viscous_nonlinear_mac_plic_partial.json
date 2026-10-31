@@ -1,0 +1,181 @@
+{
+  "phase": "P2",
+  "milestone": "viscous_periodic_nonlinear_mac_projection_plic_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "generated_utc": "2026-10-31T20:52:31.077904+00:00",
+  "native_assertions": 11339,
+  "checks": [
+    {
+      "name": "native_assertions",
+      "value": 11339,
+      "pass": true
+    },
+    {
+      "name": "native_no_failure",
+      "value": true,
+      "pass": true
+    },
+    {
+      "name": "msvc_compiled",
+      "value": "p2_viscous_nonlinear_mac_plic3d_tests.cpp",
+      "pass": true
+    },
+    {
+      "name": "ctest_regression_106",
+      "value": "Total Test time (real) =   4.67 sec",
+      "pass": true
+    },
+    {
+      "name": "zero_viscosity_bitwise_parity",
+      "value": true,
+      "pass": true
+    },
+    {
+      "name": "six_invalid_cases",
+      "value": true,
+      "pass": true
+    },
+    {
+      "name": "eigen_8_substeps",
+      "value": 1,
+      "pass": true
+    },
+    {
+      "name": "eigen_8_max_error",
+      "value": 6.938893903907228e-18,
+      "pass": true
+    },
+    {
+      "name": "eigen_8_initial_face_energy",
+      "value": 0.6144,
+      "pass": true
+    },
+    {
+      "name": "eigen_8_final_face_energy",
+      "value": 0.5954298340108952,
+      "pass": true
+    },
+    {
+      "name": "eigen_8_dissipation",
+      "value": -0.018970165989104726,
+      "pass": true
+    },
+    {
+      "name": "eigen_8_water_mass",
+      "value": 0.0,
+      "pass": true
+    },
+    {
+      "name": "eigen_8_divergence",
+      "value": 0.0,
+      "pass": true
+    },
+    {
+      "name": "eigen_12_substeps",
+      "value": 2,
+      "pass": true
+    },
+    {
+      "name": "eigen_12_max_error",
+      "value": 1.3877787807814457e-17,
+      "pass": true
+    },
+    {
+      "name": "eigen_12_initial_face_energy",
+      "value": 2.0736000000000105,
+      "pass": true
+    },
+    {
+      "name": "eigen_12_final_face_energy",
+      "value": 1.9588249492912622,
+      "pass": true
+    },
+    {
+      "name": "eigen_12_dissipation",
+      "value": -0.11477505070874838,
+      "pass": true
+    },
+    {
+      "name": "eigen_12_water_mass",
+      "value": 0.0,
+      "pass": true
+    },
+    {
+      "name": "eigen_12_divergence",
+      "value": 0.0,
+      "pass": true
+    },
+    {
+      "name": "two_eigen_resolutions",
+      "value": [
+        8,
+        12
+      ],
+      "pass": true
+    },
+    {
+      "name": "coupled_water_moved",
+      "value": 2.8799999999999972,
+      "pass": true
+    },
+    {
+      "name": "coupled_water_mass",
+      "value": 0.0,
+      "pass": true
+    },
+    {
+      "name": "coupled_pressure_divergence",
+      "value": 0.0,
+      "pass": true
+    },
+    {
+      "name": "ten_source_fingerprints",
+      "value": 10,
+      "pass": true
+    }
+  ],
+  "reference": [
+    {
+      "grid": 8,
+      "dt_s": 0.2,
+      "substeps": 1,
+      "independent_discrete_fourier_factor": 0.9765685424949238,
+      "measured_max_error": 6.938893903907228e-18,
+      "analytical_face_energy_before": 0.6144000000000001,
+      "analytical_face_energy_after": 0.5954298340108942
+    },
+    {
+      "grid": 12,
+      "dt_s": 0.8,
+      "substeps": 2,
+      "independent_discrete_fourier_factor": 0.9575876285372571,
+      "measured_max_error": 1.3877787807814457e-17,
+      "analytical_face_energy_before": 2.0736000000000003,
+      "analytical_face_energy_after": 1.9588249492912855
+    }
+  ],
+  "source_sha256": {
+    "include/upc/p2_viscous_nonlinear_mac_plic3d.hpp": "5cdac0f80651ee138aa3f4d7936f8990f2c82d978f617fa23c90794d5c4241f8",
+    "include/upc/p2_nonlinear_mac_plic3d.hpp": "0e5a45870efd5e8a4c5893cb1360e5680eee56f18467823979daef3a712c8fd3",
+    "include/upc/p2_periodic_mac_projection3d.hpp": "58073fb6a98ea88fe9f81e6dabb0c3d132f283e9346d1771a4818e5890ceb917",
+    "include/upc/p2_variable_mac_transport3d.hpp": "b0a82555c95656d1493dd33a3ae3c6bb0ca187a4a4d2846573d0da2c16ba5d73",
+    "include/upc/p2_plic_adaptive_subcycle3d.hpp": "f558c74807d4a85cefd79713b7240180a7b9f7b2464f1b4536b1f9ae90553416",
+    "include/upc/p2_plic_unsplit_mac3d.hpp": "9a494b13690a1ca40ea2f72bd6eb7e4ac5356d06b36fea788b799f09cafaac0a",
+    "tests/p2_viscous_nonlinear_mac_plic3d_tests.cpp": "6e4373ab6ecea43b93897c1e644279bb35585a8ece6803312e47845eb549e238",
+    "scripts/p2_viscous_nonlinear_mac_plic_build.cmd": "9557d6a1a4778971183cfd7a8ebdd63b875e74680fe8f9f12c5c6637636cf8e9",
+    "scripts/p2_viscous_nonlinear_mac_plic_acceptance.py": "aebfd00190be60a4678618fc13ed71b12b6ffe169e01e3e234205ba1695c6e2c",
+    "docs/P2_VISCOUS_NONLINEAR_MAC_PLIC_PARTIAL.md": "f44d6c13aa925a0e63c00ec464ea5a1abf8059f96d29ac57c61a39db5cdb00f7"
+  },
+  "native_binary_sha256": "e653c30aa5750fbe445ef57b718fcb1deee731f543c03b66b947a5e70ae39c1c",
+  "native_log_sha256": "c5f7122849eae33a56f621b2f4c72ac9f127467ede55942a4c238864262e8f1f",
+  "compile_log_sha256": "a8c94fcb44941fcb31f592a0b0001034b50312dea2521316e13ed045ec4b6ce1",
+  "ctest_log_sha256": "8df1d156b55ac88bc8af42b174b3cefc5be3f2b260fd70079dc870eb809ae204",
+  "limitations": [
+    "Periodic constant-density single-velocity model, passive water fraction",
+    "Explicit split viscosity, nonlinear predictor, pressure projection, PLIC",
+    "Face square-sum is a numerical proxy, not physical total energy",
+    "No moving-body FSI, free-surface stress or measured 3D CFD validation",
+    "No new Unreal 5.8 Native E2E; P2-P8 full acceptance incomplete"
+  ]
+}
