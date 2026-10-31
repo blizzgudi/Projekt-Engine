@@ -1822,3 +1822,19 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
   orientierten PLIC-Normalen, keine Live-VOF-Transportintegration,
   keine bewegte FSI, keine externe CFD-Messvalidierung oder neue
   Unreal-5.8-Native-E2E-Abnahme.
+
+## P2 Teilfortschritt: oblique PLIC-Momente (31.10.2026)
+
+- Neuer read-only Adapter `p2_oblique_plic_geometry3d` fuer beliebig
+  orientierte, **vorgegebene** planare Schnitte einer 3D-Wasserzelle:
+  biseziertes Zielvolumen, polygonales Clipping und exakte Tetraeder-
+  Volumen-, Schwerpunkt- und Traegheitsmomente inklusive Nebendiagonalen.
+- Unabhaengige analytische Tetraeder- und Dreiecksprisma-Referenzen,
+  sechs achsparallele Kreuzvergleiche und asymmetrische 8^3/12^3-Felder.
+  Nachweis: docs/P2_OBLIQUE_PLIC_GEOMETRY_PARTIAL.md,
+  scripts/p2_oblique_plic_acceptance.py und
+  ENGINE TEST STUBE/runs/p2_oblique_plic_partial.json.
+- **P2-P8 bleiben INCOMPLETE; ALL_COMPLETE=False.** Die Normale ist
+  vorgeschrieben, nicht rekonstruiert; keine Grenzflaechenadvektion,
+  bewegte Zweiwege-FSI, externe 3D-CFD-Messdaten, globale Energie-
+  /Impulsabnahme oder neues UE5.8 Native-E2E.

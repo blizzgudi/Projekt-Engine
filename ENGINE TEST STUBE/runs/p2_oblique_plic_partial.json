@@ -1,0 +1,225 @@
+{
+  "phase": "P2",
+  "milestone": "oblique_planar_vof_geometry_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "generated_utc": "2026-10-31T10:44:41.940764+00:00",
+  "checks": [
+    {
+      "name": "native_exit",
+      "value": 0,
+      "pass": true
+    },
+    {
+      "name": "native_assertions",
+      "value": 175,
+      "pass": true
+    },
+    {
+      "name": "all_ctest_99",
+      "value": true,
+      "pass": true
+    },
+    {
+      "name": "new_ctest_entry",
+      "value": true,
+      "pass": true
+    },
+    {
+      "name": "build_log",
+      "value": 193,
+      "pass": true
+    },
+    {
+      "name": "four_native_scenarios",
+      "value": 4,
+      "pass": true
+    },
+    {
+      "name": "exact_case_set",
+      "value": [
+        [
+          "tetra",
+          "1"
+        ],
+        [
+          "prism",
+          "1"
+        ],
+        [
+          "multi",
+          "8"
+        ],
+        [
+          "multi",
+          "12"
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "name": "tetra_1_finite",
+      "value": [
+        1.3333333333333333,
+        0.04999999999999913,
+        0.00399999999999986,
+        0.0006666666666666436
+      ],
+      "pass": true
+    },
+    {
+      "name": "tetra_1_mass",
+      "value": 1.3333333333333333,
+      "pass": true
+    },
+    {
+      "name": "tetra_1_centroid",
+      "value": 0.04999999999999913,
+      "pass": true
+    },
+    {
+      "name": "tetra_1_inertia_diag",
+      "value": 0.00399999999999986,
+      "pass": true
+    },
+    {
+      "name": "tetra_1_inertia_offdiag",
+      "value": 0.0006666666666666436,
+      "pass": true
+    },
+    {
+      "name": "prism_1_finite",
+      "value": [
+        4.0,
+        0.06666666666666667,
+        0.022222222222222227,
+        0.004444444444444442
+      ],
+      "pass": true
+    },
+    {
+      "name": "prism_1_mass",
+      "value": 4.0,
+      "pass": true
+    },
+    {
+      "name": "prism_1_centroid",
+      "value": 0.06666666666666667,
+      "pass": true
+    },
+    {
+      "name": "prism_1_inertia_diag",
+      "value": 0.022222222222222227,
+      "pass": true
+    },
+    {
+      "name": "prism_1_inertia_offdiag",
+      "value": 0.004444444444444442,
+      "pass": true
+    },
+    {
+      "name": "multi_8_finite",
+      "value": [
+        1.5044642857142856,
+        0.09874428347831729,
+        0.005557680704713356,
+        1.0839890713428696e-05
+      ],
+      "pass": true
+    },
+    {
+      "name": "multi_8_grid",
+      "value": 8,
+      "pass": true
+    },
+    {
+      "name": "multi_8_mass_positive",
+      "value": 1.5044642857142856,
+      "pass": true
+    },
+    {
+      "name": "multi_8_inertia_positive",
+      "value": 0.005557680704713356,
+      "pass": true
+    },
+    {
+      "name": "multi_12_finite",
+      "value": [
+        7.073660714285714,
+        0.1484043753358847,
+        0.07333913545587246,
+        0.0009362049424822272
+      ],
+      "pass": true
+    },
+    {
+      "name": "multi_12_grid",
+      "value": 12,
+      "pass": true
+    },
+    {
+      "name": "multi_12_mass_positive",
+      "value": 7.073660714285714,
+      "pass": true
+    },
+    {
+      "name": "multi_12_inertia_positive",
+      "value": 0.07333913545587246,
+      "pass": true
+    },
+    {
+      "name": "source_sha_count",
+      "value": 8,
+      "pass": true
+    }
+  ],
+  "native_assertions": 175,
+  "reference": [
+    {
+      "case": "tetra",
+      "grid": 1,
+      "mass_kg": 1.3333333333333333,
+      "com_x_m": 0.04999999999999913,
+      "Ixx_kg_m2": 0.00399999999999986,
+      "Ixy_kg_m2": 0.0006666666666666436
+    },
+    {
+      "case": "prism",
+      "grid": 1,
+      "mass_kg": 4.0,
+      "com_x_m": 0.06666666666666667,
+      "Ixx_kg_m2": 0.022222222222222227,
+      "Ixy_kg_m2": 0.004444444444444442
+    },
+    {
+      "case": "multi",
+      "grid": 8,
+      "mass_kg": 1.5044642857142856,
+      "com_x_m": 0.09874428347831729,
+      "Ixx_kg_m2": 0.005557680704713356,
+      "Ixy_kg_m2": 1.0839890713428696e-05
+    },
+    {
+      "case": "multi",
+      "grid": 12,
+      "mass_kg": 7.073660714285714,
+      "com_x_m": 0.1484043753358847,
+      "Ixx_kg_m2": 0.07333913545587246,
+      "Ixy_kg_m2": 0.0009362049424822272
+    }
+  ],
+  "source_sha256": {
+    "include/upc/p2_axis_plic_geometry3d.hpp": "dcf25fae082c8f9ee007f152db9ad8feef8d481a2faacb772eb29d9910408186",
+    "include/upc/p2_oblique_plic_geometry3d.hpp": "e548ca42557b5fa7bf6f752e9e122f64396690baa08a43fac7641f12e05d4627",
+    "tests/p2_oblique_plic_geometry3d_tests.cpp": "bdfe4a7a3fdb831fd05c341ecbef99e00f3a5cc4dd1d0cefe2a3b268f1ffa7c3",
+    "CMakeLists.txt": "94dbaffa96ad97f4cf064485fe52789345b46d37c599642cd76d39eda4611bac",
+    "scripts/p2_oblique_plic_full_build.cmd": "be8a117deb21accb8270cea4931ffe99730c520e817c412f1e0b0f81ef581369",
+    "scripts/p2_oblique_plic_acceptance.py": "2fc319d73bec0e9060103cda6be357ef0c732d2b006bb68da00b9c697fd4cabe",
+    "docs/P2_OBLIQUE_PLIC_GEOMETRY_PARTIAL.md": "c68163d5b19aa360cda76181898397c67f8a33061b6697cf3eb06eea0eff5eb3",
+    "docs/PHASENPLAN.md": "9011c75104aeb0a4da482095198169106cff941dd0dbbb052dd2429aa9715eb7"
+  },
+  "native_binary_sha256": "60881027514aec4451366b99dbe4b5da93f4ea72beffd34a765924657d6f6a0a",
+  "ctest_log_sha256": "a7d259180fb74bc2c1ab185a61b6e4ee6d7a8dd196574f55805f0fcc6c4c54bd",
+  "build_log_sha256": "44c365c6fd9525d439a8f072cd1703c6bfecc728534fcd9de336666206c7ad15",
+  "limitations": "Prescribed normals and one planar cut per cell; no PLIC normal reconstruction, conservative VOF advection, moving two-way FSI, independent measured 3D CFD or UE5.8 Native E2E."
+}

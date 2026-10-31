@@ -529,3 +529,9 @@ add_test(NAME physics_p2_vof_affine_spin_partial COMMAND upc_p2_vof_affine_spin_
 add_executable(upc_p2_axis_plic_geometry_tests tests/p2_axis_plic_geometry3d_tests.cpp)
 target_link_libraries(upc_p2_axis_plic_geometry_tests PRIVATE upc)
 add_test(NAME physics_p2_axis_plic_geometry_partial COMMAND upc_p2_axis_plic_geometry_tests)
+
+# P2 bounded: oblique planar cut-cell exact mass and inertia moments.
+# Prescribed normals only; no PLIC reconstruction, dynamics or FSI.
+add_executable(upc_p2_oblique_plic_geometry_tests tests/p2_oblique_plic_geometry3d_tests.cpp)
+target_link_libraries(upc_p2_oblique_plic_geometry_tests PRIVATE upc)
+add_test(NAME physics_p2_oblique_plic_geometry_partial COMMAND upc_p2_oblique_plic_geometry_tests)
