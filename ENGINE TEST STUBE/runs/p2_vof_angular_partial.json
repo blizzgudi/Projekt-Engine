@@ -3,7 +3,7 @@
   "milestone": "vof_angular_momentum_point_mass_inertia_partial",
   "partial_accepted": true,
   "phase_complete": false,
-  "generated_utc": "2026-10-31T06:47:53.504433+00:00",
+  "generated_utc": "2026-10-31T07:52:47.260877+00:00",
   "checks": [
     {
       "name": "native_exit",
@@ -407,11 +407,11 @@
     "include/upc/mac3d.hpp": "8e20bfc2e5367a9df7f8a412908c7f5fbe6b50c5a9f57a771127c83441187808",
     "include/upc/p2_vof_angular_inventory3d.hpp": "f1baf73bf7fdff72d41fa193da783b59df58e52b9396d847ee99c2b37d219b96",
     "tests/p2_vof_angular_inventory3d_tests.cpp": "62dfc9f9f8c44f768ca67421d508c92d37c7f489f92f699ebd0f4ceb2084470f",
-    "CMakeLists.txt": "fa1b357ef2280ec3a49895f86014241fade89d80c5bf78c22a77e9aca1ca82b9",
+    "CMakeLists.txt": "36c50a507abbc39327f7b3bc9d995c058029563f0920c9ea340ffdbc32adb3ee",
     "scripts/p2_vof_angular_full_build.cmd": "8eb160a840fdf0bd462d0a2a5aaf7f5624f06caf6144865e21b744fc3ceefbf4",
     "scripts/p2_vof_angular_acceptance.py": "2b552fed622adec2840908efa14cc97693106edc159318fbdc047dedbdb25342",
     "docs/P2_VOF_ANGULAR_INVENTORY_PARTIAL.md": "90361a9838574ee9ceeb65eac1a9056fef14b6d5d143e7d067575d66932566c7",
-    "docs/PHASENPLAN.md": "1dc1510d1fdd4f2f61d33d042ce016a7da638ece511b8c7f3a4383b3de95ac50"
+    "docs/PHASENPLAN.md": "3cd00234d6bf462e9e487a420ca4e38ec74d8bbf3e62fac12aa8e3b6c2bce086"
   },
   "native_binary_sha256": "235cedc682dbce183514e013741475a20dc1988a790298b92e5e3e02f2a058f6",
   "ctest_log_sha256": "894ac4ff0a23979c4920bd5d9a247699e0dd2e2441538eae3ebab5c0764b55e6",

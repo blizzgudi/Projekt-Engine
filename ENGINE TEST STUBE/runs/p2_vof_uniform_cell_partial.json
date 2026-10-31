@@ -1,0 +1,323 @@
+{
+  "phase": "P2",
+  "milestone": "uniform_cell_finite_volume_inertia_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "generated_utc": "2026-10-31T07:52:47.081811+00:00",
+  "checks": [
+    {
+      "name": "native_exit",
+      "value": 0,
+      "pass": true
+    },
+    {
+      "name": "native_assertions",
+      "value": 185,
+      "pass": true
+    },
+    {
+      "name": "all_96_ctest",
+      "value": true,
+      "pass": true
+    },
+    {
+      "name": "build_log",
+      "value": 23,
+      "pass": true
+    },
+    {
+      "name": "five_cases",
+      "value": 5,
+      "pass": true
+    },
+    {
+      "name": "asymmetric_8_finite",
+      "value": {
+        "mass": 1.0,
+        "Ixx": 0.03541666666666672,
+        "Ixy": -0.01687500000000003,
+        "point_Ixx": 0.03375000000000006,
+        "reference": 0.001666666666666667
+      },
+      "pass": true
+    },
+    {
+      "name": "asymmetric_8_grid",
+      "value": 8,
+      "pass": true
+    },
+    {
+      "name": "asymmetric_8_mass",
+      "value": 1.0,
+      "pass": true
+    },
+    {
+      "name": "asymmetric_8_inertia",
+      "value": 0.03541666666666672,
+      "pass": true
+    },
+    {
+      "name": "asymmetric_8_offdiag",
+      "value": -0.01687500000000003,
+      "pass": true
+    },
+    {
+      "name": "asymmetric_8_point",
+      "value": 0.03375000000000006,
+      "pass": true
+    },
+    {
+      "name": "asymmetric_12_finite",
+      "value": {
+        "mass": 1.0,
+        "Ixx": 0.03541666666666672,
+        "Ixy": -0.01687500000000003,
+        "point_Ixx": 0.03375000000000006,
+        "reference": 0.001666666666666667
+      },
+      "pass": true
+    },
+    {
+      "name": "asymmetric_12_grid",
+      "value": 12,
+      "pass": true
+    },
+    {
+      "name": "asymmetric_12_mass",
+      "value": 1.0,
+      "pass": true
+    },
+    {
+      "name": "asymmetric_12_inertia",
+      "value": 0.03541666666666672,
+      "pass": true
+    },
+    {
+      "name": "asymmetric_12_offdiag",
+      "value": -0.01687500000000003,
+      "pass": true
+    },
+    {
+      "name": "asymmetric_12_point",
+      "value": 0.03375000000000006,
+      "pass": true
+    },
+    {
+      "name": "cube_2_finite",
+      "value": {
+        "mass": 8.0,
+        "Ixx": 0.05333333333333337,
+        "Ixy": 0.0,
+        "point_Ixx": 0.040000000000000036,
+        "reference": 0.053333333333333344
+      },
+      "pass": true
+    },
+    {
+      "name": "cube_2_grid",
+      "value": 2,
+      "pass": true
+    },
+    {
+      "name": "cube_2_mass",
+      "value": 8.0,
+      "pass": true
+    },
+    {
+      "name": "cube_2_inertia",
+      "value": 0.05333333333333337,
+      "pass": true
+    },
+    {
+      "name": "cube_2_reference",
+      "value": 0.053333333333333344,
+      "pass": true
+    },
+    {
+      "name": "cube_2_offdiag",
+      "value": 0.0,
+      "pass": true
+    },
+    {
+      "name": "cube_2_point_lower",
+      "value": 0.040000000000000036,
+      "pass": true
+    },
+    {
+      "name": "cube_4_finite",
+      "value": {
+        "mass": 8.0,
+        "Ixx": 0.05333333333333335,
+        "Ixy": 0.0,
+        "point_Ixx": 0.05000000000000002,
+        "reference": 0.053333333333333344
+      },
+      "pass": true
+    },
+    {
+      "name": "cube_4_grid",
+      "value": 4,
+      "pass": true
+    },
+    {
+      "name": "cube_4_mass",
+      "value": 8.0,
+      "pass": true
+    },
+    {
+      "name": "cube_4_inertia",
+      "value": 0.05333333333333335,
+      "pass": true
+    },
+    {
+      "name": "cube_4_reference",
+      "value": 0.053333333333333344,
+      "pass": true
+    },
+    {
+      "name": "cube_4_offdiag",
+      "value": 0.0,
+      "pass": true
+    },
+    {
+      "name": "cube_4_point_lower",
+      "value": 0.05000000000000002,
+      "pass": true
+    },
+    {
+      "name": "cube_8_finite",
+      "value": {
+        "mass": 8.0,
+        "Ixx": 0.053333333333332796,
+        "Ixy": 3.608224830031759e-16,
+        "point_Ixx": 0.052499999999999464,
+        "reference": 0.053333333333333344
+      },
+      "pass": true
+    },
+    {
+      "name": "cube_8_grid",
+      "value": 8,
+      "pass": true
+    },
+    {
+      "name": "cube_8_mass",
+      "value": 8.0,
+      "pass": true
+    },
+    {
+      "name": "cube_8_inertia",
+      "value": 0.053333333333332796,
+      "pass": true
+    },
+    {
+      "name": "cube_8_reference",
+      "value": 0.053333333333333344,
+      "pass": true
+    },
+    {
+      "name": "cube_8_offdiag",
+      "value": 3.608224830031759e-16,
+      "pass": true
+    },
+    {
+      "name": "cube_8_point_lower",
+      "value": 0.052499999999999464,
+      "pass": true
+    },
+    {
+      "name": "exact_grid_set",
+      "value": [
+        [
+          "asymmetric",
+          8
+        ],
+        [
+          "asymmetric",
+          12
+        ],
+        [
+          "cube",
+          2
+        ],
+        [
+          "cube",
+          4
+        ],
+        [
+          "cube",
+          8
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "name": "source_hash_count",
+      "value": 9,
+      "pass": true
+    }
+  ],
+  "native_assertions": 185,
+  "reference": [
+    {
+      "case": "asymmetric",
+      "grid": 8,
+      "mass": 1.0,
+      "Ixx": 0.03541666666666672,
+      "Ixy": -0.01687500000000003,
+      "point_Ixx": 0.03375000000000006,
+      "reference": 0.001666666666666667
+    },
+    {
+      "case": "asymmetric",
+      "grid": 12,
+      "mass": 1.0,
+      "Ixx": 0.03541666666666672,
+      "Ixy": -0.01687500000000003,
+      "point_Ixx": 0.03375000000000006,
+      "reference": 0.001666666666666667
+    },
+    {
+      "case": "cube",
+      "grid": 2,
+      "mass": 8.0,
+      "Ixx": 0.05333333333333337,
+      "Ixy": 0.0,
+      "point_Ixx": 0.040000000000000036,
+      "reference": 0.053333333333333344
+    },
+    {
+      "case": "cube",
+      "grid": 4,
+      "mass": 8.0,
+      "Ixx": 0.05333333333333335,
+      "Ixy": 0.0,
+      "point_Ixx": 0.05000000000000002,
+      "reference": 0.053333333333333344
+    },
+    {
+      "case": "cube",
+      "grid": 8,
+      "mass": 8.0,
+      "Ixx": 0.053333333333332796,
+      "Ixy": 3.608224830031759e-16,
+      "point_Ixx": 0.052499999999999464,
+      "reference": 0.053333333333333344
+    }
+  ],
+  "source_sha256": {
+    "include/upc/mac3d.hpp": "8e20bfc2e5367a9df7f8a412908c7f5fbe6b50c5a9f57a771127c83441187808",
+    "include/upc/p2_vof_angular_inventory3d.hpp": "f1baf73bf7fdff72d41fa193da783b59df58e52b9396d847ee99c2b37d219b96",
+    "include/upc/p2_vof_uniform_cell_inertia3d.hpp": "41f14579f6493d4bb93fab78dc6ee4b2f3b5357d136500e617691193843d4b21",
+    "tests/p2_vof_uniform_cell_inertia3d_tests.cpp": "125549fad12ca7fd7827035ad210420d3bae9d43bf6f180688fb4c0a3e0ac926",
+    "CMakeLists.txt": "36c50a507abbc39327f7b3bc9d995c058029563f0920c9ea340ffdbc32adb3ee",
+    "scripts/p2_vof_uniform_cell_full_build.cmd": "8a73a993a6bf35b7aeea751a4115edbd4b664f6cb49ab425575f35e4482f0c9e",
+    "scripts/p2_vof_uniform_cell_acceptance.py": "8d601a51ba29ba0a7fd16c9e56543bfdb6beab361b7347b9b55aebe44038333c",
+    "docs/P2_VOF_UNIFORM_CELL_INERTIA_PARTIAL.md": "e670ae1083ce81f9a81b45fe2d58d50b5fc8f87b12dd5febaf7a91afcbb1ce34",
+    "docs/PHASENPLAN.md": "3cd00234d6bf462e9e487a420ca4e38ec74d8bbf3e62fac12aa8e3b6c2bce086"
+  },
+  "native_binary_sha256": "d2f44bfe215604e76a6fa2e40a69aad046f5ddafa7bb77bf68adf4eca9f9eff7",
+  "ctest_log_sha256": "59f657293d78c2f5ff4b6ac496f1565a1cc7c388aedd9ecdd3f3a497ea9e6dba",
+  "build_log_sha256": "71aa391ec7d7e291b419a7f40fba91919e14ac2394ab4e8b66ed126e267d70f6",
+  "limitations": "Uniform fractional occupancy within each voxel, not resolved subcell free surface. Read-only inertia diagnostic; no rotational fluid-solid impulse or energy coupling, external 3D CFD data or new UE5.8 Native-E2E."
+}

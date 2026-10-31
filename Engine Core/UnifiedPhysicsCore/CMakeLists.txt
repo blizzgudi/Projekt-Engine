@@ -513,3 +513,8 @@ add_test(NAME physics_p2_vof_mechanical_inventory_partial COMMAND upc_p2_vof_mec
 add_executable(upc_p2_vof_angular_inventory_tests tests/p2_vof_angular_inventory3d_tests.cpp)
 target_link_libraries(upc_p2_vof_angular_inventory_tests PRIVATE upc)
 add_test(NAME physics_p2_vof_angular_inventory_partial COMMAND upc_p2_vof_angular_inventory_tests)
+
+# P2 bounded: uniform finite-volume voxel inertia (not dynamic fluid-solid FSI).
+add_executable(upc_p2_vof_uniform_cell_inertia_tests tests/p2_vof_uniform_cell_inertia3d_tests.cpp)
+target_link_libraries(upc_p2_vof_uniform_cell_inertia_tests PRIVATE upc)
+add_test(NAME physics_p2_vof_uniform_cell_inertia_partial COMMAND upc_p2_vof_uniform_cell_inertia_tests)

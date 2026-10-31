@@ -1767,3 +1767,21 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
 - P2-P8 weiterhin INCOMPLETE; ALL_COMPLETE=False. Kein konservatives
   rotierendes Zweiwege-FSI, keine externe 3D-CFD-Messvalidierung,
   keine globale Impuls-/Energieerhaltung und kein UE5.8 Native-E2E.
+
+## P2 Teilfortschritt: gleichfoermige Voxel-Eigentraegheit (31.10.2026)
+
+- Neuer read-only `vof_uniform_cell_inertia3d`-Adapter: zu der
+  zellzentrierten Punktmassen-Traegheit kommt die exakte intrinsische
+  kubische Eigentraegheit M*dx^2/6 auf jeder Tensor-Diagonale hinzu.
+  Voraussetzung: uniformer Fuellgrad innerhalb jeder Zelle, keine
+  Rekonstruktion der tatsaechlichen partiellen Wasseroberflaeche.
+- Unabhaengige 2x2x2-Gauss-Volumenquadratur, zwei asymmetrische 8^3/12^3
+  Felder und ein geometrisch identischer 0,2-m-Wuerfel auf 2^3/4^3/8^3
+  Zellen; Schwerpunkt-/Ursprungstensoren und Negativfaelle.
+- Nachweis: docs/P2_VOF_UNIFORM_CELL_INERTIA_PARTIAL.md,
+  scripts/p2_vof_uniform_cell_acceptance.py,
+  ENGINE TEST STUBE/runs/p2_vof_uniform_cell_partial.json.
+- **P2-P8 bleiben INCOMPLETE; ALL_COMPLETE=False.** Keine echte
+  Unterzellen-VOF-Geometrie, keine rotierende Fluid-Festkoerper-
+  Impulsrueckwirkung, keine externen CFD-Messdaten und kein neuer
+  UE5.8-Native-E2E-Nachweis.
