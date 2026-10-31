@@ -205,7 +205,8 @@ class CoupledMacWater3D {
         for(const auto& transfer:transfer_report)
             transport_callback_(transfer);
     }
-    void substep(double dt,int pressure_iterations,bool verified=false,double tolerance=1e-8){
+    void substep(double dt,int pressure_iterations,bool verified=false,double tolerance=1e-8,
+                 bool reproject_after_transport=false){
         sync_occupancy();
         advect_velocity(dt);
         if(kinematic_viscosity_m2_s_>0){
@@ -275,6 +276,13 @@ class CoupledMacWater3D {
             last_projection_divergence_=mac_.max_divergence();
         }
         advect_fraction(dt);
+        // Optional second projection uses the NEW wet mask after VOF transport.
+        // The pre-transport pressure solve alone does not constrain newly wet cells.
+        if(reproject_after_transport){
+            sync_occupancy();
+            last_projection_divergence_=mac_.project_verified(
+                dt,pressure_iterations,tolerance);
+        }
     }
 public:
     CoupledMacWater3D(std::size_t nx,std::size_t ny,std::size_t nz,double dx,
@@ -315,6 +323,18 @@ public:
     }
     double mass_kg()const{return rho_*volume_m3();}
     double last_projection_divergence()const{return last_projection_divergence_;}
+    // Read-only diagnostic using CURRENT VOF occupancy, not the wet mask
+    // cached before transport by the original verified step.
+    double current_wet_divergence_s_inv()const{
+        MacProjection3D probe=mac_;
+        for(std::size_t z=0;z<nz_;++z)
+        for(std::size_t y=0;y<ny_;++y)
+        for(std::size_t x=0;x<nx_;++x){
+            const auto i=cell(x,y,z);
+            probe.set_cell(x,y,z,!solid_[i]&&fill_[i]>wet,solid_[i]!=0);
+        }
+        return probe.max_divergence();
+    }
     // Opt-in: nu=0 preserves the legacy inviscid MAC/VOF path exactly.
     // Positive nu requires a 3D grid with at least two cells per axis.
     // Stationary solids use approximate no-slip; free surface uses a
@@ -391,7 +411,8 @@ public:
                n*(sizeof(double)+sizeof(std::uint8_t)*2)+faces*sizeof(double);
     }
 private:
-    void step_impl(double seconds,int pressure_iterations,bool verified,double tolerance){
+    void step_impl(double seconds,int pressure_iterations,bool verified,double tolerance,
+                   bool reproject_after_transport=false){
         if(!std::isfinite(seconds)||seconds<=0||seconds>2 ||
            pressure_iterations<1||pressure_iterations>10000)
             throw std::invalid_argument("Invalid coupled step");
@@ -411,7 +432,7 @@ private:
             if(++substeps_>4000)throw std::runtime_error("Coupled solver substep cap");
             const double peak=max_velocity_sum();
             const double dt=std::min(remaining,peak>0?0.18*dx_/peak:remaining);
-            substep(dt,pressure_iterations,verified,tolerance);
+            substep(dt,pressure_iterations,verified,tolerance,reproject_after_transport);
             remaining-=dt;
         }
     }
@@ -436,6 +457,40 @@ public:
                 deferred.push_back(e);
             };
         candidate.step_impl(seconds,pressure_iterations,true,max_divergence_s_inv);
+        const double residual=candidate.last_projection_divergence_;
+        candidate.transport_callback_=transport_callback_;
+        *this=std::move(candidate);
+        if(transport_callback_)
+            for(const auto& event:deferred)transport_callback_(event);
+        return residual;
+    }
+    // Opt-in P2 post-VOF projection: the ordinary verified step checks the
+    // pre-transport wet mask. Newly wetted cells can violate incompressibility
+    // until the next step. This variant projects AGAIN on the transported
+    // wet mask after every substep and commits only the fully verified result.
+    // It does not model moving-solid FSI or guarantee energy conservation.
+    double step_verified_reprojected(double seconds,int pressure_iterations=250,
+                                     double max_divergence_s_inv=1e-8){
+        if(!std::isfinite(max_divergence_s_inv)||max_divergence_s_inv<=0)
+            throw std::invalid_argument("Invalid post-VOF projection tolerance");
+        const double before=mass_kg();
+        CoupledMacWater3D candidate=*this;
+        std::vector<TransportFlux3D> deferred;
+        if(transport_callback_)
+            candidate.transport_callback_=[&deferred](const TransportFlux3D& e){
+                deferred.push_back(e);
+            };
+        candidate.step_impl(seconds,pressure_iterations,true,
+                            max_divergence_s_inv,true);
+        const double after=candidate.mass_kg();
+        if(!std::isfinite(after)||
+           std::abs(after-before)>1e-10*std::max(1.0,std::abs(before)))
+            throw std::runtime_error("Post-VOF water mass budget failed");
+        for(std::size_t i=0;i<candidate.fill_.size();++i)
+            if(!std::isfinite(candidate.fill_[i])||
+               candidate.fill_[i]<0||candidate.fill_[i]>1||
+               (candidate.solid_[i]&&candidate.fill_[i]>0))
+                throw std::runtime_error("Post-VOF occupancy invalid");
         const double residual=candidate.last_projection_divergence_;
         candidate.transport_callback_=transport_callback_;
         *this=std::move(candidate);

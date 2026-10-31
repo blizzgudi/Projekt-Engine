@@ -1665,3 +1665,24 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
 - **P2-P8 weiterhin INCOMPLETE, ALL_COMPLETE=False.** Keine dynamische
   rotierende FSI, keine globale physikalische Impuls-/Energiebilanz,
   keine unabhaengigen CFD-Messdaten und kein UE5.8 Native-E2E dieses Pfades.
+
+## P2 Teilfortschritt: residualgepruefte Nachprojektion auf finaler VOF-Maske (31.10.2026)
+
+- Konkrete Luecke im bisherigen 'step_verified' reproduziert: Druckprojektion
+  vor VOF-Transport laesst neu benetzte Zellen ohne finale
+  Divergenzabnahme. Die alte Projektion ergab im finalen Nassmasken-Audit
+  2.0306013986 s^-1 auf 8^3 und 12^3.
+- Neue opt-in 'step_verified_reprojected': zweiter verifizierter
+  MAC-Drucksolve nach jedem VOF-Transport, synchronisierte finale
+  Nass-/Solidmaske, transaktionaler Rollback und verzoegerte Listener,
+  konservative Massen-/VOF-Bereichspruefung vor Commit.
+- Read-only 'current_wet_divergence_s_inv' prueft die tatsaechliche
+  aktuelle Wasserbelegung statt der veralteten MAC-Maske.
+- Native Reproduktion: 7 kg Masse, 25 benetzte Zellen, 19 Events,
+  Divergenz nach finaler Projektion 1.3005135e-11 s^-1.
+  Nachweis: docs/P2_POST_TRANSPORT_PROJECTION_PARTIAL.md,
+  scripts/p2_post_transport_acceptance.py,
+  ENGINE TEST STUBE/runs/p2_post_transport_partial.json.
+- **P2-P8 weiterhin INCOMPLETE; ALL_COMPLETE=False.**
+  Keine rotierende FSI, keine physikalische Gesamtimpuls-/Energiebilanz,
+  keine unabhaengige CFD-Messvalidierung und kein neuer UE5.8 Native-E2E.

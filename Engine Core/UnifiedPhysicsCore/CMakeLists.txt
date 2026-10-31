@@ -486,3 +486,9 @@ add_test(NAME physics_p2_verified_mac_projection_partial COMMAND upc_p2_verified
 add_executable(upc_p2_verified_coupled_water_tests tests/p2_verified_coupled_water3d_tests.cpp)
 target_link_libraries(upc_p2_verified_coupled_water_tests PRIVATE upc)
 add_test(NAME physics_p2_verified_coupled_water_partial COMMAND upc_p2_verified_coupled_water_tests)
+
+# P2 partial: post-transport occupancy-aware pressure re-projection.
+# This checks divergence on newly wet cells; no dynamic FSI/energy claim.
+add_executable(upc_p2_post_transport_projection_tests tests/p2_post_transport_projection3d_tests.cpp)
+target_link_libraries(upc_p2_post_transport_projection_tests PRIVATE upc)
+add_test(NAME physics_p2_post_transport_projection_partial COMMAND upc_p2_post_transport_projection_tests)
