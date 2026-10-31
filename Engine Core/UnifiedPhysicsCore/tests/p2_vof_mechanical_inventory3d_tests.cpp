@@ -21,6 +21,17 @@ template<class Fn> void rejects(Fn fn,const char* why) {
     try {fn();}catch(const std::invalid_argument&){rejected=true;}
     need(rejected,why);
 }
+void audit_row(const char* mode,int n,const upc::VofMechanicalDeltaAudit3D& d){
+    std::cout<<"audit,"<<mode<<","<<n<<","<<d.mass_delta_kg
+             <<","<<d.momentum_delta_kg_m_s[0]
+             <<","<<d.momentum_delta_kg_m_s[1]
+             <<","<<d.momentum_delta_kg_m_s[2]
+             <<","<<d.kinetic_delta_j<<","<<d.gravitational_delta_j
+             <<","<<d.reported_transport_gravitational_delta_j
+             <<","<<d.gravitational_transport_residual_j
+             <<","<<d.mechanical_delta_j
+             <<","<<d.nontransport_mechanical_delta_j<<"\n";
+}
 void synthetic(int n) {
     constexpr double dx=.1,rho=1000;
     upc::MacProjection3D mac(n,n,n,dx,rho);
@@ -56,6 +67,38 @@ void synthetic(int n) {
     const auto dry=upc::vof_mechanical_inventory3d(mac,f,solid,n,n,n,dx,rho);
     near(dry.kinetic_j,a.kinetic_j,0,"dry face excluded");
     near(dry.momentum_kg_m_s[0],a.momentum_kg_m_s[0],0,"dry face momentum excluded");
+    // Manufacture an isolated 0.125 kg upward VOF transfer at fixed
+    // cell-centred velocities.  Momentum and KE change because the
+    // transported mass is sampled at a different velocity.
+    f[idx(2,2,2)]=.125;
+    f[idx(5,5,5)]=.875;
+    const auto moved=upc::vof_mechanical_inventory3d(mac,f,solid,n,n,n,dx,rho);
+    constexpr double transport_potential=.125*9.81*.3;
+    const auto audit=upc::vof_mechanical_delta_audit3d(a,moved,transport_potential);
+    near(audit.mass_delta_kg,0,1e-13,"analytic transport mass delta");
+    near(audit.momentum_delta_kg_m_s[0],-.375,1e-13,"analytic transport px");
+    near(audit.momentum_delta_kg_m_s[1],.125,1e-13,"analytic transport py");
+    near(audit.momentum_delta_kg_m_s[2],-.3125,1e-13,"analytic transport pz");
+    near(audit.kinetic_delta_j,-.015625,1e-13,"analytic kinetic redistribution");
+    near(audit.gravitational_delta_j,transport_potential,1e-13,
+         "analytic gravitational redistribution");
+    near(audit.gravitational_transport_residual_j,0,1e-13,
+         "analytic potential ledger closure");
+    near(audit.mechanical_delta_j,.35225,1e-13,"analytic mechanical delta");
+    near(audit.nontransport_mechanical_delta_j,-.015625,1e-13,
+         "analytic nontransport change");
+    const auto wrong=upc::vof_mechanical_delta_audit3d(a,moved,0);
+    near(wrong.gravitational_transport_residual_j,transport_potential,1e-13,
+         "missing transfer ledger must be observable");
+    rejects([&]{(void)upc::vof_mechanical_delta_audit3d(
+        a,moved,std::numeric_limits<double>::quiet_NaN());},
+        "nonfinite transport ledger rejected");
+    auto invalid=a;invalid.mass_kg=-1;
+    rejects([&]{(void)upc::vof_mechanical_delta_audit3d(
+        invalid,moved,transport_potential);},"invalid inventory rejected");
+    audit_row("synthetic",n,audit);
+    f[idx(2,2,2)]=.25;
+    f[idx(5,5,5)]=.75;
     f[idx(2,2,2)]=-0.1;
     rejects([&]{(void)upc::vof_mechanical_inventory3d(mac,f,solid,n,n,n,dx,rho);},"negative VOF rejected");
     f[idx(2,2,2)]=1.1;
@@ -97,6 +140,18 @@ void live(int n) {
     need(after.kinetic_j>=0&&std::isfinite(after.kinetic_j),
          "live nonnegative finite KE");
     need(div<=1e-8,"live projection divergence");
+    const auto delta=upc::vof_mechanical_delta_audit3d(
+        initial,after,water.last_vof_transport_potential_delta_j());
+    near(delta.mass_delta_kg,0,1e-10,"live mass delta");
+    for(int axis=0;axis<3;++axis)
+        near(delta.momentum_delta_kg_m_s[axis],
+             after.momentum_kg_m_s[axis]-initial.momentum_kg_m_s[axis],
+             1e-12,"live momentum delta");
+    near(delta.gravitational_transport_residual_j,0,1e-10,
+         "live VOF potential transfer parity");
+    near(delta.nontransport_mechanical_delta_j,delta.kinetic_delta_j,1e-10,
+         "live unresolved mechanical delta is sampled KE delta");
+    audit_row("live",n,delta);
     const auto snapshot=water.water_mechanical_inventory();
     near(snapshot.kinetic_j,after.kinetic_j,0,"read-only snapshot");
     bool rolled=false;

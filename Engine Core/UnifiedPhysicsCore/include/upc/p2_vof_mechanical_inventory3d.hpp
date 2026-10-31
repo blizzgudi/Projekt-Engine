@@ -72,4 +72,60 @@ inline VofMechanicalInventory3D vof_mechanical_inventory3d(
             throw std::runtime_error("Nonfinite VOF inventory momentum");
     return out;
 }
+// Read-only difference of two sampled water inventories.  The transport
+// potential term is independently accumulated from actual VOF transfers.
+// The residual tests bookkeeping consistency; the remaining mechanical
+// change is NOT a physical dissipation or FSI conservation residual.
+struct VofMechanicalDeltaAudit3D {
+    double mass_delta_kg=0;
+    std::array<double,3> momentum_delta_kg_m_s{};
+    double kinetic_delta_j=0;
+    double gravitational_delta_j=0;
+    double reported_transport_gravitational_delta_j=0;
+    double gravitational_transport_residual_j=0;
+    double mechanical_delta_j=0;
+    double nontransport_mechanical_delta_j=0;
+};
+
+inline VofMechanicalDeltaAudit3D vof_mechanical_delta_audit3d(
+    const VofMechanicalInventory3D& before,
+    const VofMechanicalInventory3D& after,
+    double transport_gravitational_delta_j) {
+    const auto valid=[](const VofMechanicalInventory3D& a){
+        if(!std::isfinite(a.mass_kg)||a.mass_kg<0||
+           !std::isfinite(a.kinetic_j)||a.kinetic_j<0||
+           !std::isfinite(a.gravitational_j)||!std::isfinite(a.total_j))
+            return false;
+        for(double p:a.momentum_kg_m_s)if(!std::isfinite(p))return false;
+        return true;
+    };
+    if(!valid(before)||!valid(after)||
+       !std::isfinite(transport_gravitational_delta_j))
+        throw std::invalid_argument("Invalid VOF mechanical delta input");
+    VofMechanicalDeltaAudit3D out;
+    out.mass_delta_kg=after.mass_kg-before.mass_kg;
+    for(int axis=0;axis<3;++axis)
+        out.momentum_delta_kg_m_s[axis]=
+            after.momentum_kg_m_s[axis]-before.momentum_kg_m_s[axis];
+    out.kinetic_delta_j=after.kinetic_j-before.kinetic_j;
+    out.gravitational_delta_j=after.gravitational_j-before.gravitational_j;
+    out.reported_transport_gravitational_delta_j=transport_gravitational_delta_j;
+    out.gravitational_transport_residual_j=
+        out.gravitational_delta_j-transport_gravitational_delta_j;
+    out.mechanical_delta_j=after.total_j-before.total_j;
+    out.nontransport_mechanical_delta_j=
+        out.mechanical_delta_j-transport_gravitational_delta_j;
+    if(!std::isfinite(out.mass_delta_kg)||
+       !std::isfinite(out.kinetic_delta_j)||
+       !std::isfinite(out.gravitational_delta_j)||
+       !std::isfinite(out.gravitational_transport_residual_j)||
+       !std::isfinite(out.mechanical_delta_j)||
+       !std::isfinite(out.nontransport_mechanical_delta_j))
+        throw std::runtime_error("Nonfinite VOF mechanical delta");
+    for(double p:out.momentum_delta_kg_m_s)
+        if(!std::isfinite(p))
+            throw std::runtime_error("Nonfinite VOF mechanical momentum delta");
+    return out;
+}
+
 } // namespace upc

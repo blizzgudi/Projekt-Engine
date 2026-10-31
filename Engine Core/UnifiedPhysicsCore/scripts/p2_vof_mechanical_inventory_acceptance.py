@@ -42,7 +42,7 @@ def main()->None:
     add("native_exit",native.returncode,native.returncode==0)
     m=re.search(r"PASS: vof mechanical inventory assertions=(\d+)",native.stdout)
     assertions=int(m.group(1)) if m else 0
-    add("native_assertions",assertions,assertions>=62)
+    add("native_assertions",assertions,assertions>=98)
     add("msvc_94_ctest","100% tests passed, 0 tests failed out of 94" in log,
         "100% tests passed, 0 tests failed out of 94" in log)
     lines=[line for line in native.stdout.splitlines()
@@ -78,6 +78,58 @@ def main()->None:
     add("exact_grid_set",[(r["mode"],r["grid"]) for r in references],
         sorted((r["mode"],r["grid"]) for r in references)==
         [("live",8),("live",12),("synthetic",8),("synthetic",12)])
+    # Independent cross-check of the new before/after inventory delta audit.
+    audit_rows=[next(csv.reader([line])) for line in native.stdout.splitlines()
+                if line.startswith("audit,")]
+    add("four_delta_audits",len(audit_rows),len(audit_rows)==4)
+    delta_references=[]
+    for fields in audit_rows:
+        if len(fields)!=13:
+            add("delta_audit_csv_columns",len(fields),False)
+            continue
+        _,mode,n_str,*values=fields
+        n=int(n_str)
+        (mass,px,py,pz,ke,potential,transport,residual,mechanical,
+         nontransport)=map(float,values)
+        tag=f"delta_{mode}_{n}"
+        add(tag+"_finite",values,all(math.isfinite(float(v)) for v in values))
+        add(tag+"_mass",mass,abs(mass)<1e-11)
+        add(tag+"_gravity_closure",residual,abs(residual)<1e-10)
+        add(tag+"_gravity_identity",residual,
+            abs(residual-(potential-transport))<1e-12)
+        add(tag+"_mechanical_identity",mechanical,
+            abs(mechanical-(ke+potential))<1e-11)
+        add(tag+"_nontransport_identity",nontransport,
+            abs(nontransport-(mechanical-transport))<1e-11)
+        if mode=="synthetic":
+            expected_delta={
+                "px":-.375,"py":.125,"pz":-.3125,"ke":-.015625,
+                "potential":.125*9.81*.3,
+                "mechanical":.35225,"nontransport":-.015625
+            }
+            actual={"px":px,"py":py,"pz":pz,"ke":ke,
+                    "potential":potential,"mechanical":mechanical,
+                    "nontransport":nontransport}
+            for key,v in expected_delta.items():
+                add(tag+"_analytic_"+key,actual[key],abs(actual[key]-v)<1e-12)
+        elif mode=="live":
+            add(tag+"_potential_transfer",transport,
+                abs(transport-(-.00962361))<1e-10)
+            add(tag+"_kinetic_change",ke,ke>0 and ke<.1)
+        else:
+            add(tag+"_known_mode",mode,False)
+        delta_references.append({
+            "mode":mode,"grid":n,"mass_delta_kg":mass,
+            "momentum_delta_kg_m_s":[px,py,pz],
+            "kinetic_delta_j":ke,"gravitational_delta_j":potential,
+            "transport_gravitational_delta_j":transport,
+            "gravity_transport_residual_j":residual,
+            "mechanical_delta_j":mechanical,
+            "nontransport_mechanical_delta_j":nontransport
+        })
+    add("delta_exact_grid_set",[(r["mode"],r["grid"]) for r in delta_references],
+        sorted((r["mode"],r["grid"]) for r in delta_references)==
+        [("live",8),("live",12),("synthetic",8),("synthetic",12)])
     hashes={name:sha(CORE/name) for name in SOURCES}
     add("ten_source_hashes",len(hashes),len(hashes)==10)
     accepted=bool(checks) and all(c["pass"] for c in checks)
@@ -88,12 +140,12 @@ def main()->None:
         "phase_complete":False,
         "generated_utc":datetime.now(timezone.utc).isoformat(),
         "checks":checks,"native_assertions":assertions,
-        "reference":references,
+        "reference":references,"delta_reference":delta_references,
         "source_sha256":hashes,
         "native_binary_sha256":sha(EXE),
         "ctest_log_sha256":sha(LOG),
         "build_log_sha256":sha(RUNS/"p2_vof_mechanical_inventory_build_20261031.txt"),
-        "limitations":"Cell-centred velocity sampling is a VOF-mass-weighted diagnostic, not exact MAC/VOF kinetic energy or conservation. No dynamic FSI, pressure work, viscous heating, external CFD data or UE5.8 E2E."
+        "limitations":"The before/after delta and transport potential residual are diagnostic consistency checks. The nontransport mechanical change includes sampled kinetic changes, not a physical dissipation or FSI conservation residual. No dynamic FSI, pressure work, viscous heating, external CFD data or UE5.8 E2E."
     }
     OUT.write_text(json.dumps(report,indent=2,ensure_ascii=False)+"\n",
                    encoding="utf-8")

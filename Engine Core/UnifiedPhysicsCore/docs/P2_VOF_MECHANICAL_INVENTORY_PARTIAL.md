@@ -55,3 +55,35 @@ oder bewegliche Festkoerper-Gegenimpulse. Es gibt weiterhin keine
 globale Fluid-/Festkoerper-Energieerhaltung, keine unabhaengigen
 3D-CFD-Messdaten, keine neue GPU/LOD- oder UE5.8-Native-E2E-Abnahme.
 Ein gruenes Teil-Gate schliesst P2 oder andere Vollphasen nicht ab.
+
+## Erweiterung: Delta-Audit und VOF-Transportpotenzial (31.10.2026)
+
+Die neue read-only-Funktion `vof_mechanical_delta_audit3d(before,after,
+transport_gravitational_delta_j)` vergleicht zwei physikalisch gewichtete
+Wasserinventare. Sie liefert Massendifferenz, drei Impulsdifferenzen,
+Aenderungen der kinetischen und potenziellen Energie, die vom echten
+VOF-Transport berichtete Potenzialverschiebung und deren algebraischen
+Abschlussrest. `nontransport_mechanical_delta_j` ist definitionsgemaess
+`(E_after-E_before)-Delta_E_transport` und **kein** nachgewiesener
+Dissipations-, Druckarbeits- oder FSI-Erhaltungsterm.
+
+Analytischer Zwei-Zellen-Fall (8^3 und 12^3): 0.125 kg Wasser wandern
+um 0.3 m nach oben; bei fest vorgegebenen unterschiedlichen
+Zellgeschwindigkeiten: Delta-Masse 0 kg, Delta-Impuls
+(-0.375,+0.125,-0.3125) kg m/s, Delta-E_kin=-0.015625 J,
+Delta-E_pot=+0.367875 J, Delta-E_mech=+0.35225 J. Eine absichtlich
+falsche Transportbuchung erzeugt den erwarteten Rest +0.367875 J.
+Nichtfinite Transportbuchungen und ungueltige Inventare werden abgelehnt.
+
+Der echte `step_verified_reprojected` wurde auf 8^3 und 12^3
+erneut ausgefuehrt. Die beiden unabhaengig aus VOF-Zellhoehen
+berechneten Potenzialdifferenzen stimmen mit der Live-Transportbuchung
+(-0.00962361 J) auf besser als 1e-10 J ueberein. Die
+zellzentrierte kinetische Energie steigt um etwa +0.00911893 J;
+der verbleibende mechanische Term ist damit **nicht null**.
+Rollback und unveraenderte Inventare bleiben getestet.
+
+MSVC Release: **94/94 CTest PASS**, **98 native Assertions**,
+separates Python-Gate mit Quell-, Binaer- und Log-SHA256.
+Es handelt sich um einen zusaetzlichen P2-Teilnachweis, nicht um
+physikalische Energieerhaltung. **P2-P8 INCOMPLETE.**

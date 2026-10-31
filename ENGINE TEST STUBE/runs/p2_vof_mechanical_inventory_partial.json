@@ -3,7 +3,7 @@
   "milestone": "vof_mass_weighted_cell_centre_mechanical_inventory_partial",
   "partial_accepted": true,
   "phase_complete": false,
-  "generated_utc": "2026-10-31T04:40:59.812035+00:00",
+  "generated_utc": "2026-10-31T05:46:03.083161+00:00",
   "checks": [
     {
       "name": "native_exit",
@@ -12,7 +12,7 @@
     },
     {
       "name": "native_assertions",
-      "value": 62,
+      "value": 98,
       "pass": true
     },
     {
@@ -250,12 +250,293 @@
       "pass": true
     },
     {
+      "name": "four_delta_audits",
+      "value": 4,
+      "pass": true
+    },
+    {
+      "name": "delta_synthetic_8_finite",
+      "value": [
+        "0",
+        "-0.375",
+        "0.125",
+        "-0.3125",
+        "-0.015625",
+        "0.36787499999999973",
+        "0.36787500000000001",
+        "-2.7755575615628914e-16",
+        "0.35224999999999973",
+        "-0.015625000000000278"
+      ],
+      "pass": true
+    },
+    {
+      "name": "delta_synthetic_8_mass",
+      "value": 0.0,
+      "pass": true
+    },
+    {
+      "name": "delta_synthetic_8_gravity_closure",
+      "value": -2.7755575615628914e-16,
+      "pass": true
+    },
+    {
+      "name": "delta_synthetic_8_gravity_identity",
+      "value": -2.7755575615628914e-16,
+      "pass": true
+    },
+    {
+      "name": "delta_synthetic_8_mechanical_identity",
+      "value": 0.35224999999999973,
+      "pass": true
+    },
+    {
+      "name": "delta_synthetic_8_nontransport_identity",
+      "value": -0.015625000000000278,
+      "pass": true
+    },
+    {
+      "name": "delta_synthetic_8_analytic_px",
+      "value": -0.375,
+      "pass": true
+    },
+    {
+      "name": "delta_synthetic_8_analytic_py",
+      "value": 0.125,
+      "pass": true
+    },
+    {
+      "name": "delta_synthetic_8_analytic_pz",
+      "value": -0.3125,
+      "pass": true
+    },
+    {
+      "name": "delta_synthetic_8_analytic_ke",
+      "value": -0.015625,
+      "pass": true
+    },
+    {
+      "name": "delta_synthetic_8_analytic_potential",
+      "value": 0.36787499999999973,
+      "pass": true
+    },
+    {
+      "name": "delta_synthetic_8_analytic_mechanical",
+      "value": 0.35224999999999973,
+      "pass": true
+    },
+    {
+      "name": "delta_synthetic_8_analytic_nontransport",
+      "value": -0.015625000000000278,
+      "pass": true
+    },
+    {
+      "name": "delta_synthetic_12_finite",
+      "value": [
+        "0",
+        "-0.375",
+        "0.125",
+        "-0.3125",
+        "-0.015625",
+        "0.36787499999999973",
+        "0.36787500000000001",
+        "-2.7755575615628914e-16",
+        "0.35224999999999973",
+        "-0.015625000000000278"
+      ],
+      "pass": true
+    },
+    {
+      "name": "delta_synthetic_12_mass",
+      "value": 0.0,
+      "pass": true
+    },
+    {
+      "name": "delta_synthetic_12_gravity_closure",
+      "value": -2.7755575615628914e-16,
+      "pass": true
+    },
+    {
+      "name": "delta_synthetic_12_gravity_identity",
+      "value": -2.7755575615628914e-16,
+      "pass": true
+    },
+    {
+      "name": "delta_synthetic_12_mechanical_identity",
+      "value": 0.35224999999999973,
+      "pass": true
+    },
+    {
+      "name": "delta_synthetic_12_nontransport_identity",
+      "value": -0.015625000000000278,
+      "pass": true
+    },
+    {
+      "name": "delta_synthetic_12_analytic_px",
+      "value": -0.375,
+      "pass": true
+    },
+    {
+      "name": "delta_synthetic_12_analytic_py",
+      "value": 0.125,
+      "pass": true
+    },
+    {
+      "name": "delta_synthetic_12_analytic_pz",
+      "value": -0.3125,
+      "pass": true
+    },
+    {
+      "name": "delta_synthetic_12_analytic_ke",
+      "value": -0.015625,
+      "pass": true
+    },
+    {
+      "name": "delta_synthetic_12_analytic_potential",
+      "value": 0.36787499999999973,
+      "pass": true
+    },
+    {
+      "name": "delta_synthetic_12_analytic_mechanical",
+      "value": 0.35224999999999973,
+      "pass": true
+    },
+    {
+      "name": "delta_synthetic_12_analytic_nontransport",
+      "value": -0.015625000000000278,
+      "pass": true
+    },
+    {
+      "name": "delta_live_8_finite",
+      "value": [
+        "0",
+        "0",
+        "0",
+        "-0.19085662181818358",
+        "0.0091189288820001657",
+        "-0.0096236100000020031",
+        "-0.0096236099999999995",
+        "-2.0036056147532122e-15",
+        "-0.00050468111800228144",
+        "0.009118928881997718"
+      ],
+      "pass": true
+    },
+    {
+      "name": "delta_live_8_mass",
+      "value": 0.0,
+      "pass": true
+    },
+    {
+      "name": "delta_live_8_gravity_closure",
+      "value": -2.003605614753212e-15,
+      "pass": true
+    },
+    {
+      "name": "delta_live_8_gravity_identity",
+      "value": -2.003605614753212e-15,
+      "pass": true
+    },
+    {
+      "name": "delta_live_8_mechanical_identity",
+      "value": -0.0005046811180022814,
+      "pass": true
+    },
+    {
+      "name": "delta_live_8_nontransport_identity",
+      "value": 0.009118928881997718,
+      "pass": true
+    },
+    {
+      "name": "delta_live_8_potential_transfer",
+      "value": -0.00962361,
+      "pass": true
+    },
+    {
+      "name": "delta_live_8_kinetic_change",
+      "value": 0.009118928882000166,
+      "pass": true
+    },
+    {
+      "name": "delta_live_12_finite",
+      "value": [
+        "0",
+        "0",
+        "0",
+        "-0.19085662181818358",
+        "0.0091189288820001657",
+        "-0.0096236100000002267",
+        "-0.0096236099999999995",
+        "-2.2724877535296173e-16",
+        "-0.00050468111800050508",
+        "0.0091189288819994944"
+      ],
+      "pass": true
+    },
+    {
+      "name": "delta_live_12_mass",
+      "value": 0.0,
+      "pass": true
+    },
+    {
+      "name": "delta_live_12_gravity_closure",
+      "value": -2.2724877535296173e-16,
+      "pass": true
+    },
+    {
+      "name": "delta_live_12_gravity_identity",
+      "value": -2.2724877535296173e-16,
+      "pass": true
+    },
+    {
+      "name": "delta_live_12_mechanical_identity",
+      "value": -0.0005046811180005051,
+      "pass": true
+    },
+    {
+      "name": "delta_live_12_nontransport_identity",
+      "value": 0.009118928881999494,
+      "pass": true
+    },
+    {
+      "name": "delta_live_12_potential_transfer",
+      "value": -0.00962361,
+      "pass": true
+    },
+    {
+      "name": "delta_live_12_kinetic_change",
+      "value": 0.009118928882000166,
+      "pass": true
+    },
+    {
+      "name": "delta_exact_grid_set",
+      "value": [
+        [
+          "synthetic",
+          8
+        ],
+        [
+          "synthetic",
+          12
+        ],
+        [
+          "live",
+          8
+        ],
+        [
+          "live",
+          12
+        ]
+      ],
+      "pass": true
+    },
+    {
       "name": "ten_source_hashes",
       "value": 10,
       "pass": true
     }
   ],
-  "native_assertions": 62,
+  "native_assertions": 98,
   "reference": [
     {
       "grid": 8,
@@ -306,20 +587,86 @@
       "occupied_cells": 3
     }
   ],
+  "delta_reference": [
+    {
+      "mode": "synthetic",
+      "grid": 8,
+      "mass_delta_kg": 0.0,
+      "momentum_delta_kg_m_s": [
+        -0.375,
+        0.125,
+        -0.3125
+      ],
+      "kinetic_delta_j": -0.015625,
+      "gravitational_delta_j": 0.36787499999999973,
+      "transport_gravitational_delta_j": 0.367875,
+      "gravity_transport_residual_j": -2.7755575615628914e-16,
+      "mechanical_delta_j": 0.35224999999999973,
+      "nontransport_mechanical_delta_j": -0.015625000000000278
+    },
+    {
+      "mode": "synthetic",
+      "grid": 12,
+      "mass_delta_kg": 0.0,
+      "momentum_delta_kg_m_s": [
+        -0.375,
+        0.125,
+        -0.3125
+      ],
+      "kinetic_delta_j": -0.015625,
+      "gravitational_delta_j": 0.36787499999999973,
+      "transport_gravitational_delta_j": 0.367875,
+      "gravity_transport_residual_j": -2.7755575615628914e-16,
+      "mechanical_delta_j": 0.35224999999999973,
+      "nontransport_mechanical_delta_j": -0.015625000000000278
+    },
+    {
+      "mode": "live",
+      "grid": 8,
+      "mass_delta_kg": 0.0,
+      "momentum_delta_kg_m_s": [
+        0.0,
+        0.0,
+        -0.19085662181818358
+      ],
+      "kinetic_delta_j": 0.009118928882000166,
+      "gravitational_delta_j": -0.009623610000002003,
+      "transport_gravitational_delta_j": -0.00962361,
+      "gravity_transport_residual_j": -2.003605614753212e-15,
+      "mechanical_delta_j": -0.0005046811180022814,
+      "nontransport_mechanical_delta_j": 0.009118928881997718
+    },
+    {
+      "mode": "live",
+      "grid": 12,
+      "mass_delta_kg": 0.0,
+      "momentum_delta_kg_m_s": [
+        0.0,
+        0.0,
+        -0.19085662181818358
+      ],
+      "kinetic_delta_j": 0.009118928882000166,
+      "gravitational_delta_j": -0.009623610000000227,
+      "transport_gravitational_delta_j": -0.00962361,
+      "gravity_transport_residual_j": -2.2724877535296173e-16,
+      "mechanical_delta_j": -0.0005046811180005051,
+      "nontransport_mechanical_delta_j": 0.009118928881999494
+    }
+  ],
   "source_sha256": {
     "include/upc/mac3d.hpp": "8e20bfc2e5367a9df7f8a412908c7f5fbe6b50c5a9f57a771127c83441187808",
     "include/upc/coupled_water3d.hpp": "09b443324b363fa33e25236b3a53584334a49de76a99369893da218eeb551f39",
-    "include/upc/p2_vof_mechanical_inventory3d.hpp": "6db8eb492df3f4f6039ae91a30044798598252f1590f7ceda9da51aa67de3d6d",
-    "tests/p2_vof_mechanical_inventory3d_tests.cpp": "f2fffb2370086f865ed6d2de9db4009bac4410d76589a7d4579a0fff0fa73256",
+    "include/upc/p2_vof_mechanical_inventory3d.hpp": "a095eb43f48ccee49015fca77f4a84f29e256ec4d79ec1d33a184a7d15c9ca38",
+    "tests/p2_vof_mechanical_inventory3d_tests.cpp": "fc5a027d442b5cc934e21ce41c6f16cc33cfe83109bc23defb70132487c42a57",
     "CMakeLists.txt": "320db69b2f8c84ec296815d7057f5f5ef1fe9670d49bd35b2bcdbd696eeecee4",
     "scripts/p2_vof_mechanical_inventory_full_build.cmd": "14e3dd0421a5cc16293536ec949989d14b35dbd4061cdee637b86f744737d9da",
-    "scripts/p2_vof_mechanical_inventory_acceptance.py": "7a145999d4de9a6ee4b2b29e1798daec3d28058190f5fa42fc2f7f09b90612ae",
-    "docs/P2_VOF_MECHANICAL_INVENTORY_PARTIAL.md": "1dab12668b4d7368e29226fac2a1628239b30878878a6c657beac5b45f31c8de",
-    "docs/PHASENPLAN.md": "13bee6ad8b3126c35c6313ca764edc6025f26a04c7303f147cee2f9e6e4a496c",
+    "scripts/p2_vof_mechanical_inventory_acceptance.py": "6f8ee960a5d3e208292c8206ec2da5b6d0af975cd08450dfb9ec5bbef90cad83",
+    "docs/P2_VOF_MECHANICAL_INVENTORY_PARTIAL.md": "20f6702d798d5d3bd7cda370924c1c34fdefe54be604d5fa3fdbb55e7a0c5165",
+    "docs/PHASENPLAN.md": "174e555177b6b7ec49146d5d165ba6d677772a42df8b6d2dc00a79ed1e9bcacc",
     "scripts/phase_gate.py": "01065438e2b72b3fe83e7e3ba3decbf54925c84c5f9424b15ad15a8197f59cd6"
   },
-  "native_binary_sha256": "35db8bec667deafc5001235b85ef0e981466af90e779e6e5d7217ab3ee3ad267",
-  "ctest_log_sha256": "a48248fd3e33cd804145d805e0c9decf3386a80a64441c567a471ba2085a882c",
-  "build_log_sha256": "4702a508dc46d8c799d215333256094ac5ae1ce8c0e4b48768802c9af4ec190b",
-  "limitations": "Cell-centred velocity sampling is a VOF-mass-weighted diagnostic, not exact MAC/VOF kinetic energy or conservation. No dynamic FSI, pressure work, viscous heating, external CFD data or UE5.8 E2E."
+  "native_binary_sha256": "d4195dfae87d10f3ae42c7cf01c794f0bce5423128d67091c963c2791d3a2df6",
+  "ctest_log_sha256": "df9ced47d4686d8847b5416d80a465ee586383f878062b86bcd594a747a4b71c",
+  "build_log_sha256": "cb42777979a349bab6ed9e386e4101f0b814bf9df47d98a2326d1b7699a1a8af",
+  "limitations": "The before/after delta and transport potential residual are diagnostic consistency checks. The nontransport mechanical change includes sampled kinetic changes, not a physical dissipation or FSI conservation residual. No dynamic FSI, pressure work, viscous heating, external CFD data or UE5.8 E2E."
 }

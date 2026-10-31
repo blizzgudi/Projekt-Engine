@@ -1729,3 +1729,23 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
   ist eine physikalisch motivierte Naeherung, keine exakte
   VOF-/MAC-Gesamtenergie, kein konservatives dynamisches FSI,
   keine externe CFD-Messvalidierung oder UE5.8-Native-E2E.
+
+## P2 Teilfortschritt: mechanische Inventardifferenz gegen VOF-Transferbuchung (31.10.2026)
+
+- Neue read-only `vof_mechanical_delta_audit3d`: Delta-Masse, Delta-Impuls,
+  Delta-KE, Delta-Potenzial und mechanische Differenz zweier
+  VOF-gewichteter Wasserinventare. Unabhaengige VOF-Transport-Potenzialbuchung
+  liefert einen expliziten algebraischen Abschlussrest.
+- Analytischer 0.125-kg-Aufwaertstransfer ueber 0.3 m:
+  Delta-E_pot=+0.367875 J, Delta-E_kin=-0.015625 J,
+  Delta-E_mech=+0.35225 J. Falsche Buchung und nichtfinite Werte
+  werden nachweislich erkannt. 8^3/12^3 plus echte verifizierte
+  Live-MAC/VOF-Schritte: Transport-Delta-E_pot=-0.00962361 J,
+  Bilanzrest <1e-10 J; 94/94 CTest und 98 native Assertions PASS.
+- Gate: scripts/p2_vof_mechanical_inventory_acceptance.py;
+  Report: ENGINE TEST STUBE/runs/p2_vof_mechanical_inventory_partial.json;
+  Dokumentation: docs/P2_VOF_MECHANICAL_INVENTORY_PARTIAL.md.
+- **P2-P8 INCOMPLETE; ALL_COMPLETE=False.** Der Nicht-Transport-Anteil
+  ist keine physikalisch geschlossene Druck-/Viskositaets-/FSI-Energie.
+  Bewegte Zweiwege-FSI, gemessene CFD-Referenzen und UE5.8 Native-E2E
+  fuer diesen Pfad fehlen weiterhin.
