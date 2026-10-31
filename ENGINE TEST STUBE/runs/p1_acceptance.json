@@ -2,7 +2,7 @@
   "schema_version": 1,
   "phase": "P1",
   "accepted": true,
-  "generated_utc": "2026-10-31T17:21:06.286142+00:00",
+  "generated_utc": "2026-10-31T17:48:30.156631+00:00",
   "scope": "2D depth-averaged CPU shallow-water solver only, not volumetric CFD",
   "source_sha256": {
     "include/upc/core.hpp": "08114486924261c69c423dc5b5f30ab3a575c3cf5211b3898ce8ceb7a72b00a6",
@@ -11,7 +11,7 @@
     "tests/shallow2d_extended_tests.cpp": "7e7b7b8049df24072dd18b459c9e8c7a288c191ab7bad0cf0b04a96f5f40f5f1",
     "tests/core_tests.cpp": "8074124bc802f12559c9d76a610b8050870ff76f3d0984b87fde5782ffea4674",
     "docs/P1_2D_FLUID_ABNAHME.md": "66d76ae1279b208de4306b12e323c15038e97d6190e15de2cb7bb51e289dfc98",
-    "CMakeLists.txt": "e6761c82ef32f5216af717ab9334fdcc62b27787ca231f1b7d2a468a3731a88d",
+    "CMakeLists.txt": "c5894463060b3101e74b9c05e99b98f2aec1225641084bd3cc4d6d37541cd36f",
     "scripts/p1_acceptance.py": "e6c7d32692df9863018743098bfc10b8e7707d32435865e6f1c30fe1dfce4091"
   },
   "ritter_dry_bed": [
@@ -73,19 +73,19 @@
       "experiment": "shallow_water_2d",
       "cells": "1024",
       "iterations": "30",
-      "time_ms": "7.1793"
+      "time_ms": "7.3242"
     },
     {
       "experiment": "shallow_water_2d",
       "cells": "4096",
       "iterations": "30",
-      "time_ms": "21.6887"
+      "time_ms": "21.3518"
     },
     {
       "experiment": "shallow_water_2d",
       "cells": "9216",
       "iterations": "30",
-      "time_ms": "28.7671"
+      "time_ms": "28.6669"
     }
   ],
   "checks": [
@@ -308,19 +308,19 @@
     {
       "name": "p1_cpu_benchmark_finite_1024",
       "pass": true,
-      "value": 7.1793,
+      "value": 7.3242,
       "tolerance": "positive finite milliseconds"
     },
     {
       "name": "p1_cpu_benchmark_finite_4096",
       "pass": true,
-      "value": 21.6887,
+      "value": 21.3518,
       "tolerance": "positive finite milliseconds"
     },
     {
       "name": "p1_cpu_benchmark_finite_9216",
       "pass": true,
-      "value": 28.7671,
+      "value": 28.6669,
       "tolerance": "positive finite milliseconds"
     }
   ],

@@ -1908,3 +1908,10 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
 - Analytische periodische 3D-Quader- und Randnaht-Translationen, diskret solenoidales variables MAC-Curl-Feld, Bitparitaet zum Einzelschritt-Kernel, Negativtests und Massenbilanz. Die mehrdimensionale Ecke bleibt geometrisch approximiert.
 - MSVC Release, vollstaendiger CTest und reproduzierbares Gate: docs/P2_PLIC_ADAPTIVE_SUBCYCLE_PARTIAL.md, scripts/p2_plic_adaptive_acceptance.py, ENGINE TEST STUBE/runs/p2_plic_adaptive_partial.json.
 - **P2-P8 INCOMPLETE; ALL_COMPLETE=False.** Keine echte Navier-Stokes-Zeitintegration, bewegte Zweiwege-FSI, unabh. gemessene 3D-CFD-Validierung, globale Energie-/Impulsabnahme oder neue UE5.8 Native-E2E-Abnahme.
+
+## P2 Teilfortschritt: zeitlich variierende vorgeschriebene MAC/PLIC-Felder (31.10.2026)
+
+- Neuer Adapter `p2_plic_temporal_schedule3d` transportiert Wasser durch eine Folge zeitlich getrennter 3D-MAC-Face-Geschwindigkeitsfelder. Jedes Intervall hat eigene Dauer und adaptives CFL-Subcycling; zwischen Intervallen werden die Geschwindigkeiten aktualisiert. Keine Mutation der Eingaben, kein stilles Abschneiden des Gesamtbudgets.
+- Bitgleiche Referenz gegen die bestehende adaptive Einzelschritt-Implementierung sowie manuell sequenzierte 2-Intervall-Felder; unabhängige analytische periodische 3D-Quader-Netto-Translation und zeitlich variierendes diskret solenoidales MAC-Curl-Feld. Negative Fälle einschließlich zweitem nichtsolenoidalem Intervall und erschöpftem Gesamtbudget.
+- Reproduzierbare Native-Tests und quantitative Teilabnahme: `docs/P2_PLIC_TEMPORAL_SCHEDULE_PARTIAL.md`, `scripts/p2_plic_temporal_acceptance.py`, `ENGINE TEST STUBE/runs/p2_plic_temporal_partial.json`.
+- **P2–P8 INCOMPLETE; ALL_COMPLETE=False.** Vorgegebene Geschwindigkeiten sind kein Navier-Stokes-Update. Keine bewegte Zweiwege-FSI, unabhängige 3D-CFD-Messvalidierung, globale physikalische Energie-/Impulserhaltung oder neue UE5.8-Native-E2E-Abnahme.

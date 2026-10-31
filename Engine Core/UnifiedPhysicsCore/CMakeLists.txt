@@ -570,3 +570,9 @@ add_test(NAME physics_p2_plic_unsplit_mac_partial COMMAND upc_p2_plic_unsplit_ma
 add_executable(upc_p2_plic_adaptive_subcycle_tests tests/p2_plic_adaptive_subcycle3d_tests.cpp)
 target_link_libraries(upc_p2_plic_adaptive_subcycle_tests PRIVATE upc)
 add_test(NAME physics_p2_plic_adaptive_subcycle_partial COMMAND upc_p2_plic_adaptive_subcycle_tests)
+
+# P2 partial: time-varying prescribed periodic MAC face fields, each frozen
+# within its own adaptive PLIC interval; NOT Navier-Stokes or moving FSI.
+add_executable(upc_p2_plic_temporal_schedule_tests tests/p2_plic_temporal_schedule3d_tests.cpp)
+target_link_libraries(upc_p2_plic_temporal_schedule_tests PRIVATE upc)
+add_test(NAME physics_p2_plic_temporal_schedule_partial COMMAND upc_p2_plic_temporal_schedule_tests)
