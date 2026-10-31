@@ -1,0 +1,134 @@
+{
+  "phase": "P2",
+  "milestone": "prescribed_periodic_projection_to_plic_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "generated_utc": "2026-10-31T18:40:03.768824+00:00",
+  "checks": [
+    {
+      "name": "native_assertions",
+      "value": 4122,
+      "pass": true
+    },
+    {
+      "name": "native_no_failure",
+      "value": true,
+      "pass": true
+    },
+    {
+      "name": "ctest_106_of_106",
+      "value": true,
+      "pass": true
+    },
+    {
+      "name": "msvc_compiled",
+      "value": true,
+      "pass": true
+    },
+    {
+      "name": "two_distinct_cases",
+      "value": 2,
+      "pass": true
+    },
+    {
+      "name": "gradient_unique",
+      "value": 1,
+      "pass": true
+    },
+    {
+      "name": "gradient_initial_divergence",
+      "value": 0.2460303038033005,
+      "pass": true
+    },
+    {
+      "name": "gradient_projected_divergence",
+      "value": 5.551115123125783e-15,
+      "pass": true
+    },
+    {
+      "name": "gradient_water_volume_residual",
+      "value": 0.0,
+      "pass": true
+    },
+    {
+      "name": "gradient_substeps",
+      "value": 2,
+      "pass": true
+    },
+    {
+      "name": "gradient_manufactured_pressure_error",
+      "value": 3.410605131648481e-13,
+      "pass": true
+    },
+    {
+      "name": "shear_unique",
+      "value": 1,
+      "pass": true
+    },
+    {
+      "name": "shear_initial_divergence",
+      "value": 0.0,
+      "pass": true
+    },
+    {
+      "name": "shear_projected_divergence",
+      "value": 0.0,
+      "pass": true
+    },
+    {
+      "name": "shear_water_volume_residual",
+      "value": 0.0,
+      "pass": true
+    },
+    {
+      "name": "shear_substeps",
+      "value": 1,
+      "pass": true
+    },
+    {
+      "name": "shear_manufactured_pressure_error",
+      "value": 0.0,
+      "pass": true
+    },
+    {
+      "name": "source_fingerprint_count",
+      "value": 9,
+      "pass": true
+    }
+  ],
+  "native_assertions": 4122,
+  "reference": [
+    {
+      "case": "gradient",
+      "initial_divergence_s_inv": 0.2460303038033005,
+      "projected_divergence_s_inv": 5.551115123125783e-15,
+      "mass_residual_m3": 0.0,
+      "substeps": 2,
+      "manufactured_pressure_max_error_pa": 3.410605131648481e-13
+    },
+    {
+      "case": "shear",
+      "initial_divergence_s_inv": 0.0,
+      "projected_divergence_s_inv": 0.0,
+      "mass_residual_m3": 0.0,
+      "substeps": 1,
+      "manufactured_pressure_max_error_pa": 0.0
+    }
+  ],
+  "source_sha256": {
+    "include/upc/p2_projected_plic_schedule3d.hpp": "67a648b73e83e01f638121c416b1fca71e4d719603582240dea50c55e013d361",
+    "include/upc/p2_periodic_mac_projection3d.hpp": "58073fb6a98ea88fe9f81e6dabb0c3d132f283e9346d1771a4818e5890ceb917",
+    "include/upc/p2_plic_temporal_schedule3d.hpp": "e8c7163d6032d9f933d279ef5ffbb7a00a051dd8dfa6eadffc26c79422874eaf",
+    "include/upc/p2_plic_adaptive_subcycle3d.hpp": "f558c74807d4a85cefd79713b7240180a7b9f7b2464f1b4536b1f9ae90553416",
+    "include/upc/p2_plic_unsplit_mac3d.hpp": "9a494b13690a1ca40ea2f72bd6eb7e4ac5356d06b36fea788b799f09cafaac0a",
+    "tests/p2_projected_plic_schedule3d_tests.cpp": "0c023bbe5990189aaeda79b31e722a4aafe3fb095ba6cd66c1d6f3d874c4a7c5",
+    "scripts/p2_projected_plic_build.cmd": "7289f6b3364f4c2f3d77d5c90cfb14539eaf0841d40a1e9533337910f71a2ade",
+    "scripts/p2_projected_plic_acceptance.py": "844bd38f2067d6f98ab7c69254b6c16874b2787b617d444f2b69c2bd90cfef1f",
+    "docs/P2_PROJECTED_PLIC_SCHEDULE_PARTIAL.md": "200dfc4278e046c7bd364d127d6e30fa750bbf9a486d63d8cd890d6534577c38"
+  },
+  "native_binary_sha256": "43ffd3ab4fec78e357d4090c8338cf3f88091c927a27197774471d1ddca2a28c",
+  "native_log_sha256": "b989705f37e60de434d3b2a0f583ee7383012d17952e5ba688929b5af0a7f448",
+  "compile_log_sha256": "81d373ab08c31b2eb849e74f5a57f552bdead9922023c5fa237ea5ca5dba26af",
+  "ctest_log_sha256": "579a2991b8c784f424d400fcbbce693745d36ba7c7d7ea1fb9ec1ab223b2dd94",
+  "limitations": "Independent periodic constant-density projection of prescribed staggered MAC fields before approximate PLIC transport. No Navier-Stokes predictor, moving FSI, free-surface stress, measured 3D CFD, global energy/momentum, GPU or UE5.8 E2E."
+}

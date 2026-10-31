@@ -1,0 +1,4 @@
+case,divergence_before,divergence_after,mass_residual,substeps,pressure_max_error
+gradient,0.24603030380330049,5.5511151231257827e-15,0,2,3.4106051316484809e-13
+shear,0,0,0,1,0
+PASS: projected MAC PLIC assertions=4122 phase_complete=false
