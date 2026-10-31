@@ -1,0 +1,161 @@
+{
+  "phase": "P2",
+  "milestone": "live_mac_vof_face_energy_stage_budget_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "generated_utc": "2026-10-31T03:44:30.403467+00:00",
+  "checks": [
+    {
+      "name": "native_exit",
+      "value": 0,
+      "pass": true
+    },
+    {
+      "name": "native_assertions",
+      "value": 4524,
+      "pass": true
+    },
+    {
+      "name": "msvc_93_ctest",
+      "value": true,
+      "pass": true
+    },
+    {
+      "name": "two_3d_grids",
+      "value": 2,
+      "pass": true
+    },
+    {
+      "name": "8_grid",
+      "value": 8,
+      "pass": true
+    },
+    {
+      "name": "8_independent_three_vertical_faces",
+      "value": 0.014435415000000002,
+      "pass": true
+    },
+    {
+      "name": "8_reported_reference",
+      "value": 0.014435415,
+      "pass": true
+    },
+    {
+      "name": "8_projection_stage",
+      "value": 0.0,
+      "pass": true
+    },
+    {
+      "name": "8_post_projection_energy_loss",
+      "value": -4.1185284665097924e-05,
+      "pass": true
+    },
+    {
+      "name": "8_independent_final",
+      "value": 0.014394229715334904,
+      "pass": true
+    },
+    {
+      "name": "8_closure",
+      "value": 0.0,
+      "pass": true
+    },
+    {
+      "name": "8_divergence",
+      "value": 3.221381494888931e-13,
+      "pass": true
+    },
+    {
+      "name": "8_single_substep",
+      "value": 1,
+      "pass": true
+    },
+    {
+      "name": "12_grid",
+      "value": 12,
+      "pass": true
+    },
+    {
+      "name": "12_independent_three_vertical_faces",
+      "value": 0.014435415000000002,
+      "pass": true
+    },
+    {
+      "name": "12_reported_reference",
+      "value": 0.014435415,
+      "pass": true
+    },
+    {
+      "name": "12_projection_stage",
+      "value": 0.0,
+      "pass": true
+    },
+    {
+      "name": "12_post_projection_energy_loss",
+      "value": -4.1185284665097924e-05,
+      "pass": true
+    },
+    {
+      "name": "12_independent_final",
+      "value": 0.014394229715334904,
+      "pass": true
+    },
+    {
+      "name": "12_closure",
+      "value": 0.0,
+      "pass": true
+    },
+    {
+      "name": "12_divergence",
+      "value": 3.221381494888931e-13,
+      "pass": true
+    },
+    {
+      "name": "12_single_substep",
+      "value": 1,
+      "pass": true
+    },
+    {
+      "name": "nine_source_hashes",
+      "value": 9,
+      "pass": true
+    }
+  ],
+  "native_assertions": 4524,
+  "reference": [
+    {
+      "grid": 8,
+      "independent_gravity_face_energy_j": 0.014435415000000005,
+      "measured_gravity_face_energy_j": 0.014435415000000002,
+      "pressure_projection_delta_j": 0.0,
+      "post_transport_projection_delta_j": -4.1185284665097924e-05,
+      "final_face_energy_j": 0.014394229715334904,
+      "closure_j": 0.0,
+      "wet_divergence_s_inv": 3.221381494888931e-13
+    },
+    {
+      "grid": 12,
+      "independent_gravity_face_energy_j": 0.014435415000000005,
+      "measured_gravity_face_energy_j": 0.014435415000000002,
+      "pressure_projection_delta_j": 0.0,
+      "post_transport_projection_delta_j": -4.1185284665097924e-05,
+      "final_face_energy_j": 0.014394229715334904,
+      "closure_j": 0.0,
+      "wet_divergence_s_inv": 3.221381494888931e-13
+    }
+  ],
+  "source_sha256": {
+    "include/upc/coupled_water3d.hpp": "1bcb5c401209873ff381b176a8c76cb5c9b777cc7c1f2d498c0bde543faef898",
+    "include/upc/mac3d.hpp": "8e20bfc2e5367a9df7f8a412908c7f5fbe6b50c5a9f57a771127c83441187808",
+    "tests/p2_face_energy_stages3d_tests.cpp": "5151f7aa4e713f4cafc6e85b523c7015de66f97e52e226a2ca40ca211962842f",
+    "CMakeLists.txt": "d96a3a1c7c27b0eee6128e3dc7bf39a51d858eab3b44ee20258ac7aa480ab90b",
+    "scripts/p2_face_energy_stages_full_build.cmd": "558bd17cbc4eab04762d35e067d0ab7cfe5b9572c0729afbf752a43a31f24bfe",
+    "scripts/p2_face_energy_stages_acceptance.py": "971f365a7beb886059d8be946526f4950e312dbd5dc5b4c5d73e541efde2d6ad",
+    "docs/P2_FACE_ENERGY_STAGES_PARTIAL.md": "bd84496fc6e5d55fceff4affd3b2cec8f52bd51c748643e3d8fe674da31871a5",
+    "docs/PHASENPLAN.md": "6619a2d657452bc4185b14cb01831568b0e08b1116d5b699bf537d0bbe0867c5",
+    "scripts/phase_gate.py": "01065438e2b72b3fe83e7e3ba3decbf54925c84c5f9424b15ad15a8197f59cd6"
+  },
+  "native_binary_sha256": "d97cfbab199a230cafb04e8ab1471ef2fa772a2d845ab06cfa89cfb4b6924e0d",
+  "ctest_log_sha256": "940d5193f16629a86cf39e916ae5390262a33799e25e0b2a99cab9a8ccc20977",
+  "limitations": "All-face square proxy with nominal cell mass, not VOF-weighted physical kinetic energy. Stage closure is telescoping bookkeeping, not physical conservation. No solid-body reaction, heat, independent CFD measurements, or new Unreal E2E."
+}

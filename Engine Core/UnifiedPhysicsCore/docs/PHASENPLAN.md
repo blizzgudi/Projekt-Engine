@@ -1702,3 +1702,9 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
 - P2-P8 INCOMPLETE, ALL_COMPLETE=False. Nur diskrete VOF-Potenzialenergie,
   keine kinetische/viskose/Druckarbeit-/FSI-Gesamtenergiebilanz,
   keine externen CFD-Messdaten und kein neues UE5.8 Native-E2E.
+## P2 Teilfortschritt: MAC-Face-Energie nach Solver-Stufen (31.10.2026)
+
+- Neue opt-in Diagnose `enable_face_energy_stages(true)` im live 3D-MAC/VOF-Solver: getrennte Face-Quadratsummen-Aenderungen aus Advektion, Viskositaet, Gravitation, Druckprojektion, VOF-Transport und finaler Nachprojektion. Standardmaessig deaktiviert.
+- 8^3/12^3, unabhaengige Drei-Face-Gravitationsreferenz 0.014435415 J, gemessen 0.014435415000000002 J; zweite Projektion -0.000041185284665097924 J, algebraischer Abschlussrest 0. MSVC Release, 93/93 CTest, 4524 native Assertions.
+- Tests: transaktionaler Rollback, deaktivierte Diagnose mit bitgenauer VOF-/Druck-Paritaet. Details: docs/P2_FACE_ENERGY_STAGES_PARTIAL.md, scripts/p2_face_energy_stages_acceptance.py, ENGINE TEST STUBE/runs/p2_face_energy_stages_partial.json.
+- **P2-P8 INCOMPLETE; ALL_COMPLETE=False.** Der Face-Quadratsummenwert ist keine VOF-gewichtete physikalische kinetische Energie; keine globale FSI-Energie-/Impulserhaltung, externen CFD-Messdaten oder neue Unreal-5.8-Native-E2E-Abnahme.

@@ -1,0 +1,50 @@
+[0/1] Re-running CMake...
+-- Configuring done (0.0s)
+-- Generating done (0.1s)
+-- Build files have been written to: D:/Projekt Engine/Engine Core/UnifiedPhysicsCore/build
+[1/47] Building CXX object CMakeFiles\upc_unified_runtime_tests.dir\tests\unified_runtime_tests.cpp.obj
+[2/47] Building CXX object CMakeFiles\upc_coupled_water3d_tests.dir\tests\coupled_water3d_tests.cpp.obj
+[3/47] Building CXX object CMakeFiles\upc_p2_reference.dir\benchmarks\p2_reference.cpp.obj
+[4/47] Building CXX object CMakeFiles\upc_material_coupling3d_tests.dir\tests\material_coupling3d_tests.cpp.obj
+[5/47] Building CXX object CMakeFiles\upc_thermal3d_tests.dir\tests\thermal3d_tests.cpp.obj
+[6/47] Building CXX object CMakeFiles\upc_p4_reference.dir\benchmarks\p4_reference.cpp.obj
+[7/47] Building CXX object CMakeFiles\upc_thermal_phase_bridge_tests.dir\tests\thermal_phase_bridge_tests.cpp.obj
+[8/47] Building CXX object CMakeFiles\upc_p3_reference.dir\benchmarks\p3_reference.cpp.obj
+[9/47] Building CXX object CMakeFiles\upc_thermal_advection3d_tests.dir\tests\thermal_advection3d_tests.cpp.obj
+[10/47] Building CXX object CMakeFiles\upc_thermal_soil_tests.dir\tests\thermal_soil_integration_tests.cpp.obj
+[11/47] Building CXX object CMakeFiles\upc_p6_thermal_bridge_tests.dir\tests\reactive_thermal_bridge_tests.cpp.obj
+[12/47] Building CXX object CMakeFiles\upc_p7_sparse_lod_tests.dir\tests\sparse_water_lod3d_tests.cpp.obj
+[13/47] Building CXX object CMakeFiles\upc_p7_sparse_reference.dir\benchmarks\p7_sparse_reference.cpp.obj
+[14/47] Building CXX object CMakeFiles\upc_p7_streamer_tests.dir\tests\p7_brick_streamer3d_tests.cpp.obj
+[15/47] Building CXX object CMakeFiles\upc_p7_gpu_d3d11.dir\benchmarks\p7_gpu_d3d11.cpp.obj
+[16/47] Building CXX object CMakeFiles\upc_p7_gpu_streaming.dir\benchmarks\p7_gpu_streaming_d3d11.cpp.obj
+[17/47] Building CXX object CMakeFiles\upc_p2_live_viscous_water_tests.dir\tests\coupled_viscous_water3d_tests.cpp.obj
+[18/47] Building CXX object CMakeFiles\upc_p2_viscous_momentum_ledger_tests.dir\tests\viscous_momentum_ledger3d_tests.cpp.obj
+[19/47] Building CXX object CMakeFiles\upc_p2_live_viscous_energy_ledger_tests.dir\tests\coupled_viscous_energy_ledger3d_tests.cpp.obj
+[20/47] Building CXX object CMakeFiles\upc_p2_verified_coupled_water_tests.dir\tests\p2_verified_coupled_water3d_tests.cpp.obj
+[21/47] Linking CXX executable upc_coupled_water3d_tests.exe
+[22/47] Building CXX object CMakeFiles\upc_p2_post_transport_projection_tests.dir\tests\p2_post_transport_projection3d_tests.cpp.obj
+[23/47] Linking CXX executable upc_p2_reference.exe
+[24/47] Linking CXX executable upc_unified_runtime_tests.exe
+[25/47] Linking CXX executable upc_material_coupling3d_tests.exe
+[26/47] Linking CXX executable upc_p3_reference.exe
+[27/47] Linking CXX executable upc_thermal3d_tests.exe
+[28/47] Building CXX object CMakeFiles\upc_p2_vof_gravity_ledger_tests.dir\tests\p2_vof_gravity_ledger3d_tests.cpp.obj
+[29/47] Linking CXX executable upc_p4_reference.exe
+[30/47] Linking CXX executable upc_thermal_phase_bridge_tests.exe
+[31/47] Linking CXX executable upc_thermal_advection3d_tests.exe
+[32/47] Linking CXX executable upc_p6_thermal_bridge_tests.exe
+[33/47] Linking CXX executable upc_thermal_soil_tests.exe
+[34/47] Linking CXX executable upc_p7_sparse_lod_tests.exe
+[35/47] Linking CXX executable upc_p7_gpu_d3d11.exe
+[36/47] Linking CXX executable upc_p7_sparse_reference.exe
+[37/47] Linking CXX executable upc_p7_gpu_streaming.exe
+[38/47] Linking CXX executable upc_p7_streamer_tests.exe
+[39/47] Linking CXX executable upc_p2_live_viscous_water_tests.exe
+[40/47] Building CXX object CMakeFiles\upc_p2_face_energy_stages_tests.dir\tests\p2_face_energy_stages3d_tests.cpp.obj
+[41/47] Linking CXX executable upc_p2_viscous_momentum_ledger_tests.exe
+[42/47] Linking CXX executable upc_p2_verified_coupled_water_tests.exe
+[43/47] Linking CXX executable upc_p2_live_viscous_energy_ledger_tests.exe
+[44/47] Linking CXX executable upc_p2_post_transport_projection_tests.exe
+[45/47] Linking CXX executable upc_p2_vof_gravity_ledger_tests.exe
+[46/47] Linking CXX executable upc_p2_face_energy_stages_tests.exe

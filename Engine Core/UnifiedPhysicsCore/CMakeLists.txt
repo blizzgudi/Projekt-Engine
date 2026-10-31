@@ -497,3 +497,8 @@ add_test(NAME physics_p2_post_transport_projection_partial COMMAND upc_p2_post_t
 add_executable(upc_p2_vof_gravity_ledger_tests tests/p2_vof_gravity_ledger3d_tests.cpp)
 target_link_libraries(upc_p2_vof_gravity_ledger_tests PRIVATE upc)
 add_test(NAME physics_p2_vof_gravity_ledger_partial COMMAND upc_p2_vof_gravity_ledger_tests)
+
+# P2 partial: optional stage-resolved MAC face-square budget, not physical KE.
+add_executable(upc_p2_face_energy_stages_tests tests/p2_face_energy_stages3d_tests.cpp)
+target_link_libraries(upc_p2_face_energy_stages_tests PRIVATE upc)
+add_test(NAME physics_p2_face_energy_stages_partial COMMAND upc_p2_face_energy_stages_tests)

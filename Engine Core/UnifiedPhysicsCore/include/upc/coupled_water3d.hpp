@@ -19,6 +19,14 @@
 
 namespace upc {
 struct TransportFlux3D {std::size_t from,to;double volume_m3;};
+// Nominal-cell-mass-scaled staggered face-square diagnostic; NOT physical KE.
+struct MacFaceEnergyStages3D {
+    double initial_j=0,advection_delta_j=0,viscosity_delta_j=0;
+    double gravity_delta_j=0,projection_delta_j=0;
+    double vof_transport_delta_j=0,post_projection_delta_j=0;
+    double final_j=0,closure_residual_j=0;
+    std::size_t substeps=0;
+};
 class CoupledMacWater3D {
     struct Transfer {std::size_t from,to;double amount;};
     std::size_t nx_,ny_,nz_;
@@ -30,6 +38,8 @@ class CoupledMacWater3D {
     // Actual gravitational potential change from VOF face transfers only.
     // Does not include MAC kinetic energy, wall work or pressure forces.
     double last_vof_transport_potential_delta_j_=0;
+    bool face_energy_stages_enabled_=false;
+    MacFaceEnergyStages3D last_face_energy_stages_{};
     double kinematic_viscosity_m2_s_=0;
     // Prescribed tangential shear at static voxel obstacles (no solid motion).
     std::array<double,3> wall_tangential_velocity_m_s_{{0.0,0.0,0.0}};
@@ -216,10 +226,30 @@ class CoupledMacWater3D {
         for(const auto& transfer:transfer_report)
             transport_callback_(transfer);
     }
+    // Raw face-square diagnostic scaled by rho*dx^3/2, including dry faces.
+    double face_energy_proxy_j()const{
+        double sum=0;
+        for(std::size_t z=0;z<nz_;++z)for(std::size_t y=0;y<ny_;++y)
+        for(std::size_t x=0;x<=nx_;++x){const double v=mac_.face_velocity_x(x,y,z);sum+=v*v;}
+        for(std::size_t z=0;z<nz_;++z)for(std::size_t y=0;y<=ny_;++y)
+        for(std::size_t x=0;x<nx_;++x){const double v=mac_.face_velocity_y(x,y,z);sum+=v*v;}
+        for(std::size_t z=0;z<=nz_;++z)for(std::size_t y=0;y<ny_;++y)
+        for(std::size_t x=0;x<nx_;++x){const double v=mac_.face_velocity_z(x,y,z);sum+=v*v;}
+        return 0.5*rho_*dx_*dx_*dx_*sum;
+    }
     void substep(double dt,int pressure_iterations,bool verified=false,double tolerance=1e-8,
                  bool reproject_after_transport=false){
         sync_occupancy();
+        double previous=face_energy_stages_enabled_?face_energy_proxy_j():0;
+        auto stage=[&](double& delta){
+            if(face_energy_stages_enabled_){
+                const double next=face_energy_proxy_j();
+                delta+=next-previous;
+                previous=next;
+            }
+        };
         advect_velocity(dt);
+        stage(last_face_energy_stages_.advection_delta_j);
         if(kinematic_viscosity_m2_s_>0){
             // Snapshot actual liquid occupancy AFTER the previous VOF update.
             // No per-voxel viscosity copies: this is a temporary wet mask.
@@ -280,19 +310,24 @@ class CoupledMacWater3D {
             }
             last_viscous_energy_after_=visc.face_energy_proxy(mac_);
         }
+        stage(last_face_energy_stages_.viscosity_delta_j);
         mac_.apply_gravity(dt);
+        stage(last_face_energy_stages_.gravity_delta_j);
         if(verified) last_projection_divergence_=mac_.project_verified(dt,pressure_iterations,tolerance);
         else {
             mac_.project(dt,pressure_iterations);
             last_projection_divergence_=mac_.max_divergence();
         }
+        stage(last_face_energy_stages_.projection_delta_j);
         advect_fraction(dt);
+        stage(last_face_energy_stages_.vof_transport_delta_j);
         // Optional second projection uses the NEW wet mask after VOF transport.
         // The pre-transport pressure solve alone does not constrain newly wet cells.
         if(reproject_after_transport){
             sync_occupancy();
             last_projection_divergence_=mac_.project_verified(
                 dt,pressure_iterations,tolerance);
+            stage(last_face_energy_stages_.post_projection_delta_j);
         }
     }
 public:
@@ -350,6 +385,11 @@ public:
     double last_vof_transport_potential_delta_j()const{
         return last_vof_transport_potential_delta_j_;
     }
+    // Opt-in only: six stage contributions are numerical face proxies.
+    void enable_face_energy_stages(bool enabled){face_energy_stages_enabled_=enabled;}
+    bool face_energy_stages_enabled()const{return face_energy_stages_enabled_;}
+    MacFaceEnergyStages3D last_face_energy_stages()const{return last_face_energy_stages_;}
+    double current_face_energy_proxy_j()const{return face_energy_proxy_j();}
     double last_projection_divergence()const{return last_projection_divergence_;}
     // Read-only diagnostic using CURRENT VOF occupancy, not the wet mask
     // cached before transport by the original verified step.
@@ -447,6 +487,9 @@ private:
         double remaining=seconds;
         substeps_=0;
         last_vof_transport_potential_delta_j_=0;
+        last_face_energy_stages_={};
+        if(face_energy_stages_enabled_)
+            last_face_energy_stages_.initial_j=face_energy_proxy_j();
         last_viscosity_substeps_=0;
         last_viscous_diffusion_ledger_=MaskedMacMomentumLedger3D{};
         last_viscous_face_momentum_delta_proxy_kg_m_s_={};
@@ -463,6 +506,15 @@ private:
             const double dt=std::min(remaining,peak>0?0.18*dx_/peak:remaining);
             substep(dt,pressure_iterations,verified,tolerance,reproject_after_transport);
             remaining-=dt;
+        }
+        if(face_energy_stages_enabled_){
+            auto& e=last_face_energy_stages_;
+            e.final_j=face_energy_proxy_j();
+            e.substeps=substeps_;
+            const double delta=e.advection_delta_j+e.viscosity_delta_j+
+                e.gravity_delta_j+e.projection_delta_j+
+                e.vof_transport_delta_j+e.post_projection_delta_j;
+            e.closure_residual_j=(e.final_j-e.initial_j)-delta;
         }
     }
 public:
