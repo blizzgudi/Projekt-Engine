@@ -1648,3 +1648,20 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
   dynamische rotierende Zweiwege-FSI, keine globale physikalische
   Impuls-/Energieerhaltung, keine unabhaengigen CFD-Messdaten und
   kein Unreal-5.8-Native-E2E dieses neuen Pfades.
+
+## P2 Teilfortschritt: transaktionaler Live-MAC/VOF-Step mit verifizierter Projektion (31.10.2026)
+
+- 'CoupledMacWater3D::step_verified' nutzt die residualgepruefte
+  'MacProjection3D::project_verified' in jedem adaptiven Substep.
+  Wasserfraktionen, Druck, Geschwindigkeiten, Diagnostik und
+  Transportbenachrichtigungen bleiben bei numerischem Fehler unveraendert.
+  Transportereignisse werden erst nach erfolgreichem Commit zugestellt.
+- Native Tests auf 8^3/12^3-Gittern mit 7 Wasserzellen und Solid-Grenze:
+  Unterkonvergenz-Rollback, Legacy-Paritaet, Massenbilanz,
+  Listener-Commit-Reihenfolge und Parameterfehler. Details:
+  'docs/P2_VERIFIED_COUPLED_MAC_VOF_PARTIAL.md'.
+- Nachweis: 'scripts/p2_verified_coupled_acceptance.py' und
+  'ENGINE TEST STUBE/runs/p2_verified_coupled_partial.json'.
+- **P2-P8 weiterhin INCOMPLETE, ALL_COMPLETE=False.** Keine dynamische
+  rotierende FSI, keine globale physikalische Impuls-/Energiebilanz,
+  keine unabhaengigen CFD-Messdaten und kein UE5.8 Native-E2E dieses Pfades.

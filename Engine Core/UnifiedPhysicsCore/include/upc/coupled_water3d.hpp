@@ -205,7 +205,7 @@ class CoupledMacWater3D {
         for(const auto& transfer:transfer_report)
             transport_callback_(transfer);
     }
-    void substep(double dt,int pressure_iterations){
+    void substep(double dt,int pressure_iterations,bool verified=false,double tolerance=1e-8){
         sync_occupancy();
         advect_velocity(dt);
         if(kinematic_viscosity_m2_s_>0){
@@ -269,8 +269,11 @@ class CoupledMacWater3D {
             last_viscous_energy_after_=visc.face_energy_proxy(mac_);
         }
         mac_.apply_gravity(dt);
-        mac_.project(dt,pressure_iterations);
-        last_projection_divergence_=mac_.max_divergence();
+        if(verified) last_projection_divergence_=mac_.project_verified(dt,pressure_iterations,tolerance);
+        else {
+            mac_.project(dt,pressure_iterations);
+            last_projection_divergence_=mac_.max_divergence();
+        }
         advect_fraction(dt);
     }
 public:
@@ -387,7 +390,8 @@ public:
         return n*(sizeof(double)+sizeof(std::uint8_t))+
                n*(sizeof(double)+sizeof(std::uint8_t)*2)+faces*sizeof(double);
     }
-    void step(double seconds,int pressure_iterations=250){
+private:
+    void step_impl(double seconds,int pressure_iterations,bool verified,double tolerance){
         if(!std::isfinite(seconds)||seconds<=0||seconds>2 ||
            pressure_iterations<1||pressure_iterations>10000)
             throw std::invalid_argument("Invalid coupled step");
@@ -407,9 +411,37 @@ public:
             if(++substeps_>4000)throw std::runtime_error("Coupled solver substep cap");
             const double peak=max_velocity_sum();
             const double dt=std::min(remaining,peak>0?0.18*dx_/peak:remaining);
-            substep(dt,pressure_iterations);
+            substep(dt,pressure_iterations,verified,tolerance);
             remaining-=dt;
         }
+    }
+public:
+    // Preserve the original, unverified solver path for existing callers.
+    void step(double seconds,int pressure_iterations=250){
+        step_impl(seconds,pressure_iterations,false,1e-8);
+    }
+    // Opt-in transactional LIVE MAC/VOF step. Every adaptive substep uses
+    // residual-verified projection. On numerical failure the complete fluid
+    // state, diagnostics and external transport notifications remain unchanged.
+    // Notifications are replayed only after commit; exceptions thrown by a
+    // user callback after commit cannot undo external side effects.
+    double step_verified(double seconds,int pressure_iterations=250,
+                         double max_divergence_s_inv=1e-8){
+        if(!std::isfinite(max_divergence_s_inv)||max_divergence_s_inv<=0)
+            throw std::invalid_argument("Invalid coupled projection tolerance");
+        CoupledMacWater3D candidate=*this;
+        std::vector<TransportFlux3D> deferred;
+        if(transport_callback_)
+            candidate.transport_callback_=[&deferred](const TransportFlux3D& e){
+                deferred.push_back(e);
+            };
+        candidate.step_impl(seconds,pressure_iterations,true,max_divergence_s_inv);
+        const double residual=candidate.last_projection_divergence_;
+        candidate.transport_callback_=transport_callback_;
+        *this=std::move(candidate);
+        if(transport_callback_)
+            for(const auto& event:deferred)transport_callback_(event);
+        return residual;
     }
 };
 } // namespace upc

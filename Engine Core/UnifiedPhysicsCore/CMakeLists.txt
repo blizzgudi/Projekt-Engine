@@ -481,3 +481,8 @@ add_test(NAME physics_p2_projection_gradient_budget_partial COMMAND upc_p2_proje
 add_executable(upc_p2_verified_mac_projection_tests tests/p2_verified_mac_projection3d_tests.cpp)
 target_link_libraries(upc_p2_verified_mac_projection_tests PRIVATE upc)
 add_test(NAME physics_p2_verified_mac_projection_partial COMMAND upc_p2_verified_mac_projection_tests)
+
+# P2 partial: transactional verified pressure projection inside live MAC/VOF.
+add_executable(upc_p2_verified_coupled_water_tests tests/p2_verified_coupled_water3d_tests.cpp)
+target_link_libraries(upc_p2_verified_coupled_water_tests PRIVATE upc)
+add_test(NAME physics_p2_verified_coupled_water_partial COMMAND upc_p2_verified_coupled_water_tests)

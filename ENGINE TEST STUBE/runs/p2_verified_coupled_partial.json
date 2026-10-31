@@ -1,0 +1,117 @@
+{
+  "phase": "P2",
+  "milestone": "verified_transactional_live_mac_vof_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "generated_utc": "2026-10-31T01:28:20.229899+00:00",
+  "checks": [
+    {
+      "name": "native_exit",
+      "value": 0,
+      "pass": true
+    },
+    {
+      "name": "native_full_state_rollback_and_callback_checks",
+      "value": 18100,
+      "pass": true
+    },
+    {
+      "name": "all_90_ctest",
+      "value": true,
+      "pass": true
+    },
+    {
+      "name": "two_distinct_3d_grids",
+      "value": 2,
+      "pass": true
+    },
+    {
+      "name": "8_grid",
+      "value": 8,
+      "pass": true
+    },
+    {
+      "name": "8_independent_voxel_mass",
+      "value": 8.881784197001252e-16,
+      "pass": true
+    },
+    {
+      "name": "8_verified_wet_divergence",
+      "value": 4.086730953645201e-12,
+      "pass": true
+    },
+    {
+      "name": "8_live_substeps",
+      "value": 1,
+      "pass": true
+    },
+    {
+      "name": "8_real_transport_notifications",
+      "value": 19,
+      "pass": true
+    },
+    {
+      "name": "12_grid",
+      "value": 12,
+      "pass": true
+    },
+    {
+      "name": "12_independent_voxel_mass",
+      "value": 8.881784197001252e-16,
+      "pass": true
+    },
+    {
+      "name": "12_verified_wet_divergence",
+      "value": 4.086730953645201e-12,
+      "pass": true
+    },
+    {
+      "name": "12_live_substeps",
+      "value": 1,
+      "pass": true
+    },
+    {
+      "name": "12_real_transport_notifications",
+      "value": 19,
+      "pass": true
+    },
+    {
+      "name": "nine_source_hashes",
+      "value": 9,
+      "pass": true
+    }
+  ],
+  "native_assertions": 18100,
+  "independent_reference": [
+    {
+      "grid": 8,
+      "expected_mass_kg": 7.0,
+      "observed_mass_kg": 7.000000000000001,
+      "divergence_s_inv": 4.086730953645201e-12,
+      "adaptive_substeps": 1,
+      "deferred_transport_notifications": 19
+    },
+    {
+      "grid": 12,
+      "expected_mass_kg": 7.0,
+      "observed_mass_kg": 7.000000000000001,
+      "divergence_s_inv": 4.086730953645201e-12,
+      "adaptive_substeps": 1,
+      "deferred_transport_notifications": 19
+    }
+  ],
+  "source_sha256": {
+    "include/upc/mac3d.hpp": "8e20bfc2e5367a9df7f8a412908c7f5fbe6b50c5a9f57a771127c83441187808",
+    "include/upc/coupled_water3d.hpp": "88ded648a4f8841cb4b4284c95190da2615f195adf0dac243fa4b9c548d3ce84",
+    "tests/p2_verified_coupled_water3d_tests.cpp": "6948fd5a0da7b05195d26f4ad5fb0754ea9b6292736aaac0f3998f226efc3a80",
+    "scripts/p2_verified_coupled_full_build.cmd": "1c032507ce0799bd9e4b06ee3e7b4969f2f8802613885724c821d7dcf8fd9c3b",
+    "scripts/p2_verified_coupled_acceptance.py": "4f51b12745a9d6dc5be335b5d50b8a05b0e6c16ae057733ef38649e9d63f0469",
+    "docs/P2_VERIFIED_COUPLED_MAC_VOF_PARTIAL.md": "c8b339b9f73c20bc16ec80ab51290b6887503e166897e473f96f84ac63255b7e",
+    "docs/PHASENPLAN.md": "bbd7d8ea235874e6d1a00182766ea6cc555f756631e49b614b4c04b383b92110",
+    "scripts/phase_gate.py": "01065438e2b72b3fe83e7e3ba3decbf54925c84c5f9424b15ad15a8197f59cd6",
+    "CMakeLists.txt": "14ebc66dbed2c365e211aba50a187b9216dd01c83abfbbd26f748221844ce489"
+  },
+  "native_binary_sha256": "0d1f090876bd4f6a6ea8313fd03f02e96a9e70d681dfc88f292599e65a5ac791",
+  "ctest_log_sha256": "b2a460505baef3d9c602642c54719f02698dd079273daaa3d62801fb6cdfc37c",
+  "limitations": "Full-step rollback and callback deferral for opt-in live MAC/VOF only. Callback exceptions after commit cannot be rolled back. No rotating FSI, physical global momentum/energy proof, external 3D CFD measurements or Unreal 5.8 Native E2E."
+}
