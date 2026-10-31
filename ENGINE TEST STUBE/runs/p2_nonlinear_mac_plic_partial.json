@@ -1,0 +1,500 @@
+{
+  "phase": "P2",
+  "milestone": "nonlinear_periodic_mac_momentum_projection_geometric_plic_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "generated_utc": "2026-10-31T20:21:27.041746+00:00",
+  "native_assertions": 248596,
+  "checks": [
+    {
+      "name": "native_assertions",
+      "value": 248596,
+      "pass": true
+    },
+    {
+      "name": "native_no_failure",
+      "value": true,
+      "pass": true
+    },
+    {
+      "name": "ctest_regression_106",
+      "value": true,
+      "pass": true
+    },
+    {
+      "name": "msvc_compiled",
+      "value": "p2_nonlinear_mac_plic3d_tests.cpp\n",
+      "pass": true
+    },
+    {
+      "name": "negative_cases",
+      "value": true,
+      "pass": true
+    },
+    {
+      "name": "vortex_8_nonlinear_predictor",
+      "value": 0.00019209188309204234,
+      "pass": true
+    },
+    {
+      "name": "vortex_8_projection",
+      "value": 1.1275702593849246e-16,
+      "pass": true
+    },
+    {
+      "name": "vortex_8_water_mass",
+      "value": 5.551115123125783e-17,
+      "pass": true
+    },
+    {
+      "name": "vortex_8_manual_parity",
+      "value": 0.0,
+      "pass": true
+    },
+    {
+      "name": "vortex_8_pressure_iterations",
+      "value": 58,
+      "pass": true
+    },
+    {
+      "name": "vortex_8_time_steps",
+      "value": 3,
+      "pass": true
+    },
+    {
+      "name": "vortex_12_nonlinear_predictor",
+      "value": 9.325000000000999e-05,
+      "pass": true
+    },
+    {
+      "name": "vortex_12_projection",
+      "value": 2.0816681711721685e-16,
+      "pass": true
+    },
+    {
+      "name": "vortex_12_water_mass",
+      "value": 2.220446049250313e-16,
+      "pass": true
+    },
+    {
+      "name": "vortex_12_manual_parity",
+      "value": 0.0,
+      "pass": true
+    },
+    {
+      "name": "vortex_12_pressure_iterations",
+      "value": 92,
+      "pass": true
+    },
+    {
+      "name": "vortex_12_time_steps",
+      "value": 3,
+      "pass": true
+    },
+    {
+      "name": "slab_(8, 0, -1)_analytic_volume",
+      "value": 0.19200000000000006,
+      "pass": true
+    },
+    {
+      "name": "slab_(8, 0, -1)_analytic_translation",
+      "value": 1.1102230246251565e-16,
+      "pass": true
+    },
+    {
+      "name": "slab_(8, 0, -1)_divergence",
+      "value": 0.0,
+      "pass": true
+    },
+    {
+      "name": "slab_(8, 0, -1)_time_steps",
+      "value": 3,
+      "pass": true
+    },
+    {
+      "name": "slab_(8, 0, 1)_analytic_volume",
+      "value": 0.19200000000000006,
+      "pass": true
+    },
+    {
+      "name": "slab_(8, 0, 1)_analytic_translation",
+      "value": 1.1102230246251565e-16,
+      "pass": true
+    },
+    {
+      "name": "slab_(8, 0, 1)_divergence",
+      "value": 0.0,
+      "pass": true
+    },
+    {
+      "name": "slab_(8, 0, 1)_time_steps",
+      "value": 3,
+      "pass": true
+    },
+    {
+      "name": "slab_(8, 1, -1)_analytic_volume",
+      "value": 0.19200000000000006,
+      "pass": true
+    },
+    {
+      "name": "slab_(8, 1, -1)_analytic_translation",
+      "value": 1.1102230246251565e-16,
+      "pass": true
+    },
+    {
+      "name": "slab_(8, 1, -1)_divergence",
+      "value": 0.0,
+      "pass": true
+    },
+    {
+      "name": "slab_(8, 1, -1)_time_steps",
+      "value": 3,
+      "pass": true
+    },
+    {
+      "name": "slab_(8, 1, 1)_analytic_volume",
+      "value": 0.19200000000000006,
+      "pass": true
+    },
+    {
+      "name": "slab_(8, 1, 1)_analytic_translation",
+      "value": 1.1102230246251565e-16,
+      "pass": true
+    },
+    {
+      "name": "slab_(8, 1, 1)_divergence",
+      "value": 0.0,
+      "pass": true
+    },
+    {
+      "name": "slab_(8, 1, 1)_time_steps",
+      "value": 3,
+      "pass": true
+    },
+    {
+      "name": "slab_(8, 2, -1)_analytic_volume",
+      "value": 0.19200000000000006,
+      "pass": true
+    },
+    {
+      "name": "slab_(8, 2, -1)_analytic_translation",
+      "value": 1.1102230246251565e-16,
+      "pass": true
+    },
+    {
+      "name": "slab_(8, 2, -1)_divergence",
+      "value": 0.0,
+      "pass": true
+    },
+    {
+      "name": "slab_(8, 2, -1)_time_steps",
+      "value": 3,
+      "pass": true
+    },
+    {
+      "name": "slab_(8, 2, 1)_analytic_volume",
+      "value": 0.19200000000000006,
+      "pass": true
+    },
+    {
+      "name": "slab_(8, 2, 1)_analytic_translation",
+      "value": 1.1102230246251565e-16,
+      "pass": true
+    },
+    {
+      "name": "slab_(8, 2, 1)_divergence",
+      "value": 0.0,
+      "pass": true
+    },
+    {
+      "name": "slab_(8, 2, 1)_time_steps",
+      "value": 3,
+      "pass": true
+    },
+    {
+      "name": "slab_(12, 0, -1)_analytic_volume",
+      "value": 0.43200000000000005,
+      "pass": true
+    },
+    {
+      "name": "slab_(12, 0, -1)_analytic_translation",
+      "value": 1.1102230246251565e-16,
+      "pass": true
+    },
+    {
+      "name": "slab_(12, 0, -1)_divergence",
+      "value": 0.0,
+      "pass": true
+    },
+    {
+      "name": "slab_(12, 0, -1)_time_steps",
+      "value": 3,
+      "pass": true
+    },
+    {
+      "name": "slab_(12, 0, 1)_analytic_volume",
+      "value": 0.43200000000000005,
+      "pass": true
+    },
+    {
+      "name": "slab_(12, 0, 1)_analytic_translation",
+      "value": 1.1102230246251565e-16,
+      "pass": true
+    },
+    {
+      "name": "slab_(12, 0, 1)_divergence",
+      "value": 0.0,
+      "pass": true
+    },
+    {
+      "name": "slab_(12, 0, 1)_time_steps",
+      "value": 3,
+      "pass": true
+    },
+    {
+      "name": "slab_(12, 1, -1)_analytic_volume",
+      "value": 0.43200000000000005,
+      "pass": true
+    },
+    {
+      "name": "slab_(12, 1, -1)_analytic_translation",
+      "value": 1.1102230246251565e-16,
+      "pass": true
+    },
+    {
+      "name": "slab_(12, 1, -1)_divergence",
+      "value": 0.0,
+      "pass": true
+    },
+    {
+      "name": "slab_(12, 1, -1)_time_steps",
+      "value": 3,
+      "pass": true
+    },
+    {
+      "name": "slab_(12, 1, 1)_analytic_volume",
+      "value": 0.43200000000000005,
+      "pass": true
+    },
+    {
+      "name": "slab_(12, 1, 1)_analytic_translation",
+      "value": 1.1102230246251565e-16,
+      "pass": true
+    },
+    {
+      "name": "slab_(12, 1, 1)_divergence",
+      "value": 0.0,
+      "pass": true
+    },
+    {
+      "name": "slab_(12, 1, 1)_time_steps",
+      "value": 3,
+      "pass": true
+    },
+    {
+      "name": "slab_(12, 2, -1)_analytic_volume",
+      "value": 0.43200000000000005,
+      "pass": true
+    },
+    {
+      "name": "slab_(12, 2, -1)_analytic_translation",
+      "value": 1.1102230246251565e-16,
+      "pass": true
+    },
+    {
+      "name": "slab_(12, 2, -1)_divergence",
+      "value": 0.0,
+      "pass": true
+    },
+    {
+      "name": "slab_(12, 2, -1)_time_steps",
+      "value": 3,
+      "pass": true
+    },
+    {
+      "name": "slab_(12, 2, 1)_analytic_volume",
+      "value": 0.43200000000000005,
+      "pass": true
+    },
+    {
+      "name": "slab_(12, 2, 1)_analytic_translation",
+      "value": 1.1102230246251565e-16,
+      "pass": true
+    },
+    {
+      "name": "slab_(12, 2, 1)_divergence",
+      "value": 0.0,
+      "pass": true
+    },
+    {
+      "name": "slab_(12, 2, 1)_time_steps",
+      "value": 3,
+      "pass": true
+    },
+    {
+      "name": "twelve_slab_cases",
+      "value": 12,
+      "pass": true
+    },
+    {
+      "name": "two_vortex_cases",
+      "value": 2,
+      "pass": true
+    },
+    {
+      "name": "source_fingerprints",
+      "value": 9,
+      "pass": true
+    }
+  ],
+  "reference": [
+    {
+      "kind": "vortex",
+      "grid": 8,
+      "divergence_before": 0.00019209188309204234,
+      "divergence_after": 1.1275702593849246e-16,
+      "water_volume_error_m3": 5.551115123125783e-17,
+      "manual_parity_error": 0.0,
+      "pcg_iterations": 58
+    },
+    {
+      "kind": "vortex",
+      "grid": 12,
+      "divergence_before": 9.325000000000999e-05,
+      "divergence_after": 2.0816681711721685e-16,
+      "water_volume_error_m3": 2.220446049250313e-16,
+      "manual_parity_error": 0.0,
+      "pcg_iterations": 92
+    },
+    {
+      "kind": "slab",
+      "grid": 8,
+      "axis": 0,
+      "sign": -1,
+      "volume_m3": 0.19200000000000006,
+      "analytic_max_error": 1.1102230246251565e-16,
+      "max_divergence_s_inv": 0.0
+    },
+    {
+      "kind": "slab",
+      "grid": 8,
+      "axis": 0,
+      "sign": 1,
+      "volume_m3": 0.19200000000000006,
+      "analytic_max_error": 1.1102230246251565e-16,
+      "max_divergence_s_inv": 0.0
+    },
+    {
+      "kind": "slab",
+      "grid": 8,
+      "axis": 1,
+      "sign": -1,
+      "volume_m3": 0.19200000000000006,
+      "analytic_max_error": 1.1102230246251565e-16,
+      "max_divergence_s_inv": 0.0
+    },
+    {
+      "kind": "slab",
+      "grid": 8,
+      "axis": 1,
+      "sign": 1,
+      "volume_m3": 0.19200000000000006,
+      "analytic_max_error": 1.1102230246251565e-16,
+      "max_divergence_s_inv": 0.0
+    },
+    {
+      "kind": "slab",
+      "grid": 8,
+      "axis": 2,
+      "sign": -1,
+      "volume_m3": 0.19200000000000006,
+      "analytic_max_error": 1.1102230246251565e-16,
+      "max_divergence_s_inv": 0.0
+    },
+    {
+      "kind": "slab",
+      "grid": 8,
+      "axis": 2,
+      "sign": 1,
+      "volume_m3": 0.19200000000000006,
+      "analytic_max_error": 1.1102230246251565e-16,
+      "max_divergence_s_inv": 0.0
+    },
+    {
+      "kind": "slab",
+      "grid": 12,
+      "axis": 0,
+      "sign": -1,
+      "volume_m3": 0.43200000000000005,
+      "analytic_max_error": 1.1102230246251565e-16,
+      "max_divergence_s_inv": 0.0
+    },
+    {
+      "kind": "slab",
+      "grid": 12,
+      "axis": 0,
+      "sign": 1,
+      "volume_m3": 0.43200000000000005,
+      "analytic_max_error": 1.1102230246251565e-16,
+      "max_divergence_s_inv": 0.0
+    },
+    {
+      "kind": "slab",
+      "grid": 12,
+      "axis": 1,
+      "sign": -1,
+      "volume_m3": 0.43200000000000005,
+      "analytic_max_error": 1.1102230246251565e-16,
+      "max_divergence_s_inv": 0.0
+    },
+    {
+      "kind": "slab",
+      "grid": 12,
+      "axis": 1,
+      "sign": 1,
+      "volume_m3": 0.43200000000000005,
+      "analytic_max_error": 1.1102230246251565e-16,
+      "max_divergence_s_inv": 0.0
+    },
+    {
+      "kind": "slab",
+      "grid": 12,
+      "axis": 2,
+      "sign": -1,
+      "volume_m3": 0.43200000000000005,
+      "analytic_max_error": 1.1102230246251565e-16,
+      "max_divergence_s_inv": 0.0
+    },
+    {
+      "kind": "slab",
+      "grid": 12,
+      "axis": 2,
+      "sign": 1,
+      "volume_m3": 0.43200000000000005,
+      "analytic_max_error": 1.1102230246251565e-16,
+      "max_divergence_s_inv": 0.0
+    }
+  ],
+  "source_sha256": {
+    "include/upc/p2_nonlinear_mac_plic3d.hpp": "0e5a45870efd5e8a4c5893cb1360e5680eee56f18467823979daef3a712c8fd3",
+    "include/upc/p2_periodic_mac_projection3d.hpp": "58073fb6a98ea88fe9f81e6dabb0c3d132f283e9346d1771a4818e5890ceb917",
+    "include/upc/p2_variable_mac_transport3d.hpp": "b0a82555c95656d1493dd33a3ae3c6bb0ca187a4a4d2846573d0da2c16ba5d73",
+    "include/upc/p2_plic_adaptive_subcycle3d.hpp": "f558c74807d4a85cefd79713b7240180a7b9f7b2464f1b4536b1f9ae90553416",
+    "include/upc/p2_plic_unsplit_mac3d.hpp": "9a494b13690a1ca40ea2f72bd6eb7e4ac5356d06b36fea788b799f09cafaac0a",
+    "tests/p2_nonlinear_mac_plic3d_tests.cpp": "8aae50031779608366ad22aab32d4f20c8adff7348ea7851ec8897b465884216",
+    "scripts/p2_nonlinear_mac_plic_build.cmd": "0d772667799ba5f6e9908621bc026c5841957872945851206013050c66b68379",
+    "scripts/p2_nonlinear_mac_plic_acceptance.py": "2cc8902d0d7cd2cd01340da89264a73d1b36c66de982e24f44d73bfe1e1fc2d8",
+    "docs/P2_NONLINEAR_MAC_PLIC_PARTIAL.md": "4456777e140e5b95f7d4a8cb8b43f54ffee38d44b73ebbb591cd0bfa3d6eed48"
+  },
+  "native_binary_sha256": "eeaafce51b4ffac6599615dc5eb6c09123690097d78e20b55e640ff47c00a6c5",
+  "native_log_sha256": "fddda9aa235410381d53737f1b956d3e0bc62a7b6233070f4fffe88696cf4703",
+  "compile_log_sha256": "f24bbb6293e9086c13f0d36e6a88c0232a942604f09ab93b16b7223e23e7d0f3",
+  "ctest_log_sha256": "4b409205c85c1040eb4f48d01d38e511ebaa0d2f7a782988fbc2a303157ab288",
+  "limitations": [
+    "Constant-density fully periodic 3D domain; VOF is passive",
+    "First-order MAC predictor and approximate geometric unsplit PLIC",
+    "No two-phase free-surface stress, moving-solid FSI, or measured CFD",
+    "No global physical energy/momentum or UE5.8 Native E2E",
+    "P2-P8 full phases remain incomplete"
+  ]
+}
