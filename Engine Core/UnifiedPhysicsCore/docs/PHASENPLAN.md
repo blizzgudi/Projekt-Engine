@@ -1686,3 +1686,19 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
 - **P2-P8 weiterhin INCOMPLETE; ALL_COMPLETE=False.**
   Keine rotierende FSI, keine physikalische Gesamtimpuls-/Energiebilanz,
   keine unabhaengige CFD-Messvalidierung und kein neuer UE5.8 Native-E2E.
+
+## P2 Teilfortschritt: diskrete 3D-VOF-Gravitationspotenzialbilanz (31.10.2026)
+
+- Im bestehenden CoupledMacWater3D ist die Gravitationspotenzialdiagnose
+  fuer Wasser-VOF-Zellmittelpunkte und eine pro Transfer integrierte
+  Delta-Energie-Bilanz ueber alle adaptiven Substeps hinzugekommen.
+- Unabhaengige Native-Pruefung: 8^3 und 12^3, je 7 kg Wasser,
+  19 reale VOF-Transfers, Delta-E_pot=-0.11844443076921887 J,
+  separate Transport-Event-Bilanz identisch, Unterkonvergenz-Rollback.
+  MSVC Release, 92/92 CTest und 72 native Assertions PASS.
+- Teil-Gate: scripts/p2_vof_gravity_ledger_acceptance.py,
+  ENGINE TEST STUBE/runs/p2_vof_gravity_ledger_partial.json,
+  docs/P2_VOF_GRAVITY_LEDGER_PARTIAL.md.
+- P2-P8 INCOMPLETE, ALL_COMPLETE=False. Nur diskrete VOF-Potenzialenergie,
+  keine kinetische/viskose/Druckarbeit-/FSI-Gesamtenergiebilanz,
+  keine externen CFD-Messdaten und kein neues UE5.8 Native-E2E.

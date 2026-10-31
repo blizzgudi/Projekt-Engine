@@ -1,0 +1,163 @@
+{
+  "phase": "P2",
+  "milestone": "vof_gravitational_potential_transport_ledger_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "generated_utc": "2026-10-31T03:03:02.002011+00:00",
+  "checks": [
+    {
+      "name": "native_exit",
+      "value": 0,
+      "pass": true
+    },
+    {
+      "name": "native_assertions",
+      "value": 72,
+      "pass": true
+    },
+    {
+      "name": "msvc_92_ctest",
+      "value": true,
+      "pass": true
+    },
+    {
+      "name": "two_grid_cases",
+      "value": 2,
+      "pass": true
+    },
+    {
+      "name": "8_grid",
+      "value": 8,
+      "pass": true
+    },
+    {
+      "name": "8_mass_before",
+      "value": 7.000000000000001,
+      "pass": true
+    },
+    {
+      "name": "8_mass_conserved",
+      "value": 1.7763568394002505e-15,
+      "pass": true
+    },
+    {
+      "name": "8_independent_potential",
+      "value": 33.844500000000004,
+      "pass": true
+    },
+    {
+      "name": "8_state_ledger",
+      "value": 2.8033131371785203e-15,
+      "pass": true
+    },
+    {
+      "name": "8_independent_event_sum",
+      "value": 0.0,
+      "pass": true
+    },
+    {
+      "name": "8_gravity_decreases_potential",
+      "value": -0.11844443076921887,
+      "pass": true
+    },
+    {
+      "name": "8_post_projection_residual",
+      "value": 1.3005135163224324e-11,
+      "pass": true
+    },
+    {
+      "name": "8_real_transfers",
+      "value": 19,
+      "pass": true
+    },
+    {
+      "name": "12_grid",
+      "value": 12,
+      "pass": true
+    },
+    {
+      "name": "12_mass_before",
+      "value": 7.000000000000001,
+      "pass": true
+    },
+    {
+      "name": "12_mass_conserved",
+      "value": 1.7763568394002505e-15,
+      "pass": true
+    },
+    {
+      "name": "12_independent_potential",
+      "value": 47.578500000000005,
+      "pass": true
+    },
+    {
+      "name": "12_state_ledger",
+      "value": 9.908740494779522e-15,
+      "pass": true
+    },
+    {
+      "name": "12_independent_event_sum",
+      "value": 0.0,
+      "pass": true
+    },
+    {
+      "name": "12_gravity_decreases_potential",
+      "value": -0.11844443076921887,
+      "pass": true
+    },
+    {
+      "name": "12_post_projection_residual",
+      "value": 1.3005135163224324e-11,
+      "pass": true
+    },
+    {
+      "name": "12_real_transfers",
+      "value": 19,
+      "pass": true
+    },
+    {
+      "name": "nine_source_hashes",
+      "value": 9,
+      "pass": true
+    }
+  ],
+  "native_assertions": 72,
+  "reference": [
+    {
+      "n": 8,
+      "mass_before_kg": 7.000000000000001,
+      "mass_after_kg": 7.000000000000003,
+      "potential_before_j": 33.844500000000004,
+      "potential_after_j": 33.72605556923079,
+      "vof_transport_delta_j": -0.11844443076921887,
+      "independent_event_delta_j": -0.11844443076921887,
+      "post_vof_divergence_s_inv": 1.3005135163224324e-11,
+      "transfers": 19
+    },
+    {
+      "n": 12,
+      "mass_before_kg": 7.000000000000001,
+      "mass_after_kg": 7.000000000000003,
+      "potential_before_j": 47.578500000000005,
+      "potential_after_j": 47.460055569230796,
+      "vof_transport_delta_j": -0.11844443076921887,
+      "independent_event_delta_j": -0.11844443076921887,
+      "post_vof_divergence_s_inv": 1.3005135163224324e-11,
+      "transfers": 19
+    }
+  ],
+  "source_sha256": {
+    "include/upc/coupled_water3d.hpp": "cb1fd5b3910380439a2caf9372bdb29c8691d7e5e0cca68d49260d1b318aa9f4",
+    "include/upc/mac3d.hpp": "8e20bfc2e5367a9df7f8a412908c7f5fbe6b50c5a9f57a771127c83441187808",
+    "tests/p2_vof_gravity_ledger3d_tests.cpp": "4fab2b3b01dbabdc79f6ebc5a83dc2a83a9287a99da6bede8b6259340b5f5e03",
+    "CMakeLists.txt": "906cc6d0b01075b013ddb5f5807e46c419d02bce8688fc023ca48bf63846c397",
+    "scripts/p2_vof_gravity_ledger_full_build.cmd": "8755f60dc07f0559333d734b9591243919dd65295830e5ed5457efed54a01c31",
+    "scripts/p2_vof_gravity_ledger_acceptance.py": "10209528e0d998c0a55446e44d31147b459bfc549cb33f535e6f0b9fd5ead1d6",
+    "docs/P2_VOF_GRAVITY_LEDGER_PARTIAL.md": "21541e3912b55ddde8ce9fe434ffaede36c4b08f81e577e605166bd3cf4c3cc3",
+    "docs/PHASENPLAN.md": "4905a8dc1d347aafef4f3cd246206563b720a5edddcb9b087ad80f913fb62805",
+    "scripts/phase_gate.py": "01065438e2b72b3fe83e7e3ba3decbf54925c84c5f9424b15ad15a8197f59cd6"
+  },
+  "native_binary_sha256": "e771debd62089d1fefef977ccdc44cd7921dae0d7f89e6b85a58084e88467fa2",
+  "ctest_log_sha256": "9ee41713560905441978cdec765ac57fda53a31ac0ff8cb2e8fef4ebb9f2a715",
+  "limitations": "Discrete VOF gravitational potential transfer only. No kinetic energy closure, pressure work, dynamic FSI impulse/energy, independent measured CFD or Unreal Native-E2E."
+}

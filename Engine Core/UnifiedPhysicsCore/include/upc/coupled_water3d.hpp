@@ -27,6 +27,9 @@ class CoupledMacWater3D {
     std::vector<double> fill_;
     std::vector<std::uint8_t> solid_;
     double last_projection_divergence_=0;
+    // Actual gravitational potential change from VOF face transfers only.
+    // Does not include MAC kinetic energy, wall work or pressure forces.
+    double last_vof_transport_potential_delta_j_=0;
     double kinematic_viscosity_m2_s_=0;
     // Prescribed tangential shear at static voxel obstacles (no solid motion).
     std::array<double,3> wall_tangential_velocity_m_s_{{0.0,0.0,0.0}};
@@ -152,6 +155,7 @@ class CoupledMacWater3D {
         // No transfer through solid or external boundaries. Availability and
         // free-capacity limiters guarantee fractional occupation in [0,1].
         std::vector<Transfer> transfers;
+        double transport_potential_delta_j=0;
         transfers.reserve(3*fill_.size());
         std::vector<double> wants_out(fill_.size(),0),wants_in(fill_.size(),0);
         auto offer=[&](std::size_t a,std::size_t b,double face_velocity){
@@ -189,6 +193,12 @@ class CoupledMacWater3D {
                 std::min(out_scale[transfer.from],in_scale[transfer.to]);
             next[transfer.from]-=amount;
             next[transfer.to]+=amount;
+            // Mass moved across the cell-centre height difference (z is up).
+            // Horizontal x/y transfers contribute exactly zero.
+            const auto from_z=transfer.from/(nx_*ny_);
+            const auto to_z=transfer.to/(nx_*ny_);
+            transport_potential_delta_j+=rho_*dx_*dx_*dx_*9.81*amount*
+                (static_cast<double>(to_z)-static_cast<double>(from_z))*dx_;
             if(transport_callback_&&amount>0)
                 transfer_report.push_back({transfer.from,transfer.to,
                                            amount*dx_*dx_*dx_});
@@ -202,6 +212,7 @@ class CoupledMacWater3D {
                 throw std::runtime_error("3D water entered a solid");
         }
         fill_.swap(next);
+        last_vof_transport_potential_delta_j_+=transport_potential_delta_j;
         for(const auto& transfer:transfer_report)
             transport_callback_(transfer);
     }
@@ -322,6 +333,23 @@ public:
         return v*dx_*dx_*dx_;
     }
     double mass_kg()const{return rho_*volume_m3();}
+    // Cell-centre gravitational potential relative to the z=0 floor.
+    // This is a VOF mass-height diagnostic, not total mechanical energy.
+    double water_gravitational_potential_j()const{
+        double sum=0;
+        const double cell_mass=rho_*dx_*dx_*dx_;
+        for(std::size_t z=0;z<nz_;++z)
+        for(std::size_t y=0;y<ny_;++y)
+        for(std::size_t x=0;x<nx_;++x)
+            sum+=fill_[cell(x,y,z)]*cell_mass*9.81*(z+0.5)*dx_;
+        return sum;
+    }
+    // Sum of the discrete VOF transport-stage potential changes over the
+    // last successful step, including all adaptive substeps. A failed
+    // transactional verified step leaves this diagnostic unchanged.
+    double last_vof_transport_potential_delta_j()const{
+        return last_vof_transport_potential_delta_j_;
+    }
     double last_projection_divergence()const{return last_projection_divergence_;}
     // Read-only diagnostic using CURRENT VOF occupancy, not the wet mask
     // cached before transport by the original verified step.
@@ -418,6 +446,7 @@ private:
             throw std::invalid_argument("Invalid coupled step");
         double remaining=seconds;
         substeps_=0;
+        last_vof_transport_potential_delta_j_=0;
         last_viscosity_substeps_=0;
         last_viscous_diffusion_ledger_=MaskedMacMomentumLedger3D{};
         last_viscous_face_momentum_delta_proxy_kg_m_s_={};

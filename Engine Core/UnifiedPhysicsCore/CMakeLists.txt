@@ -492,3 +492,8 @@ add_test(NAME physics_p2_verified_coupled_water_partial COMMAND upc_p2_verified_
 add_executable(upc_p2_post_transport_projection_tests tests/p2_post_transport_projection3d_tests.cpp)
 target_link_libraries(upc_p2_post_transport_projection_tests PRIVATE upc)
 add_test(NAME physics_p2_post_transport_projection_partial COMMAND upc_p2_post_transport_projection_tests)
+
+# P2 partial: 3D VOF gravitational potential transfer (not full energy).
+add_executable(upc_p2_vof_gravity_ledger_tests tests/p2_vof_gravity_ledger3d_tests.cpp)
+target_link_libraries(upc_p2_vof_gravity_ledger_tests PRIVATE upc)
+add_test(NAME physics_p2_vof_gravity_ledger_partial COMMAND upc_p2_vof_gravity_ledger_tests)

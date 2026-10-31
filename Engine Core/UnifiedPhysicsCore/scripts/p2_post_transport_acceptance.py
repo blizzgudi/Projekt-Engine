@@ -13,7 +13,7 @@ from pathlib import Path
 CORE=Path(__file__).resolve().parent.parent
 RUNS=CORE.parents[1]/"ENGINE TEST STUBE"/"runs"
 EXE=CORE/"build"/"upc_p2_post_transport_projection_tests.exe"
-LOG=RUNS/"p2_post_transport_build_ctest_20261031.txt"
+LOG=RUNS/"p2_vof_gravity_ledger_ctest_20261031.txt"
 OUT=RUNS/"p2_post_transport_partial.json"
 SOURCES=[
     "include/upc/coupled_water3d.hpp",
@@ -41,9 +41,9 @@ def main()->None:
     assertions=int(match.group(1)) if match else 0
     add("native_rollback_mass_occupancy_and_listener_assertions",assertions,
         assertions>=18000)
-    add("msvc_91_ctest",
-        "100% tests passed, 0 tests failed out of 91" in log,
-        "100% tests passed, 0 tests failed out of 91" in log)
+    add("msvc_92_ctest",
+        "100% tests passed, 0 tests failed out of 92" in log,
+        "100% tests passed, 0 tests failed out of 92" in log)
     lines=[line for line in result.stdout.splitlines()
            if line.startswith("mode,") or line.startswith("case,")]
     rows=list(csv.DictReader(io.StringIO("\n".join(lines))))

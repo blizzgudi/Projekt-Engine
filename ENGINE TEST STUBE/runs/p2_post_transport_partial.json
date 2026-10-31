@@ -3,7 +3,7 @@
   "milestone": "post_vof_wet_mask_projection_partial",
   "partial_accepted": true,
   "phase_complete": false,
-  "generated_utc": "2026-10-31T02:17:56.518750+00:00",
+  "generated_utc": "2026-10-31T03:03:01.832694+00:00",
   "checks": [
     {
       "name": "native_exit",
@@ -16,7 +16,7 @@
       "pass": true
     },
     {
-      "name": "msvc_91_ctest",
+      "name": "msvc_92_ctest",
       "value": true,
       "pass": true
     },
@@ -121,16 +121,16 @@
     }
   ],
   "source_sha256": {
-    "include/upc/coupled_water3d.hpp": "d5a3df17b13a72c7f905ccc92d9cb0019482bab476fbf5023514ef91576d9624",
+    "include/upc/coupled_water3d.hpp": "cb1fd5b3910380439a2caf9372bdb29c8691d7e5e0cca68d49260d1b318aa9f4",
     "include/upc/mac3d.hpp": "8e20bfc2e5367a9df7f8a412908c7f5fbe6b50c5a9f57a771127c83441187808",
     "tests/p2_post_transport_projection3d_tests.cpp": "86b9e4cdec146ef72c1596cfc3f55e3bee63601077fca0ffc0cc42e55befa6ae",
-    "CMakeLists.txt": "aa20fdf361ea138b41cc71d4c3aa0eb422375955bf0d44655613e94c70d90809",
+    "CMakeLists.txt": "906cc6d0b01075b013ddb5f5807e46c419d02bce8688fc023ca48bf63846c397",
     "docs/P2_POST_TRANSPORT_PROJECTION_PARTIAL.md": "942e460d17a08d733cc6426a59df37e81f43da9b6f9481f8c9c0cd9458a706f8",
-    "docs/PHASENPLAN.md": "6e9fe093dd9bfb52ddadbae4362e921b32fdb181157b31611438b00b94358be9",
-    "scripts/p2_post_transport_acceptance.py": "587ec4092915feceece3662dd877d3744a84dc0f0ca56e2295a5217ecaf8b4e9",
+    "docs/PHASENPLAN.md": "4905a8dc1d347aafef4f3cd246206563b720a5edddcb9b087ad80f913fb62805",
+    "scripts/p2_post_transport_acceptance.py": "165c58dfe2533885b30046de69f492727863c9a6c102c699346dfb0ffc0d2fa6",
     "scripts/phase_gate.py": "01065438e2b72b3fe83e7e3ba3decbf54925c84c5f9424b15ad15a8197f59cd6"
   },
-  "native_binary_sha256": "7345cfa056b98ad84e8b47ca9d22908e3f668fb5428a5d6fb5243e7ead73a07b",
-  "ctest_log_sha256": "eebae92bfddd1dd0d971a4f18c5858c9ca28116c5df45e550dca6e2d9ed60e97",
+  "native_binary_sha256": "8fb58e98d39f3b579862385c5638fec06702335fbe51e1d973b0178340912378",
+  "ctest_log_sha256": "9ee41713560905441978cdec765ac57fda53a31ac0ff8cb2e8fef4ebb9f2a715",
   "limitations": "Discrete post-VOF MAC divergence only; no physical FSI impulse/energy conservation, independent CFD measurement or Unreal 5.8 Native-E2E."
 }
