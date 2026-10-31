@@ -1,0 +1,231 @@
+{
+  "phase": "P2",
+  "milestone": "prescribed_adaptive_cfl_mac_plic_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "generated_utc": "2026-10-31T17:20:01.539234+00:00",
+  "checks": [
+    {
+      "name": "native_exit",
+      "value": 0,
+      "pass": true
+    },
+    {
+      "name": "native_assertions",
+      "value": 2470,
+      "pass": true
+    },
+    {
+      "name": "105_ctests",
+      "value": 1,
+      "pass": true
+    },
+    {
+      "name": "new_test_registered",
+      "value": true,
+      "pass": true
+    },
+    {
+      "name": "configure_log",
+      "value": 145,
+      "pass": true
+    },
+    {
+      "name": "build_log",
+      "value": 23,
+      "pass": true
+    },
+    {
+      "name": "three_cases",
+      "value": 3,
+      "pass": true
+    },
+    {
+      "name": "translation_present",
+      "value": 1,
+      "pass": true
+    },
+    {
+      "name": "translation_initial_volume",
+      "value": 0.03600000000000001,
+      "pass": true
+    },
+    {
+      "name": "translation_final_volume",
+      "value": 0.03600000000000004,
+      "pass": true
+    },
+    {
+      "name": "translation_mass_residual",
+      "value": 2.7755575615628914e-17,
+      "pass": true
+    },
+    {
+      "name": "translation_substeps",
+      "value": 6,
+      "pass": true
+    },
+    {
+      "name": "translation_courant",
+      "value": 0.3999999999999999,
+      "pass": true
+    },
+    {
+      "name": "translation_reference_l1",
+      "value": 0.11663344154143769,
+      "pass": true
+    },
+    {
+      "name": "translation_transfers",
+      "value": 1018,
+      "pass": true
+    },
+    {
+      "name": "seam_present",
+      "value": 1,
+      "pass": true
+    },
+    {
+      "name": "seam_initial_volume",
+      "value": 0.018000000000000006,
+      "pass": true
+    },
+    {
+      "name": "seam_final_volume",
+      "value": 0.01800000000000001,
+      "pass": true
+    },
+    {
+      "name": "seam_mass_residual",
+      "value": 3.469446951953614e-18,
+      "pass": true
+    },
+    {
+      "name": "seam_substeps",
+      "value": 3,
+      "pass": true
+    },
+    {
+      "name": "seam_courant",
+      "value": 0.31999999999999995,
+      "pass": true
+    },
+    {
+      "name": "seam_reference_l1",
+      "value": 0.00044786202841333293,
+      "pass": true
+    },
+    {
+      "name": "seam_transfers",
+      "value": 54,
+      "pass": true
+    },
+    {
+      "name": "curl_present",
+      "value": 1,
+      "pass": true
+    },
+    {
+      "name": "curl_initial_volume",
+      "value": 0.06400000000000002,
+      "pass": true
+    },
+    {
+      "name": "curl_final_volume",
+      "value": 0.06400000000000004,
+      "pass": true
+    },
+    {
+      "name": "curl_mass_residual",
+      "value": 2.7755575615628914e-17,
+      "pass": true
+    },
+    {
+      "name": "curl_substeps",
+      "value": 6,
+      "pass": true
+    },
+    {
+      "name": "curl_courant",
+      "value": 0.22627416997969524,
+      "pass": true
+    },
+    {
+      "name": "curl_reference_l1",
+      "value": 0.0,
+      "pass": true
+    },
+    {
+      "name": "curl_transfers",
+      "value": 980,
+      "pass": true
+    },
+    {
+      "name": "source_sha256",
+      "value": 10,
+      "pass": true
+    }
+  ],
+  "native_assertions": 2470,
+  "reference": [
+    {
+      "case": "translation",
+      "dims": [
+        12,
+        10,
+        8
+      ],
+      "substeps": 6,
+      "initial_volume_m3": 0.03600000000000001,
+      "final_volume_m3": 0.03600000000000004,
+      "analytic_relative_l1": 0.11663344154143769,
+      "max_step_courant": 0.3999999999999999,
+      "transported_faces": 1018
+    },
+    {
+      "case": "seam",
+      "dims": [
+        12,
+        10,
+        8
+      ],
+      "substeps": 3,
+      "initial_volume_m3": 0.018000000000000006,
+      "final_volume_m3": 0.01800000000000001,
+      "analytic_relative_l1": 0.00044786202841333293,
+      "max_step_courant": 0.31999999999999995,
+      "transported_faces": 54
+    },
+    {
+      "case": "curl",
+      "dims": [
+        8,
+        8,
+        8
+      ],
+      "substeps": 6,
+      "initial_volume_m3": 0.06400000000000002,
+      "final_volume_m3": 0.06400000000000004,
+      "analytic_relative_l1": 0.0,
+      "max_step_courant": 0.22627416997969524,
+      "transported_faces": 980
+    }
+  ],
+  "source_sha256": {
+    "include/upc/p2_plic_adaptive_subcycle3d.hpp": "f558c74807d4a85cefd79713b7240180a7b9f7b2464f1b4536b1f9ae90553416",
+    "include/upc/p2_plic_unsplit_mac3d.hpp": "9a494b13690a1ca40ea2f72bd6eb7e4ac5356d06b36fea788b799f09cafaac0a",
+    "include/upc/p2_plic_strang_periodic3d.hpp": "2e67bf6940f452f2ba7b62d64ea571e9e15574eea96d08e22edebc5550553989",
+    "include/upc/p2_oblique_plic_geometry3d.hpp": "e548ca42557b5fa7bf6f752e9e122f64396690baa08a43fac7641f12e05d4627",
+    "tests/p2_plic_adaptive_subcycle3d_tests.cpp": "d210c60889f2ddbd71654c4db6d77a691176cfa8c7eb25a068c74f5bfb5d4f17",
+    "CMakeLists.txt": "e6761c82ef32f5216af717ab9334fdcc62b27787ca231f1b7d2a468a3731a88d",
+    "scripts/p2_plic_adaptive_build.cmd": "299850106110f14aa750cb5a243096653d349a289242589f3e9f1777273681eb",
+    "scripts/p2_plic_adaptive_acceptance.py": "a47ee9e7e23765a4f477ef3e0bd256e4dbeed5aa81ad7d94e4e73cb35c27bf11",
+    "docs/P2_PLIC_ADAPTIVE_SUBCYCLE_PARTIAL.md": "1d96a292f28487396e99d3975a3545f69b29fffcf0e1704789d3cd328e228d53",
+    "docs/PHASENPLAN.md": "30f5fa10ded9eea51994f4e58e77871259f8691c6973f500022dce99bb0d2b8e"
+  },
+  "native_binary_sha256": "7c2b7283b16892f0b8a80f5bef3fb2060e4e7daffa0221dd25a28f3c40e43967",
+  "configure_log_sha256": "db38d43103975f204cf971a03303ca122772e1e0eef5ada3b7d72cee12a7412a",
+  "build_log_sha256": "71aa391ec7d7e291b419a7f40fba91919e14ac2394ab4e8b66ed126e267d70f6",
+  "ctest_log_sha256": "f2d6b934e948595a741928029fa25f99f5c087fd19e77355c8069c00b8cda374",
+  "limitations": "Prescribed frozen periodic divergence-free MAC velocity, not a Navier-Stokes time step. Approximate simultaneous geometric slabs, not exact spacetime transport. No moving-body FSI, independent measured 3D CFD reference, global physical energy/momentum proof or Unreal 5.8 Native-E2E."
+}

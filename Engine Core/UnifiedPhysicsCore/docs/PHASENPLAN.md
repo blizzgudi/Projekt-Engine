@@ -1901,3 +1901,10 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
 - Fail-closed bei nichtsolenoidalem Feld, 6-Face-CFL-Ueberschreitung, unaufgeloesten Normalen und Ueberlappung geometrischer Ausfluss-Slabs. Keine erfundene konservative Korrektur.
 - Nachweis: docs/P2_PLIC_UNSPLIT_MAC_PARTIAL.md, scripts/p2_plic_unsplit_acceptance.py, ENGINE TEST STUBE/runs/p2_plic_unsplit_partial.json.
 - **P2-P8 INCOMPLETE; ALL_COMPLETE=False.** Unsplit-Slab-Summe ist noch keine geometrisch exakte mehrdimensionale Raum-Zeit-Advektion; keine Live-MAC/VOF-Integration, dynamische Zweiwege-FSI, unabh. 3D-CFD-Messdaten, globale Energie-/Impulsabnahme oder UE5.8 Native-E2E.
+
+## P2 Teilfortschritt: adaptives periodisches PLIC-CFL-Subcycling (31.10.2026)
+
+- Neuer optionaler 3D-MAC/PLIC-Adapter fuer vorgegebene, waehrend des Zeitschritts eingefrorene diskret divergenzfreie periodische Face-Geschwindigkeiten. Automatische Aufteilung in sichere Sechs-Face-Courant-Teilschritte; neue PLIC-Normalen nach jedem Schritt; explizites Substep-Budget mit Fail-Closed-Verhalten.
+- Analytische periodische 3D-Quader- und Randnaht-Translationen, diskret solenoidales variables MAC-Curl-Feld, Bitparitaet zum Einzelschritt-Kernel, Negativtests und Massenbilanz. Die mehrdimensionale Ecke bleibt geometrisch approximiert.
+- MSVC Release, vollstaendiger CTest und reproduzierbares Gate: docs/P2_PLIC_ADAPTIVE_SUBCYCLE_PARTIAL.md, scripts/p2_plic_adaptive_acceptance.py, ENGINE TEST STUBE/runs/p2_plic_adaptive_partial.json.
+- **P2-P8 INCOMPLETE; ALL_COMPLETE=False.** Keine echte Navier-Stokes-Zeitintegration, bewegte Zweiwege-FSI, unabh. gemessene 3D-CFD-Validierung, globale Energie-/Impulsabnahme oder neue UE5.8 Native-E2E-Abnahme.

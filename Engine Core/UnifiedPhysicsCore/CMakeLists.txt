@@ -564,3 +564,9 @@ add_test(NAME physics_p2_plic_strang_periodic_partial COMMAND upc_p2_plic_strang
 add_executable(upc_p2_plic_unsplit_mac_tests tests/p2_plic_unsplit_mac3d_tests.cpp)
 target_link_libraries(upc_p2_plic_unsplit_mac_tests PRIVATE upc)
 add_test(NAME physics_p2_plic_unsplit_mac_partial COMMAND upc_p2_plic_unsplit_mac_tests)
+
+# P2 partial: frozen divergence-free 3D MAC/PLIC with bounded CFL
+# subcycling and reconstructed interfaces; no Navier-Stokes time update.
+add_executable(upc_p2_plic_adaptive_subcycle_tests tests/p2_plic_adaptive_subcycle3d_tests.cpp)
+target_link_libraries(upc_p2_plic_adaptive_subcycle_tests PRIVATE upc)
+add_test(NAME physics_p2_plic_adaptive_subcycle_partial COMMAND upc_p2_plic_adaptive_subcycle_tests)
