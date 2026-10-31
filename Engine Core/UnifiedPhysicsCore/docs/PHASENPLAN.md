@@ -1936,3 +1936,10 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
   Raender, passive VOF, keine spannungskonsistente freie Oberflaeche,
   bewegte Zweiwege-FSI, gemessene 3D-CFD-Referenzen, globale physikalische
   Energie-/Impulsbilanz oder neue UE5.8-Native-E2E-Abnahme.
+
+## P2 Teilfortschritt: zeitliche viskose MAC/PLIC-Zustandsfortschreibung (31.10.2026)
+
+- Neuer optionaler `p2_viscous_mac_plic_sequence3d`-Adapter: mehrere aufeinanderfolgende periodische 3D-MAC/PLIC-Schritte mit variabler Viskositaet und Zeitschrittdauer, nichtlinearem Impulspredictor, Druckprojektion und passivem geometrischem Wassertransport. Gemeinsame echte PLIC-/Viskositaets-Substep-Budgets und Fail-Closed bei ungueltigen spaeteren Intervallen; Eingangszustand unveraendert.
+- Unabhaengige diskrete Fourier-Referenzen fuer drei Intervalle auf 8^3/12^3: maximale Face-Abweichung 7.38e-18; analytische Dampfungsfaktoren 0.8871835194886617/0.94732423526731346. Echter 12^3-Wassertransport und Bitparitaet mit manuell verketteten Einzelschritten; 9 Negativfaelle.
+- MSVC C++17-Release Native-Test 11.364 Assertions PASS; bestehende 106/106 CTest PASS; separates Python-Teil-Gate 21/21 PASS. Nachweis: `docs/P2_VISCOUS_MAC_PLIC_SEQUENCE_PARTIAL.md`, `scripts/p2_viscous_mac_plic_sequence_acceptance.py`, `ENGINE TEST STUBE/runs/p2_viscous_mac_plic_sequence_partial.json` mit SHA256-Fingerprints.
+- **P2-P8 INCOMPLETE; ALL_COMPLETE=False.** Keine stresskonsistente Zweiphasenphysik, bewegte Zweiwege-FSI, externen 3D-CFD-Messdaten, globale physikalische Energie-/Impulsabnahme oder neue Unreal-5.8-Native-E2E-Abnahme. Die neuen Tests sind ein separater Native-Build und noch kein CTest-Target.
