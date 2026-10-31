@@ -507,3 +507,9 @@ add_test(NAME physics_p2_face_energy_stages_partial COMMAND upc_p2_face_energy_s
 add_executable(upc_p2_vof_mechanical_inventory_tests tests/p2_vof_mechanical_inventory3d_tests.cpp)
 target_link_libraries(upc_p2_vof_mechanical_inventory_tests PRIVATE upc)
 add_test(NAME physics_p2_vof_mechanical_inventory_partial COMMAND upc_p2_vof_mechanical_inventory_tests)
+
+# P2 partial: VOF-weighted angular momentum and point-mass inertia audit.
+# No dynamic rigid-fluid conservation claim.
+add_executable(upc_p2_vof_angular_inventory_tests tests/p2_vof_angular_inventory3d_tests.cpp)
+target_link_libraries(upc_p2_vof_angular_inventory_tests PRIVATE upc)
+add_test(NAME physics_p2_vof_angular_inventory_partial COMMAND upc_p2_vof_angular_inventory_tests)

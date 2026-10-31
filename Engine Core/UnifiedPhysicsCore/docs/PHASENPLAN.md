@@ -1749,3 +1749,21 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
   ist keine physikalisch geschlossene Druck-/Viskositaets-/FSI-Energie.
   Bewegte Zweiwege-FSI, gemessene CFD-Referenzen und UE5.8 Native-E2E
   fuer diesen Pfad fehlen weiterhin.
+
+## P2 Teilfortschritt: VOF-gewichteter Drehimpuls und Traegheit (31.10.2026)
+
+- Neuer read-only 3D-MAC/VOF-Adapter fuer Zellmittelpunkt-Drehimpuls um
+  einen frei waehlbaren Ursprung, Massenschwerpunkt, linearen Impuls,
+  Punktmassen-Traegheitstensor und Steiner-Verschiebung. Kein Fluid-FSI.
+- Zwei analytische 8^3/12^3-Referenzen: 1 kg, Schwerpunkt (0.475 m)^3,
+  L=(-0.73125,0.50625,0.225) kg m^2/s, I_COM-Diagonale 0.03375,
+  Nebendiagonale -0.016875 kg m^2; Delta-L durch 0.125-kg-Transfer
+  (-0.184375,0.021875,0.1625) kg m^2/s.
+- Native Tests einschliesslich Ursprungstransformation, trockener Faces,
+  Fehlerfaellen und tatsaechlich konvergierter Druckprojektion.
+  Nachweis: docs/P2_VOF_ANGULAR_INVENTORY_PARTIAL.md,
+  scripts/p2_vof_angular_acceptance.py und
+  ENGINE TEST STUBE/runs/p2_vof_angular_partial.json.
+- P2-P8 weiterhin INCOMPLETE; ALL_COMPLETE=False. Kein konservatives
+  rotierendes Zweiwege-FSI, keine externe 3D-CFD-Messvalidierung,
+  keine globale Impuls-/Energieerhaltung und kein UE5.8 Native-E2E.

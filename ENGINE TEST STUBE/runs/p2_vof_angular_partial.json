@@ -1,0 +1,420 @@
+{
+  "phase": "P2",
+  "milestone": "vof_angular_momentum_point_mass_inertia_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "generated_utc": "2026-10-31T06:47:53.504433+00:00",
+  "checks": [
+    {
+      "name": "native_exit",
+      "value": 0,
+      "pass": true
+    },
+    {
+      "name": "native_assertions",
+      "value": 126,
+      "pass": true
+    },
+    {
+      "name": "msvc_95_ctest",
+      "value": 1,
+      "pass": true
+    },
+    {
+      "name": "build_log_present",
+      "value": 193,
+      "pass": true
+    },
+    {
+      "name": "four_grid_rows",
+      "value": 4,
+      "pass": true
+    },
+    {
+      "name": "analytic_8_grid",
+      "value": 8,
+      "pass": true
+    },
+    {
+      "name": "analytic_8_finite",
+      "value": {
+        "mass": 1.0,
+        "Lx": -0.7312500000000001,
+        "Ly": 0.5062500000000001,
+        "Lz": 0.22500000000000003,
+        "Ixx": 0.03375000000000006,
+        "Ixy": -0.01687500000000003,
+        "dLx": -0.18437500000000007,
+        "dLy": 0.021874999999999978,
+        "dLz": 0.16250000000000003
+      },
+      "pass": true
+    },
+    {
+      "name": "analytic_8_mode",
+      "value": "analytic",
+      "pass": true
+    },
+    {
+      "name": "analytic_8_reference_mass",
+      "value": 1.0,
+      "pass": true
+    },
+    {
+      "name": "analytic_8_reference_Lx",
+      "value": -0.7312500000000001,
+      "pass": true
+    },
+    {
+      "name": "analytic_8_reference_Ly",
+      "value": 0.5062500000000001,
+      "pass": true
+    },
+    {
+      "name": "analytic_8_reference_Lz",
+      "value": 0.22500000000000003,
+      "pass": true
+    },
+    {
+      "name": "analytic_8_reference_Ixx",
+      "value": 0.03375000000000006,
+      "pass": true
+    },
+    {
+      "name": "analytic_8_reference_Ixy",
+      "value": -0.01687500000000003,
+      "pass": true
+    },
+    {
+      "name": "analytic_8_reference_dLx",
+      "value": -0.18437500000000007,
+      "pass": true
+    },
+    {
+      "name": "analytic_8_reference_dLy",
+      "value": 0.021874999999999978,
+      "pass": true
+    },
+    {
+      "name": "analytic_8_reference_dLz",
+      "value": 0.16250000000000003,
+      "pass": true
+    },
+    {
+      "name": "projected_8_grid",
+      "value": 8,
+      "pass": true
+    },
+    {
+      "name": "projected_8_finite",
+      "value": {
+        "mass": 1.5,
+        "Lx": -0.7312500000000001,
+        "Ly": 0.6562499999999998,
+        "Lz": 0.07500000000000023,
+        "Ixx": 0.0675,
+        "Ixy": -0.026249999999999996,
+        "dLx": 0.0,
+        "dLy": 0.006249999999999756,
+        "dLz": -0.006249999999999756
+      },
+      "pass": true
+    },
+    {
+      "name": "projected_8_mode",
+      "value": "projected",
+      "pass": true
+    },
+    {
+      "name": "projected_8_reference_mass",
+      "value": 1.5,
+      "pass": true
+    },
+    {
+      "name": "projected_8_reference_Lx",
+      "value": -0.7312500000000001,
+      "pass": true
+    },
+    {
+      "name": "projected_8_reference_Ly",
+      "value": 0.6562499999999998,
+      "pass": true
+    },
+    {
+      "name": "projected_8_reference_Lz",
+      "value": 0.07500000000000023,
+      "pass": true
+    },
+    {
+      "name": "projected_8_reference_Ixx",
+      "value": 0.0675,
+      "pass": true
+    },
+    {
+      "name": "projected_8_reference_Ixy",
+      "value": -0.026249999999999996,
+      "pass": true
+    },
+    {
+      "name": "projected_8_reference_dLx",
+      "value": 0.0,
+      "pass": true
+    },
+    {
+      "name": "projected_8_reference_dLy",
+      "value": 0.006249999999999756,
+      "pass": true
+    },
+    {
+      "name": "projected_8_reference_dLz",
+      "value": -0.006249999999999756,
+      "pass": true
+    },
+    {
+      "name": "projected_8_nontrivial_projection",
+      "value": 0.006249999999999756,
+      "pass": true
+    },
+    {
+      "name": "analytic_12_grid",
+      "value": 12,
+      "pass": true
+    },
+    {
+      "name": "analytic_12_finite",
+      "value": {
+        "mass": 1.0,
+        "Lx": -0.7312500000000001,
+        "Ly": 0.5062500000000001,
+        "Lz": 0.22500000000000003,
+        "Ixx": 0.03375000000000006,
+        "Ixy": -0.01687500000000003,
+        "dLx": -0.18437500000000007,
+        "dLy": 0.021874999999999978,
+        "dLz": 0.16250000000000003
+      },
+      "pass": true
+    },
+    {
+      "name": "analytic_12_mode",
+      "value": "analytic",
+      "pass": true
+    },
+    {
+      "name": "analytic_12_reference_mass",
+      "value": 1.0,
+      "pass": true
+    },
+    {
+      "name": "analytic_12_reference_Lx",
+      "value": -0.7312500000000001,
+      "pass": true
+    },
+    {
+      "name": "analytic_12_reference_Ly",
+      "value": 0.5062500000000001,
+      "pass": true
+    },
+    {
+      "name": "analytic_12_reference_Lz",
+      "value": 0.22500000000000003,
+      "pass": true
+    },
+    {
+      "name": "analytic_12_reference_Ixx",
+      "value": 0.03375000000000006,
+      "pass": true
+    },
+    {
+      "name": "analytic_12_reference_Ixy",
+      "value": -0.01687500000000003,
+      "pass": true
+    },
+    {
+      "name": "analytic_12_reference_dLx",
+      "value": -0.18437500000000007,
+      "pass": true
+    },
+    {
+      "name": "analytic_12_reference_dLy",
+      "value": 0.021874999999999978,
+      "pass": true
+    },
+    {
+      "name": "analytic_12_reference_dLz",
+      "value": 0.16250000000000003,
+      "pass": true
+    },
+    {
+      "name": "projected_12_grid",
+      "value": 12,
+      "pass": true
+    },
+    {
+      "name": "projected_12_finite",
+      "value": {
+        "mass": 1.5,
+        "Lx": -0.7312500000000001,
+        "Ly": 0.6562499999999998,
+        "Lz": 0.07500000000000023,
+        "Ixx": 0.0675,
+        "Ixy": -0.026249999999999996,
+        "dLx": 0.0,
+        "dLy": 0.006249999999999756,
+        "dLz": -0.006249999999999756
+      },
+      "pass": true
+    },
+    {
+      "name": "projected_12_mode",
+      "value": "projected",
+      "pass": true
+    },
+    {
+      "name": "projected_12_reference_mass",
+      "value": 1.5,
+      "pass": true
+    },
+    {
+      "name": "projected_12_reference_Lx",
+      "value": -0.7312500000000001,
+      "pass": true
+    },
+    {
+      "name": "projected_12_reference_Ly",
+      "value": 0.6562499999999998,
+      "pass": true
+    },
+    {
+      "name": "projected_12_reference_Lz",
+      "value": 0.07500000000000023,
+      "pass": true
+    },
+    {
+      "name": "projected_12_reference_Ixx",
+      "value": 0.0675,
+      "pass": true
+    },
+    {
+      "name": "projected_12_reference_Ixy",
+      "value": -0.026249999999999996,
+      "pass": true
+    },
+    {
+      "name": "projected_12_reference_dLx",
+      "value": 0.0,
+      "pass": true
+    },
+    {
+      "name": "projected_12_reference_dLy",
+      "value": 0.006249999999999756,
+      "pass": true
+    },
+    {
+      "name": "projected_12_reference_dLz",
+      "value": -0.006249999999999756,
+      "pass": true
+    },
+    {
+      "name": "projected_12_nontrivial_projection",
+      "value": 0.006249999999999756,
+      "pass": true
+    },
+    {
+      "name": "exact_mode_grid_set",
+      "value": [
+        [
+          "analytic",
+          8
+        ],
+        [
+          "projected",
+          8
+        ],
+        [
+          "analytic",
+          12
+        ],
+        [
+          "projected",
+          12
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "name": "eight_source_hashes",
+      "value": 8,
+      "pass": true
+    }
+  ],
+  "native_assertions": 126,
+  "reference": [
+    {
+      "mode": "analytic",
+      "grid": 8,
+      "mass": 1.0,
+      "Lx": -0.7312500000000001,
+      "Ly": 0.5062500000000001,
+      "Lz": 0.22500000000000003,
+      "Ixx": 0.03375000000000006,
+      "Ixy": -0.01687500000000003,
+      "dLx": -0.18437500000000007,
+      "dLy": 0.021874999999999978,
+      "dLz": 0.16250000000000003
+    },
+    {
+      "mode": "projected",
+      "grid": 8,
+      "mass": 1.5,
+      "Lx": -0.7312500000000001,
+      "Ly": 0.6562499999999998,
+      "Lz": 0.07500000000000023,
+      "Ixx": 0.0675,
+      "Ixy": -0.026249999999999996,
+      "dLx": 0.0,
+      "dLy": 0.006249999999999756,
+      "dLz": -0.006249999999999756
+    },
+    {
+      "mode": "analytic",
+      "grid": 12,
+      "mass": 1.0,
+      "Lx": -0.7312500000000001,
+      "Ly": 0.5062500000000001,
+      "Lz": 0.22500000000000003,
+      "Ixx": 0.03375000000000006,
+      "Ixy": -0.01687500000000003,
+      "dLx": -0.18437500000000007,
+      "dLy": 0.021874999999999978,
+      "dLz": 0.16250000000000003
+    },
+    {
+      "mode": "projected",
+      "grid": 12,
+      "mass": 1.5,
+      "Lx": -0.7312500000000001,
+      "Ly": 0.6562499999999998,
+      "Lz": 0.07500000000000023,
+      "Ixx": 0.0675,
+      "Ixy": -0.026249999999999996,
+      "dLx": 0.0,
+      "dLy": 0.006249999999999756,
+      "dLz": -0.006249999999999756
+    }
+  ],
+  "source_sha256": {
+    "include/upc/mac3d.hpp": "8e20bfc2e5367a9df7f8a412908c7f5fbe6b50c5a9f57a771127c83441187808",
+    "include/upc/p2_vof_angular_inventory3d.hpp": "f1baf73bf7fdff72d41fa193da783b59df58e52b9396d847ee99c2b37d219b96",
+    "tests/p2_vof_angular_inventory3d_tests.cpp": "62dfc9f9f8c44f768ca67421d508c92d37c7f489f92f699ebd0f4ceb2084470f",
+    "CMakeLists.txt": "fa1b357ef2280ec3a49895f86014241fade89d80c5bf78c22a77e9aca1ca82b9",
+    "scripts/p2_vof_angular_full_build.cmd": "8eb160a840fdf0bd462d0a2a5aaf7f5624f06caf6144865e21b744fc3ceefbf4",
+    "scripts/p2_vof_angular_acceptance.py": "2b552fed622adec2840908efa14cc97693106edc159318fbdc047dedbdb25342",
+    "docs/P2_VOF_ANGULAR_INVENTORY_PARTIAL.md": "90361a9838574ee9ceeb65eac1a9056fef14b6d5d143e7d067575d66932566c7",
+    "docs/PHASENPLAN.md": "1dc1510d1fdd4f2f61d33d042ce016a7da638ece511b8c7f3a4383b3de95ac50"
+  },
+  "native_binary_sha256": "235cedc682dbce183514e013741475a20dc1988a790298b92e5e3e02f2a058f6",
+  "ctest_log_sha256": "894ac4ff0a23979c4920bd5d9a247699e0dd2e2441538eae3ebab5c0764b55e6",
+  "build_log_sha256": "8cb7b587599d67b3c958dfae99200cabd1d2d310cdc8918310a772e636779821",
+  "limitations": "Cell-centre point-mass angular/inertia inventory only; no moving-body FSI torque, no global momentum/energy conservation, no external CFD measurement, no UE5.8 Native-E2E."
+}
