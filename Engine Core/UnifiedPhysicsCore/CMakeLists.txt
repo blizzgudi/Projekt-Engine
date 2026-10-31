@@ -540,3 +540,10 @@ add_test(NAME physics_p2_oblique_plic_geometry_partial COMMAND upc_p2_oblique_pl
 add_executable(upc_p2_vof_normal_reconstruction_tests tests/p2_vof_normal_reconstruction3d_tests.cpp)
 target_link_libraries(upc_p2_vof_normal_reconstruction_tests PRIVATE upc)
 add_test(NAME physics_p2_vof_normal_reconstruction_partial COMMAND upc_p2_vof_normal_reconstruction_tests)
+
+
+# P2 partial: exact geometric PLIC slab flux, periodic one-axis 3D advection.
+# Not a general unsplit 3D MAC/VOF flow or two-way FSI.
+add_executable(upc_p2_plic_periodic_sweep_tests tests/p2_plic_periodic_sweep3d_tests.cpp)
+target_link_libraries(upc_p2_plic_periodic_sweep_tests PRIVATE upc)
+add_test(NAME physics_p2_plic_periodic_sweep_partial COMMAND upc_p2_plic_periodic_sweep_tests)

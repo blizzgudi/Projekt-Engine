@@ -1,0 +1,304 @@
+{
+  "phase": "P2",
+  "milestone": "one_axis_periodic_plic_geometric_transport",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "generated_utc": "2026-10-31T13:31:50.307500+00:00",
+  "checks": [
+    {
+      "name": "native_exit",
+      "value": 0,
+      "pass": true
+    },
+    {
+      "name": "native_assertions",
+      "value": 6218,
+      "pass": true
+    },
+    {
+      "name": "full_ctest_pass",
+      "value": true,
+      "pass": true
+    },
+    {
+      "name": "new_test_present",
+      "value": true,
+      "pass": true
+    },
+    {
+      "name": "build_nonempty",
+      "value": 187,
+      "pass": true
+    },
+    {
+      "name": "analytic_right_triangle",
+      "value": 0.03125,
+      "pass": true
+    },
+    {
+      "name": "analytic_left_trapezoid",
+      "value": 0.21875,
+      "pass": true
+    },
+    {
+      "name": "six_axis_direction_cases",
+      "value": 6,
+      "pass": true
+    },
+    {
+      "name": "axis_0_direction_-1_present",
+      "value": 1,
+      "pass": true
+    },
+    {
+      "name": "0_-1_initial",
+      "value": 0.19200000000000006,
+      "pass": true
+    },
+    {
+      "name": "0_-1_final",
+      "value": 0.19200000000000006,
+      "pass": true
+    },
+    {
+      "name": "0_-1_analytic_error",
+      "value": 0.0,
+      "pass": true
+    },
+    {
+      "name": "0_-1_courant",
+      "value": 0.25,
+      "pass": true
+    },
+    {
+      "name": "0_-1_faces",
+      "value": 192,
+      "pass": true
+    },
+    {
+      "name": "axis_0_direction_1_present",
+      "value": 1,
+      "pass": true
+    },
+    {
+      "name": "0_1_initial",
+      "value": 0.19200000000000006,
+      "pass": true
+    },
+    {
+      "name": "0_1_final",
+      "value": 0.19200000000000006,
+      "pass": true
+    },
+    {
+      "name": "0_1_analytic_error",
+      "value": 5.551115123125783e-17,
+      "pass": true
+    },
+    {
+      "name": "0_1_courant",
+      "value": 0.25,
+      "pass": true
+    },
+    {
+      "name": "0_1_faces",
+      "value": 192,
+      "pass": true
+    },
+    {
+      "name": "axis_1_direction_-1_present",
+      "value": 1,
+      "pass": true
+    },
+    {
+      "name": "1_-1_initial",
+      "value": 0.19199999999999998,
+      "pass": true
+    },
+    {
+      "name": "1_-1_final",
+      "value": 0.19199999999999998,
+      "pass": true
+    },
+    {
+      "name": "1_-1_analytic_error",
+      "value": 0.0,
+      "pass": true
+    },
+    {
+      "name": "1_-1_courant",
+      "value": 0.25,
+      "pass": true
+    },
+    {
+      "name": "1_-1_faces",
+      "value": 192,
+      "pass": true
+    },
+    {
+      "name": "axis_1_direction_1_present",
+      "value": 1,
+      "pass": true
+    },
+    {
+      "name": "1_1_initial",
+      "value": 0.19199999999999998,
+      "pass": true
+    },
+    {
+      "name": "1_1_final",
+      "value": 0.19199999999999998,
+      "pass": true
+    },
+    {
+      "name": "1_1_analytic_error",
+      "value": 5.551115123125783e-17,
+      "pass": true
+    },
+    {
+      "name": "1_1_courant",
+      "value": 0.25,
+      "pass": true
+    },
+    {
+      "name": "1_1_faces",
+      "value": 192,
+      "pass": true
+    },
+    {
+      "name": "axis_2_direction_-1_present",
+      "value": 1,
+      "pass": true
+    },
+    {
+      "name": "2_-1_initial",
+      "value": 0.19199999999999964,
+      "pass": true
+    },
+    {
+      "name": "2_-1_final",
+      "value": 0.19199999999999964,
+      "pass": true
+    },
+    {
+      "name": "2_-1_analytic_error",
+      "value": 0.0,
+      "pass": true
+    },
+    {
+      "name": "2_-1_courant",
+      "value": 0.25,
+      "pass": true
+    },
+    {
+      "name": "2_-1_faces",
+      "value": 192,
+      "pass": true
+    },
+    {
+      "name": "axis_2_direction_1_present",
+      "value": 1,
+      "pass": true
+    },
+    {
+      "name": "2_1_initial",
+      "value": 0.19199999999999964,
+      "pass": true
+    },
+    {
+      "name": "2_1_final",
+      "value": 0.1919999999999997,
+      "pass": true
+    },
+    {
+      "name": "2_1_analytic_error",
+      "value": 5.551115123125783e-17,
+      "pass": true
+    },
+    {
+      "name": "2_1_courant",
+      "value": 0.25,
+      "pass": true
+    },
+    {
+      "name": "2_1_faces",
+      "value": 192,
+      "pass": true
+    },
+    {
+      "name": "source_hashes",
+      "value": 9,
+      "pass": true
+    }
+  ],
+  "native_assertions": 6218,
+  "reference": [
+    {
+      "axis": 0,
+      "direction": -1,
+      "initial_m3": 0.19200000000000006,
+      "final_m3": 0.19200000000000006,
+      "max_error": 0.0,
+      "active_faces": 192
+    },
+    {
+      "axis": 0,
+      "direction": 1,
+      "initial_m3": 0.19200000000000006,
+      "final_m3": 0.19200000000000006,
+      "max_error": 5.551115123125783e-17,
+      "active_faces": 192
+    },
+    {
+      "axis": 1,
+      "direction": -1,
+      "initial_m3": 0.19199999999999998,
+      "final_m3": 0.19199999999999998,
+      "max_error": 0.0,
+      "active_faces": 192
+    },
+    {
+      "axis": 1,
+      "direction": 1,
+      "initial_m3": 0.19199999999999998,
+      "final_m3": 0.19199999999999998,
+      "max_error": 5.551115123125783e-17,
+      "active_faces": 192
+    },
+    {
+      "axis": 2,
+      "direction": -1,
+      "initial_m3": 0.19199999999999964,
+      "final_m3": 0.19199999999999964,
+      "max_error": 0.0,
+      "active_faces": 192
+    },
+    {
+      "axis": 2,
+      "direction": 1,
+      "initial_m3": 0.19199999999999964,
+      "final_m3": 0.1919999999999997,
+      "max_error": 5.551115123125783e-17,
+      "active_faces": 192
+    }
+  ],
+  "analytic_slab": {
+    "right": 0.03125,
+    "left": 0.21875
+  },
+  "source_sha256": {
+    "include/upc/p2_plic_periodic_sweep3d.hpp": "2744f973e8be4e85fd133e6d1206fe1f43197e8c407c631501c9ab255beaffc7",
+    "include/upc/p2_oblique_plic_geometry3d.hpp": "e548ca42557b5fa7bf6f752e9e122f64396690baa08a43fac7641f12e05d4627",
+    "include/upc/p2_vof_normal_reconstruction3d.hpp": "754d16ad464b530b109ff76f576c7e2d81a7732919b1b4baec251bca614b4878",
+    "tests/p2_plic_periodic_sweep3d_tests.cpp": "288265daeff828a5da83dd0d6415e6bab0c0057f9ecb0b318e2d10ced196706b",
+    "CMakeLists.txt": "5ab4742b42f654a8269d2fd1f768cd35b386d21d27eb4bd5f8f0871c5208759e",
+    "scripts/p2_plic_periodic_sweep_build.cmd": "f3240569f1b14001255e7e2b375da345c62ac2633bdbf3752aa9f704b4324b63",
+    "scripts/p2_plic_periodic_sweep_acceptance.py": "2e18628557620dfac937eb8803eec9ad7d16ba46f45dea73f7d0ce433f873524",
+    "docs/P2_PLIC_PERIODIC_SWEEP_PARTIAL.md": "72dc5835e75e10241cc583fe7103d8ba5b4f539c5fd618a06e553c2c1bf6aa30",
+    "docs/PHASENPLAN.md": "bb42627710a7da39c90f91f3f11a8a6fb0541998ddcae35d39bd4e31b1e6431c"
+  },
+  "native_binary_sha256": "15f9615ab3ebf234199bd799726591256821389b611cfac60ad56a56b763eec7",
+  "build_log_sha256": "949a6d9514baccea3f09be768bb2cfe7aa064038d11f74b5a90b41ce53477550",
+  "ctest_log_sha256": "ce7d204c8994c3e3b9d7a55a836da5ac5d24c7307f7cbae5d87e8638ff268538",
+  "limitations": "Single uniform periodic Cartesian sweep; not general 3D MAC/VOF Navier-Stokes, coupled momentum/energy, moving-solid FSI, independent CFD experiment or Unreal 5.8 E2E."
+}

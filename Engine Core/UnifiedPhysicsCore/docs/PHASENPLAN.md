@@ -1859,3 +1859,23 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
   Grenzflaechenadvektion, dynamische Zweiwege-FSI, externen
   CFD-Messdaten, globale Energie-/Impulserhaltung oder neues
   Unreal-5.8-Native-E2E.
+
+
+## P2 Teilfortschritt: geometrischer periodischer PLIC-Volumentransport (31.10.2026)
+
+- Isolierter 3D-Operator p2_plic_periodic_sweep3d mit geometrisch
+  integrierter PLIC-Ausfluss-Slabmenge statt diffuser f*Courant-Naeherrung.
+  Ein einziger kartesischer, raeumlich konstanter Geschwindigkeitsanteil,
+  periodischer Rand und Courant <= 1; andere Randbedingungen explizit
+  nicht Teil des Operators. Normalen aus der vorhandenen VOF-Rekonstruktion.
+- Unabhaengige analytische 3D-Extrusion des Ebenenschnitts x+y<=1
+  und periodische Translation eines PLIC-Wasserblocks in allen drei
+  Raumrichtungen und beiden Vorzeichen, jeweils zwei Zeitschritte.
+- Native CTest und reproduzierbares Teil-Gate:
+  scripts/p2_plic_periodic_sweep_acceptance.py,
+  ENGINE TEST STUBE/runs/p2_plic_periodic_sweep_partial.json.
+  Details: docs/P2_PLIC_PERIODIC_SWEEP_PARTIAL.md.
+- **P2-P8 weiterhin INCOMPLETE; ALL_COMPLETE=False.** Keine unsplit
+  3D-MAC-Advektion mit variablen Geschwindigkeiten, keine bewegte
+  Zweiwege-FSI, globale physikalische Energie-/Impulsvalidierung,
+  externe CFD-Messdaten oder neue Unreal-5.8-Native-E2E-Abnahme.
