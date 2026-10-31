@@ -1886,3 +1886,10 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
 - 8x8x8 und 12x8x6 in allen drei Achsen: 102/102 CTest PASS, 16.397 native Assertions; analytischer Einzelschrittfehler maximal 5.56e-17; zwei Schritte mit festgehaltenen Achsnormalen analytisch, neu rekonstruierte Normalen weichen lokal bis 0.0552724 ab.
 - Teilnachweis: docs/P2_PLIC_SHEARED_PERIODIC_PARTIAL.md, scripts/p2_plic_sheared_acceptance.py, ENGINE TEST STUBE/runs/p2_plic_sheared_partial.json. Kein vollstaendiger 3D-MAC-VOF-Transport, keine dynamische FSI oder externe CFD-Validierung.
 - **P2 bleibt INCOMPLETE; P3-P8 bleiben INCOMPLETE.**
+
+## P2 Teilfortschritt: dreiachsiger symmetrischer PLIC-Transport (31.10.2026)
+
+- Neue periodische VOF-Normalenrekonstruktion an den Gitter-Nahtstellen und symmetrische Strang-Folge X/2, Y/2, Z, Y/2, X/2 mit jeweils aktualisierten PLIC-Normalen. Drei nichtverschwindende, transversale Schergeschwindigkeitsfelder werden geometrisch konservativ transportiert.
+- MSVC Release **103/103 CTest PASS**, **8314 native Assertions**. Unabhaengige analytische 3D-Quadertranslationen (12x10x8 und 20x16x12), zwei dreiachsige Scherfaelle, periodische Naht und Negativtests; Massenresiduum im Rundungsbereich, gemessener relativer L1-Fehler der Quader unter 2 Prozent.
+- Nachweis: docs/P2_PLIC_STRANG_PERIODIC_PARTIAL.md, scripts/p2_plic_strang_acceptance.py, ENGINE TEST STUBE/runs/p2_plic_strang_partial.json.
+- **P2-P8 INCOMPLETE; ALL_COMPLETE=False.** Operator-Splitting und vorgegebene periodische Lanes sind keine unsplit MAC/VOF-Fluidphysik, keine dynamische Zweiwege-FSI, keine globale Energie-/Impulsvalidierung, keine externe 3D-CFD-Messreferenz oder Unreal-5.8-Native-E2E-Abnahme.

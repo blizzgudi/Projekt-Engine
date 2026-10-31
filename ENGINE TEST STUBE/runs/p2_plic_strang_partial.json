@@ -1,0 +1,270 @@
+{
+  "phase": "P2",
+  "milestone": "three_axis_periodic_strang_geometric_plic_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "generated_utc": "2026-10-31T15:21:29.801692+00:00",
+  "checks": [
+    {
+      "name": "native_exit",
+      "value": 0,
+      "pass": true
+    },
+    {
+      "name": "native_assertions",
+      "value": 8314,
+      "pass": true
+    },
+    {
+      "name": "103_ctests",
+      "value": true,
+      "pass": true
+    },
+    {
+      "name": "new_test_registered",
+      "value": true,
+      "pass": true
+    },
+    {
+      "name": "build_log",
+      "value": 23,
+      "pass": true
+    },
+    {
+      "name": "four_3d_cases",
+      "value": 4,
+      "pass": true
+    },
+    {
+      "name": "box_12x10x8_present",
+      "value": 1,
+      "pass": true
+    },
+    {
+      "name": "box_12x10x8_initial_m3",
+      "value": 0.03600000000000001,
+      "pass": true
+    },
+    {
+      "name": "box_12x10x8_final_m3",
+      "value": 0.03600000000000001,
+      "pass": true
+    },
+    {
+      "name": "box_12x10x8_mass_residual_m3",
+      "value": 0.0,
+      "pass": true
+    },
+    {
+      "name": "box_12x10x8_five_stages",
+      "value": 5,
+      "pass": true
+    },
+    {
+      "name": "box_12x10x8_geometric_faces",
+      "value": 265,
+      "pass": true
+    },
+    {
+      "name": "box_12x10x8_stage_courant",
+      "value": 0.075,
+      "pass": true
+    },
+    {
+      "name": "box_12x10x8_exact_cuboid_l1_relative",
+      "value": 0.012474321434277043,
+      "pass": true
+    },
+    {
+      "name": "box_20x16x12_present",
+      "value": 1,
+      "pass": true
+    },
+    {
+      "name": "box_20x16x12_initial_m3",
+      "value": 0.18000000000000005,
+      "pass": true
+    },
+    {
+      "name": "box_20x16x12_final_m3",
+      "value": 0.18000000000000002,
+      "pass": true
+    },
+    {
+      "name": "box_20x16x12_mass_residual_m3",
+      "value": -2.7755575615628914e-17,
+      "pass": true
+    },
+    {
+      "name": "box_20x16x12_five_stages",
+      "value": 5,
+      "pass": true
+    },
+    {
+      "name": "box_20x16x12_geometric_faces",
+      "value": 1139,
+      "pass": true
+    },
+    {
+      "name": "box_20x16x12_stage_courant",
+      "value": 0.075,
+      "pass": true
+    },
+    {
+      "name": "box_20x16x12_exact_cuboid_l1_relative",
+      "value": 0.005239514252624255,
+      "pass": true
+    },
+    {
+      "name": "shear_12x10x8_present",
+      "value": 1,
+      "pass": true
+    },
+    {
+      "name": "shear_12x10x8_initial_m3",
+      "value": 0.19200000000000006,
+      "pass": true
+    },
+    {
+      "name": "shear_12x10x8_final_m3",
+      "value": 0.19200000000000017,
+      "pass": true
+    },
+    {
+      "name": "shear_12x10x8_mass_residual_m3",
+      "value": 1.1102230246251565e-16,
+      "pass": true
+    },
+    {
+      "name": "shear_12x10x8_five_stages",
+      "value": 5,
+      "pass": true
+    },
+    {
+      "name": "shear_12x10x8_geometric_faces",
+      "value": 943,
+      "pass": true
+    },
+    {
+      "name": "shear_12x10x8_stage_courant",
+      "value": 0.1,
+      "pass": true
+    },
+    {
+      "name": "shear_16x12x10_present",
+      "value": 1,
+      "pass": true
+    },
+    {
+      "name": "shear_16x12x10_initial_m3",
+      "value": 0.5760000000000002,
+      "pass": true
+    },
+    {
+      "name": "shear_16x12x10_final_m3",
+      "value": 0.5760000000000014,
+      "pass": true
+    },
+    {
+      "name": "shear_16x12x10_mass_residual_m3",
+      "value": 1.2212453270876722e-15,
+      "pass": true
+    },
+    {
+      "name": "shear_16x12x10_five_stages",
+      "value": 5,
+      "pass": true
+    },
+    {
+      "name": "shear_16x12x10_geometric_faces",
+      "value": 2598,
+      "pass": true
+    },
+    {
+      "name": "shear_16x12x10_stage_courant",
+      "value": 0.1,
+      "pass": true
+    },
+    {
+      "name": "source_sha256",
+      "value": 11,
+      "pass": true
+    }
+  ],
+  "native_assertions": 8314,
+  "reference": [
+    {
+      "case": "box",
+      "dims": [
+        12,
+        10,
+        8
+      ],
+      "initial_volume_m3": 0.03600000000000001,
+      "final_volume_m3": 0.03600000000000001,
+      "l1_fraction_error": 0.44907557163397355,
+      "max_stage_courant": 0.075,
+      "active_stages": 5,
+      "transported_faces": 265
+    },
+    {
+      "case": "box",
+      "dims": [
+        20,
+        16,
+        12
+      ],
+      "initial_volume_m3": 0.18000000000000005,
+      "final_volume_m3": 0.18000000000000002,
+      "l1_fraction_error": 0.9431125654723658,
+      "max_stage_courant": 0.075,
+      "active_stages": 5,
+      "transported_faces": 1139
+    },
+    {
+      "case": "shear",
+      "dims": [
+        12,
+        10,
+        8
+      ],
+      "initial_volume_m3": 0.19200000000000006,
+      "final_volume_m3": 0.19200000000000017,
+      "l1_fraction_error": 0.0,
+      "max_stage_courant": 0.1,
+      "active_stages": 5,
+      "transported_faces": 943
+    },
+    {
+      "case": "shear",
+      "dims": [
+        16,
+        12,
+        10
+      ],
+      "initial_volume_m3": 0.5760000000000002,
+      "final_volume_m3": 0.5760000000000014,
+      "l1_fraction_error": 0.0,
+      "max_stage_courant": 0.1,
+      "active_stages": 5,
+      "transported_faces": 2598
+    }
+  ],
+  "source_sha256": {
+    "include/upc/p2_plic_strang_periodic3d.hpp": "2e67bf6940f452f2ba7b62d64ea571e9e15574eea96d08e22edebc5550553989",
+    "include/upc/p2_plic_sheared_periodic3d.hpp": "dab18da29e9539e56db5c52ccf19f879811a582bd85f50504e88d35bb9552b56",
+    "include/upc/p2_plic_periodic_sweep3d.hpp": "2744f973e8be4e85fd133e6d1206fe1f43197e8c407c631501c9ab255beaffc7",
+    "include/upc/p2_oblique_plic_geometry3d.hpp": "e548ca42557b5fa7bf6f752e9e122f64396690baa08a43fac7641f12e05d4627",
+    "include/upc/p2_axis_plic_geometry3d.hpp": "dcf25fae082c8f9ee007f152db9ad8feef8d481a2faacb772eb29d9910408186",
+    "tests/p2_plic_strang_periodic3d_tests.cpp": "23ae67d275c9887759c68a995e1fe96a29cd991a1384dec1e403ce0d33250f6c",
+    "CMakeLists.txt": "28e92d1c95b7c16e50e2ef5f6274736b7725bea017dce460bc8cf88d5366c954",
+    "scripts/p2_plic_strang_build.cmd": "d7e6fe9bd9ec31cd8a67ad9c448f527e98b0fa6fdfd948c35c9ac04e9c7cae61",
+    "scripts/p2_plic_strang_acceptance.py": "660b12a5ad95f4bc0a62f4d89455c5953e0514995699dc95d53fd4ee52a85974",
+    "docs/P2_PLIC_STRANG_PERIODIC_PARTIAL.md": "ceccb46d6147f733d5244ee4c82c6bddc76ac34e6c83fd762a07ac47979e7d7b",
+    "docs/PHASENPLAN.md": "b4f3b1e0ee332453e3b9f8840c67f73b67bcfcba0b5fd7de3faec1cd99a7fdf3"
+  },
+  "native_binary_sha256": "06d0d5f0fcc32a2cd68f07857f31edef55411f53d5fcca2e883bf56b3c669ac1",
+  "build_log_sha256": "71aa391ec7d7e291b419a7f40fba91919e14ac2394ab4e8b66ed126e267d70f6",
+  "ctest_log_sha256": "47c1875d0f75f5f57321922a29bc11dc57c1af4e51e0e879f7008a587becf9ce",
+  "limitations": "Prescribed periodic lane-wise solenoidal face velocities, direction splitting and approximate normals; no unsplit MAC pressure coupling, moving two-way FSI, global physical energy/impulse closure, independent CFD data, or UE5.8 native E2E."
+}

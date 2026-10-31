@@ -552,3 +552,9 @@ add_test(NAME physics_p2_plic_periodic_sweep_partial COMMAND upc_p2_plic_periodi
 add_executable(upc_p2_plic_sheared_periodic_tests tests/p2_plic_sheared_periodic3d_tests.cpp)
 target_link_libraries(upc_p2_plic_sheared_periodic_tests PRIVATE upc)
 add_test(NAME physics_p2_plic_sheared_periodic_partial COMMAND upc_p2_plic_sheared_periodic_tests)
+
+# P2 partial: three-axis symmetric direction-split periodic geometric PLIC.
+# Prescribed divergence-free transverse lane shears; NOT unsplit MAC CFD.
+add_executable(upc_p2_plic_strang_periodic_tests tests/p2_plic_strang_periodic3d_tests.cpp)
+target_link_libraries(upc_p2_plic_strang_periodic_tests PRIVATE upc)
+add_test(NAME physics_p2_plic_strang_periodic_partial COMMAND upc_p2_plic_strang_periodic_tests)
