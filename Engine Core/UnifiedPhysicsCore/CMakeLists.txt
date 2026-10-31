@@ -535,3 +535,8 @@ add_test(NAME physics_p2_axis_plic_geometry_partial COMMAND upc_p2_axis_plic_geo
 add_executable(upc_p2_oblique_plic_geometry_tests tests/p2_oblique_plic_geometry3d_tests.cpp)
 target_link_libraries(upc_p2_oblique_plic_geometry_tests PRIVATE upc)
 add_test(NAME physics_p2_oblique_plic_geometry_partial COMMAND upc_p2_oblique_plic_geometry_tests)
+
+# P2: bounded local 3D VOF interface-normal reconstruction and oblique PLIC geometry.
+add_executable(upc_p2_vof_normal_reconstruction_tests tests/p2_vof_normal_reconstruction3d_tests.cpp)
+target_link_libraries(upc_p2_vof_normal_reconstruction_tests PRIVATE upc)
+add_test(NAME physics_p2_vof_normal_reconstruction_partial COMMAND upc_p2_vof_normal_reconstruction_tests)

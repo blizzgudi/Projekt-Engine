@@ -1,0 +1,301 @@
+{
+  "phase": "P2",
+  "milestone": "local_vof_normal_reconstruction_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "generated_utc": "2026-10-31T12:26:14.452190+00:00",
+  "checks": [
+    {
+      "name": "native_exit",
+      "value": 0,
+      "pass": true
+    },
+    {
+      "name": "native_assertions",
+      "value": 13065,
+      "pass": true
+    },
+    {
+      "name": "all_ctest_100",
+      "value": true,
+      "pass": true
+    },
+    {
+      "name": "new_ctest_entry",
+      "value": true,
+      "pass": true
+    },
+    {
+      "name": "build_log_nonempty",
+      "value": 205,
+      "pass": true
+    },
+    {
+      "name": "four_native_cases",
+      "value": 4,
+      "pass": true
+    },
+    {
+      "name": "exact_scenario_set",
+      "value": [
+        [
+          "affine",
+          8
+        ],
+        [
+          "affine",
+          12
+        ],
+        [
+          "plane",
+          12
+        ],
+        [
+          "masked",
+          3
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "name": "affine_8_mass",
+      "value": 4.000000000000002,
+      "pass": true
+    },
+    {
+      "name": "affine_8_partial",
+      "value": 512,
+      "pass": true
+    },
+    {
+      "name": "affine_8_one_sided",
+      "value": 384,
+      "pass": true
+    },
+    {
+      "name": "affine_8_normal_finite",
+      "value": [
+        0.7109572549800236,
+        -0.5529667538733585,
+        0.4344738780433531
+      ],
+      "pass": true
+    },
+    {
+      "name": "affine_8_normal_0",
+      "value": 0.7109572549800236,
+      "pass": true
+    },
+    {
+      "name": "affine_8_normal_1",
+      "value": -0.5529667538733585,
+      "pass": true
+    },
+    {
+      "name": "affine_8_normal_2",
+      "value": 0.4344738780433531,
+      "pass": true
+    },
+    {
+      "name": "affine_12_mass",
+      "value": 13.5,
+      "pass": true
+    },
+    {
+      "name": "affine_12_partial",
+      "value": 1728,
+      "pass": true
+    },
+    {
+      "name": "affine_12_one_sided",
+      "value": 864,
+      "pass": true
+    },
+    {
+      "name": "affine_12_normal_finite",
+      "value": [
+        0.7109572549800278,
+        -0.552966753873355,
+        0.43447387804335036
+      ],
+      "pass": true
+    },
+    {
+      "name": "affine_12_normal_0",
+      "value": 0.7109572549800278,
+      "pass": true
+    },
+    {
+      "name": "affine_12_normal_1",
+      "value": -0.552966753873355,
+      "pass": true
+    },
+    {
+      "name": "affine_12_normal_2",
+      "value": 0.43447387804335036,
+      "pass": true
+    },
+    {
+      "name": "plane_12_mass",
+      "value": 13.5,
+      "pass": true
+    },
+    {
+      "name": "plane_12_partial",
+      "value": 268,
+      "pass": true
+    },
+    {
+      "name": "plane_12_one_sided",
+      "value": 96,
+      "pass": true
+    },
+    {
+      "name": "plane_12_normal_finite",
+      "value": [
+        0.8081220356417687,
+        0.5050762722761053,
+        -0.3030457633656632
+      ],
+      "pass": true
+    },
+    {
+      "name": "plane_12_normal_0",
+      "value": 0.8081220356417687,
+      "pass": true
+    },
+    {
+      "name": "plane_12_normal_1",
+      "value": 0.5050762722761053,
+      "pass": true
+    },
+    {
+      "name": "plane_12_normal_2",
+      "value": -0.3030457633656632,
+      "pass": true
+    },
+    {
+      "name": "masked_3_mass",
+      "value": 104.16,
+      "pass": true
+    },
+    {
+      "name": "masked_3_partial",
+      "value": 26,
+      "pass": true
+    },
+    {
+      "name": "masked_3_one_sided",
+      "value": 50,
+      "pass": true
+    },
+    {
+      "name": "masked_3_normal_finite",
+      "value": [
+        0.5345224838248488,
+        0.8017837257372732,
+        -0.2672612419124244
+      ],
+      "pass": true
+    },
+    {
+      "name": "masked_3_normal_0",
+      "value": 0.5345224838248488,
+      "pass": true
+    },
+    {
+      "name": "masked_3_normal_1",
+      "value": 0.8017837257372732,
+      "pass": true
+    },
+    {
+      "name": "masked_3_normal_2",
+      "value": -0.2672612419124244,
+      "pass": true
+    },
+    {
+      "name": "sharp_interface_min_alignment",
+      "value": 0.84432231346255,
+      "pass": true
+    },
+    {
+      "name": "sharp_interface_mean_alignment",
+      "value": 0.9784871273432921,
+      "pass": true
+    },
+    {
+      "name": "source_fingerprints",
+      "value": 8,
+      "pass": true
+    }
+  ],
+  "native_assertions": 13065,
+  "reference": [
+    {
+      "case": "affine",
+      "grid": 8,
+      "mass_kg": 4.000000000000002,
+      "normal": [
+        0.7109572549800236,
+        -0.5529667538733585,
+        0.4344738780433531
+      ],
+      "partial_cells": 512,
+      "one_sided_axes": 384
+    },
+    {
+      "case": "affine",
+      "grid": 12,
+      "mass_kg": 13.5,
+      "normal": [
+        0.7109572549800278,
+        -0.552966753873355,
+        0.43447387804335036
+      ],
+      "partial_cells": 1728,
+      "one_sided_axes": 864
+    },
+    {
+      "case": "plane",
+      "grid": 12,
+      "mass_kg": 13.5,
+      "normal": [
+        0.8081220356417687,
+        0.5050762722761053,
+        -0.3030457633656632
+      ],
+      "partial_cells": 268,
+      "one_sided_axes": 96
+    },
+    {
+      "case": "masked",
+      "grid": 3,
+      "mass_kg": 104.16,
+      "normal": [
+        0.5345224838248488,
+        0.8017837257372732,
+        -0.2672612419124244
+      ],
+      "partial_cells": 26,
+      "one_sided_axes": 50
+    }
+  ],
+  "sharp_plane_alignment": {
+    "min": 0.84432231346255,
+    "mean": 0.9784871273432921
+  },
+  "source_sha256": {
+    "include/upc/p2_vof_normal_reconstruction3d.hpp": "754d16ad464b530b109ff76f576c7e2d81a7732919b1b4baec251bca614b4878",
+    "include/upc/p2_oblique_plic_geometry3d.hpp": "e548ca42557b5fa7bf6f752e9e122f64396690baa08a43fac7641f12e05d4627",
+    "tests/p2_vof_normal_reconstruction3d_tests.cpp": "fbf8e53717cebff052671c6af637653526e74cb50487a283e82ed315b09347ba",
+    "CMakeLists.txt": "84d9a8c7b91baf483603fe8e23049d96c1222c2168c949b657c172065c72f14b",
+    "scripts/p2_vof_normal_reconstruction_full_build.cmd": "58af5733c12830d73b7a72b7e55b0875a6d6fd3f25c494f4092b38324468bc6e",
+    "scripts/p2_vof_normal_reconstruction_acceptance.py": "be93019c1a1d93c30a076f4e709ae9c1038a3f4601585c0fb5b85ebef631057d",
+    "docs/P2_VOF_NORMAL_RECONSTRUCTION_PARTIAL.md": "2d6c1ece1efc2b4fcf1c665c588f552d15e56f506e97e6f37211ae4c832d936a",
+    "docs/PHASENPLAN.md": "a221d4a85b729c1f13df749d9f07ca88ccf15ea2d6e1e37a3e497ca303a1fa20"
+  },
+  "native_binary_sha256": "98057299db65a13b56702c779c5ccabb349f4104b4cfacc1b202b95751824b76",
+  "build_log_sha256": "7f8f4cd42cc12c4f8704bb51a3c419f9230d6a33fa20bdb54b60e18718251cb9",
+  "ctest_log_sha256": "fa8fb2ad82e0d321a24c76e4988d2c350bfab03d226ab3cc6d80ce6e2d216207",
+  "limitations": "Finite-difference neighbor gradient only, not high-order PLIC, exact interface normals, conservative geometric advection, physical FSI, measured 3D CFD validation or Unreal 5.8 Native E2E."
+}

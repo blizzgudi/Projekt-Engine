@@ -1838,3 +1838,24 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
   vorgeschrieben, nicht rekonstruiert; keine Grenzflaechenadvektion,
   bewegte Zweiwege-FSI, externe 3D-CFD-Messdaten, globale Energie-
   /Impulsabnahme oder neues UE5.8 Native-E2E.
+
+## P2 Teilfortschritt: rekonstruierte lokale VOF-Normalen (31.10.2026)
+
+- Neuer read-only Adapter `p2_reconstruct_vof_normals3d` bestimmt
+  orientierte Oberflaechennormalen aus benachbarten 3D-VOF-Zellanteilen,
+  mit einseitigen Differenzen an Rand-/Solidzellen. Der Adapter
+  `p2_vof_reconstructed_plic_geometry3d` fuehrt die Normalen mit
+  dem vorhandenen obliquen PLIC-Geometriemomentintegrator zusammen.
+- MSVC Release und **100/100 CTest PASS**, 13.065 native Assertions.
+  Analytisch affine 8³-/12³-Gradienten exakt innerhalb 2e-13;
+  scharfer synthetischer 12³-Ebenenschnitt mit mittlerer
+  Normalen-Richtungsuebereinstimmung 0,978487 und minimal 0,844322;
+  Solid-Einseitendifferenz, Massenbilanz und Bezugspunktinvarianz.
+- Nachweis: docs/P2_VOF_NORMAL_RECONSTRUCTION_PARTIAL.md,
+  scripts/p2_vof_normal_reconstruction_acceptance.py,
+  ENGINE TEST STUBE/runs/p2_vof_normal_reconstruction_partial.json.
+- **P2-P8 bleiben INCOMPLETE, ALL_COMPLETE=False.** Nur lokale
+  Gradientenapproximation; keine geometrisch konservative
+  Grenzflaechenadvektion, dynamische Zweiwege-FSI, externen
+  CFD-Messdaten, globale Energie-/Impulserhaltung oder neues
+  Unreal-5.8-Native-E2E.
