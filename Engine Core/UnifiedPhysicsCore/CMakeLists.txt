@@ -523,3 +523,9 @@ add_test(NAME physics_p2_vof_uniform_cell_inertia_partial COMMAND upc_p2_vof_uni
 add_executable(upc_p2_vof_affine_spin_tests tests/p2_vof_affine_spin3d_tests.cpp)
 target_link_libraries(upc_p2_vof_affine_spin_tests PRIVATE upc)
 add_test(NAME physics_p2_vof_affine_spin_partial COMMAND upc_p2_vof_affine_spin_tests)
+
+# P2 bounded: exact mass, centroid and inertia for axis-aligned planar VOF
+# cut cells; geometric reference only, no free-surface dynamics or FSI.
+add_executable(upc_p2_axis_plic_geometry_tests tests/p2_axis_plic_geometry3d_tests.cpp)
+target_link_libraries(upc_p2_axis_plic_geometry_tests PRIVATE upc)
+add_test(NAME physics_p2_axis_plic_geometry_partial COMMAND upc_p2_axis_plic_geometry_tests)

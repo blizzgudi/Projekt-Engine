@@ -1,0 +1,276 @@
+{
+  "phase": "P2",
+  "milestone": "axis_aligned_planar_vof_geometry_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "generated_utc": "2026-10-31T10:23:55.974243+00:00",
+  "checks": [
+    {
+      "name": "native_exit",
+      "value": 0,
+      "pass": true
+    },
+    {
+      "name": "native_assertions",
+      "value": 125,
+      "pass": true
+    },
+    {
+      "name": "full_ctest_98",
+      "value": true,
+      "pass": true
+    },
+    {
+      "name": "native_ctest_entry",
+      "value": true,
+      "pass": true
+    },
+    {
+      "name": "build_log_nonempty",
+      "value": 184,
+      "pass": true
+    },
+    {
+      "name": "five_geometry_cases",
+      "value": 5,
+      "pass": true
+    },
+    {
+      "name": "half_1_finite",
+      "value": [
+        4.0,
+        0.05,
+        0.026666666666666672,
+        0.0
+      ],
+      "pass": true
+    },
+    {
+      "name": "half_1_mass",
+      "value": 4.0,
+      "pass": true
+    },
+    {
+      "name": "half_1_centroid",
+      "value": 0.05,
+      "pass": true
+    },
+    {
+      "name": "half_1_Ixx",
+      "value": 0.026666666666666672,
+      "pass": true
+    },
+    {
+      "name": "half_1_Ixy",
+      "value": 0.0,
+      "pass": true
+    },
+    {
+      "name": "cube_8_finite",
+      "value": [
+        64.0,
+        0.2000000000000004,
+        1.7066666666666555,
+        1.1546319456101628e-14
+      ],
+      "pass": true
+    },
+    {
+      "name": "cube_8_grid",
+      "value": 8,
+      "pass": true
+    },
+    {
+      "name": "cube_8_mass",
+      "value": 64.0,
+      "pass": true
+    },
+    {
+      "name": "cube_8_centroid",
+      "value": 0.2000000000000004,
+      "pass": true
+    },
+    {
+      "name": "cube_8_Ixx",
+      "value": 1.7066666666666555,
+      "pass": true
+    },
+    {
+      "name": "cube_8_Ixy",
+      "value": 1.1546319456101628e-14,
+      "pass": true
+    },
+    {
+      "name": "cube_12_finite",
+      "value": [
+        64.00000000000122,
+        0.19999999999999662,
+        1.7066666666666874,
+        -3.9968028886505635e-14
+      ],
+      "pass": true
+    },
+    {
+      "name": "cube_12_grid",
+      "value": 12,
+      "pass": true
+    },
+    {
+      "name": "cube_12_mass",
+      "value": 64.00000000000122,
+      "pass": true
+    },
+    {
+      "name": "cube_12_centroid",
+      "value": 0.19999999999999662,
+      "pass": true
+    },
+    {
+      "name": "cube_12_Ixx",
+      "value": 1.7066666666666874,
+      "pass": true
+    },
+    {
+      "name": "cube_12_Ixy",
+      "value": -3.9968028886505635e-14,
+      "pass": true
+    },
+    {
+      "name": "partial_8_finite",
+      "value": [
+        1.81640625,
+        0.09993279569892481,
+        0.006817495940833963,
+        2.114244686660452e-05
+      ],
+      "pass": true
+    },
+    {
+      "name": "partial_8_grid",
+      "value": 8,
+      "pass": true
+    },
+    {
+      "name": "partial_8_mass_positive",
+      "value": 1.81640625,
+      "pass": true
+    },
+    {
+      "name": "partial_8_Ixx_positive",
+      "value": 0.006817495940833963,
+      "pass": true
+    },
+    {
+      "name": "partial_12_finite",
+      "value": [
+        8.3671875,
+        0.15017361111111122,
+        0.087027625200573,
+        -0.00012549506293421664
+      ],
+      "pass": true
+    },
+    {
+      "name": "partial_12_grid",
+      "value": 12,
+      "pass": true
+    },
+    {
+      "name": "partial_12_mass_positive",
+      "value": 8.3671875,
+      "pass": true
+    },
+    {
+      "name": "partial_12_Ixx_positive",
+      "value": 0.087027625200573,
+      "pass": true
+    },
+    {
+      "name": "exact_case_set",
+      "value": [
+        [
+          "half",
+          1
+        ],
+        [
+          "cube",
+          8
+        ],
+        [
+          "cube",
+          12
+        ],
+        [
+          "partial",
+          8
+        ],
+        [
+          "partial",
+          12
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "name": "source_hash_count",
+      "value": 7,
+      "pass": true
+    }
+  ],
+  "native_assertions": 125,
+  "reference": [
+    {
+      "mode": "half",
+      "grid": 1,
+      "mass_kg": 4.0,
+      "com_x_m": 0.05,
+      "Ixx_kg_m2": 0.026666666666666672,
+      "Ixy_kg_m2": 0.0
+    },
+    {
+      "mode": "cube",
+      "grid": 8,
+      "mass_kg": 64.0,
+      "com_x_m": 0.2000000000000004,
+      "Ixx_kg_m2": 1.7066666666666555,
+      "Ixy_kg_m2": 1.1546319456101628e-14
+    },
+    {
+      "mode": "cube",
+      "grid": 12,
+      "mass_kg": 64.00000000000122,
+      "com_x_m": 0.19999999999999662,
+      "Ixx_kg_m2": 1.7066666666666874,
+      "Ixy_kg_m2": -3.9968028886505635e-14
+    },
+    {
+      "mode": "partial",
+      "grid": 8,
+      "mass_kg": 1.81640625,
+      "com_x_m": 0.09993279569892481,
+      "Ixx_kg_m2": 0.006817495940833963,
+      "Ixy_kg_m2": 2.114244686660452e-05
+    },
+    {
+      "mode": "partial",
+      "grid": 12,
+      "mass_kg": 8.3671875,
+      "com_x_m": 0.15017361111111122,
+      "Ixx_kg_m2": 0.087027625200573,
+      "Ixy_kg_m2": -0.00012549506293421664
+    }
+  ],
+  "source_sha256": {
+    "include/upc/p2_axis_plic_geometry3d.hpp": "dcf25fae082c8f9ee007f152db9ad8feef8d481a2faacb772eb29d9910408186",
+    "tests/p2_axis_plic_geometry3d_tests.cpp": "60088ab583cec7f2d6079c17907361322e8b9f432c267861158d446ed8173fdf",
+    "CMakeLists.txt": "e8d0197024aad5aed4057ee569e5859dcdd617bf604e7cd3005c2a5d02a95a0d",
+    "scripts/p2_axis_plic_full_build.cmd": "0ea2b7dc85a8df13c7295f603498c06fed14270b19196557d20e284e642996f5",
+    "scripts/p2_axis_plic_acceptance.py": "8fee6d010b30a979275fab08303376d6250459d7d55111b063c778dbb0f3fd69",
+    "docs/P2_AXIS_PLIC_GEOMETRY_PARTIAL.md": "bff3f6db23852d1423e5e3be2ce6de88c15a44e218af61c6c731c623f99ee37f",
+    "docs/PHASENPLAN.md": "54056ff31f0fc4c00d96bd50f58c76f4ef48f2fa66fc0f6b64039235c50e9ccf"
+  },
+  "native_binary_sha256": "5a96016d8028c4cec602c77fe30b838af0804261b88665481f567abb79656eff",
+  "ctest_log_sha256": "f2b322b15e0cd54b346c8abde97b3c95b4f317059455d200afb8eb39654178ef",
+  "build_log_sha256": "d5422518d11fa3a4c64f6a210c5adeaee3c44825a3281f39ec1b86cf880ff5f5",
+  "limitations": "Exact axis-aligned planar geometry only; no arbitrary PLIC normal, live MAC/VOF transport, moving solid FSI, independent measured 3D CFD, or UE5.8 Native E2E."
+}

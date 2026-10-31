@@ -1803,3 +1803,22 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
   Teilzellendichte und affiner Geschwindigkeitsstencil, keine
   rekonstruierte VOF-Freiflaeche, keine konservative Zeitentwicklung,
   keine bewegte Zweiwege-FSI oder neue UE5.8-Native-E2E-Abnahme.
+
+## P2 Teilfortschritt: achsparallele VOF-PLIC-Geometriemomente (31.10.2026)
+
+- Neuer read-only Adapter p2_axis_plic_geometry3d: exakt geschnittene
+  rechteckige Teilzellen mit vorgegebener Schnittachse und -seite,
+  Wasser-Masse, Schwerpunkt und Traegheitstensor um Ursprung/COM.
+- Analytische Halbzelle: 4 kg, Schwerpunkt x=0.05 m (invertiert
+  x=0.15 m), Ixx=0.0266666667, Iyy=Izz=0.0166666667 kg m^2.
+  8^3/12^3 Vollwuerfel und unabhaengige Gauss-Quadratur asymmetrischer
+  teilgefuellter 3D-Volumina mit Ursprungstransformation.
+- MSVC Release 98/98 CTest und 125 native Assertions nach finalem
+  Rebuild PASS; neues Teil-Gate 33/33, P1-Baseline 33/33 und
+  P2-MVP-Baseline 30/30. Nachweis: docs/P2_AXIS_PLIC_GEOMETRY_PARTIAL.md,
+  scripts/p2_axis_plic_acceptance.py,
+  ENGINE TEST STUBE/runs/p2_axis_plic_partial.json.
+- **P2-P8 bleiben INCOMPLETE; ALL_COMPLETE=False.** Keine beliebig
+  orientierten PLIC-Normalen, keine Live-VOF-Transportintegration,
+  keine bewegte FSI, keine externe CFD-Messvalidierung oder neue
+  Unreal-5.8-Native-E2E-Abnahme.
