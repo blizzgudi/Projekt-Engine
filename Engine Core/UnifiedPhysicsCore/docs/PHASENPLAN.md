@@ -1893,3 +1893,11 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
 - MSVC Release **103/103 CTest PASS**, **8314 native Assertions**. Unabhaengige analytische 3D-Quadertranslationen (12x10x8 und 20x16x12), zwei dreiachsige Scherfaelle, periodische Naht und Negativtests; Massenresiduum im Rundungsbereich, gemessener relativer L1-Fehler der Quader unter 2 Prozent.
 - Nachweis: docs/P2_PLIC_STRANG_PERIODIC_PARTIAL.md, scripts/p2_plic_strang_acceptance.py, ENGINE TEST STUBE/runs/p2_plic_strang_partial.json.
 - **P2-P8 INCOMPLETE; ALL_COMPLETE=False.** Operator-Splitting und vorgegebene periodische Lanes sind keine unsplit MAC/VOF-Fluidphysik, keine dynamische Zweiwege-FSI, keine globale Energie-/Impulsvalidierung, keine externe 3D-CFD-Messreferenz oder Unreal-5.8-Native-E2E-Abnahme.
+
+## P2 Teilfortschritt: unsplit MAC/PLIC mit vorgeschriebenem 3D-Wirbelfeld (31.10.2026)
+
+- Neuer optionaler periodischer 3D-PLIC-Operator mit gleichzeitiger konservativer Face-Delta-Buchung. Alle drei MAC-Komponenten duerfen entlang ihrer eigenen Achse variieren, solange die diskrete 3D-Divergenz verschwindet. Kein Drucksolver oder Navier-Stokes-Impulsupdate.
+- MSVC Release 104/104 CTest PASS, 9266 native Assertions; zwei unabhaengige analytische Quader-Translationsreferenzen mit relativen L1-Fehlern 0.0026688889 und 0.0009293333. Zwei echte diskrete 3D-Curl-Felder auf 8^3/12x10x8 mit maximaler Divergenz 1.39e-16 s^-1, zwei konservative VOF-Schritte und analytisch stationaeres Vollwasser.
+- Fail-closed bei nichtsolenoidalem Feld, 6-Face-CFL-Ueberschreitung, unaufgeloesten Normalen und Ueberlappung geometrischer Ausfluss-Slabs. Keine erfundene konservative Korrektur.
+- Nachweis: docs/P2_PLIC_UNSPLIT_MAC_PARTIAL.md, scripts/p2_plic_unsplit_acceptance.py, ENGINE TEST STUBE/runs/p2_plic_unsplit_partial.json.
+- **P2-P8 INCOMPLETE; ALL_COMPLETE=False.** Unsplit-Slab-Summe ist noch keine geometrisch exakte mehrdimensionale Raum-Zeit-Advektion; keine Live-MAC/VOF-Integration, dynamische Zweiwege-FSI, unabh. 3D-CFD-Messdaten, globale Energie-/Impulsabnahme oder UE5.8 Native-E2E.
