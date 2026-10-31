@@ -7,6 +7,7 @@
 // No FLIP/APIC particle transfers, no 3D splashes below grid resolution.
 #include "upc/mac3d.hpp"
 #include "upc/viscous_mac3d.hpp"
+#include "upc/p2_vof_mechanical_inventory3d.hpp"
 #include <algorithm>
 #include <array>
 #include <cmath>
@@ -378,6 +379,13 @@ public:
         for(std::size_t x=0;x<nx_;++x)
             sum+=fill_[cell(x,y,z)]*cell_mass*9.81*(z+0.5)*dx_;
         return sum;
+    }
+    // VOF-weighted cell-centred mass/momentum/kinetic/potential snapshot.
+    // Samples the two adjacent MAC faces per axis. This is an approximation
+    // to the water inventory, not exact continuum energy or FSI closure.
+    VofMechanicalInventory3D water_mechanical_inventory()const{
+        return vof_mechanical_inventory3d(
+            mac_,fill_,solid_,nx_,ny_,nz_,dx_,rho_);
     }
     // Sum of the discrete VOF transport-stage potential changes over the
     // last successful step, including all adaptive substeps. A failed

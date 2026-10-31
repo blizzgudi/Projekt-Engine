@@ -1708,3 +1708,24 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
 - 8^3/12^3, unabhaengige Drei-Face-Gravitationsreferenz 0.014435415 J, gemessen 0.014435415000000002 J; zweite Projektion -0.000041185284665097924 J, algebraischer Abschlussrest 0. MSVC Release, 93/93 CTest, 4524 native Assertions.
 - Tests: transaktionaler Rollback, deaktivierte Diagnose mit bitgenauer VOF-/Druck-Paritaet. Details: docs/P2_FACE_ENERGY_STAGES_PARTIAL.md, scripts/p2_face_energy_stages_acceptance.py, ENGINE TEST STUBE/runs/p2_face_energy_stages_partial.json.
 - **P2-P8 INCOMPLETE; ALL_COMPLETE=False.** Der Face-Quadratsummenwert ist keine VOF-gewichtete physikalische kinetische Energie; keine globale FSI-Energie-/Impulserhaltung, externen CFD-Messdaten oder neue Unreal-5.8-Native-E2E-Abnahme.
+
+## P2 Teilfortschritt: VOF-massengewichtetes 3D-Mechanikinventar (31.10.2026)
+
+- Neue read-only Funktion `vof_mechanical_inventory3d` und
+  `CoupledMacWater3D::water_mechanical_inventory()` liefern Masse,
+  drei Impulskomponenten, zellzentrierte kinetische Energie,
+  Gravitationspotenzial und deren Summe. Trockene MAC-Faces werden
+  ausgeschlossen; die Geschwindigkeiten sind Zellmittelpunkt-Mittelwerte.
+- MSVC Release und 94/94 CTest PASS. Zwei 3D-Raster 8^3/12^3 mit
+  unabhaengiger Zwei-Zellen-Referenz: 1 kg, Impuls
+  (-0.25,-0.25,-1.375) kg m/s, E_kin=2.53125 J,
+  E_pot=4.65975 J, E_sum=7.191 J. Native 62 Assertions;
+  Live-MAC/VOF-Snapshots, ungueltige Eingaben und Rollback geprueft.
+- Reproduktion: scripts/p2_vof_mechanical_inventory_full_build.cmd;
+  scripts/p2_vof_mechanical_inventory_acceptance.py; Details:
+  docs/P2_VOF_MECHANICAL_INVENTORY_PARTIAL.md und
+  ENGINE TEST STUBE/runs/p2_vof_mechanical_inventory_partial.json.
+- **P2-P8 INCOMPLETE, ALL_COMPLETE=False.** Die Zellmittelpunktenergie
+  ist eine physikalisch motivierte Naeherung, keine exakte
+  VOF-/MAC-Gesamtenergie, kein konservatives dynamisches FSI,
+  keine externe CFD-Messvalidierung oder UE5.8-Native-E2E.

@@ -1,0 +1,325 @@
+{
+  "phase": "P2",
+  "milestone": "vof_mass_weighted_cell_centre_mechanical_inventory_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "generated_utc": "2026-10-31T04:40:59.812035+00:00",
+  "checks": [
+    {
+      "name": "native_exit",
+      "value": 0,
+      "pass": true
+    },
+    {
+      "name": "native_assertions",
+      "value": 62,
+      "pass": true
+    },
+    {
+      "name": "msvc_94_ctest",
+      "value": true,
+      "pass": true
+    },
+    {
+      "name": "two_synthetic_and_two_live_grids",
+      "value": 4,
+      "pass": true
+    },
+    {
+      "name": "synthetic_8_grid",
+      "value": 8,
+      "pass": true
+    },
+    {
+      "name": "synthetic_8_finite",
+      "value": {
+        "mass": 1.0,
+        "px": -0.25,
+        "py": -0.25,
+        "pz": -1.375,
+        "kinetic": 2.53125,
+        "potential": 4.659750000000001,
+        "total": 7.191000000000001
+      },
+      "pass": true
+    },
+    {
+      "name": "synthetic_8_energy_sum",
+      "value": 7.191000000000001,
+      "pass": true
+    },
+    {
+      "name": "synthetic_8_occupied",
+      "value": "2",
+      "pass": true
+    },
+    {
+      "name": "synthetic_8_analytic_mass",
+      "value": 1.0,
+      "pass": true
+    },
+    {
+      "name": "synthetic_8_analytic_px",
+      "value": -0.25,
+      "pass": true
+    },
+    {
+      "name": "synthetic_8_analytic_py",
+      "value": -0.25,
+      "pass": true
+    },
+    {
+      "name": "synthetic_8_analytic_pz",
+      "value": -1.375,
+      "pass": true
+    },
+    {
+      "name": "synthetic_8_analytic_kinetic",
+      "value": 2.53125,
+      "pass": true
+    },
+    {
+      "name": "synthetic_8_analytic_potential",
+      "value": 4.659750000000001,
+      "pass": true
+    },
+    {
+      "name": "synthetic_8_analytic_total",
+      "value": 7.191000000000001,
+      "pass": true
+    },
+    {
+      "name": "synthetic_12_grid",
+      "value": 12,
+      "pass": true
+    },
+    {
+      "name": "synthetic_12_finite",
+      "value": {
+        "mass": 1.0,
+        "px": -0.25,
+        "py": -0.25,
+        "pz": -1.375,
+        "kinetic": 2.53125,
+        "potential": 4.659750000000001,
+        "total": 7.191000000000001
+      },
+      "pass": true
+    },
+    {
+      "name": "synthetic_12_energy_sum",
+      "value": 7.191000000000001,
+      "pass": true
+    },
+    {
+      "name": "synthetic_12_occupied",
+      "value": "2",
+      "pass": true
+    },
+    {
+      "name": "synthetic_12_analytic_mass",
+      "value": 1.0,
+      "pass": true
+    },
+    {
+      "name": "synthetic_12_analytic_px",
+      "value": -0.25,
+      "pass": true
+    },
+    {
+      "name": "synthetic_12_analytic_py",
+      "value": -0.25,
+      "pass": true
+    },
+    {
+      "name": "synthetic_12_analytic_pz",
+      "value": -1.375,
+      "pass": true
+    },
+    {
+      "name": "synthetic_12_analytic_kinetic",
+      "value": 2.53125,
+      "pass": true
+    },
+    {
+      "name": "synthetic_12_analytic_potential",
+      "value": 4.659750000000001,
+      "pass": true
+    },
+    {
+      "name": "synthetic_12_analytic_total",
+      "value": 7.191000000000001,
+      "pass": true
+    },
+    {
+      "name": "live_8_grid",
+      "value": 8,
+      "pass": true
+    },
+    {
+      "name": "live_8_finite",
+      "value": {
+        "mass": 2.0,
+        "px": 0.0,
+        "py": 0.0,
+        "pz": -0.19085662181818358,
+        "kinetic": 0.009118928882000166,
+        "potential": 9.80037639,
+        "total": 9.809495318882
+      },
+      "pass": true
+    },
+    {
+      "name": "live_8_energy_sum",
+      "value": 9.809495318882,
+      "pass": true
+    },
+    {
+      "name": "live_8_occupied",
+      "value": "3",
+      "pass": true
+    },
+    {
+      "name": "live_8_mass",
+      "value": 2.0,
+      "pass": true
+    },
+    {
+      "name": "live_8_positive_energy",
+      "value": 0.009118928882000166,
+      "pass": true
+    },
+    {
+      "name": "live_12_grid",
+      "value": 12,
+      "pass": true
+    },
+    {
+      "name": "live_12_finite",
+      "value": {
+        "mass": 2.0,
+        "px": 0.0,
+        "py": 0.0,
+        "pz": -0.19085662181818358,
+        "kinetic": 0.009118928882000166,
+        "potential": 13.724376390000002,
+        "total": 13.733495318882001
+      },
+      "pass": true
+    },
+    {
+      "name": "live_12_energy_sum",
+      "value": 13.733495318882001,
+      "pass": true
+    },
+    {
+      "name": "live_12_occupied",
+      "value": "3",
+      "pass": true
+    },
+    {
+      "name": "live_12_mass",
+      "value": 2.0,
+      "pass": true
+    },
+    {
+      "name": "live_12_positive_energy",
+      "value": 0.009118928882000166,
+      "pass": true
+    },
+    {
+      "name": "exact_grid_set",
+      "value": [
+        [
+          "synthetic",
+          8
+        ],
+        [
+          "synthetic",
+          12
+        ],
+        [
+          "live",
+          8
+        ],
+        [
+          "live",
+          12
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "name": "ten_source_hashes",
+      "value": 10,
+      "pass": true
+    }
+  ],
+  "native_assertions": 62,
+  "reference": [
+    {
+      "grid": 8,
+      "mode": "synthetic",
+      "mass": 1.0,
+      "px": -0.25,
+      "py": -0.25,
+      "pz": -1.375,
+      "kinetic": 2.53125,
+      "potential": 4.659750000000001,
+      "total": 7.191000000000001,
+      "occupied_cells": 2
+    },
+    {
+      "grid": 12,
+      "mode": "synthetic",
+      "mass": 1.0,
+      "px": -0.25,
+      "py": -0.25,
+      "pz": -1.375,
+      "kinetic": 2.53125,
+      "potential": 4.659750000000001,
+      "total": 7.191000000000001,
+      "occupied_cells": 2
+    },
+    {
+      "grid": 8,
+      "mode": "live",
+      "mass": 2.0,
+      "px": 0.0,
+      "py": 0.0,
+      "pz": -0.19085662181818358,
+      "kinetic": 0.009118928882000166,
+      "potential": 9.80037639,
+      "total": 9.809495318882,
+      "occupied_cells": 3
+    },
+    {
+      "grid": 12,
+      "mode": "live",
+      "mass": 2.0,
+      "px": 0.0,
+      "py": 0.0,
+      "pz": -0.19085662181818358,
+      "kinetic": 0.009118928882000166,
+      "potential": 13.724376390000002,
+      "total": 13.733495318882001,
+      "occupied_cells": 3
+    }
+  ],
+  "source_sha256": {
+    "include/upc/mac3d.hpp": "8e20bfc2e5367a9df7f8a412908c7f5fbe6b50c5a9f57a771127c83441187808",
+    "include/upc/coupled_water3d.hpp": "09b443324b363fa33e25236b3a53584334a49de76a99369893da218eeb551f39",
+    "include/upc/p2_vof_mechanical_inventory3d.hpp": "6db8eb492df3f4f6039ae91a30044798598252f1590f7ceda9da51aa67de3d6d",
+    "tests/p2_vof_mechanical_inventory3d_tests.cpp": "f2fffb2370086f865ed6d2de9db4009bac4410d76589a7d4579a0fff0fa73256",
+    "CMakeLists.txt": "320db69b2f8c84ec296815d7057f5f5ef1fe9670d49bd35b2bcdbd696eeecee4",
+    "scripts/p2_vof_mechanical_inventory_full_build.cmd": "14e3dd0421a5cc16293536ec949989d14b35dbd4061cdee637b86f744737d9da",
+    "scripts/p2_vof_mechanical_inventory_acceptance.py": "7a145999d4de9a6ee4b2b29e1798daec3d28058190f5fa42fc2f7f09b90612ae",
+    "docs/P2_VOF_MECHANICAL_INVENTORY_PARTIAL.md": "1dab12668b4d7368e29226fac2a1628239b30878878a6c657beac5b45f31c8de",
+    "docs/PHASENPLAN.md": "13bee6ad8b3126c35c6313ca764edc6025f26a04c7303f147cee2f9e6e4a496c",
+    "scripts/phase_gate.py": "01065438e2b72b3fe83e7e3ba3decbf54925c84c5f9424b15ad15a8197f59cd6"
+  },
+  "native_binary_sha256": "35db8bec667deafc5001235b85ef0e981466af90e779e6e5d7217ab3ee3ad267",
+  "ctest_log_sha256": "a48248fd3e33cd804145d805e0c9decf3386a80a64441c567a471ba2085a882c",
+  "build_log_sha256": "4702a508dc46d8c799d215333256094ac5ae1ce8c0e4b48768802c9af4ec190b",
+  "limitations": "Cell-centred velocity sampling is a VOF-mass-weighted diagnostic, not exact MAC/VOF kinetic energy or conservation. No dynamic FSI, pressure work, viscous heating, external CFD data or UE5.8 E2E."
+}
