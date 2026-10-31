@@ -1879,3 +1879,10 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
   3D-MAC-Advektion mit variablen Geschwindigkeiten, keine bewegte
   Zweiwege-FSI, globale physikalische Energie-/Impulsvalidierung,
   externe CFD-Messdaten oder neue Unreal-5.8-Native-E2E-Abnahme.
+
+## P2 Teilfortschritt: periodischer PLIC-Schertransport (31.10.2026)
+
+- Geometrischer PLIC-Face-Transport jetzt auch fuer transversale, signwechselnde periodische Scherprofile mit diskret divergenzfreien 1D-Stroemungslinien; eingefrorene Eingangsfelder, atomare Delta-Buchung, CFL- und Divergenzpruefung.
+- 8x8x8 und 12x8x6 in allen drei Achsen: 102/102 CTest PASS, 16.397 native Assertions; analytischer Einzelschrittfehler maximal 5.56e-17; zwei Schritte mit festgehaltenen Achsnormalen analytisch, neu rekonstruierte Normalen weichen lokal bis 0.0552724 ab.
+- Teilnachweis: docs/P2_PLIC_SHEARED_PERIODIC_PARTIAL.md, scripts/p2_plic_sheared_acceptance.py, ENGINE TEST STUBE/runs/p2_plic_sheared_partial.json. Kein vollstaendiger 3D-MAC-VOF-Transport, keine dynamische FSI oder externe CFD-Validierung.
+- **P2 bleibt INCOMPLETE; P3-P8 bleiben INCOMPLETE.**

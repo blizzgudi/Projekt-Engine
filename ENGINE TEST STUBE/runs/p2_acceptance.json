@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_utc": "2026-10-31T13:31:52.622670+00:00",
+  "generated_utc": "2026-10-31T14:20:24.636720+00:00",
   "phase": "P2",
   "scope": "CPU MAC pressure + bounded VOF 3D free-surface transport prototype; no FLIP/APIC/MPM, no 3D FSI",
   "accepted": true,
@@ -13,7 +13,7 @@
     "tests/unified_runtime_tests.cpp": "afcbc2110a3eb5af243225f3bd17db0932c28e17ba11bc2868d69c1351dfd0c9",
     "docs/P2_3D_FLUID_ABNAHME.md": "7789282381fb5dc98e91b2d1a563d6d9dfb89f966c7af1dddc4d6a4f225f5f34",
     "benchmarks/p2_reference.cpp": "20af87420b10cceca7e40cee4ce80cb8cfedaeb22fc3ca61f5fe07ca17827ade",
-    "CMakeLists.txt": "5ab4742b42f654a8269d2fd1f768cd35b386d21d27eb4bd5f8f0871c5208759e"
+    "CMakeLists.txt": "876097240cdecba103ab390a35a2123b94d3f36fa6e0c075f74fa474fed1bbc0"
   },
   "reference": [
     {
@@ -22,7 +22,7 @@
       "ny": "4",
       "nz": "6",
       "cell_m": "0.200000000000",
-      "elapsed_ms": "8.412100000000",
+      "elapsed_ms": "7.957800000000",
       "initial_m3": "0.256000000000",
       "final_m3": "0.256000000000",
       "centroid_x_m": "0.224708753143",
@@ -37,7 +37,7 @@
       "ny": "8",
       "nz": "12",
       "cell_m": "0.100000000000",
-      "elapsed_ms": "91.934800000000",
+      "elapsed_ms": "89.684200000000",
       "initial_m3": "0.256000000000",
       "final_m3": "0.256000000000",
       "centroid_x_m": "0.219865818224",
@@ -52,7 +52,7 @@
       "ny": "16",
       "nz": "24",
       "cell_m": "0.050000000000",
-      "elapsed_ms": "1149.446500000000",
+      "elapsed_ms": "1138.745200000000",
       "initial_m3": "0.256000000000",
       "final_m3": "0.256000000000",
       "centroid_x_m": "0.215753641661",
@@ -67,7 +67,7 @@
       "ny": "8",
       "nz": "8",
       "cell_m": "0.150000000000",
-      "elapsed_ms": "1.839400000000",
+      "elapsed_ms": "1.757000000000",
       "initial_m3": "0.864000000000",
       "final_m3": "0.864000000000",
       "centroid_x_m": "0.000000000000",
@@ -82,7 +82,7 @@
       "ny": "16",
       "nz": "16",
       "cell_m": "0.075000000000",
-      "elapsed_ms": "50.247700000000",
+      "elapsed_ms": "46.206200000000",
       "initial_m3": "0.864000000000",
       "final_m3": "0.864000000000",
       "centroid_x_m": "0.000000000000",
@@ -97,7 +97,7 @@
       "ny": "24",
       "nz": "24",
       "cell_m": "0.050000000000",
-      "elapsed_ms": "156.299700000000",
+      "elapsed_ms": "153.985200000000",
       "initial_m3": "0.864000000000",
       "final_m3": "0.864000000000",
       "centroid_x_m": "0.000000000000",
@@ -123,7 +123,7 @@
     {
       "name": "finite_runtime_dam_break_8",
       "pass": true,
-      "value": 8.4121,
+      "value": 7.9578,
       "limit": null
     },
     {
@@ -141,7 +141,7 @@
     {
       "name": "finite_runtime_dam_break_16",
       "pass": true,
-      "value": 91.9348,
+      "value": 89.6842,
       "limit": null
     },
     {
@@ -159,7 +159,7 @@
     {
       "name": "finite_runtime_dam_break_32",
       "pass": true,
-      "value": 1149.4465,
+      "value": 1138.7452,
       "limit": null
     },
     {
@@ -177,7 +177,7 @@
     {
       "name": "finite_runtime_hydrostatic_8",
       "pass": true,
-      "value": 1.8394,
+      "value": 1.757,
       "limit": null
     },
     {
@@ -195,7 +195,7 @@
     {
       "name": "finite_runtime_hydrostatic_16",
       "pass": true,
-      "value": 50.2477,
+      "value": 46.2062,
       "limit": null
     },
     {
@@ -213,7 +213,7 @@
     {
       "name": "finite_runtime_hydrostatic_24",
       "pass": true,
-      "value": 156.2997,
+      "value": 153.9852,
       "limit": null
     },
     {

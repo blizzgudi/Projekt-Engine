@@ -1,0 +1,385 @@
+{
+  "phase": "P2",
+  "milestone": "divergence_free_transverse_shear_periodic_plic_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "generated_utc": "2026-10-31T14:20:25.297046+00:00",
+  "checks": [
+    {
+      "name": "native_exit",
+      "value": 0,
+      "pass": true
+    },
+    {
+      "name": "native_assertions",
+      "value": 16397,
+      "pass": true
+    },
+    {
+      "name": "all_102_ctests",
+      "value": true,
+      "pass": true
+    },
+    {
+      "name": "new_ctest_registered",
+      "value": true,
+      "pass": true
+    },
+    {
+      "name": "build_log_nonempty",
+      "value": 23,
+      "pass": true
+    },
+    {
+      "name": "six_3d_shear_cases",
+      "value": 6,
+      "pass": true
+    },
+    {
+      "name": "axis_0_dims_(8, 8, 8)_present",
+      "value": 1,
+      "pass": true
+    },
+    {
+      "name": "axis_0_dims_(8, 8, 8)_initial",
+      "value": 0.19200000000000006,
+      "pass": true
+    },
+    {
+      "name": "axis_0_dims_(8, 8, 8)_final",
+      "value": 0.19200000000000006,
+      "pass": true
+    },
+    {
+      "name": "axis_0_dims_(8, 8, 8)_analytic_error",
+      "value": 5.551115123125783e-17,
+      "pass": true
+    },
+    {
+      "name": "axis_0_dims_(8, 8, 8)_cfl",
+      "value": 0.15,
+      "pass": true
+    },
+    {
+      "name": "axis_0_dims_(8, 8, 8)_signed_fluxes",
+      "value": [
+        75,
+        78
+      ],
+      "pass": true
+    },
+    {
+      "name": "axis_0_dims_(8, 8, 8)_reconstruction_limit",
+      "value": 0.02263450084944668,
+      "pass": true
+    },
+    {
+      "name": "axis_0_dims_(12, 8, 6)_present",
+      "value": 1,
+      "pass": true
+    },
+    {
+      "name": "axis_0_dims_(12, 8, 6)_initial",
+      "value": 0.14400000000000004,
+      "pass": true
+    },
+    {
+      "name": "axis_0_dims_(12, 8, 6)_final",
+      "value": 0.14400000000000004,
+      "pass": true
+    },
+    {
+      "name": "axis_0_dims_(12, 8, 6)_analytic_error",
+      "value": 5.551115123125783e-17,
+      "pass": true
+    },
+    {
+      "name": "axis_0_dims_(12, 8, 6)_cfl",
+      "value": 0.15,
+      "pass": true
+    },
+    {
+      "name": "axis_0_dims_(12, 8, 6)_signed_fluxes",
+      "value": [
+        57,
+        57
+      ],
+      "pass": true
+    },
+    {
+      "name": "axis_0_dims_(12, 8, 6)_reconstruction_limit",
+      "value": 0.02263450084944668,
+      "pass": true
+    },
+    {
+      "name": "axis_1_dims_(8, 8, 8)_present",
+      "value": 1,
+      "pass": true
+    },
+    {
+      "name": "axis_1_dims_(8, 8, 8)_initial",
+      "value": 0.19199999999999998,
+      "pass": true
+    },
+    {
+      "name": "axis_1_dims_(8, 8, 8)_final",
+      "value": 0.1920000000000001,
+      "pass": true
+    },
+    {
+      "name": "axis_1_dims_(8, 8, 8)_analytic_error",
+      "value": 5.551115123125783e-17,
+      "pass": true
+    },
+    {
+      "name": "axis_1_dims_(8, 8, 8)_cfl",
+      "value": 0.15,
+      "pass": true
+    },
+    {
+      "name": "axis_1_dims_(8, 8, 8)_signed_fluxes",
+      "value": [
+        75,
+        78
+      ],
+      "pass": true
+    },
+    {
+      "name": "axis_1_dims_(8, 8, 8)_reconstruction_limit",
+      "value": 0.02263450084944668,
+      "pass": true
+    },
+    {
+      "name": "axis_1_dims_(12, 8, 6)_present",
+      "value": 1,
+      "pass": true
+    },
+    {
+      "name": "axis_1_dims_(12, 8, 6)_initial",
+      "value": 0.216,
+      "pass": true
+    },
+    {
+      "name": "axis_1_dims_(12, 8, 6)_final",
+      "value": 0.21600000000000008,
+      "pass": true
+    },
+    {
+      "name": "axis_1_dims_(12, 8, 6)_analytic_error",
+      "value": 5.551115123125783e-17,
+      "pass": true
+    },
+    {
+      "name": "axis_1_dims_(12, 8, 6)_cfl",
+      "value": 0.15,
+      "pass": true
+    },
+    {
+      "name": "axis_1_dims_(12, 8, 6)_signed_fluxes",
+      "value": [
+        84,
+        87
+      ],
+      "pass": true
+    },
+    {
+      "name": "axis_1_dims_(12, 8, 6)_reconstruction_limit",
+      "value": 0.02263450084944668,
+      "pass": true
+    },
+    {
+      "name": "axis_2_dims_(8, 8, 8)_present",
+      "value": 1,
+      "pass": true
+    },
+    {
+      "name": "axis_2_dims_(8, 8, 8)_initial",
+      "value": 0.19199999999999964,
+      "pass": true
+    },
+    {
+      "name": "axis_2_dims_(8, 8, 8)_final",
+      "value": 0.1920000000000002,
+      "pass": true
+    },
+    {
+      "name": "axis_2_dims_(8, 8, 8)_analytic_error",
+      "value": 5.551115123125783e-17,
+      "pass": true
+    },
+    {
+      "name": "axis_2_dims_(8, 8, 8)_cfl",
+      "value": 0.15,
+      "pass": true
+    },
+    {
+      "name": "axis_2_dims_(8, 8, 8)_signed_fluxes",
+      "value": [
+        75,
+        78
+      ],
+      "pass": true
+    },
+    {
+      "name": "axis_2_dims_(8, 8, 8)_reconstruction_limit",
+      "value": 0.02263450084944668,
+      "pass": true
+    },
+    {
+      "name": "axis_2_dims_(12, 8, 6)_present",
+      "value": 1,
+      "pass": true
+    },
+    {
+      "name": "axis_2_dims_(12, 8, 6)_initial",
+      "value": 0.288000000000001,
+      "pass": true
+    },
+    {
+      "name": "axis_2_dims_(12, 8, 6)_final",
+      "value": 0.2880000000000003,
+      "pass": true
+    },
+    {
+      "name": "axis_2_dims_(12, 8, 6)_analytic_error",
+      "value": 5.551115123125783e-17,
+      "pass": true
+    },
+    {
+      "name": "axis_2_dims_(12, 8, 6)_cfl",
+      "value": 0.15,
+      "pass": true
+    },
+    {
+      "name": "axis_2_dims_(12, 8, 6)_signed_fluxes",
+      "value": [
+        114,
+        114
+      ],
+      "pass": true
+    },
+    {
+      "name": "axis_2_dims_(12, 8, 6)_reconstruction_limit",
+      "value": 0.05527240802886677,
+      "pass": true
+    },
+    {
+      "name": "nonexact_reconstructed_normal_visible",
+      "value": 0.05527240802886677,
+      "pass": true
+    },
+    {
+      "name": "source_hashes",
+      "value": 9,
+      "pass": true
+    }
+  ],
+  "native_assertions": 16397,
+  "reference": [
+    {
+      "axis": 0,
+      "dims": [
+        8,
+        8,
+        8
+      ],
+      "initial_volume_m3": 0.19200000000000006,
+      "final_volume_m3": 0.19200000000000006,
+      "one_step_analytic_error": 5.551115123125783e-17,
+      "reconstructed_two_step_error": 0.02263450084944668,
+      "max_courant": 0.15,
+      "positive_faces": 75,
+      "negative_faces": 78
+    },
+    {
+      "axis": 0,
+      "dims": [
+        12,
+        8,
+        6
+      ],
+      "initial_volume_m3": 0.14400000000000004,
+      "final_volume_m3": 0.14400000000000004,
+      "one_step_analytic_error": 5.551115123125783e-17,
+      "reconstructed_two_step_error": 0.02263450084944668,
+      "max_courant": 0.15,
+      "positive_faces": 57,
+      "negative_faces": 57
+    },
+    {
+      "axis": 1,
+      "dims": [
+        8,
+        8,
+        8
+      ],
+      "initial_volume_m3": 0.19199999999999998,
+      "final_volume_m3": 0.1920000000000001,
+      "one_step_analytic_error": 5.551115123125783e-17,
+      "reconstructed_two_step_error": 0.02263450084944668,
+      "max_courant": 0.15,
+      "positive_faces": 75,
+      "negative_faces": 78
+    },
+    {
+      "axis": 1,
+      "dims": [
+        12,
+        8,
+        6
+      ],
+      "initial_volume_m3": 0.216,
+      "final_volume_m3": 0.21600000000000008,
+      "one_step_analytic_error": 5.551115123125783e-17,
+      "reconstructed_two_step_error": 0.02263450084944668,
+      "max_courant": 0.15,
+      "positive_faces": 84,
+      "negative_faces": 87
+    },
+    {
+      "axis": 2,
+      "dims": [
+        8,
+        8,
+        8
+      ],
+      "initial_volume_m3": 0.19199999999999964,
+      "final_volume_m3": 0.1920000000000002,
+      "one_step_analytic_error": 5.551115123125783e-17,
+      "reconstructed_two_step_error": 0.02263450084944668,
+      "max_courant": 0.15,
+      "positive_faces": 75,
+      "negative_faces": 78
+    },
+    {
+      "axis": 2,
+      "dims": [
+        12,
+        8,
+        6
+      ],
+      "initial_volume_m3": 0.288000000000001,
+      "final_volume_m3": 0.2880000000000003,
+      "one_step_analytic_error": 5.551115123125783e-17,
+      "reconstructed_two_step_error": 0.05527240802886677,
+      "max_courant": 0.15,
+      "positive_faces": 114,
+      "negative_faces": 114
+    }
+  ],
+  "source_sha256": {
+    "include/upc/p2_plic_sheared_periodic3d.hpp": "dab18da29e9539e56db5c52ccf19f879811a582bd85f50504e88d35bb9552b56",
+    "include/upc/p2_plic_periodic_sweep3d.hpp": "2744f973e8be4e85fd133e6d1206fe1f43197e8c407c631501c9ab255beaffc7",
+    "include/upc/p2_vof_normal_reconstruction3d.hpp": "754d16ad464b530b109ff76f576c7e2d81a7732919b1b4baec251bca614b4878",
+    "tests/p2_plic_sheared_periodic3d_tests.cpp": "e340cad6a9a93df16ccae207f05eeedd185332ee90d1b8bb3ef32b642f6f1628",
+    "CMakeLists.txt": "876097240cdecba103ab390a35a2123b94d3f36fa6e0c075f74fa474fed1bbc0",
+    "scripts/p2_plic_sheared_build.cmd": "c7cbc4da85c98851be35d73e1a68af251e0c76445c754f754b6eccdca46aa93a",
+    "scripts/p2_plic_sheared_acceptance.py": "71918850236cf5a17b3e25e5450cc0400ef867234d531f9a938c74a442c8af2c",
+    "docs/P2_PLIC_SHEARED_PERIODIC_PARTIAL.md": "7910f8ce14bc7fcb169372ad2f81fa738707b0ac1d9406f338ff63b8d65550f6",
+    "docs/PHASENPLAN.md": "58794ef9ee70dd601213ac43ed75be99ed190c02fc92804d050682d1cb03d897"
+  },
+  "native_binary_sha256": "c129d15b6bdb12c7a5388c5a3e9af77d60da5aae1834c2f69381d44d4e36941e",
+  "build_log_sha256": "71aa391ec7d7e291b419a7f40fba91919e14ac2394ab4e8b66ed126e267d70f6",
+  "ctest_log_sha256": "49e306f5daf2469355a213e1d56ca0e2d7b8decab31b63d64c834079d2bab4f6",
+  "limitations": "One-axis divergence-free periodic lanes only; reconstructed normals are approximate; not arbitrary 3D MAC/VOF, FSI, physical energy conservation, independent CFD data or Unreal Native E2E."
+}
