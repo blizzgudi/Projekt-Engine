@@ -1,0 +1,2 @@
+[1/2] Building CXX object CMakeFiles\upc_p2_vof_affine_spin_tests.dir\tests\p2_vof_affine_spin3d_tests.cpp.obj
+[2/2] Linking CXX executable upc_p2_vof_affine_spin_tests.exe

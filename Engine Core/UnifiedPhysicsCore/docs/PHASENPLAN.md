@@ -1785,3 +1785,21 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
   Unterzellen-VOF-Geometrie, keine rotierende Fluid-Festkoerper-
   Impulsrueckwirkung, keine externen CFD-Messdaten und kein neuer
   UE5.8-Native-E2E-Nachweis.
+
+## P2 Teilfortschritt: affiner MAC-VOF-Eigendrehimpuls (31.10.2026)
+
+- Neuer read-only Adapter vof_affine_spin_inventory3d: MAC-Face-Gradienten
+  rekonstruieren lokale Wirbelstaerke, und der fehlende Unterzellen-
+  Drehimpuls M*dx^2/12*curl(v) ergaenzt die Zellmittelpunktbilanz.
+- Analytischer Starrkoerper-Rotationswuerfel (0.4 m, 64 kg) auf
+  8^3/12^3/16^3: I_COM=1.706666666666667 kg m^2,
+  L_COM,z=2.218666666666667 kg m^2/s; unabh. Gauss-Quadratur
+  fuer asymmetrische Teilfuellungen 8^3/12^3.
+- MSVC Release 97/97 CTest, 112 native Assertions PASS.
+  Nachweis: docs/P2_VOF_AFFINE_SPIN_PARTIAL.md,
+  scripts/p2_vof_affine_spin_acceptance.py und
+  ENGINE TEST STUBE/runs/p2_vof_affine_spin_partial.json.
+- P2-P8 bleiben INCOMPLETE; ALL_COMPLETE=False. Nur uniforme
+  Teilzellendichte und affiner Geschwindigkeitsstencil, keine
+  rekonstruierte VOF-Freiflaeche, keine konservative Zeitentwicklung,
+  keine bewegte Zweiwege-FSI oder neue UE5.8-Native-E2E-Abnahme.

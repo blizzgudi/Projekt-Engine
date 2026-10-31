@@ -518,3 +518,8 @@ add_test(NAME physics_p2_vof_angular_inventory_partial COMMAND upc_p2_vof_angula
 add_executable(upc_p2_vof_uniform_cell_inertia_tests tests/p2_vof_uniform_cell_inertia3d_tests.cpp)
 target_link_libraries(upc_p2_vof_uniform_cell_inertia_tests PRIVATE upc)
 add_test(NAME physics_p2_vof_uniform_cell_inertia_partial COMMAND upc_p2_vof_uniform_cell_inertia_tests)
+
+# P2 partial: affine MAC velocity subcell angular spin; uniform VOF cells only.
+add_executable(upc_p2_vof_affine_spin_tests tests/p2_vof_affine_spin3d_tests.cpp)
+target_link_libraries(upc_p2_vof_affine_spin_tests PRIVATE upc)
+add_test(NAME physics_p2_vof_affine_spin_partial COMMAND upc_p2_vof_affine_spin_tests)
