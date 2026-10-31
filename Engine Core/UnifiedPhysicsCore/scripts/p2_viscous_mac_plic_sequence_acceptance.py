@@ -97,6 +97,26 @@ def main() -> None:
     check("coupled_plic_budget", psub, psub >= 3)
     check("coupled_water_mass", residual,
           math.isfinite(residual) and abs(residual) < 1e-11)
+    ledgers = [line.split() for line in native.splitlines()
+               if line.startswith("LEDGER ")]
+    if len(ledgers) != 1 or len(ledgers[0]) != 8:
+        raise AssertionError("Missing full-sequence water ledger")
+    initial_v, final_v, initial_kg, final_kg, chain, telescoping, divergence = (
+        map(float, ledgers[0][1:]))
+    check("ledger_initial_volume_m3", initial_v,
+          math.isfinite(initial_v) and abs(initial_v-.432) < 1e-11)
+    check("ledger_final_volume_m3", final_v,
+          math.isfinite(final_v) and abs(final_v-.432) < 1e-11)
+    check("ledger_initial_mass_kg", initial_kg,
+          math.isfinite(initial_kg) and abs(initial_kg-432) < 1e-8)
+    check("ledger_final_mass_kg", final_kg,
+          math.isfinite(final_kg) and abs(final_kg-432) < 1e-8)
+    check("ledger_interinterval_continuity_m3", chain,
+          math.isfinite(chain) and abs(chain) < 1e-12)
+    check("ledger_telescoping_closure_m3", telescoping,
+          math.isfinite(telescoping) and abs(telescoping) < 1e-12)
+    check("ledger_projected_divergence_s_inv", divergence,
+          math.isfinite(divergence) and 0 <= divergence < 1e-10)
     hashes = {name: sha(CORE / name) for name in SOURCES}
     check("eight_source_hashes", len(hashes), len(hashes) == 8)
     accepted = all(c["pass"] for c in checks)

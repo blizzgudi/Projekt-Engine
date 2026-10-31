@@ -27,6 +27,13 @@ struct P2ViscousMacPlicSequence3D {
     P2NonlinearMacPlicState3D state;
     std::vector<P2ViscousMacPlicIntervalReport3D> intervals;
     double elapsed_s=0, total_mass_residual_m3=0;
+    // End-to-end water inventory and telescoping continuity are diagnostic
+    // checks only; this is NOT a physical fluid/solid momentum-energy ledger.
+    double initial_volume_m3=0, final_volume_m3=0;
+    double initial_water_mass_kg=0, final_water_mass_kg=0;
+    double mass_chain_residual_m3=0, mass_telescoping_residual_m3=0;
+    double max_projected_divergence_s_inv=0;
+    std::array<double,3> total_viscous_unique_face_sum_delta{{0,0,0}};
     std::size_t total_viscous_substeps=0, total_plic_substeps=0;
 };
 
@@ -84,6 +91,22 @@ inline P2ViscousMacPlicSequence3D p2_viscous_mac_plic_sequence3d(
         report.viscous_face_square_sum_before=step.face_square_sum_before;
         report.viscous_face_square_sum_after=step.face_square_sum_after;
         report.viscous_unique_face_sum_delta=step.unique_face_sum_delta;
+        if(out.intervals.empty()) {
+            out.initial_volume_m3=report.initial_volume_m3;
+        } else {
+            const double discontinuity=report.initial_volume_m3-out.final_volume_m3;
+            out.mass_chain_residual_m3+=discontinuity;
+            if(!std::isfinite(discontinuity)||
+               std::abs(discontinuity)>1e-10*std::max(1.0,out.initial_volume_m3))
+                throw std::runtime_error("MAC/PLIC sequence water inventory discontinuity");
+        }
+        out.final_volume_m3=report.final_volume_m3;
+        out.max_projected_divergence_s_inv=std::max(
+            out.max_projected_divergence_s_inv,
+            report.max_projected_divergence_s_inv);
+        for(int c=0;c<3;++c)
+            out.total_viscous_unique_face_sum_delta[c]+=
+                report.viscous_unique_face_sum_delta[c];
         out.total_viscous_substeps+=step.viscous_substeps;
         out.total_plic_substeps+=plic_count;
         out.total_mass_residual_m3+=report.mass_residual_m3;
@@ -91,6 +114,17 @@ inline P2ViscousMacPlicSequence3D p2_viscous_mac_plic_sequence3d(
         out.intervals.push_back(report);
         out.elapsed_s+=interval.dt_s;
     }
+    out.initial_water_mass_kg=out.initial_volume_m3*density_kg_m3;
+    out.final_water_mass_kg=out.final_volume_m3*density_kg_m3;
+    out.mass_telescoping_residual_m3=out.final_volume_m3-
+        out.initial_volume_m3-out.total_mass_residual_m3-
+        out.mass_chain_residual_m3;
+    if(!std::isfinite(out.initial_water_mass_kg)||
+       !std::isfinite(out.final_water_mass_kg)||
+       !std::isfinite(out.mass_telescoping_residual_m3)||
+       std::abs(out.mass_telescoping_residual_m3)>
+           1e-10*std::max(1.0,out.initial_volume_m3))
+        throw std::runtime_error("MAC/PLIC sequence mass ledger invalid");
     return out;
 }
 } // namespace upc

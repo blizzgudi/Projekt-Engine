@@ -1943,3 +1943,10 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
 - Unabhaengige diskrete Fourier-Referenzen fuer drei Intervalle auf 8^3/12^3: maximale Face-Abweichung 7.38e-18; analytische Dampfungsfaktoren 0.8871835194886617/0.94732423526731346. Echter 12^3-Wassertransport und Bitparitaet mit manuell verketteten Einzelschritten; 9 Negativfaelle.
 - MSVC C++17-Release Native-Test 11.364 Assertions PASS; bestehende 106/106 CTest PASS; separates Python-Teil-Gate 21/21 PASS. Nachweis: `docs/P2_VISCOUS_MAC_PLIC_SEQUENCE_PARTIAL.md`, `scripts/p2_viscous_mac_plic_sequence_acceptance.py`, `ENGINE TEST STUBE/runs/p2_viscous_mac_plic_sequence_partial.json` mit SHA256-Fingerprints.
 - **P2-P8 INCOMPLETE; ALL_COMPLETE=False.** Keine stresskonsistente Zweiphasenphysik, bewegte Zweiwege-FSI, externen 3D-CFD-Messdaten, globale physikalische Energie-/Impulsabnahme oder neue Unreal-5.8-Native-E2E-Abnahme. Die neuen Tests sind ein separater Native-Build und noch kein CTest-Target.
+
+## P2 Teilfortschritt: Sequenzweites Wasser-Masseninventar (31.10.2026)
+
+- Der optionale periodische viskose MAC/PLIC-Sequenzadapter protokolliert jetzt Wasser-Start-/Endvolumen (m3), Wassermasse bei konstanter Dichte (kg), Intervall-Grenzspruenge, Teleskop-Bilanz, maximale projizierte Divergenz und aggregierte viskose Face-Summen-Proxies. Diskontinuitaeten und Bilanzfehler werden explizit abgewiesen.
+- Unabhaengige 8^3-/12^3-Fourier-Eigenmoden und 12^3-Wasser-Slab: 0.43200000000000011 m3 / 432.00000000000011 kg, Intervall-Sprung 0, Teleskop-Residuum 0, max. Divergenz 0 im Wasser-Slab. Native 11391 Assertions, MSVC Release, 106/106 CTest, Python-Teilabnahme 28/28 PASS.
+- Belege: docs/P2_VISCOUS_MAC_PLIC_SEQUENCE_PARTIAL.md, scripts/p2_viscous_mac_plic_sequence_acceptance.py und ENGINE TEST STUBE/runs/p2_viscous_mac_plic_sequence_partial.json (Quell-/Binaer-/Log-SHA256).
+- **P2-P8 bleiben INCOMPLETE, ALL_COMPLETE=False.** Diese numerische Inventar-Bilanz beweist weder physikalische Impuls-/Energieerhaltung noch dynamische Zweiwege-FSI, spannungskonsistente freie Oberflaechen, unabhaengige 3D-CFD-Messvalidierung oder UE5.8 Native-E2E dieses Pfades.

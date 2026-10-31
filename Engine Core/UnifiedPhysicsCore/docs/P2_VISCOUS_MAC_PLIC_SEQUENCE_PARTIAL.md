@@ -44,6 +44,25 @@ Reproduktion unter `D:\Projekt Engine\Engine Core\UnifiedPhysicsCore`:
 Der Build erzeugt einen eigenen MSVC-C++17-Nativetest, fuehrt ihn
 tatsaechlich aus und prueft danach die bestehende vollstaendige
 CTest-Regression. Die neue Datei ist **noch kein CTest-Target**.
+
+## Erweiterung: Sequenzweites Wasserinventar (31.10.2026)
+
+Der optionale Adapter erfasst jetzt initiales/finales Wasser-Volumen (m3),
+Wassermasse bei vorgegebener konstanter Dichte (kg), Intervall-Grenzspruenge,
+eine unabhaengig aufsummierte Teleskop-Bilanz, maximale Druckprojektions-
+Divergenz und die Summe der drei viskosen Face-Geschwindigkeitssummen-Proxies.
+Er verwirft eine unzulaessige Diskontinuitaet an einer Intervallgrenze
+oder eine nicht schliessende Teleskop-Bilanz, statt einen scheinbar
+konservativen Gesamtzustand auszugeben. Kein physikalischer Impuls- oder
+Energiebeweis; die Face-Summen haben keine FSI-Impulseinheit.
+
+Der native 8^3/12^3-Vollwasser-Eigenmodentest prueft die analytischen
+Volumina, kg-Umrechnung, Bilanz und die Summe der einzelnen Reports.
+Der 12^3-Wasser-Slab prueft unabhaengig 0.432 m3 bzw. 432 kg,
+Null-Intervallspruenge und das Maximum der projizierten Divergenz.
+Das Python-Gate wertet die native LEDGER-Zeile mit sieben weiteren
+quantitativen Checks aus. Die Erweiterung veraendert die Advektion nicht.
+
 Nachweis mit unabhaengigen Python-Formeln, Quell-/Binaer-/Log-SHA256:
 `ENGINE TEST STUBE/runs/p2_viscous_mac_plic_sequence_partial.json`.
 

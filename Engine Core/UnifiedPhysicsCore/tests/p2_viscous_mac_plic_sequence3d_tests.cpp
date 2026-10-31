@@ -85,6 +85,26 @@ void eigen(int n) {
     check(r.total_plic_substeps>=schedule.size(),"cumulative PLIC");
     near(r.elapsed_s,.75,1e-14,"elapsed duration");
     near(r.total_mass_residual_m3,0,2e-11,"total water residual");
+    const double analytic_volume=n*n*n*dx*dx*dx;
+    near(r.initial_volume_m3,analytic_volume,2e-11,"full-water initial volume");
+    near(r.final_volume_m3,analytic_volume,2e-11,"full-water final volume");
+    near(r.initial_water_mass_kg,analytic_volume*1000,2e-8,"initial mass SI");
+    near(r.final_water_mass_kg,analytic_volume*1000,2e-8,"final mass SI");
+    near(r.mass_chain_residual_m3,0,2e-12,"interval continuity");
+    near(r.mass_telescoping_residual_m3,0,2e-12,"telescoping ledger");
+    double max_divergence=0;
+    std::array<double,3> viscous_face_delta{{0,0,0}};
+    for(const auto& report:r.intervals) {
+        max_divergence=std::max(max_divergence,
+                                report.max_projected_divergence_s_inv);
+        for(int c=0;c<3;++c)
+            viscous_face_delta[c]+=report.viscous_unique_face_sum_delta[c];
+    }
+    near(r.max_projected_divergence_s_inv,max_divergence,0,
+         "sequence maximum divergence parity");
+    for(int c=0;c<3;++c)
+        near(r.total_viscous_unique_face_sum_delta[c],viscous_face_delta[c],0,
+             "viscous face-sum accumulation parity");
     check(s.water_fill==original.water_fill&&
           s.staggered_velocity==original.staggered_velocity,"immutable input");
     std::cout<<"EIGEN "<<n<<" "<<expected_viscous<<" "
@@ -128,6 +148,19 @@ void coupled() {
     near(r.intervals.front().initial_volume_m3,.432,1e-11,"3D water inventory");
     near(r.intervals.back().final_volume_m3,.432,1e-11,"3D final water");
     near(r.total_mass_residual_m3,0,1e-11,"cumulative water conservation");
+    near(r.initial_volume_m3,.432,1e-11,"sequence initial volume");
+    near(r.final_volume_m3,.432,1e-11,"sequence final volume");
+    near(r.initial_water_mass_kg,432,1e-8,"sequence initial kg");
+    near(r.final_water_mass_kg,432,1e-8,"sequence final kg");
+    near(r.mass_chain_residual_m3,0,1e-12,"sequence interstep continuity");
+    near(r.mass_telescoping_residual_m3,0,1e-12,"sequence telescoping mass");
+    check(r.max_projected_divergence_s_inv<1e-10,
+          "sequence maximum divergence bounded");
+    std::cout<<"LEDGER "<<r.initial_volume_m3<<" "<<r.final_volume_m3
+             <<" "<<r.initial_water_mass_kg<<" "<<r.final_water_mass_kg
+             <<" "<<r.mass_chain_residual_m3<<" "
+             <<r.mass_telescoping_residual_m3<<" "
+             <<r.max_projected_divergence_s_inv<<"\n";
     check(s.water_fill==original.water_fill&&
           s.staggered_velocity==original.staggered_velocity,"coupled input immutable");
     std::cout<<"COUPLED "<<moved<<" "<<sum_v<<" "<<sum_p<<" "
