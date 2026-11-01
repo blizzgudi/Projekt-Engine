@@ -1,0 +1,2 @@
+P2_PLIC_PREFLIGHT n=16 resolved_planar=256 unresolved_geometric=1 unresolved_endpoint=1 periodic_seam_resolved=256
+PASS P2_PLIC_PREFLIGHT assertions=273 phase_complete=false

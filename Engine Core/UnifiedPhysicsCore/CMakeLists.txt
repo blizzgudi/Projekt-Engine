@@ -601,3 +601,8 @@ add_test(NAME physics_p2_abc3d_galilean_partial COMMAND upc_p2_abc3d_galilean_te
 add_executable(upc_p2_plic_pure_phase16_tests tests/p2_plic_pure_phase16_tests.cpp)
 target_link_libraries(upc_p2_plic_pure_phase16_tests PRIVATE upc)
 add_test(NAME physics_p2_plic_pure_phase16_partial COMMAND upc_p2_plic_pure_phase16_tests)
+# P2 partial: read-only 16^3 periodic PLIC ambiguity and endpoint QA.
+# Does not repair the moving mixed-interface solver.
+add_executable(upc_p2_plic_preflight3d_tests tests/p2_plic_preflight3d_tests.cpp)
+target_link_libraries(upc_p2_plic_preflight3d_tests PRIVATE upc)
+add_test(NAME physics_p2_plic_preflight_partial COMMAND upc_p2_plic_preflight3d_tests)

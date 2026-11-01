@@ -1,0 +1,99 @@
+{
+  "generated_utc": "2026-11-01T07:58:08.086171+00:00",
+  "project_root": "D:\\Projekt Engine",
+  "git_commit": "9276b37",
+  "ctest": {
+    "ok": true,
+    "tail": "ture_reference\n        Start   2: physics_materials_tests\n100/111 Test   #6: physics_mac3d_tests ..........................................   Passed    0.03 sec\n        Start  15: physics_p4_thermal_conduction_and_phase\n101/111 Test   #3: physics_3d_transport_tests ...................................   Passed    0.03 sec\n        Start  19: physics_p4_p3_porous_heat_gravity_bridge\n102/111 Test   #2: physics_materials_tests ......................................   Passed    0.02 sec\n        Start  12: physics_2d_extended_invariants\n103/111 Test  #22: physics_p5_granular_fracture_reference .......................   Passed    0.04 sec\n104/111 Test  #15: physics_p4_thermal_conduction_and_phase ......................   Passed    0.02 sec\n        Start  97: physics_p2_vof_affine_spin_partial\n        Start 110: physics_p2_plic_pure_phase16_partial\n105/111 Test  #19: physics_p4_p3_porous_heat_gravity_bridge .....................   Passed    0.03 sec\n        Start   1: physics_core_tests\n106/111 Test  #97: physics_p2_vof_affine_spin_partial ...........................   Passed    0.02 sec\n        Start 109: physics_p2_abc3d_galilean_partial\n107/111 Test  #12: physics_2d_extended_invariants ...............................   Passed    0.04 sec\n        Start 111: physics_p2_plic_preflight_partial\n108/111 Test   #1: physics_core_tests ...........................................   Passed    0.02 sec\n109/111 Test #110: physics_p2_plic_pure_phase16_partial .........................   Passed    0.03 sec\n110/111 Test #109: physics_p2_abc3d_galilean_partial ............................   Passed    0.02 sec\n111/111 Test #111: physics_p2_plic_preflight_partial ............................   Passed    0.02 sec\n\n100% tests passed, 0 tests failed out of 111\n\nTotal Test time (real) =   6.15 sec\n",
+    "exit": 0
+  },
+  "phases": {
+    "P0": {
+      "status": "PASS",
+      "evidence": "MSVC/CTest C++ core regression",
+      "prototype_status": "PASS",
+      "full_acceptance_open": [],
+      "completion_scope": "full"
+    },
+    "P1": {
+      "status": "PASS",
+      "evidence": "2D shallow-water CPU baseline, 33 quantitative checks, Ritter + Stoker and source hashes verified; 3D/viscosity and subgrid interface physics remain out of P1 scope",
+      "prototype_status": "PASS",
+      "full_acceptance_open": [],
+      "completion_scope": "full"
+    },
+    "P2": {
+      "status": "PARTIAL",
+      "evidence": "Selected MAC+VOF coupled 3D CPU prototype; 30 quantitative P2 checks and source hashes verified; optional isolated viscous MAC milestone: P2 viscosity tested source changed: CMakeLists.txt; live coupled viscous MAC/VOF milestone: Live 3D viscous MAC tested source changed: CMakeLists.txt; fixed-wall tangential shear partial: P2 wall shear source mismatch: CMakeLists.txt; face-momentum proxy ledger partial: P2 momentum ledger source changed: CMakeLists.txt; full 3D CFD/FSI validation not proven",
+      "prototype_status": "PARTIAL",
+      "full_acceptance_open": [
+        "validate full stress-consistent 3D viscosity at moving free surface (current Neumann proxy only)",
+        "validate dynamic solid no-slip/impulse and 3D obstacle coupling",
+        "compare 3D flow and momentum against independent measured references"
+      ],
+      "completion_scope": "bounded_prototype"
+    },
+    "P3": {
+      "status": "PARTIAL",
+      "evidence": "Porous 3D soil/free-water, pressure load, voxel-body displacement, isolated mass and work-energy ledgers; Missing or changed P3 source: include/upc/coupled_water3d.hpp; high-fidelity moving-wall impulse/energy FSI remains out of scope",
+      "prototype_status": "PARTIAL",
+      "full_acceptance_open": [
+        "bidirectional moving-solid/free-water force and impulse conservation",
+        "closed energy/mass accounting for porous flow and moving solids",
+        "validate 3D anisotropic soil and deformation against independent references"
+      ],
+      "completion_scope": "bounded_prototype"
+    },
+    "P4": {
+      "status": "PARTIAL",
+      "evidence": "3D CPU thermodynamics MVP: P4 source changed after acceptance: include/upc/coupled_water3d.hpp; thermal, liquid advection and P3-gravity heat budgets conserved in their test domains; no gas hydrodynamics or fully unified mechanical-energy closure",
+      "prototype_status": "PARTIAL",
+      "full_acceptance_open": [
+        "real 3D steam/gas momentum and transport with phase changes",
+        "globally coupled mechanical, latent and sensible energy conservation"
+      ],
+      "completion_scope": "bounded_prototype"
+    },
+    "P5": {
+      "status": "PARTIAL",
+      "evidence": "Bounded 3D CPU mass-spring/fracture and spherical DEM contact MVP; P5 advanced code changed since test: CMakeLists.txt; preliminary contact P5 plane contact source mismatch: CMakeLists.txt; full continuum FEM/MPM, accurate arbitrary surface contact and global FSI/thermal energy remain unverified",
+      "prototype_status": "PARTIAL",
+      "full_acceptance_open": [
+        "validated continuum deformable FEM/MPM or equivalent and mesh contacts",
+        "validated granular and fracture benchmarks across material scales"
+      ],
+      "completion_scope": "bounded_prototype"
+    },
+    "P6": {
+      "status": "PARTIAL",
+      "evidence": "Restricted 3D reactive-material CPU-MVP: P6 source changed: CMakeLists.txt; generic registered synthetic species, not calibrated real chemistry, not globally coupled multiphase-CFD",
+      "prototype_status": "PARTIAL",
+      "full_acceptance_open": [
+        "experimentally calibrated real-species chemistry and multiphase transfer",
+        "validated full energy/species coupling to moving fluid and solids"
+      ],
+      "completion_scope": "bounded_prototype"
+    },
+    "P7": {
+      "status": "PARTIAL",
+      "evidence": "Hardware 3D render-LOD GPU/streaming CPU-MVP: P7 source changed after GPU execution: CMakeLists.txt; previous sparse CPU gate: P7 partial source changed: CMakeLists.txt; P8 native UE/PIE: P8 tested source missing/changed: Engine Core/UnifiedPhysicsCore/include/upc/mac3d.hpp; GPU physics and Unreal RDG/AAA frame gains remain unverified",
+      "prototype_status": "PARTIAL",
+      "full_acceptance_open": [
+        "native GPU/LOD streaming integration into real UE rendering runtime",
+        "end-to-end frame-time and memory scaling with large scenes and async transfers"
+      ],
+      "completion_scope": "bounded_prototype"
+    },
+    "P8": {
+      "status": "PARTIAL",
+      "evidence": "Native UE5.8 isolated adapter CPU-MVP: P8 tested source missing/changed: Engine Core/UnifiedPhysicsCore/include/upc/mac3d.hpp; real 3D MAC water only, P3-P6 Unreal renderer and P7 GPU/LOD not proven",
+      "prototype_status": "PARTIAL",
+      "full_acceptance_open": [
+        "Unreal editor reload and repeatable Native-E2E for coupled P2-P7 modules",
+        "live P3-P6 materials and P7 LOD/streaming visualized and verified in Unreal"
+      ],
+      "completion_scope": "bounded_prototype"
+    }
+  },
+  "all_phases_complete": false
+}
