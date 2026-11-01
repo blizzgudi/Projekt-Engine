@@ -1,0 +1,286 @@
+{
+  "phase": "P2",
+  "milestone": "axis_vof_to_fractional_pcg_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "stress_consistent_free_surface": false,
+  "general_oblique_plic": false,
+  "live_moving_vof_pcg": false,
+  "measured_marin_pressure_convergence": false,
+  "independent_three_grid_six_second_convergence": false,
+  "dynamic_bidirectional_fsi": false,
+  "global_physical_energy_impulse_closure": false,
+  "native_assertions": 5171,
+  "ctest_suites": 121,
+  "manufactured_3d_cases": [
+    {
+      "axis": 0,
+      "n": 5,
+      "reverse": false,
+      "partial_wet": false,
+      "theta": 0.75,
+      "pressure_pa": -7500.0,
+      "expected_pressure_pa": -7500.0,
+      "pcg_iterations": 12
+    },
+    {
+      "axis": 0,
+      "n": 5,
+      "reverse": false,
+      "partial_wet": true,
+      "theta": 0.25,
+      "pressure_pa": -2500.0,
+      "expected_pressure_pa": -2500.0,
+      "pcg_iterations": 12
+    },
+    {
+      "axis": 0,
+      "n": 5,
+      "reverse": true,
+      "partial_wet": false,
+      "theta": 0.75,
+      "pressure_pa": -7500.0,
+      "expected_pressure_pa": -7500.0,
+      "pcg_iterations": 12
+    },
+    {
+      "axis": 0,
+      "n": 5,
+      "reverse": true,
+      "partial_wet": true,
+      "theta": 0.25,
+      "pressure_pa": -2500.0,
+      "expected_pressure_pa": -2500.0,
+      "pcg_iterations": 12
+    },
+    {
+      "axis": 0,
+      "n": 9,
+      "reverse": false,
+      "partial_wet": false,
+      "theta": 0.75,
+      "pressure_pa": -7500.0,
+      "expected_pressure_pa": -7500.0,
+      "pcg_iterations": 26
+    },
+    {
+      "axis": 0,
+      "n": 9,
+      "reverse": false,
+      "partial_wet": true,
+      "theta": 0.25,
+      "pressure_pa": -2500.0,
+      "expected_pressure_pa": -2500.0,
+      "pcg_iterations": 23
+    },
+    {
+      "axis": 0,
+      "n": 9,
+      "reverse": true,
+      "partial_wet": false,
+      "theta": 0.75,
+      "pressure_pa": -7500.0,
+      "expected_pressure_pa": -7500.0,
+      "pcg_iterations": 26
+    },
+    {
+      "axis": 0,
+      "n": 9,
+      "reverse": true,
+      "partial_wet": true,
+      "theta": 0.25,
+      "pressure_pa": -2500.0,
+      "expected_pressure_pa": -2500.0,
+      "pcg_iterations": 23
+    },
+    {
+      "axis": 1,
+      "n": 5,
+      "reverse": false,
+      "partial_wet": false,
+      "theta": 0.75,
+      "pressure_pa": -7500.0,
+      "expected_pressure_pa": -7500.0,
+      "pcg_iterations": 12
+    },
+    {
+      "axis": 1,
+      "n": 5,
+      "reverse": false,
+      "partial_wet": true,
+      "theta": 0.25,
+      "pressure_pa": -2500.0,
+      "expected_pressure_pa": -2500.0,
+      "pcg_iterations": 12
+    },
+    {
+      "axis": 1,
+      "n": 5,
+      "reverse": true,
+      "partial_wet": false,
+      "theta": 0.75,
+      "pressure_pa": -7500.0,
+      "expected_pressure_pa": -7500.0,
+      "pcg_iterations": 12
+    },
+    {
+      "axis": 1,
+      "n": 5,
+      "reverse": true,
+      "partial_wet": true,
+      "theta": 0.25,
+      "pressure_pa": -2500.0,
+      "expected_pressure_pa": -2500.0,
+      "pcg_iterations": 12
+    },
+    {
+      "axis": 1,
+      "n": 9,
+      "reverse": false,
+      "partial_wet": false,
+      "theta": 0.75,
+      "pressure_pa": -7500.0,
+      "expected_pressure_pa": -7500.0,
+      "pcg_iterations": 26
+    },
+    {
+      "axis": 1,
+      "n": 9,
+      "reverse": false,
+      "partial_wet": true,
+      "theta": 0.25,
+      "pressure_pa": -2500.0,
+      "expected_pressure_pa": -2500.0,
+      "pcg_iterations": 23
+    },
+    {
+      "axis": 1,
+      "n": 9,
+      "reverse": true,
+      "partial_wet": false,
+      "theta": 0.75,
+      "pressure_pa": -7500.0,
+      "expected_pressure_pa": -7500.0,
+      "pcg_iterations": 26
+    },
+    {
+      "axis": 1,
+      "n": 9,
+      "reverse": true,
+      "partial_wet": true,
+      "theta": 0.25,
+      "pressure_pa": -2500.0,
+      "expected_pressure_pa": -2500.0,
+      "pcg_iterations": 23
+    },
+    {
+      "axis": 2,
+      "n": 5,
+      "reverse": false,
+      "partial_wet": false,
+      "theta": 0.75,
+      "pressure_pa": -7500.0,
+      "expected_pressure_pa": -7500.0,
+      "pcg_iterations": 12
+    },
+    {
+      "axis": 2,
+      "n": 5,
+      "reverse": false,
+      "partial_wet": true,
+      "theta": 0.25,
+      "pressure_pa": -2500.0,
+      "expected_pressure_pa": -2500.0,
+      "pcg_iterations": 12
+    },
+    {
+      "axis": 2,
+      "n": 5,
+      "reverse": true,
+      "partial_wet": false,
+      "theta": 0.75,
+      "pressure_pa": -7500.0,
+      "expected_pressure_pa": -7500.0,
+      "pcg_iterations": 12
+    },
+    {
+      "axis": 2,
+      "n": 5,
+      "reverse": true,
+      "partial_wet": true,
+      "theta": 0.25,
+      "pressure_pa": -2500.0,
+      "expected_pressure_pa": -2500.0,
+      "pcg_iterations": 12
+    },
+    {
+      "axis": 2,
+      "n": 9,
+      "reverse": false,
+      "partial_wet": false,
+      "theta": 0.75,
+      "pressure_pa": -7500.0,
+      "expected_pressure_pa": -7500.0,
+      "pcg_iterations": 26
+    },
+    {
+      "axis": 2,
+      "n": 9,
+      "reverse": false,
+      "partial_wet": true,
+      "theta": 0.25,
+      "pressure_pa": -2500.0,
+      "expected_pressure_pa": -2500.0,
+      "pcg_iterations": 23
+    },
+    {
+      "axis": 2,
+      "n": 9,
+      "reverse": true,
+      "partial_wet": false,
+      "theta": 0.75,
+      "pressure_pa": -7500.0,
+      "expected_pressure_pa": -7500.0,
+      "pcg_iterations": 26
+    },
+    {
+      "axis": 2,
+      "n": 9,
+      "reverse": true,
+      "partial_wet": true,
+      "theta": 0.25,
+      "pressure_pa": -2500.0,
+      "expected_pressure_pa": -2500.0,
+      "pcg_iterations": 23
+    }
+  ],
+  "reset_and_invalid_geometry_tested": true,
+  "negative_marin_pressure_rmse_pa": {
+    "P1": 4617.761945491553,
+    "P2": 4939.791466992391,
+    "P3": 4461.921569594429,
+    "P4": 4295.13883817007,
+    "P5": 4996.816784477673,
+    "P6": 4932.487256797303,
+    "P7": 4829.090008274559,
+    "P8": 4951.951825306686
+  },
+  "previous_marin_report_sha256": "c608d9f8b459494e194ef671438c9eff452e2e8b27064950ae2bdbe7ea64d44d",
+  "source_sha256": {
+    "CMakeLists.txt": "869b253c2f7b70d81dffae96d2c3fe1d31c014d4b0c64b39b2a0326785ad0399",
+    "include/upc/mac3d.hpp": "c935c5f3c31432d90feeb0b56f5aef1fd29cf5dc69a94878a0d60f884c5e19e5",
+    "include/upc/p2_axis_vof_pcg_geometry3d.hpp": "da5cf2fcf0f4d1fbbc9ab1b3fdc534f8dbdc0579ba64690954c57c0b1e11fc95",
+    "include/upc/p2_vof_normal_reconstruction3d.hpp": "754d16ad464b530b109ff76f576c7e2d81a7732919b1b4baec251bca614b4878",
+    "tests/p2_axis_vof_pcg_geometry3d_tests.cpp": "fcd293e1c6c3e71be9d76a403431ebad12a8b3f6fcd2eb0511766c29565f2334",
+    "scripts/p2_axis_vof_pcg_partial_acceptance.py": "5950d6177d82a7d2fb97755c7a50cee999df9c941914ddb3ed1a1a3df886b409"
+  },
+  "artifact_sha256": {
+    "ENGINE TEST STUBE/runs/p2_axis_vof_pcg_native.txt": "6704c3bb1552a2b2e9e35d25195719866f40a215a2664676acd30c47d3bc7db7",
+    "ENGINE TEST STUBE/runs/p2_axis_vof_pcg_ctest.txt": "9165dfd9fb3c79cf94dcaffb5ca28193a2d2b46db414c5ccba7eff0ce39ad319",
+    "ENGINE TEST STUBE/runs/p2_axis_vof_pcg_full_build.txt": "ae34f9d49f96de3077dcbf99b933bf7835e58ce313bcd95fcb3d2a6a4fa7e3b8",
+    "ENGINE TEST STUBE/runs/p2_axis_vof_pcg_phase_gate.txt": "ab300bb727908749ec3a803f1e6b7f90f660ad67714cbabc643011315b881408",
+    "ENGINE TEST STUBE/runs/p2_marin_wall_normal_partial.json": "c608d9f8b459494e194ef671438c9eff452e2e8b27064950ae2bdbe7ea64d44d",
+    "Engine Core/UnifiedPhysicsCore/build/upc_p2_axis_vof_pcg_geometry_tests.exe": "da1da043225dd2ca03f9844abf55b01af7b002b65f56e3b5acb623d6d4e8ab68"
+  },
+  "generated_utc": "2026-11-01T14:43:52.746693+00:00"
+}

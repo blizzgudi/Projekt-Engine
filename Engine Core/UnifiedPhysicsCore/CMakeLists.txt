@@ -667,3 +667,9 @@ add_test(NAME physics_p2_marin_wall_normal_partial COMMAND upc_p2_marin_wall_nor
 add_executable(upc_p2_fractional_free_surface_pcg_tests tests/p2_fractional_free_surface_pcg_tests.cpp)
 target_link_libraries(upc_p2_fractional_free_surface_pcg_tests PRIVATE upc)
 add_test(NAME physics_p2_fractional_free_surface_pcg_partial COMMAND upc_p2_fractional_free_surface_pcg_tests)
+
+# P2 PARTIAL: exact axis-aligned VOF cut -> fractional PCG boundary distance.
+# Fail-closed for oblique/two-partial geometry; no live two-phase CFD claim.
+add_executable(upc_p2_axis_vof_pcg_geometry_tests tests/p2_axis_vof_pcg_geometry3d_tests.cpp)
+target_link_libraries(upc_p2_axis_vof_pcg_geometry_tests PRIVATE upc)
+add_test(NAME physics_p2_axis_vof_pcg_geometry_partial COMMAND upc_p2_axis_vof_pcg_geometry_tests)

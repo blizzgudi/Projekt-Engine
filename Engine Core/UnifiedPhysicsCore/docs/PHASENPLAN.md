@@ -2180,3 +2180,27 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
   oder physikalische Gesamtenergiebilanz.
 - phase_gate.py: GATES_PASS=P0, GATES_INCOMPLETE=P1,P2,P3,P4,P5,P6,P7,P8;
   ALL_COMPLETE=False. Historisches P1-Quellhashproblem bleibt offen.
+
+## P2 Teilfortschritt: echte VOF-Achsgeometrie an MAC-PCG-Druckgrenze (01.11.2026)
+
+- Die vorhandene 3D-VOF-Normalenrekonstruktion wird mit dem opt-in
+  geometrischen MAC-PCG-Grenzabstand verbunden, **nur** für streng
+  achsparallele planare Wasser-Luft-Schnitte mit Nassschwelle 0,5.
+  Aus f=0,75 (nasse Teilzelle) folgt theta=0,25; aus f=0,25
+  (trockene Teilzelle) theta=0,75. Keine VOF-als-Distanz-Heuristik.
+- Ungültige/oblique/doppelt partielle Grenzflächen werden abgewiesen,
+  reine 1/0-Zellgrenzen als geometrisch unaufgelöst gekennzeichnet.
+  Der MAC-Druckprojektor kann alte Face-Distanzen vor dem nächsten
+  Frame löschen; unabhängiger Zwei-Frame-Drucktest verifiziert Reset.
+- Echte MSVC-Release-Prüfung: 24 hergestellte 3D-Referenzfälle
+  (5^3/9^3, x/y/z, beide Orientierungen, zwei Fülllagen),
+  **5171 native Assertions, 121/121 CTest PASS**. Vier korrumpierte
+  Native-Traces durch Python-QA abgewiesen, Quell-/Binär-/Log-SHA256.
+- Negative externe MARIN/SPHERIC-Druckvalidierung bleibt bestehen:
+  P1-P8 RMSE ca. 4,3 bis 5,0 kPa. Keine neue teure 6-s-Simulation,
+  keine 3-Gitter-Messkonvergenz, kein Live-VOF-Schwellwertwechsel,
+  keine spannungskonsistente Luft-/FSI-/Energie-Vollkopplung.
+- Reproduktion und Belege: docs/P2_AXIS_VOF_PCG_PARTIAL.md,
+  scripts/p2_axis_vof_pcg_partial_acceptance.py,
+  ENGINE TEST STUBE/runs/p2_axis_vof_pcg_partial.json.
+  Phase-Gate bleibt **P2 PARTIAL / ALL_COMPLETE=False**.

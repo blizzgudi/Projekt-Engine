@@ -78,6 +78,11 @@ public:
         if(interface_z_.empty())interface_z_.assign(w_.size(),0.5);
         interface_z_[fw(x,y,z)]=theta;
     }
+    // Drop prior geometric pressure cuts before reconstructing a new
+    // VOF frame. An empty geometry must NOT inherit a previous frame.
+    void clear_interface_distances(){
+        interface_x_.clear();interface_y_.clear();interface_z_.clear();
+    }
     void set_face_velocity_x(std::size_t x,std::size_t y,std::size_t z,double v){
         if(x>nx_||y>=ny_||z>=nz_||!std::isfinite(v))throw std::invalid_argument("Bad face");
         u_[fu(x,y,z)]=v;
