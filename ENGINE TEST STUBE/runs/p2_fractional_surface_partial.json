@@ -1,0 +1,259 @@
+{
+  "phase": "P2",
+  "milestone": "geometric_fractional_liquid_air_pcg_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "stress_consistent_free_surface": false,
+  "live_vof_interface_reconstruction": false,
+  "two_phase_air_stress": false,
+  "measured_marin_pressure_convergence": false,
+  "independent_three_grid_6s_convergence": false,
+  "dynamic_bidirectional_fsi": false,
+  "physical_global_energy_impulse_closure": false,
+  "native_assertions": 3209,
+  "ctest_suites": 120,
+  "manufactured_3d_cases": [
+    {
+      "axis": 0,
+      "grid_n": 5,
+      "theta": 0.25,
+      "reverse": false,
+      "measured_pressure_pa": -2500.0,
+      "analytic_pressure_pa": -2500.0,
+      "abs_error_pa": 0.0,
+      "pcg_iterations": 12
+    },
+    {
+      "axis": 0,
+      "grid_n": 5,
+      "theta": 0.5,
+      "reverse": false,
+      "measured_pressure_pa": -5000.0,
+      "analytic_pressure_pa": -5000.0,
+      "abs_error_pa": 0.0,
+      "pcg_iterations": 12
+    },
+    {
+      "axis": 0,
+      "grid_n": 5,
+      "theta": 0.75,
+      "reverse": false,
+      "measured_pressure_pa": -7500.0,
+      "analytic_pressure_pa": -7500.0,
+      "abs_error_pa": 0.0,
+      "pcg_iterations": 12
+    },
+    {
+      "axis": 0,
+      "grid_n": 9,
+      "theta": 0.25,
+      "reverse": false,
+      "measured_pressure_pa": -2500.0,
+      "analytic_pressure_pa": -2500.0,
+      "abs_error_pa": 0.0,
+      "pcg_iterations": 23
+    },
+    {
+      "axis": 0,
+      "grid_n": 9,
+      "theta": 0.5,
+      "reverse": false,
+      "measured_pressure_pa": -5000.0,
+      "analytic_pressure_pa": -5000.0,
+      "abs_error_pa": 0.0,
+      "pcg_iterations": 25
+    },
+    {
+      "axis": 0,
+      "grid_n": 9,
+      "theta": 0.75,
+      "reverse": false,
+      "measured_pressure_pa": -7500.0,
+      "analytic_pressure_pa": -7500.0,
+      "abs_error_pa": 0.0,
+      "pcg_iterations": 26
+    },
+    {
+      "axis": 0,
+      "grid_n": 5,
+      "theta": 0.25,
+      "reverse": true,
+      "measured_pressure_pa": -2500.0,
+      "analytic_pressure_pa": -2500.0,
+      "abs_error_pa": 0.0,
+      "pcg_iterations": 12
+    },
+    {
+      "axis": 1,
+      "grid_n": 5,
+      "theta": 0.25,
+      "reverse": false,
+      "measured_pressure_pa": -2500.0,
+      "analytic_pressure_pa": -2500.0,
+      "abs_error_pa": 0.0,
+      "pcg_iterations": 12
+    },
+    {
+      "axis": 1,
+      "grid_n": 5,
+      "theta": 0.5,
+      "reverse": false,
+      "measured_pressure_pa": -5000.0,
+      "analytic_pressure_pa": -5000.0,
+      "abs_error_pa": 0.0,
+      "pcg_iterations": 12
+    },
+    {
+      "axis": 1,
+      "grid_n": 5,
+      "theta": 0.75,
+      "reverse": false,
+      "measured_pressure_pa": -7500.0,
+      "analytic_pressure_pa": -7500.0,
+      "abs_error_pa": 0.0,
+      "pcg_iterations": 12
+    },
+    {
+      "axis": 1,
+      "grid_n": 9,
+      "theta": 0.25,
+      "reverse": false,
+      "measured_pressure_pa": -2500.0,
+      "analytic_pressure_pa": -2500.0,
+      "abs_error_pa": 0.0,
+      "pcg_iterations": 23
+    },
+    {
+      "axis": 1,
+      "grid_n": 9,
+      "theta": 0.5,
+      "reverse": false,
+      "measured_pressure_pa": -5000.0,
+      "analytic_pressure_pa": -5000.0,
+      "abs_error_pa": 0.0,
+      "pcg_iterations": 25
+    },
+    {
+      "axis": 1,
+      "grid_n": 9,
+      "theta": 0.75,
+      "reverse": false,
+      "measured_pressure_pa": -7500.0,
+      "analytic_pressure_pa": -7500.0,
+      "abs_error_pa": 0.0,
+      "pcg_iterations": 26
+    },
+    {
+      "axis": 1,
+      "grid_n": 5,
+      "theta": 0.25,
+      "reverse": true,
+      "measured_pressure_pa": -2500.0,
+      "analytic_pressure_pa": -2500.0,
+      "abs_error_pa": 0.0,
+      "pcg_iterations": 12
+    },
+    {
+      "axis": 2,
+      "grid_n": 5,
+      "theta": 0.25,
+      "reverse": false,
+      "measured_pressure_pa": -2500.0,
+      "analytic_pressure_pa": -2500.0,
+      "abs_error_pa": 0.0,
+      "pcg_iterations": 12
+    },
+    {
+      "axis": 2,
+      "grid_n": 5,
+      "theta": 0.5,
+      "reverse": false,
+      "measured_pressure_pa": -5000.0,
+      "analytic_pressure_pa": -5000.0,
+      "abs_error_pa": 0.0,
+      "pcg_iterations": 12
+    },
+    {
+      "axis": 2,
+      "grid_n": 5,
+      "theta": 0.75,
+      "reverse": false,
+      "measured_pressure_pa": -7500.0,
+      "analytic_pressure_pa": -7500.0,
+      "abs_error_pa": 0.0,
+      "pcg_iterations": 12
+    },
+    {
+      "axis": 2,
+      "grid_n": 9,
+      "theta": 0.25,
+      "reverse": false,
+      "measured_pressure_pa": -2500.0,
+      "analytic_pressure_pa": -2500.0,
+      "abs_error_pa": 0.0,
+      "pcg_iterations": 23
+    },
+    {
+      "axis": 2,
+      "grid_n": 9,
+      "theta": 0.5,
+      "reverse": false,
+      "measured_pressure_pa": -5000.0,
+      "analytic_pressure_pa": -5000.0,
+      "abs_error_pa": 0.0,
+      "pcg_iterations": 25
+    },
+    {
+      "axis": 2,
+      "grid_n": 9,
+      "theta": 0.75,
+      "reverse": false,
+      "measured_pressure_pa": -7500.0,
+      "analytic_pressure_pa": -7500.0,
+      "abs_error_pa": 0.0,
+      "pcg_iterations": 26
+    },
+    {
+      "axis": 2,
+      "grid_n": 5,
+      "theta": 0.25,
+      "reverse": true,
+      "measured_pressure_pa": -2500.0,
+      "analytic_pressure_pa": -2500.0,
+      "abs_error_pa": 0.0,
+      "pcg_iterations": 12
+    }
+  ],
+  "max_manufactured_pressure_abs_error_pa": 0.0,
+  "negative_marin_pressure_rmse_pa": {
+    "P1_Pa": 4617.761945491553,
+    "P2_Pa": 4939.791466992391,
+    "P3_Pa": 4461.921569594429,
+    "P4_Pa": 4295.13883817007,
+    "P5_Pa": 4996.816784477673,
+    "P6_Pa": 4932.487256797303,
+    "P7_Pa": 4829.090008274559,
+    "P8_Pa": 4951.951825306686
+  },
+  "source_sha256": {
+    "CMakeLists.txt": "e11a6ee20eebd1a047e3f3e51186b4f9d8530f819dee1886875d96a10110ca65",
+    "include/upc/mac3d.hpp": "4d206fa8f63827f1035ce6317c636df479abfae2a2f05e9b84fdf5c3160e5853",
+    "tests/p2_fractional_free_surface_pcg_tests.cpp": "9c7273b464e0dfd187b2e1eef5ba9bae5efe306f48d953b971d4b4842230e675",
+    "scripts/p2_fractional_free_surface_pcg_build.cmd": "881ea825e21d89eeb1a204f569a3790b3adfee01238fb8f06f790f6dde22cd49",
+    "scripts/p2_fractional_free_surface_pcg_partial_acceptance.py": "81e9deea4094b8205e3b3baa7e3334947eef77f901897310c28e3f216ac30dd3"
+  },
+  "binary_sha256": "24241a8490d8c0f575f702f8361eb9c283ddccbbd3475af4abc1c65d9d323598",
+  "native_log_sha256": "6fc6155edd6752ba2e63f5cab846193f02a61322b324e9c7d3c6e1caa0e3487b",
+  "ctest_log_sha256": "4cdee1c5ad547d990f0d35a7017b6666940f37ffe8d004502c3aabd7df573bec",
+  "build_log_sha256": "6765d32174a077f218df439557ecf73c30bb2597eb79216368bb3b14e55b6fdd",
+  "phase_gate_log_sha256": "81c1aeb5f80e7e0c8ab439c351b9eab256694a788538ae1ad32d0f2082f8cccf",
+  "previous_marin_pressure_report_sha256": "c608d9f8b459494e194ef671438c9eff452e2e8b27064950ae2bdbe7ea64d44d",
+  "limitations": [
+    "Interface distances must be supplied by external geometry; VOF fractions are not distances",
+    "No automatic coupling of reconstructed interface to the live MARIN solver",
+    "p_air=0 Dirichlet is not a stress-consistent two-phase boundary",
+    "Original measured MARIN P1-P8 pressure remains outside acceptance",
+    "No new 6-second three-grid run or native UE5.8 E2E"
+  ],
+  "generated_utc": "2026-11-01T14:23:12.006727+00:00"
+}

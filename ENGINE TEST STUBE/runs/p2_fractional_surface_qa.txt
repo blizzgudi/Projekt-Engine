@@ -1,0 +1,2 @@
+P2_FRACTIONAL_FREE_SURFACE_PARTIAL=True P2_FULL_ACCEPTANCE=False
+manufactured_cases 21 native_assertions 3209 ctest 120

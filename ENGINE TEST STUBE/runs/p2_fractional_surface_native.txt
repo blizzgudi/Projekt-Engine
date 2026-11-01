@@ -1,0 +1,22 @@
+FRACTIONAL_INTERFACE axis=0 n=5 theta=0.25 reverse=0 p_Pa=-2500 iterations=12
+FRACTIONAL_INTERFACE axis=0 n=5 theta=0.5 reverse=0 p_Pa=-5000 iterations=12
+FRACTIONAL_INTERFACE axis=0 n=5 theta=0.75 reverse=0 p_Pa=-7500 iterations=12
+FRACTIONAL_INTERFACE axis=0 n=9 theta=0.25 reverse=0 p_Pa=-2500 iterations=23
+FRACTIONAL_INTERFACE axis=0 n=9 theta=0.5 reverse=0 p_Pa=-5000 iterations=25
+FRACTIONAL_INTERFACE axis=0 n=9 theta=0.75 reverse=0 p_Pa=-7500 iterations=26
+FRACTIONAL_INTERFACE axis=0 n=5 theta=0.25 reverse=1 p_Pa=-2500 iterations=12
+FRACTIONAL_INTERFACE axis=1 n=5 theta=0.25 reverse=0 p_Pa=-2500 iterations=12
+FRACTIONAL_INTERFACE axis=1 n=5 theta=0.5 reverse=0 p_Pa=-5000 iterations=12
+FRACTIONAL_INTERFACE axis=1 n=5 theta=0.75 reverse=0 p_Pa=-7500 iterations=12
+FRACTIONAL_INTERFACE axis=1 n=9 theta=0.25 reverse=0 p_Pa=-2500 iterations=23
+FRACTIONAL_INTERFACE axis=1 n=9 theta=0.5 reverse=0 p_Pa=-5000 iterations=25
+FRACTIONAL_INTERFACE axis=1 n=9 theta=0.75 reverse=0 p_Pa=-7500 iterations=26
+FRACTIONAL_INTERFACE axis=1 n=5 theta=0.25 reverse=1 p_Pa=-2500 iterations=12
+FRACTIONAL_INTERFACE axis=2 n=5 theta=0.25 reverse=0 p_Pa=-2500 iterations=12
+FRACTIONAL_INTERFACE axis=2 n=5 theta=0.5 reverse=0 p_Pa=-5000 iterations=12
+FRACTIONAL_INTERFACE axis=2 n=5 theta=0.75 reverse=0 p_Pa=-7500 iterations=12
+FRACTIONAL_INTERFACE axis=2 n=9 theta=0.25 reverse=0 p_Pa=-2500 iterations=23
+FRACTIONAL_INTERFACE axis=2 n=9 theta=0.5 reverse=0 p_Pa=-5000 iterations=25
+FRACTIONAL_INTERFACE axis=2 n=9 theta=0.75 reverse=0 p_Pa=-7500 iterations=26
+FRACTIONAL_INTERFACE axis=2 n=5 theta=0.25 reverse=1 p_Pa=-2500 iterations=12
+PASS P2_FRACTIONAL_FREE_SURFACE_PCG assertions=3209 phase_complete=false

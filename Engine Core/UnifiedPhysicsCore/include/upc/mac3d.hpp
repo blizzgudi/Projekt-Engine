@@ -17,6 +17,10 @@ class MacProjection3D {
     double dx_,rho_;
     std::vector<unsigned char> fluid_,solid_;
     std::vector<double> pressure_,u_,v_,w_;
+    // Opt-in geometric distance from the wet cell centre to the p=0
+    // interface, in grid spacings. Defaults to the historical half-cell.
+    // These distances affect ONLY project_pcg_verified(), not project().
+    std::vector<double> interface_x_,interface_y_,interface_z_;
     std::size_t cell(std::size_t x,std::size_t y,std::size_t z)const{return (z*ny_+y)*nx_+x;}
     std::size_t fu(std::size_t x,std::size_t y,std::size_t z)const{return (z*ny_+y)*(nx_+1)+x;}
     std::size_t fv(std::size_t x,std::size_t y,std::size_t z)const{return (z*(ny_+1)+y)*nx_+x;}
@@ -47,10 +51,32 @@ public:
         const std::size_t n=nx*ny*nz;
         fluid_.resize(n,0);solid_.resize(n,0);pressure_.resize(n,0);
         u_.resize((nx+1)*ny*nz);v_.resize(nx*(ny+1)*nz);w_.resize(nx*ny*(nz+1));
+        // Geometry arrays remain unallocated until a caller opts in.
     }
     void set_cell(std::size_t x,std::size_t y,std::size_t z,bool fluid,bool solid=false){
         if(x>=nx_||y>=ny_||z>=nz_|| (fluid&&solid))throw std::invalid_argument("Bad MAC cell");
         const auto i=cell(x,y,z);fluid_[i]=fluid;solid_[i]=solid;
+    }
+    // Explicit geometry supplied by a separate interface reconstruction.
+    // A VOF fill fraction is NOT automatically a distance to the surface.
+    // Solid and liquid-liquid faces ignore the stored value.
+    void set_interface_distance_x(std::size_t x,std::size_t y,std::size_t z,double theta){
+        if(x==0||x>=nx_||y>=ny_||z>=nz_||!std::isfinite(theta)||
+           theta<=0||theta>1)throw std::invalid_argument("Bad x interface distance");
+        if(interface_x_.empty())interface_x_.assign(u_.size(),0.5);
+        interface_x_[fu(x,y,z)]=theta;
+    }
+    void set_interface_distance_y(std::size_t x,std::size_t y,std::size_t z,double theta){
+        if(x>=nx_||y==0||y>=ny_||z>=nz_||!std::isfinite(theta)||
+           theta<=0||theta>1)throw std::invalid_argument("Bad y interface distance");
+        if(interface_y_.empty())interface_y_.assign(v_.size(),0.5);
+        interface_y_[fv(x,y,z)]=theta;
+    }
+    void set_interface_distance_z(std::size_t x,std::size_t y,std::size_t z,double theta){
+        if(x>=nx_||y>=ny_||z==0||z>=nz_||!std::isfinite(theta)||
+           theta<=0||theta>1)throw std::invalid_argument("Bad z interface distance");
+        if(interface_z_.empty())interface_z_.assign(w_.size(),0.5);
+        interface_z_[fw(x,y,z)]=theta;
     }
     void set_face_velocity_x(std::size_t x,std::size_t y,std::size_t z,double v){
         if(x>nx_||y>=ny_||z>=nz_||!std::isfinite(v))throw std::invalid_argument("Bad face");
@@ -213,6 +239,12 @@ public:
         PcgProjectionAudit audit;
         constexpr int directions[6][3]={
             {1,0,0},{-1,0,0},{0,1,0},{0,-1,0},{0,0,1},{0,0,-1}};
+        const auto air_weight=[&](std::size_t x,std::size_t y,std::size_t z,
+                                  const int* d)->double {
+            if(d[0])return (work.interface_x_.empty()?2.0:1.0/work.interface_x_[work.fu(x+(d[0]>0),y,z)]);
+            if(d[1])return (work.interface_y_.empty()?2.0:1.0/work.interface_y_[work.fv(x,y+(d[1]>0),z)]);
+            return (work.interface_z_.empty()?2.0:1.0/work.interface_z_[work.fw(x,y,z+(d[2]>0))]);
+        };
         for(std::size_t z=0;z<nz_;++z)
         for(std::size_t y=0;y<ny_;++y)
         for(std::size_t x=0;x<nx_;++x) {
@@ -222,7 +254,7 @@ public:
             for(const auto& d:directions) {
                 const int xx=(int)x+d[0], yy=(int)y+d[1], zz=(int)z+d[2];
                 if(work.is_wall(xx,yy,zz))continue;
-                diagonal[id]+=work.is_liquid(xx,yy,zz)?1.0:2.0;
+                diagonal[id]+=work.is_liquid(xx,yy,zz)?1.0:air_weight(x,y,z,d);
             }
             b[id]=-rho_*dx_*dx_/dt*work.divergence(x,y,z);
         }
@@ -376,7 +408,8 @@ public:
             if(!work.is_wall((int)x-1,(int)y,(int)z)&&
                !work.is_wall((int)x,(int)y,(int)z)) {
                 const double ghost=work.is_liquid((int)x,(int)y,(int)z)!=
-                                   work.is_liquid((int)x-1,(int)y,(int)z)?2.0:1.0;
+                                   work.is_liquid((int)x-1,(int)y,(int)z)?
+                                   (work.interface_x_.empty()?2.0:1.0/work.interface_x_[work.fu(x,y,z)]):1.0;
                 work.u_[work.fu(x,y,z)]-=scale*ghost*(
                     work.p((int)x,(int)y,(int)z)-work.p((int)x-1,(int)y,(int)z));
             }
@@ -385,7 +418,8 @@ public:
             if(!work.is_wall((int)x,(int)y-1,(int)z)&&
                !work.is_wall((int)x,(int)y,(int)z)) {
                 const double ghost=work.is_liquid((int)x,(int)y,(int)z)!=
-                                   work.is_liquid((int)x,(int)y-1,(int)z)?2.0:1.0;
+                                   work.is_liquid((int)x,(int)y-1,(int)z)?
+                                   (work.interface_y_.empty()?2.0:1.0/work.interface_y_[work.fv(x,y,z)]):1.0;
                 work.v_[work.fv(x,y,z)]-=scale*ghost*(
                     work.p((int)x,(int)y,(int)z)-work.p((int)x,(int)y-1,(int)z));
             }
@@ -394,7 +428,8 @@ public:
             if(!work.is_wall((int)x,(int)y,(int)z-1)&&
                !work.is_wall((int)x,(int)y,(int)z)) {
                 const double ghost=work.is_liquid((int)x,(int)y,(int)z)!=
-                                   work.is_liquid((int)x,(int)y,(int)z-1)?2.0:1.0;
+                                   work.is_liquid((int)x,(int)y,(int)z-1)?
+                                   (work.interface_z_.empty()?2.0:1.0/work.interface_z_[work.fw(x,y,z)]):1.0;
                 work.w_[work.fw(x,y,z)]-=scale*ghost*(
                     work.p((int)x,(int)y,(int)z)-work.p((int)x,(int)y,(int)z-1));
             }

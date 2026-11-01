@@ -2162,3 +2162,21 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
   `ENGINE TEST STUBE/runs/p2_marin_wall_normal_partial.json`,
   `scripts/p2_marin_wall_normal_build.cmd`. Original-MARIN-Archiv
   unverändert. `phase_gate.py`: P2 **PARTIAL**, ALL_COMPLETE=False.
+
+
+## P2 Teilfortschritt: geometrische MAC-PCG Wasser-Luft-Druckgrenze (01.11.2026)
+
+- Opt-in vorgegebene Grenzdistanz theta*dx (0<theta<=1) in allen drei
+  staggered MAC-Face-Richtungen. Konsistente PCG-Poisson-Diagonale und
+  Druckgradient; Default unveraendert, Zusatzspeicher nur bei Nutzung.
+- Reale MSVC-Release-Abnahme: 21 hergestellte 3D-Referenzfaelle,
+  5^3/9^3, x/y/z, theta=0.25/0.5/0.75, gespiegelte Oberflaeche;
+  3209 native Assertions, 120/120 CTest PASS, 4/4 mutierte QA-Logs
+  verworfen. Belege/Hashes in docs/P2_FRACTIONAL_FREE_SURFACE_PCG_PARTIAL.md
+  und ENGINE TEST STUBE/runs/p2_fractional_surface_partial.json.
+- P2 weiterhin PARTIAL: keine automatische VOF/PLIC-Geometrie,
+  keine stresskonsistente Zwei-Phasen-Grenze, keine neuen >=6s
+  MARIN-3-Gitter-Messnachweise, keine bidirektionale dynamische FSI
+  oder physikalische Gesamtenergiebilanz.
+- phase_gate.py: GATES_PASS=P0, GATES_INCOMPLETE=P1,P2,P3,P4,P5,P6,P7,P8;
+  ALL_COMPLETE=False. Historisches P1-Quellhashproblem bleibt offen.

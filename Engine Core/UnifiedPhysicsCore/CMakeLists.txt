@@ -660,3 +660,10 @@ add_test(NAME physics_p2_marin_height_interp_partial COMMAND upc_p2_marin_height
 add_executable(upc_p2_marin_wall_normal_tests tests/p2_marin_wall_normal_pressure3d_tests.cpp)
 target_link_libraries(upc_p2_marin_wall_normal_tests PRIVATE upc)
 add_test(NAME physics_p2_marin_wall_normal_partial COMMAND upc_p2_marin_wall_normal_tests)
+
+# P2 PARTIAL: opt-in geometric ghost-fluid distance in the real 3D MAC
+# PCG pressure projection, independently manufactured in x/y/z.
+# NOT a reconstructed/stress-consistent two-phase free surface.
+add_executable(upc_p2_fractional_free_surface_pcg_tests tests/p2_fractional_free_surface_pcg_tests.cpp)
+target_link_libraries(upc_p2_fractional_free_surface_pcg_tests PRIVATE upc)
+add_test(NAME physics_p2_fractional_free_surface_pcg_partial COMMAND upc_p2_fractional_free_surface_pcg_tests)
