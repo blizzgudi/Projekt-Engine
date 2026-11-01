@@ -1,0 +1,41 @@
+{
+  "phase": "P2",
+  "milestone": "implicit_two_phase_planar_tangential_shear_exchange_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "native_reference": {
+    "slip_m_s": 0.9790209790209791,
+    "water_impulse_n_s": 0.01398601398601399,
+    "surface_impulse_y_n_s": 0.00659,
+    "zero_gradient_energy_residual_j": -1.090707385520417e-16,
+    "marangoni_energy_residual_j": 2.299050706755512e-16,
+    "native_assertions": 51
+  },
+  "ctest_passed": 132,
+  "forged_native_traces_rejected": 6,
+  "historical_marin_6s_height_validation": "FAIL",
+  "historical_marin_sha256": "192e198e4e72fbca285c8eeb7b513f74ecdb4432b7705d837f71b8b0f91f2f08",
+  "limitations": [
+    "Two prescribed planar finite-volume cells, not a live two-phase 3D MAC/VOF step",
+    "No coupled free-surface pressure/curvature/tangential stress solver",
+    "No full >=6s MARIN H1-H4/P1-P8 three-grid measured convergence",
+    "No dynamic solid FSI or global multiphase energy and momentum closure",
+    "No UE5.8 Native E2E for this feature"
+  ],
+  "source_sha256": {
+    "CMakeLists.txt": "29f214fa535b363052ccb2af71267e78f7ceb43afe85735bc4c3e036e1da417c",
+    "include/upc/p2_two_phase_shear_exchange3d.hpp": "45cb4cca8af370aa4563b73bde1796da8240fe4fd7e54896eb3a293afa8e650c",
+    "tests/p2_two_phase_shear_exchange3d_tests.cpp": "a347135b501433390248b79179a90114266e483af2848c33e9f2957fb6cf2d1b",
+    "scripts/p2_two_phase_shear_exchange_build.cmd": "c206b4e802c794cce3f9e1068e158a6285c73731157db8e6e3ba1302afe1c193",
+    "scripts/p2_two_phase_shear_exchange_acceptance.py": "4727074696ab0b1ce3746c3748d2645de53b74767a5c9a1f30c0e1b0c40a1279",
+    "scripts/phase_gate.py": "01065438e2b72b3fe83e7e3ba3decbf54925c84c5f9424b15ad15a8197f59cd6",
+    "docs/P2_TWO_PHASE_SHEAR_EXCHANGE_PARTIAL.md": "87b49e1724cc7dece2aeb37a55e9de0a0ec9e93d381b82c19f8491d2e2897b27",
+    "docs/PHASENPLAN.md": "55fe04cc76e212b990f7ca44dd6e8801586dfd68405150fb547104efb064ac14"
+  },
+  "binary_sha256": "2d5c85a24030e6bbe9e13bad29aacef833a9fe5716dd4a7834d6802f3c3bac73",
+  "build_log_sha256": "648b90af4c60ee61701f8a7faf3598d536c1aa0cd7b185d8169c9bce81f44a47",
+  "native_log_sha256": "69d25bd31171b33943d720d5f4734a918764f735af256fb63bb54a34092e1a87",
+  "ctest_log_sha256": "82ee5a49f3fdbb880d9978f1c6dccaa64a60967a50d18063d103d68268e0855a",
+  "phase_gate_log_sha256": "81c1aeb5f80e7e0c8ab439c351b9eab256694a788538ae1ad32d0f2082f8cccf",
+  "generated_utc": "2026-11-01T23:38:51.501597+00:00"
+}

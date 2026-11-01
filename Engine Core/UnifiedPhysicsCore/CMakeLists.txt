@@ -734,3 +734,10 @@ add_test(NAME physics_p2_sdf_tangential_stress_partial COMMAND upc_p2_sdf_tangen
 add_executable(upc_p2_mac_two_phase_traction_tests tests/p2_mac_two_phase_traction3d_tests.cpp)
 target_link_libraries(upc_p2_mac_two_phase_traction_tests PRIVATE upc)
 add_test(NAME physics_p2_mac_two_phase_traction_partial COMMAND upc_p2_mac_two_phase_traction_tests)
+
+# P2 PARTIAL: implicit planar two-cell water/air shear exchange with
+# equal/opposite viscous impulses, explicit Marangoni source and energy ledger.
+# No live 3D MAC/VOF integration or measured two-phase CFD validation.
+add_executable(upc_p2_two_phase_shear_exchange_tests tests/p2_two_phase_shear_exchange3d_tests.cpp)
+target_link_libraries(upc_p2_two_phase_shear_exchange_tests PRIVATE upc)
+add_test(NAME physics_p2_two_phase_shear_exchange_partial COMMAND upc_p2_two_phase_shear_exchange_tests)
