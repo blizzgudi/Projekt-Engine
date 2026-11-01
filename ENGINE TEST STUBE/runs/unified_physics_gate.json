@@ -1,10 +1,10 @@
 {
-  "generated_utc": "2026-11-01T17:01:09.928177+00:00",
+  "generated_utc": "2026-11-01T17:08:39.169545+00:00",
   "project_root": "D:\\Projekt Engine",
-  "git_commit": "123dfa3",
+  "git_commit": "2b19ef0",
   "ctest": {
     "ok": true,
-    "tail": " physics_p5_affine_lattice_constitutive_reference\n        Start  21: physics_p5_lattice_3d_fracture\n113/124 Test  #27: physics_p6_p4_exothermic_energy_coupling .....................   Passed    0.04 sec\n        Start   1: physics_core_tests\n114/124 Test  #36: physics_p2_masked_viscous_face_momentum_ledger ...............   Passed    0.04 sec\n115/124 Test  #24: physics_p5_affine_lattice_constitutive_reference .............   Passed    0.03 sec\n        Start   3: physics_3d_transport_tests\n        Start  23: physics_p5_deformable_self_and_multibody_contact\n116/124 Test  #21: physics_p5_lattice_3d_fracture ...............................   Passed    0.04 sec\n        Start   6: physics_mac3d_tests\n117/124 Test   #1: physics_core_tests ...........................................   Passed    0.04 sec\n118/124 Test   #3: physics_3d_transport_tests ...................................   Passed    0.03 sec\n        Start  10: physics_unified_3d_runtime\n        Start   5: physics_p5_plane_contact_partial\n119/124 Test   #6: physics_mac3d_tests ..........................................   Passed    0.04 sec\n120/124 Test  #23: physics_p5_deformable_self_and_multibody_contact .............   Passed    0.05 sec\n121/124 Test  #10: physics_unified_3d_runtime ...................................   Passed    0.02 sec\n        Start  17: physics_p4_phase_mac_voxel_bridge\n        Start   4: physics_solid_tests\n122/124 Test   #5: physics_p5_plane_contact_partial .............................   Passed    0.03 sec\n123/124 Test  #17: physics_p4_phase_mac_voxel_bridge ............................   Passed    0.02 sec\n124/124 Test   #4: physics_solid_tests ..........................................   Passed    0.01 sec\n\n100% tests passed, 0 tests failed out of 124\n\nTotal Test time (real) =   6.84 sec\n",
+    "tail": "entum_ledger ...............   Passed    0.03 sec\n        Start   1: physics_core_tests\n114/125 Test  #23: physics_p5_deformable_self_and_multibody_contact .............   Passed    0.03 sec\n        Start  24: physics_p5_affine_lattice_constitutive_reference\n115/125 Test   #7: physics_ritter_analytical_reference ..........................   Passed    0.04 sec\n116/125 Test  #27: physics_p6_p4_exothermic_energy_coupling .....................   Passed    0.03 sec\n        Start   6: physics_mac3d_tests\n        Start  21: physics_p5_lattice_3d_fracture\n117/125 Test   #1: physics_core_tests ...........................................   Passed    0.04 sec\n        Start   3: physics_3d_transport_tests\n118/125 Test  #24: physics_p5_affine_lattice_constitutive_reference .............   Passed    0.04 sec\n119/125 Test   #6: physics_mac3d_tests ..........................................   Passed    0.03 sec\n        Start  10: physics_unified_3d_runtime\n        Start   5: physics_p5_plane_contact_partial\n120/125 Test  #21: physics_p5_lattice_3d_fracture ...............................   Passed    0.04 sec\n        Start  17: physics_p4_phase_mac_voxel_bridge\n121/125 Test   #3: physics_3d_transport_tests ...................................   Passed    0.04 sec\n122/125 Test  #10: physics_unified_3d_runtime ...................................   Passed    0.03 sec\n        Start   4: physics_solid_tests\n123/125 Test   #5: physics_p5_plane_contact_partial .............................   Passed    0.03 sec\n124/125 Test  #17: physics_p4_phase_mac_voxel_bridge ............................   Passed    0.02 sec\n125/125 Test   #4: physics_solid_tests ..........................................   Passed    0.01 sec\n\n100% tests passed, 0 tests failed out of 125\n\nTotal Test time (real) =   6.79 sec\n",
     "exit": 0
   },
   "phases": {
@@ -16,9 +16,9 @@
       "completion_scope": "full"
     },
     "P1": {
-      "status": "PASS",
-      "evidence": "2D shallow-water CPU baseline, 33 quantitative checks, Ritter + Stoker and source hashes verified; 3D/viscosity and subgrid interface physics remain out of P1 scope",
-      "prototype_status": "PASS",
+      "status": "PARTIAL",
+      "evidence": "2D shallow-water CPU baseline, Changed or missing P1 evidence source CMakeLists.txt; 3D/viscosity and subgrid interface physics remain out of P1 scope",
+      "prototype_status": "PARTIAL",
       "full_acceptance_open": [],
       "completion_scope": "full"
     },

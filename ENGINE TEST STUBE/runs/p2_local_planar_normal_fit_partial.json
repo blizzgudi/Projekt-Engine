@@ -1,0 +1,86 @@
+{
+  "phase": "P2",
+  "milestone": "local_volume_matched_planar_vof_normal_fit_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "marin_measured_validation_pass": false,
+  "native_assertions": 1977,
+  "full_ctest_suites": 125,
+  "corrupted_native_traces_rejected": 6,
+  "manufactured_3d_planes": [
+    {
+      "n": 8,
+      "partial_cells": 104,
+      "pressure_faces": 96,
+      "minimum_alignment": 0.9999999999999998,
+      "maximum_fraction_residual": 4.1137093731435925e-12,
+      "solver_iterations": 128
+    },
+    {
+      "n": 8,
+      "partial_cells": 85,
+      "pressure_faces": 63,
+      "minimum_alignment": 1.0,
+      "maximum_fraction_residual": 1.534737892328053e-10,
+      "solver_iterations": 207
+    },
+    {
+      "n": 8,
+      "partial_cells": 127,
+      "pressure_faces": 119,
+      "minimum_alignment": 0.9999999999999998,
+      "maximum_fraction_residual": 1.8785140110111342e-10,
+      "solver_iterations": 493
+    },
+    {
+      "n": 12,
+      "partial_cells": 228,
+      "pressure_faces": 216,
+      "minimum_alignment": 0.9999999999999998,
+      "maximum_fraction_residual": 4.1134873285386675e-12,
+      "solver_iterations": 192
+    },
+    {
+      "n": 12,
+      "partial_cells": 166,
+      "pressure_faces": 165,
+      "minimum_alignment": 1.0,
+      "maximum_fraction_residual": 1.2039924612849973e-10,
+      "solver_iterations": 348
+    },
+    {
+      "n": 12,
+      "partial_cells": 287,
+      "pressure_faces": 275,
+      "minimum_alignment": 0.9999999999999998,
+      "maximum_fraction_residual": 1.8785129007881096e-10,
+      "solver_iterations": 1104
+    }
+  ],
+  "source_sha256": {
+    "CMakeLists.txt": "6e12b93b673fb3e5f37d9e33f68f0ca2d390e9746fc1b4cf3a1c62165acf65b2",
+    "include/upc/p2_local_planar_normal_fit3d.hpp": "5b6fbc0483087ae34384952e6cf7585932c995108e4bf465acf4ba30d8c3330b",
+    "include/upc/p2_vof_normal_reconstruction3d.hpp": "754d16ad464b530b109ff76f576c7e2d81a7732919b1b4baec251bca614b4878",
+    "include/upc/p2_planar_vof_pcg_geometry3d.hpp": "944cc234d99272080253c4921085ec1c265e86d7aa1c63d2e61757f3b8a8c984",
+    "include/upc/p2_oblique_plic_geometry3d.hpp": "e548ca42557b5fa7bf6f752e9e122f64396690baa08a43fac7641f12e05d4627",
+    "include/upc/mac3d.hpp": "c935c5f3c31432d90feeb0b56f5aef1fd29cf5dc69a94878a0d60f884c5e19e5",
+    "tests/p2_local_planar_normal_fit3d_tests.cpp": "a090a4434ee27b3430f9255d1de344343243f4cbba2f2c3b61bea7057de36bb6",
+    "scripts/p2_local_planar_normal_fit_build.cmd": "d4cabf93bdc666ecb9f1df164f133e290ebb765e6e0a324b1b89e3e9255744c0",
+    "scripts/p2_local_planar_normal_fit_acceptance.py": "1f6a70781bc32d5883dca7600fe7325facf9b8abfc63792221bbb7afc4726754",
+    "docs/P2_LOCAL_PLANAR_NORMAL_FIT_PARTIAL.md": "e9e868e41ce3f37c3f9570baf674c75f805f6983abf4197265e60ce61e7028b6",
+    "docs/PHASENPLAN.md": "3f0e5283b2c94533cd24215b50f41baba5dfa6a570b8089e564bc4108e87deba"
+  },
+  "artifact_sha256": {
+    "Engine Core/UnifiedPhysicsCore/build/upc_p2_local_planar_normal_fit_tests.exe": "0da296b20aea4f1ff3b72d1a4418cac0515bfc27d4baaee96d991c4ab5ee3ecf",
+    "ENGINE TEST STUBE/runs/p2_local_planar_normal_fit_build.txt": "bad34a53a73cd79a99a00d7cadaeef0a69486a3936003ef9af4e2855ba43d711",
+    "ENGINE TEST STUBE/runs/p2_local_planar_normal_fit_ctest.txt": "a28a9c7d0d2b4a69fa97474e242faad2d7b35bdd167447883836437916a09bc8",
+    "ENGINE TEST STUBE/runs/p2_local_planar_normal_fit_native.txt": "4d586b212d27346543cad9ac6d53742c12eb0fd41ad374f57ed28129eacb3dad"
+  },
+  "unresolved": [
+    "Local plane fits are not dynamic stress-consistent air-water CFD",
+    "No validated MARIN H1-H4/P1-P8 full >=6s three-grid convergence",
+    "No dynamic bidirectional solid impulse and global energy closure",
+    "No new Unreal 5.8 native E2E for this optional geometry"
+  ],
+  "generated_utc": "2026-11-01T17:10:46.556943+00:00"
+}

@@ -1,0 +1,7 @@
+PLANE n=8 cells=104 faces=96 min_alignment=0.99999999999999978 max_fraction_error=4.1137093731435925e-12 iterations=128
+PLANE n=8 cells=85 faces=63 min_alignment=1 max_fraction_error=1.534737892328053e-10 iterations=207
+PLANE n=8 cells=127 faces=119 min_alignment=0.99999999999999978 max_fraction_error=1.8785140110111342e-10 iterations=493
+PLANE n=12 cells=228 faces=216 min_alignment=0.99999999999999978 max_fraction_error=4.1134873285386675e-12 iterations=192
+PLANE n=12 cells=166 faces=165 min_alignment=1 max_fraction_error=1.2039924612849973e-10 iterations=348
+PLANE n=12 cells=287 faces=275 min_alignment=0.99999999999999978 max_fraction_error=1.8785129007881096e-10 iterations=1104
+PASS P2_LOCAL_PLANAR_NORMAL_FIT assertions=1977 phase_complete=false

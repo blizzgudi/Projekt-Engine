@@ -692,3 +692,9 @@ add_test(NAME physics_p2_marin_footprint_partial COMMAND upc_p2_marin_footprint_
 add_executable(upc_p2_planar_vof_pcg_tests tests/p2_planar_vof_pcg_geometry3d_tests.cpp)
 target_link_libraries(upc_p2_planar_vof_pcg_tests PRIVATE upc)
 add_test(NAME physics_p2_planar_vof_pcg_partial COMMAND upc_p2_planar_vof_pcg_tests)
+
+# P2 PARTIAL: local nonlinear exact-volume PLIC normal fit with strict
+# nonplanar rejection. Manufactured planes, not measured two-phase CFD.
+add_executable(upc_p2_local_planar_normal_fit_tests tests/p2_local_planar_normal_fit3d_tests.cpp)
+target_link_libraries(upc_p2_local_planar_normal_fit_tests PRIVATE upc)
+add_test(NAME physics_p2_local_planar_normal_fit_partial COMMAND upc_p2_local_planar_normal_fit_tests)
