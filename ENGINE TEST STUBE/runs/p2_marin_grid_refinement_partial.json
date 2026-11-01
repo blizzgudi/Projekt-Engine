@@ -1,0 +1,112 @@
+{
+  "phase": "P2",
+  "scope": "independent_marinsphERIC_3d_height_grid_refinement_partial",
+  "initial_conditions": "identical 3.20 x 1 x 1 m represented tank; 0.55 m reservoir; binary cuboid",
+  "experimental_source_url": "https://www.spheric-sph.org/tests/test-02",
+  "experimental_source_zip_sha256": "a2ad06e367f61c70351f3d66a8dc5041b53972e3a3aecebde0e06efdd62bf6d1",
+  "measured_csv_sha256": "199232979781aa02a26ad663515c0d8e7fc02640ef648daf92e4c6a4998c84cb",
+  "native_runs": {
+    "coarse": {
+      "grid": {
+        "dx": 0.1,
+        "nx": 32,
+        "ny": 10,
+        "nz": 10
+      },
+      "water_volume_initial_m3": 0.6643999999999998,
+      "water_volume_max_drift_m3": 6.784572903484332e-13,
+      "readback": {
+        "H1_m": {
+          "rmse_m": 0.12067013175223057,
+          "max_abs_error_m": 0.15743815715285656,
+          "final_error_m": -0.1211483935629724,
+          "sample_count": 200
+        },
+        "H2_m": {
+          "rmse_m": 0.11693615167184265,
+          "max_abs_error_m": 0.2195935299219411,
+          "final_error_m": -0.1525341018567364,
+          "sample_count": 200
+        },
+        "H3_m": {
+          "rmse_m": 0.16203438811968499,
+          "max_abs_error_m": 0.3222579775691602,
+          "final_error_m": -0.2156744090612857,
+          "sample_count": 200
+        },
+        "H4_m": {
+          "rmse_m": 0.20561138293584638,
+          "max_abs_error_m": 0.3340415982237996,
+          "final_error_m": 0.3340415982237996,
+          "sample_count": 200
+        }
+      },
+      "max_projection_divergence_s_inv": 0.06380046113413677,
+      "runtime_log_sha256": "e3e4acc468397034fb0c9e795cd36f32f92a751042d7d46139862b37efa234e2"
+    },
+    "fine": {
+      "grid": {
+        "dx": 0.05,
+        "nx": 64,
+        "ny": 20,
+        "nz": 20
+      },
+      "water_volume_initial_m3": 0.6643999999999979,
+      "water_volume_max_drift_m3": 2.7184920980971583e-12,
+      "readback": {
+        "H1_m": {
+          "rmse_m": 0.10399582776033299,
+          "max_abs_error_m": 0.14650868562854413,
+          "final_error_m": -0.051425081886962085,
+          "sample_count": 200
+        },
+        "H2_m": {
+          "rmse_m": 0.07674606530522744,
+          "max_abs_error_m": 0.15254634766102432,
+          "final_error_m": -0.0693176648337126,
+          "sample_count": 200
+        },
+        "H3_m": {
+          "rmse_m": 0.1398191480237003,
+          "max_abs_error_m": 0.2736495971131039,
+          "final_error_m": -0.17321048673949016,
+          "sample_count": 200
+        },
+        "H4_m": {
+          "rmse_m": 0.15808439375954003,
+          "max_abs_error_m": 0.24745431265115858,
+          "final_error_m": 0.24745431265115858,
+          "sample_count": 200
+        }
+      },
+      "max_projection_divergence_s_inv": 0.03441353234744482,
+      "runtime_log_sha256": "114a78b65d4d665f8d41f4a30792e634bbf09d791239a1a0c0fc0de03bcd7dc8"
+    }
+  },
+  "heights_improve_with_refinement": {
+    "H1_m": true,
+    "H2_m": true,
+    "H3_m": true,
+    "H4_m": true
+  },
+  "fine_heights_within_0.05m_rmse": {
+    "H1_m": false,
+    "H2_m": false,
+    "H3_m": false,
+    "H4_m": false
+  },
+  "all_heights_improved": true,
+  "experimentally_validated": false,
+  "pressure_sensor_validation": false,
+  "runtime_6seconds_validated": false,
+  "full_grid_order_verified": false,
+  "phase_complete": false,
+  "generated_utc": "2026-11-01T09:34:29.398448+00:00",
+  "unmet": [
+    "physical_height_rmse_0.05m_for_all_channels",
+    "pressure_P1_P8_native_vs_measured",
+    "full_6_second_experiment",
+    "three_grid_asymptotic_convergence",
+    "stress_consistent_free_surface_and_dynamic_FSI"
+  ]
+}

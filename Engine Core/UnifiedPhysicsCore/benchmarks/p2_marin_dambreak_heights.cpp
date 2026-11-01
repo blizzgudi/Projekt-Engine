@@ -27,18 +27,22 @@ double gauge_height(const upc::CoupledMacWater3D& w,double x_m,double y_m) {
 }
 int main(int argc,char** argv){
     try {
-        const double dx=0.1;
-        const std::size_t nx=32,ny=10,nz=10;
+        const bool finer_grid=argc>=4 && std::string(argv[3])=="fine";
+        const bool dense=(argc==4 && std::string(argv[3])=="dense") ||
+                         (argc==5 && std::string(argv[4])=="dense");
+        const double dx=finer_grid?0.05:0.1;
+        const std::size_t nx=finer_grid?64:32,ny=finer_grid?20:10,nz=finer_grid?20:10;
         const int steps=argc>=2?std::stoi(argv[1]):40;
-        const bool throughflow=argc==3 && std::string(argv[2])=="throughflow";
-        if(argc>3||(argc==3&&!throughflow))
+        const bool throughflow=argc>=3 && std::string(argv[2])=="throughflow";
+        if(argc>5||(argc>=3&&!throughflow)||
+           (argc>=4&&!finer_grid&&!dense)||(argc==5&&(!finer_grid||!dense)))
             throw std::invalid_argument("Unknown benchmark transport mode");
         if(steps<1||steps>300)
             throw std::invalid_argument("Invalid benchmark step budget");
         upc::CoupledMacWater3D w(nx,ny,nz,dx,1000.0);
         w.set_conservative_throughflow_transport(throughflow);
-        // SPHERIC Test 02 tank 3.22 x 1 x 1 m. At coarse dx=0.1 m,
-        // represented domain is 3.20 x 1 x 1 m (0.02 m truncation).
+        // SPHERIC tank 3.22 x 1 x 1 m. Equal physical 3.20 x 1 x 1 m
+        // represented domains for coarse and doubled-resolution grid.
         // Initial right-hand water reservoir starts x=1.992 m, z<0.55 m.
         // Product of exact x and z intersections preserves partial cells.
         for(std::size_t k=0;k<nz;++k)
@@ -63,6 +67,8 @@ int main(int argc,char** argv){
         std::cout<<std::setprecision(17);
         std::cout<<"# MARIN_COARSE_3D dx_m="<<dx<<" nx="<<nx<<" ny="<<ny
                  <<" nz="<<nz<<" transport="<<(throughflow?"throughflow":"legacy")
+                 <<" grid="<<(finer_grid?"fine":"coarse")
+                 <<" sampling="<<(dense?"dense":"sparse")
                  <<" initial_volume_m3="<<initial_volume
                  <<" target_full_extent_x_m=3.22 represented_extent_x_m="
                  <<nx*dx<<" obstacle_x_m=[0.6635,0.8245] obstacle_y_m=[0.295,0.698]"
@@ -78,10 +84,10 @@ int main(int argc,char** argv){
         };
         emit(0);
         for(int i=1;i<=steps;++i) {
-            w.step(.01,175);
+            w.step(.01,finer_grid?350:175);
             if(std::abs(w.volume_m3()-initial_volume)>1e-8)
                 throw std::runtime_error("MARIN water mass drift");
-            if(i==5||i==10||i==20||i==40||i==100||
+            if(dense||i==5||i==10||i==20||i==40||i==100||
                i==200||i==steps)emit(i*.01);
         }
         std::cout<<"PASS MARIN_COARSE_BASELINE partial_only=true steps="

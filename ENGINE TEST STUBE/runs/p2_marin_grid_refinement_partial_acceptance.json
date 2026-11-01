@@ -1,0 +1,61 @@
+{
+  "phase": "P2",
+  "milestone": "real_3d_marin_two_grid_200_time_sample_quantitative_comparison",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "experimental_cfd_validated": false,
+  "all_phases_complete": false,
+  "checks": {
+    "two_native_3d_grids_with_measured_height_reference": true,
+    "coarse_3d_grid_32x10x10": true,
+    "fine_3d_grid_64x20x20": true,
+    "both_200_step_native_runs": true,
+    "eight_positive_and_negative_controls": true,
+    "both_3d_water_mass_drifts_below_1e-8": true,
+    "all_four_height_rmse_calculated_on_dense_reference": true,
+    "refinement_reduces_all_four_height_rmse": true,
+    "physical_experimental_validation_not_claimed": true,
+    "pressure_sensor_and_six_second_gaps_explicit": true,
+    "physical_rmse_limits_still_fail": true
+  },
+  "regression_tests": 8,
+  "height_rmse_m": {
+    "coarse": {
+      "H1_m": 0.12067013175223057,
+      "H2_m": 0.11693615167184265,
+      "H3_m": 0.16203438811968499,
+      "H4_m": 0.20561138293584638
+    },
+    "fine": {
+      "H1_m": 0.10399582776033299,
+      "H2_m": 0.07674606530522744,
+      "H3_m": 0.1398191480237003,
+      "H4_m": 0.15808439375954003
+    }
+  },
+  "source_sha256": {
+    "benchmarks/p2_marin_dambreak_heights.cpp": "0a29d557d8621696f3fd982f69c233c9c228252b573080355afe4757e3795a59",
+    "include/upc/coupled_water3d.hpp": "a54a36b400a929c3c673d883171abedf5fffaa79d3465863f1a80a67b42b358b",
+    "include/upc/p2_vof_throughflow3d.hpp": "3f287600948964d15fbd9c3493df2f5a5d4fbaf0b67a0d7c601c14303f260d5a",
+    "scripts/p2_spheric_marin_grid_refinement.py": "4e8c02e04e5349ccc804f56a029bbc17469b8f39493fe799c75a1b2c03196804",
+    "scripts/p2_spheric_marin_grid_partial_acceptance.py": "74edb8bf03fbbddaa41fa3891fadaef62d4c17c87737330686bcd1baf31cd8e9",
+    "tests/p2_spheric_marin_grid_refinement_regression.py": "8a0cb27e4eac8814ef61c1d86b8edcdf21812f7439f21716cdeb71592768081b",
+    "docs/P2_MARIN_GRID_REFINEMENT_PARTIAL.md": "f432978f33be55a6e8e0cc65e613c44bf17e3e41f3c5a9df6d3fe12ea6d7a313"
+  },
+  "artifact_sha256": {
+    "fine": "114a78b65d4d665f8d41f4a30792e634bbf09d791239a1a0c0fc0de03bcd7dc8",
+    "coarse": "e3e4acc468397034fb0c9e795cd36f32f92a751042d7d46139862b37efa234e2",
+    "comparison": "5931687b6af33493ded0a77ca5a51c7e7bf9d6bcedf13baf13af17f7eb2d1396",
+    "regressions": "7b10a85190a39ef5eae4d4dd704512e2be1beeac34aca21f2f40a3f5e50e1240"
+  },
+  "binary_sha256": "49225e9da647652a20737b6ecc56dc604641e0efec21a725bf089a0b7b932697",
+  "generated_utc": "2026-11-01T09:34:29.451622+00:00",
+  "full_phase_blockers": [
+    "measured_H1_to_H4_all_within_0.05_m_not_met",
+    "measured_P1_to_P8_pressures_not_modeled",
+    "six_second_real_3D_validation_not_met",
+    "three_grid_convergence_order_not_validated",
+    "free_surface_viscous_stress_consistency_missing",
+    "dynamic_fluid_solid_two_way_impulse_energy_conservation_missing"
+  ]
+}

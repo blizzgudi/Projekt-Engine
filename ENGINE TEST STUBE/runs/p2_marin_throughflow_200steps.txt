@@ -1,4 +1,4 @@
-# MARIN_COARSE_3D dx_m=0.10000000000000001 nx=32 ny=10 nz=10 transport=throughflow initial_volume_m3=0.66439999999999977 target_full_extent_x_m=3.22 represented_extent_x_m=3.2000000000000002 obstacle_x_m=[0.6635,0.8245] obstacle_y_m=[0.295,0.698] obstacle_z_m=[0,0.161] probe_x_m=[0.496,0.992,1.488,2.632] pressure_sensors_NOT_simulated=true
+# MARIN_COARSE_3D dx_m=0.10000000000000001 nx=32 ny=10 nz=10 transport=throughflow grid=coarse initial_volume_m3=0.66439999999999977 target_full_extent_x_m=3.22 represented_extent_x_m=3.2000000000000002 obstacle_x_m=[0.6635,0.8245] obstacle_y_m=[0.295,0.698] obstacle_z_m=[0,0.161] probe_x_m=[0.496,0.992,1.488,2.632] pressure_sensors_NOT_simulated=true
 time_s,H1_m,H2_m,H3_m,H4_m,water_volume_m3,max_projection_divergence_s_inv
 0,0,0,0,0.55000000000000004,0.66439999999999977,0
 0.050000000000000003,0,0,0,0.5480163346999074,0.66439999999998156,0.0024640841311102633

@@ -1,0 +1,18 @@
+P2_MARIN_TWO_GRIDS=True PHASE_COMPLETE=False VALIDATED=False ALL_IMPROVED=True
+H1_m coarse_rmse_m 0.12067013175223057 fine_rmse_m 0.10399582776033299
+H2_m coarse_rmse_m 0.11693615167184265 fine_rmse_m 0.07674606530522744
+H3_m coarse_rmse_m 0.16203438811968499 fine_rmse_m 0.1398191480237003
+H4_m coarse_rmse_m 0.20561138293584638 fine_rmse_m 0.15808439375954003
+test_forged_success_flag_must_fail (__main__.GridRefinementEvidenceTests.test_forged_success_flag_must_fail) ... ok
+test_incomplete_trajectory_must_fail (__main__.GridRefinementEvidenceTests.test_incomplete_trajectory_must_fail) ... ok
+test_independent_height_metric_threshold_remains_fail (__main__.GridRefinementEvidenceTests.test_independent_height_metric_threshold_remains_fail) ... ok
+test_native_measured_dense_201_samples_on_each_grid (__main__.GridRefinementEvidenceTests.test_native_measured_dense_201_samples_on_each_grid) ... ok
+test_no_false_experimental_phase_acceptance (__main__.GridRefinementEvidenceTests.test_no_false_experimental_phase_acceptance) ... ok
+test_non_monotone_time_must_fail (__main__.GridRefinementEvidenceTests.test_non_monotone_time_must_fail) ... ok
+test_simulated_water_volume_remains_conserved (__main__.GridRefinementEvidenceTests.test_simulated_water_volume_remains_conserved) ... ok
+test_wrong_geometry_must_fail (__main__.GridRefinementEvidenceTests.test_wrong_geometry_must_fail) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.096s
+
+OK
