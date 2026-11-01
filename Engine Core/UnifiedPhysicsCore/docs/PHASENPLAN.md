@@ -2259,3 +2259,10 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
   noch eine gekoppelte Zweiphasen-Stressbilanz. MARIN-6-s-H1–H4-
   Messvalidierung bleibt FAIL, Dreigitter-Messkonvergenz, dynamische
   bidirektionale FSI und globale Impuls-/Energie-Abnahme fehlen.
+
+## P2 Teilfortschritt: 3D-SDF-Kruemmung und Young-Laplace-Grenzdruck (01.11.2026)
+
+- Neuer streng opt-in Baustein \`p2_sdf_capillary3d.hpp\`: vorgegebenes 3D-Signed-Distance-Feld (Wasser negativ), 3D-Kruemmung aus allen Gradienten-/Hesse-Termen, Young-Laplace-Grenzdruck \`p_liquid=p_air+sigma*kappa\` und echte fraktionale MAC-PCG-Druckprojektion. Transaktionale Wet-/Solid-Maskenpruefung und stale Face-Reset.
+- Native MSVC Release: 9.142 Assertions, 128/128 CTest PASS. Unabhaengige Kugel- und Zylinder-Referenzen bei dx=0,08/0,04 m: maximale relative Kruemmungsfehler 0,0146074/0,00350241 (Kugel) und 0,0186183/0,00424704 (Zylinder). Echte Kugel-PCG-Divergenz 1,09896e-15 s^-1, parasitaere x-Face-Geschwindigkeit 1,94287e-07 m/s. Zwei urspruenglich fehlgeschlagene Testlaeufe und Korrekturen dokumentiert.
+- Reproduktion und SHA256: docs/P2_SDF_CAPILLARY_PARTIAL.md, scripts/p2_sdf_capillary_build.cmd, scripts/p2_sdf_capillary_acceptance.py und ENGINE TEST STUBE/runs/p2_sdf_capillary_partial.json.
+- **P2 bleibt PARTIAL / ALL_COMPLETE=False.** Die SDF ist extern vorgegeben, nicht aus der dynamischen VOF rekonstruiert. Keine vollstaendige Zwei-Phasen-Stressgrenze, kein neuer >=6-s-MARIN-Dreigitter-Messnachweis, keine bidirektionale dynamische FSI, keine globale physikalische Impuls-/Energiebilanz und kein UE5.8-Native-E2E dieses neuen Pfads.

@@ -711,3 +711,8 @@ add_test(NAME physics_p2_live_auto_planar_vof_pcg_partial COMMAND upc_p2_live_au
 add_executable(upc_p2_interface_normal_pressure_tests tests/p2_interface_normal_pressure3d_tests.cpp)
 target_link_libraries(upc_p2_interface_normal_pressure_tests PRIVATE upc)
 add_test(NAME physics_p2_interface_normal_pressure_partial COMMAND upc_p2_interface_normal_pressure_tests)
+
+# P2 PARTIAL: manufactured 3D SDF curvature/Young-Laplace MAC-PCG.
+add_executable(upc_p2_sdf_capillary_tests tests/p2_sdf_capillary3d_tests.cpp)
+target_link_libraries(upc_p2_sdf_capillary_tests PRIVATE upc)
+add_test(NAME physics_p2_sdf_capillary_partial COMMAND upc_p2_sdf_capillary_tests)

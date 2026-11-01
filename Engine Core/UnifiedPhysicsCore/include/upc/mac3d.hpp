@@ -59,6 +59,18 @@ public:
         u_.resize((nx+1)*ny*nz);v_.resize(nx*(ny+1)*nz);w_.resize(nx*ny*(nz+1));
         // Geometry arrays remain unallocated until a caller opts in.
     }
+    std::size_t nx()const{return nx_;}
+    std::size_t ny()const{return ny_;}
+    std::size_t nz()const{return nz_;}
+    double cell_size_m()const{return dx_;}
+    bool fluid_cell(std::size_t x,std::size_t y,std::size_t z)const{
+        if(x>=nx_||y>=ny_||z>=nz_)throw std::out_of_range("MAC fluid cell");
+        return fluid_[cell(x,y,z)]!=0;
+    }
+    bool solid_cell(std::size_t x,std::size_t y,std::size_t z)const{
+        if(x>=nx_||y>=ny_||z>=nz_)throw std::out_of_range("MAC solid cell");
+        return solid_[cell(x,y,z)]!=0;
+    }
     void set_cell(std::size_t x,std::size_t y,std::size_t z,bool fluid,bool solid=false){
         if(x>=nx_||y>=ny_||z>=nz_|| (fluid&&solid))throw std::invalid_argument("Bad MAC cell");
         const auto i=cell(x,y,z);fluid_[i]=fluid;solid_[i]=solid;

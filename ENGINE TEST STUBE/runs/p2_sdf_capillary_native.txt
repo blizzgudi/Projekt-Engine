@@ -1,0 +1,7 @@
+CAPILLARY_GEOMETRY shape=sphere dx=0.08 faces=264 mean_curvature=6.98559 expected=6.96864 max_rel_error=0.0146074
+CAPILLARY_PCG divergence_s_inv=1.09896e-15 max_x_face_speed_m_s=1.94287e-07 iterations=9
+CAPILLARY_GEOMETRY shape=sphere dx=0.04 faces=984 mean_curvature=6.97763 expected=6.96864 max_rel_error=0.00350241
+CAPILLARY_GEOMETRY shape=cylinder dx=0.08 faces=384 mean_curvature=3.48915 expected=3.48432 max_rel_error=0.0186183
+CAPILLARY_GEOMETRY shape=cylinder dx=0.04 faces=1344 mean_curvature=3.49219 expected=3.48432 max_rel_error=0.00424704
+CAPILLARY_PLANE faces=144 divergence_s_inv=8.45435e-13
+PASS P2_SDF_CAPILLARY assertions=9142 phase_complete=false

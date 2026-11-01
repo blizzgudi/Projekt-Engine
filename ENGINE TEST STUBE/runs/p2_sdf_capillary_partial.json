@@ -1,0 +1,74 @@
+{
+  "phase": "P2",
+  "milestone": "sdf_young_laplace_mac_pcg_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "native": {
+    "manufactured": [
+      {
+        "shape": "sphere",
+        "dx_m": 0.08,
+        "faces": 264,
+        "mean_inv_m": 6.98559,
+        "analytic_inv_m": 6.968641114982579,
+        "max_relative_error": 0.0146074
+      },
+      {
+        "shape": "sphere",
+        "dx_m": 0.04,
+        "faces": 984,
+        "mean_inv_m": 6.97763,
+        "analytic_inv_m": 6.968641114982579,
+        "max_relative_error": 0.00350241
+      },
+      {
+        "shape": "cylinder",
+        "dx_m": 0.08,
+        "faces": 384,
+        "mean_inv_m": 3.48915,
+        "analytic_inv_m": 3.4843205574912894,
+        "max_relative_error": 0.0186183
+      },
+      {
+        "shape": "cylinder",
+        "dx_m": 0.04,
+        "faces": 1344,
+        "mean_inv_m": 3.49219,
+        "analytic_inv_m": 3.4843205574912894,
+        "max_relative_error": 0.00424704
+      }
+    ],
+    "capillary_pcg_divergence_s_inv": 1.09896e-15,
+    "capillary_pcg_max_x_velocity_m_s": 1.94287e-07,
+    "capillary_pcg_iterations": 9,
+    "planar_interface_faces": 144,
+    "native_assertions": 9142
+  },
+  "ctest_passed": 128,
+  "tampered_native_logs_rejected": 6,
+  "historical_marin_6s_height_validation": "FAIL",
+  "historical_marin_report_sha256": "192e198e4e72fbca285c8eeb7b513f74ecdb4432b7705d837f71b8b0f91f2f08",
+  "missing": [
+    "No VOF-to-SDF curvature reconstruction or live evolving capillary interface",
+    "No tangential/normal two-phase viscous stress or resolved air dynamics",
+    "No verified 6-second MARIN H1-H4/P1-P8 three-grid convergence",
+    "No bidirectional dynamic solid/air coupling or global physical energy balance",
+    "No UE5.8 Native-E2E for this capillary path"
+  ],
+  "source_sha256": {
+    "CMakeLists.txt": "3d075caba656cd399faf9f0d0b17906acdf32ad27584571718fa52c15d838eb2",
+    "include/upc/mac3d.hpp": "75ced18ea1d156ec1f08f3d0ca2020269fbe12bc573defe83d3a25026b8f21e6",
+    "include/upc/p2_sdf_capillary3d.hpp": "b690eb806bb3aba9c5b616517d537732f3a96f83c7f1b76d7def87463f1eb6ba",
+    "tests/p2_sdf_capillary3d_tests.cpp": "0500f0166517bf2540591f0887223aa0e78d41176c0fc42b6c557808b1f5c282",
+    "scripts/p2_sdf_capillary_build.cmd": "91f62c1da538ba6a09daa31092ec1282f990c1433d3cfb76c5d650cc2d0f163c",
+    "scripts/p2_sdf_capillary_acceptance.py": "32043134f429070dd80811fd181e9cce618907391e6586ec1db02234daa6d434",
+    "docs/P2_SDF_CAPILLARY_PARTIAL.md": "3473d0f7e328d9742d908dded4cdcd656817e30c2ac9888a518f93e83dae7af9",
+    "docs/PHASENPLAN.md": "010879e758a78c0e7c65969f64fea4710672a57d9710e2c1d74dbd30fec1e84a",
+    "scripts/phase_gate.py": "01065438e2b72b3fe83e7e3ba3decbf54925c84c5f9424b15ad15a8197f59cd6"
+  },
+  "binary_sha256": "8ce196f7f2f9a1f80b9bbb3d58fc49a265c09aa108c03cca374feb77df9a0600",
+  "native_log_sha256": "180011d71e92f7ebc365c6184f75bdb4db9c212d9fb653379709804ca8c9259b",
+  "build_log_sha256": "465fce211dfb4668c5b5f745c4fd4b8d30bf3045dbdd69b8b016c35bb2e925d9",
+  "ctest_log_sha256": "1d4da8017db27611b70626e1f5423486c4660bebe71fdf75aedf08836c5134e7",
+  "generated_utc": "2026-11-01T20:36:17.163553+00:00"
+}
