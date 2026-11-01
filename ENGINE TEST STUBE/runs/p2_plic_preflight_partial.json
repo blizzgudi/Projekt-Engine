@@ -3,7 +3,7 @@
   "milestone": "periodic_plic_16cubed_preflight_partial",
   "partial_accepted": true,
   "phase_complete": false,
-  "generated_utc": "2026-11-01T07:58:21.465812+00:00",
+  "generated_utc": "2026-11-01T08:34:47.721915+00:00",
   "native_assertions": 273,
   "checks": [
     {
@@ -30,11 +30,11 @@
       "name": "full_ctest_at_least_111",
       "pass": true,
       "value": [
-        "111/111 Test #111: physics_p2_plic_preflight_partial ............................   Passed    0.02 sec",
+        "112/112 Test #111: physics_p2_plic_preflight_partial ............................   Passed    0.01 sec",
         "",
-        "100% tests passed, 0 tests failed out of 111",
+        "100% tests passed, 0 tests failed out of 112",
         "",
-        "Total Test time (real) =  67.62 sec"
+        "Total Test time (real) =   6.01 sec"
       ]
     },
     {
@@ -55,12 +55,12 @@
     "scripts/p2_plic_preflight_build.cmd": "240719ea6e3feb1908310b0aeb9382f215bdac01cd40c6ee3d5c6cd83ad6d851",
     "scripts/p2_plic_preflight_acceptance.py": "eaa15bbea24e7a15bff0befe575776e6d925e1bf30a0b93b1ea93a1fe27235cc",
     "docs/P2_PLIC_PREFLIGHT_PARTIAL.md": "ce777cfe409ee076b328cea2c68d0a7a49b4be4f3a9a1ab9cd9dc7eb2b726d0f",
-    "CMakeLists.txt": "da44b589ac9042c4b9ab1a6efdb4cf0b12e1b0a6012dee9c694d7a9da1d8dd81"
+    "CMakeLists.txt": "9623c90640103303e010d6439ecd67484f11c63127bdfb84e048ceda052159fd"
   },
   "artifact_sha256": {
     "native": "0698a075fc39c09bce9ad2a8c9c6434cc64a8faa5f84ed2b2e37e4abb7e9d6d7",
-    "compile": "13119782c703a99fe661062cc257845712cf104467bd9efd1b194a36b0390e80",
-    "ctest": "a41d9f7174d6c6f14aa54f87cb8c2eef9e53895d26134a3d6581b588931e6c79",
+    "compile": "4d1b17e8941e704b572b45f9f23a52965ef71c2d45c3e42a85292586dfba113a",
+    "ctest": "58ff8185f45e4eec2f70153ccac36e800dd0b4e6f663e38887466af1d43b0e01",
     "binary": "b4d4a52104b0659b3fb1e34058243103fbd3bbc728645590324c3ca6a62c832f"
   },
   "limits": "Read-only classification only; 16^3 moving mixed-interface Galilean ABC/PLIC failure remains unresolved. No full P2 acceptance."

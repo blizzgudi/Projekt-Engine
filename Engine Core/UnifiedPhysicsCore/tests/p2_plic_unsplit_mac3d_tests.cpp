@@ -156,7 +156,9 @@ void variable_vortex(D d){
     std::vector<double> full(n,1);
     const auto full_result=upc::p2_plic_unsplit_mac3d(
         full,v,d[0],d[1],d[2],dx,dt);
-    require(full_result.transported_faces>0,"curl full-water fluxes");
+    require(full_result.transported_faces==0 &&
+            full_result.reconstructed_partial_cells==0,
+            "pure-water fast path does not fabricate PLIC transport");
     for(double f:full_result.water_fill)
         near(f,1,2e-14,"curl full-water analytic steady solution");
     near(full_result.mass_residual_m3,0,1e-12,"curl full-water mass");

@@ -1,0 +1,12 @@
+TRACE_SYNTHETIC geometric=1 endpoint=1 pure_water=PASS
+TRACE_STAGE n=8 completed=0 partial=0 geometric=0 endpoint=0 volume=0.5
+TRACE_STAGE n=8 completed=1 partial=128 geometric=0 endpoint=0 volume=0.49999999999999994
+TRACE_ABC n=8 completed=1 planned=1 passed=1 failed_substep=0 reason=none
+TRACE_STAGE n=12 completed=0 partial=0 geometric=0 endpoint=0 volume=0.5
+TRACE_STAGE n=12 completed=1 partial=393 geometric=0 endpoint=72 volume=0.49999999999999978
+TRACE_ABC n=12 completed=1 planned=1 passed=1 failed_substep=0 reason=none
+TRACE_ROUNDOFF n=16 completed=1 passed=2 snapped=7 absolute_snap_m3=1.8973538018496328e-19 reason=none
+TRACE_STAGE n=16 completed=0 partial=0 geometric=0 endpoint=0 volume=0.5
+TRACE_STAGE n=16 completed=1 partial=515 geometric=0 endpoint=3 volume=0.50000000000000033
+TRACE_ABC n=16 completed=0 planned=2 passed=1 failed_substep=2 reason=Unresolved periodic PLIC interface
+PASS P2_PLIC_SUBSTEP_TRACE assertions=46 phase_complete=false

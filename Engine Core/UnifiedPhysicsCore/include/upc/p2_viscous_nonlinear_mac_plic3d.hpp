@@ -33,13 +33,15 @@ inline P2ViscousNonlinearMacPlicStep3D p2_viscous_nonlinear_mac_plic_step3d(
     double nu_m2_s,
     double target_six_face_courant=0.4,
     std::size_t max_plic_substeps=256,
-    std::size_t max_viscous_substeps=256) {
+    std::size_t max_viscous_substeps=256,
+    bool endpoint_cleanup_per_substep=false) {
     if(!std::isfinite(nu_m2_s)||nu_m2_s<0)
         throw std::invalid_argument("Invalid periodic kinematic viscosity");
     if(nu_m2_s==0) {
         P2ViscousNonlinearMacPlicStep3D out;
         out.coupled=p2_nonlinear_mac_plic_step3d(initial,nx,ny,nz,
-            dx_m,dt_s,density_kg_m3,target_six_face_courant,max_plic_substeps);
+            dx_m,dt_s,density_kg_m3,target_six_face_courant,max_plic_substeps,
+            endpoint_cleanup_per_substep);
         return out;
     }
     const auto lim=std::numeric_limits<std::size_t>::max();
@@ -145,7 +147,8 @@ inline P2ViscousNonlinearMacPlicStep3D p2_viscous_nonlinear_mac_plic_step3d(
        out.face_square_sum_after>out.face_square_sum_before+tolerance)
         throw std::runtime_error("Periodic viscous face energy increased");
     out.coupled=p2_nonlinear_mac_plic_step3d(state,nx,ny,nz,
-        dx_m,dt_s,density_kg_m3,target_six_face_courant,max_plic_substeps);
+        dx_m,dt_s,density_kg_m3,target_six_face_courant,max_plic_substeps,
+        endpoint_cleanup_per_substep);
     return out;
 }
 } // namespace upc

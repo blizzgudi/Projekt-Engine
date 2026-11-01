@@ -3,7 +3,7 @@
   "milestone": "prescribed_unsplit_periodic_mac_plic_partial",
   "partial_accepted": true,
   "phase_complete": false,
-  "generated_utc": "2026-10-31T15:48:16.574261+00:00",
+  "generated_utc": "2026-11-01T08:34:31.534938+00:00",
   "checks": [
     {
       "name": "native_exit",
@@ -16,8 +16,8 @@
       "pass": true
     },
     {
-      "name": "104_ctests",
-      "value": 1,
+      "name": "at_least_104_ctests",
+      "value": 112,
       "pass": true
     },
     {
@@ -32,7 +32,7 @@
     },
     {
       "name": "build_log",
-      "value": 178,
+      "value": 23,
       "pass": true
     },
     {
@@ -266,21 +266,21 @@
     }
   ],
   "source_sha256": {
-    "include/upc/p2_plic_unsplit_mac3d.hpp": "9a494b13690a1ca40ea2f72bd6eb7e4ac5356d06b36fea788b799f09cafaac0a",
+    "include/upc/p2_plic_unsplit_mac3d.hpp": "bcdcdf1b30d189dc37669fc62fa93fee93331ddef75bfcfc915851923d7c39cf",
     "include/upc/p2_plic_strang_periodic3d.hpp": "2e67bf6940f452f2ba7b62d64ea571e9e15574eea96d08e22edebc5550553989",
     "include/upc/p2_plic_sheared_periodic3d.hpp": "dab18da29e9539e56db5c52ccf19f879811a582bd85f50504e88d35bb9552b56",
     "include/upc/p2_plic_periodic_sweep3d.hpp": "2744f973e8be4e85fd133e6d1206fe1f43197e8c407c631501c9ab255beaffc7",
     "include/upc/p2_oblique_plic_geometry3d.hpp": "e548ca42557b5fa7bf6f752e9e122f64396690baa08a43fac7641f12e05d4627",
-    "tests/p2_plic_unsplit_mac3d_tests.cpp": "61db533bde437e56ecb34f449b2bb6bc63721c950c76a7b659556de4f5a119a7",
-    "CMakeLists.txt": "bf8c77192c43fd670f9f53452eb08ea807e718ae478654285724ef1552807633",
+    "tests/p2_plic_unsplit_mac3d_tests.cpp": "01e350d81ff9e1d85016947e02a661a5d7fec96efeab68c71b03334e7320b054",
+    "CMakeLists.txt": "9623c90640103303e010d6439ecd67484f11c63127bdfb84e048ceda052159fd",
     "scripts/p2_plic_unsplit_build.cmd": "555a3f0b5008fcd1b780b07ecfb779fa41960e6201e6b1d8ad7e7716ff57f9c0",
-    "scripts/p2_plic_unsplit_acceptance.py": "72f3cee2cc0d452fa4352f7bfc7c0a7a5a4c18bb162c60b9ec0dd8e8c1668cf3",
+    "scripts/p2_plic_unsplit_acceptance.py": "339f2af45c2e865e900f98a688fd72f746a7f74d0f064f043698816803ac5f10",
     "docs/P2_PLIC_UNSPLIT_MAC_PARTIAL.md": "f3daacac82dd01db60bd8940150175baa275e0c283f320dcf9afde9ae9bd3a3f",
-    "docs/PHASENPLAN.md": "b6db5c1459879c394b1a86dfb94e3b1a7f8738369cb1ab073960ad1cde0ba91c"
+    "docs/PHASENPLAN.md": "0d670c44b8da89074fc186e486bdc9daad19aea20b06d4b7b59dfe56a4be3b00"
   },
-  "native_binary_sha256": "8670cea47b9dbbf9d868d8e27c81f927ab3a2ca6ec5d2502721da2e800774b94",
+  "native_binary_sha256": "4b46a16677e955bb8df8313026542470c60aebc1dbfa3424b789cee980532088",
   "configure_log_sha256": "db38d43103975f204cf971a03303ca122772e1e0eef5ada3b7d72cee12a7412a",
-  "build_log_sha256": "b5e018feef3a5af757cfdbeed84cd63f7b0f5439aeca70ad7973360cb7e0cc70",
-  "ctest_log_sha256": "d6b0c0ab9d25c4a110a5b97c4a204860a0b7748272f503139c818dfd3381a44f",
+  "build_log_sha256": "71aa391ec7d7e291b419a7f40fba91919e14ac2394ab4e8b66ed126e267d70f6",
+  "ctest_log_sha256": "fb41920381fd12bed2cf7c933f93be77e533e0f0bcd70f84c76987dae2c2f4a5",
   "limitations": "Frozen prescribed divergence-free MAC velocity; geometric slabs may overlap and then fail closed. Not a coupled Navier-Stokes or stress-consistent free-surface solver, two-way moving-body FSI, independently measured CFD reference, global physical energy/momentum proof, GPU integration or UE5.8 native E2E."
 }

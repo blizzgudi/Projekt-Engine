@@ -2053,3 +2053,10 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
   tatsaechlicher Wasser-Luft-Grenzflaeche bleibt offen. Keine dynamische
   FSI, stresskonsistente Zweiphasenphysik, externen CFD-Messdaten,
   globale Energie-/Impulsvalidierung oder neue UE5.8-Native-E2E.
+
+## P2 Teilfortschritt: PLIC-Endpunktkorrektur je Unterzeitschritt (01.11.2026)
+
+- Realer 16^3 Galilei-ABC/Viscosity/MAC/PLIC-Fehler isoliert: von zwei PLIC-Teilschritten scheitert der zweite; nach dem ersten: 515 Mischzellen, davon drei nur im 0/1-Rundungsbereich unaufloesbar.
+- Opt-in `p2_plic_endpoint_subcycle3d` bereinigt nur Werte innerhalb von acht Maschinen-Epsilon nach jedem PLIC-Teilzeitschritt, mit explizitem absolutem Korrekturvolumenbudget und unveraendertem Legacy-Default.
+- 16^3-Referenz bestand mit 7 Korrekturen und 1.8973538018496328e-19 m^3 absolutem Korrekturvolumen, im realen viskosen MAC/PLIC-Schritt nachgewiesen. Echte geometrische Mehrdeutigkeit bleibt abgelehnt.
+- Dokumentation: `docs/P2_PLIC_SUBSTEP_ENDPOINT_PARTIAL.md`; Nativtest und Reproduktionsskripte: `p2_plic_substep_fix_*`. Vollphase P2 bleibt PARTIAL; P3-P8 weiterhin unvollstaendig.

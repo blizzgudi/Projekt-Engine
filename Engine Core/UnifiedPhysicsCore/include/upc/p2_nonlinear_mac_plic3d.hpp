@@ -5,6 +5,7 @@
 // stress-consistent interface model or dynamic fluid-solid interaction.
 #include "upc/p2_periodic_mac_projection3d.hpp"
 #include "upc/p2_plic_adaptive_subcycle3d.hpp"
+#include "upc/p2_plic_endpoint_subcycle3d.hpp"
 #include <array>
 #include <cmath>
 #include <cstddef>
@@ -23,6 +24,9 @@ struct P2NonlinearMacPlicStep3D {
     P2PeriodicMacProjectionResult3D projection;
     P2PlicAdaptiveSubcycle3D transport;
     double momentum_predictor_courant=0.0;
+    std::size_t endpoint_snapped_cells=0;
+    double endpoint_signed_snap_volume_m3=0;
+    double endpoint_absolute_snap_volume_m3=0;
 };
 
 // A single atomic integration step. Unlike a prescribed-velocity schedule,
@@ -34,7 +38,8 @@ inline P2NonlinearMacPlicStep3D p2_nonlinear_mac_plic_step3d(
     std::size_t nx,std::size_t ny,std::size_t nz,
     double dx_m,double dt_s,double density_kg_m3,
     double target_six_face_courant=0.4,
-    std::size_t max_plic_substeps=256) {
+    std::size_t max_plic_substeps=256,
+    bool endpoint_cleanup_per_substep=false) {
     const auto lim=std::numeric_limits<std::size_t>::max();
     if(nx<3||ny<3||nz<3||nx>lim/ny||nx*ny>lim/nz||
        nx*ny*nz>32768||initial.water_fill.size()!=nx*ny*nz||
@@ -66,9 +71,19 @@ inline P2NonlinearMacPlicStep3D p2_nonlinear_mac_plic_step3d(
         positive[1][id]=out.projection.v_m_s[(k*(ny+1)+j+1)*nx+i];
         positive[2][id]=out.projection.w_m_s[((k+1)*ny+j)*nx+i];
     }
-    out.transport=p2_plic_adaptive_subcycle3d(
-        initial.water_fill,positive,nx,ny,nz,dx_m,dt_s,
-        target_six_face_courant,max_plic_substeps);
+    if(endpoint_cleanup_per_substep) {
+        auto fixed=p2_plic_endpoint_subcycle3d(
+            initial.water_fill,positive,nx,ny,nz,dx_m,dt_s,
+            target_six_face_courant,max_plic_substeps);
+        out.transport=std::move(fixed.transport);
+        out.endpoint_snapped_cells=fixed.snapped_cells;
+        out.endpoint_signed_snap_volume_m3=fixed.signed_snap_volume_m3;
+        out.endpoint_absolute_snap_volume_m3=fixed.absolute_snap_volume_m3;
+    } else {
+        out.transport=p2_plic_adaptive_subcycle3d(
+            initial.water_fill,positive,nx,ny,nz,dx_m,dt_s,
+            target_six_face_courant,max_plic_substeps);
+    }
     out.state.water_fill=out.transport.water_fill;
     return out;
 }

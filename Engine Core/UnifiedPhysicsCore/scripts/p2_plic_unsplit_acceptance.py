@@ -45,8 +45,9 @@ def main()->None:
     assertions=int(m.group(1)) if m else 0
     add("native_assertions",assertions,assertions>=9266)
     ctest=CTEST.read_text(encoding="utf-8",errors="replace")
-    add("104_ctests",ctest.count("0 tests failed out of 104"),
-        "0 tests failed out of 104" in ctest and "100% tests passed" in ctest)
+    suite=re.search(r"100% tests passed, 0 tests failed out of (\d+)",ctest)
+    add("at_least_104_ctests",int(suite.group(1)) if suite else 0,
+        suite is not None and int(suite.group(1))>=104)
     add("new_test_registered","physics_p2_plic_unsplit_mac_partial" in ctest,
         "physics_p2_plic_unsplit_mac_partial" in ctest)
     add("configure_log",CONFIG.stat().st_size,CONFIG.stat().st_size>0)

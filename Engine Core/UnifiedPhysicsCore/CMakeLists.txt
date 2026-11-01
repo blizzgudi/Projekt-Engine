@@ -606,3 +606,9 @@ add_test(NAME physics_p2_plic_pure_phase16_partial COMMAND upc_p2_plic_pure_phas
 add_executable(upc_p2_plic_preflight3d_tests tests/p2_plic_preflight3d_tests.cpp)
 target_link_libraries(upc_p2_plic_preflight3d_tests PRIVATE upc)
 add_test(NAME physics_p2_plic_preflight_partial COMMAND upc_p2_plic_preflight3d_tests)
+
+# P2 partial: reproduce the real 16^3 ABC/PLIC second-substep failure and
+# verify opt-in endpoint-only repair without accepting geometric ambiguity.
+add_executable(upc_p2_plic_substep_trace3d_tests tests/p2_plic_substep_trace3d_tests.cpp)
+target_link_libraries(upc_p2_plic_substep_trace3d_tests PRIVATE upc)
+add_test(NAME physics_p2_plic_endpoint_substep_partial COMMAND upc_p2_plic_substep_trace3d_tests)

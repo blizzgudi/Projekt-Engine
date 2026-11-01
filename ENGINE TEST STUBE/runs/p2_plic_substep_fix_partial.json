@@ -1,0 +1,85 @@
+{
+  "phase": "P2",
+  "milestone": "periodic_plic_16cubed_substep_endpoint_fix_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "generated_utc": "2026-11-01T08:34:58.234310+00:00",
+  "native_assertions": 46,
+  "existing_ctest_suites": 112,
+  "checks": [
+    {
+      "name": "msvc_build",
+      "pass": true,
+      "value": null
+    },
+    {
+      "name": "native_assertions",
+      "pass": true,
+      "value": 46
+    },
+    {
+      "name": "all_3d_grids",
+      "pass": true,
+      "value": null
+    },
+    {
+      "name": "original_second_substep_failure",
+      "pass": true,
+      "value": null
+    },
+    {
+      "name": "failure_precursor_is_endpoint_not_geometric",
+      "pass": true,
+      "value": null
+    },
+    {
+      "name": "real_solver_optin_correction_tiny",
+      "pass": true,
+      "value": {
+        "snapped": 7,
+        "absolute_volume_m3": 1.8973538018496328e-19
+      }
+    },
+    {
+      "name": "synthetic_ambiguity_fail_closed",
+      "pass": true,
+      "value": null
+    },
+    {
+      "name": "complete_registered_ctest",
+      "pass": true,
+      "value": 112
+    },
+    {
+      "name": "actual_native_binary",
+      "pass": true,
+      "value": null
+    },
+    {
+      "name": "sources_exist",
+      "pass": true,
+      "value": null
+    }
+  ],
+  "source_sha256": {
+    "include/upc/p2_plic_substep_trace3d.hpp": "3bc05b90c6fe57a56fd3fcc54233a0ed40d58462a207e2c637dbcae966096912",
+    "include/upc/p2_plic_endpoint_subcycle3d.hpp": "5fc3e25d14d1852ca5428eb5ed707df8c6257079652bc039960f7e40d1b873f7",
+    "include/upc/p2_nonlinear_mac_plic3d.hpp": "fa22f9f56451bd67eea0ef3c372ecf9347b0431168d599c91648e7b3b99b57af",
+    "include/upc/p2_viscous_nonlinear_mac_plic3d.hpp": "660dd7eaac6d8658d03f9f140f31934d7d79e73270874a79ce3f2d50d36c1fd1",
+    "include/upc/p2_plic_adaptive_subcycle3d.hpp": "f558c74807d4a85cefd79713b7240180a7b9f7b2464f1b4536b1f9ae90553416",
+    "tests/p2_plic_substep_trace3d_tests.cpp": "fccccab64fafb4b371adc0aa1d81fd5eba65b19fe3b98182f8745654f2183dab",
+    "tests/p2_plic_unsplit_mac3d_tests.cpp": "01e350d81ff9e1d85016947e02a661a5d7fec96efeab68c71b03334e7320b054",
+    "scripts/p2_plic_substep_fix_build.cmd": "6823cc9b70aef015b118b45eccec9a68eca8540b191c1a62811da68b38dbdde3",
+    "scripts/p2_plic_substep_fix_acceptance.py": "9b57c20fbf944c5199ab3852a2ead0484aa72518c446f63af2c86f8be4430faa",
+    "docs/P2_PLIC_SUBSTEP_ENDPOINT_PARTIAL.md": "475541ff33900deeac7bde4e82f6ee5a04442905233825c6d6a64805ddbd7c71",
+    "docs/PHASENPLAN.md": "0d670c44b8da89074fc186e486bdc9daad19aea20b06d4b7b59dfe56a4be3b00",
+    "CMakeLists.txt": "9623c90640103303e010d6439ecd67484f11c63127bdfb84e048ceda052159fd"
+  },
+  "artifact_sha256": {
+    "compile": "e999d73a18a832ad2a742fa4663d9c045105258da004ddd4e2670f59cfdd211b",
+    "native": "dc25486da7a74c4587891099b0ec0caf78757ab4d48791dd316c1f6ef2bcf82e",
+    "ctest": "3908b1a3372152dfc75359a4f2a260f1eb76887978702c2248d313624804e2fb",
+    "binary": "93ee6966d14594871c9b45a97e7cb953125e15450876497187f7ab6cd0f65420"
+  },
+  "limits": "Opt-in only: one 16^3 viscous ABC frame; original error reproduced. No full free-surface, global FSI, external CFD or UE5.8 E2E acceptance."
+}
