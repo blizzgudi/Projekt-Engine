@@ -1,0 +1,52 @@
+{
+  "phase": "P2",
+  "milestone": "inhomogeneous_normal_pressure_mac_pcg_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "native_assertions": 4785,
+  "full_ctest_suites": 127,
+  "independent_native_reexecution": true,
+  "native_log_mutation_rejections": 6,
+  "manufactured_reference": {
+    "independent_six_face_pressure_reference_pa": 159.0909090909091,
+    "native_pressure_pa_rounded": 159.091,
+    "single_cell_pcg_iterations": 1,
+    "single_cell_divergence_s_inv": 7.80626e-17,
+    "live_water_mass_kg": 144.0,
+    "live_divergence_default_s_inv": 8.5279e-14,
+    "live_divergence_shifted_s_inv": 1.29621e-10
+  },
+  "prior_real_6s_marin_height_rmse_m": {
+    "H1": 0.13652547494982525,
+    "H2": 0.0915001638115832,
+    "H3": 0.1482453038649915,
+    "H4": 0.2243987520282911
+  },
+  "prior_real_6s_marin_height_validation_pass": false,
+  "stress_consistent_two_phase_interface": false,
+  "computed_surface_curvature_and_viscous_stress": false,
+  "dynamic_two_way_fsi": false,
+  "global_physical_energy_momentum_closure": false,
+  "three_grid_full_6s_measured_convergence": false,
+  "ue58_native_e2e_for_new_path": false,
+  "source_sha256": {
+    "CMakeLists.txt": "b3f626b12dbb8d50d19d3385f4af359b73cbdcf000fce5d1fcd5c3fcc83a751e",
+    "include/upc/mac3d.hpp": "a92b1451535e6dab87a5cb718d8f488f23eb14fd4b53a7e6dc847e45ad668092",
+    "include/upc/coupled_water3d.hpp": "72cc669f25f6f4fd6b8a58563db7f0eb0f988a284720c303b60cbe1740ecdd73",
+    "tests/p2_interface_normal_pressure3d_tests.cpp": "3b5203943fa553ab34418b96acbf2dbf778f44fb2dda3c72cd96874c00c46200",
+    "scripts/p2_interface_normal_pressure_build.cmd": "7dc622bf46be59e3826c1b937c35265b9740fef3b09115eb5397f6171f52244a",
+    "scripts/p2_interface_normal_pressure_acceptance.py": "e25f61ec7b0d34c38bf8878e33aa8503d68218850ee554588b4a65ae9e0f8740",
+    "scripts/phase_gate.py": "01065438e2b72b3fe83e7e3ba3decbf54925c84c5f9424b15ad15a8197f59cd6",
+    "docs/P2_INTERFACE_NORMAL_PRESSURE_PARTIAL.md": "9ec7ca64fc63523156413114970787c08c61cb30146b9fb31148a2e7299c9278",
+    "docs/PHASENPLAN.md": "1dd01b418753392ecf9dfb6447000eda273cc7e0c7ccde8d38d618ad734b9893"
+  },
+  "native_binary_sha256": "a2dd93767577c6c117d199218afd790957786f4dac82accdd389abced9fb8355",
+  "native_log_sha256": "475392c4118275171c5ab6fe5ff5244bb25400f13381eaa4c1ac82dc273377cc",
+  "build_log_sha256": "3ecdff19b066d5515adf6c25ab21944b559ae4fc847f2d3ad4a8fc68acdf8139",
+  "ctest_log_sha256": "3ca0569f25ee5b3cbcb53fde3b73a39523ba52ad703ea64a6fedc796960781fd",
+  "official_phase_gate_status": "PARTIAL",
+  "official_phase_gate_log_sha256": "ab300bb727908749ec3a803f1e6b7f90f660ad67714cbabc643011315b881408",
+  "official_phase_gate_json_sha256": "4c85d0cea9d98cd0f6b88cc1560ddc75842378c012fb9a1cc27d503dab2190b1",
+  "prior_real_marin_evidence_sha256": "192e198e4e72fbca285c8eeb7b513f74ecdb4432b7705d837f71b8b0f91f2f08",
+  "generated_utc": "2026-11-01T19:34:19.524359+00:00"
+}

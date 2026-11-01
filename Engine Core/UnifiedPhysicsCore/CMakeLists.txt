@@ -704,3 +704,10 @@ add_test(NAME physics_p2_local_planar_normal_fit_partial COMMAND upc_p2_local_pl
 add_executable(upc_p2_live_auto_planar_tests tests/p2_live_auto_planar_vof_pcg3d_tests.cpp)
 target_link_libraries(upc_p2_live_auto_planar_tests PRIVATE upc)
 add_test(NAME physics_p2_live_auto_planar_vof_pcg_partial COMMAND upc_p2_live_auto_planar_tests)
+
+# P2 PARTIAL: prescribed nonzero normal pressure at 3D fractional MAC
+# water/air interfaces, manufactured 6-face FV and live PCG regression.
+# Not curvature/viscous-stress/two-phase CFD validation.
+add_executable(upc_p2_interface_normal_pressure_tests tests/p2_interface_normal_pressure3d_tests.cpp)
+target_link_libraries(upc_p2_interface_normal_pressure_tests PRIVATE upc)
+add_test(NAME physics_p2_interface_normal_pressure_partial COMMAND upc_p2_interface_normal_pressure_tests)

@@ -21,6 +21,12 @@ class MacProjection3D {
     // interface, in grid spacings. Defaults to the historical half-cell.
     // These distances affect ONLY project_pcg_verified(), not project().
     std::vector<double> interface_x_,interface_y_,interface_z_;
+    // Prescribed liquid-side normal-stress boundary pressure at liquid/air
+    // faces (Pa, gauge). An externally computed curvature/air/viscous jump
+    // may be supplied; this class does NOT calculate any of those stresses.
+    // Opt-in values are used only by the verified PCG projection.
+    double uniform_interface_pressure_pa_=0;
+    std::vector<double> interface_pressure_x_,interface_pressure_y_,interface_pressure_z_;
     std::size_t cell(std::size_t x,std::size_t y,std::size_t z)const{return (z*ny_+y)*nx_+x;}
     std::size_t fu(std::size_t x,std::size_t y,std::size_t z)const{return (z*ny_+y)*(nx_+1)+x;}
     std::size_t fv(std::size_t x,std::size_t y,std::size_t z)const{return (z*(ny_+1)+y)*nx_+x;}
@@ -82,6 +88,42 @@ public:
     // VOF frame. An empty geometry must NOT inherit a previous frame.
     void clear_interface_distances(){
         interface_x_.clear();interface_y_.clear();interface_z_.clear();
+    }
+    // Constant liquid-side boundary pressure (Pa, gauge). Does not affect
+    // the legacy Gauss-Seidel solver. Individual face overrides must be
+    // cleared before changing the uniform value.
+    void set_uniform_interface_pressure_pa(double value){
+        if(!std::isfinite(value)||!interface_pressure_x_.empty()||
+           !interface_pressure_y_.empty()||!interface_pressure_z_.empty())
+            throw std::invalid_argument("Invalid uniform interface pressure or active overrides");
+        uniform_interface_pressure_pa_=value;
+    }
+    void set_interface_pressure_x(std::size_t x,std::size_t y,std::size_t z,double value){
+        if(x==0||x>=nx_||y>=ny_||z>=nz_||!std::isfinite(value))
+            throw std::invalid_argument("Bad x interface pressure");
+        if(interface_pressure_x_.empty())
+            interface_pressure_x_.assign(u_.size(),uniform_interface_pressure_pa_);
+        interface_pressure_x_[fu(x,y,z)]=value;
+    }
+    void set_interface_pressure_y(std::size_t x,std::size_t y,std::size_t z,double value){
+        if(x>=nx_||y==0||y>=ny_||z>=nz_||!std::isfinite(value))
+            throw std::invalid_argument("Bad y interface pressure");
+        if(interface_pressure_y_.empty())
+            interface_pressure_y_.assign(v_.size(),uniform_interface_pressure_pa_);
+        interface_pressure_y_[fv(x,y,z)]=value;
+    }
+    void set_interface_pressure_z(std::size_t x,std::size_t y,std::size_t z,double value){
+        if(x>=nx_||y>=ny_||z==0||z>=nz_||!std::isfinite(value))
+            throw std::invalid_argument("Bad z interface pressure");
+        if(interface_pressure_z_.empty())
+            interface_pressure_z_.assign(w_.size(),uniform_interface_pressure_pa_);
+        interface_pressure_z_[fw(x,y,z)]=value;
+    }
+    // Required when prescribed interface pressure varies with moving VOF
+    // geometry: stale face values must never be reused on the next frame.
+    void clear_interface_pressures(){
+        uniform_interface_pressure_pa_=0;
+        interface_pressure_x_.clear();interface_pressure_y_.clear();interface_pressure_z_.clear();
     }
     void set_face_velocity_x(std::size_t x,std::size_t y,std::size_t z,double v){
         if(x>nx_||y>=ny_||z>=nz_||!std::isfinite(v))throw std::invalid_argument("Bad face");
@@ -250,18 +292,34 @@ public:
             if(d[1])return (work.interface_y_.empty()?2.0:1.0/work.interface_y_[work.fv(x,y+(d[1]>0),z)]);
             return (work.interface_z_.empty()?2.0:1.0/work.interface_z_[work.fw(x,y,z+(d[2]>0))]);
         };
+        const auto air_pressure=[&](std::size_t x,std::size_t y,std::size_t z,
+                                    const int* d)->double {
+            if(d[0])return work.interface_pressure_x_.empty()?work.uniform_interface_pressure_pa_:
+                work.interface_pressure_x_[work.fu(x+(d[0]>0),y,z)];
+            if(d[1])return work.interface_pressure_y_.empty()?work.uniform_interface_pressure_pa_:
+                work.interface_pressure_y_[work.fv(x,y+(d[1]>0),z)];
+            return work.interface_pressure_z_.empty()?work.uniform_interface_pressure_pa_:
+                work.interface_pressure_z_[work.fw(x,y,z+(d[2]>0))];
+        };
         for(std::size_t z=0;z<nz_;++z)
         for(std::size_t y=0;y<ny_;++y)
         for(std::size_t x=0;x<nx_;++x) {
             const auto id=work.cell(x,y,z);
             if(!work.fluid_[id])continue;
             ++audit.liquid_cells;
+            b[id]=-rho_*dx_*dx_/dt*work.divergence(x,y,z);
             for(const auto& d:directions) {
                 const int xx=(int)x+d[0], yy=(int)y+d[1], zz=(int)z+d[2];
                 if(work.is_wall(xx,yy,zz))continue;
-                diagonal[id]+=work.is_liquid(xx,yy,zz)?1.0:air_weight(x,y,z,d);
+                if(work.is_liquid(xx,yy,zz))diagonal[id]+=1.0;
+                else {
+                    const double weight=air_weight(x,y,z,d);
+                    diagonal[id]+=weight;
+                    // Inhomogeneous Dirichlet pressure on the actual
+                    // fractional interface; zero is the legacy default.
+                    b[id]+=weight*air_pressure(x,y,z,d);
+                }
             }
-            b[id]=-rho_*dx_*dx_/dt*work.divergence(x,y,z);
         }
         // Partition the liquid graph; check each isolated Neumann
         // cavity is algebraically solvable before running the Krylov solver.
@@ -415,8 +473,13 @@ public:
                 const double ghost=work.is_liquid((int)x,(int)y,(int)z)!=
                                    work.is_liquid((int)x-1,(int)y,(int)z)?
                                    (work.interface_x_.empty()?2.0:1.0/work.interface_x_[work.fu(x,y,z)]):1.0;
-                work.u_[work.fu(x,y,z)]-=scale*ghost*(
-                    work.p((int)x,(int)y,(int)z)-work.p((int)x-1,(int)y,(int)z));
+                const double pb=work.interface_pressure_x_.empty()?
+                    work.uniform_interface_pressure_pa_:work.interface_pressure_x_[work.fu(x,y,z)];
+                const double pr=work.is_liquid((int)x,(int)y,(int)z)?
+                    work.p((int)x,(int)y,(int)z):pb;
+                const double pl=work.is_liquid((int)x-1,(int)y,(int)z)?
+                    work.p((int)x-1,(int)y,(int)z):pb;
+                work.u_[work.fu(x,y,z)]-=scale*ghost*(pr-pl);
             }
         for(std::size_t z=0;z<nz_;++z)for(std::size_t y=1;y<ny_;++y)
         for(std::size_t x=0;x<nx_;++x)
@@ -425,8 +488,13 @@ public:
                 const double ghost=work.is_liquid((int)x,(int)y,(int)z)!=
                                    work.is_liquid((int)x,(int)y-1,(int)z)?
                                    (work.interface_y_.empty()?2.0:1.0/work.interface_y_[work.fv(x,y,z)]):1.0;
-                work.v_[work.fv(x,y,z)]-=scale*ghost*(
-                    work.p((int)x,(int)y,(int)z)-work.p((int)x,(int)y-1,(int)z));
+                const double pb=work.interface_pressure_y_.empty()?
+                    work.uniform_interface_pressure_pa_:work.interface_pressure_y_[work.fv(x,y,z)];
+                const double pr=work.is_liquid((int)x,(int)y,(int)z)?
+                    work.p((int)x,(int)y,(int)z):pb;
+                const double pl=work.is_liquid((int)x,(int)y-1,(int)z)?
+                    work.p((int)x,(int)y-1,(int)z):pb;
+                work.v_[work.fv(x,y,z)]-=scale*ghost*(pr-pl);
             }
         for(std::size_t z=1;z<nz_;++z)for(std::size_t y=0;y<ny_;++y)
         for(std::size_t x=0;x<nx_;++x)
@@ -435,8 +503,13 @@ public:
                 const double ghost=work.is_liquid((int)x,(int)y,(int)z)!=
                                    work.is_liquid((int)x,(int)y,(int)z-1)?
                                    (work.interface_z_.empty()?2.0:1.0/work.interface_z_[work.fw(x,y,z)]):1.0;
-                work.w_[work.fw(x,y,z)]-=scale*ghost*(
-                    work.p((int)x,(int)y,(int)z)-work.p((int)x,(int)y,(int)z-1));
+                const double pb=work.interface_pressure_z_.empty()?
+                    work.uniform_interface_pressure_pa_:work.interface_pressure_z_[work.fw(x,y,z)];
+                const double pr=work.is_liquid((int)x,(int)y,(int)z)?
+                    work.p((int)x,(int)y,(int)z):pb;
+                const double pl=work.is_liquid((int)x,(int)y,(int)z-1)?
+                    work.p((int)x,(int)y,(int)z-1):pb;
+                work.w_[work.fw(x,y,z)]-=scale*ghost*(pr-pl);
             }
         // Never allow a NaN/Inf face to bypass max_divergence() via
         // std::max's unordered floating-point comparison semantics.

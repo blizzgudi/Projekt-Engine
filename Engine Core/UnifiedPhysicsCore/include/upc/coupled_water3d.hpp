@@ -531,6 +531,15 @@ public:
             throw std::invalid_argument("Axis VOF geometry requires PCG");
         pcg_pressure_projection_enabled_=enabled;
     }
+    // P2 PARTIAL: externally prescribed liquid-side normal stress pressure
+    // (Pa, gauge) at every live water/air interface. Only normal pressure
+    // is imposed: no curvature model, air momentum or tangential viscous
+    // traction. Zero is the historical default. Requires verified PCG.
+    void set_uniform_air_interface_pressure_pa(double pressure){
+        if(!pcg_pressure_projection_enabled_)
+            throw std::invalid_argument("Enable PCG before air interface pressure");
+        mac_.set_uniform_interface_pressure_pa(pressure);
+    }
     // P2 experimental opt-in: exact axis-aligned VOF cuts at the PCG
     // liquid/air pressure boundary. This changes the wet mask to f>0.5
     // (the geometry threshold); legacy uses f>1e-5. Oblique or ambiguous

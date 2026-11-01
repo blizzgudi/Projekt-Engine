@@ -1,0 +1,3 @@
+NORMAL_PRESSURE_ISOLATED expected_pa=159.091 divergence_s_inv=7.80626e-17 iterations=1
+NORMAL_PRESSURE_LIVE mass_kg=144 divergence_default=8.5279e-14 divergence_shifted=1.29621e-10
+PASS P2_INTERFACE_NORMAL_PRESSURE assertions=4785 phase_complete=false

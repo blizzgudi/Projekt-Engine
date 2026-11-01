@@ -2239,3 +2239,23 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
 - Echte MSVC-Release-Tests mit zwei unabhaengigen obliquen 8^3-/12^3-Ebenen: 104/166 gefittete Teilzellen, 96/165 Druckgrenzfaces, 60 native Assertions und 126/126 CTest PASS. Ein separater post-VOF-Projektionslauf rekonstruiert die aktuellen Normalen erneut. Nachgewiesene Divergenz 2.65e-16 bzw. 8.53e-16 s^-1 im ersten Live-Step. Der erste Negativtest hatte einen Testdaten-Auswahlfehler; korrigiert und erneut getestet.
 - Belege: docs/P2_LIVE_AUTO_PLANAR_PLIC_PARTIAL.md, scripts/p2_live_auto_planar_build.cmd, scripts/p2_live_auto_planar_acceptance.py und ENGINE TEST STUBE/runs/p2_live_auto_planar_partial.json mit Quell-/Native-/CTest-Hashes.
 - **P2 bleibt PARTIAL.** Ein lokaler Planarfit ist weder allgemeine dynamische PLIC-Advektion noch spannungskonsistente Wasser-Luft-Physik. Keine neuen >=6-s-MARIN-/Dreigitter-Messnachweise, keine bewegliche bidirektionale FSI, kein globaler physikalischer Energie-/Impulsabschluss und kein UE5.8-Native-E2E fuer diesen Pfad. ALL_COMPLETE=False.
+
+## P2 Teilfortschritt: vorgeschriebener Normaldruck an 3D-MAC-Wasser/Luft-Grenzen (01.11.2026)
+
+- Neue opt-in inhomogene Dirichlet-Druckrandwerte in Pa an allen drei
+  MAC-Face-Richtungen, mit konsistenter gewichteter PCG-Poisson-Rechte-Seite
+  und Face-Geschwindigkeitskorrektur auf dem bestehenden geometrischen
+  `theta*dx`-Abstand. Konstanter Luftgrenzdruck ist auch in
+  `CoupledMacWater3D` einschließlich Reprojektion nach VOF-Transport aktivierbar.
+- Echte MSVC-Win64-Release-Tests: 6-Face-Referenzdruck 159,090909... Pa,
+  sechs 3D-Slab-Achsen/Orientierungen, 650-Pa-Druckshift ohne neue Strömung,
+  live 6×6×8 MAC/VOF mit 144 kg Wasser und zwei Projektionen, NaN-/Index-/
+  Opt-in-Negativtests. **4.785 native Assertions, 127/127 CTest PASS**.
+- Belege/Hashes: `docs/P2_INTERFACE_NORMAL_PRESSURE_PARTIAL.md`,
+  `scripts/p2_interface_normal_pressure_acceptance.py`,
+  `ENGINE TEST STUBE/runs/p2_interface_normal_pressure_partial.json`.
+- **P2 bleibt PARTIAL / ALL_COMPLETE=False.** Extern vorgeschriebener
+  Normaldruck ist weder ein berechneter Krümmungs-/viskoser Spannungssprung
+  noch eine gekoppelte Zweiphasen-Stressbilanz. MARIN-6-s-H1–H4-
+  Messvalidierung bleibt FAIL, Dreigitter-Messkonvergenz, dynamische
+  bidirektionale FSI und globale Impuls-/Energie-Abnahme fehlen.
