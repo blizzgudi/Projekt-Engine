@@ -1,0 +1,163 @@
+{
+  "phase": "P2",
+  "milestone": "periodic_mac_bulk_momentum_kinetic_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "generated_utc": "2026-11-01T00:23:52.910158+00:00",
+  "native_assertions": 100,
+  "checks": [
+    {
+      "name": "native_assertions",
+      "value": 100,
+      "pass": true
+    },
+    {
+      "name": "native_no_fail",
+      "value": true,
+      "pass": true
+    },
+    {
+      "name": "msvc_compile",
+      "value": "p2_mac_bulk_budget3d_tests.cpp",
+      "pass": true
+    },
+    {
+      "name": "full_ctest_regression",
+      "value": "Total Test time (real) =   4.69 sec",
+      "pass": true
+    },
+    {
+      "name": "momentum_8",
+      "value": 10.24,
+      "pass": true
+    },
+    {
+      "name": "initial_kinetic_8",
+      "value": 0.3072,
+      "pass": true
+    },
+    {
+      "name": "final_kinetic_8",
+      "value": 0.2635969735172683,
+      "pass": true
+    },
+    {
+      "name": "viscous_energy_decay_8",
+      "value": 0.2635969735172683,
+      "pass": true
+    },
+    {
+      "name": "fourier_error_8",
+      "value": 4.996003610813204e-16,
+      "pass": true
+    },
+    {
+      "name": "telescoping_8",
+      "value": 0.0,
+      "pass": true
+    },
+    {
+      "name": "momentum_12",
+      "value": 34.56,
+      "pass": true
+    },
+    {
+      "name": "initial_kinetic_12",
+      "value": 1.0368000000000053,
+      "pass": true
+    },
+    {
+      "name": "final_kinetic_12",
+      "value": 0.9658989204881785,
+      "pass": true
+    },
+    {
+      "name": "viscous_energy_decay_12",
+      "value": 0.9658989204881785,
+      "pass": true
+    },
+    {
+      "name": "fourier_error_12",
+      "value": 1.2434497875801753e-14,
+      "pass": true
+    },
+    {
+      "name": "telescoping_12",
+      "value": 0.0,
+      "pass": true
+    },
+    {
+      "name": "both_3d_grids",
+      "value": [
+        8,
+        12
+      ],
+      "pass": true
+    },
+    {
+      "name": "mixed_water_mass_initial",
+      "value": 432.0000000000001,
+      "pass": true
+    },
+    {
+      "name": "mixed_water_mass_final",
+      "value": 432.0000000000001,
+      "pass": true
+    },
+    {
+      "name": "mixed_bulk_kinetic",
+      "value": 1.027214637371907,
+      "pass": true
+    },
+    {
+      "name": "mixed_telescoping",
+      "value": 0.0,
+      "pass": true
+    },
+    {
+      "name": "eight_invalid_cases",
+      "value": true,
+      "pass": true
+    },
+    {
+      "name": "source_hashes",
+      "value": 7,
+      "pass": true
+    }
+  ],
+  "reference": [
+    {
+      "grid": 8,
+      "expected_momentum_kg_m_s": 10.240000000000002,
+      "expected_initial_kinetic_j": 0.3072000000000001,
+      "expected_final_kinetic_j": 0.2635969735172688,
+      "measured_final_kinetic_j": 0.2635969735172683
+    },
+    {
+      "grid": 12,
+      "expected_momentum_kg_m_s": 34.56000000000001,
+      "expected_initial_kinetic_j": 1.0368000000000004,
+      "expected_final_kinetic_j": 0.9658989204881823,
+      "measured_final_kinetic_j": 0.9658989204881785
+    }
+  ],
+  "source_sha256": {
+    "include/upc/p2_viscous_mac_plic_sequence3d.hpp": "9185555cbee1a0eb3261e1c7754ccf62c68db2b93f2330b014399b62f93ca939",
+    "include/upc/p2_viscous_nonlinear_mac_plic3d.hpp": "5cdac0f80651ee138aa3f4d7936f8990f2c82d978f617fa23c90794d5c4241f8",
+    "include/upc/p2_nonlinear_mac_plic3d.hpp": "0e5a45870efd5e8a4c5893cb1360e5680eee56f18467823979daef3a712c8fd3",
+    "tests/p2_mac_bulk_budget3d_tests.cpp": "cbd2627922c2830f480ac8b2e5a0062a0cc64d8f56d9c0c733a0d3da844a083a",
+    "scripts/p2_mac_bulk_budget_build.cmd": "db2ba7d88fa40a42b3de9ae27ca6ac88f270f0104cb74bcb9793e5a6232673d1",
+    "scripts/p2_mac_bulk_budget_acceptance.py": "6579618ca829a1ee2b3558c2dcd7cb55d15deb0f0d236572b7df024b3b9b0d36",
+    "docs/P2_MAC_BULK_BUDGET_PARTIAL.md": "b08ee23b16a19fa7ff71b3da1e97cb36467bdd42da7f3692724164d7ab90361a"
+  },
+  "native_binary_sha256": "baa7ffdb091b3f8d28117bed767c19d13a9f948c0cf3d2c19b01208752ad0b0a",
+  "native_log_sha256": "94d850b15aa8cae498b1968d6b2d30b455ba0ed97965f1bd6b1a8d3360f3a091",
+  "compile_log_sha256": "95c82aa8caa04518d8867bb0e962abac84aaf0d3d5754070d1d51888367778ba",
+  "ctest_log_sha256": "c3c8cd3c0836c9d051633ba6e080addc4479bf53f282c8d28ac721a999fe0828",
+  "limitations": [
+    "Periodic constant-density full-domain MAC bulk quadrature; passive VOF",
+    "Not water-only kinetic energy or a global two-phase energy law",
+    "No moving-solid FSI, independent measured 3D CFD, or new UE5.8 Native E2E",
+    "P2-P8 full phases remain incomplete"
+  ]
+}

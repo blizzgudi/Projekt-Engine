@@ -1950,3 +1950,28 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
 - Unabhaengige 8^3-/12^3-Fourier-Eigenmoden und 12^3-Wasser-Slab: 0.43200000000000011 m3 / 432.00000000000011 kg, Intervall-Sprung 0, Teleskop-Residuum 0, max. Divergenz 0 im Wasser-Slab. Native 11391 Assertions, MSVC Release, 106/106 CTest, Python-Teilabnahme 28/28 PASS.
 - Belege: docs/P2_VISCOUS_MAC_PLIC_SEQUENCE_PARTIAL.md, scripts/p2_viscous_mac_plic_sequence_acceptance.py und ENGINE TEST STUBE/runs/p2_viscous_mac_plic_sequence_partial.json (Quell-/Binaer-/Log-SHA256).
 - **P2-P8 bleiben INCOMPLETE, ALL_COMPLETE=False.** Diese numerische Inventar-Bilanz beweist weder physikalische Impuls-/Energieerhaltung noch dynamische Zweiwege-FSI, spannungskonsistente freie Oberflaechen, unabhaengige 3D-CFD-Messvalidierung oder UE5.8 Native-E2E dieses Pfades.
+
+## P2 Teilfortschritt: periodische MAC-Bulk-Impuls-/Energieinventur (01.11.2026)
+
+- Der optionale mehrschrittige 3D-MAC/PLIC-Adapter berechnet nun pro
+  Intervall und sequenzweit SI-skalierte konstante-Dichte-Bulk-Impulse
+  (kg m/s) und kinetische Energie (J) auf eindeutigen periodischen
+  MAC-Faces. Teleskop-Residuen pruefen die Buchungskonsistenz.
+- Unabhaengige diskrete Fourier-Scherreferenz auf 8^3 und 12^3:
+  Anfangsenergien 0.3072 J / 1.0368 J, Endenergien
+  0.2635969735172683 J / 0.9658989204881785 J;
+  maximale absolute Energiedifferenzen 5.00e-16 / 1.25e-14 J.
+  Periodische Mittelimpulse 10.24 / 34.56 kg m/s. 3D-Wasserblock
+  432 kg bei unveraenderter Masse. Acht Negativtests.
+- Separater MSVC-Native-Test 100 Assertions PASS; vollstaendige
+  bestehende 106/106 CTest-Suites PASS; 23/23 Python-Gate-Checks.
+  Nachweis: docs/P2_MAC_BULK_BUDGET_PARTIAL.md,
+  scripts/p2_mac_bulk_budget_build.cmd,
+  scripts/p2_mac_bulk_budget_acceptance.py,
+  ENGINE TEST STUBE/runs/p2_mac_bulk_budget_partial.json.
+- **P2-P8 weiterhin INCOMPLETE; ALL_COMPLETE=False.** Die Quadratur
+  ist konstante-Dichte-Bulk-Diagnostik ueber alle Zellen, keine
+  wassergewichtete Zweiphasen-Gesamtenergie oder vollstaendige
+  physikalische Impuls-/Energieerhaltung. Dynamische FSI, freie
+  Oberflaechen, unabh. CFD-Messvalidierung und UE5.8 Native-E2E
+  bleiben offen.
