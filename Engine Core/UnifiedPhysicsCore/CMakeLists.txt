@@ -649,3 +649,9 @@ add_test(NAME physics_p2_mac_pcg_pressure_partial COMMAND upc_p2_mac_pcg_pressur
 add_executable(upc_p2_live_pcg_coupled_tests tests/p2_live_pcg_coupled_tests.cpp)
 target_link_libraries(upc_p2_live_pcg_coupled_tests PRIVATE upc)
 add_test(NAME physics_p2_live_pcg_coupled_partial COMMAND upc_p2_live_pcg_coupled_tests)
+
+# P2 PARTIAL: independent manufactured H1-H4 subcell water-column
+# interpolation and live 3D MAC/VOF sampling, not laboratory CFD acceptance.
+add_executable(upc_p2_marin_height_interp_tests tests/p2_marin_height_interp3d_tests.cpp)
+target_link_libraries(upc_p2_marin_height_interp_tests PRIVATE upc)
+add_test(NAME physics_p2_marin_height_interp_partial COMMAND upc_p2_marin_height_interp_tests)

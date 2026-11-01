@@ -4,6 +4,7 @@
 #include "upc/coupled_water3d.hpp"
 #include "upc/p2_marin_pressure_sensors3d.hpp"
 #include "upc/p2_marin_wall_pressure_interp3d.hpp"
+#include "upc/p2_marin_height_interp3d.hpp"
 #include <algorithm>
 #include <array>
 #include <cmath>
@@ -29,8 +30,12 @@ double gauge_height(const upc::CoupledMacWater3D& w,double x_m,double y_m) {
 }
 int main(int argc,char** argv){
     try {
-        const bool pcg_pressure=argc>=4 && std::string(argv[argc-1])=="pcg";
-        const int mode_argc=argc-(pcg_pressure?1:0);
+        const bool height_interp=argc>=2 &&
+            std::string(argv[argc-1])=="height_interp";
+        const int argc_without_height=argc-(height_interp?1:0);
+        const bool pcg_pressure=argc_without_height>=4 &&
+            std::string(argv[argc_without_height-1])=="pcg";
+        const int mode_argc=argc_without_height-(pcg_pressure?1:0);
         const bool finer_grid=mode_argc>=4 && std::string(argv[3])=="fine";
         const bool dense=(mode_argc>=4 && std::string(argv[3])=="dense") ||
                          (mode_argc>=5 && std::string(argv[4])=="dense");
@@ -40,6 +45,8 @@ int main(int argc,char** argv){
             (mode_argc==6 && std::string(argv[3])=="fine" &&
              std::string(argv[4])=="dense" &&
              std::string(argv[5])=="interp");
+        if(height_interp&&!interp_probes)
+            throw std::invalid_argument("Height interpolation requires dense interpolated pressure mode");
         const bool pressure_probes=interp_probes||
             (mode_argc==5 && std::string(argv[3])=="dense" &&
              std::string(argv[4])=="pressure") ||
@@ -95,7 +102,9 @@ int main(int argc,char** argv){
                  <<" obstacle_z_m=[0,0.161] probe_x_m=[0.496,0.992,1.488,2.632]"
                  <<" pressure_sensors_NOT_simulated="<<(pressure_probes?"false":"true")
                  <<" pressure_proxy_only="<<(interp_probes?"interpolated_tangent":
-                       pressure_probes?"true":"none")<<"\n";
+                       pressure_probes?"true":"none");
+        if(height_interp)std::cout<<" height_sampling=bilinear_column";
+        std::cout<<"\n";
         std::cout<<"time_s,H1_m,H2_m,H3_m,H4_m,water_volume_m3,"
                    "max_projection_divergence_s_inv";
         if(pressure_probes)
@@ -104,7 +113,10 @@ int main(int argc,char** argv){
         std::cout<<"\n";
         const auto emit=[&](double t) {
             std::cout<<t;
-            for(double x:x_probe)std::cout<<","<<gauge_height(w,x,.5);
+            for(double x:x_probe)
+                std::cout<<","<<(height_interp?
+                    upc::P2MarinHeightInterpolation3D::sample(w,x,.5).height_m:
+                    gauge_height(w,x,.5));
             std::cout<<","<<w.volume_m3()<<","
                      <<w.last_projection_divergence();
             if(interp_probes) {

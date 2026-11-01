@@ -1,0 +1,11 @@
+test_no_silent_full_phase_acceptance (__main__.HeightInterpolationRegression.test_no_silent_full_phase_acceptance) ... ok
+test_real_201_native_states (__main__.HeightInterpolationRegression.test_real_201_native_states) ... ok
+test_real_experiment_unchanged_and_window_covers_native (__main__.HeightInterpolationRegression.test_real_experiment_unchanged_and_window_covers_native) ... ok
+test_reject_six_independent_corruptions (__main__.HeightInterpolationRegression.test_reject_six_independent_corruptions) ... ok
+test_subcell_height_is_not_legacy_nearest_column (__main__.HeightInterpolationRegression.test_subcell_height_is_not_legacy_nearest_column) ... ok
+test_unmodified_native_mac_pressure_volume_and_divergence (__main__.HeightInterpolationRegression.test_unmodified_native_mac_pressure_volume_and_divergence) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.129s
+
+OK

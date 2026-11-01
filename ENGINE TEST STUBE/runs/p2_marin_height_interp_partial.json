@@ -1,0 +1,154 @@
+{
+  "phase": "P2",
+  "milestone": "subcell_bilinear_H1_H4_real_native_3d_mac_pcg_2s",
+  "numerical_probe_integrity_partial": true,
+  "native_2s_execution_verified": true,
+  "full_6s_recomputed_with_new_probe": false,
+  "two_grid_independent_full_6s": false,
+  "height_rmse_threshold_m": 0.05,
+  "height_experimentally_validated": false,
+  "pressure_experimentally_validated": false,
+  "stress_consistent_water_air_interface": false,
+  "dynamic_bidirectional_fsi": false,
+  "global_physical_impulse_energy_closure": false,
+  "phase_complete": false,
+  "grid": {
+    "shape": [
+      32,
+      10,
+      10
+    ],
+    "dx_m": 0.1,
+    "states": 201,
+    "duration_s": 2.0
+  },
+  "original_experiment_archive_sha256": "a2ad06e367f61c70351f3d66a8dc5041b53972e3a3aecebde0e06efdd62bf6d1",
+  "measured_csv_sha256": "199232979781aa02a26ad663515c0d8e7fc02640ef648daf92e4c6a4998c84cb",
+  "new_native_trace_sha256": "e4a77a1947740c38b3cf1e8a7738f75af0d494b915f674216159d3d7ea8bbbc5",
+  "old_native_trace_sha256": "b7858667cc945bafa5f56356628df910a3f261c00a994781c7c12d3ea564c304",
+  "native_benchmark_binary_sha256": "c675beefc448699763fac9ccfe1a1f382f0b8a7f55f106d6d181ed8320b4648c",
+  "native_test_binary_sha256": "9c37b77dad4025b7475e39a25de900b70f42a7b07cd0ba21b93c8f70ad3c83fc",
+  "native_test_log_sha256": "2ab4e3da26b08091bdf9cecf7a80f227284e03ddc5f421b68fca38c13be19311",
+  "native_ctest_log_sha256": "3e1a8e5a33bb6322468fff256a4fd1c713a42fe4060e89f226ec27b9951e6dc3",
+  "python_regression_log_sha256": "8fe476c78198bf4e899e54ad90776b771e4bff48caf36c2c39329950cbacec3f",
+  "source_sha256": {
+    "CMakeLists.txt": "e87e1755e62f95f5f377faecbe4e1affd4d2328180e5ed72b4b1b900b217b4bc",
+    "benchmarks/p2_marin_dambreak_heights.cpp": "aaa598593b34a007c150f9e30da8eaf9e6c32d8ed6ef763c9807c767b01c74a4",
+    "include/upc/p2_marin_height_interp3d.hpp": "759f5b00210f522715589ac104bd3a32b95edd455d04db8aa949ebb1235ed951",
+    "tests/p2_marin_height_interp3d_tests.cpp": "368020c61e234ef4dda000d8cc23d6f1c5776c551103019faa95fd8678f1afd7",
+    "tests/p2_marin_height_interp_regression.py": "ef61de42188e1916fe98fddb63eb12c2b1ce5aef7cd1f72ef4d3f8b1de9f213f",
+    "scripts/p2_marin_height_interp_build.cmd": "ff323f992305dfbe2f4233c9f2c309996932246db745e635c1090d08286be2e9",
+    "scripts/p2_marin_height_interp_partial_acceptance.py": "17c500ebe501e2d385e3391ebcd097c8cf8f516b6ea856b9b07be92ad4c47394"
+  },
+  "native_trajectory_comparison": {
+    "max_solver_signal_differences": {
+      "time_s": 0.0,
+      "water_volume_m3": 0.0,
+      "max_projection_divergence_s_inv": 0.0,
+      "P1_Pa": 0.0,
+      "P2_Pa": 0.0,
+      "P3_Pa": 0.0,
+      "P4_Pa": 0.0,
+      "P5_Pa": 0.0,
+      "P6_Pa": 0.0,
+      "P7_Pa": 0.0,
+      "P8_Pa": 0.0,
+      "pressure_probe_wet_count": 0.0
+    },
+    "max_height_signal_differences_m": {
+      "H1_m": 0.001807930904468194,
+      "H2_m": 0.009355834960166926,
+      "H3_m": 0.007447016481558752,
+      "H4_m": 0.004440822350395224
+    }
+  },
+  "negative_corruption_rejections": {
+    "truncated": true,
+    "wrong_mode": true,
+    "wrong_pressure": true,
+    "nonfinite_height": true,
+    "time_corrupted": true,
+    "invalid_wet_count": true
+  },
+  "metrics": {
+    "H1_m": {
+      "new_rmse": 0.12027125757298997,
+      "previous_rmse": 0.12067559066270554,
+      "samples": 200,
+      "unit": "m"
+    },
+    "H2_m": {
+      "new_rmse": 0.12003714439898659,
+      "previous_rmse": 0.11717200339189855,
+      "samples": 200,
+      "unit": "m"
+    },
+    "H3_m": {
+      "new_rmse": 0.16073704423655272,
+      "previous_rmse": 0.16197458567610723,
+      "samples": 200,
+      "unit": "m"
+    },
+    "H4_m": {
+      "new_rmse": 0.20250088814956468,
+      "previous_rmse": 0.20568988347487682,
+      "samples": 200,
+      "unit": "m"
+    },
+    "P1_Pa": {
+      "new_rmse": 4550.479490891541,
+      "previous_rmse": 4550.479490891541,
+      "samples": 200,
+      "unit": "Pa"
+    },
+    "P2_Pa": {
+      "new_rmse": 4873.842191368665,
+      "previous_rmse": 4873.842191368665,
+      "samples": 200,
+      "unit": "Pa"
+    },
+    "P3_Pa": {
+      "new_rmse": 4441.68560495553,
+      "previous_rmse": 4441.68560495553,
+      "samples": 200,
+      "unit": "Pa"
+    },
+    "P4_Pa": {
+      "new_rmse": 4272.5754166244415,
+      "previous_rmse": 4272.5754166244415,
+      "samples": 200,
+      "unit": "Pa"
+    },
+    "P5_Pa": {
+      "new_rmse": 4242.11210546465,
+      "previous_rmse": 4242.11210546465,
+      "samples": 200,
+      "unit": "Pa"
+    },
+    "P6_Pa": {
+      "new_rmse": 4241.679446022424,
+      "previous_rmse": 4241.679446022424,
+      "samples": 200,
+      "unit": "Pa"
+    },
+    "P7_Pa": {
+      "new_rmse": 4150.426830455706,
+      "previous_rmse": 4150.426830455706,
+      "samples": 200,
+      "unit": "Pa"
+    },
+    "P8_Pa": {
+      "new_rmse": 4250.25090253034,
+      "previous_rmse": 4250.25090253034,
+      "samples": 200,
+      "unit": "Pa"
+    }
+  },
+  "unmet": [
+    "Measured H1-H4 RMSE <=0.05 m over full >=6 s and 3 independent grids",
+    "Measured P1-P8 footprint/traction and pressure convergence",
+    "True stress-consistent 3D water-air free surface",
+    "Dynamic bidirectional moving-solid FSI and physical impulse/energy closure"
+  ],
+  "generated_utc": "2026-11-01T12:26:51.379127+00:00"
+}
