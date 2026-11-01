@@ -1,0 +1,3 @@
+NATIVE_MAC_FOOTPRINT dx=0.1 wet=8 p1_pa=4424.33 p5_pa=3335.42
+NATIVE_MAC_FOOTPRINT dx=0.05 wet=8 p1_pa=4665.39 p5_pa=3337.35
+PASS P2_MARIN_FOOTPRINT assertions=145 radius_m_is_unverified=true phase_complete=false

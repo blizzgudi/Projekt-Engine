@@ -1,0 +1,92 @@
+{
+  "phase": "P2",
+  "milestone": "finite_circular_marin_pressure_footprint_sampling_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "real_sensor_radius_known": false,
+  "experimental_pressure_validated": false,
+  "full_6s_measured_e2e": false,
+  "source_sha256": {
+    "include/upc/p2_marin_footprint_pressure3d.hpp": "275212c446184bfdc1ea6f2e97dce14faf64976c80beeebf49000da5a436409c",
+    "include/upc/p2_marin_pressure_sensors3d.hpp": "7ca4ae9abee08e223892686b97c66da5d16ecf67b3263a74b702b869848c6bb1",
+    "include/upc/coupled_water3d.hpp": "ec3ed71d150b67f617cc53e5537d2e8b5a3f77c5ec0c5f18000cf45824d8ac74",
+    "include/upc/mac3d.hpp": "c935c5f3c31432d90feeb0b56f5aef1fd29cf5dc69a94878a0d60f884c5e19e5",
+    "tests/p2_marin_footprint_pressure3d_tests.cpp": "9b6da5c21da5ae722c81aa0d4fb6eedeae76a06a63bd8f3cac4fca038e8b45d1",
+    "scripts/p2_marin_footprint_partial_acceptance.py": "77f4e222ab71e4995f0ba24b4540e46a8fa66fb6dbe2cf96c7ef9924652cc2fd"
+  },
+  "native_binary_sha256": "67ff7a68e35175de6cb256a740ee4dffeddf5adbf2970086e67e1eb28e9e7951",
+  "build_log_sha256": "2f0e7765b8266db35a8fcf1f40e9a7027dc8463fd5db186d5988168fd3678323",
+  "full_build_log_sha256": "71aa391ec7d7e291b419a7f40fba91919e14ac2394ab4e8b66ed126e267d70f6",
+  "ctest_log_sha256": "9ddb50cb87c6db378a06111965b356e804c8c686dbadfcddc7eb34154f6c0f1e",
+  "phase_gate_log_sha256": "ab300bb727908749ec3a803f1e6b7f90f660ad67714cbabc643011315b881408",
+  "ctest_passed_suites": 123,
+  "native_log_sha256": "68e5707aedf8bb18c1b174274bc0e5b6c7554b6f9c8f563d30db2f85f205e307",
+  "native_result": {
+    "grids": {
+      "0.1": {
+        "wet": 8,
+        "p1_pa": 4424.33,
+        "p5_pa": 3335.42
+      },
+      "0.05": {
+        "wet": 8,
+        "p1_pa": 4665.39,
+        "p5_pa": 3337.35
+      }
+    },
+    "native_assertions": 145
+  },
+  "checks": [
+    {
+      "name": "real_native_3d_mac_two_grid_pressure",
+      "pass": true
+    },
+    {
+      "name": "full_native_ctest_all_suites",
+      "pass": true
+    },
+    {
+      "name": "official_phase_gate_remains_incomplete",
+      "pass": true
+    },
+    {
+      "name": "manufactured_disk_affine_quadratic_masks_and_negative_tests",
+      "pass": true
+    },
+    {
+      "name": "native_output_disclaims_unknown_sensor_radius",
+      "pass": true
+    },
+    {
+      "name": "reject_corrupted_native_trace_1",
+      "pass": true
+    },
+    {
+      "name": "reject_corrupted_native_trace_2",
+      "pass": true
+    },
+    {
+      "name": "reject_corrupted_native_trace_3",
+      "pass": true
+    },
+    {
+      "name": "reject_corrupted_native_trace_4",
+      "pass": true
+    },
+    {
+      "name": "reject_corrupted_native_trace_5",
+      "pass": true
+    },
+    {
+      "name": "reject_corrupted_native_trace_6",
+      "pass": true
+    }
+  ],
+  "known_open": [
+    "Determine original SPHERIC Test 02 P1-P8 sensing area from a verified source",
+    "Resolve wall geometry/traction and stress-consistent water-air boundary",
+    "Run native full >=6s three-grid MARIN H1-H4/P1-P8 validation",
+    "Prove dynamic two-way FSI and physical mass/momentum/energy closure"
+  ],
+  "generated_utc": "2026-11-01T16:56:37.443701+00:00"
+}

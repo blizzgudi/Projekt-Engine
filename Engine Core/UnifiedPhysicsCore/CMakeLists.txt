@@ -678,3 +678,9 @@ add_test(NAME physics_p2_axis_vof_pcg_geometry_partial COMMAND upc_p2_axis_vof_p
 add_executable(upc_p2_live_axis_vof_pcg_tests tests/p2_live_axis_vof_pcg3d_tests.cpp)
 target_link_libraries(upc_p2_live_axis_vof_pcg_tests PRIVATE upc)
 add_test(NAME physics_p2_live_axis_vof_pcg_partial COMMAND upc_p2_live_axis_vof_pcg_tests)
+
+# P2 PARTIAL: configurable circular P1-P8 wall pressure footprint (unknown physical radius).
+# Manufactured disk-area references and real two-grid 3D MAC snapshot only.
+add_executable(upc_p2_marin_footprint_tests tests/p2_marin_footprint_pressure3d_tests.cpp)
+target_link_libraries(upc_p2_marin_footprint_tests PRIVATE upc)
+add_test(NAME physics_p2_marin_footprint_partial COMMAND upc_p2_marin_footprint_tests)
