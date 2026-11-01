@@ -1,0 +1,116 @@
+{
+  "phase": "P2",
+  "milestone": "marin_wall_normal_two_plane_native_pcg_2s_partial",
+  "phase_complete": false,
+  "partial_numerical_integrity": true,
+  "measured_pressure_validated": false,
+  "full_6s_experimental_pressure_convergence": false,
+  "independent_three_grid_convergence": false,
+  "stress_consistent_water_air_interface": false,
+  "dynamic_bidirectional_fsi": false,
+  "physical_global_impulse_energy_closure": false,
+  "native_2s_states": 201,
+  "duration_s": 2.0,
+  "native_assertions": 109,
+  "native_ctest_suites": 119,
+  "original_experiment_archive_sha256": "a2ad06e367f61c70351f3d66a8dc5041b53972e3a3aecebde0e06efdd62bf6d1",
+  "measured_csv_sha256": "199232979781aa02a26ad663515c0d8e7fc02640ef648daf92e4c6a4998c84cb",
+  "old_trace_sha256": "b7858667cc945bafa5f56356628df910a3f261c00a994781c7c12d3ea564c304",
+  "new_trace_sha256": "faa2122318a5e8051a4f3eb300095a16a9a9ff62b96d3135912ddaf86fbe40c5",
+  "native_test_exe_sha256": "9c1f8491fb45cfb3f28f10f1cfc1e39f3a59125509d2aa3dce0db8af5cc36f78",
+  "benchmark_exe_sha256": "6633a08bcfc332da8e5b1e85ca209759a0b0785778cdb359e46af3af4e8eabd2",
+  "native_log_sha256": "480d52bec069ebe19e87e50bee3a548ab7f7b2c2942151244441b94585ab335d",
+  "ctest_log_sha256": "7314074450da6277bedb7235ddf58b4aa98d5fd3606dea9070c99d61a6b5214c",
+  "build_log_sha256": "acaa1a70b4f864aff90c012dc3be0474e2e7af6a46bf70066d471aa4a1ca3d7b",
+  "source_sha256": {
+    "CMakeLists.txt": "f9c4083dc5a92cae80dec90a80cf5511598d32f28ca8c8d6a888061115e5eb15",
+    "benchmarks/p2_marin_dambreak_heights.cpp": "4f3d91a101ea5f01423c79dc6bfc269dfe1453d7e3b2b0a9cb73b812030587e7",
+    "include/upc/p2_marin_wall_normal_pressure3d.hpp": "27a9c95a5ba091b1959eb6953de3cb2b5e81e6b0cda722e512cc703bfd454ff7",
+    "include/upc/p2_marin_pressure_sensors3d.hpp": "7ca4ae9abee08e223892686b97c66da5d16ecf67b3263a74b702b869848c6bb1",
+    "tests/p2_marin_wall_normal_pressure3d_tests.cpp": "71289987704c20f989ab69f8baa47bb43bd89d2ca9394ad29915146af39fdcaf",
+    "scripts/p2_marin_wall_normal_build.cmd": "de9d862c826094490a798181f62fbdcc4882923bbeeec8f69f52f6e66aa3596f",
+    "scripts/p2_marin_wall_normal_partial_acceptance.py": "1c666c814adee60c4b75c9b426cc67ccb8b4983f2f51cddd5819e3e8d638c98d"
+  },
+  "unchanged_solver_signal_max_abs": {
+    "H1_m": 0.0,
+    "H2_m": 0.0,
+    "H3_m": 0.0,
+    "H4_m": 0.0,
+    "time_s": 0.0,
+    "water_volume_m3": 0.0,
+    "max_projection_divergence_s_inv": 0.0,
+    "pressure_probe_wet_count": 0.0
+  },
+  "max_pressure_change_pa": {
+    "P1_Pa": 2098.2542428597844,
+    "P2_Pa": 2145.7250062624153,
+    "P3_Pa": 267.3269222808167,
+    "P4_Pa": 262.7717685318312,
+    "P5_Pa": 1844.7917478414347,
+    "P6_Pa": 1816.860450844375,
+    "P7_Pa": 2778.5566130543502,
+    "P8_Pa": 3803.529819086522
+  },
+  "extrapolation_counts": {
+    "min": 0.0,
+    "max": 8.0,
+    "fallback_max": 2.0
+  },
+  "negative_trace_mutations_rejected": {
+    "truncated": true,
+    "wrong_pressure_mode": true,
+    "wrong_solver": true,
+    "nonfinite_pressure": true,
+    "bad_extrapolation_census": true,
+    "bad_time": true
+  },
+  "measured_metrics": {
+    "P1_Pa": {
+      "old_rmse_pa": 4550.479490891541,
+      "new_rmse_pa": 4617.761945491553,
+      "samples": 200
+    },
+    "P2_Pa": {
+      "old_rmse_pa": 4873.842191368665,
+      "new_rmse_pa": 4939.791466992391,
+      "samples": 200
+    },
+    "P3_Pa": {
+      "old_rmse_pa": 4441.68560495553,
+      "new_rmse_pa": 4461.921569594429,
+      "samples": 200
+    },
+    "P4_Pa": {
+      "old_rmse_pa": 4272.5754166244415,
+      "new_rmse_pa": 4295.13883817007,
+      "samples": 200
+    },
+    "P5_Pa": {
+      "old_rmse_pa": 4242.11210546465,
+      "new_rmse_pa": 4996.816784477673,
+      "samples": 200
+    },
+    "P6_Pa": {
+      "old_rmse_pa": 4241.679446022424,
+      "new_rmse_pa": 4932.487256797303,
+      "samples": 200
+    },
+    "P7_Pa": {
+      "old_rmse_pa": 4150.426830455706,
+      "new_rmse_pa": 4829.090008274559,
+      "samples": 200
+    },
+    "P8_Pa": {
+      "old_rmse_pa": 4250.25090253034,
+      "new_rmse_pa": 4951.951825306686,
+      "samples": 200
+    }
+  },
+  "limitations": [
+    "Wall-normal linear extrapolation is not resolved wall traction or fluid-solid coupling",
+    "Binary obstacle voxelization and one-phase air boundary remain unchanged",
+    "Only 2 s coarse native trajectory; full >=6 s multi-grid convergence not demonstrated",
+    "P1-P8 measured pressure errors are retained even when above thresholds"
+  ],
+  "generated_utc": "2026-11-01T13:23:31.131735+00:00"
+}

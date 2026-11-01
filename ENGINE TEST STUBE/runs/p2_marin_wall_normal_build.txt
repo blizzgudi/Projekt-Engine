@@ -1,0 +1,2 @@
+[1/2] Building CXX object CMakeFiles\upc_p2_marin_wall_normal_tests.dir\tests\p2_marin_wall_normal_pressure3d_tests.cpp.obj
+[2/2] Linking CXX executable upc_p2_marin_wall_normal_tests.exe

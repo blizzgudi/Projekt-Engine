@@ -2141,3 +2141,24 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
 - Ein neuer echter 200-Step-MSVC-PCG-Lauf auf 32x10x10 bis 2,00 s: Vergleich mit vorhandener nativer Kontrollspur und originalen MARIN/SPHERIC-Messwerten. 12 Nicht-Höhen-Signale (inklusive P1-P8, Volumen, Divergenz) an allen 201 Zeitpunkten exakt identisch. 118/118 CTest und 6/6 unabhängige Python-Regressionstests PASS.
 - H1-H4-RMSE neu 0,120271/0,120037/0,160737/0,202501 m; zuvor 0,120676/0,117172/0,161975/0,205690 m. H2 verschlechtert sich, alle vier überschreiten die feste 0,05-m-Grenze. **Experimentelle Validierung FAIL.** Keine 6-s-Neuberechnung, kein neues feines Gitter, keine spannungskonsistente freie Oberfläche oder Zweiwege-FSI.
 - Belege: docs/P2_MARIN_HEIGHT_INTERPOLATION_PARTIAL.md, scripts/p2_marin_height_interp_partial_acceptance.py, ENGINE TEST STUBE/runs/p2_marin_height_interp_partial.json mit Quell-/Native-/Testlog-Hashes. **P2 INCOMPLETE, ALL_COMPLETE=False.**
+
+## P2 Teilnachweis: MARIN-Wandnormaldruck, negative Messvalidierung (01.11.2026)
+
+- Opt-in `P2MarinWallNormalPressure3D`: tangential bilineare
+  MAC-Druckauslesung aus zwei flüssigkeitsseitigen Normalebenen und
+  lineare Wand-Rückextrapolation, mit explizitem Trocken-/Solid-Fallback.
+  Keine Änderung am 3D-MAC/VOF-/PCG-Live-Solver.
+- Native MSVC Release: **109 Assertions PASS**, **119/119 CTest PASS**;
+  ein realer neuer 200-Schritt-/2,00-s-3D-MAC/PCG-Lauf (32×10×10).
+  Gegenüber der bestehenden PCG-Kontrolle sind alle H1–H4,
+  Wasser-Masse, Divergenz und nasse Sondenanzahl exakt unverändert.
+  Sechs korrumpierte Traces wurden unabhängig abgewiesen.
+- **Negativer Messbefund:** alle acht P1–P8-RMSE verschlechtern sich
+  gegenüber dem vorherigen tangentialen Druck-Proxy, etwa P1
+  4550,48→4617,76 Pa und P5 4242,11→4996,82 Pa.
+  **Kein** experimenteller Druck-PASS, keine 6-s-/Dreigitter-
+  Konvergenz und keine physikalische Wandtraktions-/FSI-Abnahme.
+- Belege: `docs/P2_MARIN_WALL_NORMAL_PARTIAL.md`,
+  `ENGINE TEST STUBE/runs/p2_marin_wall_normal_partial.json`,
+  `scripts/p2_marin_wall_normal_build.cmd`. Original-MARIN-Archiv
+  unverändert. `phase_gate.py`: P2 **PARTIAL**, ALL_COMPLETE=False.

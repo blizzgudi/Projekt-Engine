@@ -655,3 +655,8 @@ add_test(NAME physics_p2_live_pcg_coupled_partial COMMAND upc_p2_live_pcg_couple
 add_executable(upc_p2_marin_height_interp_tests tests/p2_marin_height_interp3d_tests.cpp)
 target_link_libraries(upc_p2_marin_height_interp_tests PRIVATE upc)
 add_test(NAME physics_p2_marin_height_interp_partial COMMAND upc_p2_marin_height_interp_tests)
+
+# P2 PARTIAL: two liquid-side pressure planes with dry/solid fallback.
+add_executable(upc_p2_marin_wall_normal_tests tests/p2_marin_wall_normal_pressure3d_tests.cpp)
+target_link_libraries(upc_p2_marin_wall_normal_tests PRIVATE upc)
+add_test(NAME physics_p2_marin_wall_normal_partial COMMAND upc_p2_marin_wall_normal_tests)
