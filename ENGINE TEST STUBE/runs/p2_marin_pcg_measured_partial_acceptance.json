@@ -1,0 +1,91 @@
+{
+  "phase": "P2",
+  "milestone": "native_two_grid_pcg_pressure_improvement_against_real_marin",
+  "partial_accepted": true,
+  "physical_p2_phase_accepted": false,
+  "phase_complete": false,
+  "measured_pressure_physically_validated": false,
+  "measured_water_height_physically_validated": false,
+  "native_ctest_suites": 117,
+  "independent_regression_tests": 9,
+  "checks": {
+    "native_3d_pcg_two_grid_200_steps": true,
+    "actual_9_positive_negative_experimental_regressions": true,
+    "full_117_ctest_suites": true,
+    "actual_native_3d_pcg_pressure_projection_present": true,
+    "both_grids_wet_divergence_below_one_millionth": true,
+    "both_grids_water_mass_conserved": true,
+    "all_eight_pressure_rmse_improve_vs_gauss_seidel_on_both_grids": true,
+    "all_eight_pcg_pressure_rmse_improve_on_spatial_refinement": true,
+    "all_four_physical_height_acceptance_thresholds_still_fail": true,
+    "physical_phase_not_falsely_accepted": true,
+    "all_evidence_source_files_exist": true
+  },
+  "source_sha256": {
+    "CMakeLists.txt": "7f8e6807f00da664783f702f45262e6fb37ec159dbac5ce15ec4637387af08b3",
+    "include/upc/mac3d.hpp": "b18a7ef2b5141b1ce1c56e05bcffcd57d118620f06e2da75f2b3c3ffe837cb7b",
+    "include/upc/coupled_water3d.hpp": "fa6848a1150b8baf6f0b2388d65b91ae41e7b0a659e939f9cd823ea02fb6adc0",
+    "include/upc/p2_marin_wall_pressure_interp3d.hpp": "2f849a5e1af52ff681ddaf3510aa22e28f094b10c075c613b2beaea662ecafaf",
+    "benchmarks/p2_marin_dambreak_heights.cpp": "1b06a6f622eeba46dc7a8d596a987add3e91ebfe99fe5038dca305858d9c5846",
+    "tests/p2_mac_pcg_pressure_tests.cpp": "34b12ebd887b413d830f4fd739025933e11ba85a4f0f5821a447d9061849d613",
+    "tests/p2_live_pcg_coupled_tests.cpp": "bf3cb8fdfb9822625951af42114cabc27d27d3f3201b3fdfcc3de874ee05b4d6",
+    "scripts/p2_marin_pcg_compare.py": "46297a9bf12014d35f18e96414fe6958451c058e18ee3fb67233a9e2ff2a907a",
+    "tests/p2_marin_pcg_experimental_regression.py": "77b88d9c59a53d8051e9d5d19d4fbd59ac541aaa13ed41a5464a1a4a91c037d4",
+    "scripts/p2_marin_pcg_measured_partial_acceptance.py": "47f502bcf59dd9bb15470dad00807096b42946bc3abae7419b76f83b92ee57e3",
+    "scripts/p2_marin_pcg_build.cmd": "ae419bec7833ecb272b443f2aa20bb10bdbad63555e1d00c3bb517f8d43f67c1",
+    "docs/P2_MARIN_PCG_MEASURED_PARTIAL.md": "618d0201eac025ce6b7158210cb6ff7fa3c4351422f587068e1ef31b450ff591",
+    "docs/PHASENPLAN.md": "f25771fdebc98fd9c82aac7a01329f12b30f9e409d793a8ba2cbc874a3b239aa"
+  },
+  "artifact_sha256": {
+    "coarse": "b7858667cc945bafa5f56356628df910a3f261c00a994781c7c12d3ea564c304",
+    "fine": "cbdcf4e7a95045802ce70730c42fe0e9ae137c496ca7fee9ae3a12543a2dd24f",
+    "ctest": "a677096df67fedd3b1785ed9c2a46dc6d997ca43999d4a0df6c7844ff44fdde7",
+    "measured_comparison": "a0e391321c6e701740c3a3aeabdbf59b48b918cca0d07f6c8b899e39d99a741d",
+    "regression": "fe7e4d1e5185b81ecf79ac36954ca1798f276c77859ceb8e39ad086b6c7efdb9",
+    "native_binary": "4f6b399d146cdccde4c1f8c14c2931058a64e2c84a9edabe61a45d2e84813227"
+  },
+  "rmse_pressure_pa": {
+    "coarse": {
+      "P1_Pa": 4550.479490891541,
+      "P2_Pa": 4873.842191368665,
+      "P3_Pa": 4441.68560495553,
+      "P4_Pa": 4272.5754166244415,
+      "P5_Pa": 4242.11210546465,
+      "P6_Pa": 4241.679446022424,
+      "P7_Pa": 4150.426830455706,
+      "P8_Pa": 4250.25090253034
+    },
+    "fine": {
+      "P1_Pa": 3459.882078054443,
+      "P2_Pa": 3571.6755879836946,
+      "P3_Pa": 3232.4624132893655,
+      "P4_Pa": 3061.7564281477344,
+      "P5_Pa": 3688.2792612344447,
+      "P6_Pa": 3553.901411647926,
+      "P7_Pa": 3551.823295294412,
+      "P8_Pa": 3567.1199434949444
+    }
+  },
+  "rmse_height_m": {
+    "coarse": {
+      "H1_m": 0.12067559066270554,
+      "H2_m": 0.11717200339189855,
+      "H3_m": 0.16197458567610723,
+      "H4_m": 0.20568988347487682
+    },
+    "fine": {
+      "H1_m": 0.10390944344106888,
+      "H2_m": 0.07671829695053126,
+      "H3_m": 0.14002199009832847,
+      "H4_m": 0.15910956930976589
+    }
+  },
+  "open_full_P2_acceptance_items": [
+    "actual 3D water/air stress consistency and exact wall geometry",
+    "independently measured P1-P8 wall pressure error within physical tolerance",
+    "measured H1-H4 heights <=0.05m RMSE on all probes",
+    "full >=6s external transient and independent grid-order convergence",
+    "dynamic two-way rigid/deformable FSI and global energy/impulse closure"
+  ],
+  "generated_utc": "2026-11-01T11:54:23.267046+00:00"
+}

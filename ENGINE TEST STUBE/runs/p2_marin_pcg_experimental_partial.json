@@ -1,0 +1,198 @@
+{
+  "phase": "P2",
+  "milestone": "native_3d_mac_ghost_fluid_pcg_pressure_convergence_vs_marin",
+  "numerical_partial_accepted": true,
+  "real_pressure_physically_validated": false,
+  "real_water_height_physically_validated": false,
+  "complete_3d_fluid_phase": false,
+  "phase_complete": false,
+  "full_6_second_record_completed": false,
+  "two_spatial_grids_completed": true,
+  "original_experiment_archive_sha256": "a2ad06e367f61c70351f3d66a8dc5041b53972e3a3aecebde0e06efdd62bf6d1",
+  "source_sha256": {
+    "include/upc/mac3d.hpp": "b18a7ef2b5141b1ce1c56e05bcffcd57d118620f06e2da75f2b3c3ffe837cb7b",
+    "include/upc/coupled_water3d.hpp": "fa6848a1150b8baf6f0b2388d65b91ae41e7b0a659e939f9cd823ea02fb6adc0",
+    "benchmarks/p2_marin_dambreak_heights.cpp": "1b06a6f622eeba46dc7a8d596a987add3e91ebfe99fe5038dca305858d9c5846",
+    "scripts/p2_marin_pcg_compare.py": "46297a9bf12014d35f18e96414fe6958451c058e18ee3fb67233a9e2ff2a907a"
+  },
+  "checks": {
+    "coarse_matrix_projected_divergence_below_1e6": true,
+    "coarse_water_conserved": true,
+    "coarse_all_200_measured_times": true,
+    "fine_matrix_projected_divergence_below_1e6": true,
+    "fine_water_conserved": true,
+    "fine_all_200_measured_times": true
+  },
+  "grids": {
+    "coarse": {
+      "native_log_sha256": "b7858667cc945bafa5f56356628df910a3f261c00a994781c7c12d3ea564c304",
+      "comparison_log_sha256": "7bddfd8171f28bf10997dbe52429b501ecae82403af582e424cf335d1e6ef631",
+      "201_native_time_states": 201,
+      "maximum_real_wet_projection_divergence_s_inv": 5.71426414866516e-09,
+      "maximum_volume_drift_m3": 2.1316282072803006e-14,
+      "metrics": {
+        "P1_Pa": {
+          "rmse_pcg": 4550.479490891541,
+          "rmse_gauss_seidel": 5642.335925060709,
+          "rmse_improved": true,
+          "samples": 200
+        },
+        "P2_Pa": {
+          "rmse_pcg": 4873.842191368665,
+          "rmse_gauss_seidel": 5952.61410002187,
+          "rmse_improved": true,
+          "samples": 200
+        },
+        "P3_Pa": {
+          "rmse_pcg": 4441.68560495553,
+          "rmse_gauss_seidel": 5552.554752830429,
+          "rmse_improved": true,
+          "samples": 200
+        },
+        "P4_Pa": {
+          "rmse_pcg": 4272.5754166244415,
+          "rmse_gauss_seidel": 5381.1990290344165,
+          "rmse_improved": true,
+          "samples": 200
+        },
+        "P5_Pa": {
+          "rmse_pcg": 4242.11210546465,
+          "rmse_gauss_seidel": 5270.735830923616,
+          "rmse_improved": true,
+          "samples": 200
+        },
+        "P6_Pa": {
+          "rmse_pcg": 4241.679446022424,
+          "rmse_gauss_seidel": 5315.858204757106,
+          "rmse_improved": true,
+          "samples": 200
+        },
+        "P7_Pa": {
+          "rmse_pcg": 4150.426830455706,
+          "rmse_gauss_seidel": 5299.4842582639585,
+          "rmse_improved": true,
+          "samples": 200
+        },
+        "P8_Pa": {
+          "rmse_pcg": 4250.25090253034,
+          "rmse_gauss_seidel": 5480.603151092523,
+          "rmse_improved": true,
+          "samples": 200
+        },
+        "H1_m": {
+          "rmse_pcg": 0.12067559066270554,
+          "rmse_gauss_seidel": 0.12067013175223057,
+          "rmse_improved": false,
+          "samples": 200
+        },
+        "H2_m": {
+          "rmse_pcg": 0.11717200339189855,
+          "rmse_gauss_seidel": 0.11693615167184265,
+          "rmse_improved": false,
+          "samples": 200
+        },
+        "H3_m": {
+          "rmse_pcg": 0.16197458567610723,
+          "rmse_gauss_seidel": 0.16203438811968499,
+          "rmse_improved": true,
+          "samples": 200
+        },
+        "H4_m": {
+          "rmse_pcg": 0.20568988347487682,
+          "rmse_gauss_seidel": 0.20561138293584638,
+          "rmse_improved": false,
+          "samples": 200
+        }
+      }
+    },
+    "fine": {
+      "native_log_sha256": "cbdcf4e7a95045802ce70730c42fe0e9ae137c496ca7fee9ae3a12543a2dd24f",
+      "comparison_log_sha256": "a9494da146e0a2d1beb00207a147b4355e5c2adb63414fe840adf2e538526efd",
+      "201_native_time_states": 201,
+      "maximum_real_wet_projection_divergence_s_inv": 1.4089314714915702e-08,
+      "maximum_volume_drift_m3": 9.00390872971002e-14,
+      "metrics": {
+        "P1_Pa": {
+          "rmse_pcg": 3459.882078054443,
+          "rmse_gauss_seidel": 18165.73030437976,
+          "rmse_improved": true,
+          "samples": 200
+        },
+        "P2_Pa": {
+          "rmse_pcg": 3571.6755879836946,
+          "rmse_gauss_seidel": 18523.05410339341,
+          "rmse_improved": true,
+          "samples": 200
+        },
+        "P3_Pa": {
+          "rmse_pcg": 3232.4624132893655,
+          "rmse_gauss_seidel": 19045.037681343354,
+          "rmse_improved": true,
+          "samples": 200
+        },
+        "P4_Pa": {
+          "rmse_pcg": 3061.7564281477344,
+          "rmse_gauss_seidel": 20882.457559762934,
+          "rmse_improved": true,
+          "samples": 200
+        },
+        "P5_Pa": {
+          "rmse_pcg": 3688.2792612344447,
+          "rmse_gauss_seidel": 16202.527482431831,
+          "rmse_improved": true,
+          "samples": 200
+        },
+        "P6_Pa": {
+          "rmse_pcg": 3553.901411647926,
+          "rmse_gauss_seidel": 16061.841413741764,
+          "rmse_improved": true,
+          "samples": 200
+        },
+        "P7_Pa": {
+          "rmse_pcg": 3551.823295294412,
+          "rmse_gauss_seidel": 16119.609898154447,
+          "rmse_improved": true,
+          "samples": 200
+        },
+        "P8_Pa": {
+          "rmse_pcg": 3567.1199434949444,
+          "rmse_gauss_seidel": 16311.892037322286,
+          "rmse_improved": true,
+          "samples": 200
+        },
+        "H1_m": {
+          "rmse_pcg": 0.10390944344106888,
+          "rmse_gauss_seidel": 0.10399582776033299,
+          "rmse_improved": true,
+          "samples": 200
+        },
+        "H2_m": {
+          "rmse_pcg": 0.07671829695053126,
+          "rmse_gauss_seidel": 0.07674606530522744,
+          "rmse_improved": true,
+          "samples": 200
+        },
+        "H3_m": {
+          "rmse_pcg": 0.14002199009832847,
+          "rmse_gauss_seidel": 0.1398191480237003,
+          "rmse_improved": false,
+          "samples": 200
+        },
+        "H4_m": {
+          "rmse_pcg": 0.15910956930976589,
+          "rmse_gauss_seidel": 0.15808439375954003,
+          "rmse_improved": false,
+          "samples": 200
+        }
+      }
+    }
+  },
+  "known_unmet": [
+    "Measured pressure gauge RMSE and transducer spatial resolution",
+    "Measured H1-H4 height RMSE <= .05m all probes",
+    "Stress-consistent real water/air free surface and wall traction",
+    "Full >=6s window and three-grid independent convergence",
+    "Dynamic bidirectional fluid/rigid-solid impulse and global energy closure"
+  ],
+  "generated_utc": "2026-11-01T11:54:23.195902+00:00"
+}

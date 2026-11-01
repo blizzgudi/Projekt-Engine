@@ -1,0 +1,41 @@
+P2_MAC_PCG_NUMERICAL_PARTIAL=True EXPERIMENTAL_CFD_VALIDATED=False P2_COMPLETE=False
+coarse max_divergence_s_inv 5.71426414866516e-09 water_drift_m3 2.1316282072803006e-14
+P1_Pa PCG_RMSE 4550.479 GS_RMSE 5642.336 improved True
+P2_Pa PCG_RMSE 4873.842 GS_RMSE 5952.614 improved True
+P3_Pa PCG_RMSE 4441.686 GS_RMSE 5552.555 improved True
+P4_Pa PCG_RMSE 4272.575 GS_RMSE 5381.199 improved True
+P5_Pa PCG_RMSE 4242.112 GS_RMSE 5270.736 improved True
+P6_Pa PCG_RMSE 4241.679 GS_RMSE 5315.858 improved True
+P7_Pa PCG_RMSE 4150.427 GS_RMSE 5299.484 improved True
+P8_Pa PCG_RMSE 4250.251 GS_RMSE 5480.603 improved True
+H1_m PCG_RMSE 0.1206756 GS_RMSE 0.1206701 improved False
+H2_m PCG_RMSE 0.117172 GS_RMSE 0.1169362 improved False
+H3_m PCG_RMSE 0.1619746 GS_RMSE 0.1620344 improved True
+H4_m PCG_RMSE 0.2056899 GS_RMSE 0.2056114 improved False
+fine max_divergence_s_inv 1.4089314714915702e-08 water_drift_m3 9.00390872971002e-14
+P1_Pa PCG_RMSE 3459.882 GS_RMSE 18165.73 improved True
+P2_Pa PCG_RMSE 3571.676 GS_RMSE 18523.05 improved True
+P3_Pa PCG_RMSE 3232.462 GS_RMSE 19045.04 improved True
+P4_Pa PCG_RMSE 3061.756 GS_RMSE 20882.46 improved True
+P5_Pa PCG_RMSE 3688.279 GS_RMSE 16202.53 improved True
+P6_Pa PCG_RMSE 3553.901 GS_RMSE 16061.84 improved True
+P7_Pa PCG_RMSE 3551.823 GS_RMSE 16119.61 improved True
+P8_Pa PCG_RMSE 3567.12 GS_RMSE 16311.89 improved True
+H1_m PCG_RMSE 0.1039094 GS_RMSE 0.1039958 improved True
+H2_m PCG_RMSE 0.0767183 GS_RMSE 0.07674607 improved True
+H3_m PCG_RMSE 0.140022 GS_RMSE 0.1398191 improved False
+H4_m PCG_RMSE 0.1591096 GS_RMSE 0.1580844 improved False
+test_failed_native_process_rejected (__main__.P2PcgMeasuredNativeTests.test_failed_native_process_rejected) ... ok
+test_mislabeled_3d_grid_rejected (__main__.P2PcgMeasuredNativeTests.test_mislabeled_3d_grid_rejected) ... ok
+test_missing_native_time_state_rejected (__main__.P2PcgMeasuredNativeTests.test_missing_native_time_state_rejected) ... ok
+test_nan_pressure_cell_rejected (__main__.P2PcgMeasuredNativeTests.test_nan_pressure_cell_rejected) ... ok
+test_no_false_pcg_tag (__main__.P2PcgMeasuredNativeTests.test_no_false_pcg_tag) ... ok
+test_pressure_accuracy_not_good_enough_for_physical_validation (__main__.P2PcgMeasuredNativeTests.test_pressure_accuracy_not_good_enough_for_physical_validation) ... ok
+test_pressure_improves_against_legacy_both_grids (__main__.P2PcgMeasuredNativeTests.test_pressure_improves_against_legacy_both_grids) ... ok
+test_real_two_grid_time_series_and_mass_conservation (__main__.P2PcgMeasuredNativeTests.test_real_two_grid_time_series_and_mass_conservation) ... ok
+test_spatial_refinement_improves_all_eight_pressure_rmse (__main__.P2PcgMeasuredNativeTests.test_spatial_refinement_improves_all_eight_pressure_rmse) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.122s
+
+OK

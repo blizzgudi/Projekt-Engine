@@ -29,34 +29,37 @@ double gauge_height(const upc::CoupledMacWater3D& w,double x_m,double y_m) {
 }
 int main(int argc,char** argv){
     try {
-        const bool finer_grid=argc>=4 && std::string(argv[3])=="fine";
-        const bool dense=(argc>=4 && std::string(argv[3])=="dense") ||
-                         (argc>=5 && std::string(argv[4])=="dense");
+        const bool pcg_pressure=argc>=4 && std::string(argv[argc-1])=="pcg";
+        const int mode_argc=argc-(pcg_pressure?1:0);
+        const bool finer_grid=mode_argc>=4 && std::string(argv[3])=="fine";
+        const bool dense=(mode_argc>=4 && std::string(argv[3])=="dense") ||
+                         (mode_argc>=5 && std::string(argv[4])=="dense");
         const bool interp_probes=
-            (argc==5 && std::string(argv[3])=="dense" &&
+            (mode_argc==5 && std::string(argv[3])=="dense" &&
              std::string(argv[4])=="interp") ||
-            (argc==6 && std::string(argv[3])=="fine" &&
+            (mode_argc==6 && std::string(argv[3])=="fine" &&
              std::string(argv[4])=="dense" &&
              std::string(argv[5])=="interp");
         const bool pressure_probes=interp_probes||
-            (argc==5 && std::string(argv[3])=="dense" &&
+            (mode_argc==5 && std::string(argv[3])=="dense" &&
              std::string(argv[4])=="pressure") ||
-            (argc==6 && std::string(argv[3])=="fine" &&
+            (mode_argc==6 && std::string(argv[3])=="fine" &&
              std::string(argv[4])=="dense" &&
              std::string(argv[5])=="pressure");
         const double dx=finer_grid?0.05:0.1;
         const std::size_t nx=finer_grid?64:32,ny=finer_grid?20:10,nz=finer_grid?20:10;
         const int steps=argc>=2?std::stoi(argv[1]):40;
         const bool throughflow=argc>=3 && std::string(argv[2])=="throughflow";
-        if(argc>6||(argc>=3&&!throughflow)||
-           (argc>=4&&!finer_grid&&!dense)||
-           (argc==5 && !pressure_probes && (!finer_grid||!dense))||
-           (argc==6 && !pressure_probes))
+        if(mode_argc>6||(mode_argc>=3&&!throughflow)||
+           (mode_argc>=4&&!finer_grid&&!dense)||
+           (mode_argc==5 && !pressure_probes && (!finer_grid||!dense))||
+           (mode_argc==6 && !pressure_probes))
             throw std::invalid_argument("Unknown benchmark transport mode");
         if(steps<1||steps>300)
             throw std::invalid_argument("Invalid benchmark step budget");
         upc::CoupledMacWater3D w(nx,ny,nz,dx,1000.0);
         w.set_conservative_throughflow_transport(throughflow);
+        w.set_pcg_pressure_projection(pcg_pressure);
         // SPHERIC tank 3.22 x 1 x 1 m. Equal physical 3.20 x 1 x 1 m
         // represented domains for coarse and doubled-resolution grid.
         // Initial right-hand water reservoir starts x=1.992 m, z<0.55 m.
@@ -85,6 +88,7 @@ int main(int argc,char** argv){
                  <<" nz="<<nz<<" transport="<<(throughflow?"throughflow":"legacy")
                  <<" grid="<<(finer_grid?"fine":"coarse")
                  <<" sampling="<<(dense?"dense":"sparse")
+                 <<" pressure_solver="<<(pcg_pressure?"pcg":"gauss_seidel")
                  <<" initial_volume_m3="<<initial_volume
                  <<" target_full_extent_x_m=3.22 represented_extent_x_m="
                  <<nx*dx<<" obstacle_x_m=[0.6635,0.8245] obstacle_y_m=[0.295,0.698]"
@@ -118,7 +122,8 @@ int main(int argc,char** argv){
         };
         emit(0);
         for(int i=1;i<=steps;++i) {
-            w.step(.01,finer_grid?350:175);
+            if(pcg_pressure) w.step_verified(.01,finer_grid?1600:1000,1e-6);
+            else w.step(.01,finer_grid?350:175);
             if(std::abs(w.volume_m3()-initial_volume)>1e-8)
                 throw std::runtime_error("MARIN water mass drift");
             if(dense||i==5||i==10||i==20||i==40||i==100||
