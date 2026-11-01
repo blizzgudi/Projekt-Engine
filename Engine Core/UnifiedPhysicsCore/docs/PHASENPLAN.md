@@ -2013,3 +2013,23 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
 - Wasservolumen 0.25000000000000022 m3, Ledger -2.04e-18 m3, max. Divergenz 3.01e-15 s^-1. Dauerhaftes CMake-CTest-Target, MSVC Release, separate quantitative SHA256-Teilabnahme: docs/P2_ABC3D_TEMPORAL_CONVERGENCE_PARTIAL.md, scripts/p2_abc3d_temporal_build.cmd, scripts/p2_abc3d_temporal_acceptance.py, ENGINE TEST STUBE/runs/p2_abc3d_temporal_partial.json.
 - **P2-P8 INCOMPLETE; ALL_COMPLETE=False.** Zeitkonvergenz auf einem festen Gitter ist keine unabhaengige gemessene 3D-CFD-Validierung, keine spannungskonsistente freie Oberflaeche, keine dynamische Zweiwege-FSI, keine globale physikalische Energie-/Impulserhaltung und kein UE5.8 Native-E2E.
 
+
+## P2 Teilfortschritt: Galilei-verschobene exakte 3D-ABC-Referenz (01.11.2026)
+
+- Neue echte Navier-Stokes-Referenz mit konstanter mittlerer 3D-Translation
+  U=(0.25,-0.15,0.10) m/s. Damit wird nichtlineare Advektion auch dann
+  geprüft, wenn die stationäre ABC-Beltrami-Lösung allein zu schwach wäre.
+- MSVC Release, 109/109 CTest, 12.987 native Assertions: relative L2-Fehler
+  auf 8³/10³/12³ = 0.00847434/0.00678842/0.00564164. Die bewegte
+  Referenz ist deutlich näher als die unverschobene; Mittelimpulse,
+  passive Wasserbilanz (0.5 m³), Druckprojektion und numerische
+  Viskositätsdämpfung sind quantitativ geprüft.
+- Ein explorativer 16³-Lauf scheiterte mit `Unresolved periodic PLIC
+  interface`, auch mit voll gefülltem VOF. **Kein 16³-PASS**;
+  PLIC-interne Zwischenstufen/Rundung bleiben eine offene Blockade.
+- Beleg: `docs/P2_ABC3D_GALILEAN_PARTIAL.md`,
+  `scripts/p2_abc3d_galilean_acceptance.py` und
+  `ENGINE TEST STUBE/runs/p2_abc3d_galilean_partial.json`.
+- **P2 bleibt PARTIAL, P3–P8 INCOMPLETE.** Kein vollständiges
+  Zweiphasen-CFD, dynamische Zweiwege-FSI, externes CFD-Messbenchmark,
+  globale physikalische Erhaltung oder neues UE5.8-Native-E2E.

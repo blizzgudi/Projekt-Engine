@@ -588,3 +588,10 @@ add_test(NAME physics_p2_abc3d_variable_schedule_partial COMMAND upc_p2_abc3d_va
 add_executable(upc_p2_abc3d_temporal_convergence_tests tests/p2_abc3d_temporal_convergence_tests.cpp)
 target_link_libraries(upc_p2_abc3d_temporal_convergence_tests PRIVATE upc)
 add_test(NAME physics_p2_abc3d_temporal_convergence_partial COMMAND upc_p2_abc3d_temporal_convergence_tests)
+
+# P2 partial: exact travelling 3D ABC Navier-Stokes wave under uniform mean
+# flow, including nonlinear advection, viscosity, projection and VOF transport.
+# Not a measured two-phase/FSI benchmark or full P2 acceptance.
+add_executable(upc_p2_abc3d_galilean_tests tests/p2_abc3d_galilean_tests.cpp)
+target_link_libraries(upc_p2_abc3d_galilean_tests PRIVATE upc)
+add_test(NAME physics_p2_abc3d_galilean_partial COMMAND upc_p2_abc3d_galilean_tests)

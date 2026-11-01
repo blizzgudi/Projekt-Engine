@@ -1,0 +1,189 @@
+{
+  "phase": "P2",
+  "milestone": "galilean_abc3d_advection_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "generated_utc": "2026-11-01T06:10:05.590323+00:00",
+  "native_assertions": 12987,
+  "rows": [
+    {
+      "n": 8,
+      "rel_l2": 0.008474344619204944,
+      "unshifted_l2": 0.021842115930483796,
+      "mean_error": 2.7755575615628914e-17,
+      "energy_ratio": 0.9804320707479057,
+      "analytic_energy_ratio": 0.9952737937154058,
+      "volume": 0.49999999999999994,
+      "ledger": 0.0,
+      "snap": 0.0,
+      "divergence": 3.1086244689504383e-15,
+      "viscous": 1.0,
+      "plic": 1.0
+    },
+    {
+      "n": 10,
+      "rel_l2": 0.006788417410772549,
+      "unshifted_l2": 0.02203615106817033,
+      "mean_error": 2.0816681711721685e-16,
+      "energy_ratio": 0.9832319849812575,
+      "analytic_energy_ratio": 0.9952737937154058,
+      "volume": 0.5000000000000002,
+      "ledger": -2.3314683517128308e-18,
+      "snap": 2.3314683517128293e-18,
+      "divergence": 6.38378239159465e-15,
+      "viscous": 1.0,
+      "plic": 1.0
+    },
+    {
+      "n": 12,
+      "rel_l2": 0.005641643609624058,
+      "unshifted_l2": 0.022138933039594806,
+      "mean_error": 2.220446049250313e-16,
+      "energy_ratio": 0.9851951550830068,
+      "analytic_energy_ratio": 0.9952737937154058,
+      "volume": 0.4999999999999998,
+      "ledger": -7.388637027308636e-18,
+      "snap": 7.388637027308622e-18,
+      "divergence": 9.820269597504705e-15,
+      "viscous": 1.0,
+      "plic": 1.0
+    }
+  ],
+  "checks": [
+    {
+      "name": "real_msvc_build",
+      "value": [
+        "-- Configuring done (0.0s)",
+        "-- Generating done (0.1s)",
+        "-- Build files have been written to: D:/Projekt Engine/Engine Core/UnifiedPhysicsCore/build",
+        "[1/2] Building CXX object CMakeFiles\\upc_p2_abc3d_galilean_tests.dir\\tests\\p2_abc3d_galilean_tests.cpp.obj",
+        "[2/2] Linking CXX executable upc_p2_abc3d_galilean_tests.exe"
+      ],
+      "pass": true
+    },
+    {
+      "name": "full_ctest_109",
+      "value": [
+        "",
+        "100% tests passed, 0 tests failed out of 109",
+        "",
+        "Total Test time (real) =  10.02 sec"
+      ],
+      "pass": true
+    },
+    {
+      "name": "native_success_and_assertions",
+      "value": 12987,
+      "pass": true
+    },
+    {
+      "name": "three_3d_grids",
+      "value": [
+        8,
+        10,
+        12
+      ],
+      "pass": true
+    },
+    {
+      "name": "finite_metrics",
+      "value": null,
+      "pass": true
+    },
+    {
+      "name": "spatial_error_reduction",
+      "value": [
+        0.008474344619204944,
+        0.006788417410772549,
+        0.005641643609624058
+      ],
+      "pass": true
+    },
+    {
+      "name": "actual_advected_analytic_reference",
+      "value": null,
+      "pass": true
+    },
+    {
+      "name": "periodic_mean_momentum",
+      "value": null,
+      "pass": true
+    },
+    {
+      "name": "independent_exact_energy",
+      "value": 0.9952737937154058,
+      "pass": true
+    },
+    {
+      "name": "measured_numerical_dissipation",
+      "value": null,
+      "pass": true
+    },
+    {
+      "name": "passive_vof_volume",
+      "value": null,
+      "pass": true
+    },
+    {
+      "name": "water_ledger_and_roundoff",
+      "value": null,
+      "pass": true
+    },
+    {
+      "name": "pressure_projection",
+      "value": null,
+      "pass": true
+    },
+    {
+      "name": "coupled_native_steps",
+      "value": null,
+      "pass": true
+    },
+    {
+      "name": "native_refinement_record",
+      "value": true,
+      "pass": true
+    },
+    {
+      "name": "source_sha256",
+      "value": 10,
+      "pass": true
+    },
+    {
+      "name": "native_artifact_sha256",
+      "value": 4,
+      "pass": true
+    }
+  ],
+  "source_sha256": {
+    "include/upc/p2_viscous_mac_plic_roundoff_schedule3d.hpp": "7dc877d0fcf9464ed6733b0d6616a0f9047c657cc9d625cb4105e800e610a119",
+    "include/upc/p2_viscous_nonlinear_mac_plic3d.hpp": "5cdac0f80651ee138aa3f4d7936f8990f2c82d978f617fa23c90794d5c4241f8",
+    "include/upc/p2_nonlinear_mac_plic3d.hpp": "0e5a45870efd5e8a4c5893cb1360e5680eee56f18467823979daef3a712c8fd3",
+    "include/upc/p2_plic_strang_periodic3d.hpp": "2e67bf6940f452f2ba7b62d64ea571e9e15574eea96d08e22edebc5550553989",
+    "tests/p2_abc3d_galilean_tests.cpp": "48c738f128c7acc3998a9afb585475e20cc858ec10ac9bf53bbe1ecaf2e4e525",
+    "scripts/p2_abc3d_galilean_build.cmd": "0974b1eb7b4d49f92abae1e2026f254af419bad1b4b6833f589509c794018b1e",
+    "scripts/p2_abc3d_galilean_acceptance.py": "5936f6eceb275c21820cad4f2b920c873f27f32196e3b59e0e659b119f70a168",
+    "docs/P2_ABC3D_GALILEAN_PARTIAL.md": "5d53983a1fd58466d5f0f89310ee5eb50c6a50b979194ae7979efaf59c106fb2",
+    "docs/PHASENPLAN.md": "20dcd7cd5f67a1acba1d9b474edd5f79f4ae1e1cf464822a6c0971488f45b41b",
+    "CMakeLists.txt": "9f15004a1ae1328dfbf6c1cc8497b57bc21320e1f1d6d7b36ac955a2f4db4034"
+  },
+  "artifact_sha256": {
+    "ENGINE TEST STUBE\\runs\\p2_abc3d_galilean_native.txt": "5b86425c6dd9977b7c8ebd730835423d9f779d0707b0f08b8113540d02b1597d",
+    "ENGINE TEST STUBE\\runs\\p2_abc3d_galilean_compile.txt": "a77f28a7a8f8e4f2af909b3c9e27e5093d9288f90f5d910896cf66352c3f95d5",
+    "ENGINE TEST STUBE\\runs\\p2_abc3d_galilean_ctest.txt": "6c4de234436d369c7b1d40c826c901f200e415c1ca993406c463e77af3128221",
+    "Engine Core\\UnifiedPhysicsCore\\build\\upc_p2_abc3d_galilean_tests.exe": "782cd829b8d113d2fe954f2245fa36b52306a7f2399ae01fdcef3771753a7566"
+  },
+  "known_failed_probe": {
+    "grid": "16^3",
+    "observed_error": "Unresolved periodic PLIC interface",
+    "accepted": false,
+    "note": "Observed in exploratory native runs with water slabs and all-water fill; excluded from passing grid set."
+  },
+  "limitations": [
+    "constant-density periodic flow with passive VOF",
+    "16^3 PLIC reconstruction probe failed and remains open",
+    "no stress-consistent free surface or dynamic two-way FSI",
+    "no independent measured CFD benchmark or full energy/momentum closure",
+    "no new Unreal 5.8 native E2E"
+  ]
+}
