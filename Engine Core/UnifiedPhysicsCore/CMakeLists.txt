@@ -576,3 +576,9 @@ add_test(NAME physics_p2_plic_adaptive_subcycle_partial COMMAND upc_p2_plic_adap
 add_executable(upc_p2_plic_temporal_schedule_tests tests/p2_plic_temporal_schedule3d_tests.cpp)
 target_link_libraries(upc_p2_plic_temporal_schedule_tests PRIVATE upc)
 add_test(NAME physics_p2_plic_temporal_schedule_partial COMMAND upc_p2_plic_temporal_schedule_tests)
+
+# P2 partial: variable dt/viscosity 3D ABC-MAC/PLIC with opt-in endpoint
+# roundoff correction and independent interval mass ledger. Not full CFD/FSI.
+add_executable(upc_p2_abc3d_variable_schedule_tests tests/p2_abc3d_variable_schedule_tests.cpp)
+target_link_libraries(upc_p2_abc3d_variable_schedule_tests PRIVATE upc)
+add_test(NAME physics_p2_abc3d_variable_schedule_partial COMMAND upc_p2_abc3d_variable_schedule_tests)

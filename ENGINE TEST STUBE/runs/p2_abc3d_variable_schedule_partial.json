@@ -1,0 +1,230 @@
+{
+  "phase": "P2",
+  "milestone": "variable_dt_nu_abc3d_roundoff_schedule_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "generated_utc": "2026-11-01T04:20:25.833361+00:00",
+  "native_assertions": 6955,
+  "metrics": {
+    "rel_l2": 0.006234805612526325,
+    "max_abs": 0.0005137421388128338,
+    "energy_ratio": 0.9632761148681038,
+    "analytic_energy_ratio": 0.9751273214263714,
+    "volume_m3": 0.2500000000000002,
+    "ledger_m3": -5.426947673759166e-18,
+    "snap_abs_m3": 6.65186764044972e-18,
+    "snap_cells": 88.0,
+    "divergence": 7.229243245698846e-15,
+    "chain_diff": 0.0,
+    "legacy_diff": 0.0,
+    "viscous_substeps": 5.0,
+    "plic_substeps": 5.0
+  },
+  "checks": [
+    {
+      "name": "msvc_compile",
+      "value": "-- Configuring done (0.0s)\n-- Generating done (0.1s)\n-- Build files have been written to: D:/Projekt Engine/Engine Core/UnifiedPhysicsCore/build\nninja: no work to do.",
+      "pass": true
+    },
+    {
+      "name": "ctest_107",
+      "value": [
+        "",
+        "Total Test time (real) =   4.94 sec"
+      ],
+      "pass": true
+    },
+    {
+      "name": "native_pass",
+      "value": true,
+      "pass": true
+    },
+    {
+      "name": "native_assertions",
+      "value": 6955,
+      "pass": true
+    },
+    {
+      "name": "complete_native_metrics",
+      "value": [
+        "analytic_energy_ratio",
+        "chain_diff",
+        "divergence",
+        "energy_ratio",
+        "ledger_m3",
+        "legacy_diff",
+        "max_abs",
+        "plic_substeps",
+        "rel_l2",
+        "snap_abs_m3",
+        "snap_cells",
+        "viscous_substeps",
+        "volume_m3"
+      ],
+      "pass": true
+    },
+    {
+      "name": "finite_rel_l2",
+      "value": 0.006234805612526325,
+      "pass": true
+    },
+    {
+      "name": "finite_max_abs",
+      "value": 0.0005137421388128338,
+      "pass": true
+    },
+    {
+      "name": "finite_energy_ratio",
+      "value": 0.9632761148681038,
+      "pass": true
+    },
+    {
+      "name": "finite_analytic_energy_ratio",
+      "value": 0.9751273214263714,
+      "pass": true
+    },
+    {
+      "name": "finite_volume_m3",
+      "value": 0.2500000000000002,
+      "pass": true
+    },
+    {
+      "name": "finite_ledger_m3",
+      "value": -5.426947673759166e-18,
+      "pass": true
+    },
+    {
+      "name": "finite_snap_abs_m3",
+      "value": 6.65186764044972e-18,
+      "pass": true
+    },
+    {
+      "name": "finite_snap_cells",
+      "value": 88.0,
+      "pass": true
+    },
+    {
+      "name": "finite_divergence",
+      "value": 7.229243245698846e-15,
+      "pass": true
+    },
+    {
+      "name": "finite_chain_diff",
+      "value": 0.0,
+      "pass": true
+    },
+    {
+      "name": "finite_legacy_diff",
+      "value": 0.0,
+      "pass": true
+    },
+    {
+      "name": "finite_viscous_substeps",
+      "value": 5.0,
+      "pass": true
+    },
+    {
+      "name": "finite_plic_substeps",
+      "value": 5.0,
+      "pass": true
+    },
+    {
+      "name": "abc_3d_analytic_l2",
+      "value": 0.006234805612526325,
+      "pass": true
+    },
+    {
+      "name": "abc_3d_max_error",
+      "value": 0.0005137421388128338,
+      "pass": true
+    },
+    {
+      "name": "volume_conserved",
+      "value": 0.2500000000000002,
+      "pass": true
+    },
+    {
+      "name": "snap_aware_mass_ledger",
+      "value": -5.426947673759166e-18,
+      "pass": true
+    },
+    {
+      "name": "endpoint_roundoff_bounded",
+      "value": 6.65186764044972e-18,
+      "pass": true
+    },
+    {
+      "name": "endpoint_snap_exercised",
+      "value": 88.0,
+      "pass": true
+    },
+    {
+      "name": "projected_divergence",
+      "value": 7.229243245698846e-15,
+      "pass": true
+    },
+    {
+      "name": "variable_schedule_composition",
+      "value": 0.0,
+      "pass": true
+    },
+    {
+      "name": "legacy_constant_schedule_compatibility",
+      "value": 0.0,
+      "pass": true
+    },
+    {
+      "name": "actual_viscous_substeps",
+      "value": 5.0,
+      "pass": true
+    },
+    {
+      "name": "actual_plic_substeps",
+      "value": 5.0,
+      "pass": true
+    },
+    {
+      "name": "independent_abc_energy_reference",
+      "value": 0.9751273214263714,
+      "pass": true
+    },
+    {
+      "name": "numerical_energy_dissipation",
+      "value": 0.9632761148681038,
+      "pass": true
+    },
+    {
+      "name": "ten_source_fingerprints",
+      "value": 10,
+      "pass": true
+    },
+    {
+      "name": "native_binary_present",
+      "value": 110592,
+      "pass": true
+    }
+  ],
+  "source_sha256": {
+    "include/upc/p2_viscous_mac_plic_roundoff_schedule3d.hpp": "7dc877d0fcf9464ed6733b0d6616a0f9047c657cc9d625cb4105e800e610a119",
+    "include/upc/p2_viscous_mac_plic_roundoff_sequence3d.hpp": "abab331edc64395a7f60e7cc8173128a2e2e2aeef7b57a9ed2ebd2d8cfb21b25",
+    "include/upc/p2_viscous_nonlinear_mac_plic3d.hpp": "5cdac0f80651ee138aa3f4d7936f8990f2c82d978f617fa23c90794d5c4241f8",
+    "include/upc/p2_nonlinear_mac_plic3d.hpp": "0e5a45870efd5e8a4c5893cb1360e5680eee56f18467823979daef3a712c8fd3",
+    "tests/p2_abc3d_variable_schedule_tests.cpp": "257601c4f29bdc8c1ecf3d6cc403458773ed9313b76d2ab0e30132f5bfc964e3",
+    "scripts/p2_abc3d_variable_schedule_build.cmd": "21352b63f84ae87fbf2b2e539af4bf34d5272304ce7ed22ea70faa1a8a3798ac",
+    "scripts/p2_abc3d_variable_schedule_acceptance.py": "edf739d12dabf9600e24440e78e33f73dfdaa9fecfc6e81befd936a9c1a76bf3",
+    "docs/P2_ABC3D_VARIABLE_SCHEDULE_PARTIAL.md": "0f9966e67200d44c15f047a101d880be69f0ad4e43321546b5790c8e98762de4",
+    "docs/PHASENPLAN.md": "22c2ab8c68fa00c66f41b5b69bbd421a09496289a08900b5584449a7ceefe3fb",
+    "CMakeLists.txt": "58ad9894bd07a5fd9678233805f39737b0fb0408f0703dfd045a49140fd7331b"
+  },
+  "native_binary_sha256": "731b41eeab09c8d1f2b299470090d086861e654db44c112547d1dc9f8808ea9a",
+  "native_log_sha256": "a7c902ec9a7ec1460cae7f23ebbc459637f571c39f08ba8ac1c194d7a2674d67",
+  "compile_log_sha256": "4d1b17e8941e704b572b45f9f23a52965ef71c2d45c3e42a85292586dfba113a",
+  "ctest_log_sha256": "5de5aeca869d8b2a7bd9098752855e08d5ef61391bcd5911452592788c7978a9",
+  "limitations": [
+    "Analytic ABC reference, not independent measured 3D CFD",
+    "Periodic constant-density model with passive VOF, not stress-consistent two-phase flow",
+    "No dynamic two-way solid-fluid FSI or global physical energy conservation",
+    "No UE5.8 Native-E2E of this new adapter",
+    "P2-P8 remain incomplete"
+  ]
+}

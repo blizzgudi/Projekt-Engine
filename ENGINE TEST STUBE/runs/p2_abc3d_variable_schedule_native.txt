@@ -1,0 +1,2 @@
+ABC_VARIABLE rel_l2=0.0062348056125263252 max_abs=0.00051374213881283382 energy_ratio=0.96327611486810383 analytic_energy_ratio=0.97512732142637137 volume_m3=0.25000000000000022 ledger_m3=-5.426947673759166e-18 snap_abs_m3=6.6518676404497197e-18 snap_cells=88 divergence=7.2292432456988465e-15 chain_diff=0 legacy_diff=0 viscous_substeps=5 plic_substeps=5
+PASS ABC_VARIABLE assertions=6955 phase_complete=false
