@@ -1,0 +1,3 @@
+P2_MARIN_PRESSURE_SENSOR_GRID dx_m=0.1 probes=8 wet=8
+P2_MARIN_PRESSURE_SENSOR_GRID dx_m=0.05 probes=8 wet=8
+PASS P2_MARIN_PRESSURE_SENSORS assertions=184 phase_complete=false

@@ -620,3 +620,10 @@ add_test(NAME physics_p2_plic_endpoint_substep_partial COMMAND upc_p2_plic_subst
 add_executable(upc_p2_vof_throughflow_tests tests/p2_vof_throughflow3d_tests.cpp)
 target_link_libraries(upc_p2_vof_throughflow_tests PRIVATE upc)
 add_test(NAME physics_p2_vof_throughflow_partial COMMAND upc_p2_vof_throughflow_tests)
+
+
+# P2 PARTIAL: map real pressure readback to the eight SPHERIC/MARIN
+# experimental sensor coordinates; not pressure-trace validation.
+add_executable(upc_p2_marin_pressure_sensors3d_tests tests/p2_marin_pressure_sensors3d_tests.cpp)
+target_link_libraries(upc_p2_marin_pressure_sensors3d_tests PRIVATE upc)
+add_test(NAME physics_p2_marin_pressure_sensors_partial COMMAND upc_p2_marin_pressure_sensors3d_tests)

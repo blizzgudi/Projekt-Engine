@@ -1,0 +1,196 @@
+{
+  "phase": "P2",
+  "milestone": "independent_marin_eight_native_pressure_trace_comparison",
+  "native_8_pressure_traces_executed": true,
+  "native_8_pressure_traces_fine_executed": true,
+  "fine_versus_coarse_rmse_improved": {
+    "P1_Pa": false,
+    "P2_Pa": false,
+    "P3_Pa": false,
+    "P4_Pa": false,
+    "P5_Pa": false,
+    "P6_Pa": false,
+    "P7_Pa": false,
+    "P8_Pa": false
+  },
+  "official_measurement_channels": [
+    "P1_Pa",
+    "P2_Pa",
+    "P3_Pa",
+    "P4_Pa",
+    "P5_Pa",
+    "P6_Pa",
+    "P7_Pa",
+    "P8_Pa"
+  ],
+  "physical_pressure_validation": false,
+  "stress_consistent_wall_pressure": false,
+  "full_3d_fluid_pressure_abnahme": false,
+  "phase_complete": false,
+  "source_sha256": {
+    "native": "5a9da59cfb88510fb68216aec323aae681877035d52032b24daabe1442a1a7d1",
+    "native_fine": "451b4a35ad6238b726cdebf8ed254defc49496a679d53ed56404fbed19e1a71e",
+    "experimental_csv": "199232979781aa02a26ad663515c0d8e7fc02640ef648daf92e4c6a4998c84cb",
+    "source_header": "7ca4ae9abee08e223892686b97c66da5d16ecf67b3263a74b702b869848c6bb1",
+    "native_benchmark": "8e8b2b485556ca44c459169dd1446624e8d0cffab278d8bc0742d4bb180cf8af"
+  },
+  "native_time_samples": 201,
+  "fine_native_time_samples": 201,
+  "end_time_s": 2.0,
+  "wet_sensor_count_final": 8,
+  "sensor_aliases_from_unresolved_coarse_grid": {
+    "P1_P2": true,
+    "P6_P7": true
+  },
+  "sensor_aliases_from_unresolved_fine_grid": {
+    "P3_P4": true
+  },
+  "metrics_pa": {
+    "P1_Pa": {
+      "rmse_pa": 5645.8061922341785,
+      "mae_pa": 4450.40911260458,
+      "signed_bias_pa": 4222.004630579412,
+      "max_absolute_error_pa": 23477.751387229495,
+      "measured_peak_abs_pa": 9770.985728745634,
+      "native_peak_abs_pa": 26341.87807962399,
+      "sample_count": 200
+    },
+    "P2_Pa": {
+      "rmse_pa": 6024.627796533631,
+      "mae_pa": 4789.176813618077,
+      "signed_bias_pa": 4706.209896483739,
+      "max_absolute_error_pa": 23762.519673797382,
+      "measured_peak_abs_pa": 7767.489705362086,
+      "native_peak_abs_pa": 26341.87807962399,
+      "sample_count": 200
+    },
+    "P3_Pa": {
+      "rmse_pa": 5053.202196891525,
+      "mae_pa": 3814.0959371531358,
+      "signed_bias_pa": 3689.0814122910915,
+      "max_absolute_error_pa": 21348.95264018428,
+      "measured_peak_abs_pa": 6492.069752928332,
+      "native_peak_abs_pa": 24614.60349155962,
+      "sample_count": 200
+    },
+    "P4_Pa": {
+      "rmse_pa": 5273.517990897564,
+      "mae_pa": 4065.140068809267,
+      "signed_bias_pa": 3968.956838485745,
+      "max_absolute_error_pa": 21823.925291546235,
+      "measured_peak_abs_pa": 6946.770153793551,
+      "native_peak_abs_pa": 24614.60349155962,
+      "sample_count": 200
+    },
+    "P5_Pa": {
+      "rmse_pa": 5253.866081409914,
+      "mae_pa": 4291.008917979702,
+      "signed_bias_pa": 4289.935359001128,
+      "max_absolute_error_pa": 22135.529134642304,
+      "measured_peak_abs_pa": 1944.7361370815133,
+      "native_peak_abs_pa": 22156.8402820904,
+      "sample_count": 200
+    },
+    "P6_Pa": {
+      "rmse_pa": 5344.682756760964,
+      "mae_pa": 4138.436462822445,
+      "signed_bias_pa": 4135.81306206881,
+      "max_absolute_error_pa": 23555.993985013545,
+      "measured_peak_abs_pa": 1855.1592006165972,
+      "native_peak_abs_pa": 23570.832976009275,
+      "sample_count": 200
+    },
+    "P7_Pa": {
+      "rmse_pa": 5316.833010399827,
+      "mae_pa": 4111.198353906692,
+      "signed_bias_pa": 4108.09477938497,
+      "max_absolute_error_pa": 23546.89415289024,
+      "measured_peak_abs_pa": 2023.9211339240285,
+      "native_peak_abs_pa": 23570.832976009275,
+      "sample_count": 200
+    },
+    "P8_Pa": {
+      "rmse_pa": 5736.477873681339,
+      "mae_pa": 4297.530798648708,
+      "signed_bias_pa": 4295.04275709611,
+      "max_absolute_error_pa": 31648.259067571693,
+      "measured_peak_abs_pa": 2081.8885031302484,
+      "native_peak_abs_pa": 31673.207670643973,
+      "sample_count": 200
+    }
+  },
+  "fine_metrics_pa": {
+    "P1_Pa": {
+      "rmse_pa": 18178.382248188853,
+      "mae_pa": 6693.017016036309,
+      "signed_bias_pa": 6476.310155449855,
+      "max_absolute_error_pa": 196851.20795248708,
+      "native_peak_abs_pa": 199918.3969379017,
+      "sample_count": 200
+    },
+    "P2_Pa": {
+      "rmse_pa": 18691.12185043524,
+      "mae_pa": 6731.422429223054,
+      "signed_bias_pa": 6588.330177467866,
+      "max_absolute_error_pa": 194679.3701988979,
+      "native_peak_abs_pa": 197168.88567027106,
+      "sample_count": 200
+    },
+    "P3_Pa": {
+      "rmse_pa": 20274.161148058076,
+      "mae_pa": 6557.634738855088,
+      "signed_bias_pa": 6400.56581279216,
+      "max_absolute_error_pa": 189982.47053244282,
+      "native_peak_abs_pa": 192138.69624287466,
+      "sample_count": 200
+    },
+    "P4_Pa": {
+      "rmse_pa": 20342.488762767134,
+      "mae_pa": 6776.342232509604,
+      "signed_bias_pa": 6680.441238986812,
+      "max_absolute_error_pa": 190228.7905289619,
+      "native_peak_abs_pa": 192138.69624287466,
+      "sample_count": 200
+    },
+    "P5_Pa": {
+      "rmse_pa": 26373.072795708416,
+      "mae_pa": 7771.721407902845,
+      "signed_bias_pa": 7770.5838489242715,
+      "max_absolute_error_pa": 293784.7090180086,
+      "native_peak_abs_pa": 293799.33431520034,
+      "sample_count": 200
+    },
+    "P6_Pa": {
+      "rmse_pa": 16060.173057599388,
+      "mae_pa": 5955.710995807707,
+      "signed_bias_pa": 5949.71736638041,
+      "max_absolute_error_pa": 180502.49439934903,
+      "native_peak_abs_pa": 182176.91666714338,
+      "sample_count": 200
+    },
+    "P7_Pa": {
+      "rmse_pa": 16107.896162148494,
+      "mae_pa": 6037.347351689607,
+      "signed_bias_pa": 6033.182384102751,
+      "max_absolute_error_pa": 180739.7616629171,
+      "native_peak_abs_pa": 182491.84595292035,
+      "sample_count": 200
+    },
+    "P8_Pa": {
+      "rmse_pa": 16356.354663993174,
+      "mae_pa": 6153.487444451105,
+      "signed_bias_pa": 6150.642649936306,
+      "max_absolute_error_pa": 183494.86512575598,
+      "native_peak_abs_pa": 185193.97066505218,
+      "sample_count": 200
+    }
+  },
+  "known_deficiencies": [
+    "box transducer pressure sampled from first liquid-side MAC cell centre, not wall traction",
+    "coarse grid aliases P1-P2 and P6-P7; fine grid aliases P3-P4, so still not eight independent transducers",
+    "2s comparison, external 6s requirement not met",
+    "no calibrated pressure impulse/peak timing or two-way solid coupling",
+    "3D free-surface stress and global energy/momentum closure not validated"
+  ],
+  "generated_utc": "2026-11-01T10:08:39.434691+00:00"
+}

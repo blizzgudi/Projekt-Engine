@@ -1,0 +1,71 @@
+{
+  "phase": "P2",
+  "milestone": "two_native_3d_grids_independent_measured_8_pressure_channels",
+  "partial_accepted": true,
+  "physical_pressure_validated": false,
+  "phase_complete": false,
+  "all_phases_complete": false,
+  "native_assertions": 184,
+  "regression_tests": 11,
+  "ctest_suites": 114,
+  "checks": {
+    "native_grid_mapping_8_gauges_184_assertions": true,
+    "eleven_data_integrity_and_negative_regressions": true,
+    "both_200step_real_pressure_traces": true,
+    "8_measured_pressure_channels_compared_on_both_grids": true,
+    "all_pressures_reproduce_rejected_physics": true,
+    "P2_phase_status_remains_unapproved": true,
+    "sensor_aliases_not_silently_hidden": true,
+    "full_native_ctest_114_suite_run": true
+  },
+  "coarse_pressure_rmse_pa": {
+    "P1_Pa": 5645.8061922341785,
+    "P2_Pa": 6024.627796533631,
+    "P3_Pa": 5053.202196891525,
+    "P4_Pa": 5273.517990897564,
+    "P5_Pa": 5253.866081409914,
+    "P6_Pa": 5344.682756760964,
+    "P7_Pa": 5316.833010399827,
+    "P8_Pa": 5736.477873681339
+  },
+  "fine_pressure_rmse_pa": {
+    "P1_Pa": 18178.382248188853,
+    "P2_Pa": 18691.12185043524,
+    "P3_Pa": 20274.161148058076,
+    "P4_Pa": 20342.488762767134,
+    "P5_Pa": 26373.072795708416,
+    "P6_Pa": 16060.173057599388,
+    "P7_Pa": 16107.896162148494,
+    "P8_Pa": 16356.354663993174
+  },
+  "sources_sha256": {
+    "benchmarks/p2_marin_dambreak_heights.cpp": "8e8b2b485556ca44c459169dd1446624e8d0cffab278d8bc0742d4bb180cf8af",
+    "include/upc/p2_marin_pressure_sensors3d.hpp": "7ca4ae9abee08e223892686b97c66da5d16ecf67b3263a74b702b869848c6bb1",
+    "tests/p2_marin_pressure_sensors3d_tests.cpp": "305d6707668c0645c55949bc28a519a1dfcf38a8b0ac0add7bd60b4e0619fb81",
+    "scripts/p2_marin_pressure_compare.py": "46d3966f0c189a2e49195b6e05800ba98a3d354ada58e5372f636bdb6fa3db29",
+    "tests/p2_marin_pressure_compare_regression.py": "fbf4759f7ecf7aac5ce0c03979ab26229d6987816d13d9c71c54e904490e4fb8",
+    "scripts/p2_marin_pressure_partial_acceptance.py": "d65c65f80ab700303b6b3c919a8da1468459a631fa268fe4ed4b177fdf9eaaa1",
+    "docs/P2_MARIN_3D_PRESSURE_SENSORS_PARTIAL.md": "20386fe8057b81068493b69c1e35d509c1fadd284a8924f9bc9c05e397239a8a",
+    "CMakeLists.txt": "1a45dcab0965985e4dd19d6ac8e5bd8cb4acaf075d6b33a30f1c8fdccb0fdb48",
+    "scripts/p2_marin_pressure_build.cmd": "15c39efc9f4eab37027158c976f9e21ea82c689da6716aaea7d03d1c73d593da"
+  },
+  "artifacts_sha256": {
+    "native_coarse": "5a9da59cfb88510fb68216aec323aae681877035d52032b24daabe1442a1a7d1",
+    "native_fine": "451b4a35ad6238b726cdebf8ed254defc49496a679d53ed56404fbed19e1a71e",
+    "comparison": "7580d71cde391eea8296715fe0ce1a19ad155371e1276d889ef75f98886fce3d",
+    "unit_log": "7d6aee3601c8a356c9c89dcbda916107f29d21cedbdffb92611511865f75f21b",
+    "regressions": "18e3f9375033b4516482df7f86f19141640a7061046d8cf8f46959a76b3d9492",
+    "ctest": "d83e7998a87f1810f53e8b8e531b77db06a3d22a355dee8dfedd67205a215eff",
+    "native_build_log": "1ff4bb7176736345ee97e46948c5a3298fd5ada68f9c39cf184bcc38c3ee2ea1",
+    "cmake_compile_log": "f9d69cdf12bc9c188f0119dee80458534a5ee675de9aa7aac0de3a9daa445872"
+  },
+  "native_binary_sha256": "47a14bdad61d571932290b8ec96bcca293490117a100991f2a355872c8aaae02",
+  "unit_binary_sha256": "d684ac98b841b1ecd2a702bf816425c474507faa86ce6159e6073cc708ac7a33",
+  "blockers": [
+    "Native pressure probes sample fluid-side cell-centre, not wall transducers",
+    "Both 3D grids alias independent physical pressure sensor positions",
+    "All 8 sensor RMSE worsen at finer resolution, no pressure convergence",
+    "Full 6s experiment, free-surface stress, dynamic two-way FSI unvalidated"
+  ],
+  "generated_utc": "2026-11-01T10:08:39.490226+00:00"
+}

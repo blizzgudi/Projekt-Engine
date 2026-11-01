@@ -2,6 +2,7 @@
 // existing CoupledMacWater3D. Outputs signals for measured-data comparison.
 // A successful numerical run DOES NOT mean experimental validation.
 #include "upc/coupled_water3d.hpp"
+#include "upc/p2_marin_pressure_sensors3d.hpp"
 #include <algorithm>
 #include <array>
 #include <cmath>
@@ -28,14 +29,22 @@ double gauge_height(const upc::CoupledMacWater3D& w,double x_m,double y_m) {
 int main(int argc,char** argv){
     try {
         const bool finer_grid=argc>=4 && std::string(argv[3])=="fine";
-        const bool dense=(argc==4 && std::string(argv[3])=="dense") ||
-                         (argc==5 && std::string(argv[4])=="dense");
+        const bool dense=(argc>=4 && std::string(argv[3])=="dense") ||
+                         (argc>=5 && std::string(argv[4])=="dense");
+        const bool pressure_probes=
+            (argc==5 && std::string(argv[3])=="dense" &&
+             std::string(argv[4])=="pressure") ||
+            (argc==6 && std::string(argv[3])=="fine" &&
+             std::string(argv[4])=="dense" &&
+             std::string(argv[5])=="pressure");
         const double dx=finer_grid?0.05:0.1;
         const std::size_t nx=finer_grid?64:32,ny=finer_grid?20:10,nz=finer_grid?20:10;
         const int steps=argc>=2?std::stoi(argv[1]):40;
         const bool throughflow=argc>=3 && std::string(argv[2])=="throughflow";
-        if(argc>5||(argc>=3&&!throughflow)||
-           (argc>=4&&!finer_grid&&!dense)||(argc==5&&(!finer_grid||!dense)))
+        if(argc>6||(argc>=3&&!throughflow)||
+           (argc>=4&&!finer_grid&&!dense)||
+           (argc==5 && !pressure_probes && (!finer_grid||!dense))||
+           (argc==6 && !pressure_probes))
             throw std::invalid_argument("Unknown benchmark transport mode");
         if(steps<1||steps>300)
             throw std::invalid_argument("Invalid benchmark step budget");
@@ -73,14 +82,26 @@ int main(int argc,char** argv){
                  <<" target_full_extent_x_m=3.22 represented_extent_x_m="
                  <<nx*dx<<" obstacle_x_m=[0.6635,0.8245] obstacle_y_m=[0.295,0.698]"
                  <<" obstacle_z_m=[0,0.161] probe_x_m=[0.496,0.992,1.488,2.632]"
-                 <<" pressure_sensors_NOT_simulated=true\n";
+                 <<" pressure_sensors_NOT_simulated="<<(pressure_probes?"false":"true")
+                 <<" pressure_proxy_only="<<(pressure_probes?"true":"none")<<"\n";
         std::cout<<"time_s,H1_m,H2_m,H3_m,H4_m,water_volume_m3,"
-                   "max_projection_divergence_s_inv\n";
+                   "max_projection_divergence_s_inv";
+        if(pressure_probes)
+            std::cout<<",P1_Pa,P2_Pa,P3_Pa,P4_Pa,P5_Pa,P6_Pa,P7_Pa,P8_Pa,"
+                         "pressure_probe_wet_count";
+        std::cout<<"\n";
         const auto emit=[&](double t) {
             std::cout<<t;
             for(double x:x_probe)std::cout<<","<<gauge_height(w,x,.5);
             std::cout<<","<<w.volume_m3()<<","
-                     <<w.last_projection_divergence()<<"\n";
+                     <<w.last_projection_divergence();
+            if(pressure_probes) {
+                const auto sensor=upc::P2MarinPressureSensors3D::sample(w);
+                for(const auto& p:sensor.probes)
+                    std::cout<<","<<p.pressure_pa;
+                std::cout<<","<<sensor.wet_count;
+            }
+            std::cout<<"\n";
         };
         emit(0);
         for(int i=1;i<=steps;++i) {
