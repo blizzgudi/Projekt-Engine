@@ -1,0 +1,200 @@
+{
+  "phase": "P2",
+  "milestone": "abc3d_temporal_self_convergence_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "generated_utc": "2026-11-01T05:20:04.354612+00:00",
+  "native_assertions": 20772,
+  "metrics": {
+    "coarse_l2": 0.006234805612526325,
+    "medium_l2": 0.006223253314750065,
+    "fine_l2": 0.006217497433489069,
+    "diff_5_10": 5.0491469690629016e-05,
+    "diff_10_20": 2.499352639791105e-05,
+    "self_ratio": 2.0201819017763367,
+    "coarse_energy": 0.9632761148681038,
+    "medium_energy": 0.9632958699170177,
+    "fine_energy": 0.963305736582716,
+    "analytic_energy": 0.9751273214263714,
+    "coarse_volume": 0.2500000000000002,
+    "fine_volume": 0.2500000000000002,
+    "fine_divergence": 3.009880756091321e-15,
+    "fine_ledger": -2.0407383462664562e-18,
+    "fine_snap": 1.749096301287981e-17,
+    "fine_viscous": 20.0,
+    "fine_plic": 20.0
+  },
+  "checks": [
+    {
+      "name": "msvc_release_build",
+      "value": [
+        "-- Configuring done (0.0s)",
+        "-- Generating done (0.1s)",
+        "-- Build files have been written to: D:/Projekt Engine/Engine Core/UnifiedPhysicsCore/build",
+        "[1/2] Building CXX object CMakeFiles\\upc_p2_abc3d_temporal_convergence_tests.dir\\tests\\p2_abc3d_temporal_convergence_tests.cpp.obj",
+        "[2/2] Linking CXX executable upc_p2_abc3d_temporal_convergence_tests.exe"
+      ],
+      "pass": true
+    },
+    {
+      "name": "ctest_108",
+      "value": [
+        "",
+        "100% tests passed, 0 tests failed out of 108",
+        "",
+        "Total Test time (real) =   5.87 sec"
+      ],
+      "pass": true
+    },
+    {
+      "name": "native_pass",
+      "value": true,
+      "pass": true
+    },
+    {
+      "name": "native_assertions",
+      "value": 20772,
+      "pass": true
+    },
+    {
+      "name": "complete_metrics",
+      "value": [
+        "analytic_energy",
+        "coarse_energy",
+        "coarse_l2",
+        "coarse_volume",
+        "diff_10_20",
+        "diff_5_10",
+        "fine_divergence",
+        "fine_energy",
+        "fine_l2",
+        "fine_ledger",
+        "fine_plic",
+        "fine_snap",
+        "fine_viscous",
+        "fine_volume",
+        "medium_energy",
+        "medium_l2",
+        "self_ratio"
+      ],
+      "pass": true
+    },
+    {
+      "name": "all_finite",
+      "value": true,
+      "pass": true
+    },
+    {
+      "name": "analytic_l2_bounded",
+      "value": [
+        0.006234805612526325,
+        0.006223253314750065,
+        0.006217497433489069
+      ],
+      "pass": true
+    },
+    {
+      "name": "measured_temporal_self_ratio",
+      "value": 2.0201819017763367,
+      "pass": true
+    },
+    {
+      "name": "pairwise_difference",
+      "value": [
+        5.0491469690629016e-05,
+        2.499352639791105e-05
+      ],
+      "pass": true
+    },
+    {
+      "name": "self_ratio_consistent",
+      "value": 2.0201819017763367,
+      "pass": true
+    },
+    {
+      "name": "independent_analytic_energy",
+      "value": 0.9751273214263714,
+      "pass": true
+    },
+    {
+      "name": "numerical_energy_decay",
+      "value": [
+        0.9632761148681038,
+        0.9632958699170177,
+        0.963305736582716
+      ],
+      "pass": true
+    },
+    {
+      "name": "energy_refinement",
+      "value": null,
+      "pass": true
+    },
+    {
+      "name": "water_volume",
+      "value": [
+        0.2500000000000002,
+        0.2500000000000002
+      ],
+      "pass": true
+    },
+    {
+      "name": "water_ledger",
+      "value": -2.0407383462664562e-18,
+      "pass": true
+    },
+    {
+      "name": "roundoff_only",
+      "value": 1.749096301287981e-17,
+      "pass": true
+    },
+    {
+      "name": "divergence",
+      "value": 3.009880756091321e-15,
+      "pass": true
+    },
+    {
+      "name": "20_viscous_and_plic_steps",
+      "value": [
+        20.0,
+        20.0
+      ],
+      "pass": true
+    },
+    {
+      "name": "source_fingerprints",
+      "value": 10,
+      "pass": true
+    },
+    {
+      "name": "native_binary_log_hashes",
+      "value": 4,
+      "pass": true
+    }
+  ],
+  "source_sha256": {
+    "include/upc/p2_viscous_mac_plic_roundoff_schedule3d.hpp": "7dc877d0fcf9464ed6733b0d6616a0f9047c657cc9d625cb4105e800e610a119",
+    "include/upc/p2_viscous_mac_plic_roundoff_sequence3d.hpp": "abab331edc64395a7f60e7cc8173128a2e2e2aeef7b57a9ed2ebd2d8cfb21b25",
+    "include/upc/p2_viscous_nonlinear_mac_plic3d.hpp": "5cdac0f80651ee138aa3f4d7936f8990f2c82d978f617fa23c90794d5c4241f8",
+    "include/upc/p2_nonlinear_mac_plic3d.hpp": "0e5a45870efd5e8a4c5893cb1360e5680eee56f18467823979daef3a712c8fd3",
+    "tests/p2_abc3d_temporal_convergence_tests.cpp": "8954bff3d06036b326862601dd92f2e070b03dd488baf8ead95c3894c7ffc828",
+    "scripts/p2_abc3d_temporal_build.cmd": "b2fb5136aacdd08804372fa7d0835196c185acb7db87f4b6576d40b419dde206",
+    "scripts/p2_abc3d_temporal_acceptance.py": "e4347fa5cb51067116ed3d242bab83094bc26c78bf61aec5471869ee17fd2276",
+    "docs/P2_ABC3D_TEMPORAL_CONVERGENCE_PARTIAL.md": "9b3a39b61adfd8c94afda96e0d0eaa859b7badfa1050e1d903b0d1c43d65b4d7",
+    "docs/PHASENPLAN.md": "3a7c3e6b425892d47aa42c687ce2e90f3373310bc1f1edb785e416bf74ad243e",
+    "CMakeLists.txt": "83589b2878ff594b0b268e2afe35b6809dafe88b5d5adc2787cccf321187cbf3"
+  },
+  "artifact_sha256": {
+    "ENGINE TEST STUBE\\runs\\p2_abc3d_temporal_native.txt": "5213bb6dc84a884ecaa24ed1736612c7dd9d8493873758e888a94d837f9bcd4d",
+    "ENGINE TEST STUBE\\runs\\p2_abc3d_temporal_compile.txt": "8e7c89e1b978e06cb5b50d4509e8835311fe0cf047dbcd9f915b478c23849326",
+    "ENGINE TEST STUBE\\runs\\p2_abc3d_temporal_ctest.txt": "aa1f1d7791272f9d92135edcb8849cf5ab9c975e051477b3958c49afe4d557b5",
+    "Engine Core\\UnifiedPhysicsCore\\build\\upc_p2_abc3d_temporal_convergence_tests.exe": "853d604403282bdb0e50bfb4527238bc149149a24e3e5438b31c0fd04bad134b"
+  },
+  "limitations": [
+    "fixed 12^3 grid: spatial error remains nonzero",
+    "self-convergence is not external measured CFD validation",
+    "constant-density passive VOF, periodic boundaries",
+    "no stress-consistent free surface or dynamic two-way FSI",
+    "no global physical energy/momentum or UE5.8 native E2E"
+  ]
+}

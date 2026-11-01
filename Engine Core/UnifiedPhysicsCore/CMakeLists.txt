@@ -582,3 +582,9 @@ add_test(NAME physics_p2_plic_temporal_schedule_partial COMMAND upc_p2_plic_temp
 add_executable(upc_p2_abc3d_variable_schedule_tests tests/p2_abc3d_variable_schedule_tests.cpp)
 target_link_libraries(upc_p2_abc3d_variable_schedule_tests PRIVATE upc)
 add_test(NAME physics_p2_abc3d_variable_schedule_partial COMMAND upc_p2_abc3d_variable_schedule_tests)
+
+# P2 partial: independent analytic ABC3D time-refinement and self-convergence.
+# Full two-phase CFD, moving FSI and measured reference acceptance remain open.
+add_executable(upc_p2_abc3d_temporal_convergence_tests tests/p2_abc3d_temporal_convergence_tests.cpp)
+target_link_libraries(upc_p2_abc3d_temporal_convergence_tests PRIVATE upc)
+add_test(NAME physics_p2_abc3d_temporal_convergence_partial COMMAND upc_p2_abc3d_temporal_convergence_tests)
