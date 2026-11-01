@@ -1,0 +1,226 @@
+{
+  "phase": "P2",
+  "milestone": "exact_3d_abc_viscous_navier_stokes_single_step",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "generated_utc": "2026-11-01T02:09:52.991221+00:00",
+  "native_assertions": 25366,
+  "checks": [
+    {
+      "name": "native_assertions",
+      "value": 25366,
+      "pass": true
+    },
+    {
+      "name": "native_no_failure",
+      "value": true,
+      "pass": true
+    },
+    {
+      "name": "compiled",
+      "value": true,
+      "pass": true
+    },
+    {
+      "name": "ctest_106",
+      "value": "Total Test time (real) =   4.58 sec",
+      "pass": true
+    },
+    {
+      "name": "three_resolutions",
+      "value": [
+        8,
+        12,
+        16
+      ],
+      "pass": true
+    },
+    {
+      "name": "abc_8_relative_l2",
+      "value": 0.0017705653502653159,
+      "pass": true
+    },
+    {
+      "name": "abc_8_max_abs",
+      "value": 0.0001500500184826864,
+      "pass": true
+    },
+    {
+      "name": "abc_8_projected_divergence",
+      "value": 3.9968028886505635e-15,
+      "pass": true
+    },
+    {
+      "name": "abc_8_water_mass",
+      "value": 1.3877787807814457e-16,
+      "pass": true
+    },
+    {
+      "name": "abc_8_energy_decay",
+      "value": 0.9918391192248028,
+      "pass": true
+    },
+    {
+      "name": "abc_8_independent_analytic_decay",
+      "value": 0.9952737937154058,
+      "pass": true
+    },
+    {
+      "name": "abc_8_energy_error_documented",
+      "value": -0.0034346744906029736,
+      "pass": true
+    },
+    {
+      "name": "abc_12_relative_l2",
+      "value": 0.0012642451328333383,
+      "pass": true
+    },
+    {
+      "name": "abc_12_max_abs",
+      "value": 0.00010574081386538481,
+      "pass": true
+    },
+    {
+      "name": "abc_12_projected_divergence",
+      "value": 6.819252194173453e-15,
+      "pass": true
+    },
+    {
+      "name": "abc_12_water_mass",
+      "value": 5.551115123125783e-17,
+      "pass": true
+    },
+    {
+      "name": "abc_12_energy_decay",
+      "value": 0.9928189620181262,
+      "pass": true
+    },
+    {
+      "name": "abc_12_independent_analytic_decay",
+      "value": 0.9952737937154058,
+      "pass": true
+    },
+    {
+      "name": "abc_12_energy_error_documented",
+      "value": -0.002454831697279558,
+      "pass": true
+    },
+    {
+      "name": "abc_16_relative_l2",
+      "value": 0.0009737995049469955,
+      "pass": true
+    },
+    {
+      "name": "abc_16_max_abs",
+      "value": 8.259672722886469e-05,
+      "pass": true
+    },
+    {
+      "name": "abc_16_projected_divergence",
+      "value": 8.881784197001252e-16,
+      "pass": true
+    },
+    {
+      "name": "abc_16_water_mass",
+      "value": 2.7755575615628914e-17,
+      "pass": true
+    },
+    {
+      "name": "abc_16_energy_decay",
+      "value": 0.9933817816093758,
+      "pass": true
+    },
+    {
+      "name": "abc_16_independent_analytic_decay",
+      "value": 0.9952737937154058,
+      "pass": true
+    },
+    {
+      "name": "abc_16_energy_error_documented",
+      "value": -0.001892012106029961,
+      "pass": true
+    },
+    {
+      "name": "refinement_row",
+      "value": 1,
+      "pass": true
+    },
+    {
+      "name": "refinement_0",
+      "value": 1.4004921231511867,
+      "pass": true
+    },
+    {
+      "name": "refinement_1",
+      "value": 1.2982601925867194,
+      "pass": true
+    },
+    {
+      "name": "observed_order_8_12",
+      "value": 0.8307094362863361,
+      "pass": true
+    },
+    {
+      "name": "observed_order_12_16",
+      "value": 0.9073386203974413,
+      "pass": true
+    },
+    {
+      "name": "ten_source_fingerprints",
+      "value": 10,
+      "pass": true
+    }
+  ],
+  "reference": [
+    {
+      "n": 8,
+      "rel_l2": 0.0017705653502653159,
+      "max_abs_m_s": 0.0001500500184826864,
+      "divergence_s_inv": 3.9968028886505635e-15,
+      "mass_residual_m3": 1.3877787807814457e-16,
+      "energy_ratio": 0.9918391192248028,
+      "analytic_energy_ratio": 0.9952737937154058
+    },
+    {
+      "n": 12,
+      "rel_l2": 0.0012642451328333383,
+      "max_abs_m_s": 0.00010574081386538481,
+      "divergence_s_inv": 6.819252194173453e-15,
+      "mass_residual_m3": 5.551115123125783e-17,
+      "energy_ratio": 0.9928189620181262,
+      "analytic_energy_ratio": 0.9952737937154058
+    },
+    {
+      "n": 16,
+      "rel_l2": 0.0009737995049469955,
+      "max_abs_m_s": 8.259672722886469e-05,
+      "divergence_s_inv": 8.881784197001252e-16,
+      "mass_residual_m3": 2.7755575615628914e-17,
+      "energy_ratio": 0.9933817816093758,
+      "analytic_energy_ratio": 0.9952737937154058
+    }
+  ],
+  "source_sha256": {
+    "include/upc/p2_viscous_nonlinear_mac_plic3d.hpp": "5cdac0f80651ee138aa3f4d7936f8990f2c82d978f617fa23c90794d5c4241f8",
+    "include/upc/p2_nonlinear_mac_plic3d.hpp": "0e5a45870efd5e8a4c5893cb1360e5680eee56f18467823979daef3a712c8fd3",
+    "include/upc/p2_periodic_mac_projection3d.hpp": "58073fb6a98ea88fe9f81e6dabb0c3d132f283e9346d1771a4818e5890ceb917",
+    "include/upc/p2_variable_mac_transport3d.hpp": "b0a82555c95656d1493dd33a3ae3c6bb0ca187a4a4d2846573d0da2c16ba5d73",
+    "include/upc/p2_plic_adaptive_subcycle3d.hpp": "f558c74807d4a85cefd79713b7240180a7b9f7b2464f1b4536b1f9ae90553416",
+    "include/upc/p2_plic_unsplit_mac3d.hpp": "9a494b13690a1ca40ea2f72bd6eb7e4ac5356d06b36fea788b799f09cafaac0a",
+    "tests/p2_abc3d_analytic_tests.cpp": "a18f0023955fd4e5357fc213384eb060ff904d1647836bf1130287c990beaee7",
+    "scripts/p2_abc3d_analytic_build.cmd": "e833babf35976cee323624cb283ae26b8ee94ce1b6d15a6a4e4d4843e4bb729f",
+    "scripts/p2_abc3d_analytic_acceptance.py": "0354eee5f8f8493e3d15ab2003f7ad74ed83eb8aa58512aef24e99ee5bc61c10",
+    "docs/P2_ABC3D_ANALYTIC_PARTIAL.md": "cc1b27ff62f34c34ad6cbb901660208d1124a6e918a886559c3fb79aae53105f"
+  },
+  "native_binary_sha256": "cbae690e2fc32d2edfdb6ebd7cfb5bd15ac7eb062f9ea15886afa650e03812b3",
+  "native_log_sha256": "3b11761db543a999b19e2a458bd59aa096c5a9e1e417c47db3b655adb3f097ff",
+  "compile_log_sha256": "42b8684f530e942f8179f07b294f0e25d54b545239ddf1d0bb85959595788240",
+  "ctest_log_sha256": "a573abc4b7650bf84d13e9e1b0de3a0fb21d520ed0c26738e63a9aa086853aa8",
+  "limitations": [
+    "ABC is a continuous exact solution, not independent measured CFD data",
+    "One 0.02s split step only; first-order upwind causes excess numerical energy dissipation",
+    "5-step 0.10s ABC/VOF slab trial failed with unresolved periodic PLIC interface on 12^3 grid; investigate separately",
+    "Periodic constant-density single velocity, passive VOF; no stress-consistent two-phase free surface or dynamic FSI",
+    "No UE5.8 Native E2E for this path; P2-P8 remain incomplete"
+  ]
+}
