@@ -1,0 +1,3 @@
+MAC_TWO_PHASE n=12 faces=144 max_gradient_error=7.77156e-16 max_tangential_residual_pa=1.35064e-15 max_normal_pressure_error_pa=0
+MAC_TWO_PHASE n=24 faces=576 max_gradient_error=1.9984e-15 max_tangential_residual_pa=4.86982e-15 max_normal_pressure_error_pa=0
+PASS: MAC_TWO_PHASE assertions=3616

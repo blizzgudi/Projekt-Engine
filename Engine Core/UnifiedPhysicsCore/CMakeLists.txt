@@ -728,3 +728,9 @@ add_test(NAME physics_p2_sdf_normal_stress_partial COMMAND upc_p2_sdf_normal_str
 add_executable(upc_p2_sdf_tangential_stress_tests tests/p2_sdf_tangential_stress3d_tests.cpp)
 target_link_libraries(upc_p2_sdf_tangential_stress_tests PRIVATE upc)
 add_test(NAME physics_p2_sdf_tangential_stress_partial COMMAND upc_p2_sdf_tangential_stress_tests)
+
+# P2 PARTIAL: reconstruct separate liquid/air 3D MAC velocity gradients at
+# SDF cut faces; diagnostic stress balance only, no coupled ghost update.
+add_executable(upc_p2_mac_two_phase_traction_tests tests/p2_mac_two_phase_traction3d_tests.cpp)
+target_link_libraries(upc_p2_mac_two_phase_traction_tests PRIVATE upc)
+add_test(NAME physics_p2_mac_two_phase_traction_partial COMMAND upc_p2_mac_two_phase_traction_tests)

@@ -1,0 +1,61 @@
+{
+  "phase": "P2",
+  "milestone": "measured_mac_water_air_gradient_traction_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "manufactured_reference": {
+    "mu_water_pa_s": 2.0,
+    "mu_air_pa_s": 0.5,
+    "tangential_stress_pa": [
+      0,
+      3.295,
+      -1.14
+    ],
+    "normal_pressure_pa": 120.0
+  },
+  "native_grid_rows": [
+    {
+      "grid": 12,
+      "faces": 144,
+      "max_gradient_error_s_inv": 7.77156e-16,
+      "max_tangential_residual_pa": 1.35064e-15,
+      "max_normal_pressure_error_pa": 0.0
+    },
+    {
+      "grid": 24,
+      "faces": 576,
+      "max_gradient_error_s_inv": 1.9984e-15,
+      "max_tangential_residual_pa": 4.86982e-15,
+      "max_normal_pressure_error_pa": 0.0
+    }
+  ],
+  "native_assertions": 3616,
+  "ctest_passed": 131,
+  "forged_native_traces_rejected": 6,
+  "historical_marin_6s_height_validation": "FAIL",
+  "historical_marin_sha256": "192e198e4e72fbca285c8eeb7b513f74ecdb4432b7705d837f71b8b0f91f2f08",
+  "limitations": [
+    "No dynamic air solve or MAC ghost stress feedback",
+    "No measured 6s MARIN H1-H4/P1-P8 three-grid convergence",
+    "No dynamic two-way FSI or global physical energy/momentum closure",
+    "No UE5.8 Native E2E for this path"
+  ],
+  "source_sha256": {
+    "CMakeLists.txt": "02ba8c51796c95b611239f4c067fd07c024fb1608cac4d2c11b5eeced22b6b62",
+    "include/upc/mac3d.hpp": "75ced18ea1d156ec1f08f3d0ca2020269fbe12bc573defe83d3a25026b8f21e6",
+    "include/upc/p2_sdf_capillary3d.hpp": "b690eb806bb3aba9c5b616517d537732f3a96f83c7f1b76d7def87463f1eb6ba",
+    "include/upc/p2_sdf_normal_stress3d.hpp": "790bde7aa540ca9d23c671641b4cde6f639f5a7c4103b0758535d82dc962eb88",
+    "include/upc/p2_mac_two_phase_traction3d.hpp": "5881475c000a7ccdd45dad1675884c00113a787e5cc540d5b7b62b5ed1aab733",
+    "tests/p2_mac_two_phase_traction3d_tests.cpp": "3843cbd26051c31e4babc386e7733c1bf44c1975dad6b453aff75af935c243f2",
+    "scripts/p2_mac_two_phase_traction_build.cmd": "1d730035aa4a3cceb3212eab4a8d401a79eed5be9a16d89728ea0ecb20ee33b9",
+    "scripts/p2_mac_two_phase_traction_acceptance.py": "947b4a75618ffaae0eee893b09e61f95ce759b0fcf987140d41a19ff0cb15f66",
+    "scripts/phase_gate.py": "01065438e2b72b3fe83e7e3ba3decbf54925c84c5f9424b15ad15a8197f59cd6",
+    "docs/P2_MAC_TWO_PHASE_TRACTION_PARTIAL.md": "bb0d9cd0226bb74f96ad57c6d16df94615c9e0f88b22da156ecbae323e5c4dea"
+  },
+  "binary_sha256": "fe8a197be6d7817cf419aef2ac994b4a94cf81bec8b75cc733a0b6aee0793b38",
+  "build_log_sha256": "59b0e6353726c38b62bd9944fb6a42c25ebc0b214b59933ee97df293eae89061",
+  "native_log_sha256": "5083c5147397e0f09e23f251304bbffddf52b571ee2af0da0bcc2b530d8d1bc7",
+  "ctest_log_sha256": "4ea93fb2214f802065e2da5b2a5d9b0cc2a70c4e1c5c7d4b2d54a06dc1a381d1",
+  "phase_gate_log_sha256": "355696c2ae65e8d8d9053dcca683e686ee13083f03597d7ec35e8436443a7123",
+  "generated_utc": "2026-11-01T23:12:24.752329+00:00"
+}
