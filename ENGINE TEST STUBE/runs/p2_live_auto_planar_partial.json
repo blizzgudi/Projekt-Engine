@@ -1,0 +1,63 @@
+{
+  "phase": "P2",
+  "milestone": "live_dynamic_local_planar_vof_pcg_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "native_assertions": 60,
+  "full_ctest_suites": 126,
+  "independent_native_reexecution": true,
+  "native_log_mutation_rejections": 7,
+  "manufactured_live_3d_grids": [
+    {
+      "grid": 8,
+      "fitted_partial_cells": 104,
+      "resolved_oblique_faces": 96,
+      "first_divergence_s_inv": 2.654347146810801e-16,
+      "second_frame_divergence_s_inv": 6.791848984263882e-16,
+      "rollback_negative_test": true
+    },
+    {
+      "grid": 12,
+      "fitted_partial_cells": 166,
+      "resolved_oblique_faces": 165,
+      "first_divergence_s_inv": 8.530585278828306e-16,
+      "second_frame_divergence_s_inv": 7.168746882056523e-16,
+      "rollback_negative_test": true
+    }
+  ],
+  "prior_real_6s_marin_height_rmse_m": {
+    "H1": 0.13652547494982525,
+    "H2": 0.0915001638115832,
+    "H3": 0.1482453038649915,
+    "H4": 0.2243987520282911
+  },
+  "prior_real_6s_marin_height_validation_pass": false,
+  "stress_consistent_two_phase_interface": false,
+  "dynamic_two_way_fsi": false,
+  "global_physical_energy_momentum_closure": false,
+  "three_grid_full_6s_measured_convergence": false,
+  "ue58_native_e2e_for_new_path": false,
+  "source_sha256": {
+    "CMakeLists.txt": "3a6b3ffb0071a68badf05479306b7b1f80f8bafaf506f13eb317c1b424dccaaa",
+    "include/upc/coupled_water3d.hpp": "fae6c93323218afc8a0438bb513e2cb8eb23a0909bc75931a0019e41ecada4e9",
+    "include/upc/p2_local_planar_normal_fit3d.hpp": "5b6fbc0483087ae34384952e6cf7585932c995108e4bf465acf4ba30d8c3330b",
+    "include/upc/p2_planar_vof_pcg_geometry3d.hpp": "944cc234d99272080253c4921085ec1c265e86d7aa1c63d2e61757f3b8a8c984",
+    "include/upc/p2_oblique_plic_geometry3d.hpp": "e548ca42557b5fa7bf6f752e9e122f64396690baa08a43fac7641f12e05d4627",
+    "include/upc/mac3d.hpp": "c935c5f3c31432d90feeb0b56f5aef1fd29cf5dc69a94878a0d60f884c5e19e5",
+    "tests/p2_live_auto_planar_vof_pcg3d_tests.cpp": "dc47771e98876ee6a042de19b6d3456afcc0e00ee29057e01effefe8c316e3bf",
+    "scripts/p2_live_auto_planar_build.cmd": "754d6f6a4c1814d6ef969be2ab9211e73ebbde645f37b7f2c88e85ed06b6e994",
+    "scripts/p2_live_auto_planar_acceptance.py": "6bea13482ad88e11e37a3b661c5d3563fa242b525e6ae281bc235299a1534d67",
+    "scripts/phase_gate.py": "01065438e2b72b3fe83e7e3ba3decbf54925c84c5f9424b15ad15a8197f59cd6",
+    "docs/P2_LIVE_AUTO_PLANAR_PLIC_PARTIAL.md": "39d7768b050eaf395752d61f45c24a8e52ae4b6797b7f47031426b00626fd06c",
+    "docs/PHASENPLAN.md": "7e6fa3127c164f5eb240fa8ddfb5584fcede7b709f6f1d0154664c73720f00df"
+  },
+  "native_binary_sha256": "1919505e694a4ff4191c34e073eeeb36e1560503c26ceebbf1124f307d9818ab",
+  "native_log_sha256": "a739aa5fd5743f7bbed16af90c924035527401fc0ddd170222852d1fbf674cdb",
+  "build_log_sha256": "0a210530b4f1ca0b6eb8220173636168c10a6148a382d518c02812200876bcf7",
+  "ctest_log_sha256": "9ca3793650491c93336e00f2f2a16f61c797f199192027a58f6679e762c90728",
+  "official_phase_gate_status": "PARTIAL",
+  "official_phase_gate_log_sha256": "ab300bb727908749ec3a803f1e6b7f90f660ad67714cbabc643011315b881408",
+  "official_phase_gate_json_sha256": "89bc7f62848c11c08a4e55688bebe9d9d3f3e4d6289af7a10562c8232808cd14",
+  "prior_real_marin_evidence_sha256": "192e198e4e72fbca285c8eeb7b513f74ecdb4432b7705d837f71b8b0f91f2f08",
+  "generated_utc": "2026-11-01T18:17:08.350358+00:00"
+}

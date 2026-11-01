@@ -8,6 +8,7 @@
 #include "upc/mac3d.hpp"
 #include "upc/p2_axis_vof_pcg_geometry3d.hpp"
 #include "upc/p2_planar_vof_pcg_geometry3d.hpp"
+#include "upc/p2_local_planar_normal_fit3d.hpp"
 #include "upc/p2_vof_throughflow3d.hpp"
 #include "upc/viscous_mac3d.hpp"
 #include "upc/p2_vof_mechanical_inventory3d.hpp"
@@ -67,6 +68,12 @@ class CoupledMacWater3D {
     bool pcg_pressure_projection_enabled_=false;
     bool axis_vof_pcg_geometry_enabled_=false;
     bool planar_vof_pcg_geometry_enabled_=false;
+    // Opt-in recomputation from the current VOF field at every projection.
+    // Rejects nonplanar patches instead of silently falling back to gradients.
+    bool auto_planar_vof_normals_enabled_=false;
+    double auto_planar_vof_max_patch_error_=1e-7;
+    std::size_t last_auto_planar_vof_fitted_cells_=0;
+    double last_auto_planar_vof_patch_residual_=0;
     std::vector<std::array<double,3>> prescribed_planar_vof_normals_;
     std::size_t last_planar_vof_resolved_faces_=0;
     std::size_t last_planar_vof_oblique_faces_=0;
@@ -81,11 +88,20 @@ class CoupledMacWater3D {
     }
     void sync_axis_vof_pcg_geometry(){
         if(planar_vof_pcg_geometry_enabled_){
-            // Independent caller-provided geometry normals. Never invent
-            // an oblique normal from VOF alone on an unsupported stencil.
+            // A fitted normal is accepted only when its entire local 3D
+            // VOF patch agrees with a volume-matched plane. This preflight
+            // runs BEFORE any interface distances are changed.
+            P2LocalPlanarNormals3D fitted;
+            if(auto_planar_vof_normals_enabled_)
+                fitted=p2_fit_local_planar_vof_normals3d(
+                    fill_,solid_,nx_,ny_,nz_,dx_,auto_planar_vof_max_patch_error_);
+            const auto& normals=auto_planar_vof_normals_enabled_?
+                fitted.normals:prescribed_planar_vof_normals_;
             const auto geometry=p2_planar_vof_pcg_geometry3d(
-                fill_,solid_,prescribed_planar_vof_normals_,nx_,ny_,nz_,dx_);
+                fill_,solid_,normals,nx_,ny_,nz_,dx_);
             p2_apply_planar_vof_pcg_geometry3d(mac_,geometry);
+            last_auto_planar_vof_fitted_cells_=fitted.fitted_cells;
+            last_auto_planar_vof_patch_residual_=fitted.worst_patch_residual;
             last_planar_vof_resolved_faces_=geometry.resolved.size();
             last_planar_vof_oblique_faces_=geometry.oblique_faces;
             last_planar_vof_two_partial_faces_=geometry.two_partial_faces;
@@ -539,6 +555,8 @@ public:
     // stale normals or impossible cuts are rejected atomically.
     void set_planar_vof_pcg_normals(
         std::vector<std::array<double,3>> normals) {
+        if(auto_planar_vof_normals_enabled_)
+            throw std::invalid_argument("Disable automatic planar normals before prescribing normals");
         if(normals.size()!=fill_.size())
             throw std::invalid_argument("Prescribed planar normal count mismatch");
         for(const auto& n:normals)
@@ -547,17 +565,41 @@ public:
                     throw std::invalid_argument("Nonfinite prescribed planar normal");
         prescribed_planar_vof_normals_=std::move(normals);
     }
+    // P2 PARTIAL: strict local PLIC normal fitting on the CURRENT 3D VOF
+    // field before each live PCG projection, including post-transport.
+    // Geometry mode must be off while switching sources; no fallback on
+    // noisy/curved patches and no two-phase stress balance is claimed.
+    void set_auto_planar_vof_pcg_normals(bool enabled,double max_patch_error=1e-7){
+        if(planar_vof_pcg_geometry_enabled_)
+            throw std::invalid_argument("Disable planar geometry before switching normal source");
+        if(!std::isfinite(max_patch_error)||max_patch_error<=0||max_patch_error>=.5)
+            throw std::invalid_argument("Invalid automatic planar fit tolerance");
+        auto_planar_vof_normals_enabled_=enabled;
+        auto_planar_vof_max_patch_error_=max_patch_error;
+    }
+    bool auto_planar_vof_pcg_normals_enabled()const{
+        return auto_planar_vof_normals_enabled_;
+    }
+    std::size_t last_auto_planar_vof_fitted_cells()const{
+        return last_auto_planar_vof_fitted_cells_;
+    }
+    double last_auto_planar_vof_patch_residual()const{
+        return last_auto_planar_vof_patch_residual_;
+    }
     void set_planar_vof_pcg_geometry(bool enabled) {
         if(enabled&&(!pcg_pressure_projection_enabled_||
                      axis_vof_pcg_geometry_enabled_||
-                     prescribed_planar_vof_normals_.size()!=fill_.size()))
-            throw std::invalid_argument("Planar VOF mode requires PCG and prescribed normals");
+                     (!auto_planar_vof_normals_enabled_&&
+                      prescribed_planar_vof_normals_.size()!=fill_.size())))
+            throw std::invalid_argument("Planar VOF mode requires PCG and valid normal source");
         planar_vof_pcg_geometry_enabled_=enabled;
         if(!enabled) {
             mac_.clear_interface_distances();
             last_planar_vof_resolved_faces_=0;
             last_planar_vof_oblique_faces_=0;
             last_planar_vof_two_partial_faces_=0;
+            last_auto_planar_vof_fitted_cells_=0;
+            last_auto_planar_vof_patch_residual_=0;
         }
     }
     bool planar_vof_pcg_geometry_enabled()const{
@@ -667,8 +709,8 @@ private:
         if(!std::isfinite(seconds)||seconds<=0||seconds>2 ||
            pressure_iterations<1||pressure_iterations>10000)
             throw std::invalid_argument("Invalid coupled step");
-        if(axis_vof_pcg_geometry_enabled_&&!verified)
-            throw std::invalid_argument("Axis VOF geometry requires transactional verified step");
+        if((axis_vof_pcg_geometry_enabled_||planar_vof_pcg_geometry_enabled_)&&!verified)
+            throw std::invalid_argument("Geometric VOF pressure requires transactional verified step");
         double remaining=seconds;
         substeps_=0;
         last_pcg_iterations_=0;

@@ -698,3 +698,9 @@ add_test(NAME physics_p2_planar_vof_pcg_partial COMMAND upc_p2_planar_vof_pcg_te
 add_executable(upc_p2_local_planar_normal_fit_tests tests/p2_local_planar_normal_fit3d_tests.cpp)
 target_link_libraries(upc_p2_local_planar_normal_fit_tests PRIVATE upc)
 add_test(NAME physics_p2_local_planar_normal_fit_partial COMMAND upc_p2_local_planar_normal_fit_tests)
+
+# P2 PARTIAL: strict fitted local PLIC normals on CURRENT VOF at each live
+# verified MAC-PCG projection. Synthetic geometry only, not physical CFD.
+add_executable(upc_p2_live_auto_planar_tests tests/p2_live_auto_planar_vof_pcg3d_tests.cpp)
+target_link_libraries(upc_p2_live_auto_planar_tests PRIVATE upc)
+add_test(NAME physics_p2_live_auto_planar_vof_pcg_partial COMMAND upc_p2_live_auto_planar_tests)
