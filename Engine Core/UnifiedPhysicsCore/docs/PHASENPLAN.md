@@ -2033,3 +2033,23 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
 - **P2 bleibt PARTIAL, P3–P8 INCOMPLETE.** Kein vollständiges
   Zweiphasen-CFD, dynamische Zweiwege-FSI, externes CFD-Messbenchmark,
   globale physikalische Erhaltung oder neues UE5.8-Native-E2E.
+
+## P2 Teilfortschritt: exakte 16^3-Reinphasen-MAC/PLIC-Invarianz (01.11.2026)
+
+- Numerisch konservative Sonderbehandlung **nur** fuer exakt uniforme
+  VOF=0 oder VOF=1 nach erfolgreicher MAC-Divergenz-/CFL-Pruefung.
+  Verhindert kuenstliche PLIC-Teilzellen ohne aufloesbare Normale bei
+  vollstaendig gefuelltem 16^3-ABC-Flow. Gemischte unaufloesbare
+  Grenzflaechen bleiben fail-closed; kein allgemeines Normalen-Fallback.
+- Zwei reale gekoppelte 16^3-ABC-Simulationsschritte pro reiner Phase,
+  Viskositaet, nichtlineare Impulsadvektion, Projektion und PLIC:
+  Volumen exakt 1/0 m3, null Snap, null Bilanzresiduum, 4 PLIC- und
+  2 viskose Substeps, max. Divergenz 1.11e-14 s^-1.
+- MSVC Release, 37 Assertions, 5 Negativfaelle, 110/110 CTest PASS.
+  Nachweise: docs/P2_PLIC_PURE_PHASE16_PARTIAL.md,
+  scripts/p2_plic_pure_phase16_acceptance.py,
+  ENGINE TEST STUBE/runs/p2_plic_pure_phase16_partial.json.
+- **P2-P8 INCOMPLETE; ALL_COMPLETE=False.** Der 16^3-Slab-Fall mit
+  tatsaechlicher Wasser-Luft-Grenzflaeche bleibt offen. Keine dynamische
+  FSI, stresskonsistente Zweiphasenphysik, externen CFD-Messdaten,
+  globale Energie-/Impulsvalidierung oder neue UE5.8-Native-E2E.

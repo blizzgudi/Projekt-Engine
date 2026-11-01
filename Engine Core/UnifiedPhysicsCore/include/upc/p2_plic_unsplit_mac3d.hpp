@@ -90,6 +90,17 @@ inline P2PlicUnsplitMac3D p2_plic_unsplit_mac3d(
         if(!std::isfinite(face_sum)||face_sum>1.0+1e-12)
             throw std::invalid_argument("Unsplit MAC six-face CFL exceeded");
     }
+    // A divergence-free periodic flow must preserve an exactly uniform
+    // single phase. Geometric face transfers on an all-water/all-air grid
+    // can otherwise introduce one-ULP partial cells with no PLIC normal.
+    // This fast path runs AFTER divergence/CFL validation; mixed fractions
+    // and genuinely unresolved interfaces still use strict reconstruction.
+    if((fill.front()==0.0||fill.front()==1.0) &&
+       std::all_of(fill.begin(),fill.end(),
+                   [&](double f){return f==fill.front();})) {
+        out.final_volume_m3=out.initial_volume_m3;
+        return out;
+    }
     const auto normals=p2_periodic_plic_normals3d(fill,nx,ny,nz);
     for(double f:fill)
         if(f>0&&f<1)++out.reconstructed_partial_cells;

@@ -595,3 +595,9 @@ add_test(NAME physics_p2_abc3d_temporal_convergence_partial COMMAND upc_p2_abc3d
 add_executable(upc_p2_abc3d_galilean_tests tests/p2_abc3d_galilean_tests.cpp)
 target_link_libraries(upc_p2_abc3d_galilean_tests PRIVATE upc)
 add_test(NAME physics_p2_abc3d_galilean_partial COMMAND upc_p2_abc3d_galilean_tests)
+
+# P2 partial: exact 16^3 all-water/all-air MAC/PLIC invariance.
+# Solenoidal/CFL checks remain mandatory; mixed unresolved PLIC fails closed.
+add_executable(upc_p2_plic_pure_phase16_tests tests/p2_plic_pure_phase16_tests.cpp)
+target_link_libraries(upc_p2_plic_pure_phase16_tests PRIVATE upc)
+add_test(NAME physics_p2_plic_pure_phase16_partial COMMAND upc_p2_plic_pure_phase16_tests)

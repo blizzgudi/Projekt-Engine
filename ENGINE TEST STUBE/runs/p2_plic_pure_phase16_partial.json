@@ -1,0 +1,145 @@
+{
+  "phase": "P2",
+  "milestone": "pure_phase_16cubed_invariance_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "generated_utc": "2026-11-01T07:13:01.310968+00:00",
+  "native_assertions": 37,
+  "rows": [
+    {
+      "fill": 1.0,
+      "volume": 1.0,
+      "plic": 4.0,
+      "viscous": 2.0,
+      "divergence": 1.1102230246251565e-14,
+      "snap": 0.0,
+      "ledger": 0.0
+    },
+    {
+      "fill": 0.0,
+      "volume": 0.0,
+      "plic": 4.0,
+      "viscous": 2.0,
+      "divergence": 1.1102230246251565e-14,
+      "snap": 0.0,
+      "ledger": 0.0
+    }
+  ],
+  "checks": [
+    {
+      "name": "msvc_cmake_release_build",
+      "value": [
+        "-- Configuring done (0.0s)",
+        "-- Generating done (0.1s)",
+        "-- Build files have been written to: D:/Projekt Engine/Engine Core/UnifiedPhysicsCore/build",
+        "[1/2] Building CXX object CMakeFiles\\upc_p2_plic_pure_phase16_tests.dir\\tests\\p2_plic_pure_phase16_tests.cpp.obj",
+        "[2/2] Linking CXX executable upc_p2_plic_pure_phase16_tests.exe"
+      ],
+      "pass": true
+    },
+    {
+      "name": "complete_ctest_110",
+      "value": [
+        "",
+        "100% tests passed, 0 tests failed out of 110",
+        "",
+        "Total Test time (real) =   6.05 sec"
+      ],
+      "pass": true
+    },
+    {
+      "name": "native_assertions_and_fail_closed_cases",
+      "value": 37,
+      "pass": true
+    },
+    {
+      "name": "both_16cubed_phases",
+      "value": [
+        1.0,
+        0.0
+      ],
+      "pass": true
+    },
+    {
+      "name": "exact_uniform_phase_volume",
+      "value": [
+        1.0,
+        0.0
+      ],
+      "pass": true
+    },
+    {
+      "name": "no_artificial_endpoint_roundoff",
+      "value": [
+        0.0,
+        0.0
+      ],
+      "pass": true
+    },
+    {
+      "name": "exact_mass_ledger",
+      "value": [
+        0.0,
+        0.0
+      ],
+      "pass": true
+    },
+    {
+      "name": "actual_viscous_coupled_steps",
+      "value": [
+        2.0,
+        2.0
+      ],
+      "pass": true
+    },
+    {
+      "name": "actual_plic_coupled_steps",
+      "value": [
+        4.0,
+        4.0
+      ],
+      "pass": true
+    },
+    {
+      "name": "projected_divergence",
+      "value": [
+        1.1102230246251565e-14,
+        1.1102230246251565e-14
+      ],
+      "pass": true
+    },
+    {
+      "name": "source_sha256",
+      "value": 9,
+      "pass": true
+    },
+    {
+      "name": "binary_and_log_sha256",
+      "value": 4,
+      "pass": true
+    }
+  ],
+  "source_sha256": {
+    "include/upc/p2_plic_unsplit_mac3d.hpp": "bcdcdf1b30d189dc37669fc62fa93fee93331ddef75bfcfc915851923d7c39cf",
+    "include/upc/p2_plic_adaptive_subcycle3d.hpp": "f558c74807d4a85cefd79713b7240180a7b9f7b2464f1b4536b1f9ae90553416",
+    "include/upc/p2_viscous_mac_plic_roundoff_schedule3d.hpp": "7dc877d0fcf9464ed6733b0d6616a0f9047c657cc9d625cb4105e800e610a119",
+    "tests/p2_plic_pure_phase16_tests.cpp": "cddb904d2c5df7ac8efd8d87ec298397f9bbe131b9541701821ee22deb5ac33b",
+    "scripts/p2_plic_pure_phase16_build.cmd": "dc34333248e462ec37499fcd9f6a0c0816b74304a1d078906ef74c7887fb8dfc",
+    "scripts/p2_plic_pure_phase16_acceptance.py": "94217b884f465cf3bafe530fb55dab1ae962d749e2728790b169b56144bc7215",
+    "docs/P2_PLIC_PURE_PHASE16_PARTIAL.md": "a01fa1d102662763e2e8a8a9ade0b161a9b778c35a5290c19584377e54eaa2b7",
+    "docs/PHASENPLAN.md": "f31bbfffffc412bd6d66bf5705738ce94a5b1a2969412fdd28a6bd3683860458",
+    "CMakeLists.txt": "1912b747426368f878255a20370d44680949dce0c2669742e751d8cf17855920"
+  },
+  "artifact_sha256": {
+    "ENGINE TEST STUBE\\runs\\p2_plic_pure_phase16_native.txt": "788fb949f94f485340249cb980745ecbfddce1aaaa40cf23a4bd33ad201d5a68",
+    "ENGINE TEST STUBE\\runs\\p2_plic_pure_phase16_compile.txt": "99105811f1f0bb492d19692f91055096153a0dac089e1f8448c1cd1ad286c3ad",
+    "ENGINE TEST STUBE\\runs\\p2_plic_pure_phase16_ctest.txt": "5b3591d47fc5873e8a13cf859b85b85f3a3f706cfc78466a960de3829e4f2649",
+    "Engine Core\\UnifiedPhysicsCore\\build\\upc_p2_plic_pure_phase16_tests.exe": "da80e8f8e328ffed87a33862d7f2a97c22c579ad5bc24c9c3d860f1149f2da70"
+  },
+  "limitations": [
+    "16^3 water-air slab with a real interface still unvalidated",
+    "pure-phase shortcut only, after full divergence/CFL checks",
+    "no measured CFD reference, stress-consistent interface or dynamic FSI",
+    "no global physical energy/momentum closure or new UE5.8 Native-E2E"
+  ]
+}

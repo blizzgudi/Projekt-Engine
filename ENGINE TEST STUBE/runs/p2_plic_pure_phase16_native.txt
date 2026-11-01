@@ -1,0 +1,3 @@
+PURE16 fill=1 volume=1 plic=4 viscous=2 divergence=1.1102230246251565e-14 snap=0 ledger=0
+PURE16 fill=0 volume=0 plic=4 viscous=2 divergence=1.1102230246251565e-14 snap=0 ledger=0
+PASS PURE16 assertions=37 phase_complete=false
