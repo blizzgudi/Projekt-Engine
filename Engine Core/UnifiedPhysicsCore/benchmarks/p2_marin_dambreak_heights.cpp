@@ -55,7 +55,7 @@ int main(int argc,char** argv){
            (mode_argc==5 && !pressure_probes && (!finer_grid||!dense))||
            (mode_argc==6 && !pressure_probes))
             throw std::invalid_argument("Unknown benchmark transport mode");
-        if(steps<1||steps>300)
+        if(steps<1||steps>600)
             throw std::invalid_argument("Invalid benchmark step budget");
         upc::CoupledMacWater3D w(nx,ny,nz,dx,1000.0);
         w.set_conservative_throughflow_transport(throughflow);
