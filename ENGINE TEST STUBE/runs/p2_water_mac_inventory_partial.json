@@ -1,0 +1,254 @@
+{
+  "phase": "P2",
+  "milestone": "water_weighted_mac_momentum_kinetic_inventory_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "generated_utc": "2026-11-01T00:47:56.147644+00:00",
+  "native_assertions": 40,
+  "checks": [
+    {
+      "name": "native_assertions",
+      "value": 40,
+      "pass": true
+    },
+    {
+      "name": "native_no_fail",
+      "value": true,
+      "pass": true
+    },
+    {
+      "name": "msvc_release_compile",
+      "value": "p2_water_mac_inventory3d_tests.cpp",
+      "pass": true
+    },
+    {
+      "name": "full_ctest",
+      "value": "Total Test time (real) =  43.80 sec",
+      "pass": true
+    },
+    {
+      "name": "UNIFORM_8_shape",
+      "value": 3,
+      "pass": true
+    },
+    {
+      "name": "UNIFORM_8_field_0",
+      "value": 128.00000000000003,
+      "pass": true
+    },
+    {
+      "name": "UNIFORM_8_field_1",
+      "value": 25.60000000000023,
+      "pass": true
+    },
+    {
+      "name": "UNIFORM_8_field_2",
+      "value": 3.3599999999999666,
+      "pass": true
+    },
+    {
+      "name": "UNIFORM_12_shape",
+      "value": 3,
+      "pass": true
+    },
+    {
+      "name": "UNIFORM_12_field_0",
+      "value": 432.00000000000006,
+      "pass": true
+    },
+    {
+      "name": "UNIFORM_12_field_1",
+      "value": 86.39999999999723,
+      "pass": true
+    },
+    {
+      "name": "UNIFORM_12_field_2",
+      "value": 11.339999999999774,
+      "pass": true
+    },
+    {
+      "name": "SHEAR_8_shape",
+      "value": 3,
+      "pass": true
+    },
+    {
+      "name": "SHEAR_8_field_0",
+      "value": 128.00000000000003,
+      "pass": true
+    },
+    {
+      "name": "SHEAR_8_field_1",
+      "value": 6.930193359837578,
+      "pass": true
+    },
+    {
+      "name": "SHEAR_8_field_2",
+      "value": 0.20150580079512775,
+      "pass": true
+    },
+    {
+      "name": "SHEAR_12_shape",
+      "value": 3,
+      "pass": true
+    },
+    {
+      "name": "SHEAR_12_field_0",
+      "value": 432.00000000000006,
+      "pass": true
+    },
+    {
+      "name": "SHEAR_12_field_1",
+      "value": 23.70830632579829,
+      "pass": true
+    },
+    {
+      "name": "SHEAR_12_field_2",
+      "value": 0.689649189773946,
+      "pass": true
+    },
+    {
+      "name": "CURL_8_shape",
+      "value": 5,
+      "pass": true
+    },
+    {
+      "name": "CURL_8_field_0",
+      "value": 255.50000000000003,
+      "pass": true
+    },
+    {
+      "name": "CURL_8_field_1",
+      "value": 5.132426406871192,
+      "pass": true
+    },
+    {
+      "name": "CURL_8_field_2",
+      "value": -0.007499999999999873,
+      "pass": true
+    },
+    {
+      "name": "CURL_8_field_3",
+      "value": 0.008409902576697388,
+      "pass": true
+    },
+    {
+      "name": "CURL_8_field_4",
+      "value": 0.21789227813742404,
+      "pass": true
+    },
+    {
+      "name": "CURL_12_shape",
+      "value": 5,
+      "pass": true
+    },
+    {
+      "name": "CURL_12_field_0",
+      "value": 863.5000000000001,
+      "pass": true
+    },
+    {
+      "name": "CURL_12_field_1",
+      "value": 17.269641016151354,
+      "pass": true
+    },
+    {
+      "name": "CURL_12_field_2",
+      "value": -0.005000000000003318,
+      "pass": true
+    },
+    {
+      "name": "CURL_12_field_3",
+      "value": 0.004216333698683578,
+      "pass": true
+    },
+    {
+      "name": "CURL_12_field_4",
+      "value": 0.7347303203230274,
+      "pass": true
+    },
+    {
+      "name": "six_independent_grid_references",
+      "value": [
+        [
+          "CURL",
+          8
+        ],
+        [
+          "CURL",
+          12
+        ],
+        [
+          "SHEAR",
+          8
+        ],
+        [
+          "SHEAR",
+          12
+        ],
+        [
+          "UNIFORM",
+          8
+        ],
+        [
+          "UNIFORM",
+          12
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "name": "sequence_initial_mass",
+      "value": 432.00000000000006,
+      "pass": true
+    },
+    {
+      "name": "sequence_final_mass",
+      "value": 432.0,
+      "pass": true
+    },
+    {
+      "name": "sequence_mass_residual",
+      "value": -5.684341886080802e-14,
+      "pass": true
+    },
+    {
+      "name": "sequence_positive_kinetic",
+      "value": 0.25680365934298033,
+      "pass": true
+    },
+    {
+      "name": "sequence_energy_delta_is_measurement",
+      "value": -0.00239634065701938,
+      "pass": true
+    },
+    {
+      "name": "twelve_negative_inputs",
+      "value": true,
+      "pass": true
+    },
+    {
+      "name": "source_hash_coverage",
+      "value": 7,
+      "pass": true
+    }
+  ],
+  "source_sha256": {
+    "include/upc/p2_water_mac_inventory3d.hpp": "ed3eab132085d8da6700909bf008e3401e4051b75a5b1e5af8706f07ff445fae",
+    "include/upc/p2_viscous_mac_plic_sequence3d.hpp": "9185555cbee1a0eb3261e1c7754ccf62c68db2b93f2330b014399b62f93ca939",
+    "include/upc/p2_viscous_nonlinear_mac_plic3d.hpp": "5cdac0f80651ee138aa3f4d7936f8990f2c82d978f617fa23c90794d5c4241f8",
+    "tests/p2_water_mac_inventory3d_tests.cpp": "53444650e7a9bdcedb4c90663fe1ac8acc0fa1e1b579d215f4209684afda1cbb",
+    "scripts/p2_water_mac_inventory_build.cmd": "d86dda263562506944ed94df6eb9e83a78f7011492eb11854dece3a051cf8095",
+    "scripts/p2_water_mac_inventory_acceptance.py": "545b50e8df1e0c16c0227b07ab234186b8638266bf5f62c136dfbe3c5cd7654d",
+    "docs/P2_WATER_MAC_INVENTORY_PARTIAL.md": "51f9a6daf184ddfc3da4f7ef9e8e1d11fe8546cfb6ff6d3a6f880e78662a30b4"
+  },
+  "native_binary_sha256": "1702737eecea92e5a8e09cabcb6688097b3b4ca8ff5d0579e599dfadf4545aca",
+  "native_log_sha256": "46aa0805cfe2125e628f6249df70d4c1f9244a4fa50ac36c7037e54e6eb23be4",
+  "compile_log_sha256": "a9ebcb8196e367738c0527f3039d003f8c1f8346edfcdf59823cb6c89ba37290",
+  "ctest_log_sha256": "8a3c143d10fb97f6887e71579e2aed3f993e0e0218b05a768ab50c4338844b46",
+  "limitations": [
+    "Water VOF weighted cell-center quadrature; not a conservative two-phase momentum solver",
+    "Subcell interface velocity unresolved; changes are diagnostic, not conservation proof",
+    "No dynamic FSI, measured 3D CFD, stress-consistent free surface, or UE5.8 native E2E",
+    "P2-P8 full phases remain incomplete"
+  ]
+}

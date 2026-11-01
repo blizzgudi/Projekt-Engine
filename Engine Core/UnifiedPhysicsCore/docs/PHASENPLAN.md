@@ -1975,3 +1975,10 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
   physikalische Impuls-/Energieerhaltung. Dynamische FSI, freie
   Oberflaechen, unabh. CFD-Messvalidierung und UE5.8 Native-E2E
   bleiben offen.
+
+## P2 Teilfortschritt: wassergewichtete MAC/VOF-Impuls-/Energiequadratur (01.11.2026)
+
+- Optionaler periodischer 3D-MAC-Diagnoseoperator gewichtet Zellmittel-Geschwindigkeiten mit dem realen VOF-Wasseranteil; SI-Wassermasse, Wasserimpuls und Wasser-Kinetik statt bisheriger Vollraum-Bulk-Quadratur. Der Endpunktadapter vergleicht den echten viskosen MAC/PLIC-Sequenzzustand und die vorhandene Wasserinventur.
+- Unabhaengige 8^3/12^3-Referenzen fuer konstante 3D-Vektorgeschwindigkeit, teilgefuellte sinusfoermige Scherung und drei nichtverschwindende 3D-Curl-Komponenten mit fraktionalem Wasseranteil; 12 Negativtests. Reale dreischrittige Wasserfortschreibung: 432 kg Start/Ende, Energiequadratur 0.25919999999999971 J -> 0.25680365934298033 J (keine physikalische Energieerhaltungsaussage).
+- MSVC-C++17-Release-Nativtest 40 Assertions PASS, komplette 106/106 CTest PASS, 40/40 Python-Teil-Gates PASS. Belege: docs/P2_WATER_MAC_INVENTORY_PARTIAL.md, scripts/p2_water_mac_inventory_acceptance.py, ENGINE TEST STUBE/runs/p2_water_mac_inventory_partial.json mit SHA256.
+- **P2-P8 INCOMPLETE; ALL_COMPLETE=False.** Zellmittelung/VOF-Gewichtung ist keine subzellgenaue Zweiphasen-Impulsadvektion, keine dynamische FSI oder physikalische Gesamtenergie-/Impulserhaltung. Unabhaengige gemessene 3D-CFD-Referenzen und Unreal-5.8-Native-E2E dieses Pfades fehlen.
