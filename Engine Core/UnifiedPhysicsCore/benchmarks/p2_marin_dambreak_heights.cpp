@@ -3,6 +3,7 @@
 // A successful numerical run DOES NOT mean experimental validation.
 #include "upc/coupled_water3d.hpp"
 #include "upc/p2_marin_pressure_sensors3d.hpp"
+#include "upc/p2_marin_wall_pressure_interp3d.hpp"
 #include <algorithm>
 #include <array>
 #include <cmath>
@@ -31,7 +32,13 @@ int main(int argc,char** argv){
         const bool finer_grid=argc>=4 && std::string(argv[3])=="fine";
         const bool dense=(argc>=4 && std::string(argv[3])=="dense") ||
                          (argc>=5 && std::string(argv[4])=="dense");
-        const bool pressure_probes=
+        const bool interp_probes=
+            (argc==5 && std::string(argv[3])=="dense" &&
+             std::string(argv[4])=="interp") ||
+            (argc==6 && std::string(argv[3])=="fine" &&
+             std::string(argv[4])=="dense" &&
+             std::string(argv[5])=="interp");
+        const bool pressure_probes=interp_probes||
             (argc==5 && std::string(argv[3])=="dense" &&
              std::string(argv[4])=="pressure") ||
             (argc==6 && std::string(argv[3])=="fine" &&
@@ -83,7 +90,8 @@ int main(int argc,char** argv){
                  <<nx*dx<<" obstacle_x_m=[0.6635,0.8245] obstacle_y_m=[0.295,0.698]"
                  <<" obstacle_z_m=[0,0.161] probe_x_m=[0.496,0.992,1.488,2.632]"
                  <<" pressure_sensors_NOT_simulated="<<(pressure_probes?"false":"true")
-                 <<" pressure_proxy_only="<<(pressure_probes?"true":"none")<<"\n";
+                 <<" pressure_proxy_only="<<(interp_probes?"interpolated_tangent":
+                       pressure_probes?"true":"none")<<"\n";
         std::cout<<"time_s,H1_m,H2_m,H3_m,H4_m,water_volume_m3,"
                    "max_projection_divergence_s_inv";
         if(pressure_probes)
@@ -95,7 +103,12 @@ int main(int argc,char** argv){
             for(double x:x_probe)std::cout<<","<<gauge_height(w,x,.5);
             std::cout<<","<<w.volume_m3()<<","
                      <<w.last_projection_divergence();
-            if(pressure_probes) {
+            if(interp_probes) {
+                const auto sensor=upc::P2MarinWallPressureInterpolation3D::sample(w);
+                for(const auto& p:sensor.probes)
+                    std::cout<<","<<p.pressure_pa;
+                std::cout<<","<<sensor.wet_count;
+            }else if(pressure_probes) {
                 const auto sensor=upc::P2MarinPressureSensors3D::sample(w);
                 for(const auto& p:sensor.probes)
                     std::cout<<","<<p.pressure_pa;

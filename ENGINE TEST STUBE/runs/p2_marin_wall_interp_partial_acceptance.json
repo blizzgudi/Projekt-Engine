@@ -1,0 +1,115 @@
+{
+  "phase": "P2",
+  "milestone": "native_MARIN_wall_tangent_interpolation_two_grids",
+  "partial_accepted": true,
+  "experimental_pressure_validated": false,
+  "phase_complete": false,
+  "all_phases_complete": false,
+  "native_assertions": 175,
+  "regression_tests": 15,
+  "ctest_suites": 115,
+  "checks": {
+    "native_manufactured_and_live_MAC_175_assertions": true,
+    "15_positive_and_corruption_regressions": true,
+    "full_native_CTest_115_suites": true,
+    "two_real_3d_native_pressure_runs": true,
+    "eight_external_pressure_channels_each_grid": true,
+    "four_original_height_channels_fail_005m_limit": true,
+    "pressure_diagnostic_does_not_change_native_heights_or_mass": true,
+    "native_interpolation_only_not_wall_stress": true,
+    "all_eight_fine_grid_pressure_RMSE_worsen": true,
+    "experimental_validation_rejected": true,
+    "native_binary_hash_matches_report": true,
+    "native_header_hash_matches_report": true,
+    "native_benchmark_hash_matches_report": true,
+    "native_output_hashes_match_report": true
+  },
+  "coarse_height_rmse_m": {
+    "H1_m": 0.12067013175223057,
+    "H2_m": 0.11693615167184265,
+    "H3_m": 0.16203438811968499,
+    "H4_m": 0.20561138293584638
+  },
+  "fine_height_rmse_m": {
+    "H1_m": 0.10399582776033299,
+    "H2_m": 0.07674606530522744,
+    "H3_m": 0.1398191480237003,
+    "H4_m": 0.15808439375954003
+  },
+  "coarse_rmse_pa": {
+    "P1_Pa": 5642.335925060709,
+    "P2_Pa": 5952.61410002187,
+    "P3_Pa": 5552.554752830429,
+    "P4_Pa": 5381.1990290344165,
+    "P5_Pa": 5270.735830923616,
+    "P6_Pa": 5315.858204757106,
+    "P7_Pa": 5299.4842582639585,
+    "P8_Pa": 5480.603151092523
+  },
+  "fine_rmse_pa": {
+    "P1_Pa": 18165.73030437976,
+    "P2_Pa": 18523.05410339341,
+    "P3_Pa": 19045.037681343354,
+    "P4_Pa": 20882.457559762934,
+    "P5_Pa": 16202.527482431831,
+    "P6_Pa": 16061.841413741764,
+    "P7_Pa": 16119.609898154447,
+    "P8_Pa": 16311.892037322286
+  },
+  "interpolation_improved_vs_historical_nearest_cell": {
+    "coarse": {
+      "P1_Pa": true,
+      "P2_Pa": true,
+      "P3_Pa": false,
+      "P4_Pa": false,
+      "P5_Pa": false,
+      "P6_Pa": true,
+      "P7_Pa": true,
+      "P8_Pa": true
+    },
+    "fine": {
+      "P1_Pa": true,
+      "P2_Pa": true,
+      "P3_Pa": true,
+      "P4_Pa": false,
+      "P5_Pa": true,
+      "P6_Pa": false,
+      "P7_Pa": false,
+      "P8_Pa": true
+    }
+  },
+  "sources_sha256": {
+    "CMakeLists.txt": "f0f1918d671e89a5a7201e983ed9f2c8f570a89a68cbcec55c83f6a2aaf3af04",
+    "benchmarks/p2_marin_dambreak_heights.cpp": "6ff790d42709ffb34ce0b4be398ffef21021b29fac157bb5cc5bbeda3d89b147",
+    "include/upc/p2_marin_pressure_sensors3d.hpp": "7ca4ae9abee08e223892686b97c66da5d16ecf67b3263a74b702b869848c6bb1",
+    "include/upc/p2_marin_wall_pressure_interp3d.hpp": "2f849a5e1af52ff681ddaf3510aa22e28f094b10c075c613b2beaea662ecafaf",
+    "tests/p2_marin_wall_pressure_interp3d_tests.cpp": "be84a62e56fd58c210f03f2514a3e047156da5833d1f8864556a04e3a4e58242",
+    "tests/p2_marin_wall_interp_regression.py": "a0dd16425b1186b2ace120f714a24c66d40e1e521c67eb037fb2354ab15d3c9f",
+    "scripts/p2_marin_wall_interp_build.cmd": "91f63b6659117fd1a1a3b7665c1ddddfbbc887749a3f777e6575810f6e8a936e",
+    "scripts/p2_marin_wall_interp_compare.py": "211531fc9dc3321bd73d45aaff73098ca8ec43c119df82c5da2207847b898bd9",
+    "scripts/p2_marin_wall_interp_partial_acceptance.py": "b772a418ca060838c7fe826504df77e6ea93c9542c0a15ee86c8b35975f18687",
+    "docs/P2_MARIN_WALL_TANGENT_PRESSURE_INTERP_PARTIAL.md": "d0749a51ec42523380a732dcecceafb826c2bd6e0e9445193d2cbfe4505490a6"
+  },
+  "artifacts_sha256": {
+    "native_coarse": "7bddfd8171f28bf10997dbe52429b501ecae82403af582e424cf335d1e6ef631",
+    "native_fine": "a9494da146e0a2d1beb00207a147b4355e5c2adb63414fe840adf2e538526efd",
+    "measured": "b3f0021233fd5b8a112705d42f508d84467c25a69086ad535165b2d664971bca",
+    "native_compile": "b39b5ff4d01cfb3709857cad455fb0b00a74805d9c8050745e9b2fa4ba7f3325",
+    "native_ctest": "2eaa46a29fcda28e1b759c9db4d34b3fa4c929483d0cf40acfc6e56b904a248a",
+    "native_unit": "013a5822f0a10a2f6b924a71229e91c2523f8f3ad5fda910b866cbc691c36bcb",
+    "negative_regressions": "7b6349bc142a54c17c523a64e485e9d36d6ff1ce8af5c782321635398b08b287",
+    "historical_cell_centre_comparison": "7580d71cde391eea8296715fe0ce1a19ad155371e1276d889ef75f98886fce3d"
+  },
+  "native_binaries_sha256": {
+    "benchmark": "d2931da9ee5acfa0b6050ac97558aeb3340a5b00b0ef9da18c15515a2f75e4ec",
+    "unit": "52783a3dce9496f7c58ad797085863f4a48cbdba7c96dd0ec0bf461db5d14689"
+  },
+  "blockers": [
+    "Real measured pressure RMSE grows on all eight channels at fine grid",
+    "Wall-normal stress and exact cut-cell pressure geometry not reconstructed",
+    "0.04m transducer separation still under-resolved on both grids",
+    "Only 2s out of required >=6s simulated",
+    "Dynamic two-way FSI and global fluid impulse/energy closure not validated"
+  ],
+  "generated_utc": "2026-11-01T11:07:06.963400+00:00"
+}

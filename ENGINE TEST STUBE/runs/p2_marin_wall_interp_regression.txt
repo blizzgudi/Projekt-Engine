@@ -1,0 +1,42 @@
+MARIN_INTERP_PRESSURE_PHYSICAL_PASS=False P2_COMPLETE=False
+COARSE HEIGHT_RMSE_M=H1_m:0.12067,H2_m:0.116936,H3_m:0.162034,H4_m:0.205611 HISTORICAL_HEIGHT_DIFF=0
+FINE HEIGHT_RMSE_M=H1_m:0.103996,H2_m:0.0767461,H3_m:0.139819,H4_m:0.158084 HISTORICAL_HEIGHT_DIFF=0
+P1_Pa INTERP_COARSE_RMSE_PA=5642.34 INTERP_FINE_RMSE_PA=18165.7 FINE_IMPROVED=False
+P2_Pa INTERP_COARSE_RMSE_PA=5952.61 INTERP_FINE_RMSE_PA=18523.1 FINE_IMPROVED=False
+P3_Pa INTERP_COARSE_RMSE_PA=5552.55 INTERP_FINE_RMSE_PA=19045 FINE_IMPROVED=False
+P4_Pa INTERP_COARSE_RMSE_PA=5381.2 INTERP_FINE_RMSE_PA=20882.5 FINE_IMPROVED=False
+P5_Pa INTERP_COARSE_RMSE_PA=5270.74 INTERP_FINE_RMSE_PA=16202.5 FINE_IMPROVED=False
+P6_Pa INTERP_COARSE_RMSE_PA=5315.86 INTERP_FINE_RMSE_PA=16061.8 FINE_IMPROVED=False
+P7_Pa INTERP_COARSE_RMSE_PA=5299.48 INTERP_FINE_RMSE_PA=16119.6 FINE_IMPROVED=False
+P8_Pa INTERP_COARSE_RMSE_PA=5480.6 INTERP_FINE_RMSE_PA=16311.9 FINE_IMPROVED=False
+MARIN_INTERP_PRESSURE_PHYSICAL_PASS=False P2_COMPLETE=False
+COARSE HEIGHT_RMSE_M=H1_m:0.12067,H2_m:0.116936,H3_m:0.162034,H4_m:0.205611 HISTORICAL_HEIGHT_DIFF=0
+FINE HEIGHT_RMSE_M=H1_m:0.103996,H2_m:0.0767461,H3_m:0.139819,H4_m:0.158084 HISTORICAL_HEIGHT_DIFF=0
+P1_Pa INTERP_COARSE_RMSE_PA=5642.34 INTERP_FINE_RMSE_PA=18165.7 FINE_IMPROVED=False
+P2_Pa INTERP_COARSE_RMSE_PA=5952.61 INTERP_FINE_RMSE_PA=18523.1 FINE_IMPROVED=False
+P3_Pa INTERP_COARSE_RMSE_PA=5552.55 INTERP_FINE_RMSE_PA=19045 FINE_IMPROVED=False
+P4_Pa INTERP_COARSE_RMSE_PA=5381.2 INTERP_FINE_RMSE_PA=20882.5 FINE_IMPROVED=False
+P5_Pa INTERP_COARSE_RMSE_PA=5270.74 INTERP_FINE_RMSE_PA=16202.5 FINE_IMPROVED=False
+P6_Pa INTERP_COARSE_RMSE_PA=5315.86 INTERP_FINE_RMSE_PA=16061.8 FINE_IMPROVED=False
+P7_Pa INTERP_COARSE_RMSE_PA=5299.48 INTERP_FINE_RMSE_PA=16119.6 FINE_IMPROVED=False
+P8_Pa INTERP_COARSE_RMSE_PA=5480.6 INTERP_FINE_RMSE_PA=16311.9 FINE_IMPROVED=False
+test_corrupted_channel_rejected (__main__.WallInterpRegression.test_corrupted_channel_rejected) ... ok
+test_failed_native_run_rejected (__main__.WallInterpRegression.test_failed_native_run_rejected) ... ok
+test_fine_grid_falsely_labeled_coarse_rejected (__main__.WallInterpRegression.test_fine_grid_falsely_labeled_coarse_rejected) ... ok
+test_header_relabeling_rejected (__main__.WallInterpRegression.test_header_relabeling_rejected) ... ok
+test_height_rmse_and_noninvasive_pressure_diagnostic (__main__.WallInterpRegression.test_height_rmse_and_noninvasive_pressure_diagnostic) ... ok
+test_impossible_wet_count_rejected (__main__.WallInterpRegression.test_impossible_wet_count_rejected) ... ok
+test_mass_drift_rejected (__main__.WallInterpRegression.test_mass_drift_rejected) ... ok
+test_missing_row_rejected (__main__.WallInterpRegression.test_missing_row_rejected) ... ok
+test_nan_pressure_rejected (__main__.WallInterpRegression.test_nan_pressure_rejected) ... ok
+test_official_measurement_mismatch_remains_visible (__main__.WallInterpRegression.test_official_measurement_mismatch_remains_visible) ... ok
+test_old_nearest_cell_not_interpolated_rejected (__main__.WallInterpRegression.test_old_nearest_cell_not_interpolated_rejected) ... ok
+test_pressure_overflow_rejected (__main__.WallInterpRegression.test_pressure_overflow_rejected) ... ok
+test_tampered_height_invariant_rejected (__main__.WallInterpRegression.test_tampered_height_invariant_rejected) ... ok
+test_two_true_native_3d_traces (__main__.WallInterpRegression.test_two_true_native_3d_traces) ... ok
+test_wrong_timestamp_rejected (__main__.WallInterpRegression.test_wrong_timestamp_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 0.229s
+
+OK

@@ -627,3 +627,11 @@ add_test(NAME physics_p2_vof_throughflow_partial COMMAND upc_p2_vof_throughflow_
 add_executable(upc_p2_marin_pressure_sensors3d_tests tests/p2_marin_pressure_sensors3d_tests.cpp)
 target_link_libraries(upc_p2_marin_pressure_sensors3d_tests PRIVATE upc)
 add_test(NAME physics_p2_marin_pressure_sensors_partial COMMAND upc_p2_marin_pressure_sensors3d_tests)
+
+
+# P2 PARTIAL: actual MAC pressure wall-tangential interpolation at MARIN
+# P1-P8, with manufactured affine/quadratic and dry/solid stencil QA.
+# This is not validated wall traction or full CFD pressure agreement.
+add_executable(upc_p2_marin_wall_pressure_interp3d_tests tests/p2_marin_wall_pressure_interp3d_tests.cpp)
+target_link_libraries(upc_p2_marin_wall_pressure_interp3d_tests PRIVATE upc)
+add_test(NAME physics_p2_marin_wall_pressure_interp_partial COMMAND upc_p2_marin_wall_pressure_interp3d_tests)

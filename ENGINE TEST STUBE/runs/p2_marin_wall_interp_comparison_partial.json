@@ -1,0 +1,202 @@
+{
+  "phase": "P2",
+  "milestone": "MARIN_P1_P8_wall_tangential_pressure_interpolation",
+  "native_wall_tangent_reconstruction": true,
+  "normal_wall_stress_reconstructed": false,
+  "independent_spatial_resolution_of_transducers": false,
+  "experimental_pressure_validation": false,
+  "experimental_height_validation": false,
+  "phase_complete": false,
+  "original_experiment_sha256": "a2ad06e367f61c70351f3d66a8dc5041b53972e3a3aecebde0e06efdd62bf6d1",
+  "baseline_comparison_sha256": "7580d71cde391eea8296715fe0ce1a19ad155371e1276d889ef75f98886fce3d",
+  "grids": {
+    "coarse": {
+      "rows": 201,
+      "wet_final": 8,
+      "rmse_pa": {
+        "P1_Pa": {
+          "rmse_pa": 5642.335925060709,
+          "mae_pa": 4448.956734592562,
+          "bias_pa": 4220.549854544344,
+          "native_peak_abs_pa": 26245.710761266724,
+          "samples": 200
+        },
+        "P2_Pa": {
+          "rmse_pa": 5952.61410002187,
+          "mae_pa": 4720.675946364303,
+          "bias_pa": 4630.591271246281,
+          "native_peak_abs_pa": 26110.286204957407,
+          "samples": 200
+        },
+        "P3_Pa": {
+          "rmse_pa": 5552.554752830429,
+          "mae_pa": 4325.029817535944,
+          "bias_pa": 4286.682752906896,
+          "native_peak_abs_pa": 25524.28008181158,
+          "samples": 200
+        },
+        "P4_Pa": {
+          "rmse_pa": 5381.1990290344165,
+          "mae_pa": 4184.193162825734,
+          "bias_pa": 4103.604264237636,
+          "native_peak_abs_pa": 24733.06995384882,
+          "samples": 200
+        },
+        "P5_Pa": {
+          "rmse_pa": 5270.735830923616,
+          "mae_pa": 4243.237785454849,
+          "bias_pa": 4242.164226476274,
+          "native_peak_abs_pa": 22588.69611155193,
+          "samples": 200
+        },
+        "P6_Pa": {
+          "rmse_pa": 5315.858204757106,
+          "mae_pa": 4183.776090955784,
+          "bias_pa": 4181.152690202149,
+          "native_peak_abs_pa": 23200.63535705999,
+          "samples": 200
+        },
+        "P7_Pa": {
+          "rmse_pa": 5299.4842582639585,
+          "mae_pa": 4080.176797134476,
+          "bias_pa": 4076.866290473283,
+          "native_peak_abs_pa": 23957.575004104943,
+          "samples": 200
+        },
+        "P8_Pa": {
+          "rmse_pa": 5480.603151092523,
+          "mae_pa": 4182.713667544011,
+          "bias_pa": 4180.386229396961,
+          "native_peak_abs_pa": 26014.593399840032,
+          "samples": 200
+        }
+      },
+      "native_sha256": "7bddfd8171f28bf10997dbe52429b501ecae82403af582e424cf335d1e6ef631",
+      "historical_native_sha256": "5a9da59cfb88510fb68216aec323aae681877035d52032b24daabe1442a1a7d1",
+      "historical_height_volume_max_difference": 0.0,
+      "height_rmse_m": {
+        "H1_m": 0.12067013175223057,
+        "H2_m": 0.11693615167184265,
+        "H3_m": 0.16203438811968499,
+        "H4_m": 0.20561138293584638
+      }
+    },
+    "fine": {
+      "rows": 201,
+      "wet_final": 8,
+      "rmse_pa": {
+        "P1_Pa": {
+          "rmse_pa": 18165.73030437976,
+          "mae_pa": 6688.95440560162,
+          "bias_pa": 6471.505996348885,
+          "native_peak_abs_pa": 199955.56758977496,
+          "samples": 200
+        },
+        "P2_Pa": {
+          "rmse_pa": 18523.05410339341,
+          "mae_pa": 6804.480950945261,
+          "bias_pa": 6682.209371880927,
+          "native_peak_abs_pa": 198021.23532658495,
+          "samples": 200
+        },
+        "P3_Pa": {
+          "rmse_pa": 19045.037681343354,
+          "mae_pa": 6556.631638832046,
+          "bias_pa": 6470.010223866777,
+          "native_peak_abs_pa": 194706.84354623122,
+          "samples": 200
+        },
+        "P4_Pa": {
+          "rmse_pa": 20882.457559762934,
+          "mae_pa": 6465.283848253407,
+          "bias_pa": 6321.6367093425915,
+          "native_peak_abs_pa": 190028.94557956135,
+          "samples": 200
+        },
+        "P5_Pa": {
+          "rmse_pa": 16202.527482431831,
+          "mae_pa": 6184.604578172294,
+          "bias_pa": 6183.320766221803,
+          "native_peak_abs_pa": 184232.63308375832,
+          "samples": 200
+        },
+        "P6_Pa": {
+          "rmse_pa": 16061.841413741764,
+          "mae_pa": 5938.210344472639,
+          "bias_pa": 5932.108865615331,
+          "native_peak_abs_pa": 182246.00378346065,
+          "samples": 200
+        },
+        "P7_Pa": {
+          "rmse_pa": 16119.609898154447,
+          "mae_pa": 6041.868022242881,
+          "bias_pa": 6037.7030546560245,
+          "native_peak_abs_pa": 182625.50321420605,
+          "samples": 200
+        },
+        "P8_Pa": {
+          "rmse_pa": 16311.892037322286,
+          "mae_pa": 6140.228584156213,
+          "bias_pa": 6137.383789641415,
+          "native_peak_abs_pa": 184800.056787927,
+          "samples": 200
+        }
+      },
+      "native_sha256": "a9494da146e0a2d1beb00207a147b4355e5c2adb63414fe840adf2e538526efd",
+      "historical_native_sha256": "451b4a35ad6238b726cdebf8ed254defc49496a679d53ed56404fbed19e1a71e",
+      "historical_height_volume_max_difference": 0.0,
+      "height_rmse_m": {
+        "H1_m": 0.10399582776033299,
+        "H2_m": 0.07674606530522744,
+        "H3_m": 0.1398191480237003,
+        "H4_m": 0.15808439375954003
+      }
+    }
+  },
+  "improved_vs_nearest_cell_rmse": {
+    "coarse": {
+      "P1_Pa": true,
+      "P2_Pa": true,
+      "P3_Pa": false,
+      "P4_Pa": false,
+      "P5_Pa": false,
+      "P6_Pa": true,
+      "P7_Pa": true,
+      "P8_Pa": true
+    },
+    "fine": {
+      "P1_Pa": true,
+      "P2_Pa": true,
+      "P3_Pa": true,
+      "P4_Pa": false,
+      "P5_Pa": true,
+      "P6_Pa": false,
+      "P7_Pa": false,
+      "P8_Pa": true
+    }
+  },
+  "fine_vs_coarse_rmse_improved": {
+    "P1_Pa": false,
+    "P2_Pa": false,
+    "P3_Pa": false,
+    "P4_Pa": false,
+    "P5_Pa": false,
+    "P6_Pa": false,
+    "P7_Pa": false,
+    "P8_Pa": false
+  },
+  "source_sha256": {
+    "header": "2f849a5e1af52ff681ddaf3510aa22e28f094b10c075c613b2beaea662ecafaf",
+    "benchmark": "6ff790d42709ffb34ce0b4be398ffef21021b29fac157bb5cc5bbeda3d89b147",
+    "experimental_csv": "199232979781aa02a26ad663515c0d8e7fc02640ef648daf92e4c6a4998c84cb",
+    "binary": "d2931da9ee5acfa0b6050ac97558aeb3340a5b00b0ef9da18c15515a2f75e4ec"
+  },
+  "known_deficiencies": [
+    "bilinear interpolation of fluid-side MAC cell pressure is not physical wall stress",
+    "wall-normal derivative and exact cut-cell boundary geometry not reconstructed",
+    "0.1m/0.05m grids cannot independently resolve 0.04m sensor spacing",
+    "only 2s of required >=6s external measurement window simulated",
+    "no independent dynamic FSI/energy closure or free-surface stress validation"
+  ],
+  "generated_utc": "2026-11-01T11:07:06.906414+00:00"
+}
