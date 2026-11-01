@@ -1,0 +1,59 @@
+{
+  "phase": "P2",
+  "milestone": "prescribed_two_phase_viscous_normal_stress_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "native": {
+    "plane_faces": 144,
+    "plane_viscous_jump_pa": 1.3,
+    "plane_max_speed_m_s": 3.62803e-14,
+    "plane_pressure_error_pa": 1.76044e-10,
+    "plane_divergence_s_inv": 8.52896e-13,
+    "spheres": [
+      {
+        "dx_m": 0.08,
+        "faces": 264,
+        "max_radial_jump_error_pa": 0.0311568,
+        "max_skew_error_pa": 1.42109e-14
+      },
+      {
+        "dx_m": 0.04,
+        "faces": 984,
+        "max_radial_jump_error_pa": 0.0104853,
+        "max_skew_error_pa": 1.42109e-14
+      }
+    ],
+    "native_assertions": 5871,
+    "rejected_inputs": 5
+  },
+  "ctest_passed": 129,
+  "tampered_native_logs_rejected": 6,
+  "official_phase_gate": "P2 INCOMPLETE / ALL_COMPLETE=False",
+  "historical_marin_6s_height_validation": "FAIL",
+  "historical_marin_report_sha256": "192e198e4e72fbca285c8eeb7b513f74ecdb4432b7705d837f71b8b0f91f2f08",
+  "limitations": [
+    "Prescribed liquid/air gradients; no resolved dynamic two-phase stress field",
+    "No tangential traction/Marangoni or VOF-to-SDF curvature transport",
+    "Historical 6-second MARIN H1-H4 FAIL; P1-P8 pressure/three-grid convergence absent",
+    "No dynamic bidirectional FSI or global physical momentum/energy closure",
+    "No Unreal 5.8 native E2E for this new partial operator"
+  ],
+  "source_sha256": {
+    "CMakeLists.txt": "e9e770eca4612b489cc09f0326f225a040f04784f5025501a93bfd6e23642450",
+    "include/upc/mac3d.hpp": "75ced18ea1d156ec1f08f3d0ca2020269fbe12bc573defe83d3a25026b8f21e6",
+    "include/upc/p2_sdf_capillary3d.hpp": "b690eb806bb3aba9c5b616517d537732f3a96f83c7f1b76d7def87463f1eb6ba",
+    "include/upc/p2_sdf_normal_stress3d.hpp": "790bde7aa540ca9d23c671641b4cde6f639f5a7c4103b0758535d82dc962eb88",
+    "tests/p2_sdf_normal_stress3d_tests.cpp": "8ca1e20273e2befb4ee12ea39747239cded471fd1096b1e36031bb57ff17a305",
+    "scripts/p2_sdf_normal_stress_build.cmd": "d7f7f5ec008701d6630ed6927cbc8ad2be874b2fce449a9cf9372efb3dfaf57e",
+    "scripts/p2_sdf_normal_stress_acceptance.py": "781ff93ab698747c1f3c0b72f5f39cd6e9b5acb1119b47deb0d2c76232e52740",
+    "scripts/phase_gate.py": "01065438e2b72b3fe83e7e3ba3decbf54925c84c5f9424b15ad15a8197f59cd6",
+    "docs/P2_SDF_NORMAL_STRESS_PARTIAL.md": "48faa338d03cd968ff3b689847f6b72017c0e576da1d6d06a3ce259bfb7dbfda",
+    "docs/PHASENPLAN.md": "73fe909567d2b7cf95d26957b29ece24715975303d73c470faf7324763d11e6f"
+  },
+  "binary_sha256": "b37a939a70d10173c035cd777aafc86d41a0010c744635abdfd6f7b7db3d41b5",
+  "native_log_sha256": "0d818e58c9aeec7610b1023fc43abd4656535dc960234b302b9654c61a070342",
+  "build_log_sha256": "30606ac868d40fdee22c05e387bf72dd262b753ff2ccd9fea7254239cff1e9d3",
+  "ctest_log_sha256": "f6a08b39169bb45927c375dba42b3c896a2aea7e7cc384fb4a8fae53d6c50b0c",
+  "phase_gate_log_sha256": "81c1aeb5f80e7e0c8ab439c351b9eab256694a788538ae1ad32d0f2082f8cccf",
+  "generated_utc": "2026-11-01T21:08:34.745645+00:00"
+}

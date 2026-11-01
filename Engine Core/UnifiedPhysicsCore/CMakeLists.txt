@@ -716,3 +716,9 @@ add_test(NAME physics_p2_interface_normal_pressure_partial COMMAND upc_p2_interf
 add_executable(upc_p2_sdf_capillary_tests tests/p2_sdf_capillary3d_tests.cpp)
 target_link_libraries(upc_p2_sdf_capillary_tests PRIVATE upc)
 add_test(NAME physics_p2_sdf_capillary_partial COMMAND upc_p2_sdf_capillary_tests)
+
+# P2 PARTIAL: prescribed two-phase normal viscous stress + SDF capillary
+# pressure on real 3D MAC-PCG. No resolved air/tangential stress coupling.
+add_executable(upc_p2_sdf_normal_stress_tests tests/p2_sdf_normal_stress3d_tests.cpp)
+target_link_libraries(upc_p2_sdf_normal_stress_tests PRIVATE upc)
+add_test(NAME physics_p2_sdf_normal_stress_partial COMMAND upc_p2_sdf_normal_stress_tests)

@@ -1,0 +1,5 @@
+NORMAL_STRESS_PLANE faces=144 viscous_jump_pa=1.3 max_speed_m_s=3.62803e-14 max_pressure_error_pa=1.76044e-10 divergence_s_inv=8.52896e-13
+NORMAL_STRESS_SPHERE dx=0.08 faces=264 max_radial_jump_error_pa=0.0311568 max_skew_error_pa=1.42109e-14
+NORMAL_STRESS_SPHERE dx=0.04 faces=984 max_radial_jump_error_pa=0.0104853 max_skew_error_pa=1.42109e-14
+NORMAL_STRESS_NEGATIVE rejected=5 zero_viscosity_faces=144
+PASS P2_SDF_NORMAL_STRESS assertions=5871 phase_complete=false
