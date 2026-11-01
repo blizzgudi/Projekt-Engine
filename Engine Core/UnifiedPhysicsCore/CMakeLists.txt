@@ -722,3 +722,9 @@ add_test(NAME physics_p2_sdf_capillary_partial COMMAND upc_p2_sdf_capillary_test
 add_executable(upc_p2_sdf_normal_stress_tests tests/p2_sdf_normal_stress3d_tests.cpp)
 target_link_libraries(upc_p2_sdf_normal_stress_tests PRIVATE upc)
 add_test(NAME physics_p2_sdf_normal_stress_partial COMMAND upc_p2_sdf_normal_stress_tests)
+
+# P2 PARTIAL: local two-phase tangential viscous traction/Marangoni matching
+# at prescribed SDF cut faces; not applied to live MAC velocity or air flow.
+add_executable(upc_p2_sdf_tangential_stress_tests tests/p2_sdf_tangential_stress3d_tests.cpp)
+target_link_libraries(upc_p2_sdf_tangential_stress_tests PRIVATE upc)
+add_test(NAME physics_p2_sdf_tangential_stress_partial COMMAND upc_p2_sdf_tangential_stress_tests)

@@ -1,0 +1,5 @@
+TANGENTIAL_PLANE faces=144 before_pa=1.14089 after_pa=1.11022e-16 normal_delta_pa=0
+TANGENTIAL_SPHERE dx=0.08 faces=264 max_after_pa=5.08768e-16 max_normal_delta_pa=1.11022e-15 pressure_delta_pa=0
+TANGENTIAL_SPHERE dx=0.04 faces=984 max_after_pa=7.36439e-16 max_normal_delta_pa=1.33227e-15 pressure_delta_pa=0
+TANGENTIAL_NEGATIVE rejected=5 zero_shear_faces=144
+PASS P2_SDF_TANGENTIAL_STRESS assertions=10188 phase_complete=false

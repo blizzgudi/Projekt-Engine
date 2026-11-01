@@ -1,0 +1,59 @@
+{
+  "phase": "P2",
+  "milestone": "prescribed_sdf_tangential_stress_gradient_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "native": {
+    "plane_faces": 144,
+    "plane_initial_residual_pa": 1.14089,
+    "plane_corrected_residual_pa": 1.11022e-16,
+    "plane_normal_stress_change_pa": 0.0,
+    "spheres": [
+      {
+        "dx_m": 0.08,
+        "faces": 264,
+        "residual_pa": 5.08768e-16,
+        "normal_jump_change_pa": 1.11022e-15,
+        "pressure_change_pa": 0.0
+      },
+      {
+        "dx_m": 0.04,
+        "faces": 984,
+        "residual_pa": 7.36439e-16,
+        "normal_jump_change_pa": 1.33227e-15,
+        "pressure_change_pa": 0.0
+      }
+    ],
+    "rejected_invalid_inputs": 5,
+    "native_assertions": 10188
+  },
+  "ctest_passed": 130,
+  "tampered_native_logs_rejected": 6,
+  "historical_marin_6s_height_validation": "FAIL",
+  "historical_marin_report_sha256": "192e198e4e72fbca285c8eeb7b513f74ecdb4432b7705d837f71b8b0f91f2f08",
+  "official_phase_gate": "P2 INCOMPLETE / ALL_COMPLETE=False",
+  "limitations": [
+    "Reconstructed local prescribed liquid gradient only; no MAC/VOF ghost-velocity update",
+    "Air gradient and surface tension gradient externally prescribed, no dynamic air/Marangoni solver",
+    "No independent full 6s MARIN H1-H4/P1-P8 measurement/grid convergence",
+    "No dynamic two-way rigid FSI/global momentum and energy closure",
+    "No Unreal 5.8 Native E2E for this new path"
+  ],
+  "source_sha256": {
+    "CMakeLists.txt": "3d1f6864881053cf6cd8c4e2921b259b92a5c65037b440e56a27d52c829ff4c0",
+    "include/upc/p2_sdf_capillary3d.hpp": "b690eb806bb3aba9c5b616517d537732f3a96f83c7f1b76d7def87463f1eb6ba",
+    "include/upc/p2_sdf_normal_stress3d.hpp": "790bde7aa540ca9d23c671641b4cde6f639f5a7c4103b0758535d82dc962eb88",
+    "include/upc/p2_sdf_tangential_stress3d.hpp": "d8e967c9ee3fb3495e6893031311847d45034882e92a44183914a53f18cfcd1d",
+    "tests/p2_sdf_tangential_stress3d_tests.cpp": "247623ace4ec33de659e6601e41cd73e99695ee8357d2d5a917c4e4fea8f8a5e",
+    "scripts/p2_sdf_tangential_stress_build.cmd": "ec2476a72d16bcd3aa1972c5450004a23266719b3b6727d8ab1af1226b72c5de",
+    "scripts/p2_sdf_tangential_stress_acceptance.py": "b54395f9c194528e9f49c4e02ee4fc71a357f81cc7d08fd42b2fa98d47832fa6",
+    "scripts/phase_gate.py": "01065438e2b72b3fe83e7e3ba3decbf54925c84c5f9424b15ad15a8197f59cd6",
+    "docs/P2_SDF_TANGENTIAL_STRESS_PARTIAL.md": "f3ed225a9dc70d02f085804848debbebfd24c3d60d06b8f0e4df4504c0710f23"
+  },
+  "binary_sha256": "09a7e82ef48894b15ecd651891c1844ba1628767fccebad3f2a2e82dcfd4ec6d",
+  "build_log_sha256": "50599b6dbf9504c1b40563e49d8f1ada67019f2d3bfaf81b4023ca6f8c3e11ad",
+  "native_log_sha256": "b53c6825268d13e12fb68f08767abefe3fb5b02082a8e5b7e8e5746423fa44c0",
+  "ctest_log_sha256": "0d404cf2b5f406d4597ec16e29a1aa8098d7b001aa65d10264870a13616cbeff",
+  "phase_gate_log_sha256": "355696c2ae65e8d8d9053dcca683e686ee13083f03597d7ec35e8436443a7123",
+  "generated_utc": "2026-11-01T21:44:11.060036+00:00"
+}
