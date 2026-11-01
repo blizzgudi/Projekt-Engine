@@ -1,0 +1,2 @@
+ABC5 rel_l2=0.0062461362601023132 energy_ratio=0.96470053598201633 analytic_energy_ratio=0.97659128563391073 mass_m3=0.24999999999999983 mass_residual_m3=-1.7216975279968369e-16 snap_cells=90 snap_abs_m3=5.6715279967534287e-18 divergence=1.154431368208253e-14 nearfull=19 flat=4
+PASS ABC5_ROUNDOFF assertions=6939 phase_complete=false

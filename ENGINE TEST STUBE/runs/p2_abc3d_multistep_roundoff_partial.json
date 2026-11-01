@@ -1,0 +1,183 @@
+{
+  "phase": "P2",
+  "milestone": "abc3d_five_step_endpoint_roundoff_sanitation",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "generated_utc": "2026-11-01T03:32:45.870443+00:00",
+  "native_assertions": 6939,
+  "metrics": {
+    "rel_l2": 0.006246136260102313,
+    "energy_ratio": 0.9647005359820163,
+    "analytic_energy_ratio": 0.9765912856339107,
+    "mass_m3": 0.24999999999999983,
+    "mass_residual_m3": -1.721697527996837e-16,
+    "snap_cells": 90.0,
+    "snap_abs_m3": 5.671527996753429e-18,
+    "divergence": 1.154431368208253e-14,
+    "nearfull": 19.0,
+    "flat": 4.0
+  },
+  "checks": [
+    {
+      "name": "compile_msvc",
+      "value": "p2_abc3d_multistep_probe.cpp",
+      "pass": true
+    },
+    {
+      "name": "ctest_106",
+      "value": "Total Test time (real) =   4.64 sec",
+      "pass": true
+    },
+    {
+      "name": "native_pass",
+      "value": true,
+      "pass": true
+    },
+    {
+      "name": "native_assertions",
+      "value": 6939,
+      "pass": true
+    },
+    {
+      "name": "complete_native_metrics",
+      "value": [
+        "analytic_energy_ratio",
+        "divergence",
+        "energy_ratio",
+        "flat",
+        "mass_m3",
+        "mass_residual_m3",
+        "nearfull",
+        "rel_l2",
+        "snap_abs_m3",
+        "snap_cells"
+      ],
+      "pass": true
+    },
+    {
+      "name": "finite_rel_l2",
+      "value": 0.006246136260102313,
+      "pass": true
+    },
+    {
+      "name": "finite_energy_ratio",
+      "value": 0.9647005359820163,
+      "pass": true
+    },
+    {
+      "name": "finite_analytic_energy_ratio",
+      "value": 0.9765912856339107,
+      "pass": true
+    },
+    {
+      "name": "finite_mass_m3",
+      "value": 0.24999999999999983,
+      "pass": true
+    },
+    {
+      "name": "finite_mass_residual_m3",
+      "value": -1.721697527996837e-16,
+      "pass": true
+    },
+    {
+      "name": "finite_snap_cells",
+      "value": 90.0,
+      "pass": true
+    },
+    {
+      "name": "finite_snap_abs_m3",
+      "value": 5.671527996753429e-18,
+      "pass": true
+    },
+    {
+      "name": "finite_divergence",
+      "value": 1.154431368208253e-14,
+      "pass": true
+    },
+    {
+      "name": "finite_nearfull",
+      "value": 19.0,
+      "pass": true
+    },
+    {
+      "name": "finite_flat",
+      "value": 4.0,
+      "pass": true
+    },
+    {
+      "name": "reproduced_one_ulp",
+      "value": 19.0,
+      "pass": true
+    },
+    {
+      "name": "reproduced_flat_normals",
+      "value": 4.0,
+      "pass": true
+    },
+    {
+      "name": "five_step_abc_l2",
+      "value": 0.006246136260102313,
+      "pass": true
+    },
+    {
+      "name": "water_volume",
+      "value": 0.24999999999999983,
+      "pass": true
+    },
+    {
+      "name": "mass_residual",
+      "value": -1.721697527996837e-16,
+      "pass": true
+    },
+    {
+      "name": "snapped_cells",
+      "value": 90.0,
+      "pass": true
+    },
+    {
+      "name": "bounded_absolute_snap_m3",
+      "value": 5.671527996753429e-18,
+      "pass": true
+    },
+    {
+      "name": "pressure_divergence",
+      "value": 1.154431368208253e-14,
+      "pass": true
+    },
+    {
+      "name": "independent_analytic_energy_ratio",
+      "value": 0.9765912856339107,
+      "pass": true
+    },
+    {
+      "name": "energy_dissipation_documented",
+      "value": 0.9647005359820163,
+      "pass": true
+    },
+    {
+      "name": "six_source_hashes",
+      "value": 6,
+      "pass": true
+    }
+  ],
+  "source_sha256": {
+    "include/upc/p2_viscous_mac_plic_roundoff_sequence3d.hpp": "abab331edc64395a7f60e7cc8173128a2e2e2aeef7b57a9ed2ebd2d8cfb21b25",
+    "tests/p2_abc3d_multistep_probe.cpp": "4b2c4f1d7f50107350b301220f45d81873b113e4f0b081028683a5be82dbff49",
+    "scripts/p2_abc3d_multistep_probe_build.cmd": "1094275eb4c274c7b1894e0faae5e12c17e6b470c74bb2f3199c979ac768c4d3",
+    "scripts/p2_abc3d_multistep_roundoff_acceptance.py": "bae6018b987d8f94a39af61433fca6e19233e4b2aba2002d953b410de07781a9",
+    "docs/P2_ABC3D_MULTISTEP_ROUNDOFF_PARTIAL.md": "3be9e40bfef05edb8c5eb65c5f5aeb053199b3ad2873ad4f255a0e0623c70385",
+    "docs/PHASENPLAN.md": "3d49f1daac746722be899bbcdd0d8dafa386857afa87589b9a0c750280724008"
+  },
+  "native_binary_sha256": "a2c94896cb99e0b7584c8168cc7af788ae455340794439e7c62e13bb1ac830ae",
+  "native_log_sha256": "08c2ab6b3d034455b51b56d4ecc127e5ac8061b2831c424b7458a5c6f11b7da1",
+  "compile_log_sha256": "45be4c9db6db46b640ef71905f4561e6d7c511d5aad93464f39b4a8431427efa",
+  "ctest_log_sha256": "f095210d9cff350ab9f28d9a43c68d46c5d4ac74bcb4ae3b670d37743aa0b565",
+  "limitations": [
+    "Optional endpoint-only roundoff sanitation; unmodified core still rejects near-full degenerate normals",
+    "No arbitrary PLIC normal fallback or generic geometric overlap repair",
+    "Continuous analytic ABC is not measured external 3D CFD validation",
+    "Extra numerical energy dissipation; no global physical two-phase energy conservation",
+    "No moving two-way FSI, stress-consistent free surface, or UE5.8 Native-E2E of this adapter",
+    "P2-P8 remain incomplete"
+  ]
+}

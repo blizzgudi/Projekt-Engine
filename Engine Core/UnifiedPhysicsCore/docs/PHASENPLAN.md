@@ -1990,3 +1990,11 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
 - MSVC Release und 106/106 bestehende CTests PASS, 25366 native Assertions und 32/32 quantitative Teilchecks. Nachweise: docs/P2_ABC3D_ANALYTIC_PARTIAL.md, scripts/p2_abc3d_analytic_acceptance.py, ENGINE TEST STUBE/runs/p2_abc3d_analytic_partial.json.
 - **Bekannte echte Blockade:** 5-Schritt-ABC/VOF-Test auf 12^3 scheitert mit "Unresolved periodic PLIC interface"; Mehrschrittfall ist NICHT abgenommen. Kein erfundener Fallback.
 - **P2-P8 bleiben INCOMPLETE; ALL_COMPLETE=False.** Analytische 3D-Referenz ist keine gemessene externe CFD-Validierung. Stresskonsistente freie Oberflaechen, dynamische Zweiwege-FSI, globale Energie-/Impulsabnahme und UE5.8 Native-E2E dieses Pfades fehlen.
+
+## P2 Teilfortschritt: ABC3D-Mehrschritt und PLIC-Endpunkt-Rundung (01.11.2026)
+
+- Die bisherige 5-Schritt-Blockade wurde reproduziert: nach Schritt 1 gab es 19 Zellen mit exakt `nextafter(1.0,0.0)`, davon vier mit verschwindendem zentralem PLIC-Gradienten. Der unveränderte Standardpfad scheitert korrekt in Schritt 2.
+- Neuer **opt-in** Mehrschritt-Adapter bereinigt ausschließlich Füllgrade innerhalb acht Maschinen-Epsilons von 0/1. Kumulierte absolute Korrektur wird begrenzt und bilanziert. Echte unbestimmbare Grenzflächen und ungültige Eingaben bleiben abgelehnt.
+- 12³-ABC-Feld, 5 × 0.02 s: vollständige Viskositäts-/Impuls-/Druck-/PLIC-Fortschreibung, relativer L2-Fehler 0.00624613626, Wasser 0.25 m³, absolute Rundungsänderung 5.67e-18 m³, Gesamtresiduum -1.72e-16 m³, Divergenz 1.16e-14 s^-1. Zusätzliche numerische Energiedissipation gegenüber analytischer Lösung bleibt.
+- Separater Native-Test, CTest und Hash-Gate: `docs/P2_ABC3D_MULTISTEP_ROUNDOFF_PARTIAL.md`, `scripts/p2_abc3d_multistep_probe_build.cmd`, `scripts/p2_abc3d_multistep_roundoff_acceptance.py`, `ENGINE TEST STUBE/runs/p2_abc3d_multistep_roundoff_partial.json`.
+- **P2–P8 INCOMPLETE; ALL_COMPLETE=False.** Kein vollständiger 3D-Zweiphasen-Stresssolver, keine dynamische Zweiwege-FSI, keine externen CFD-Messdaten, keine globale physikalische Energie-/Impulsabnahme oder Unreal-5.8-Native-E2E dieses Pfades.
