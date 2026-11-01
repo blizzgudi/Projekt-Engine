@@ -1,0 +1,83 @@
+{
+  "phase": "P2",
+  "milestone": "live_axis_vof_fractional_mac_pcg_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "measured_3d_marin_validated": false,
+  "stress_consistent_air_water": false,
+  "bidirectional_moving_solid_fsi": false,
+  "global_physical_impulse_energy_closed": false,
+  "native_ctest_suites": 122,
+  "native_assertions": 43,
+  "independent_negative_mutations_rejected": 4,
+  "manufactured_live_hydrostatic": [
+    {
+      "grid": [
+        5,
+        5,
+        5
+      ],
+      "water_mass_kg": 43750.0,
+      "fractional_pressure_pa": 2452.5,
+      "legacy_pressure_pa": 4905.0,
+      "reconstructed_faces": 25,
+      "divergence_s_inv": 1.97561e-17
+    },
+    {
+      "grid": [
+        9,
+        9,
+        9
+      ],
+      "water_mass_kg": 141750.0,
+      "fractional_pressure_pa": 2452.5,
+      "legacy_pressure_pa": 4905.0,
+      "reconstructed_faces": 81,
+      "divergence_s_inv": 2.09703e-13
+    }
+  ],
+  "historical_6s_marin_height_rmse_m": {
+    "H1_m": 0.13652547494982525,
+    "H2_m": 0.0915001638115832,
+    "H3_m": 0.1482453038649915,
+    "H4_m": 0.2243987520282911
+  },
+  "historical_6s_marin_grid": {
+    "shape": [
+      32,
+      10,
+      10
+    ],
+    "dx_m": 0.1,
+    "dt_s": 0.01,
+    "states": 601,
+    "duration_s": 6.0
+  },
+  "historical_6s_marin_not_rerun": true,
+  "source_sha256": {
+    "CMakeLists.txt": "30313a7fea312b3c1efd02d2e6350ad913e1943e05d5b5a1ff33023008c93696",
+    "include/upc/coupled_water3d.hpp": "9c84ee1560a029a477eff7db19524f0db93c5163557549affc663118b657111a",
+    "include/upc/mac3d.hpp": "c935c5f3c31432d90feeb0b56f5aef1fd29cf5dc69a94878a0d60f884c5e19e5",
+    "include/upc/p2_axis_vof_pcg_geometry3d.hpp": "da5cf2fcf0f4d1fbbc9ab1b3fdc534f8dbdc0579ba64690954c57c0b1e11fc95",
+    "include/upc/p2_vof_normal_reconstruction3d.hpp": "754d16ad464b530b109ff76f576c7e2d81a7732919b1b4baec251bca614b4878",
+    "tests/p2_live_axis_vof_pcg3d_tests.cpp": "78d22bb90640d7a41af8b4c54808b75b561d165a49a1d851fdeee05f5e8e93e6",
+    "scripts/p2_live_axis_vof_pcg_partial_acceptance.py": "60d0c658c54a3294e31ae8727229970e357fa9077e9437f26d62edef3f895ab3",
+    "docs/P2_LIVE_AXIS_VOF_PCG_PARTIAL.md": "854a50e1d190ceb2bb619075db2b8dcbd9069bbdfd8b5533b065b7152e206ef6",
+    "docs/PHASENPLAN.md": "41b1af9cd3bca2ad7705728f9f16c63951e4a52fa95c28c620bafb7d555ae5e5"
+  },
+  "artifact_sha256": {
+    "p2_live_axis_vof_pcg_native.txt": "cbaca8bea6225983a13b696cf6fb249e1d6a157314270850c51140c4d3cb5fcd",
+    "p2_live_axis_vof_pcg_ctest.txt": "eed4a77130a1fee18bb02eb0089c8f3ad67f29d69dc375fe76a93a1f581996e5",
+    "p2_live_axis_vof_pcg_full_build.txt": "b9b2e328932c2102c87a83f231521c928c1dee8d126baf7698246feb2784fc65",
+    "p2_live_axis_vof_pcg_phase_gate.txt": "ab300bb727908749ec3a803f1e6b7f90f660ad67714cbabc643011315b881408",
+    "p2_marin_pcg_6s_partial.json": "192e198e4e72fbca285c8eeb7b513f74ecdb4432b7705d837f71b8b0f91f2f08",
+    "upc_p2_live_axis_vof_pcg_tests.exe": "372e03d37654f6c380071223d17bb06a9195cc1d536a76fcbb95f547cd840d8d"
+  },
+  "limitations": [
+    "Only planar axis-aligned VOF geometry with f>0.5 wet mask",
+    "Ambiguous/oblique/two-partial interface is rejected transactionally",
+    "No full 6s three-grid MARIN convergence or resolved pressure sensor footprints",
+    "No stress-consistent two-phase air, dynamic FSI or physical energy/impulse closure"
+  ],
+  "generated_utc": "2026-11-01T16:00:09.855181+00:00"
+}

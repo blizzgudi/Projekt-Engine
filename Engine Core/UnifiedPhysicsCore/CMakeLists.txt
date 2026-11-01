@@ -673,3 +673,8 @@ add_test(NAME physics_p2_fractional_free_surface_pcg_partial COMMAND upc_p2_frac
 add_executable(upc_p2_axis_vof_pcg_geometry_tests tests/p2_axis_vof_pcg_geometry3d_tests.cpp)
 target_link_libraries(upc_p2_axis_vof_pcg_geometry_tests PRIVATE upc)
 add_test(NAME physics_p2_axis_vof_pcg_geometry_partial COMMAND upc_p2_axis_vof_pcg_geometry_tests)
+
+# P2 PARTIAL: live opt-in axis VOF -> fractional PCG, fail-closed rollback.
+add_executable(upc_p2_live_axis_vof_pcg_tests tests/p2_live_axis_vof_pcg3d_tests.cpp)
+target_link_libraries(upc_p2_live_axis_vof_pcg_tests PRIVATE upc)
+add_test(NAME physics_p2_live_axis_vof_pcg_partial COMMAND upc_p2_live_axis_vof_pcg_tests)

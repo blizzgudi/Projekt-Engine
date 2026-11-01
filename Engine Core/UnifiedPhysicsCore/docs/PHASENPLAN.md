@@ -2204,3 +2204,10 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
   scripts/p2_axis_vof_pcg_partial_acceptance.py,
   ENGINE TEST STUBE/runs/p2_axis_vof_pcg_partial.json.
   Phase-Gate bleibt **P2 PARTIAL / ALL_COMPLETE=False**.
+
+## P2 Teilfortschritt: live 3D-VOF-Achsgeometrie in MAC-PCG (01.11.2026)
+
+- Explizit zuschaltbarer VOF-Achs-zu-PCG-Brueckenpfad im gekoppelten 3D-Wassersolver. Wet-Maske f>0.5 konsistent mit geometrischer Rekonstruktion; Default-Pfad bleibt f>1e-5. Jede Projektion rekonstruiert Grenzabstaende neu, auch nach optionalem VOF-Transport.
+- Transaktionale Ablehnung ungesicherter, obliquer und mehrdeutiger Live-Grenzen; Reset alter Interface-Distanzen. Echte MSVC-Release-Hydrostatik auf 5^3/9^3: p=2452.5 Pa fuer theta=.25 statt 4905 Pa beim Legacy-Halbzellrand, 25/81 aufgeloeste Faces, Wassermasse stabil. 43 native Assertions, 122/122 CTest, vier manipulierte Traces abgewiesen.
+- Belege: docs/P2_LIVE_AXIS_VOF_PCG_PARTIAL.md, scripts/p2_live_axis_vof_pcg_partial_acceptance.py, ENGINE TEST STUBE/runs/p2_live_axis_vof_pcg_partial.json mit Source-/Binary-/Log-SHA256.
+- **P2 bleibt INCOMPLETE**: historischer 6-s-MARIN-Abgleich H1-H4 ueber 0.05 m; keine volle Dreigitter-Messkonvergenz, stresskonsistente Zweiphasen-Grenze, bidirektionale FSI oder physikalische Gesamtimpuls-/Energiebilanz. ALL_COMPLETE=False.

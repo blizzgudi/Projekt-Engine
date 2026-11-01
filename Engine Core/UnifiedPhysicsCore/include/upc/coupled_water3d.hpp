@@ -6,6 +6,7 @@
 // Velocity self-advection is semi-Lagrangian; it dissipates energy numerically.
 // No FLIP/APIC particle transfers, no 3D splashes below grid resolution.
 #include "upc/mac3d.hpp"
+#include "upc/p2_axis_vof_pcg_geometry3d.hpp"
 #include "upc/p2_vof_throughflow3d.hpp"
 #include "upc/viscous_mac3d.hpp"
 #include "upc/p2_vof_mechanical_inventory3d.hpp"
@@ -63,9 +64,23 @@ class CoupledMacWater3D {
     std::size_t substeps_=0;
     bool conservative_throughflow_transport_=false;
     bool pcg_pressure_projection_enabled_=false;
+    bool axis_vof_pcg_geometry_enabled_=false;
+    std::size_t last_axis_vof_resolved_faces_=0;
+    std::size_t last_axis_vof_unresolved_pure_faces_=0;
     std::size_t last_pcg_iterations_=0;
     double last_pcg_max_equation_residual_pa_=0;
     static constexpr double wet=1e-5;
+    double pressure_wet_threshold()const{
+        return axis_vof_pcg_geometry_enabled_?0.5:wet;
+    }
+    void sync_axis_vof_pcg_geometry(){
+        if(!axis_vof_pcg_geometry_enabled_)return;
+        const auto geometry=p2_axis_vof_pcg_geometry3d(
+            fill_,solid_,nx_,ny_,nz_,dx_);
+        p2_apply_axis_vof_pcg_geometry3d(mac_,geometry);
+        last_axis_vof_resolved_faces_=geometry.resolved.size();
+        last_axis_vof_unresolved_pure_faces_=geometry.unresolved_pure_faces;
+    }
     std::size_t cell(std::size_t x,std::size_t y,std::size_t z) const {
         if(x>=nx_||y>=ny_||z>=nz_)throw std::out_of_range("Coupled 3D index");
         return (z*ny_+y)*nx_+x;
@@ -87,7 +102,7 @@ class CoupledMacWater3D {
             for(std::size_t y=0;y<ny_;++y)
                 for(std::size_t x=0;x<nx_;++x){
                     const auto i=cell(x,y,z);
-                    mac_.set_cell(x,y,z,!solid_[i]&&fill_[i]>wet,solid_[i]!=0);
+                    mac_.set_cell(x,y,z,!solid_[i]&&fill_[i]>pressure_wet_threshold(),solid_[i]!=0);
                 }
     }
     struct Grid3 {double x,y,z;};
@@ -352,6 +367,7 @@ class CoupledMacWater3D {
         mac_.apply_gravity(dt);
         stage(last_face_energy_stages_.gravity_delta_j);
         if(pcg_pressure_projection_enabled_) {
+            sync_axis_vof_pcg_geometry();
             const auto audit=mac_.project_pcg_verified(
                 dt,pressure_iterations,tolerance,1e-10);
             last_pcg_iterations_+=static_cast<std::size_t>(audit.iterations);
@@ -373,6 +389,7 @@ class CoupledMacWater3D {
         if(reproject_after_transport){
             sync_occupancy();
             if(pcg_pressure_projection_enabled_) {
+                sync_axis_vof_pcg_geometry();
                 const auto audit=mac_.project_pcg_verified(
                     dt,pressure_iterations,tolerance,1e-10);
                 last_pcg_iterations_+=static_cast<std::size_t>(audit.iterations);
@@ -462,7 +479,7 @@ public:
         for(std::size_t y=0;y<ny_;++y)
         for(std::size_t x=0;x<nx_;++x){
             const auto i=cell(x,y,z);
-            probe.set_cell(x,y,z,!solid_[i]&&fill_[i]>wet,solid_[i]!=0);
+            probe.set_cell(x,y,z,!solid_[i]&&fill_[i]>pressure_wet_threshold(),solid_[i]!=0);
         }
         return probe.max_divergence();
     }
@@ -477,8 +494,27 @@ public:
     // residual check and transactional divergence gate. This is not a
     // two-phase air/liquid stress model or wall-transducer validation.
     void set_pcg_pressure_projection(bool enabled){
+        if(!enabled&&axis_vof_pcg_geometry_enabled_)
+            throw std::invalid_argument("Axis VOF geometry requires PCG");
         pcg_pressure_projection_enabled_=enabled;
     }
+    // P2 experimental opt-in: exact axis-aligned VOF cuts at the PCG
+    // liquid/air pressure boundary. This changes the wet mask to f>0.5
+    // (the geometry threshold); legacy uses f>1e-5. Oblique or ambiguous
+    // partial cuts throw transactionally. No stress-continuous air solver.
+    void set_axis_vof_pcg_geometry(bool enabled){
+        if(enabled&&!pcg_pressure_projection_enabled_)
+            throw std::invalid_argument("Enable PCG before axis VOF geometry");
+        axis_vof_pcg_geometry_enabled_=enabled;
+        if(!enabled){
+            mac_.clear_interface_distances();
+            last_axis_vof_resolved_faces_=0;
+            last_axis_vof_unresolved_pure_faces_=0;
+        }
+    }
+    bool axis_vof_pcg_geometry_enabled()const{return axis_vof_pcg_geometry_enabled_;}
+    std::size_t last_axis_vof_resolved_faces()const{return last_axis_vof_resolved_faces_;}
+    std::size_t last_axis_vof_unresolved_pure_faces()const{return last_axis_vof_unresolved_pure_faces_;}
     bool pcg_pressure_projection_enabled()const{
         return pcg_pressure_projection_enabled_;
     }
@@ -571,9 +607,13 @@ private:
         if(!std::isfinite(seconds)||seconds<=0||seconds>2 ||
            pressure_iterations<1||pressure_iterations>10000)
             throw std::invalid_argument("Invalid coupled step");
+        if(axis_vof_pcg_geometry_enabled_&&!verified)
+            throw std::invalid_argument("Axis VOF geometry requires transactional verified step");
         double remaining=seconds;
         substeps_=0;
         last_pcg_iterations_=0;
+        last_axis_vof_resolved_faces_=0;
+        last_axis_vof_unresolved_pure_faces_=0;
         last_pcg_max_equation_residual_pa_=0;
         last_vof_transport_potential_delta_j_=0;
         last_face_energy_stages_={};
