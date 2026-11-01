@@ -2060,3 +2060,13 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
 - Opt-in `p2_plic_endpoint_subcycle3d` bereinigt nur Werte innerhalb von acht Maschinen-Epsilon nach jedem PLIC-Teilzeitschritt, mit explizitem absolutem Korrekturvolumenbudget und unveraendertem Legacy-Default.
 - 16^3-Referenz bestand mit 7 Korrekturen und 1.8973538018496328e-19 m^3 absolutem Korrekturvolumen, im realen viskosen MAC/PLIC-Schritt nachgewiesen. Echte geometrische Mehrdeutigkeit bleibt abgelehnt.
 - Dokumentation: `docs/P2_PLIC_SUBSTEP_ENDPOINT_PARTIAL.md`; Nativtest und Reproduktionsskripte: `p2_plic_substep_fix_*`. Vollphase P2 bleibt PARTIAL; P3-P8 weiterhin unvollstaendig.
+
+
+## P2 Teilfortschritt: echte externe MARIN/SPHERIC-Test-02-Messdaten gegen 3D-UPC (01.11.2026)
+
+- Offizielle SPHERIC-Test-02-Quelle, archiviertes ZIP und Original-XLS mit SHA-256 verifiziert; 7.395 Messzeilen mit 8 Druck- und 4 Höhenkanälen geprüft. Originaldateien und lokale Python-Abhängigkeit bleiben unter `references/` und sind aus Git ausgeschlossen.
+- Win64/MSVC Release: echte 3D-`CoupledMacWater3D`-Dammbruchsimulation mit Hindernis, 32×10×10 Zellen, 200 Schritten bis 2,00 s. Die Geometrie wurde gegen das offizielle PDF und eine unabhängige Referenz korrigiert (H4=2,632 m, Hindernis x=0,6635–0,8245 m). Numerische Wasservolumendrift 1,89×10⁻¹⁵ m³.
+- Gegen die **echten** Laborhöhen: RMSE H1/H2/H3/H4 = **0,090425 / 0,100170 / 0,107548 / 0,206725 m**. Alle vier verletzen das vorab definierte 0,05-m-Limit. **Physikalische Validierung: FAIL.**
+- 9/9 positive und manipulationsbasierte Regressionstests PASS; das ist nur eine Integritäts-/Ausführungs-Teilabnahme, **kein P2-Vollphasen-PASS**. Fehlend: P1–P8-übergreifende vollständige E2E-Physik, 6-s-Lauf, Drucksensoren, Netzkonvergenz, echte Luft-Wasser-Spannungen und dynamische Zweiwege-FSI.
+- Reproduktion: `scripts/p2_spheric_marin_partial_acceptance.py`; Report: `ENGINE TEST STUBE/runs/p2_spheric_marin_partial_acceptance.json`; Details: `docs/P2_SPHERIC_MARIN_EXTERNAL_BENCHMARK_PARTIAL.md`.
+- **P2 bleibt PARTIAL, P3–P8 INCOMPLETE, ALL_COMPLETE=False.**

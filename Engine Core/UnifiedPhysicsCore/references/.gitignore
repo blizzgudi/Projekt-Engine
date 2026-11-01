@@ -1,0 +1,7 @@
+# Large third-party benchmark inputs remain local; provenance + hashes are tracked.
+SPHERIC_Test02_original.zip
+SPHERIC_Test02/
+SPHERIC_Test02_measured.csv
+vendor/
+vendor-temp/
+__pycache__/
