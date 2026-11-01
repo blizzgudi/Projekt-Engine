@@ -1,0 +1,54 @@
+{
+  "phase": "P2",
+  "milestone": "volume_matched_oblique_planar_vof_pcg_3D_live_and_transactional",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "physical_stress_consistency_validated": false,
+  "external_experimental_cfd_validated": false,
+  "automatically_reconstructed_normals_validated": false,
+  "full_bidirectional_dynamic_fsi_validated": false,
+  "native_assertions": 1099,
+  "native_ctest_suites": 124,
+  "checks": {
+    "real_native_executable_verified": true,
+    "four_analytical_oblique_3D_cases": true,
+    "real_optin_coupled_mac_pcg_live_geometry_and_rollback": true,
+    "full_native_ctest_at_least_124": true,
+    "six_independent_corruptions_rejected": true,
+    "original_axis_geometry_still_in_regression": true,
+    "source_files_present_and_fingerprintable": true
+  },
+  "negative_mutations": {
+    "false_full_phase_pass": true,
+    "missing_native_success": true,
+    "missing_one_3d_reference": true,
+    "destroyed_3d_pressure_convergence": true,
+    "missing_live_transactional_rollback": true,
+    "deleted_oblique_live_geometry": true
+  },
+  "source_sha256": {
+    "CMakeLists.txt": "d9deff1ba88b39e498e2060247796092f14fd6e78427318ead068dfc9c806d63",
+    "include/upc/p2_planar_vof_pcg_geometry3d.hpp": "944cc234d99272080253c4921085ec1c265e86d7aa1c63d2e61757f3b8a8c984",
+    "include/upc/p2_axis_vof_pcg_geometry3d.hpp": "da5cf2fcf0f4d1fbbc9ab1b3fdc534f8dbdc0579ba64690954c57c0b1e11fc95",
+    "include/upc/p2_oblique_plic_geometry3d.hpp": "e548ca42557b5fa7bf6f752e9e122f64396690baa08a43fac7641f12e05d4627",
+    "include/upc/coupled_water3d.hpp": "ec3ed71d150b67f617cc53e5537d2e8b5a3f77c5ec0c5f18000cf45824d8ac74",
+    "tests/p2_planar_vof_pcg_geometry3d_tests.cpp": "0bc22815e2ed396399a395b19b4c4e5d074aef06e9a9e47b6f7af3d930390aa1",
+    "scripts/p2_planar_vof_pcg_partial_acceptance.py": "c73f1721f6bad63c69149037f98b9ec57c6107c6180bc71861a16457a5bc9cc8",
+    "scripts/p2_planar_vof_pcg_build.cmd": "a05e75bb08c455e8e09425fcafd8084c9f0b885a215190c558e760377562e69e",
+    "docs/P2_PLANAR_VOF_PCG_PARTIAL.md": "cda8b38b69ff1bae4ff0e493cbf7a412b9a83cff278910112e05b11e507ad437",
+    "docs/PHASENPLAN.md": "cbc5822cba140df98eb45e9e24d657f6d226fee9f3e5624b5e2eaf061e6c16d4"
+  },
+  "artifact_sha256": {
+    "native_executable": "57061ba5a2a77561c6f72befac79e0d5be26c9dedb224123c7b7a0266403c023",
+    "native_test_log": "e1b387968506c8e29afd096d4b5bb05d1f7af1e2d469c668f391a9ea41fbac9a",
+    "ctest": "b5d7fd02ae632c66875ff278dbe5dfec44b762cb9b466c9e6306e1c213829b94",
+    "msvc_build": "6377829502b5d708460f338e329b70f8347f6b3b272dbc469e9e1ef387bfadfd"
+  },
+  "open_full_phase_acceptance": [
+    "Reconstruct physically accurate oblique normals from dynamic VOF, not prescribed field",
+    "Validated stress-consistent moving water/air traction and surface tension",
+    "Real independent 6-second MARIN H1-H4 and P1-P8 thresholds plus 3-grid convergence",
+    "Moving-solid true two-way FSI with physical global impulse and energy closure"
+  ],
+  "generated_utc": "2026-11-01T17:00:30.507823+00:00"
+}

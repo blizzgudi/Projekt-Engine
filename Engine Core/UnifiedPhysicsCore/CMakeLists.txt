@@ -684,3 +684,11 @@ add_test(NAME physics_p2_live_axis_vof_pcg_partial COMMAND upc_p2_live_axis_vof_
 add_executable(upc_p2_marin_footprint_tests tests/p2_marin_footprint_pressure3d_tests.cpp)
 target_link_libraries(upc_p2_marin_footprint_tests PRIVATE upc)
 add_test(NAME physics_p2_marin_footprint_partial COMMAND upc_p2_marin_footprint_tests)
+
+
+# P2 PARTIAL: geometrically volume-fitted oblique planar VOF-to-MAC-PCG
+# boundary distances with externally validated normals, live integration
+# and fail-closed rollback. NOT full free-surface/FSI validation.
+add_executable(upc_p2_planar_vof_pcg_tests tests/p2_planar_vof_pcg_geometry3d_tests.cpp)
+target_link_libraries(upc_p2_planar_vof_pcg_tests PRIVATE upc)
+add_test(NAME physics_p2_planar_vof_pcg_partial COMMAND upc_p2_planar_vof_pcg_tests)

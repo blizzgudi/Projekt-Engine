@@ -1,0 +1,5 @@
+-- Configuring done (0.0s)
+-- Generating done (0.1s)
+-- Build files have been written to: D:/Projekt Engine/Engine Core/UnifiedPhysicsCore/build
+[1/2] Building CXX object CMakeFiles\upc_p2_planar_vof_pcg_tests.dir\tests\p2_planar_vof_pcg_geometry3d_tests.cpp.obj
+[2/2] Linking CXX executable upc_p2_planar_vof_pcg_tests.exe

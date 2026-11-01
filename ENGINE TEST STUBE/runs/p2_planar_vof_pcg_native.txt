@@ -1,0 +1,6 @@
+OBLIQUE_3D n=8 cut=4.36285 faces=96 two_partials=96 ghost_div=3.45003e-12
+OBLIQUE_3D n=8 cut=4.1627 faces=63 two_partials=63 ghost_div=9.09495e-17
+OBLIQUE_3D n=12 cut=4.36285 faces=144 two_partials=144 ghost_div=5.35128e-12
+OBLIQUE_3D n=12 cut=4.1627 faces=63 two_partials=63 ghost_div=9.09495e-17
+OBLIQUE_LIVE water_mass_kg=152.276 resolved=96 oblique=96 divergence=2.61965e-13 rollback=PASS
+PASS P2_PLANAR_VOF_PCG assertions=1099 phase_complete=false

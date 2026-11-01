@@ -7,6 +7,7 @@
 // No FLIP/APIC particle transfers, no 3D splashes below grid resolution.
 #include "upc/mac3d.hpp"
 #include "upc/p2_axis_vof_pcg_geometry3d.hpp"
+#include "upc/p2_planar_vof_pcg_geometry3d.hpp"
 #include "upc/p2_vof_throughflow3d.hpp"
 #include "upc/viscous_mac3d.hpp"
 #include "upc/p2_vof_mechanical_inventory3d.hpp"
@@ -65,15 +66,31 @@ class CoupledMacWater3D {
     bool conservative_throughflow_transport_=false;
     bool pcg_pressure_projection_enabled_=false;
     bool axis_vof_pcg_geometry_enabled_=false;
+    bool planar_vof_pcg_geometry_enabled_=false;
+    std::vector<std::array<double,3>> prescribed_planar_vof_normals_;
+    std::size_t last_planar_vof_resolved_faces_=0;
+    std::size_t last_planar_vof_oblique_faces_=0;
+    std::size_t last_planar_vof_two_partial_faces_=0;
     std::size_t last_axis_vof_resolved_faces_=0;
     std::size_t last_axis_vof_unresolved_pure_faces_=0;
     std::size_t last_pcg_iterations_=0;
     double last_pcg_max_equation_residual_pa_=0;
     static constexpr double wet=1e-5;
     double pressure_wet_threshold()const{
-        return axis_vof_pcg_geometry_enabled_?0.5:wet;
+        return (axis_vof_pcg_geometry_enabled_||planar_vof_pcg_geometry_enabled_)?0.5:wet;
     }
     void sync_axis_vof_pcg_geometry(){
+        if(planar_vof_pcg_geometry_enabled_){
+            // Independent caller-provided geometry normals. Never invent
+            // an oblique normal from VOF alone on an unsupported stencil.
+            const auto geometry=p2_planar_vof_pcg_geometry3d(
+                fill_,solid_,prescribed_planar_vof_normals_,nx_,ny_,nz_,dx_);
+            p2_apply_planar_vof_pcg_geometry3d(mac_,geometry);
+            last_planar_vof_resolved_faces_=geometry.resolved.size();
+            last_planar_vof_oblique_faces_=geometry.oblique_faces;
+            last_planar_vof_two_partial_faces_=geometry.two_partial_faces;
+            return;
+        }
         if(!axis_vof_pcg_geometry_enabled_)return;
         const auto geometry=p2_axis_vof_pcg_geometry3d(
             fill_,solid_,nx_,ny_,nz_,dx_);
@@ -494,7 +511,7 @@ public:
     // residual check and transactional divergence gate. This is not a
     // two-phase air/liquid stress model or wall-transducer validation.
     void set_pcg_pressure_projection(bool enabled){
-        if(!enabled&&axis_vof_pcg_geometry_enabled_)
+        if(!enabled&&(axis_vof_pcg_geometry_enabled_||planar_vof_pcg_geometry_enabled_))
             throw std::invalid_argument("Axis VOF geometry requires PCG");
         pcg_pressure_projection_enabled_=enabled;
     }
@@ -503,6 +520,8 @@ public:
     // (the geometry threshold); legacy uses f>1e-5. Oblique or ambiguous
     // partial cuts throw transactionally. No stress-continuous air solver.
     void set_axis_vof_pcg_geometry(bool enabled){
+        if(enabled&&planar_vof_pcg_geometry_enabled_)
+            throw std::invalid_argument("Planar and axis VOF PCG modes are exclusive");
         if(enabled&&!pcg_pressure_projection_enabled_)
             throw std::invalid_argument("Enable PCG before axis VOF geometry");
         axis_vof_pcg_geometry_enabled_=enabled;
@@ -511,6 +530,47 @@ public:
             last_axis_vof_resolved_faces_=0;
             last_axis_vof_unresolved_pure_faces_=0;
         }
+    }
+
+    // P2 PARTIAL: the caller prescribes independently known normalized or
+    // unnormalized outward normals for each VOF cell. Unknown/default
+    // reconstructed normals do not imply a valid continuous interface.
+    // Every next verified projection rechecks all volume-matched planes;
+    // stale normals or impossible cuts are rejected atomically.
+    void set_planar_vof_pcg_normals(
+        std::vector<std::array<double,3>> normals) {
+        if(normals.size()!=fill_.size())
+            throw std::invalid_argument("Prescribed planar normal count mismatch");
+        for(const auto& n:normals)
+            for(double a:n)
+                if(!std::isfinite(a))
+                    throw std::invalid_argument("Nonfinite prescribed planar normal");
+        prescribed_planar_vof_normals_=std::move(normals);
+    }
+    void set_planar_vof_pcg_geometry(bool enabled) {
+        if(enabled&&(!pcg_pressure_projection_enabled_||
+                     axis_vof_pcg_geometry_enabled_||
+                     prescribed_planar_vof_normals_.size()!=fill_.size()))
+            throw std::invalid_argument("Planar VOF mode requires PCG and prescribed normals");
+        planar_vof_pcg_geometry_enabled_=enabled;
+        if(!enabled) {
+            mac_.clear_interface_distances();
+            last_planar_vof_resolved_faces_=0;
+            last_planar_vof_oblique_faces_=0;
+            last_planar_vof_two_partial_faces_=0;
+        }
+    }
+    bool planar_vof_pcg_geometry_enabled()const{
+        return planar_vof_pcg_geometry_enabled_;
+    }
+    std::size_t last_planar_vof_resolved_faces()const{
+        return last_planar_vof_resolved_faces_;
+    }
+    std::size_t last_planar_vof_oblique_faces()const{
+        return last_planar_vof_oblique_faces_;
+    }
+    std::size_t last_planar_vof_two_partial_faces()const{
+        return last_planar_vof_two_partial_faces_;
     }
     bool axis_vof_pcg_geometry_enabled()const{return axis_vof_pcg_geometry_enabled_;}
     std::size_t last_axis_vof_resolved_faces()const{return last_axis_vof_resolved_faces_;}
