@@ -6,6 +6,7 @@
 // Velocity self-advection is semi-Lagrangian; it dissipates energy numerically.
 // No FLIP/APIC particle transfers, no 3D splashes below grid resolution.
 #include "upc/mac3d.hpp"
+#include "upc/p2_vof_throughflow3d.hpp"
 #include "upc/viscous_mac3d.hpp"
 #include "upc/p2_vof_mechanical_inventory3d.hpp"
 #include <algorithm>
@@ -60,6 +61,7 @@ class CoupledMacWater3D {
     std::array<double,3> last_viscous_closure_residual_proxy_kg_m_s_{};
     std::function<void(const TransportFlux3D&)> transport_callback_;
     std::size_t substeps_=0;
+    bool conservative_throughflow_transport_=false;
     static constexpr double wet=1e-5;
     std::size_t cell(std::size_t x,std::size_t y,std::size_t z) const {
         if(x>=nx_||y>=ny_||z>=nz_)throw std::out_of_range("Coupled 3D index");
@@ -162,6 +164,38 @@ class CoupledMacWater3D {
         return mx+my+mz;
     }
     void advect_fraction(double dt){
+        if(conservative_throughflow_transport_) {
+            std::array<std::vector<double>,3> plus;
+            for(auto& component:plus)component.assign(fill_.size(),0);
+            for(std::size_t z=0;z<nz_;++z)
+            for(std::size_t y=0;y<ny_;++y)
+            for(std::size_t x=0;x<nx_;++x){
+                const auto id=cell(x,y,z);
+                if(x+1<nx_)plus[0][id]=mac_.face_velocity_x(x+1,y,z);
+                if(y+1<ny_)plus[1][id]=mac_.face_velocity_y(x,y+1,z);
+                if(z+1<nz_)plus[2][id]=mac_.face_velocity_z(x,y,z+1);
+            }
+            auto result=p2_vof_throughflow3d(
+                fill_,solid_,plus,nx_,ny_,nz_,dx_,dt);
+            const double cell_volume=dx_*dx_*dx_;
+            double potential_change_j=0;
+            std::vector<TransportFlux3D> reports;
+            if(transport_callback_)reports.reserve(result.transfers.size());
+            for(const auto& transfer:result.transfers) {
+                const auto from_z=transfer.from/(nx_*ny_);
+                const auto to_z=transfer.to/(nx_*ny_);
+                potential_change_j+=rho_*cell_volume*9.81*transfer.fraction*
+                    (static_cast<double>(to_z)-static_cast<double>(from_z))*dx_;
+                if(transport_callback_)
+                    reports.push_back({transfer.from,transfer.to,
+                                       transfer.fraction*cell_volume});
+            }
+            fill_=std::move(result.fill);
+            last_vof_transport_potential_delta_j_+=potential_change_j;
+            for(const auto& report:reports)transport_callback_(report);
+            return;
+        }
+
         // Conservative face flux exchange, always between two existing cells.
         // No transfer through solid or external boundaries. Availability and
         // free-capacity limiters guarantee fractional occupation in [0,1].
@@ -415,6 +449,15 @@ public:
     // Positive nu requires a 3D grid with at least two cells per axis.
     // Stationary solids use approximate no-slip; free surface uses a
     // zero-gradient proxy. No moving-body impulse coupling is implied.
+    // P2 opt-in: simultaneous conservative donor-cell flux through completely
+    // occupied cells. Original transport remains the default. This is not
+    // geometric PLIC and does not guarantee experimental CFD accuracy.
+    void set_conservative_throughflow_transport(bool enabled){
+        conservative_throughflow_transport_=enabled;
+    }
+    bool conservative_throughflow_transport_enabled()const{
+        return conservative_throughflow_transport_;
+    }
     void set_kinematic_viscosity(double nu_m2_s){
         if(!std::isfinite(nu_m2_s)||nu_m2_s<0||
            (nu_m2_s>0&&(nx_<2||ny_<2||nz_<2)))

@@ -2070,3 +2070,12 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
 - 9/9 positive und manipulationsbasierte Regressionstests PASS; das ist nur eine Integritäts-/Ausführungs-Teilabnahme, **kein P2-Vollphasen-PASS**. Fehlend: P1–P8-übergreifende vollständige E2E-Physik, 6-s-Lauf, Drucksensoren, Netzkonvergenz, echte Luft-Wasser-Spannungen und dynamische Zweiwege-FSI.
 - Reproduktion: `scripts/p2_spheric_marin_partial_acceptance.py`; Report: `ENGINE TEST STUBE/runs/p2_spheric_marin_partial_acceptance.json`; Details: `docs/P2_SPHERIC_MARIN_EXTERNAL_BENCHMARK_PARTIAL.md`.
 - **P2 bleibt PARTIAL, P3–P8 INCOMPLETE, ALL_COMPLETE=False.**
+
+
+## P2 Teilfortschritt: gesaettigter 3D-VOF-Durchfluss vs. echte MARIN-Daten (01.11.2026)
+
+- Im bisherigen konservativen Wassertransport der Live-3D-MAC-API blockierte die Vorkapazitaet einer vollstaendig gefuellten Zelle unphysikalisch den gleichzeitigen Ein- und Ausfluss. Ein explizit zuschaltbarer 3D-Donor-Cell/VOF-Durchfluss mit simultanen Face-Fluessen und konservativer Zellkapazitaetspruefung wurde umgesetzt; Standardpfad bleibt unveraendert.
+- Unabhaengiger analytischer 16x8x8-Slab-Translationstest: hinterer Fuellgrad 0,9, neue Front 0,1, 384 interne Transfers, erhaltene Wassermasse. Native Regression 2.448 Assertions PASS, kompletter MSVC Release/CTest 113/113 PASS.
+- Original MARIN/SPHERIC Test 02: echter Win64-3D-Solverlauf ueber 200 Schritte mit identischer Geometrie und gemessenen Hoehen H1-H4. Vergleich gegen vorherigen Legacy-Lauf: RMSE H1 0,090425 -> 0,089234 m, H2 0,100170 -> 0,079381 m, H3 0,107548 -> 0,092056 m, H4 0,206725 -> 0,157912 m. Alle vier verbessert, **alle vier ueber dem unabhaengig gesetzten 0,05-m-Grenzwert**. Keine externe physikalische Abnahme.
+- Teilnachweis: docs/P2_SPHERIC_MARIN_THROUGHFLOW_PARTIAL.md und scripts/p2_vof_throughflow_marin_acceptance.py sowie gehashte Native-/CTest-/Vergleichsbelege im bestehenden ENGINE TEST STUBE/runs.
+- **P2 weiterhin INCOMPLETE**: echte Stressrandbedingungen an der Wasser/Luft-Grenze, dynamische Zweiwege-FSI, gemessene 3D-CFD-Referenz innerhalb Toleranz, globaler physikalischer Energie-/Impulshaushalt fehlen. P3-P8 ebenso Vollphasen-offen. ALL_COMPLETE=False.

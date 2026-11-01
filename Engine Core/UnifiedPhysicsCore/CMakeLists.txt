@@ -612,3 +612,11 @@ add_test(NAME physics_p2_plic_preflight_partial COMMAND upc_p2_plic_preflight3d_
 add_executable(upc_p2_plic_substep_trace3d_tests tests/p2_plic_substep_trace3d_tests.cpp)
 target_link_libraries(upc_p2_plic_substep_trace3d_tests PRIVATE upc)
 add_test(NAME physics_p2_plic_endpoint_substep_partial COMMAND upc_p2_plic_substep_trace3d_tests)
+
+
+# P2 partial: opt-in conservative first-order VOF transport through saturated
+# cells, with analytic translated slug and true coupled live-water regression.
+# The external measured MARIN comparison is explicitly not a full CFD PASS.
+add_executable(upc_p2_vof_throughflow_tests tests/p2_vof_throughflow3d_tests.cpp)
+target_link_libraries(upc_p2_vof_throughflow_tests PRIVATE upc)
+add_test(NAME physics_p2_vof_throughflow_partial COMMAND upc_p2_vof_throughflow_tests)

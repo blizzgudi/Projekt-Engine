@@ -1,0 +1,51 @@
+{
+  "phase": "P2",
+  "milestone": "spheric_marin_optin_throughflow_vs_legacy",
+  "throughflow_executed": true,
+  "experimental_cfd_validated": false,
+  "phase_complete": false,
+  "improved_probe_count": 4,
+  "all_height_rmse_within_0.05m": false,
+  "metrics": {
+    "H1_m": {
+      "rmse_m": 0.08923398210438524,
+      "mae_m": 0.0645259016350469,
+      "legacy_rmse_m": 0.09042464739107518,
+      "rmse_change_m": -0.001190665286689943
+    },
+    "H2_m": {
+      "rmse_m": 0.07938120545527068,
+      "mae_m": 0.05190526938724938,
+      "legacy_rmse_m": 0.10016980117348433,
+      "rmse_change_m": -0.02078859571821365
+    },
+    "H3_m": {
+      "rmse_m": 0.09205642604044834,
+      "mae_m": 0.05034824409378755,
+      "legacy_rmse_m": 0.10754790649509813,
+      "rmse_change_m": -0.015491480454649792
+    },
+    "H4_m": {
+      "rmse_m": 0.15791240196492173,
+      "mae_m": 0.10195887271754955,
+      "legacy_rmse_m": 0.2067254772697567,
+      "rmse_change_m": -0.048813075304834974
+    }
+  },
+  "max_volume_drift_m3": 6.77347067323808e-13,
+  "native_log_sha256": "7d3ed4fca32493e12d6f7071c3385321ef0450c3958eb6ac4f7d68546a641e71",
+  "legacy_report_sha256": "511548ec11a5859e09a461995cb09820ada3b6cd1b19a2535974061970a4a31f",
+  "source_sha256": {
+    "include/upc/p2_vof_throughflow3d.hpp": "3f287600948964d15fbd9c3493df2f5a5d4fbaf0b67a0d7c601c14303f260d5a",
+    "include/upc/coupled_water3d.hpp": "a54a36b400a929c3c673d883171abedf5fffaa79d3465863f1a80a67b42b358b",
+    "benchmarks/p2_marin_dambreak_heights.cpp": "9a7902d9127920d1c6577b8401f1bf605a49314e89b98823a1b3305077dc1ef5"
+  },
+  "blockers": [
+    "quantitative_height_rmse_not_all_within_0.05m",
+    "pressure_sensors_not_modeled",
+    "6s_experimental_window_not_simulated",
+    "only_one_coarse_3d_grid",
+    "free_surface_stress_and_dynamic_rigid_FSI_not_validated"
+  ],
+  "generated_utc": "2026-11-01T09:02:00.670954+00:00"
+}
