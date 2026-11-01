@@ -1,0 +1,73 @@
+{
+  "phase": "P2",
+  "milestone": "opt_in_mac_pcg_poisson_pressure_partial",
+  "generated_utc": "2026-11-01T11:49:26.422383+00:00",
+  "partial_accepted": true,
+  "full_phase_complete": false,
+  "external_marin_measurement_pass": false,
+  "external_marin_measurement_retested": false,
+  "source_sha256": {
+    "CMakeLists.txt": "7f8e6807f00da664783f702f45262e6fb37ec159dbac5ce15ec4637387af08b3",
+    "include/upc/mac3d.hpp": "b18a7ef2b5141b1ce1c56e05bcffcd57d118620f06e2da75f2b3c3ffe837cb7b",
+    "include/upc/coupled_water3d.hpp": "fa6848a1150b8baf6f0b2388d65b91ae41e7b0a659e939f9cd823ea02fb6adc0",
+    "tests/p2_mac_pcg_pressure_tests.cpp": "34b12ebd887b413d830f4fd739025933e11ba85a4f0f5821a447d9061849d613",
+    "tests/p2_live_pcg_coupled_tests.cpp": "bf3cb8fdfb9822625951af42114cabc27d27d3f3201b3fdfcc3de874ee05b4d6",
+    "scripts/p2_pcg_partial_acceptance.py": "e2d4fb9ff405e3752d2421aa4f21d291977e505a73a2e172a3c9971bfb048cfe"
+  },
+  "native": [
+    {
+      "name": "upc_p2_mac_pcg_pressure_tests.exe",
+      "sha256": "61bad950532e81c8c6484c1eb75196f8bdf713f7bbb290ff1c6e8d233ee1c164",
+      "exit_code": 0,
+      "assertions": 621,
+      "required_markers": [
+        "PCG_3D_HYDRO n=8",
+        "PCG_3D_HYDRO n=12",
+        "PCG_3D_HYDRO n=16",
+        "PCG_3D_MIXED",
+        "PCG_3D_NEGATIVE underconverged=REJECTED",
+        "nonfinite_rhs=REJECTED",
+        "rollback=PASS",
+        "PCG_3D_LIVE"
+      ],
+      "stdout": "PCG_3D_HYDRO n=8 iterations=29 pressure_bottom_Pa=3433.5 residual_equation_Pa=7.04358e-09\nPCG_3D_HYDRO n=12 iterations=48 pressure_bottom_Pa=3597 residual_equation_Pa=5.50881e-09\nPCG_3D_HYDRO n=16 iterations=67 pressure_bottom_Pa=3678.75 residual_equation_Pa=3.13457e-09\nPCG_3D_NEGATIVE underconverged=REJECTED invalid_parameters=REJECTED nonfinite_rhs=REJECTED rollback=PASS\nPCG_3D_MIXED iterations=79 divergence_s_inv=2.60799e-10 pressure_gs_l2_pa=3.34626e-07\nPCG_3D_LIVE water_volume_m3=0.09 matrix_iterations=35 rejection=transactional\nPASS P2_MAC_PCG_PRESSURE assertions=621 full_phase_complete=false\n",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "upc_p2_live_pcg_coupled_tests.exe",
+      "sha256": "30edf268512d56a183175e32fcf215fd6bdc9fced461f1e21477c8d22e76ae00",
+      "exit_code": 0,
+      "assertions": 1462,
+      "required_markers": [
+        "PCG_LIVE_POND",
+        "PCG_LIVE_DAM",
+        "PCG_LIVE_ROLLBACK verified=1 callbacks=0"
+      ],
+      "stdout": "PCG_LIVE_POND mass_kg=384 iterations=41 divergence_s_inv=5.63671e-14\nPCG_LIVE_DAM mass_kg=90 moved_cells=0.778613 iterations=62 divergence_s_inv=1.61221e-10\nPCG_LIVE_ROLLBACK verified=1 callbacks=0\nPASS P2_LIVE_PCG_COUPLED assertions=1462 full_phase_complete=false\n",
+      "stderr": "",
+      "passed": true
+    }
+  ],
+  "ctest": {
+    "exit_code": 0,
+    "count": 117,
+    "passed": true,
+    "log_path": "D:\\Projekt Engine\\ENGINE TEST STUBE\\runs\\p2_pcg_ctest_full.log",
+    "log_sha256": "a677096df67fedd3b1785ed9c2a46dc6d997ca43999d4a0df6c7844ff44fdde7"
+  },
+  "negative_qa": {
+    "insufficient_iterations": "rejected natively",
+    "invalid_parameters": "rejected natively",
+    "nonfinite_rhs": "rejected natively",
+    "coupled_state_rollback": "rejected without transport callbacks"
+  },
+  "not_verified": [
+    "measured MARIN H1-H4 and P1-P8 pressure RMSE thresholds",
+    "full >=6 second measured transient",
+    "grid-independent wall transducer footprints",
+    "stress-consistent two-phase liquid/air interface",
+    "dynamic bidirectional fluid/rigid-body impulse and work",
+    "global physical mass, momentum and energy closure"
+  ]
+}

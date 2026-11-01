@@ -62,6 +62,9 @@ class CoupledMacWater3D {
     std::function<void(const TransportFlux3D&)> transport_callback_;
     std::size_t substeps_=0;
     bool conservative_throughflow_transport_=false;
+    bool pcg_pressure_projection_enabled_=false;
+    std::size_t last_pcg_iterations_=0;
+    double last_pcg_max_equation_residual_pa_=0;
     static constexpr double wet=1e-5;
     std::size_t cell(std::size_t x,std::size_t y,std::size_t z) const {
         if(x>=nx_||y>=ny_||z>=nz_)throw std::out_of_range("Coupled 3D index");
@@ -348,8 +351,17 @@ class CoupledMacWater3D {
         stage(last_face_energy_stages_.viscosity_delta_j);
         mac_.apply_gravity(dt);
         stage(last_face_energy_stages_.gravity_delta_j);
-        if(verified) last_projection_divergence_=mac_.project_verified(dt,pressure_iterations,tolerance);
-        else {
+        if(pcg_pressure_projection_enabled_) {
+            const auto audit=mac_.project_pcg_verified(
+                dt,pressure_iterations,tolerance,1e-10);
+            last_pcg_iterations_+=static_cast<std::size_t>(audit.iterations);
+            last_pcg_max_equation_residual_pa_=std::max(
+                last_pcg_max_equation_residual_pa_,audit.max_equation_residual_pa);
+            last_projection_divergence_=audit.max_divergence_s_inv;
+        } else if(verified) {
+            last_projection_divergence_=mac_.project_verified(
+                dt,pressure_iterations,tolerance);
+        } else {
             mac_.project(dt,pressure_iterations);
             last_projection_divergence_=mac_.max_divergence();
         }
@@ -360,8 +372,17 @@ class CoupledMacWater3D {
         // The pre-transport pressure solve alone does not constrain newly wet cells.
         if(reproject_after_transport){
             sync_occupancy();
-            last_projection_divergence_=mac_.project_verified(
-                dt,pressure_iterations,tolerance);
+            if(pcg_pressure_projection_enabled_) {
+                const auto audit=mac_.project_pcg_verified(
+                    dt,pressure_iterations,tolerance,1e-10);
+                last_pcg_iterations_+=static_cast<std::size_t>(audit.iterations);
+                last_pcg_max_equation_residual_pa_=std::max(
+                    last_pcg_max_equation_residual_pa_,audit.max_equation_residual_pa);
+                last_projection_divergence_=audit.max_divergence_s_inv;
+            } else {
+                last_projection_divergence_=mac_.project_verified(
+                    dt,pressure_iterations,tolerance);
+            }
             stage(last_face_energy_stages_.post_projection_delta_j);
         }
     }
@@ -452,6 +473,21 @@ public:
     // P2 opt-in: simultaneous conservative donor-cell flux through completely
     // occupied cells. Original transport remains the default. This is not
     // geometric PLIC and does not guarantee experimental CFD accuracy.
+    // P2 opt-in: solve the actual MAC pressure system using a Jacobi-PCG
+    // residual check and transactional divergence gate. This is not a
+    // two-phase air/liquid stress model or wall-transducer validation.
+    void set_pcg_pressure_projection(bool enabled){
+        pcg_pressure_projection_enabled_=enabled;
+    }
+    bool pcg_pressure_projection_enabled()const{
+        return pcg_pressure_projection_enabled_;
+    }
+    std::size_t last_pcg_projection_iterations()const{
+        return last_pcg_iterations_;
+    }
+    double last_pcg_max_equation_residual_pa()const{
+        return last_pcg_max_equation_residual_pa_;
+    }
     void set_conservative_throughflow_transport(bool enabled){
         conservative_throughflow_transport_=enabled;
     }
@@ -537,6 +573,8 @@ private:
             throw std::invalid_argument("Invalid coupled step");
         double remaining=seconds;
         substeps_=0;
+        last_pcg_iterations_=0;
+        last_pcg_max_equation_residual_pa_=0;
         last_vof_transport_potential_delta_j_=0;
         last_face_energy_stages_={};
         if(face_energy_stages_enabled_)

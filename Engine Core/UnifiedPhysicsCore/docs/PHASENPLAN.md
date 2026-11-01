@@ -2108,3 +2108,12 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
 - Unabhängige Native-Tests: **175 Assertions**, **15/15** positive und gezielt korrumpierte Python-Datenintegritätstests, gesamter MSVC-Release/CTest **115/115 PASS**. Nur Teilnachweis für Ausführung und tangentiale Interpolationsmathematik, kein physikalischer P2-PASS.
 - Vollständig gehashte Native-/Labor- und Negativtestbelege: docs/P2_MARIN_WALL_TANGENT_PRESSURE_INTERP_PARTIAL.md, scripts/p2_marin_wall_interp_partial_acceptance.py, ENGINE TEST STUBE/runs/p2_marin_wall_interp_partial_acceptance.json. Historische Nächstzell-Native-Belege sind separat archiviert und werden nicht als aktuelle Neubuild-Abnahme umgedeutet.
 - **P2 bleibt PARTIAL, ALL_COMPLETE=False.** Nächste offene Kernarbeit: druck- und spannungskonsistente Wasser-Luft-/Wandgrenzbedingungen mit geometrisch aufgelösten Transducern, experimentelles >=6-s-Fenster, dynamische Zweiwege-FSI und globale Energie-/Impulsbilanz.
+
+
+## P2 Teilfortschritt: echte transaktionale 3D-MAC-PCG-Druckprojektion (01.11.2026)
+
+- Explizit zuschaltbarer Jacobi-PCG-Löser für die vorhandene 3D-MAC-Poisson-Gleichung mit Ghost-Fluid-Wasser/Luft-Druckrand, Festkörper-/Außenwand-Neumannbedingungen, Mittelwert-Eichung getrennter geschlossener Wasserkavitäten und echter Nachprüfung von Matrixrest und Nasszell-Divergenz.
+- In den gekoppelten 3D-MAC/VOF-Live-Solver integriert, einschließlich Post-Transport-Reprojektion, atomarem Rollback und auslesbarer Iterations-/Restdiagnose. Original-Gauss-Seidel-Standardpfad bleibt erhalten.
+- Echte MSVC-Win64-Release-Tests: 621 + 1.462 native Assertions PASS, analytische 8³/12³/16³-Hydrostatik, Druckvergleich mit 7.500 Gauss-Seidel-Sweeps, echter 3D-Dammbruch mit Massenbilanz, negative Unterkonvergenz-/NaN-/Parameter-/Rollback-Prüfungen; gesamte CTest-Suite **117/117 PASS**.
+- Gehashte Quellen, Testbinaries und CTest-Log: `docs/P2_MAC_PCG_PROJECTION_PARTIAL.md`, `scripts/p2_pcg_partial_acceptance.py`, `ENGINE TEST STUBE/runs/p2_pcg_partial_acceptance.json`.
+- **P2 bleibt INCOMPLETE:** neuer Löser ist ein numerischer Teilfortschritt und kein Nachweis experimenteller MARIN-Druckkonvergenz oder physikalisch stresskonsistenter Zweiphasen-/FSI-Grenzbedingungen. Das 6-s-Fenster, Sensor-Footprints und globale Impuls-/Energieabnahme bleiben offen; `ALL_COMPLETE=False`.

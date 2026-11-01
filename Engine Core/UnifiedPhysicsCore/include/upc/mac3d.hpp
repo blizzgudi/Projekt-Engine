@@ -167,6 +167,264 @@ public:
                 w_[fw(x,y,z)]-=scale*ghost*(p((int)x,(int)y,(int)z)-p((int)x,(int)y,(int)z-1));
             }
     }
+
+    // P2 PARTIAL: independent opt-in preconditioned conjugate-gradient solve
+    // of the SAME MAC / ghost-fluid free-surface Poisson stencil as project().
+    // Transactional, and the actual wet-cell divergence is the final gate.
+    // This is NOT a two-phase stress model or measured CFD validation.
+    // A pure-Neumann liquid component is given a mean-zero pressure gauge.
+    struct PcgProjectionAudit {
+        int iterations=0;
+        double max_equation_residual_pa=0;
+        double max_divergence_s_inv=0;
+        std::size_t liquid_cells=0;
+        std::size_t closed_neumann_components=0;
+    };
+    PcgProjectionAudit project_pcg_verified(
+        double dt,int max_iterations=2000,
+        double max_divergence_s_inv=1e-7,
+        double relative_equation_tolerance=1e-9) {
+        if(!std::isfinite(dt)||dt<=0||max_iterations<1||max_iterations>20000||
+           !std::isfinite(max_divergence_s_inv)||max_divergence_s_inv<=0||
+           !std::isfinite(relative_equation_tolerance)||
+           relative_equation_tolerance<=0||relative_equation_tolerance>0.1)
+            throw std::invalid_argument("Invalid MAC PCG projection parameters");
+        MacProjection3D work=*this;
+        // Enforce zero normal velocity at the physical box / solids.
+        for(std::size_t z=0;z<nz_;++z)for(std::size_t y=0;y<ny_;++y)
+        for(std::size_t x=0;x<=nx_;++x)
+            if(x==0||x==nx_||work.is_wall((int)x-1,(int)y,(int)z)||
+               work.is_wall((int)x,(int)y,(int)z))
+                work.u_[work.fu(x,y,z)]=0;
+        for(std::size_t z=0;z<nz_;++z)for(std::size_t y=0;y<=ny_;++y)
+        for(std::size_t x=0;x<nx_;++x)
+            if(y==0||y==ny_||work.is_wall((int)x,(int)y-1,(int)z)||
+               work.is_wall((int)x,(int)y,(int)z))
+                work.v_[work.fv(x,y,z)]=0;
+        for(std::size_t z=0;z<=nz_;++z)for(std::size_t y=0;y<ny_;++y)
+        for(std::size_t x=0;x<nx_;++x)
+            if(z==0||z==nz_||work.is_wall((int)x,(int)y,(int)z-1)||
+               work.is_wall((int)x,(int)y,(int)z))
+                work.w_[work.fw(x,y,z)]=0;
+
+        const auto n=work.fluid_.size();
+        std::vector<double> diagonal(n,0),b(n,0),pressure(n,0);
+        std::vector<int> component(n,-1);
+        PcgProjectionAudit audit;
+        constexpr int directions[6][3]={
+            {1,0,0},{-1,0,0},{0,1,0},{0,-1,0},{0,0,1},{0,0,-1}};
+        for(std::size_t z=0;z<nz_;++z)
+        for(std::size_t y=0;y<ny_;++y)
+        for(std::size_t x=0;x<nx_;++x) {
+            const auto id=work.cell(x,y,z);
+            if(!work.fluid_[id])continue;
+            ++audit.liquid_cells;
+            for(const auto& d:directions) {
+                const int xx=(int)x+d[0], yy=(int)y+d[1], zz=(int)z+d[2];
+                if(work.is_wall(xx,yy,zz))continue;
+                diagonal[id]+=work.is_liquid(xx,yy,zz)?1.0:2.0;
+            }
+            b[id]=-rho_*dx_*dx_/dt*work.divergence(x,y,z);
+        }
+        // Partition the liquid graph; check each isolated Neumann
+        // cavity is algebraically solvable before running the Krylov solver.
+        std::vector<std::vector<std::size_t>> neumann_groups;
+        std::vector<std::size_t> queue;
+        queue.reserve(audit.liquid_cells);
+        int label=0;
+        for(std::size_t z=0;z<nz_;++z)
+        for(std::size_t y=0;y<ny_;++y)
+        for(std::size_t x=0;x<nx_;++x) {
+            const auto seed=work.cell(x,y,z);
+            if(!work.fluid_[seed]||component[seed]>=0)continue;
+            queue.clear();
+            queue.push_back(seed);
+            component[seed]=label;
+            bool has_air=false;
+            long double source_sum=0,abs_sum=0;
+            for(std::size_t qi=0;qi<queue.size();++qi) {
+                const auto at=queue[qi];
+                source_sum+=b[at];abs_sum+=std::abs(b[at]);
+                const auto zz=at/(nx_*ny_);
+                const auto yy=(at/nx_)%ny_;
+                const auto xx=at%nx_;
+                for(const auto& d:directions) {
+                    const int tx=(int)xx+d[0],ty=(int)yy+d[1],tz=(int)zz+d[2];
+                    if(work.is_wall(tx,ty,tz))continue;
+                    if(!work.is_liquid(tx,ty,tz)){has_air=true;continue;}
+                    const auto next=work.cell((std::size_t)tx,(std::size_t)ty,
+                                              (std::size_t)tz);
+                    if(component[next]<0) {
+                        component[next]=label;
+                        queue.push_back(next);
+                    }
+                }
+            }
+            if(!has_air) {
+                // Closed incompressible cavity: sum(divergence)=0, not
+                // merely a potentially arbitrary pressure normalization.
+                if(std::abs(source_sum)>1e-9L*std::max(1.0L,abs_sum))
+                    throw std::runtime_error("Unsatisfiable closed MAC Neumann source");
+                neumann_groups.push_back(queue);
+                ++audit.closed_neumann_components;
+            }
+            ++label;
+        }
+        const auto orthogonalize=[&](std::vector<double>& values) {
+            for(const auto& group:neumann_groups) {
+                long double sum=0;
+                for(auto cellid:group)sum+=values[cellid];
+                const double mean=(double)(sum/group.size());
+                for(auto cellid:group)values[cellid]-=mean;
+            }
+        };
+        const auto apply_A=[&](const std::vector<double>& values,
+                               std::vector<double>& output) {
+            std::fill(output.begin(),output.end(),0.0);
+            for(std::size_t z=0;z<nz_;++z)
+            for(std::size_t y=0;y<ny_;++y)
+            for(std::size_t x=0;x<nx_;++x) {
+                const auto id=work.cell(x,y,z);
+                if(!work.fluid_[id])continue;
+                double a=diagonal[id]*values[id];
+                for(const auto& d:directions) {
+                    const int xx=(int)x+d[0],yy=(int)y+d[1],zz=(int)z+d[2];
+                    if(work.is_liquid(xx,yy,zz))
+                        a-=values[work.cell((std::size_t)xx,
+                                            (std::size_t)yy,(std::size_t)zz)];
+                }
+                output[id]=a;
+            }
+        };
+        double norm_b=0;
+        for(std::size_t i=0;i<n;++i)
+            if(work.fluid_[i])norm_b=std::max(norm_b,std::abs(b[i]));
+        const double allowed_residual=std::max(
+            1e-10,norm_b*relative_equation_tolerance);
+        std::vector<double> residual=b,z(n,0),direction(n,0),Ap(n,0);
+        orthogonalize(residual);
+        auto max_residual=[&]() {
+            double maximum=0;
+            for(std::size_t i=0;i<n;++i)
+                if(work.fluid_[i])maximum=std::max(maximum,std::abs(residual[i]));
+            return maximum;
+        };
+        double rz=0;
+        for(std::size_t i=0;i<n;++i)if(work.fluid_[i]) {
+            if(diagonal[i]<=0) {
+                // A sealed single-cell cavity has no pressure gradient
+                // degree of freedom. Reject an inconsistent source.
+                if(std::abs(residual[i])>allowed_residual)
+                    throw std::runtime_error("Inconsistent isolated MAC cell source");
+                continue;
+            }
+            z[i]=residual[i]/diagonal[i];
+            direction[i]=z[i];
+            rz+=residual[i]*z[i];
+        }
+        orthogonalize(direction);
+        auto residual_max=max_residual();
+        for(int iter=0;iter<max_iterations&&residual_max>allowed_residual;++iter) {
+            apply_A(direction,Ap);
+            double denom=0;
+            for(std::size_t i=0;i<n;++i)
+                if(work.fluid_[i])denom+=direction[i]*Ap[i];
+            if(!std::isfinite(denom)||!std::isfinite(rz)||denom<=0||rz<=0)
+                throw std::runtime_error("MAC PCG nonpositive curvature / breakdown");
+            const double alpha=rz/denom;
+            if(!std::isfinite(alpha))
+                throw std::runtime_error("Nonfinite MAC PCG step");
+            for(std::size_t i=0;i<n;++i)if(work.fluid_[i]) {
+                pressure[i]+=alpha*direction[i];
+                residual[i]-=alpha*Ap[i];
+            }
+            orthogonalize(pressure);
+            orthogonalize(residual);
+            residual_max=max_residual();
+            audit.iterations=iter+1;
+            if(residual_max<=allowed_residual)break;
+            double next_rz=0;
+            for(std::size_t i=0;i<n;++i)if(work.fluid_[i]) {
+                if(diagonal[i]>0) {
+                    z[i]=residual[i]/diagonal[i];
+                    next_rz+=residual[i]*z[i];
+                }
+            }
+            if(!std::isfinite(next_rz)||next_rz<0)
+                throw std::runtime_error("Invalid MAC PCG preconditioned norm");
+            const double beta=next_rz/rz;
+            for(std::size_t i=0;i<n;++i)if(work.fluid_[i])
+                direction[i]=z[i]+beta*direction[i];
+            orthogonalize(direction);
+            rz=next_rz;
+        }
+        // Validate actual matrix residual; recursively-updated CG
+        // residuals alone may drift due to finite precision.
+        apply_A(pressure,Ap);
+        audit.max_equation_residual_pa=0;
+        for(std::size_t i=0;i<n;++i)if(work.fluid_[i]) {
+            audit.max_equation_residual_pa=std::max(
+                audit.max_equation_residual_pa,std::abs(Ap[i]-b[i]));
+        }
+        if(!std::isfinite(audit.max_equation_residual_pa)||
+           audit.max_equation_residual_pa>allowed_residual)
+            throw std::runtime_error("MAC PCG equation residual did not converge");
+        work.pressure_=std::move(pressure);
+        const double scale=dt/(rho_*dx_);
+        for(std::size_t z=0;z<nz_;++z)for(std::size_t y=0;y<ny_;++y)
+        for(std::size_t x=1;x<nx_;++x)
+            if(!work.is_wall((int)x-1,(int)y,(int)z)&&
+               !work.is_wall((int)x,(int)y,(int)z)) {
+                const double ghost=work.is_liquid((int)x,(int)y,(int)z)!=
+                                   work.is_liquid((int)x-1,(int)y,(int)z)?2.0:1.0;
+                work.u_[work.fu(x,y,z)]-=scale*ghost*(
+                    work.p((int)x,(int)y,(int)z)-work.p((int)x-1,(int)y,(int)z));
+            }
+        for(std::size_t z=0;z<nz_;++z)for(std::size_t y=1;y<ny_;++y)
+        for(std::size_t x=0;x<nx_;++x)
+            if(!work.is_wall((int)x,(int)y-1,(int)z)&&
+               !work.is_wall((int)x,(int)y,(int)z)) {
+                const double ghost=work.is_liquid((int)x,(int)y,(int)z)!=
+                                   work.is_liquid((int)x,(int)y-1,(int)z)?2.0:1.0;
+                work.v_[work.fv(x,y,z)]-=scale*ghost*(
+                    work.p((int)x,(int)y,(int)z)-work.p((int)x,(int)y-1,(int)z));
+            }
+        for(std::size_t z=1;z<nz_;++z)for(std::size_t y=0;y<ny_;++y)
+        for(std::size_t x=0;x<nx_;++x)
+            if(!work.is_wall((int)x,(int)y,(int)z-1)&&
+               !work.is_wall((int)x,(int)y,(int)z)) {
+                const double ghost=work.is_liquid((int)x,(int)y,(int)z)!=
+                                   work.is_liquid((int)x,(int)y,(int)z-1)?2.0:1.0;
+                work.w_[work.fw(x,y,z)]-=scale*ghost*(
+                    work.p((int)x,(int)y,(int)z)-work.p((int)x,(int)y,(int)z-1));
+            }
+        // Never allow a NaN/Inf face to bypass max_divergence() via
+        // std::max's unordered floating-point comparison semantics.
+        const auto finite=[](const std::vector<double>& a){
+            return std::all_of(a.begin(),a.end(),
+                               [](double value){return std::isfinite(value);});
+        };
+        if(!finite(work.pressure_)||!finite(work.u_)||
+           !finite(work.v_)||!finite(work.w_))
+            throw std::runtime_error("Nonfinite MAC PCG pressure or velocity");
+        audit.max_divergence_s_inv=0;
+        for(std::size_t z=0;z<nz_;++z)
+        for(std::size_t y=0;y<ny_;++y)
+        for(std::size_t x=0;x<nx_;++x)
+            if(work.fluid_[work.cell(x,y,z)]){
+                const double div=work.divergence(x,y,z);
+                if(!std::isfinite(div))
+                    throw std::runtime_error("Nonfinite MAC PCG divergence");
+                audit.max_divergence_s_inv=std::max(
+                    audit.max_divergence_s_inv,std::abs(div));
+            }
+        if(!std::isfinite(audit.max_divergence_s_inv)||
+           audit.max_divergence_s_inv>max_divergence_s_inv)
+            throw std::runtime_error("MAC PCG projected divergence exceeds tolerance");
+        *this=std::move(work);
+        return audit;
+    }
+
     // Opt-in P2 safeguard: never publish an under-converged pressure solve.
     // The legacy project() remains unchanged for existing prototype callers.
     // This checks the ACTUAL wet-cell divergence, not the Gauss-Seidel

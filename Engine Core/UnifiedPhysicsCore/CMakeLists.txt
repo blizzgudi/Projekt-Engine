@@ -635,3 +635,17 @@ add_test(NAME physics_p2_marin_pressure_sensors_partial COMMAND upc_p2_marin_pre
 add_executable(upc_p2_marin_wall_pressure_interp3d_tests tests/p2_marin_wall_pressure_interp3d_tests.cpp)
 target_link_libraries(upc_p2_marin_wall_pressure_interp3d_tests PRIVATE upc)
 add_test(NAME physics_p2_marin_wall_pressure_interp_partial COMMAND upc_p2_marin_wall_pressure_interp3d_tests)
+
+
+# P2 PARTIAL: independent Jacobi-PCG MAC Poisson solver with analytic 3D
+# hydrostatics, solid-wall/free-surface pressure and fail-closed negative QA.
+# No measured MARIN pressure/FSI acceptance implied.
+add_executable(upc_p2_mac_pcg_pressure_tests tests/p2_mac_pcg_pressure_tests.cpp)
+target_link_libraries(upc_p2_mac_pcg_pressure_tests PRIVATE upc)
+add_test(NAME physics_p2_mac_pcg_pressure_partial COMMAND upc_p2_mac_pcg_pressure_tests)
+
+# P2 PARTIAL: opt-in PCG in the real coupled 3D MAC/VOF update; transactional
+# post-transport projection and callback rollback. No complete CFD validation.
+add_executable(upc_p2_live_pcg_coupled_tests tests/p2_live_pcg_coupled_tests.cpp)
+target_link_libraries(upc_p2_live_pcg_coupled_tests PRIVATE upc)
+add_test(NAME physics_p2_live_pcg_coupled_partial COMMAND upc_p2_live_pcg_coupled_tests)
