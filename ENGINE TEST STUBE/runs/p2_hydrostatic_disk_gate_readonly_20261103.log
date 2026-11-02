@@ -1,0 +1,4 @@
+﻿P2_PROTOTYPE_EVIDENCE={'ok': False, 'why': 'P2 source changed since verified: CMakeLists.txt'}
+P2_OFFICIAL_FULL_SCOPE_STATUS=PARTIAL
+P2_FULL_SCOPE_UNMET=['validate full stress-consistent 3D viscosity at moving free surface (current Neumann proxy only)', 'validate dynamic solid no-slip/impulse and 3D obstacle coupling', 'compare 3D flow and momentum against independent measured references']
+GATE_REPORT_NOT_WRITTEN=True

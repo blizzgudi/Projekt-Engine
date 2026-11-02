@@ -1,0 +1,92 @@
+{
+  "phase": "P2",
+  "milestone": "marin_test02_exact_hydrostatic_disk_reference_partial",
+  "phase_complete": false,
+  "measured_validation": false,
+  "historical_lab_fail": true,
+  "prescribed_waterline_m": 0.19,
+  "assumed_sensor_radius_m": 0.01,
+  "sensor_radius_experimentally_verified": false,
+  "roof_exact_pa": 284.48999999999995,
+  "native_assertions": 299,
+  "ctest_suites": 156,
+  "manufactured_native": [
+    {
+      "nx": 32,
+      "shape": [
+        32,
+        10,
+        10
+      ],
+      "dx": 0.1,
+      "roof_exact_pa": 284.49,
+      "roof_current_pa": 0.0,
+      "roof_error_pa": -284.49,
+      "roof_current_wet": 0.0
+    },
+    {
+      "nx": 48,
+      "shape": [
+        48,
+        15,
+        15
+      ],
+      "dx": 0.0666667,
+      "roof_exact_pa": 284.49,
+      "roof_current_pa": 194.565,
+      "roof_error_pa": -89.925,
+      "roof_current_wet": 0.85
+    },
+    {
+      "nx": 64,
+      "shape": [
+        64,
+        20,
+        20
+      ],
+      "dx": 0.05,
+      "roof_exact_pa": 284.49,
+      "roof_current_pa": 117.72,
+      "roof_error_pa": -166.77,
+      "roof_current_wet": 0.8
+    }
+  ],
+  "source_sha256": {
+    "CMakeLists.txt": "6c5a0007abcd3286004d346e53e952d8f8e2804c33bf7f98721f6a36a6b3b2e5",
+    "include/upc/p2_marin_hydrostatic_disk3d.hpp": "1ee3312e9f6ada6b76ff0a16da7419540c3b00947e79b9e7c9067b2124d1c5ac",
+    "include/upc/p2_marin_footprint_pressure3d.hpp": "1ec2f4032e7d7d3447d58650f81f3547b9890623ba2669b346e742076103eea8",
+    "include/upc/p2_marin_pressure_sensors3d.hpp": "7ca4ae9abee08e223892686b97c66da5d16ecf67b3263a74b702b869848c6bb1",
+    "tests/p2_marin_hydrostatic_disk3d_tests.cpp": "46db95dfffa0296450f4429421b911adb91316c762aa277b863d31ea35199b31",
+    "scripts/p2_marin_hydrostatic_disk_native.cmd": "89628bc112c8d6f01c1c77e549c2d5e9133a99e9007fbeb2b0eb578ed56bc850",
+    "scripts/p2_marin_hydrostatic_disk_audit.py": "e01d5348d8d68a516a1bdeadb25ef0a072be3b116672c64b00118aed3825c4e1"
+  },
+  "artifact_sha256": {
+    "native_log": "6d755c906c18ac4b981c256e0d8f1cd7a733d290d5b22b4c04dbc5243cc4b808",
+    "build_log": "4d1b17e8941e704b572b45f9f23a52965ef71c2d45c3e42a85292586dfba113a",
+    "ctest_log": "1d52fe26fb8b4d4c47481921597f66fa4df3bec49e086871ffd4ce7839e54fcc",
+    "native_binary": "feedf6de5be564fc724b5013789c488107479151e1a58a27492fbb47e2a5dc2c",
+    "historical_lab_report": "028cf1665da39cc1c6b5fa9c2d28b71177354ffeefddab1d3d4e3c37591da910",
+    "official_gate_readonly": "41f0525dc2929d368b1312d5fd93b76b4a49da32a74b35f7c0295875bcd93c3f"
+  },
+  "unmet": [
+    "Actual transducer disk diameter and response are unverified",
+    "Native MAC/VOF footprint pressure has large, nonmonotonic hydrostatic bias",
+    "No live stress-consistent cut-cell pressure correction",
+    "No new six-second MARIN/SPHERIC H1-H4/P1-P8 convergence",
+    "No dynamic bidirectional FSI, global balances or UE5.8 native E2E"
+  ],
+  "negative_qa_rejected": [
+    "forged_phase_pass",
+    "forged_lab_pass",
+    "concealed_historical_fail",
+    "fake_native_assertions",
+    "fake_ctest",
+    "fake_exact_roof",
+    "changed_native_roof",
+    "changed_wet_area",
+    "missing_fine_grid",
+    "changed_grid",
+    "forged_source_hash",
+    "forged_native_hash"
+  ]
+}

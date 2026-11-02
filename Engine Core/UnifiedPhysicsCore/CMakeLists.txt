@@ -925,3 +925,12 @@ add_executable(upc_p2_marin_live_column_wall_tests
 target_link_libraries(upc_p2_marin_live_column_wall_tests PRIVATE upc)
 add_test(NAME physics_p2_marin_live_column_wall_partial
     COMMAND upc_p2_marin_live_column_wall_tests)
+
+# P2 PARTIAL: exact hydrostatic wet disk pressure reference for Test-02
+# P1-P8 and independent manufactured diagnosis of native VOF sampling bias.
+# Prescribed planar interface, NOT live transducer or full P2 validation.
+add_executable(upc_p2_marin_hydrostatic_disk_tests
+    tests/p2_marin_hydrostatic_disk3d_tests.cpp)
+target_link_libraries(upc_p2_marin_hydrostatic_disk_tests PRIVATE upc)
+add_test(NAME physics_p2_marin_hydrostatic_disk_partial
+    COMMAND upc_p2_marin_hydrostatic_disk_tests)

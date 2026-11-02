@@ -1,0 +1,5 @@
+DISK_ANALYTIC assertions=290 half_wet=0.5 half_pressure_pa=20.8175
+DISK_NATIVE nx=32 dx=0.1 roof_exact_pa=284.49 roof_current_pa=0 roof_error_pa=-284.49 roof_current_wet=0
+DISK_NATIVE nx=48 dx=0.0666667 roof_exact_pa=284.49 roof_current_pa=194.565 roof_error_pa=-89.925 roof_current_wet=0.85
+DISK_NATIVE nx=64 dx=0.05 roof_exact_pa=284.49 roof_current_pa=117.72 roof_error_pa=-166.77 roof_current_wet=0.8
+PASS P2_MARIN_HYDROSTATIC_DISK assertions=299 measured_validation=false phase_complete=false
