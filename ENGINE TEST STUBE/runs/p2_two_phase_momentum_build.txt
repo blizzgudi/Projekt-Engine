@@ -1,7 +1,4 @@
--- Configuring done (0.0s)
+-- Configuring done (0.1s)
 -- Generating done (0.1s)
 -- Build files have been written to: D:/Projekt Engine/Engine Core/UnifiedPhysicsCore/build
-[1/4] Building CXX object CMakeFiles\upc_p2_two_phase_consistent_momentum_tests.dir\tests\p2_two_phase_consistent_momentum3d_tests.cpp.obj
-[2/4] Linking CXX executable upc_p2_two_phase_consistent_momentum_tests.exe
-[3/4] Building CXX object CMakeFiles\upc_p2_two_phase_live_momentum_tests.dir\tests\p2_two_phase_momentum_vof3d_tests.cpp.obj
-[4/4] Linking CXX executable upc_p2_two_phase_live_momentum_tests.exe
+ninja: no work to do.

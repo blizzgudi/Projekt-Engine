@@ -61,6 +61,9 @@ void run(int nx,int ny,int nz) {
         state.water_fraction.begin(),state.water_fraction.end(),0.0);
     double max_velocity_effect=0,max_cell_flux_impulse=0;
     double max_unclosed_impulse=0,max_density_error=0;
+    double max_remap_impulse=0,max_pressure_wall_impulse=0;
+    double max_pressure_closure=0,max_remap_energy=0;
+    double max_pressure_energy_closure=0;
     double max_loss=0;
     for(int step=0;step<6;++step) {
         const auto original=state;
@@ -92,8 +95,53 @@ void run(int nx,int ny,int nz) {
                  "conservative cell momentum flux impulse mismatch");
             max_unclosed_impulse=std::max(max_unclosed_impulse,
                 std::abs(adv.remap_plus_feedback_impulse_change_kg_m_s[k]));
+            max_remap_impulse=std::max(max_remap_impulse,
+                std::abs(adv.remap_only_impulse_change_kg_m_s[k]));
+            max_pressure_wall_impulse=std::max(max_pressure_wall_impulse,
+                std::abs(adv.feedback_pressure_wall_impulse_n_s[k]));
+            max_pressure_closure=std::max(max_pressure_closure,
+                std::abs(adv.feedback_pressure_impulse_residual_kg_m_s[k]));
+            near(adv.remap_plus_feedback_impulse_change_kg_m_s[k],
+                 adv.remap_only_impulse_change_kg_m_s[k]+
+                 adv.feedback_pressure_wall_impulse_n_s[k],1e-10,
+                 "MAC remap and physical wall reaction jointly explain net impulse");
+            near(adv.feedback_pressure_impulse_change_kg_m_s[k],
+                 adv.feedback_projection.momentum_after_kg_m_s[k]-
+                 adv.feedback_projection.momentum_before_kg_m_s[k],1e-10,
+                 "Independent pressure-projection impulse ledger");
         }
+        // Independently verify that the mapped staggered impulse really
+        // equals exactly the interior half-cell partition, with the
+        // omitted boundary halves kept as an explicit nonphysical gap.
+        for(int k=0;k<3;++k) {
+            near(adv.density_weighted_remap.cell_impulse_kg_m_s[k],
+                 adv.density_weighted_remap.interior_mac_impulse_kg_m_s[k]+
+                 adv.density_weighted_remap.
+                   omitted_boundary_half_face_impulse_kg_m_s[k],1e-10,
+                 "Dual MAC cell/wall partition must close");
+            near(adv.density_weighted_remap.exact_partition_residual_kg_m_s[k],
+                 0,1e-10,"Dual grid boundary partition error");
+            near(adv.remapped_mac_impulse_kg_m_s[k],
+                 adv.density_weighted_remap.interior_mac_impulse_kg_m_s[k],
+                 1e-10,"Actual live mapped MAC face momentum mismatch");
+        }
+        check(adv.density_weighted_remap.interior_interpolation_loss_j>=-1e-10,
+              "Real live mass-weighted remap must not generate cell kinetic energy");
+        check(adv.density_weighted_remap.max_density_weight_disagreement_m_s>0,
+              "Density-weighted dual MAC reconstruction must be exercised");
         max_loss=std::max(max_loss,adv.convective.upwind_kinetic_loss_j);
+        max_remap_energy=std::max(max_remap_energy,
+                                 std::abs(adv.remap_only_energy_change_j));
+        max_pressure_energy_closure=std::max(
+            max_pressure_energy_closure,
+            std::abs(adv.feedback_pressure_energy_residual_j));
+        near(adv.remap_plus_feedback_energy_change_j,
+             adv.remap_only_energy_change_j+
+             adv.feedback_pressure_energy_change_j,1e-10,
+             "split remap vs pressure energy inventory");
+        near(adv.feedback_pressure_energy_change_j,
+             -adv.feedback_projection.projection_dissipation_j,1e-10,
+             "Physical pressure projection dissipates exactly its PCG norm");
         max_density_error=std::max(max_density_error,
                                    adv.max_density_agreement_kg_m3);
         for(std::size_t i=0;i<state.water_fraction.size();++i) {
@@ -117,7 +165,14 @@ void run(int nx,int ny,int nz) {
         (void)original;
     }
     check(max_velocity_effect>1e-6,"cell momentum not fed back into MAC flow");
-    check(max_unclosed_impulse>0,"must expose unresolved MAC remap impulse");
+    check(max_unclosed_impulse>0,"must expose remap+wall impulse change");
+    check(max_remap_impulse>0,"must expose independent remap-only impulse gap");
+    check(max_pressure_wall_impulse>0,
+          "must distinguish legitimate pressure reaction from remap error");
+    check(max_pressure_closure<1e-10,
+          "projection pressure wall impulse balance failed");
+    check(max_pressure_energy_closure<1e-10,
+          "projection energy balance failed");
     check(max_density_error<1e-10,
           "mass consistent with independently advected water/air");
     check(state.water_fraction!=base.water_fraction,
@@ -127,6 +182,11 @@ void run(int nx,int ny,int nz) {
              <<" steps=6 max_face_feedback_m_s="<<max_velocity_effect
              <<" cell_flux_impulse_error="<<max_cell_flux_impulse
              <<" unclosed_mac_impulse_kg_m_s="<<max_unclosed_impulse
+             <<" remap_only_impulse_kg_m_s="<<max_remap_impulse
+             <<" wall_reaction_impulse_kg_m_s="<<max_pressure_wall_impulse
+             <<" pressure_impulse_residual_kg_m_s="<<max_pressure_closure
+             <<" remap_only_energy_j="<<max_remap_energy
+             <<" pressure_energy_residual_j="<<max_pressure_energy_closure
              <<" donor_kinetic_loss_j="<<max_loss
              <<" density_error_kg_m3="<<max_density_error
              <<" full_phase=false\n";

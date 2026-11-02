@@ -7,8 +7,9 @@
   "full_dynamic_two_way_fsi": false,
   "measured_marin_6s_validated": false,
   "native_conservative_assertions": 39191,
-  "native_live_assertions": 5337,
-  "full_native_ctest_suites": 140,
+  "native_live_assertions": 5691,
+  "native_remap_assertions": 3543,
+  "full_native_ctest_suites": 141,
   "independent_forged_evidence_rejections": [
     "missing_grid",
     "fake_closed_cell_impulse",
@@ -19,7 +20,14 @@
     "missing_live_grid",
     "suppressed_physical_gap",
     "fake_full_live",
-    "fake_nan_density"
+    "fake_nan_density",
+    "missing_remap_grid",
+    "bad_remap_partition",
+    "negative_interpolation_loss",
+    "false_full_phase",
+    "missing_remap_assertions",
+    "fake_no_density_effect",
+    "missing_independent_faces"
   ],
   "conservative_3d_cases": {
     "4x4x4_constant1": {
@@ -49,62 +57,112 @@
   },
   "coupled_3d_live_cases": {
     "4x4x4": {
-      "feedback_m_s": 0.08710437413297052,
-      "cell_flux_impulse_error": 1.6653345369377348e-16,
-      "unclosed_mac_impulse": 0.054521551826364034,
-      "donor_kinetic_loss": 1.4340529029186616e-05,
+      "feedback_m_s": 0.07803578632582968,
+      "cell_flux_impulse_error": 1.1102230246251565e-16,
+      "unclosed_mac_impulse": 0.051102477332388985,
+      "remap_only_impulse": 0.04826625664018913,
+      "pressure_wall_impulse": 0.030565563504085805,
+      "pressure_impulse_error": 1.1015494072452725e-16,
+      "remap_energy_change": 0.003435171887230165,
+      "pressure_energy_error": 5.3939058081153846e-18,
+      "donor_kinetic_loss": 1.7283461104491277e-05,
       "density_error": 3.410605131648481e-13
     },
     "6x5x4": {
-      "feedback_m_s": 0.08477783442195834,
-      "cell_flux_impulse_error": 3.3306690738754696e-16,
-      "unclosed_mac_impulse": 0.08053077106528561,
-      "donor_kinetic_loss": 2.4666908949397964e-05,
+      "feedback_m_s": 0.07557301169090397,
+      "cell_flux_impulse_error": 5.551115123125783e-16,
+      "unclosed_mac_impulse": 0.07265510481141257,
+      "remap_only_impulse": 0.04901075422278689,
+      "pressure_wall_impulse": 0.037812211601345264,
+      "pressure_impulse_error": 3.95516952522712e-16,
+      "remap_energy_change": 0.004907350738489181,
+      "pressure_energy_error": 1.5043305143236374e-17,
+      "donor_kinetic_loss": 2.817364426288202e-05,
       "density_error": 3.410605131648481e-13
     },
     "8x6x5": {
-      "feedback_m_s": 0.06238457460184829,
-      "cell_flux_impulse_error": 1.1102230246251565e-15,
-      "unclosed_mac_impulse": 0.08565517740854922,
-      "donor_kinetic_loss": 4.478278449998596e-05,
+      "feedback_m_s": 0.06182205904771301,
+      "cell_flux_impulse_error": 1.7763568394002505e-15,
+      "unclosed_mac_impulse": 0.08729454547068949,
+      "remap_only_impulse": 0.052671975883385125,
+      "pressure_wall_impulse": 0.04395449979422428,
+      "pressure_impulse_error": 9.575673587391975e-16,
+      "remap_energy_change": 0.006464727736827283,
+      "pressure_energy_error": 6.548581121812447e-17,
+      "donor_kinetic_loss": 4.3332489839766064e-05,
       "density_error": 3.410605131648481e-13
     }
   },
+  "independent_half_cell_mac_remap_cases": {
+    "4x4x4_uniform1": {
+      "interior_faces": 144,
+      "face_reference_error": 1.3877787807814457e-17,
+      "impulse_partition_residual": 4.996003610813204e-16,
+      "interpolation_jensen_loss_j": 0.0,
+      "density_weighting_difference_m_s": 1.3877787807814457e-17
+    },
+    "6x5x4_uniform1": {
+      "interior_faces": 286,
+      "face_reference_error": 2.7755575615628914e-17,
+      "impulse_partition_residual": 8.881784197001252e-16,
+      "interpolation_jensen_loss_j": -8.049116928532385e-16,
+      "density_weighting_difference_m_s": 1.3877787807814457e-17
+    },
+    "8x6x5_uniform0": {
+      "interior_faces": 602,
+      "face_reference_error": 2.7755575615628914e-17,
+      "impulse_partition_residual": 5.717648576819556e-15,
+      "interpolation_jensen_loss_j": 0.0032868828178063553,
+      "density_weighting_difference_m_s": 0.006133197900135341
+    },
+    "12x8x6_uniform0": {
+      "interior_faces": 1512,
+      "face_reference_error": 2.7755575615628914e-17,
+      "impulse_partition_residual": 7.993605777301127e-15,
+      "interpolation_jensen_loss_j": 0.00815508539912034,
+      "density_weighting_difference_m_s": 0.0053271697918482915
+    }
+  },
   "known_unresolved_mac_feedback_impulse_kg_m_s": {
-    "4x4x4": 0.054521551826364034,
-    "6x5x4": 0.08053077106528561,
-    "8x6x5": 0.08565517740854922
+    "4x4x4": 0.051102477332388985,
+    "6x5x4": 0.07265510481141257,
+    "8x6x5": 0.08729454547068949
   },
   "source_sha256": {
-    "CMakeLists.txt": "bc1c06690e509225c6970270e3e5b6099322b8ccef740bcc9c36c7139ecdcfce",
+    "CMakeLists.txt": "6917f8bd9dc22c1a55a517e3380594ab65ea48cc0dbdc878b677805f427b7374",
     "include/upc/p2_two_phase_consistent_momentum3d.hpp": "d43c03e8172f7cd90f336bc7c220b488f019e14a496e43cb63465f506a2ccc52",
-    "include/upc/p2_two_phase_momentum_vof3d.hpp": "09e2d787c26f3289f61ff5541ac8fdfe079da8438b65b6886d67e206529d97cd",
+    "include/upc/p2_two_phase_momentum_vof3d.hpp": "1b904f364e8fce8b4bba39fbfef0885c6fac011047076f0cb1ec40caec07804a",
+    "include/upc/p2_two_phase_mac_momentum_remap3d.hpp": "1d74de7d3565227cf86b98bcad75fe4fd21cb09e5b6c35d95f3b7ba379864fa9",
     "include/upc/p2_two_phase_mac_vof3d.hpp": "276f28481f8922b433b25aadd5494033af89680f74f973a6f407f3dfeedf39a7",
     "include/upc/p2_two_phase_mac_pressure3d.hpp": "972c0070448dd3e9d0391999c4ee4b6f779e6b108970f609e93396248abd7ee2",
     "include/upc/p2_conservative_vof_flux3d.hpp": "08db884109510cf3d851c05bbedb669edbae94de4766a9674927d44bde4b3b9f",
     "tests/p2_two_phase_consistent_momentum3d_tests.cpp": "8eec10ccc1348d882771e7427045c1a2080eb3042c77b4d6b2acd936050b5005",
-    "tests/p2_two_phase_momentum_vof3d_tests.cpp": "015803683eafe856ac9bfe806145b7ea34d53421594330a45946383284198005",
-    "scripts/p2_two_phase_momentum_build.cmd": "ce1a32e289626881ec97484d93ad649e23b32671259812569e386efa2ee124bc",
-    "scripts/p2_two_phase_momentum_acceptance.py": "2f39882fc556fde6836ab43b45eb31a80aa0a9d721bacc60c4530caa9d623a21",
+    "tests/p2_two_phase_momentum_vof3d_tests.cpp": "24f9453047987df597e9796df35714229bd50151bdd6f4223768497902494546",
+    "tests/p2_two_phase_mac_momentum_remap3d_tests.cpp": "2d6cafb3dc4b3bba6b8d0d3e8e9db6d29c827ab4a00af929befbb6f6f32af46b",
+    "scripts/p2_two_phase_momentum_build.cmd": "d11d73204bf7dac8330447b066fabde616956aa4fe313b1e3b18e401181f850d",
+    "scripts/p2_two_phase_momentum_acceptance.py": "bdad8fcf596739a9cc1c9a20f1cfbf8d1c5c48714b75636d57d8fc56b07913ed",
     "scripts/phase_gate.py": "01065438e2b72b3fe83e7e3ba3decbf54925c84c5f9424b15ad15a8197f59cd6",
-    "docs/P2_TWO_PHASE_CONSISTENT_MOMENTUM_PARTIAL.md": "b941a0544de21bbb474bb0a9294c9e40954e9e6464f219ce1b707e6c570b0c6e",
-    "docs/PHASENPLAN.md": "9afced67d6365f91f590b26b1c85bca9718232f8627426bdd4ff0670e41772b0"
+    "docs/P2_TWO_PHASE_CONSISTENT_MOMENTUM_PARTIAL.md": "8e5649829adb29d1828aff90a7e4b86ac891cee8e36bf79ac12ec978a15d928d",
+    "docs/P2_DUAL_MAC_REMAP_PARTIAL.md": "090f9b10ed374eec48417291c5a01682c31c90874612cebe3a4c890ae57516b4",
+    "docs/PHASENPLAN.md": "2c8bc065505a5396f971da9f837c55d38f79004b62cff472b89db780d894b1f4"
   },
   "artifact_sha256": {
     "conservative_binary": "e79dce97520b7b688370b00f653df7f533b9d08e0b6bb6cd09343119e7438c7d",
-    "live_binary": "35e8447b14d420eb89625e3fefaa66e5b5f4795ad9835c8ffb001059938f984a",
-    "build": "9de7b197157c97113cb8fd2fe6869ec0fcf17b52e7e6356cb93065890a4a400e",
-    "ctest": "5003ea5902a3d761cba672e257f24da039b8c9bfcd9fea729bb3358d44a6ffc1",
+    "live_binary": "017813cf296683346ff768f508f5a7819c6101fa2461da4dbbb5e72316ed6868",
+    "remap_binary": "a1cedf27d7bc530b5c0443f115dd44c70e45708aa6a6868a0c1a316360231c7a",
+    "build": "8c3e98bfe513d5f719906a16425fdb23ad15133aa55ae08ba7ef7b4dc6a576f2",
+    "ctest": "c7902c4844d0af94e435af01b0e0ac541080fd9a63b6f3578cd9b189c51e67db",
     "conservative_native": "eeb65ad7084371f9e978936270f6cd5e4926cfbf8cd53976357dc4cc05881e03",
-    "live_native": "b4a1d7e3be72a4c0787c8fbb1f81a48e01d978e08191df21c132ae7028795c2e",
+    "live_native": "2032e9cd299c4c8c73bab55a848392841e9bb8cf1a1a7840e4e8e175c85c4edd",
+    "remap_native": "04d314879c9dc927e6d844ded90cee5e78d946393cd75a6865292ee3482410ba",
     "phase_gate": "81c1aeb5f80e7e0c8ab439c351b9eab256694a788538ae1ad32d0f2082f8cccf"
   },
   "unmet": [
-    "MAC dual-volume conservative momentum/kinetic flux; remap and second projection still produce physical impulse gap",
+    "Half-cell cell-to-MAC remap now partitions momentum exactly INCLUDING virtual boundary halves; missing actual moving wall reaction and globally conservative MAC/FSI impulse still open",
     "Moving two-phase stress, surface tension, and full 3D Navier-Stokes",
     "Dynamic two-way deformable/rigid-body FSI with physical wall impulse",
     "Independent MARIN/SPHERIC H1-H4 P1-P8 6s three-grid measured PASS",
     "New UE5.8 native E2E of the momentum-feedback path"
   ],
-  "generated_utc": "2026-11-02T09:03:20.133815+00:00"
+  "generated_utc": "2026-11-02T09:19:13.573127+00:00"
 }

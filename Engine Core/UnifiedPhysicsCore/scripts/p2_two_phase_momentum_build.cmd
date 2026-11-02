@@ -18,6 +18,8 @@ if errorlevel 1 (type "%RUNS%\p2_two_phase_momentum_build.txt" & exit /b 22)
 if errorlevel 1 (type "%RUNS%\p2_two_phase_momentum_conservative_native.txt" & exit /b 23)
 "%CORE%\build\upc_p2_two_phase_live_momentum_tests.exe" > "%RUNS%\p2_two_phase_momentum_live_native.txt" 2>&1
 if errorlevel 1 (type "%RUNS%\p2_two_phase_momentum_live_native.txt" & exit /b 24)
+"%CORE%\build\upc_p2_two_phase_mac_momentum_remap_tests.exe" > "%RUNS%\p2_two_phase_momentum_remap_native.txt" 2>&1
+if errorlevel 1 (type "%RUNS%\p2_two_phase_momentum_remap_native.txt" & exit /b 26)
 "%CTEST%" --test-dir "%CORE%\build" -C Release --parallel 4 --output-on-failure > "%RUNS%\p2_two_phase_momentum_ctest.txt" 2>&1
 if errorlevel 1 (type "%RUNS%\p2_two_phase_momentum_ctest.txt" & exit /b 25)
 type "%RUNS%\p2_two_phase_momentum_conservative_native.txt"

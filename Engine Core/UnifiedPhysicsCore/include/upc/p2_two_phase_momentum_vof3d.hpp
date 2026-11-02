@@ -7,6 +7,7 @@
 // numerical impulse/energy delta explicitly. No free-surface stress or FSI.
 #include "upc/p2_two_phase_mac_vof3d.hpp"
 #include "upc/p2_two_phase_consistent_momentum3d.hpp"
+#include "upc/p2_two_phase_mac_momentum_remap3d.hpp"
 #include <algorithm>
 #include <array>
 #include <cmath>
@@ -18,12 +19,24 @@ namespace upc {
 struct P2TwoPhaseMomentumVofLedger3D {
     P2TwoPhaseMacVofLedger3D fluid;
     P2TwoPhaseConsistentMomentum3D convective;
+    P2TwoPhaseMacMomentumRemap3D density_weighted_remap;
     P2TwoPhaseMacPressureLedger3D feedback_projection;
     std::array<double,3> projected_mac_impulse_before_kg_m_s{};
     std::array<double,3> projected_mac_impulse_after_kg_m_s{};
+    // Isolate the non-conservative cell->MAC remap from the legitimate
+    // physical impulse of the CLOSED box's pressure reaction.
+    std::array<double,3> remapped_mac_impulse_kg_m_s{};
+    std::array<double,3> remap_only_impulse_change_kg_m_s{};
+    std::array<double,3> feedback_pressure_impulse_change_kg_m_s{};
+    std::array<double,3> feedback_pressure_wall_impulse_n_s{};
+    std::array<double,3> feedback_pressure_impulse_residual_kg_m_s{};
     std::array<double,3> remap_plus_feedback_impulse_change_kg_m_s{};
     double mac_energy_before_remap_j=0;
+    double mac_energy_after_remap_j=0;
     double mac_energy_after_remap_and_projection_j=0;
+    double remap_only_energy_change_j=0;
+    double feedback_pressure_energy_change_j=0;
+    double feedback_pressure_energy_residual_j=0;
     double remap_plus_feedback_energy_change_j=0;
     double max_density_agreement_kg_m3=0;
     bool cell_to_mac_is_conservative=false;
@@ -114,27 +127,30 @@ inline P2TwoPhaseMomentumVofLedger3D p2_two_phase_momentum_vof_step3d(
         report.projected_mac_impulse_before_kg_m_s=momentum;
         report.mac_energy_before_remap_j=energy;
     }
-    // The cell momentum has undergone a genuinely advective flux update.
-    // Map it to the staggered velocity controls, then correct any new
-    // divergence with the same variable-density pressure projection.
-    // This interpolation is not a conservative MAC dual-volume remap.
+    // New mass-weighted half-cell dual-volume remap. For each axis,
+    // total CELL impulse = interior MAC-face impulse + omitted physical
+    // boundary half-face impulse, exactly. The missing boundary term
+    // is a geometric quadrature residual, NOT an assumed wall force.
+    // The subsequent pressure reaction remains independently audited.
     auto& mac=candidate.mac;
-    const auto& q=report.convective.velocity_m_s;
-    const auto cell=[&](std::size_t x,std::size_t y,std::size_t z){
-        return (z*ny+y)*nx+x;
-    };
-    for(std::size_t z=0;z<nz;++z)for(std::size_t y=0;y<ny;++y)
-    for(std::size_t x=1;x<nx;++x)
-        mac.u_m_s[(z*ny+y)*(nx+1)+x]=
-            .5*(q[cell(x-1,y,z)][0]+q[cell(x,y,z)][0]);
-    for(std::size_t z=0;z<nz;++z)for(std::size_t y=1;y<ny;++y)
-    for(std::size_t x=0;x<nx;++x)
-        mac.v_m_s[(z*(ny+1)+y)*nx+x]=
-            .5*(q[cell(x,y-1,z)][1]+q[cell(x,y,z)][1]);
-    for(std::size_t z=1;z<nz;++z)for(std::size_t y=0;y<ny;++y)
-    for(std::size_t x=0;x<nx;++x)
-        mac.w_m_s[(z*ny+y)*nx+x]=
-            .5*(q[cell(x,y,z-1)][2]+q[cell(x,y,z)][2]);
+    report.density_weighted_remap=p2_two_phase_mac_momentum_remap3d(
+        mac,report.convective.velocity_m_s);
+    mac.u_m_s=report.density_weighted_remap.u_m_s;
+    mac.v_m_s=report.density_weighted_remap.v_m_s;
+    mac.w_m_s=report.density_weighted_remap.w_m_s;
+    {
+        auto [momentum,energy]=impulse(mac);
+        report.remapped_mac_impulse_kg_m_s=momentum;
+        report.mac_energy_after_remap_j=energy;
+    }
+    for(int axis=0;axis<3;++axis) {
+        const double difference=report.remapped_mac_impulse_kg_m_s[axis]-
+            report.density_weighted_remap.interior_mac_impulse_kg_m_s[axis];
+        if(!std::isfinite(difference)||
+           std::abs(difference)>1e-9*std::max(
+               1.0,std::abs(report.remapped_mac_impulse_kg_m_s[axis])))
+            throw std::runtime_error("Dual MAC remap inventory inconsistent");
+    }
     report.feedback_projection=p2_two_phase_mac_pressure_step3d(
         mac,max_pcg_iterations);
     {
@@ -143,20 +159,59 @@ inline P2TwoPhaseMomentumVofLedger3D p2_two_phase_momentum_vof_step3d(
         report.mac_energy_after_remap_and_projection_j=energy;
     }
     for(int axis=0;axis<3;++axis) {
+        report.remap_only_impulse_change_kg_m_s[axis]=
+            report.remapped_mac_impulse_kg_m_s[axis]-
+            report.projected_mac_impulse_before_kg_m_s[axis];
+        report.feedback_pressure_impulse_change_kg_m_s[axis]=
+            report.projected_mac_impulse_after_kg_m_s[axis]-
+            report.remapped_mac_impulse_kg_m_s[axis];
+        report.feedback_pressure_wall_impulse_n_s[axis]=
+            report.feedback_projection.wall_pressure_impulse_n_s[axis];
+        report.feedback_pressure_impulse_residual_kg_m_s[axis]=
+            report.feedback_pressure_impulse_change_kg_m_s[axis]-
+            report.feedback_pressure_wall_impulse_n_s[axis];
         report.remap_plus_feedback_impulse_change_kg_m_s[axis]=
             report.projected_mac_impulse_after_kg_m_s[axis]-
             report.projected_mac_impulse_before_kg_m_s[axis];
-        if(!std::isfinite(report.remap_plus_feedback_impulse_change_kg_m_s[axis]))
-            throw std::runtime_error("Nonfinite feedback impulse discrepancy");
+        const double tolerance=1e-9*std::max(
+            1.0,std::abs(report.remapped_mac_impulse_kg_m_s[axis]));
+        if(!std::isfinite(report.remap_only_impulse_change_kg_m_s[axis])||
+           !std::isfinite(report.feedback_pressure_impulse_residual_kg_m_s[axis])||
+           std::abs(report.feedback_pressure_impulse_residual_kg_m_s[axis])>tolerance||
+           std::abs(report.feedback_projection.momentum_before_kg_m_s[axis]-
+                    report.remapped_mac_impulse_kg_m_s[axis])>tolerance||
+           std::abs(report.feedback_projection.momentum_after_kg_m_s[axis]-
+                    report.projected_mac_impulse_after_kg_m_s[axis])>tolerance)
+            throw std::runtime_error(
+                "Feedback projection impulse must match measured wall reaction");
     }
+    report.remap_only_energy_change_j=
+        report.mac_energy_after_remap_j-report.mac_energy_before_remap_j;
+    report.feedback_pressure_energy_change_j=
+        report.mac_energy_after_remap_and_projection_j-
+        report.mac_energy_after_remap_j;
+    report.feedback_pressure_energy_residual_j=
+        report.feedback_pressure_energy_change_j+
+        report.feedback_projection.projection_dissipation_j;
     report.remap_plus_feedback_energy_change_j=
         report.mac_energy_after_remap_and_projection_j-
         report.mac_energy_before_remap_j;
-    if(!std::isfinite(report.remap_plus_feedback_energy_change_j))
-        throw std::runtime_error("Nonfinite feedback energy discrepancy");
-    // DO NOT claim a global physical impulse closure: the mapping is
-    // explicitly a numerical approximation requiring a true conservative
-    // MAC dual-grid transport discretization before full P2 acceptance.
+    const double energy_tolerance=1e-9*
+        std::max(1.0,std::abs(report.mac_energy_after_remap_j));
+    if(!std::isfinite(report.remap_only_energy_change_j)||
+       !std::isfinite(report.feedback_pressure_energy_residual_j)||
+       !std::isfinite(report.remap_plus_feedback_energy_change_j)||
+       std::abs(report.feedback_pressure_energy_residual_j)>energy_tolerance||
+       std::abs(report.feedback_projection.kinetic_before_j-
+                report.mac_energy_after_remap_j)>energy_tolerance||
+       std::abs(report.feedback_projection.kinetic_after_j-
+                report.mac_energy_after_remap_and_projection_j)>energy_tolerance)
+        throw std::runtime_error(
+            "Feedback projection energy must match independent MAC inventory");
+    // The density-weighted half-cell remap closes the cell/interior/boundary
+    // partition but does NOT close actual wall forces or total fluid energy.
+    // Subsequent pressure reaction is measured, not corrected away; global
+    // physical fluid + boundary/FSI closure remains unvalidated.
     state=std::move(candidate);
     return report;
 }

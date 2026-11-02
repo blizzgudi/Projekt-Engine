@@ -21,25 +21,30 @@ RUNS=ROOT/"ENGINE TEST STUBE"/"runs"
 PREFIX="p2_two_phase_momentum"
 CONSERVATIVE=CORE/"build"/"upc_p2_two_phase_consistent_momentum_tests.exe"
 LIVE=CORE/"build"/"upc_p2_two_phase_live_momentum_tests.exe"
+REMAP=CORE/"build"/"upc_p2_two_phase_mac_momentum_remap_tests.exe"
 BUILD=RUNS/(PREFIX+"_build.txt")
 CTEST=RUNS/(PREFIX+"_ctest.txt")
 CONSERVATIVE_LOG=RUNS/(PREFIX+"_conservative_native.txt")
 LIVE_LOG=RUNS/(PREFIX+"_live_native.txt")
+REMAP_LOG=RUNS/(PREFIX+"_remap_native.txt")
 GATE_LOG=RUNS/(PREFIX+"_phase_gate.txt")
 REPORT=RUNS/(PREFIX+"_partial.json")
 SOURCES=[
     "CMakeLists.txt",
     "include/upc/p2_two_phase_consistent_momentum3d.hpp",
     "include/upc/p2_two_phase_momentum_vof3d.hpp",
+    "include/upc/p2_two_phase_mac_momentum_remap3d.hpp",
     "include/upc/p2_two_phase_mac_vof3d.hpp",
     "include/upc/p2_two_phase_mac_pressure3d.hpp",
     "include/upc/p2_conservative_vof_flux3d.hpp",
     "tests/p2_two_phase_consistent_momentum3d_tests.cpp",
     "tests/p2_two_phase_momentum_vof3d_tests.cpp",
+    "tests/p2_two_phase_mac_momentum_remap3d_tests.cpp",
     "scripts/p2_two_phase_momentum_build.cmd",
     "scripts/p2_two_phase_momentum_acceptance.py",
     "scripts/phase_gate.py",
     "docs/P2_TWO_PHASE_CONSISTENT_MOMENTUM_PARTIAL.md",
+    "docs/P2_DUAL_MAC_REMAP_PARTIAL.md",
     "docs/PHASENPLAN.md",
 ]
 MOMENTUM=re.compile(
@@ -54,10 +59,25 @@ LIVE_MOMENTUM=re.compile(
     r" max_face_feedback_m_s=([-+0-9.eE]+)"
     r" cell_flux_impulse_error=([-+0-9.eE]+)"
     r" unclosed_mac_impulse_kg_m_s=([-+0-9.eE]+)"
+    r" remap_only_impulse_kg_m_s=([-+0-9.eE]+)"
+    r" wall_reaction_impulse_kg_m_s=([-+0-9.eE]+)"
+    r" pressure_impulse_residual_kg_m_s=([-+0-9.eE]+)"
+    r" remap_only_energy_j=([-+0-9.eE]+)"
+    r" pressure_energy_residual_j=([-+0-9.eE]+)"
     r" donor_kinetic_loss_j=([-+0-9.eE]+)"
     r" density_error_kg_m3=([-+0-9.eE]+)"
     r" full_phase=false$"
 )
+REMAP_PATTERN=re.compile(
+    r"^MAC_REMAP grid=(\d+)x(\d+)x(\d+) uniform=([01]) faces=(\d+)"
+    r" max_face_ref_error=([-+0-9.eE]+)"
+    r" max_impulse_residual=([-+0-9.eE]+)"
+    r" kinetic_loss_j=([-+0-9.eE]+)"
+    r" unweighted_difference_m_s=([-+0-9.eE]+)"
+    r" phase_complete=false$"
+)
+EXPECTED_REMAP={("4x4x4",1),("6x5x4",1),("8x6x5",0),("12x8x6",0)}
+
 EXPECTED_MOMENTUM={
     ("4x4x4",1),("6x5x4",1),("8x6x5",0),("12x8x6",0)}
 EXPECTED_LIVE={"4x4x4","6x5x4","8x6x5"}
@@ -85,14 +105,23 @@ def parse(source:str,live:bool)->dict:
             steps=int(m.group(4))
             if key in rows or steps!=6:
                 raise ValueError("Missing live six-step 3D test")
-            feedback,cell_error,unclosed,loss,density=values
+            feedback,cell_error,unclosed,remap,wall,pressure_error,remap_energy,pressure_energy,loss,density=values
             if not(1e-6<feedback<2 and 0<=cell_error<1e-10 and
-                   1e-3<unclosed<1e3 and 0<=loss<1 and
-                   0<=density<1e-8):
+                   1e-3<unclosed<1e3 and 1e-3<remap<1e3 and
+                   1e-3<wall<1e3 and
+                   0<=pressure_error<1e-10 and
+                   1e-6<remap_energy<1 and
+                   0<=pressure_energy<1e-10 and
+                   0<=loss<1 and 0<=density<1e-8):
                 raise ValueError("Live momentum ledger passed despite missing closure/flux")
             rows[key]={"feedback_m_s":feedback,
                        "cell_flux_impulse_error":cell_error,
                        "unclosed_mac_impulse":unclosed,
+                       "remap_only_impulse":remap,
+                       "pressure_wall_impulse":wall,
+                       "pressure_impulse_error":pressure_error,
+                       "remap_energy_change":remap_energy,
+                       "pressure_energy_error":pressure_energy,
                        "donor_kinetic_loss":loss,
                        "density_error":density}
         else:
@@ -117,25 +146,60 @@ def parse(source:str,live:bool)->dict:
         raise ValueError("Missing true native assertion footer/phase guard")
     return {"native_assertions":int(matches[0]),"cases":rows}
 
+def parse_remap(source:str)->dict:
+    rows={}
+    for line in source.replace("\r\n","\n").splitlines():
+        if not line.startswith("MAC_REMAP "):
+            continue
+        m=REMAP_PATTERN.fullmatch(line)
+        if m is None:raise ValueError("Malformed native density-weighted 3D MAC remap evidence")
+        nx,ny,nz,uniform,faces=map(int,m.group(1,2,3,4,5))
+        error,impulse,loss,delta=map(float,m.group(6,7,8,9))
+        if not all(map(math.isfinite,(error,impulse,loss,delta))):
+            raise ValueError("Nonfinite 3D half-cell MAC remap metrics")
+        grid=f"{nx}x{ny}x{nz}"
+        key=(grid,uniform)
+        expected_faces=(nx-1)*ny*nz+nx*(ny-1)*nz+nx*ny*(nz-1)
+        if (key in rows or faces!=expected_faces or error<0 or error>1e-12 or
+            impulse<0 or impulse>1e-10 or
+            (abs(loss)>1e-10 if uniform else loss<=1e-6) or
+            (delta>1e-12 if uniform else delta<=1e-4)):
+            raise ValueError("Invalid native 3D half-cell momentum/energy partition")
+        rows[key]={"interior_faces":faces,"face_reference_error":error,
+                   "impulse_partition_residual":impulse,
+                   "interpolation_jensen_loss_j":loss,
+                   "density_weighting_difference_m_s":delta}
+    if set(rows)!=EXPECTED_REMAP:
+        raise ValueError("Incomplete independent 3D dual-face remap grid series")
+    hits=re.findall(
+        r"^PASS P2_TWO_PHASE_MAC_MOMENTUM_REMAP assertions=(\d+) "
+        r"phase_complete=false$",source,re.M)
+    if len(hits)!=1 or int(hits[0])<3500:
+        raise ValueError("No true native dual MAC momentum assertion evidence")
+    return {"native_assertions":int(hits[0]),"cases":rows}
+
 def main():
-    for path in (CONSERVATIVE,LIVE,BUILD,CTEST,CONSERVATIVE_LOG,LIVE_LOG):
+    for path in (CONSERVATIVE,LIVE,REMAP,BUILD,CTEST,CONSERVATIVE_LOG,LIVE_LOG,REMAP_LOG):
         if not path.is_file():
             raise RuntimeError(f"Missing native proof: {path}")
     native0=text(CONSERVATIVE_LOG)
     native1=text(LIVE_LOG)
+    native2=text(REMAP_LOG)
     conservative=parse(native0,False)
     live=parse(native1,True)
-    for binary,previous in ((CONSERVATIVE,native0),(LIVE,native1)):
+    remap=parse_remap(native2)
+    for binary,previous in ((CONSERVATIVE,native0),(LIVE,native1),(REMAP,native2)):
         actual=subprocess.run([str(binary)],cwd=CORE,capture_output=True,
                               text=True,timeout=90)
         if actual.returncode!=0 or actual.stderr.strip() or (
            actual.stdout.replace("\r\n","\n").strip()!=previous):
             raise RuntimeError("Native binary rerun disagrees with physical evidence log")
     ctest=text(CTEST)
-    if ("100% tests passed, 0 tests failed out of 140" not in ctest or
+    if ("100% tests passed, 0 tests failed out of 141" not in ctest or
         "physics_p2_two_phase_consistent_momentum_partial" not in ctest or
-        "physics_p2_two_phase_live_momentum_partial" not in ctest):
-        raise RuntimeError("Full 140/140 existing native CTest regression not recorded")
+        "physics_p2_two_phase_live_momentum_partial" not in ctest or
+        "physics_p2_two_phase_mac_remap_partial" not in ctest):
+        raise RuntimeError("Full 141/141 native CTest regression not recorded")
     falsifications={
         "missing_grid":"\n".join(
             line for line in native0.splitlines() if "grid=12x8x6" not in line),
@@ -158,6 +222,25 @@ def main():
             r"(LIVE_MOMENTUM grid=4x4x4 .*?)density_error_kg_m3=[-+0-9.eE]+",
             r"\g<1>density_error_kg_m3=nan",native1,count=1),
     }
+    remap_falsifications={
+        "missing_remap_grid":"\n".join(
+            line for line in native2.splitlines() if "grid=12x8x6" not in line),
+        "bad_remap_partition":re.sub(
+            r"(MAC_REMAP grid=8x6x5 .*?)max_impulse_residual=[-+0-9.eE]+",
+            r"\g<1>max_impulse_residual=0.001",native2,count=1),
+        "negative_interpolation_loss":re.sub(
+            r"(MAC_REMAP grid=12x8x6 .*?)kinetic_loss_j=[-+0-9.eE]+",
+            r"\g<1>kinetic_loss_j=-0.2",native2,count=1),
+        "false_full_phase":native2.replace("phase_complete=false","phase_complete=true"),
+        "missing_remap_assertions":re.sub(
+            r"assertions=\d+","assertions=1",native2,count=1),
+        "fake_no_density_effect":re.sub(
+            r"(MAC_REMAP grid=8x6x5 .*?)unweighted_difference_m_s=[-+0-9.eE]+",
+            r"\g<1>unweighted_difference_m_s=0",native2,count=1),
+        "missing_independent_faces":re.sub(
+            r"(MAC_REMAP grid=6x5x4 uniform=1 faces=)\d+",
+            r"\g<1>10",native2,count=1),
+    }
     rejected=[]
     for label,bad in falsifications.items():
         old=native1 if label in (
@@ -169,6 +252,11 @@ def main():
             "fake_full_live","fake_nan_density"))
         except (ValueError,TypeError):rejected.append(label)
         else:raise RuntimeError("Forged momentum acceptance passed: "+label)
+    for label,bad in remap_falsifications.items():
+        if bad==native2:raise RuntimeError("Remap falsification did not mutate: "+label)
+        try:parse_remap(bad)
+        except (ValueError,TypeError):rejected.append(label)
+        else:raise RuntimeError("Forged 3D MAC remap evidence accepted: "+label)
     gate=subprocess.run(["py","-3",str(CORE/"scripts"/"phase_gate.py")],
                         cwd=CORE,capture_output=True,text=True,timeout=240)
     GATE_LOG.write_text(gate.stdout+gate.stderr,encoding="utf-8")
@@ -184,12 +272,16 @@ def main():
         "measured_marin_6s_validated":False,
         "native_conservative_assertions":conservative["native_assertions"],
         "native_live_assertions":live["native_assertions"],
-        "full_native_ctest_suites":140,
+        "native_remap_assertions":remap["native_assertions"],
+        "full_native_ctest_suites":141,
         "independent_forged_evidence_rejections":rejected,
         "conservative_3d_cases":{
             f"{grid}_constant{constant}":data
             for (grid,constant),data in conservative["cases"].items()},
         "coupled_3d_live_cases":live["cases"],
+        "independent_half_cell_mac_remap_cases":{
+            f"{grid}_uniform{uniform}":value
+            for (grid,uniform),value in remap["cases"].items()},
         "known_unresolved_mac_feedback_impulse_kg_m_s":{
             grid:data["unclosed_mac_impulse"]
             for grid,data in live["cases"].items()},
@@ -197,14 +289,16 @@ def main():
         "artifact_sha256":{
             "conservative_binary":sha(CONSERVATIVE),
             "live_binary":sha(LIVE),
+            "remap_binary":sha(REMAP),
             "build":sha(BUILD),
             "ctest":sha(CTEST),
             "conservative_native":sha(CONSERVATIVE_LOG),
             "live_native":sha(LIVE_LOG),
+            "remap_native":sha(REMAP_LOG),
             "phase_gate":sha(GATE_LOG),
         },
         "unmet":[
-            "MAC dual-volume conservative momentum/kinetic flux; remap and second projection still produce physical impulse gap",
+            "Half-cell cell-to-MAC remap now partitions momentum exactly INCLUDING virtual boundary halves; missing actual moving wall reaction and globally conservative MAC/FSI impulse still open",
             "Moving two-phase stress, surface tension, and full 3D Navier-Stokes",
             "Dynamic two-way deformable/rigid-body FSI with physical wall impulse",
             "Independent MARIN/SPHERIC H1-H4 P1-P8 6s three-grid measured PASS",
@@ -216,8 +310,8 @@ def main():
                       encoding="utf-8")
     print(f"P2_3D_MOMENTUM_PARTIAL=True CONSERVATIVE_ASSERTS="
           f"{conservative['native_assertions']} LIVE_ASSERTS="
-          f"{live['native_assertions']} FORGERY_REJECTED="
-          f"{len(rejected)} CTEST=140 P2_FULL_PHASE=False")
+          f"{live['native_assertions']} REMAP_ASSERTS={remap['native_assertions']} FORGERY_REJECTED="
+          f"{len(rejected)} CTEST=141 P2_FULL_PHASE=False")
     print("REPORT="+str(REPORT))
 
 if __name__=="__main__":

@@ -795,3 +795,12 @@ add_executable(upc_p2_two_phase_live_momentum_tests
 target_link_libraries(upc_p2_two_phase_live_momentum_tests PRIVATE upc)
 add_test(NAME physics_p2_two_phase_live_momentum_partial
     COMMAND upc_p2_two_phase_live_momentum_tests)
+
+# P2 PARTIAL: density-weighted MAC dual half-cell reconstruction, with
+# independently audited boundary virtual-half-cell momentum and Jensen loss.
+# Pure remap geometry, not wall-impulse or full coupled CFD validation.
+add_executable(upc_p2_two_phase_mac_momentum_remap_tests
+    tests/p2_two_phase_mac_momentum_remap3d_tests.cpp)
+target_link_libraries(upc_p2_two_phase_mac_momentum_remap_tests PRIVATE upc)
+add_test(NAME physics_p2_two_phase_mac_remap_partial
+    COMMAND upc_p2_two_phase_mac_momentum_remap_tests)

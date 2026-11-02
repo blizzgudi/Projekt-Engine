@@ -1,0 +1,5 @@
+MAC_REMAP grid=4x4x4 uniform=1 faces=144 max_face_ref_error=1.3877787807814457e-17 max_impulse_residual=4.9960036108132044e-16 kinetic_loss_j=0 unweighted_difference_m_s=1.3877787807814457e-17 phase_complete=false
+MAC_REMAP grid=6x5x4 uniform=1 faces=286 max_face_ref_error=2.7755575615628914e-17 max_impulse_residual=8.8817841970012523e-16 kinetic_loss_j=-8.0491169285323849e-16 unweighted_difference_m_s=1.3877787807814457e-17 phase_complete=false
+MAC_REMAP grid=8x6x5 uniform=0 faces=602 max_face_ref_error=2.7755575615628914e-17 max_impulse_residual=5.7176485768195562e-15 kinetic_loss_j=0.0032868828178063553 unweighted_difference_m_s=0.0061331979001353412 phase_complete=false
+MAC_REMAP grid=12x8x6 uniform=0 faces=1512 max_face_ref_error=2.7755575615628914e-17 max_impulse_residual=7.9936057773011271e-15 kinetic_loss_j=0.0081550853991203404 unweighted_difference_m_s=0.0053271697918482915 phase_complete=false
+PASS P2_TWO_PHASE_MAC_MOMENTUM_REMAP assertions=3543 phase_complete=false
