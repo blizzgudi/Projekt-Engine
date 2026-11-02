@@ -1,0 +1,52 @@
+{
+  "phase": "P2",
+  "milestone": "fixed_3d_grid_two_phase_tangential_impulse_energy_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "native_reference": {
+    "planar_interfaces": 16,
+    "three_dimensional_interfaces": 54,
+    "axis_faces": [
+      18,
+      18,
+      18
+    ],
+    "water_mass_kg": 32.00000000000001,
+    "air_mass_kg": 0.0384,
+    "measured_slip_m_s": 0.5686713768740307,
+    "independent_slip_m_s": 0.5686713768740307,
+    "measured_face_impulse_n_s": 0.0005169739789763915,
+    "independent_face_impulse_n_s": 0.0005169739789763916,
+    "max_global_momentum_residual_n_s": 4.440892098500626e-16,
+    "global_energy_residual_j": -2.044144611608803e-17,
+    "native_assertions": 325
+  },
+  "ctest_passed": 133,
+  "forged_native_traces_rejected": 6,
+  "historical_marin_6s_height_validation": "FAIL",
+  "historical_marin_sha256": "192e198e4e72fbca285c8eeb7b513f74ecdb4432b7705d837f71b8b0f91f2f08",
+  "limitations": [
+    "Fixed sharp cell-centered 3D interface; not staggered MAC/VOF/PLIC advection",
+    "No coupled two-phase normal stress, pressure projection, capillary energy or normal flux constraint",
+    "No full >=6s MARIN H1-H4/P1-P8 three-grid measured validation",
+    "No moving solid FSI or global complete multiphysics energy/momentum acceptance",
+    "No UE5.8 Native E2E for this component"
+  ],
+  "source_sha256": {
+    "CMakeLists.txt": "226a8a5bfaeff760200c07f10fe58a44f6772136b8cecf9377efb9342c0ceacb",
+    "include/upc/p2_two_phase_grid_shear3d.hpp": "609228bc2ec3791e49fab67e678c4566c64bbdc3a99028c1474fe76e28765fac",
+    "include/upc/p2_two_phase_shear_exchange3d.hpp": "45cb4cca8af370aa4563b73bde1796da8240fe4fd7e54896eb3a293afa8e650c",
+    "tests/p2_two_phase_grid_shear3d_tests.cpp": "7559f529c88db3ca956b0fb3aa6cf5cca1e8d86572d1fc8bfafdcbe2604e8718",
+    "scripts/p2_two_phase_grid_shear_build.cmd": "5fd7faad5a2309c80d759760439be4fbeb5d5481a909016be5c265b00aabb87f",
+    "scripts/p2_two_phase_grid_shear_acceptance.py": "fadbd938eb612d2416b700b345dc5c658fbf2eb95a827f4f6d395707c79ef305",
+    "scripts/phase_gate.py": "01065438e2b72b3fe83e7e3ba3decbf54925c84c5f9424b15ad15a8197f59cd6",
+    "docs/P2_TWO_PHASE_GRID_SHEAR_PARTIAL.md": "5e414c8d56a8560a7f814edfd1ccb7a97d960e2ed677163313d6fdebe8e13e43",
+    "docs/PHASENPLAN.md": "2d4f439d69a6dbe4a3a0f3eba00ab38f011564fe60de5e2076980527e9983b1d"
+  },
+  "binary_sha256": "3c674f5462d4abab5d4816ae2ccbb62046e4c65046646fb22df99541c7bbe603",
+  "build_log_sha256": "c83bf04dfb4032a162dfca630e985ff9c305d48a5325a29f1c817a16fb20b1c0",
+  "native_log_sha256": "bb07139a19318fabf81e1e3eba75e3953d3befc45916300de9fe5542b8044653",
+  "ctest_log_sha256": "db2c75a3dd374705b53994fec71856029e9cfa613cc651ef31d7b6656722447a",
+  "phase_gate_log_sha256": "81c1aeb5f80e7e0c8ab439c351b9eab256694a788538ae1ad32d0f2082f8cccf",
+  "generated_utc": "2026-11-02T00:51:44.006126+00:00"
+}

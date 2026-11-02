@@ -741,3 +741,10 @@ add_test(NAME physics_p2_mac_two_phase_traction_partial COMMAND upc_p2_mac_two_p
 add_executable(upc_p2_two_phase_shear_exchange_tests tests/p2_two_phase_shear_exchange3d_tests.cpp)
 target_link_libraries(upc_p2_two_phase_shear_exchange_tests PRIVATE upc)
 add_test(NAME physics_p2_two_phase_shear_exchange_partial COMMAND upc_p2_two_phase_shear_exchange_tests)
+
+# P2 PARTIAL: conservative implicit tangential shear exchange across all
+# resolved sharp water/air voxel faces of a fixed 3D cell-centered grid.
+# NOT live MAC/VOF, moving-solid FSI or experimental CFD validation.
+add_executable(upc_p2_two_phase_grid_shear_tests tests/p2_two_phase_grid_shear3d_tests.cpp)
+target_link_libraries(upc_p2_two_phase_grid_shear_tests PRIVATE upc)
+add_test(NAME physics_p2_two_phase_grid_shear_partial COMMAND upc_p2_two_phase_grid_shear_tests)

@@ -1,0 +1,3 @@
+GRID_PLANAR faces=16 water_mass=32.00000000000001 air_mass=0.0384 slip=0.5686713768740307 impulse_y=0.0005169739789763915 energy_residual=0
+GRID_3D faces=54 axes=18,18,18 momentum_residual=4.440892098500626e-16 energy_residual=-2.044144611608803e-17
+PASS: TWO_PHASE_GRID_SHEAR assertions=325
