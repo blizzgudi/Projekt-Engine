@@ -115,7 +115,7 @@
     "scripts/p2_two_phase_full_tensor_acceptance.py": "7513a95664039909ad3286e3101bb4a818e46478ef6128eaa167e7a55ddc51f0",
     "scripts/phase_gate.py": "01065438e2b72b3fe83e7e3ba3decbf54925c84c5f9424b15ad15a8197f59cd6",
     "docs/P2_TWO_PHASE_FULL_TENSOR_MAC_VOF_PARTIAL.md": "a7a919306795a98db862d5aab6971850be1ba13802f8bfa1f39b376f079a5949",
-    "docs/PHASENPLAN.md": "08706b2c3df16141ca7d132b3057907495b97d151c2d0877723c34fca5db1337"
+    "docs/PHASENPLAN.md": "087479f14572a53a4ff69419bb2cc97cbb7572ff5baeb6f1ebd4ec87ebe3e212"
   },
   "artifact_sha256": {
     "tensor_native_binary": "a6fd8fb9410206911387922ff4975ce3052d34a0e84a940ea110960c405e77b1",
@@ -133,5 +133,5 @@
     "full >=6-second SPHERIC/MARIN H1-H4 P1-P8 experimental 3-grid PASS",
     "repeatable UE5.8 native-E2E for the coupled full 3D path"
   ],
-  "generated_utc": "2026-11-02T09:28:21.285417+00:00"
+  "generated_utc": "2026-11-02T09:31:47.159466+00:00"
 }
