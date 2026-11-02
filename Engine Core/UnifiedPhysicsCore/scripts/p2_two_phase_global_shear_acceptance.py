@@ -33,6 +33,7 @@ SOURCES=[
 ]
 P=re.compile(r"GLOBAL_PLANAR faces=(\d+) slip=([0-9.eE+-]+) water_y=([0-9.eE+-]+) air_y=([0-9.eE+-]+) energy_residual=([0-9.eE+-]+)")
 G=re.compile(r"GLOBAL_3D faces=(\d+) axes=(\d+),(\d+),(\d+) v0=([0-9.eE+,-]+) v13=([0-9.eE+,-]+) v26=([0-9.eE+,-]+) momentum_residual=([0-9.eE+-]+) energy_residual=([0-9.eE+-]+) pcg_max=([0-9.eE+-]+)")
+H=re.compile(r"HETEROGENEOUS_3D faces=(\d+) dense_max_error=([0-9.eE+-]+) v0=([0-9.eE+,-]+) v13=([0-9.eE+,-]+) v26=([0-9.eE+,-]+) energy_residual=([0-9.eE+-]+)")
 PASS=re.compile(r"PASS: GLOBAL_TWO_PHASE_SHEAR assertions=(\d+)")
 
 def sha(path:Path)->str:
@@ -107,14 +108,70 @@ def dense_checkerboard()->list[list[float]]:
             result[i][k]=x[i]
     return result
 
+
+def dense_heterogeneous()->list[list[float]]:
+    """Independent 27-cell variable-mass/resistance FV reference."""
+    n=27
+    dx=.08
+    dt=.03
+    area=dx**2
+    vol=dx**3
+    phase=[]
+    density=[]
+    viscosity=[]
+    vel=[]
+    for z in range(3):
+        for y in range(3):
+            for x in range(3):
+                wet=(x+y+z)%2==0
+                phase.append(wet)
+                density.append((850+10*x+5*y+2*z) if wet
+                               else (1+.1*x+.02*y+.01*z))
+                viscosity.append((.5+.1*x+.05*y+.02*z) if wet
+                                 else (.06+.01*x+.005*y+.002*z))
+                vel.append((.1*x+.03*y,-.2*y+.04*z,.12*z+.02*x))
+    result=[[0.0]*3 for _ in range(n)]
+    for k in range(3):
+        a=[[0.0]*n for _ in range(n)]
+        rhs=[0.0]*n
+        for i in range(n):
+            a[i][i]=density[i]*vol
+            rhs[i]=density[i]*vol*vel[i][k]
+        for z in range(3):
+            for y in range(3):
+                for x in range(3):
+                    i=(z*3+y)*3+x
+                    for axis in range(3):
+                        if axis==k:
+                            continue
+                        xx=x+(axis==0)
+                        yy=y+(axis==1)
+                        zz=z+(axis==2)
+                        if xx>=3 or yy>=3 or zz>=3:
+                            continue
+                        j=(zz*3+yy)*3+xx
+                        if phase[i]==phase[j]:
+                            continue
+                        resistance=.5*dx/viscosity[i]+.5*dx/viscosity[j]
+                        b=dt*area/resistance
+                        a[i][i]+=b
+                        a[j][j]+=b
+                        a[i][j]-=b
+                        a[j][i]-=b
+        sol=solve_dense(a,rhs)
+        for i in range(n):
+            result[i][k]=sol[i]
+    return result
+
 def parse(native:str)->dict:
     lines=native.strip().splitlines()
-    if len(lines)!=3:
-        raise ValueError("Expected exactly two references and native PASS")
+    if len(lines)!=4:
+        raise ValueError("Expected planar, 3D, heterogeneous and native PASS")
     p=P.fullmatch(lines[0])
     g=G.fullmatch(lines[1])
-    end=PASS.fullmatch(lines[2])
-    if not p or not g or not end or int(end[1])<268:
+    h=H.fullmatch(lines[2])
+    end=PASS.fullmatch(lines[3])
+    if not p or not g or not h or not end or int(end[1])<450:
         raise ValueError("Missing native references or negative assertions")
     if int(p[1])!=16 or (int(g[1]),int(g[2]),int(g[3]),int(g[4]))!=(54,18,18,18):
         raise ValueError("Wrong planar or three-axis interface count")
@@ -139,7 +196,26 @@ def parse(native:str)->dict:
     close(float(g[9]),0,1e-12,"Global energy")
     if not 0<=float(g[10])<1e-12:
         raise ValueError("Global PCG residual too high")
+    if int(h[1])!=54:
+        raise ValueError("Heterogeneous interface topology changed")
+    if not 0<=float(h[2])<2e-12:
+        raise ValueError("Heterogeneous C++ dense error too high")
+    close(float(h[6]),0,2e-12,"Heterogeneous energy")
+    href=dense_heterogeneous()
+    heterogeneous_samples={}
+    for idx,group in ((0,h[3]),(13,h[4]),(26,h[5])):
+        measured=[float(v) for v in group.split(",")]
+        if len(measured)!=3:
+            raise ValueError("Heterogeneous 3D velocity sample incomplete")
+        for k in range(3):
+            close(measured[k],href[idx][k],2e-12,
+                  f"Independent heterogeneous 3D cell {idx} axis {k}")
+        heterogeneous_samples[str(idx)]={
+            "native":measured,"independent_dense":href[idx]}
     return {
+        "heterogeneous_3d_dense_samples":heterogeneous_samples,
+        "heterogeneous_dense_max_error":float(h[2]),
+        "heterogeneous_energy_residual_j":float(h[6]),
         "native_assertions":int(end[1]),
         "planar_interfaces":int(p[1]),
         "three_dimensional_interfaces":int(g[1]),
@@ -171,7 +247,9 @@ def main()->None:
         ("axes=18,18,18","axes=18,18,17"),
         ("v0=","v0=9"),
         ("pcg_max=5.5943312324395099e-17","pcg_max=9"),
-        ("assertions=268","assertions=1"),
+        ("dense_max_error=6.1388394367867249e-14","dense_max_error=9"),
+        ("v13=","v13=9"),
+        (f"assertions={measured['native_assertions']}","assertions=1"),
     ]
     rejected=0
     for old,new in mutations:
@@ -222,7 +300,7 @@ def main()->None:
     }
     REPORT.write_text(json.dumps(report,indent=2,ensure_ascii=False),encoding="utf-8")
     print(f"P2 GLOBAL SHEAR PARTIAL PASS: {measured['native_assertions']} assertions, "
-          f"134/134 CTest, dense 27-cell reference, {rejected} forgeries rejected; "
+          f"134/134 CTest, constant and heterogeneous dense 27-cell references, {rejected} forgeries rejected; "
           "P2_FULL=false")
 
 if __name__=="__main__":

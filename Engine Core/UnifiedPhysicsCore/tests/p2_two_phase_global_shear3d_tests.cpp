@@ -123,6 +123,129 @@ void surface_source() {
     near(l.energy_residual_j,0,1e-12,"Source energy");
     check(l.surface_work_j>0,"Surface source work");
 }
+
+using upc::P2GlobalShearCellProperties3D;
+// Independent dense Gaussian elimination: no PCG or solver matrix routines.
+std::vector<double> dense_solve(std::vector<std::vector<double>> a,
+                                std::vector<double> rhs) {
+    const int n=static_cast<int>(rhs.size());
+    for(int k=0;k<n;++k) {
+        int pivot=k;
+        for(int i=k+1;i<n;++i)
+            if(std::abs(a[i][k])>std::abs(a[pivot][k]))pivot=i;
+        check(std::abs(a[pivot][k])>1e-16,"Dense reference singular");
+        std::swap(a[k],a[pivot]);std::swap(rhs[k],rhs[pivot]);
+        for(int i=k+1;i<n;++i) {
+            const double f=a[i][k]/a[k][k];
+            for(int j=k+1;j<n;++j)a[i][j]-=f*a[k][j];
+            rhs[i]-=f*rhs[k];
+        }
+    }
+    std::vector<double> x(n);
+    for(int i=n-1;i>=0;--i) {
+        double r=rhs[i];
+        for(int j=i+1;j<n;++j)r-=a[i][j]*x[j];
+        x[i]=r/a[i][i];
+    }
+    return x;
+}
+void heterogeneous_dense_reference() {
+    auto g=checkerboard();
+    const auto original=g;
+    P2GlobalShearCellProperties3D prop;
+    for(int z=0;z<3;++z)for(int y=0;y<3;++y)for(int x=0;x<3;++x) {
+        const bool wet=(x+y+z)%2==0;
+        prop.density_kg_m3.push_back(wet?850+10*x+5*y+2*z:
+                                             1+.1*x+.02*y+.01*z);
+        prop.dynamic_viscosity_pa_s.push_back(wet?.5+.1*x+.05*y+.02*z:
+                                                       .06+.01*x+.005*y+.002*z);
+    }
+    const auto l=p2_two_phase_global_shear_step3d(g,prop);
+    check(l.interface_faces==54,"Heterogeneous interface count");
+    const int n=27;
+    const double volume=std::pow(original.dx_m,3);
+    const double area=std::pow(original.dx_m,2);
+    double water_mass=0,air_mass=0;
+    for(int i=0;i<n;++i) {
+        if(original.phase[i])water_mass+=volume*prop.density_kg_m3[i];
+        else air_mass+=volume*prop.density_kg_m3[i];
+    }
+    near(l.water_mass_kg,water_mass,1e-12,"Heterogeneous water mass");
+    near(l.air_mass_kg,air_mass,1e-12,"Heterogeneous air mass");
+    double max_difference=0;
+    for(int k=0;k<3;++k) {
+        std::vector<std::vector<double>> a(n,std::vector<double>(n,0));
+        std::vector<double> rhs(n);
+        for(int i=0;i<n;++i) {
+            const double m=volume*prop.density_kg_m3[i];
+            a[i][i]=m;
+            rhs[i]=m*original.velocity_m_s[i][k];
+        }
+        for(int z=0;z<3;++z)for(int y=0;y<3;++y)for(int x=0;x<3;++x) {
+            const int i=(z*3+y)*3+x;
+            for(int axis=0;axis<3;++axis) {
+                if(axis==k)continue;
+                const int xx=x+(axis==0),yy=y+(axis==1),zz=z+(axis==2);
+                if(xx>=3||yy>=3||zz>=3)continue;
+                const int j=(zz*3+yy)*3+xx;
+                if(original.phase[i]==original.phase[j])continue;
+                const double resistance=.5*original.dx_m/
+                     prop.dynamic_viscosity_pa_s[i]+.5*original.dx_m/
+                     prop.dynamic_viscosity_pa_s[j];
+                const double b=original.dt_s*area/resistance;
+                a[i][i]+=b;a[j][j]+=b;
+                a[i][j]-=b;a[j][i]-=b;
+            }
+        }
+        const auto expected=dense_solve(a,rhs);
+        for(int i=0;i<n;++i) {
+            const double error=std::abs(g.velocity_m_s[i][k]-expected[i]);
+            max_difference=std::max(max_difference,error);
+            near(g.velocity_m_s[i][k],expected[i],2e-12,
+                 "Heterogeneous 27-cell dense Gaussian reference");
+        }
+        near(l.momentum_residual_n_s[k],0,2e-12,
+             "Heterogeneous global momentum");
+        check(l.pcg_residual_kg_m_s[k]<1e-11,
+              "Heterogeneous independent PCG residual");
+    }
+    near(l.energy_residual_j,0,2e-12,"Heterogeneous global energy");
+    check(l.viscous_dissipation_j>0&&l.implicit_dissipation_j>0,
+          "Heterogeneous dissipation not positive");
+    // Zero-gradient fixed-property overload must preserve legacy behavior.
+    auto legacy=original,empty=original;
+    const auto ll=p2_two_phase_global_shear_step3d(legacy);
+    const auto le=p2_two_phase_global_shear_step3d(empty,{});
+    check(legacy.velocity_m_s==empty.velocity_m_s,
+          "Default property path changed");
+    near(ll.energy_residual_j,le.energy_residual_j,0,
+         "Default energy changed");
+    // Rejection must not partially modify any cell velocity.
+    auto bad=original;
+    auto p=prop;
+    p.density_kg_m3.pop_back();
+    rejects([&]{p2_two_phase_global_shear_step3d(bad,p);});
+    check(bad.velocity_m_s==original.velocity_m_s,
+          "Size failure changed state");
+    p=prop;p.dynamic_viscosity_pa_s[10]=
+        std::numeric_limits<double>::quiet_NaN();
+    rejects([&]{p2_two_phase_global_shear_step3d(bad,p);});
+    check(bad.velocity_m_s==original.velocity_m_s,
+          "NaN failure changed state");
+    p=prop;p.density_kg_m3[8]=-1;
+    rejects([&]{p2_two_phase_global_shear_step3d(bad,p);});
+    p=prop;p.dynamic_viscosity_pa_s[0]=1e-320;
+    rejects([&]{p2_two_phase_global_shear_step3d(bad,p);});
+    check(bad.velocity_m_s==original.velocity_m_s,
+          "Bad viscosity failure changed state");
+    std::cout<<std::setprecision(17)<<"HETEROGENEOUS_3D faces="<<l.interface_faces
+             <<" dense_max_error="<<max_difference
+             <<" v0="<<g.velocity_m_s[0][0]<<","<<g.velocity_m_s[0][1]<<","<<g.velocity_m_s[0][2]
+             <<" v13="<<g.velocity_m_s[13][0]<<","<<g.velocity_m_s[13][1]<<","<<g.velocity_m_s[13][2]
+             <<" v26="<<g.velocity_m_s[26][0]<<","<<g.velocity_m_s[26][1]<<","<<g.velocity_m_s[26][2]
+             <<" energy_residual="<<l.energy_residual_j<<"\n";
+}
+
 void no_interface_and_invalid() {
     auto g=planar();
     std::fill(g.phase.begin(),g.phase.end(),1);
@@ -150,6 +273,7 @@ void no_interface_and_invalid() {
 int main() {
     try {
         planar_reference();three_dimensional_reference();surface_source();
+        heterogeneous_dense_reference();
         no_interface_and_invalid();
         std::cout<<"PASS: GLOBAL_TWO_PHASE_SHEAR assertions="<<assertions<<"\n";
         return 0;

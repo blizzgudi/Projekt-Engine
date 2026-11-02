@@ -4,7 +4,47 @@
   "partial_accepted": true,
   "phase_complete": false,
   "independent_qa": {
-    "native_assertions": 268,
+    "heterogeneous_3d_dense_samples": {
+      "0": {
+        "native": [
+          2.2805363902843222e-05,
+          2.9928291250970775e-05,
+          1.6267141460174753e-05
+        ],
+        "independent_dense": [
+          2.2805363903054045e-05,
+          2.9928291251516108e-05,
+          1.6267141460444455e-05
+        ]
+      },
+      "13": {
+        "native": [
+          0.13008092347998507,
+          -0.1599569705780886,
+          0.14010958354128653
+        ],
+        "independent_dense": [
+          0.13008092347998254,
+          -0.15995697057809674,
+          0.14010958354126637
+        ]
+      },
+      "26": {
+        "native": [
+          0.25996881936338706,
+          -0.3200420499026087,
+          0.27998030077373937
+        ],
+        "independent_dense": [
+          0.25996881936338706,
+          -0.3200420499026082,
+          0.27998030077373953
+        ]
+      }
+    },
+    "heterogeneous_dense_max_error": 6.138839436786725e-14,
+    "heterogeneous_energy_residual_j": -5.673320801590897e-18,
+    "native_assertions": 450,
     "planar_interfaces": 16,
     "three_dimensional_interfaces": 54,
     "axis_faces": [
@@ -57,7 +97,7 @@
     "pcg_max_residual_kg_m_s": 5.59433123243951e-17
   },
   "ctest_passed": 134,
-  "forged_native_traces_rejected": 7,
+  "forged_native_traces_rejected": 9,
   "historical_marin_6s_height_validation": "FAIL",
   "historical_marin_sha256": "192e198e4e72fbca285c8eeb7b513f74ecdb4432b7705d837f71b8b0f91f2f08",
   "limitations": [
@@ -69,20 +109,20 @@
   ],
   "source_sha256": {
     "CMakeLists.txt": "5c215141089889d16f099ace42b03531f3f2240bae3ff6f8b3df47a34c64a4c8",
-    "include/upc/p2_two_phase_global_shear3d.hpp": "8db7912d3d355ddd287f322d16acab68174f52c998c087a74d8a228265bc182c",
+    "include/upc/p2_two_phase_global_shear3d.hpp": "75528110fa17363692191ca8c36928dcd319cb7b9f03515e338051d2b9bef6d8",
     "include/upc/p2_two_phase_grid_shear3d.hpp": "609228bc2ec3791e49fab67e678c4566c64bbdc3a99028c1474fe76e28765fac",
     "include/upc/p2_two_phase_shear_exchange3d.hpp": "45cb4cca8af370aa4563b73bde1796da8240fe4fd7e54896eb3a293afa8e650c",
-    "tests/p2_two_phase_global_shear3d_tests.cpp": "d721256dea4573a9f3a9d025fe4b85f4400f690602f6f299488c39484620a916",
+    "tests/p2_two_phase_global_shear3d_tests.cpp": "8b222dc70300f07958c935695b99e539dc54a890fa924a56995bf23a686457c1",
     "scripts/p2_two_phase_global_shear_build.cmd": "723deac9ce006ab93e64195c4e4aeeee0e8c046c94706ae14fd54517b3c2b46f",
-    "scripts/p2_two_phase_global_shear_acceptance.py": "eb86cc6c65dcff2a87710b06cfd8561a0cdd87114ea544627618d89c7e19a814",
+    "scripts/p2_two_phase_global_shear_acceptance.py": "06af2d29eb4e0a505c5d66cb5ab424a90b2844e9159534aa91335187abadd604",
     "scripts/phase_gate.py": "01065438e2b72b3fe83e7e3ba3decbf54925c84c5f9424b15ad15a8197f59cd6",
-    "docs/P2_TWO_PHASE_GLOBAL_SHEAR_PARTIAL.md": "f2b593785730ffb0b21efa37c0d9acb2f7d470767bc42a375b8cd72b1179e5bf",
-    "docs/PHASENPLAN.md": "3f6a6f6c77dcd2ef3450ad2634d6a1c6897e2f9a30659e6a654d7c908e0869ca"
+    "docs/P2_TWO_PHASE_GLOBAL_SHEAR_PARTIAL.md": "db638ebb13f40549316963b624e63dde1b646c260dd67034589532c2b2f197d3",
+    "docs/PHASENPLAN.md": "997263b27a686ff304cf2282a8189fd46dceb88b199be43a622df8e27a5420a9"
   },
-  "binary_sha256": "1eac287aa04cf62268acfff7957a5fff7e00fd44491e428e4e89f713ff934292",
-  "build_log_sha256": "16dc318e07ad3fe2e549fc61daf86167aabbfacdce7ae5d8b7b31adb1b13f8cf",
-  "native_log_sha256": "938f9c56beeb48fcb52b544bb904ce34031652efb75059ac346531bc31643ba5",
-  "ctest_log_sha256": "c2683dc789891f51f05643fee78a40243dc7cd88cf9096d0a4504eaf067a4e52",
+  "binary_sha256": "5903c5f1b43de035bd1c283b540f4cd7917e7b49bc20e682b50f13fb93dcd835",
+  "build_log_sha256": "f038683911dda41d3aaf49bbb7f7e471624716a7536bba620e103b4d95221301",
+  "native_log_sha256": "92a40a9bc2baf633146648a3a190f47cb27bc1efd8ce0f837d5943b9e7717eb5",
+  "ctest_log_sha256": "78532532b37674fc3e40612d45a851c3a741ce05d1988b808a9d199d762174d6",
   "phase_gate_log_sha256": "81c1aeb5f80e7e0c8ab439c351b9eab256694a788538ae1ad32d0f2082f8cccf",
-  "generated_utc": "2026-11-02T02:37:57.615764+00:00"
+  "generated_utc": "2026-11-02T03:20:02.991640+00:00"
 }

@@ -81,3 +81,36 @@ A second QA attempt correctly caught a weak negative fixture: prepending
 The forged fixture was corrected to set the residual to 9; seven altered
 traces are now rejected by the independent parser. Neither failed QA
 attempt was counted as an acceptance.
+
+## Erweiterung: ortsabhaengige Dichte und Viskositaet (02.11.2026)
+
+Die optionale `P2GlobalShearCellProperties3D`-Eingabe liefert pro 3D-Zelle
+separate Dichte (kg/m3) und dynamische Viskositaet (Pa s). Leere Arrays
+erhalten den urspruenglichen konstanten Materialpfad. Jede Zellmasse wird
+mit der lokalen Dichte berechnet; jeder Wasser/Luft-Grenzflaechenwiderstand
+verwendet die beiden lokalen Halbzell-Widerstaende
+`dx/(2*mu_water)+dx/(2*mu_air)`. Der globale SPD/PCG-Operator, die
+Marangoni-Aufteilung und die Impuls-/Energiebilanz benutzen denselben
+lokalen Widerstand. Ungueltige Groessen, NaN, negative Dichte und
+nicht aufloesbare Viskositaet werden ohne Zustandsaenderung abgelehnt.
+
+Echte MSVC-Release-Pruefung: 3x3x3 heterogenes 3D-Schachbrett,
+54 Grenzflaechen, alle 27 Zellen mit unterschiedlichen Dichten und
+Viskositaeten, unabhaengiger dichter 27x27-Gauss-Vergleich in C++ und
+zusaetzliche Python-Referenz fuer ausgewaehlte Zellen. Maximaler
+C++-Dense/PCG-Geschwindigkeitsfehler: 6.1388394367867249e-14 m/s;
+Energierest -5.6733208015908969e-18 J. Native 450 Assertions PASS;
+134/134 CTest PASS. Build-/CTest-/Native-/Gate-Logs und SHA256 im
+aktualisierten Teilreport. Keine neuen MARIN-6s-Simulationen.
+
+**Negativ:** Es gibt weiterhin nur eine Phase je scharfer Zellmaske,
+keine gemischten VOF-Zellen, keine gekoppelte bewegte Luft-/MAC-Strömung,
+keine dynamische FSI und keinen nachgewiesenen H1-H4/P1-P8-Mess-PASS.
+Die historischen MARIN-Fehler bleiben unveraendert; P2 bleibt PARTIAL.
+
+QA-Negativbefund: Die erste neue Falschdatenprobe ersetzte nur den
+Praefix `dense_max_error=` durch `dense_max_error=9`; dadurch entstand
+`9e-14`, das weiterhin innerhalb der erlaubten Toleranz lag. Der
+unabhaengige Parser wies diesen zu schwachen Negativtest zu Recht als
+QA-Fehler aus. Die Probe ersetzt jetzt den ganzen Messwert durch `9`.
+Der urspruengliche QA-Fehllauf bleibt dokumentiert und ist kein PASS.

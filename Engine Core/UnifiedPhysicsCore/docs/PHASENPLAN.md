@@ -2300,3 +2300,22 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
 - Echte MSVC-Release-Abnahme: 4x4x4-Couette mit 16 Grenzflaechen und analytischem Zweimassen-Slip 0.56867137687403069 m/s; 3x3x3-Schachbrett mit 54 Grenzflaechen in x/y/z, 268 neue Native-Assertions, 134/134 CTest PASS. Maximaler globaler Impulsrest 3.33e-16 N s, Energierest -2.25e-17 J. Unabhaengige 27x27-Gauss-Referenz und gefaelschte Protokolle werden separat geprueft.
 - Reproduktion: scripts/p2_two_phase_global_shear_build.cmd und scripts/p2_two_phase_global_shear_acceptance.py; Report ENGINE TEST STUBE/runs/p2_two_phase_global_shear_partial.json, Details docs/P2_TWO_PHASE_GLOBAL_SHEAR_PARTIAL.md.
 - **P2 bleibt PARTIAL / ALL_COMPLETE=False.** Historischer >=6s-MARIN-H1-H4-Messvergleich weiterhin FAIL; keine neue P1-P8-Dreigitter-Messkonvergenz, keine dynamische MAC/VOF-Luftstroemung, spannungskonsistente Gesamtgrenze, Zweiwege-FSI oder globale gekoppelte Energieabnahme. Kein neuer UE5.8-Native-E2E-Nachweis.
+
+## P2 Teilfortschritt: heterogene Wasser/Luft-Scherung (02.11.2026)
+
+- Der globale implizite 3D-Scheroperator unterstuetzt jetzt optional
+  zellweise Dichten und Viskositaeten. Der alte Konstantparameter-Pfad
+  bleibt unveraendert; lokale Masse, Halbzellwiderstand und PCG-Kopplung
+  verwenden konsistent die neuen Werte.
+- Native MSVC Release: 450 Assertions, 134/134 CTest PASS. Unabhaengige
+  27x27-Gauss-Referenzen fuer ein 3x3x3 heterogenes Schachbrett;
+  max. Abweichung 6.14e-14 m/s, Energie-Rest -5.67e-18 J.
+  Ungueltige Felder werden transaktional abgewiesen.
+- Reproduktion/Hashes: scripts/p2_two_phase_global_shear_build.cmd,
+  scripts/p2_two_phase_global_shear_acceptance.py,
+  ENGINE TEST STUBE/runs/p2_two_phase_global_shear_partial.json,
+  docs/P2_TWO_PHASE_GLOBAL_SHEAR_PARTIAL.md.
+- **P2 bleibt PARTIAL**: weiterhin feste scharfe Phasenmaske statt
+  dynamischem MAC/VOF, keine volle stresskonsistente Zweiphasen-Physik,
+  keine neue >=6s-MARIN-Dreigitter-Messabnahme, keine globale
+  bidirektionale FSI-/Energiebilanz oder UE5.8-Native-E2E.

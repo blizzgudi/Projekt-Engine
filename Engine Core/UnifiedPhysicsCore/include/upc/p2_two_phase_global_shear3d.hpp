@@ -12,6 +12,12 @@
 #include <vector>
 
 namespace upc {
+// Optional cell-resolved properties, useful for nonuniform water/air material fields.
+// Empty arrays preserve the original constant-property operator exactly.
+struct P2GlobalShearCellProperties3D {
+    std::vector<double> density_kg_m3;
+    std::vector<double> dynamic_viscosity_pa_s;
+};
 struct P2GlobalShearLedger3D {
     std::size_t interface_faces=0;
     std::array<std::size_t,3> axis_faces{};
@@ -24,7 +30,8 @@ struct P2GlobalShearLedger3D {
     double viscous_dissipation_j=0,implicit_dissipation_j=0,energy_residual_j=0;
 };
 inline P2GlobalShearLedger3D p2_two_phase_global_shear_step3d(
-    P2TwoPhaseGridShear3D& grid) {
+    P2TwoPhaseGridShear3D& grid,
+    const P2GlobalShearCellProperties3D& properties={}) {
     if(grid.nx<2||grid.ny<2||grid.nz<2||
        grid.nx>128||grid.ny>128||grid.nz>128)
         throw std::invalid_argument("Invalid global shear grid dimensions");
@@ -39,23 +46,29 @@ inline P2GlobalShearLedger3D p2_two_phase_global_shear_step3d(
         throw std::invalid_argument("Nonfinite Marangoni gradient");
     const double vol=grid.dx_m*grid.dx_m*grid.dx_m;
     const double area=grid.dx_m*grid.dx_m;
-    const double mw=grid.water_density_kg_m3*vol;
-    const double ma=grid.air_density_kg_m3*vol;
-    const double rw=(grid.dx_m/2)/grid.water_viscosity_pa_s;
-    const double ra=(grid.dx_m/2)/grid.air_viscosity_pa_s;
-    const double resistance=rw+ra;
-    const double b=grid.dt_s*area/resistance;
-    if(!(std::isfinite(mw)&&mw>0&&std::isfinite(ma)&&ma>0&&
-         std::isfinite(area)&&area>0&&std::isfinite(b)&&b>0))
-        throw std::invalid_argument("Unresolved global shear mass/resistance");
-    struct Edge {std::size_t water,air;int axis;};
+    if((!properties.density_kg_m3.empty()&&properties.density_kg_m3.size()!=n)||
+       (!properties.dynamic_viscosity_pa_s.empty()&&
+        properties.dynamic_viscosity_pa_s.size()!=n))
+        throw std::invalid_argument("Nonuniform global shear property size mismatch");
+    if(!(std::isfinite(vol)&&vol>0&&std::isfinite(area)&&area>0))
+        throw std::invalid_argument("Unresolved global shear cell volume/area");
+    struct Edge {std::size_t water,air;int axis;double b,water_source,air_source;};
     std::vector<Edge> edges;
-    std::vector<double> mass(n);
+    std::vector<double> mass(n),viscosity(n);
     P2GlobalShearLedger3D out;
     for(std::size_t i=0;i<n;++i) {
         if(grid.phase[i]>1)throw std::invalid_argument("Partial/solid phase unsupported");
-        mass[i]=grid.phase[i]?mw:ma;
-        if(grid.phase[i])out.water_mass_kg+=mw;else out.air_mass_kg+=ma;
+        const double density=properties.density_kg_m3.empty()?
+            (grid.phase[i]?grid.water_density_kg_m3:grid.air_density_kg_m3):
+            properties.density_kg_m3[i];
+        viscosity[i]=properties.dynamic_viscosity_pa_s.empty()?
+            (grid.phase[i]?grid.water_viscosity_pa_s:grid.air_viscosity_pa_s):
+            properties.dynamic_viscosity_pa_s[i];
+        mass[i]=density*vol;
+        if(!(std::isfinite(mass[i])&&mass[i]>0&&
+             std::isfinite(viscosity[i])&&viscosity[i]>0))
+            throw std::invalid_argument("Invalid local shear density/viscosity");
+        if(grid.phase[i])out.water_mass_kg+=mass[i];else out.air_mass_kg+=mass[i];
         for(double v:grid.velocity_m_s[i])if(!std::isfinite(v))
             throw std::invalid_argument("Nonfinite global shear velocity");
         for(int k=0;k<3;++k)
@@ -78,7 +91,15 @@ inline P2GlobalShearLedger3D p2_two_phase_global_shear_step3d(
                1e-10*std::max(1.0,std::sqrt(p2_shear_dot(
                    grid.marangoni_gradient_pa,grid.marangoni_gradient_pa))))
                 throw std::invalid_argument("Marangoni source normal to an interface");
-            edges.push_back({grid.phase[i]?i:j,grid.phase[i]?j:i,axis});
+            const auto wi=grid.phase[i]?i:j,ai=grid.phase[i]?j:i;
+            const double rw=(grid.dx_m/2)/viscosity[wi];
+            const double ra=(grid.dx_m/2)/viscosity[ai];
+            const double resistance=rw+ra;
+            const double b=grid.dt_s*area/resistance;
+            if(!(std::isfinite(rw)&&std::isfinite(ra)&&
+                 std::isfinite(b)&&b>0&&std::isfinite(resistance)&&resistance>0))
+                throw std::invalid_argument("Unresolved local interface resistance");
+            edges.push_back({wi,ai,axis,b,ra/resistance,rw/resistance});
             ++out.axis_faces[axis];
         }
     }
@@ -92,16 +113,16 @@ inline P2GlobalShearLedger3D p2_two_phase_global_shear_step3d(
         }
         for(const auto& e:edges) {
             if(e.axis==k)continue; // only tangential traction
-            diag[e.water]+=b;diag[e.air]+=b;
+            diag[e.water]+=e.b;diag[e.air]+=e.b;
             const double source=grid.dt_s*area*grid.marangoni_gradient_pa[k];
-            rhs[e.water]+=source*(ra/resistance);
-            rhs[e.air]+=source*(rw/resistance);
+            rhs[e.water]+=source*e.water_source;
+            rhs[e.air]+=source*e.air_source;
         }
         auto apply=[&](const std::vector<double>& v,std::vector<double>& av){
             for(std::size_t i=0;i<n;++i)av[i]=mass[i]*v[i];
             for(const auto& e:edges) {
                 if(e.axis==k)continue;
-                const double flux=b*(v[e.water]-v[e.air]);
+                const double flux=e.b*(v[e.water]-v[e.air]);
                 av[e.water]+=flux;av[e.air]-=flux;
             }
         };
@@ -157,10 +178,10 @@ inline P2GlobalShearLedger3D p2_two_phase_global_shear_step3d(
     for(const auto& e:edges)for(int k=0;k<3;++k) {
         if(e.axis==k)continue;
         const double d=next[e.air][k]-next[e.water][k];
-        out.viscous_dissipation_j+=b*d*d;
+        out.viscous_dissipation_j+=e.b*d*d;
         out.surface_impulse_n_s[k]+=grid.dt_s*area*grid.marangoni_gradient_pa[k];
         out.surface_work_j+=grid.dt_s*area*grid.marangoni_gradient_pa[k]*
-            (ra*next[e.water][k]+rw*next[e.air][k])/resistance;
+            (e.water_source*next[e.water][k]+e.air_source*next[e.air][k]);
     }
     for(int k=0;k<3;++k)
         out.momentum_residual_n_s[k]=out.momentum_after_kg_m_s[k]-
