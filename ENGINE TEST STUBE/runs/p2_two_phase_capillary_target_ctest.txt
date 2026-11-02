@@ -1,0 +1,7 @@
+Test project D:/Projekt Engine/Engine Core/UnifiedPhysicsCore/build
+    Start 145: physics_p2_two_phase_capillary_mac_vof_partial
+1/1 Test #145: physics_p2_two_phase_capillary_mac_vof_partial ...   Passed    0.01 sec
+
+100% tests passed, 0 tests failed out of 1
+
+Total Test time (real) =   0.03 sec

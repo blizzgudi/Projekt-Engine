@@ -1,0 +1,5 @@
+CAPILLARY_PLANAR grid=7x7x7 curvature=0 velocity=0 phase_complete=false
+CAPILLARY_SPHERE grid=8x8x8 curvature=5.4665518473051442 analytic=6.4516129032258069 active_faces=408 source_velocity=1.9005321980016828e-06 spurious_velocity=5.9607262065858177e-07 energy_proxy_j=0.096936845120110665 phase_complete=false
+CAPILLARY_SPHERE grid=12x12x12 curvature=6.2727449657175551 analytic=6.4516129032258069 active_faces=888 source_velocity=2.6110493478840102e-06 spurious_velocity=1.0900968425016571e-06 energy_proxy_j=0.089288933373095722 phase_complete=false
+CAPILLARY_LIVE grid=6x6x6 effect=2.6979911872015072e-07 divergence=5.4806419819142249e-17 phase_complete=false
+PASS P2_TWO_PHASE_CAPILLARY assertions=75 phase_complete=false

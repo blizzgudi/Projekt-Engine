@@ -831,3 +831,13 @@ add_executable(upc_p2_two_phase_full_tensor_momentum_live_tests
 target_link_libraries(upc_p2_two_phase_full_tensor_momentum_live_tests PRIVATE upc)
 add_test(NAME physics_p2_two_phase_full_tensor_momentum_live_partial
     COMMAND upc_p2_two_phase_full_tensor_momentum_live_tests)
+
+# P2 PARTIAL: diffuse moving-water/air CSF curvature and capillary
+# acceleration, balanced by actual variable-density MAC PCG before the
+# conservative momentum + full tensor live update. NOT sharp PLIC stress,
+# measured 6s MARIN validation or a full P2 physical energy acceptance.
+add_executable(upc_p2_two_phase_capillary_mac_vof_tests
+    tests/p2_two_phase_capillary_mac_vof3d_tests.cpp)
+target_link_libraries(upc_p2_two_phase_capillary_mac_vof_tests PRIVATE upc)
+add_test(NAME physics_p2_two_phase_capillary_mac_vof_partial
+    COMMAND upc_p2_two_phase_capillary_mac_vof_tests)

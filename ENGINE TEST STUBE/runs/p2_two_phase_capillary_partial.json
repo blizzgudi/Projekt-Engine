@@ -1,0 +1,73 @@
+{
+  "phase": "P2",
+  "milestone": "diffuse_3d_capillary_mac_vof_pressure_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "full_P2_accepted": false,
+  "generated_utc": "2026-11-02T10:15:49.618893+00:00",
+  "checks": {
+    "analytic_planar_zero_curvature": true,
+    "independent_sphere_mean_curvature_reference_two_grids": true,
+    "actual_3d_mac_pressure_and_live_momentum_tensor": true,
+    "native_rerun_byte_equal": true,
+    "full_ctest_145_of_145": true,
+    "official_phase_gate_P2_open": true,
+    "all_forged_traces_rejected": true
+  },
+  "negative_results": {
+    "spurious_velocity_grid_converged": false,
+    "spurious_velocity_8_m_s": 5.960726206585818e-07,
+    "spurious_velocity_12_m_s": 1.090096842501657e-06,
+    "sharp_PLIC_stress_validated": false,
+    "MARIN_H1_H4_P1_P8_six_seconds_three_grids_pass": false,
+    "bidirectional_dynamic_FSI_validated": false,
+    "global_surface_energy_validated": false
+  },
+  "metrics": {
+    "planar_curvature_m_inv": 0.0,
+    "sphere": {
+      "8": {
+        "mean_curvature_m_inv": 5.466551847305144,
+        "analytic_m_inv": 6.451612903225807,
+        "active_faces": 408,
+        "source_velocity_m_s": 1.9005321980016828e-06,
+        "spurious_velocity_m_s": 5.960726206585818e-07,
+        "energy_proxy_j": 0.09693684512011067
+      },
+      "12": {
+        "mean_curvature_m_inv": 6.272744965717555,
+        "analytic_m_inv": 6.451612903225807,
+        "active_faces": 888,
+        "source_velocity_m_s": 2.61104934788401e-06,
+        "spurious_velocity_m_s": 1.090096842501657e-06,
+        "energy_proxy_j": 0.08928893337309572
+      }
+    },
+    "live_face_effect_m_s": 2.697991187201507e-07,
+    "live_divergence_s_inv": 5.480641981914225e-17,
+    "native_assertions": 75,
+    "spurious_velocity_grid_converged": false
+  },
+  "tamper_rejected": 9,
+  "native_binary_sha256": "143872a699d3ca4c5a46f3bc6e8ca4ee4d729c4332dd91edcbc5d2d025c953ca",
+  "logs_sha256": {
+    "p2_two_phase_capillary_native.txt": "8c15d7f6dc4b1cd1462b509fda5a45c55c5da4e1d3a6498689bd8c6f1e837c7e",
+    "p2_two_phase_capillary_build.txt": "2f0364f4e435a95a23a7cf8c6a51a7fadda2bf4cba71fbda61b0cf2882ad66dc",
+    "p2_two_phase_capillary_target_ctest.txt": "10035295dff1ef4312f53a136544f05344ddc9bda34125939efd3e82c79e52a6",
+    "p2_two_phase_capillary_full_ctest.txt": "fefe0db1a0f38e506b420f159d7634d8cb316a31f27b8e31599cadbf97ef5853",
+    "p2_two_phase_capillary_phase_gate.txt": "ce5dcb84cb1fd848161e63244832e1b8891d4b102ce6a9d49403e5f38b07a805"
+  },
+  "source_sha256": {
+    "CMakeLists.txt": "c6c54f896c970fbf2da871083b25aff9864c4a753d0a37868239fe27451abc0e",
+    "include/upc/p2_two_phase_capillary_mac_vof3d.hpp": "7add44037120dff30cb1416e4abbd4fb3439eb8d6b592813663e6c049e3379ea",
+    "include/upc/p2_two_phase_momentum_viscous_vof3d.hpp": "96be55f5537434e6635ff32d7b2631c5cc3ba75b79d7a0c34c94eed8d6e73d02",
+    "include/upc/p2_two_phase_mac_pressure3d.hpp": "972c0070448dd3e9d0391999c4ee4b6f779e6b108970f609e93396248abd7ee2",
+    "include/upc/p2_two_phase_mac_vof3d.hpp": "276f28481f8922b433b25aadd5494033af89680f74f973a6f407f3dfeedf39a7",
+    "tests/p2_two_phase_capillary_mac_vof3d_tests.cpp": "022ea45cdc855ad6a364aa1ad4cdeb3b658f3e0a73e7a9939db78e29bb6040ef",
+    "scripts/p2_two_phase_capillary_build.cmd": "5737cd140380766f40d334986a60cd3b2f92acf42eb5751dc40b292f50d435ef",
+    "scripts/p2_two_phase_capillary_acceptance.py": "4563d805d5c3fab00d253662ab7dc7a49c64ef2ab155f50032473a22a4bfcc78",
+    "scripts/phase_gate.py": "01065438e2b72b3fe83e7e3ba3decbf54925c84c5f9424b15ad15a8197f59cd6",
+    "docs/P2_TWO_PHASE_CAPILLARY_MAC_VOF_PARTIAL.md": "8b5bb91c026a045a56964a3dea3b1a7a49ace103ddf5d4f4a945b329577e48cc"
+  },
+  "limitations": "CSF diffuse finite-difference curvature, not resolved PLIC jump; spurious currents increase on tested refinement; no 6s MARIN/SPHERIC pressure/H1-H4 grid convergence; no moving two-way FSI or full physical surface-energy closure."
+}
