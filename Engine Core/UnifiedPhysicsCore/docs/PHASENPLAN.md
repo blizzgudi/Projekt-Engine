@@ -2338,3 +2338,11 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
   bewegte MAC/VOF-Wasser-Luft-Grenze, keine gekoppelte
   Druckprojektion, keine vollstaendige dynamische FSI oder
   H1-H4/P1-P8-MARIN-6s-Dreigitter-Messabnahme.
+
+## P2 Teilfortschritt: variable Dichte und 3D-Zweiphasen-Druckprojektion (02.11.2026)
+
+- Neuer opt-in 3D-MAC-Operator `p2_two_phase_mac_pressure3d.hpp`: Wasser UND Luft besitzen Druck/Geschwindigkeit, lokale variable Zelldichten, reziproke mittlere Face-Dichte, globaler Neumann-SPD/PCG-Druck und transaktionale Korrektur.
+- Physikalische Box-Bilanzen: Volumenmasse, Face-kinetische Energie/orthogonale Projektionsenergie, Wanddruck-Impuls gegen Fluidaenderung und echte 3D-Divergenz. Keine Vermischung mit Scher-/Waermeverlust.
+- MSVC Release: 135/135 CTest PASS, 2651 native Assertions, 3 analytische 3D-Raster (4x3x3 / 6x4x4 / 8x6x5); separate Python-Dichtmatrix- und Negativ-QA mit SHA-256 in `ENGINE TEST STUBE/runs/p2_two_phase_mac_pressure_partial.json`.
+- **P2 bleibt PARTIAL**: neuer Operator noch nicht in bewegte VOF/PLIC-Zweiphasenstroemung integriert, keine volle Spannungskopplung, keine dynamische FSI, kein bestandener MARIN/SPHERIC H1-H4/P1-P8 >=6s-Dreigitter-Messvergleich oder neuer UE5.8-Native-E2E.
+- Reproduktion: `scripts/p2_two_phase_mac_pressure_build.cmd`, `scripts/p2_two_phase_mac_pressure_acceptance.py`, `docs/P2_TWO_PHASE_MAC_PRESSURE_PARTIAL.md`.

@@ -753,3 +753,10 @@ add_test(NAME physics_p2_two_phase_grid_shear_partial COMMAND upc_p2_two_phase_g
 add_executable(upc_p2_two_phase_global_shear_tests tests/p2_two_phase_global_shear3d_tests.cpp)
 target_link_libraries(upc_p2_two_phase_global_shear_tests PRIVATE upc)
 add_test(NAME physics_p2_two_phase_global_shear_partial COMMAND upc_p2_two_phase_global_shear_tests)
+
+# P2 PARTIAL: variable-density 3D water/air MAC pressure projection in a
+# closed box, including pressure-work and wall-impulse ledgers.
+# Not yet integrated with moving VOF/PLIC, stress or FSI.
+add_executable(upc_p2_two_phase_mac_pressure_tests tests/p2_two_phase_mac_pressure3d_tests.cpp)
+target_link_libraries(upc_p2_two_phase_mac_pressure_tests PRIVATE upc)
+add_test(NAME physics_p2_two_phase_mac_pressure_partial COMMAND upc_p2_two_phase_mac_pressure_tests)

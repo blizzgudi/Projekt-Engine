@@ -1,0 +1,4 @@
+GATES_PASS=P0
+GATES_INCOMPLETE=P1,P2,P3,P4,P5,P6,P7,P8
+ALL_COMPLETE=False
+EVIDENCE=D:\Projekt Engine\ENGINE TEST STUBE\runs\unified_physics_gate.json

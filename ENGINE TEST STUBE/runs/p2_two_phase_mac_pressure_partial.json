@@ -1,0 +1,130 @@
+{
+  "phase": "P2",
+  "milestone": "variable_density_two_phase_closed_box_mac_pcg_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "generated_utc": "2026-11-02T05:06:37.165916+00:00",
+  "independent_qa": {
+    "4x3x3": {
+      "native": {
+        "pmax": 1.587530107372004e-11,
+        "vmax": 2.7602919949742954e-14,
+        "div_before": 6.29833911273659,
+        "div_after": 7.268803614568498e-13,
+        "energy_residual": 8.673617379884035e-19,
+        "momentum_residual": 1.7835125737386548e-17,
+        "p0": -1.8216666666516617,
+        "pmid": -0.1016666666666095,
+        "plast": 3.1983333333333253,
+        "u111": 3.8460696262933786e-18,
+        "v111": -0.014585045665097034,
+        "w111": -3.857993496263944e-18,
+        "pcg_iterations": 23
+      },
+      "independent_reference": {
+        "p0": -1.821666666667522,
+        "pmid": -0.10166666666656354,
+        "plast": 3.198333333333435,
+        "u111": 5.421010862427522e-18,
+        "v111": -0.01458504566509704,
+        "w111": 0.0,
+        "div_before": 6.298339112736589,
+        "dense_pressure_max_error_pa": 8.555378627761456e-13
+      }
+    },
+    "6x4x4": {
+      "native": {
+        "pmax": 1.4086332100760046e-10,
+        "vmax": 2.2450097336701447e-13,
+        "div_before": 11.31007712058774,
+        "div_after": 7.964892634326759e-12,
+        "energy_residual": 2.168404344971009e-18,
+        "momentum_residual": 1.708702623837155e-16,
+        "p0": -4.976666666734058,
+        "pmid": 0.04333333333292,
+        "plast": 9.313333333332869,
+        "u111": 0.008420680040886763,
+        "v111": -0.01488209509339495,
+        "w111": -1.9748013626430597e-18,
+        "pcg_iterations": 37
+      },
+      "independent_reference": {
+        "p0": -4.9766666666666675,
+        "pmid": 0.043333333333332114,
+        "plast": 9.313333333333329,
+        "u111": 0.008420680040886754,
+        "v111": -0.014882095093394948,
+        "w111": 0.0,
+        "div_before": 11.31007712058774
+      }
+    },
+    "8x6x5": {
+      "native": {
+        "pmax": 1.7919976613711697e-10,
+        "vmax": 4.1603179234961374e-13,
+        "div_before": 16.48324795015006,
+        "div_after": 1.7374693697669308e-11,
+        "energy_residual": -6.938893903907228e-18,
+        "momentum_residual": 2.983724378680108e-16,
+        "p0": -10.1208333332352,
+        "pmid": -1.3008333333298614,
+        "plast": 19.829166666668982,
+        "u111": 0.008054131826550199,
+        "v111": -0.009327171278616913,
+        "w111": -1.0502256189476088e-18,
+        "pcg_iterations": 58
+      },
+      "independent_reference": {
+        "p0": -10.120833333333334,
+        "pmid": -1.3008333333333333,
+        "plast": 19.82916666666667,
+        "u111": 0.008054131826550197,
+        "v111": -0.00932717127861691,
+        "w111": 0.0,
+        "div_before": 16.48324795015006
+      }
+    }
+  },
+  "negative_fixture_rejections": {
+    "pressure": true,
+    "divergence": true,
+    "assertions": true,
+    "missing_grid": true,
+    "nonfinite": true,
+    "wrong_iteration": true
+  },
+  "historical_marin_6s_validation_pass": false,
+  "historical_marin_6s_height_rmse_m": {
+    "H1_m": 0.13652547494982525,
+    "H2_m": 0.0915001638115832,
+    "H3_m": 0.1482453038649915,
+    "H4_m": 0.2243987520282911
+  },
+  "limitations": [
+    "Not integrated into live CoupledMacWater3D VOF/PLIC",
+    "No resolved moving water-air interface or viscous stress matching",
+    "No dynamic bidirectional fluid-solid coupling",
+    "No MARIN H1-H4/P1-P8 full-window three-grid measured validation",
+    "No Unreal 5.8 Native E2E for this operator"
+  ],
+  "native_assertions": 2651,
+  "ctest_total": 135,
+  "source_sha256": {
+    "CMakeLists.txt": "5398b186164f2a4650ddfbaa38786ecf03f0f510698340b042631b9cc22388f7",
+    "include/upc/p2_two_phase_mac_pressure3d.hpp": "972c0070448dd3e9d0391999c4ee4b6f779e6b108970f609e93396248abd7ee2",
+    "tests/p2_two_phase_mac_pressure3d_tests.cpp": "597f7326446974e0cfd068c08639953c9d7ac6c19ee44effa9cd23c0c33acd71",
+    "scripts/p2_two_phase_mac_pressure_build.cmd": "74621933cf6768b0624fbb011fc9be565b4f646b050f0f82a61f23ca0336fe01",
+    "scripts/p2_two_phase_mac_pressure_acceptance.py": "3578d9deceb1f473fba345cca01f208ace81c057468a60b28823c9cb3e28e09d",
+    "scripts/phase_gate.py": "01065438e2b72b3fe83e7e3ba3decbf54925c84c5f9424b15ad15a8197f59cd6",
+    "docs/P2_TWO_PHASE_MAC_PRESSURE_PARTIAL.md": "39ca8a3f86167dd9f611b2810781172926ad3317113e2363fbd807cdaa73ec32",
+    "docs/PHASENPLAN.md": "0e373fc14dd8cdb2ae8649234d86273fbfee49239bcf4d607a9f3e6d391c4e29"
+  },
+  "artifact_sha256": {
+    "native_binary": "c80dcee57dea8792e1ad5db8e5f1a56f20adc4c774503597c26f167f74317f9b",
+    "native_trace": "d71aa3ab0af3d535aad34cc242503c962f5af7b24f98ed7275ee7b0ebe74670c",
+    "build_log": "9b73805664156b09119ece723e25a62b53382622015839edcd397ded33c30d64",
+    "ctest_log": "5cdbf17d0d01e1141970afd7f3744000f0aa1da7250407193bf649cce84ececc",
+    "phase_gate_log": "81c1aeb5f80e7e0c8ab439c351b9eab256694a788538ae1ad32d0f2082f8cccf",
+    "historical_marin_6s_report": "192e198e4e72fbca285c8eeb7b513f74ecdb4432b7705d837f71b8b0f91f2f08"
+  }
+}
