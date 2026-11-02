@@ -4,6 +4,7 @@
 #include "upc/coupled_water3d.hpp"
 #include "upc/p2_marin_pressure_sensors3d.hpp"
 #include "upc/p2_marin_wall_pressure_interp3d.hpp"
+#include "upc/p2_marin_footprint_pressure3d.hpp"
 #include "upc/p2_marin_height_interp3d.hpp"
 #include "upc/p2_marin_wall_normal_pressure3d.hpp"
 #include <algorithm>
@@ -31,9 +32,25 @@ double gauge_height(const upc::CoupledMacWater3D& w,double x_m,double y_m) {
 }
 int main(int argc,char** argv){
     try {
-        const bool normal_extrap=argc>=2 &&
-            std::string(argv[argc-1])=="normal_extrap";
-        const int argc_without_normal=argc-(normal_extrap?1:0);
+        // Optional explicit hypothetical transducer disk radius, never an
+        // assumed measured MARIN instrument diameter. Must be the last arg.
+        const std::string footprint_prefix="footprint=";
+        const bool footprint_requested=argc>=2 &&
+            std::string(argv[argc-1]).rfind(footprint_prefix,0)==0;
+        double footprint_radius_m=0;
+        if(footprint_requested) {
+            const std::string radius_text=
+                std::string(argv[argc-1]).substr(footprint_prefix.size());
+            std::size_t consumed=0;
+            footprint_radius_m=std::stod(radius_text,&consumed);
+            if(consumed!=radius_text.size()||!std::isfinite(footprint_radius_m)||
+               footprint_radius_m<=0||footprint_radius_m>0.020)
+                throw std::invalid_argument("Invalid hypothetical MARIN disk radius");
+        }
+        const int argc_without_footprint=argc-(footprint_requested?1:0);
+        const bool normal_extrap=argc_without_footprint>=2 &&
+            std::string(argv[argc_without_footprint-1])=="normal_extrap";
+        const int argc_without_normal=argc_without_footprint-(normal_extrap?1:0);
         const bool height_interp=argc_without_normal>=2 &&
             std::string(argv[argc_without_normal-1])=="height_interp";
         const int argc_without_height=argc_without_normal-(height_interp?1:0);
@@ -52,6 +69,8 @@ int main(int argc,char** argv){
              std::string(argv[5])=="interp");
         if((height_interp||normal_extrap)&&!interp_probes)
             throw std::invalid_argument("Height interpolation requires dense interpolated pressure mode");
+        if(footprint_requested&&(!interp_probes||normal_extrap))
+            throw std::invalid_argument("Disk footprint requires interpolated pressure without normal_extrap");
         const bool pressure_probes=interp_probes||
             (mode_argc==5 && std::string(argv[3])=="dense" &&
              std::string(argv[4])=="pressure") ||
@@ -108,11 +127,16 @@ int main(int argc,char** argv){
                  <<nx*dx<<" obstacle_x_m=[0.6635,0.8245] obstacle_y_m=[0.295,0.698]"
                  <<" obstacle_z_m=[0,0.161] probe_x_m=[0.496,0.992,1.488,2.632]"
                  <<" pressure_sensors_NOT_simulated="<<(pressure_probes?"false":"true")
-                 <<" pressure_proxy_only="<<(normal_extrap?"wall_normal_extrap":
+                 <<" pressure_proxy_only="<<(footprint_requested?"footprint_disk_hypothesis":
+                       normal_extrap?"wall_normal_extrap":
                        interp_probes?"interpolated_tangent":
                        pressure_probes?"true":"none");
         if(height_interp)std::cout<<" height_sampling=bilinear_column";
         if(normal_extrap)std::cout<<" pressure_sampling=two_liquid_planes_fallback";
+        if(footprint_requested)
+            std::cout<<" pressure_sampling=finite_disk_unverified_radius"
+                     <<" pressure_footprint_radius_m="<<footprint_radius_m
+                     <<" pressure_footprint_rings=8 pressure_footprint_angles=32";
         std::cout<<"\n";
         std::cout<<"time_s,H1_m,H2_m,H3_m,H4_m,water_volume_m3,"
                    "max_projection_divergence_s_inv";
@@ -129,7 +153,13 @@ int main(int argc,char** argv){
                     gauge_height(w,x,.5));
             std::cout<<","<<w.volume_m3()<<","
                      <<w.last_projection_divergence();
-            if(normal_extrap) {
+            if(footprint_requested) {
+                const auto sensor=upc::P2MarinFootprintPressure3D::sample(
+                    w,footprint_radius_m,8,32);
+                for(const auto& p:sensor.probes)
+                    std::cout<<","<<p.area_mean_gauge_pressure_pa;
+                std::cout<<","<<sensor.wet_count;
+            }else if(normal_extrap) {
                 const auto sensor=upc::P2MarinWallNormalPressure3D::sample(w);
                 for(const auto& p:sensor.probes)
                     std::cout<<","<<p.pressure_pa;

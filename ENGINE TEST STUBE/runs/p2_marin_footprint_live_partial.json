@@ -1,0 +1,96 @@
+{
+  "phase": "P2",
+  "milestone": "live_native_three_grid_disk_pressure_sampling_short_window",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "independent_measured_pressure_validation": false,
+  "sensor_radius_physically_verified": false,
+  "native_6s_disk_pressure_validation": false,
+  "native_ctest_suites_passed": 150,
+  "native_executable_sha256": "372619ee1d382db0b3719c0a63293aebf8791527f03a0a5305e689448b205ecc",
+  "native_build_log_sha256": "da39646936ce02b07e7fea0eac974299f515cbae90acfdfdfea7a73c6e1fe10b",
+  "native_ctest_log_sha256": "f1222ca51825a426bc6ecf040e3f6cf493e68692a298f5e87d5e76a51a6390a3",
+  "source_sha256": {
+    "benchmarks/p2_marin_dambreak_heights.cpp": "9b24b4fd8e17d3dffdb259c5257c24cca89526155e04452068db92f797e95632",
+    "include/upc/p2_marin_footprint_pressure3d.hpp": "275212c446184bfdc1ea6f2e97dce14faf64976c80beeebf49000da5a436409c",
+    "include/upc/p2_marin_wall_pressure_interp3d.hpp": "2f849a5e1af52ff681ddaf3510aa22e28f094b10c075c613b2beaea662ecafaf",
+    "include/upc/coupled_water3d.hpp": "72cc669f25f6f4fd6b8a58563db7f0eb0f988a284720c303b60cbe1740ecdd73",
+    "scripts/p2_marin_footprint_live_audit.py": "fd3d6ede6245d42bdd400138b78f9d3f9a7b0f189a389e07f25186eae5ff494e",
+    "docs/P2_MARIN_LIVE_FOOTPRINT_SENSOR_PARTIAL.md": "6fb590eae65b0c001c6efa2d1d63026edf8aa05af1973b682fd958f8d080c175",
+    "docs/PHASENPLAN.md": "f8f58b96eb97bf890b8ee5fa9d5e2d712bc5f7845b00820eb6ff67e3a20e2736"
+  },
+  "native_trace_sha256": {
+    "coarse_point": "b0fa15303fdbbbeea4160f69e17a2739b672b490643693adfea4c719cbd5a412",
+    "coarse_disk": "0ada86e5a32224b17f54bc891d2c6ebf5d5d2d8883cd08ed45ec9bf634d0571e",
+    "medium_point": "368f12f7594b9fd5628e0c6f23a8c692b2d309d8d9879c4762a15fb94ee7c9f9",
+    "medium_disk": "d82c82dc72f04df97aa9358a79406dc77c69471e9794692e4a03607141b0bf47",
+    "fine_point": "8966b7dd3c3914879ffb309cbca7eb093ad0732bca702cbf55ece47b02d29970",
+    "fine_disk": "7f0c4d8ebffa09491f317dc69ad0b7fceaf07e75b6158d9e4900f63f9f6583a8"
+  },
+  "negative_cli_cases_rejected": {
+    "zero_radius": true,
+    "oversize_radius": true,
+    "nonfinite_radius": true,
+    "junk_radius": true,
+    "no_interpolation": true,
+    "conflicting_normal_extrap": true
+  },
+  "forged_trace_cases_rejected": [
+    "false_phase_pass",
+    "forged_radius",
+    "missing_timestep",
+    "nan_pressure"
+  ],
+  "grids": {
+    "coarse": {
+      "native_3d_shape": [
+        32,
+        10,
+        10
+      ],
+      "native_time_states": 61,
+      "end_time_s": 0.6,
+      "wet_time_states": 32,
+      "max_disk_vs_point_pressure_delta_pa": 16003.088894961622,
+      "historical_6s_point_pressure_reproduced_first_61_states": true,
+      "pressure_sensor_radius_m": 0.01,
+      "radius_is_actual_measured_sensor": false
+    },
+    "medium": {
+      "native_3d_shape": [
+        48,
+        15,
+        15
+      ],
+      "native_time_states": 61,
+      "end_time_s": 0.6,
+      "wet_time_states": 27,
+      "max_disk_vs_point_pressure_delta_pa": 24802.51398824204,
+      "historical_6s_point_pressure_reproduced_first_61_states": true,
+      "pressure_sensor_radius_m": 0.01,
+      "radius_is_actual_measured_sensor": false
+    },
+    "fine": {
+      "native_3d_shape": [
+        64,
+        20,
+        20
+      ],
+      "native_time_states": 61,
+      "end_time_s": 0.6,
+      "wet_time_states": 23,
+      "max_disk_vs_point_pressure_delta_pa": 21633.73343310133,
+      "historical_6s_point_pressure_reproduced_first_61_states": true,
+      "pressure_sensor_radius_m": 0.01,
+      "radius_is_actual_measured_sensor": false
+    }
+  },
+  "known_negative_results": [
+    "Disk sampling is only a hypothetical 10mm-radius transducer, not the actual MARIN diameter",
+    "Disk vs point pressure differs substantially even at 0.6s; no measured 6s RMSE improvement established",
+    "No wall-normal resolved stress, wetting force, sharp PLIC interface or calibrated impact response",
+    "No full three-grid 6s disk-versus-labor P1-P8 pressure acceptance",
+    "No global energy/momentum/FSI or Unreal 5.8 native E2E acceptance"
+  ],
+  "generated_utc": "2026-11-02T15:55:17.669915+00:00"
+}

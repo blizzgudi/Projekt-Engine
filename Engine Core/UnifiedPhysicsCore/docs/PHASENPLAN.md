@@ -2480,3 +2480,12 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
 - Tatsächlicher **P1–P8-Druck-RMSE bei 0,05 m: 5.870 / 5.905 / 5.800 / 5.823 / 5.890 / 5.842 / 5.823 / 5.914 kPa**. **Alle acht Druck-Messabweichungen wachsen** mit Gitterverfeinerung; experimentelle Validität wird ausdrücklich verneint. Das Hindernis ist weiterhin binär zellmittelpunkt-basiert und die Drücke sind kein flächenaufgelöster Wandtransducer.
 - Neue Dateien: scripts/p2_marin_full6s_two_grid_audit.py, tests/p2_marin_full6s_two_grid_regression.py, scripts/p2_marin_full6s_three_grid_audit.py, tests/p2_marin_full6s_three_grid_regression.py, docs/P2_MARIN_FULL6S_THREE_GRID_PARTIAL.md; maschinenlesbare Native-/Messbelege ENGINE TEST STUBE/runs/p2_marin_pcg_full6s_three_grid_partial.json.
 - **P2 ist weiterhin INCOMPLETE / ALL_COMPLETE=False**. Numerische Gitterabdeckung erfüllt allein keine experimentelle Physikgenauigkeit; echte freie Grenzflächenspannung, dynamische Zweiwege-FSI, kalibrierte 3D-Wandtransducer, globaler Energie- und Impulsschluss sowie gesamter aktueller UE5.8 Native-E2E fehlen weiterhin.
+
+
+## P2 Teilfortschritt: native MARIN-Sensor-Footprint-Sensitivitaet (02.11.2026)
+
+- Vorhandenen 3D-MAC-Disk-Footprint-Operator im echten MARIN-Benchmark als optionalen letzten CLI-Parameter footprint=0.01 (hypothetischer 10-mm-Radius, 8x32 Flaechenquadratur) verdrahtet; Punktmodus und Solver unveraendert.
+- Echte Win64-MSVC-Rebuild und 150/150 CTest PASS. Je 61 native Zustaende (0 bis 0,60 s) auf 32x10x10, 48x15x15 und 64x20x20 fuer Punkt-/Disk-Auslesung. Unveraenderte Wasser-/Druckprojektions-Dynamik gegen vorhandene 6-s-Punkttraces geprueft. 6 fehlerhafte CLI-Konfigurationen und 4 manipulierte Trace-Varianten unabhaengig abgewiesen.
+- **Negativ:** Maximaler Druckunterschied Disk/Punkt 16.003 / 24.803 / 21.634 Pa auf den drei Gittern; bereits bei t=0,40 s P1-Punktdruck 5.820 / 5.383 / 4.518 Pa gegen Disk 9,34 / 3,65 / 0,46 Pa. Das ist **keine** bestaetigte Messverbesserung, sondern eine grosse Modell-Sensitivitaet. Echter Sensor-Radius und dynamische Wandtraktion unbekannt. Keine neue 6-s-Disk-Messvalidierung, keine unabhaengige P1-P8-Messkonvergenz, keine globale Energie/Impuls-/FSI- oder UE5.8-E2E-Abnahme.
+- Belege: docs/P2_MARIN_LIVE_FOOTPRINT_SENSOR_PARTIAL.md, scripts/p2_marin_footprint_live_audit.py, ENGINE TEST STUBE/runs/p2_marin_footprint_live_partial.json samt Native-/Quell-/Binary-/Build-/CTest-SHA256.
+- **P2 bleibt PARTIAL / ALL_COMPLETE=False**. Ein 0,6-s-Sensor-Teiltest ist keine vollstaendige P2-Physikabnahme.
