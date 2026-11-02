@@ -1,0 +1,5 @@
+COLUMN_MANUFACTURED nx=32 low_area=0.1128 high_area=0.246491 high_fz=-194.649
+COLUMN_MANUFACTURED nx=48 low_area=0.1128 high_area=0.246491 high_fz=-194.649
+COLUMN_MANUFACTURED nx=64 low_area=0.1128 high_area=0.246491 high_fz=-194.649
+COLUMN_NATIVE_MAC area=0.246491 fz=-216.412 divergence=9.00518e-12
+PASS P2_MARIN_LIVE_COLUMN assertions=62 phase_complete=false measured_validation=false

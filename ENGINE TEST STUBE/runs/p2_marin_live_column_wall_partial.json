@@ -1,0 +1,92 @@
+{
+  "phase": "P2",
+  "scope": "live MAC pressure plus strictly graph-shaped VOF column diagnostic",
+  "phase_complete": false,
+  "partial_accepted": true,
+  "measured_physics_pass": false,
+  "red_missing_header_reproduced": true,
+  "ctest": {
+    "count": 155,
+    "passed": true
+  },
+  "native": {
+    "assertions": 62,
+    "wall_area_m2": 0.246491,
+    "force_z_n": -216.412,
+    "divergence_s_inv": 9.00518e-12
+  },
+  "grids": [
+    {
+      "nx": 32,
+      "low_area_m2": 0.1128,
+      "high_area_m2": 0.246491,
+      "high_force_z_n": -194.649
+    },
+    {
+      "nx": 48,
+      "low_area_m2": 0.1128,
+      "high_area_m2": 0.246491,
+      "high_force_z_n": -194.649
+    },
+    {
+      "nx": 64,
+      "low_area_m2": 0.1128,
+      "high_area_m2": 0.246491,
+      "high_force_z_n": -194.649
+    }
+  ],
+  "historical_six_second": {
+    "all_12_channels_monotonic": false,
+    "fine_height_rmse_m": {
+      "H1_m": 0.09478824764684127,
+      "H2_m": 0.10067389166422015,
+      "H3_m": 0.11796346921125846,
+      "H4_m": 0.13781758848701164
+    },
+    "fine_pressure_rmse_pa": {
+      "P1_Pa": 5870.291160948873,
+      "P2_Pa": 5905.06740103668,
+      "P3_Pa": 5800.374161524103,
+      "P4_Pa": 5822.757638843366,
+      "P5_Pa": 5890.2248148894005,
+      "P6_Pa": 5841.595759137142,
+      "P7_Pa": 5822.623567516189,
+      "P8_Pa": 5914.016484030016
+    },
+    "unmodified_rmse_limit_m": 0.05
+  },
+  "source_sha256": {
+    "CMakeLists.txt": "e9af6dab7af165f7a746549b1d7ccac49e5718481a6207e09ac45150d3a2129f",
+    "include/upc/p2_marin_live_column_wall3d.hpp": "21d0243e48798f2a79ddf180a8d92b4a8ef3f873a56bef96752975db4279415f",
+    "include/upc/p2_marin_box_wall_traction3d.hpp": "81f04ed2560cd4ee17b4610ce0ce280e8fc7981447835015e113d4694ab47245",
+    "tests/p2_marin_live_column_wall3d_tests.cpp": "26b830ea7805cbae47cf0a7020e77624bbd4b5d03abf70cbcf0507ce90c5b558",
+    "scripts/p2_marin_live_column_wall_audit.py": "e61a20fe89dbcb5900bce2ab76c2dfd397eae879f3da27bed850992888c7a47a",
+    "docs/P2_MARIN_LIVE_COLUMN_WALL_PARTIAL.md": "6f2177826cd85674f8763741898ef761fd98045d42532106eccbc6fe4fa4f1b3"
+  },
+  "evidence_sha256": {
+    "p2_live_column_red_build_20261102.log": "94d91cedb54bc4d4183bf9f75d750c84c9d4b8e7d1517e474cc6000dc5e56a21",
+    "p2_live_column_build_20261102.log": "f2aafe81a3a657fab3b2e4988a0cf5467cd18328dbd8a1b738b292bb02d9618a",
+    "p2_live_column_native_20261102.log": "37a125f09f240a4c522367a73f642e37d9487d0e23f307bb7f51fa2eb14fca55",
+    "p2_live_column_full_ctest_20261102.log": "9fe0d2e0b02fc5a91c39afba1d4a64c77b36ac04eaf62b662cdb4b88d49f7c46",
+    "p2_marin_pcg_full6s_three_grid_partial.json": "028cf1665da39cc1c6b5fa9c2d28b71177354ffeefddab1d3d4e3c37591da910"
+  },
+  "unmet": [
+    "moving non-graph water-air interface stress and pressure",
+    "true geometric cut-cell MAC pressure solver at MARIN obstacle",
+    "resolved calibrated real P1-P8 transducer response",
+    "independent 6s three-grid height and pressure convergence",
+    "bidirectional dynamic FSI and global energy/momentum",
+    "full coupled Unreal 5.8 native E2E"
+  ],
+  "generated_utc": "2026-11-02T22:51:11.631578+00:00",
+  "negative_mutations_rejected": [
+    "fake_full_phase",
+    "fake_measurement_pass",
+    "lost_grid",
+    "forged_analytic_force",
+    "forged_mac_divergence",
+    "forged_source_hash",
+    "forged_ctest",
+    "forged_marin_convergence"
+  ]
+}
