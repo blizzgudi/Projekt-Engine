@@ -1,0 +1,82 @@
+{
+  "phase": "P2",
+  "milestone": "true_live_two_phase_momentum_full_tensor_viscosity_three_mac_pcg",
+  "partial_accepted": true,
+  "physical_full_phase_complete": false,
+  "phase_complete": false,
+  "global_physical_fsi_energy_closed": false,
+  "moving_sharp_3D_water_air_stress_validated": false,
+  "external_marin_6s_full_measurement_accepted": false,
+  "native_assertions": 5459,
+  "native_ctest_suites": 144,
+  "independent_forged_log_rejections": [
+    "missing_finest_grid",
+    "false_complete",
+    "false_full",
+    "faked_no_viscous_effect",
+    "faked_no_viscous_work",
+    "nonconservative_wall",
+    "nonconservative_kinetic",
+    "unbounded_density",
+    "short_runtime",
+    "truncated_assertions",
+    "duplicate_data"
+  ],
+  "real_native_3D_grids": {
+    "4x4x4": {
+      "steps": 6,
+      "measured_viscosity_face_delta_m_s": 1.2697341889106317e-05,
+      "actual_3d_stress_work_j": 1.3486170016323955e-06,
+      "combined_tensor_and_pressure_wall_impulse_error": 1.1211921012920997e-16,
+      "combined_tensor_and_pressure_kinetic_error_j": 5.3121671287053446e-18,
+      "density_error_kg_m3": 0.0
+    },
+    "6x5x4": {
+      "steps": 6,
+      "measured_viscosity_face_delta_m_s": 1.7314871799706255e-05,
+      "actual_3d_stress_work_j": 2.4069911523469215e-06,
+      "combined_tensor_and_pressure_wall_impulse_error": 2.962819605541872e-16,
+      "combined_tensor_and_pressure_kinetic_error_j": 1.1390210860406187e-17,
+      "density_error_kg_m3": 0.0
+    },
+    "8x6x5": {
+      "steps": 6,
+      "measured_viscosity_face_delta_m_s": 1.7819959124427964e-05,
+      "actual_3d_stress_work_j": 3.190457768147827e-06,
+      "combined_tensor_and_pressure_wall_impulse_error": 9.827428719974898e-16,
+      "combined_tensor_and_pressure_kinetic_error_j": 6.355574076868714e-17,
+      "density_error_kg_m3": 0.0
+    }
+  },
+  "sources_sha256": {
+    "CMakeLists.txt": "ba94b4dde00d5c13a40b4d9c287f27220919ba38a40a74abe84ce13fc48734b2",
+    "include/upc/p2_two_phase_momentum_viscous_vof3d.hpp": "96be55f5537434e6635ff32d7b2631c5cc3ba75b79d7a0c34c94eed8d6e73d02",
+    "include/upc/p2_two_phase_full_tensor_viscous_mac3d.hpp": "99bcd2ca069b83adffca79015679b6ec97d8d8e2a1898b6bca35e00b97949c8c",
+    "include/upc/p2_two_phase_momentum_vof3d.hpp": "1b904f364e8fce8b4bba39fbfef0885c6fac011047076f0cb1ec40caec07804a",
+    "include/upc/p2_two_phase_mac_momentum_remap3d.hpp": "1d74de7d3565227cf86b98bcad75fe4fd21cb09e5b6c35d95f3b7ba379864fa9",
+    "include/upc/p2_two_phase_mac_vof3d.hpp": "276f28481f8922b433b25aadd5494033af89680f74f973a6f407f3dfeedf39a7",
+    "include/upc/p2_two_phase_mac_pressure3d.hpp": "972c0070448dd3e9d0391999c4ee4b6f779e6b108970f609e93396248abd7ee2",
+    "tests/p2_two_phase_momentum_viscous_vof3d_tests.cpp": "524b303303d11b9345c5bda86fe6ca5c5d7df474ac01e17e4d8b67811abed6e7",
+    "scripts/p2_two_phase_full_tensor_momentum_build.cmd": "fe20cb206ab0a2a197b223f7f74ae17b7bc8aedc7f8d93f8568941afc2eff199",
+    "scripts/p2_two_phase_full_tensor_momentum_acceptance.py": "2f482a90f36e9d7928ed595dfd1faf848aebd92041a7516c1d8957118a5f8791",
+    "scripts/phase_gate.py": "01065438e2b72b3fe83e7e3ba3decbf54925c84c5f9424b15ad15a8197f59cd6",
+    "docs/P2_TWO_PHASE_MOMENTUM_FULL_TENSOR_LIVE_PARTIAL.md": "22761d44f0f3013615a1672c9a4895795399bf64891daab04a8f8a56c4bd828e",
+    "docs/PHASENPLAN.md": "087479f14572a53a4ff69419bb2cc97cbb7572ff5baeb6f1ebd4ec87ebe3e212"
+  },
+  "artifact_sha256": {
+    "native_executable": "371808dd53511be00c69fb4b536775f87dbc7c4fb8f911744fb7219f68e7f259",
+    "native_trace": "0b6e114398579213753f9b45f2a6c4cb638725d996f685f1e4808a28297e9386",
+    "native_build": "47707651973b4dcc336c69743e47966435d43c964441d920fca0597d5238e371",
+    "ctest": "ca850f7b1f8e4d7b1f01eca428cd091238ab959c2b0db5de4f7db03f0b088684",
+    "official_phase_gate": "81c1aeb5f80e7e0c8ab439c351b9eab256694a788538ae1ad32d0f2082f8cccf",
+    "historical_negative_marin": "192e198e4e72fbca285c8eeb7b513f74ecdb4432b7705d837f71b8b0f91f2f08"
+  },
+  "still_unmet": [
+    "Physical moving water-air stress jumps, sharp geometric interface and surface tension",
+    "Real six-second independent experimental MARIN H1-H4/P1-P8 tolerances on three grids",
+    "Dynamic two-way rigid/deformable FSI and true wall half-cell impulse accounting",
+    "Coupled total physical mechanical energy/momentum with all transport sources",
+    "UE5.8 native game and PIE E2E for this new exact numerical integration path"
+  ],
+  "generated_utc": "2026-11-02T09:29:20.249834+00:00"
+}

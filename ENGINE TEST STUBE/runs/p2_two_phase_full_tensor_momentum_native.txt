@@ -1,0 +1,4 @@
+LIVE_FULL_TENSOR grid=4x4x4 steps=6 viscosity_effect_m_s=1.2697341889106317e-05 stress_work_j=1.3486170016323955e-06 impulse_wall_error=1.1211921012920997e-16 energy_substep_error=5.3121671287053446e-18 density_error=0 full_phase=false
+LIVE_FULL_TENSOR grid=6x5x4 steps=6 viscosity_effect_m_s=1.7314871799706255e-05 stress_work_j=2.4069911523469215e-06 impulse_wall_error=2.9628196055418721e-16 energy_substep_error=1.1390210860406187e-17 density_error=0 full_phase=false
+LIVE_FULL_TENSOR grid=8x6x5 steps=6 viscosity_effect_m_s=1.7819959124427964e-05 stress_work_j=3.190457768147827e-06 impulse_wall_error=9.8274287199748983e-16 energy_substep_error=6.3555740768687138e-17 density_error=0 full_phase=false
+PASS P2_TWO_PHASE_LIVE_FULL_TENSOR assertions=5459 phase_complete=false
