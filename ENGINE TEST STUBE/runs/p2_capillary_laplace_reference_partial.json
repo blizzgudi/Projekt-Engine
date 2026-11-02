@@ -1,0 +1,88 @@
+{
+  "phase": "P2",
+  "milestone": "independent_3d_exact_curvature_young_laplace_pcg_reference",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "full_p2_accepted": false,
+  "analytic_curvature_externally_supplied": true,
+  "moving_plic_stress_validated": false,
+  "independent_marin_measured_6s_3grid_validated": false,
+  "bidirectional_fsi_validated": false,
+  "global_capillary_energy_closed": false,
+  "metrics": {
+    "grids": {
+      "8": {
+        "dx_m": 0.15,
+        "analytic_jump_pa": 0.4645161290322581,
+        "native_recovered_jump_pa": 0.46451612903225786,
+        "max_pressure_error_pa": 6.661338147750939e-16,
+        "ideal_post_velocity_m_s": 1.9575872558766055e-20,
+        "diffuse_post_velocity_m_s": 5.960726206585818e-07,
+        "pure_water_cells": 8,
+        "pure_air_cells": 376
+      },
+      "12": {
+        "dx_m": 0.1,
+        "analytic_jump_pa": 0.4645161290322581,
+        "native_recovered_jump_pa": 0.4645161290322583,
+        "max_pressure_error_pa": 2.248201624865942e-15,
+        "ideal_post_velocity_m_s": 1.9171179039522332e-18,
+        "diffuse_post_velocity_m_s": 1.090096842501657e-06,
+        "pure_water_cells": 32,
+        "pure_air_cells": 1424
+      },
+      "16": {
+        "dx_m": 0.075,
+        "analytic_jump_pa": 0.4645161290322581,
+        "native_recovered_jump_pa": 0.46451612903226014,
+        "max_pressure_error_pa": 3.608224830031759e-15,
+        "ideal_post_velocity_m_s": 2.0263286852848877e-18,
+        "diffuse_post_velocity_m_s": 3.0085547893833973e-06,
+        "pure_water_cells": 136,
+        "pure_air_cells": 3544
+      }
+    },
+    "native_assertions": 52,
+    "diffuse_spurious_velocity_converged": false,
+    "manufactured_constant_curvature_pcg_balanced": true
+  },
+  "negative_evidence": {
+    "diffuse_spurious_velocity_grows_with_grid_refinement": true,
+    "diffuse_curvature_not_grid_converged": true,
+    "tamper_rejections": {
+      "missing_grid": true,
+      "duplicate_grid": true,
+      "forged_full_phase": true,
+      "false_jump": true,
+      "false_pressure_error": true,
+      "nonfinite_velocity": true,
+      "false_diffuse_velocity": true,
+      "wrong_dx": true,
+      "no_pure_water": true,
+      "assertion_forgery": true
+    }
+  },
+  "native_rerun_identical": true,
+  "native_ctest_pass": 147,
+  "source_sha256": {
+    "CMakeLists.txt": "ce88896d666b18c4120731c69a0281d756f2c250de3d9e55a6b101d011b8c7c4",
+    "include/upc/p2_capillary_laplace_reference3d.hpp": "9926fde033318e18f48c2b72e6ef10565e7a17c703005e7699a8a043f175d4e5",
+    "include/upc/p2_two_phase_capillary_mac_vof3d.hpp": "7add44037120dff30cb1416e4abbd4fb3439eb8d6b592813663e6c049e3379ea",
+    "include/upc/p2_two_phase_mac_pressure3d.hpp": "972c0070448dd3e9d0391999c4ee4b6f779e6b108970f609e93396248abd7ee2",
+    "tests/p2_capillary_laplace_reference3d_tests.cpp": "a590bfe9471b94050d52ee68b49e726d75c3dbb64d93aa9982a04153d3db8e01",
+    "scripts/p2_capillary_laplace_reference_build.cmd": "ac7ffcc1775309af775224beb3b233f3dc6d1f14867e6c3d5c3fefa37b6d56bc",
+    "scripts/p2_capillary_laplace_reference_acceptance.py": "fc33163254412f7c410b31b15806ab77918d21ed19a30b453e9815bf155bf514",
+    "docs/P2_CAPILLARY_LAPLACE_REFERENCE_PARTIAL.md": "17b30ed7ee4e27d2fda19a9a29b9391eb8f8e48883cadc84ef3d24f88857956c",
+    "scripts/phase_gate.py": "5cdf24fe269706d89507b1daf120e970384854a11628dfa5978baea6c08affcc"
+  },
+  "artifact_sha256": {
+    "native_executable": "8b1a4ca6db2d3b15fe77ba3d5e128f9ade220074a757feb43e3d802aa0858081",
+    "native_stdout": "7d04d5c0f84b00ffed3f607c46c2b85737b3b364298fb7c7c510f12a0c5f7f63",
+    "build_log": "d968b5b94af72b7dbdc9cdb0aba431284e646247d892d6c3a3090fae3e58bf75",
+    "target_ctest": "e4860172e473d3111d39b9bb9b22c0e2b2523574087175b9906facaea9c496c6",
+    "full_ctest": "191d2d3a44e7cb3b81761d597b44d292a5ccc292bc6f4cb926eb0a49ff60407f",
+    "official_phase_gate": "a07e3f57b1c368a50e3c964fee45dbde5f123f18429b1db8a94b5ef0330c5137"
+  },
+  "generated_utc": "2026-11-02T12:18:10.626504+00:00",
+  "limits": "Exact 2/R imposed on manufactured static sphere only; diffuse curvature spurious velocity increases 8^3->12^3->16^3. No sharp moving interface, physical energy closure, FSI, independent 6s MARIN H1-H4/P1-P8 convergence or UE Native E2E."
+}

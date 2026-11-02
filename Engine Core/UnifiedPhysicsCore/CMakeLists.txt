@@ -849,3 +849,12 @@ add_executable(upc_p2_capillary_global_energy_tests
 target_link_libraries(upc_p2_capillary_global_energy_tests PRIVATE upc)
 add_test(NAME physics_p2_capillary_global_energy_partial
     COMMAND upc_p2_capillary_global_energy_tests)
+
+# P2 PARTIAL: exact-curvature 3D Young-Laplace manufactured pressure jump.
+# Isolates variable-density PCG balancing from diffuse-VOF curvature error;
+# not a production interface reconstruction, FSI or full P2 acceptance.
+add_executable(upc_p2_capillary_laplace_reference_tests
+    tests/p2_capillary_laplace_reference3d_tests.cpp)
+target_link_libraries(upc_p2_capillary_laplace_reference_tests PRIVATE upc)
+add_test(NAME physics_p2_capillary_laplace_reference_partial
+    COMMAND upc_p2_capillary_laplace_reference_tests)
