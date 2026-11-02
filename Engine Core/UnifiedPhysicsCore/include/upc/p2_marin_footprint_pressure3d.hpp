@@ -151,7 +151,13 @@ public:
                     double reconstructed=first;
                     if(normal+1<n) {
                         const double second=plane(normal+1,second_w);
-                        if(second_w>1e-5) {
+                        // A normal derivative from two VOF-cut planes is
+                        // not a resolved liquid-side wall derivative. Only
+                        // extrapolate when BOTH complete tangential stencils
+                        // are liquid; otherwise use the first-plane value.
+                        // This is a conservative diagnostic fallback, not
+                        // a stress-consistent wall boundary condition.
+                        if(first_w>=1.0-1e-12 && second_w>=1.0-1e-12) {
                             reconstructed+=normal_offset/dx*(second-first);
                             ++probe.extrapolated_points;
                         } else ++probe.fallback_points;

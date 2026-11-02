@@ -89,6 +89,40 @@ void boundary_partial_wet_fallback() {
     check(result.probes[0].wet_quadrature_points==256,
           "all partial P1 disk points accounted for");
 }
+void partial_interface_rejects_normal_extrapolation() {
+    // A VOF-partial first liquid-side plane does not define a valid
+    // two-plane liquid normal derivative. A dry-interface cut must not
+    // extrapolate pressure through an unlocated liquid/air interface.
+    constexpr double dx=.1;
+    const auto half=[](std::size_t,std::size_t,std::size_t){return .5;};
+    const auto front_linear=[](std::size_t x,std::size_t,std::size_t){
+        return 1000.0+1000.0*(double(x)+.5)*.1;
+    };
+    const auto roof_linear=[](std::size_t,std::size_t,std::size_t z){
+        return 1000.0+1000.0*(double(z)+.5)*.1;
+    };
+    const auto front=upc::P2MarinFootprintPressure3D::sample_field(
+        dx,32,10,10,.012,8,32,front_linear,half,solid);
+    const auto roof=upc::P2MarinFootprintPressure3D::sample_field(
+        dx,32,10,10,.012,8,32,roof_linear,half,solid);
+    // First liquid-side normal cells: x=0.85m and z=0.25m.
+    near(front.probes[0].area_mean_gauge_pressure_pa,.5*1850.0,1e-8,
+         "partial front VOF must not extrapolate through interface");
+    near(roof.probes[4].area_mean_gauge_pressure_pa,.5*1250.0,1e-8,
+         "partial roof VOF must not extrapolate through interface");
+    check(front.probes[0].extrapolated_points==0&&
+          front.probes[0].fallback_points==256,
+          "partial front pressure uses conservative fallback");
+    check(roof.probes[4].extrapolated_points==0&&
+          roof.probes[4].fallback_points==256,
+          "partial roof pressure uses conservative fallback");
+    const auto full=upc::P2MarinFootprintPressure3D::sample_field(
+        dx,32,10,10,.012,8,32,front_linear,wet,solid);
+    near(full.probes[0].area_mean_gauge_pressure_pa,1824.5,1e-8,
+         "fully wet front retains affine normal extrapolation");
+    check(full.probes[0].extrapolated_points==256,
+          "fully wet normal extrapolation still enabled");
+}
 void manufactured_quadratic(){
     constexpr double dx=.005;
     const auto p=[](std::size_t x,std::size_t y,std::size_t z) {
@@ -194,6 +228,7 @@ int main() {
         manufactured_floor_hydrostatic(.1);
         manufactured_floor_hydrostatic(.05);
         boundary_partial_wet_fallback();
+        partial_interface_rejects_normal_extrapolation();
         manufactured_quadratic();
         masks_and_negative();
         native(.1,32,10,10);

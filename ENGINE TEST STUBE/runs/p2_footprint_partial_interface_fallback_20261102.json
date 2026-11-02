@@ -1,0 +1,61 @@
+{
+  "phase": "P2",
+  "milestone": "marin_finite_disk_partial_vof_normal_fallback",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "physical_marin_measurement_validated": false,
+  "old_header_parent_git_commit": "b0b82482cbf2740f0ec1880434db472bfcb2bb40",
+  "red_old_header_native_exit_code": 1,
+  "red_failure_assertions": 70,
+  "green_native_assertions": 170,
+  "full_native_ctest_suites": 154,
+  "negative_evidence_mutations_rejected": [
+    "forged_old_pass",
+    "forged_green_assertions",
+    "forged_phase_pass",
+    "forged_ctest_count",
+    "forged_ctest_failure"
+  ],
+  "real_full6s_lab_height_rmse_fine_m": {
+    "H1_m": 0.09478824764684127,
+    "H2_m": 0.10067389166422015,
+    "H3_m": 0.11796346921125846,
+    "H4_m": 0.13781758848701164
+  },
+  "height_rmse_target_m": 0.05,
+  "full6s_height_acceptance": false,
+  "full6s_pressure_refinement_monotonic": {
+    "P1_Pa": false,
+    "P2_Pa": false,
+    "P3_Pa": false,
+    "P4_Pa": false,
+    "P5_Pa": false,
+    "P6_Pa": false,
+    "P7_Pa": false,
+    "P8_Pa": false
+  },
+  "full6s_pressure_convergence_acceptance": false,
+  "full6s_native_recomputed": false,
+  "source_and_artifact_sha256": {
+    "old_header_isolated": "89b03d34d367013bb3a9bd4f484b7f3c63f8ee25421a9b8d0517ee16414e5feb",
+    "old_header_native_build": "2f0e7765b8266db35a8fcf1f40e9a7027dc8463fd5db186d5988168fd3678323",
+    "old_header_native_failure": "1589ba118105a46a926b724c0a386d325a4eff8e94b709feebc59930b90a6d86",
+    "corrected_native_green": "e37e7f94960a5e47f6266701e19c0e6309d319534b446d6a8e1812c871b4dbb1",
+    "native_full_build": "63704dbbf4b62cb78b1cc891bfa8a06585fd8a878679a68c0adc426c5764c2f6",
+    "native_full_ctest": "3093097e37a3316d56a73467fe87e79baccd86a73797ae842c1c8fe75781d288",
+    "old_full6s_three_grid_experiment": "028cf1665da39cc1c6b5fa9c2d28b71177354ffeefddab1d3d4e3c37591da910",
+    "corrected_header": "1ec2f4032e7d7d3447d58650f81f3547b9890623ba2669b346e742076103eea8",
+    "regression_source": "02c94e174ea7b6dc60e71be0da2c7cb86cd47b8a6fdb81a277f7da9e0fbb3ee6",
+    "audit_source": "4b3d209018c865c0d5273ac9bdbef0d23689a649bf4bcd9e1bd2d8bbaef39d8e",
+    "documented_scope": "6638aff5215810c2c26ce12165ee47070c4a470c636c77644cc3f20523db7e81",
+    "native_test_binary": "c02e60d34392817eef7ba71aad4e4c356189dd57febd03984a6438464add41ae"
+  },
+  "unmet": [
+    "actual measured MARIN H1-H4 <=0.05m over >=6s on 3 grids",
+    "resolved calibrated P1-P8 transducer wet area and time response",
+    "exact obstacle cut-cell pressure boundary integrated in live MAC",
+    "moving water/air stress continuity and global energy/momentum",
+    "bidirectional dynamic fluid-solid FSI and UE5.8 full native E2E"
+  ],
+  "generated_utc": "2026-11-02T22:23:24.990250+00:00"
+}

@@ -1,0 +1,3 @@
+FLOOR_HYDROSTATIC dx_m=0.10000000000000001 p1_native_pa=9603.9899999999943 p1_analytic_pa=9603.9899999999998 p1_clamped_centre_pa=9319.5 all_8_affine_pass=true
+FLOOR_HYDROSTATIC dx_m=0.050000000000000003 p1_native_pa=9603.9899999999943 p1_analytic_pa=9603.9899999999998 p1_clamped_centre_pa=9564.75 all_8_affine_pass=true
+FAIL P2_MARIN_FOOTPRINT partial front VOF must not extrapolate through interface assertions=70
