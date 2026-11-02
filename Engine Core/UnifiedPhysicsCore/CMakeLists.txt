@@ -891,3 +891,12 @@ add_executable(upc_p2_marin_obstacle_cut_geometry_tests
 target_link_libraries(upc_p2_marin_obstacle_cut_geometry_tests PRIVATE upc)
 add_test(NAME physics_p2_marin_obstacle_cut_geometry_partial
     COMMAND upc_p2_marin_obstacle_cut_geometry_tests)
+
+# P2 PARTIAL: real MARIN floor-mounted five-face cut-box pressure traction.
+# Manufactured three-grid analytic load and native MAC pressure snapshot.
+# No conservative cut-cell solver or measured CFD/FSI acceptance.
+add_executable(upc_p2_marin_box_wall_traction_tests
+    tests/p2_marin_box_wall_traction3d_tests.cpp)
+target_link_libraries(upc_p2_marin_box_wall_traction_tests PRIVATE upc)
+add_test(NAME physics_p2_marin_box_wall_traction_partial
+    COMMAND upc_p2_marin_box_wall_traction_tests)

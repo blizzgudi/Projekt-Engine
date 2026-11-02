@@ -1,0 +1,128 @@
+{
+  "phase": "P2",
+  "milestone": "marin_test02_exact_floor_contact_five_face_pressure_traction_partial",
+  "analytic_partial_accepted": true,
+  "phase_complete": false,
+  "production_cut_cell_pressure_integrated": false,
+  "measured_six_second_validation": false,
+  "native_ctest_suites": 152,
+  "native_assertions": 76,
+  "independent_native_rerun": true,
+  "independent_rational_reference": true,
+  "negative_forged_traces_rejected": 13,
+  "negative_case_names": [
+    "false_full_phase",
+    "false_cut_solver",
+    "false_measurement",
+    "forged_coarse_force",
+    "forged_medium_force",
+    "forged_area",
+    "missing_fine",
+    "duplicate_coarse",
+    "wrong_grid_name",
+    "forged_assertions",
+    "nan_live",
+    "missing_live",
+    "swapped_grids"
+  ],
+  "grids": {
+    "coarse": {
+      "dx_m": 0.1,
+      "analytic_force_n": [
+        3.907985046680551e-14,
+        2.220446049250313e-14,
+        -247.59936747
+      ],
+      "affine_force_n": [
+        -13.58001189999999,
+        7.312314099999994,
+        -162.05502495
+      ],
+      "wetted_area_m2": 0.2464910000000001,
+      "floor_contact_area_m2": 0.06488300000000001,
+      "tiles": 47
+    },
+    "medium": {
+      "dx_m": 0.06666666666666667,
+      "analytic_force_n": [
+        5.773159728050814e-14,
+        -3.1530333899354446e-14,
+        -247.59936747000003
+      ],
+      "affine_force_n": [
+        -13.580011899999912,
+        7.312314099999992,
+        -162.05502495000002
+      ],
+      "wetted_area_m2": 0.24649099999999985,
+      "floor_contact_area_m2": 0.06488300000000001,
+      "tiles": 94
+    },
+    "fine": {
+      "dx_m": 0.05,
+      "analytic_force_n": [
+        7.549516567451064e-15,
+        -2.531308496145357e-14,
+        -247.59936747000012
+      ],
+      "affine_force_n": [
+        -13.580011900000006,
+        7.312314099999998,
+        -162.05502495
+      ],
+      "wetted_area_m2": 0.246491,
+      "floor_contact_area_m2": 0.06488300000000001,
+      "tiles": 140
+    }
+  },
+  "live_mac_snapshot": {
+    "step_s": 0.001,
+    "force_n": [
+      -1.133560800781197e-09,
+      -5.559996907322784e-13,
+      -215.77425596953412
+    ],
+    "water_volume_m3": 1.5920000000000003,
+    "not_a_cut_cell_solver": true
+  },
+  "original_six_second_experiment_sha256": "199232979781aa02a26ad663515c0d8e7fc02640ef648daf92e4c6a4998c84cb",
+  "unchanged_fine_height_rmse_m": {
+    "H1_m": 0.09478824764684127,
+    "H2_m": 0.10067389166422015,
+    "H3_m": 0.11796346921125846,
+    "H4_m": 0.13781758848701164
+  },
+  "unchanged_fine_pressure_rmse_pa": {
+    "P1_Pa": 5870.291160948873,
+    "P2_Pa": 5905.06740103668,
+    "P3_Pa": 5800.374161524103,
+    "P4_Pa": 5822.757638843366,
+    "P5_Pa": 5890.2248148894005,
+    "P6_Pa": 5841.595759137142,
+    "P7_Pa": 5822.623567516189,
+    "P8_Pa": 5914.016484030016
+  },
+  "height_rmse_limit_m": 0.05,
+  "native_binary_sha256": "d8d3f4a814cb9490ffc6bf30f50338799b9e038520a873572b0a864ad3a33fdc",
+  "native_log_sha256": "7a9002b1d419236b9a830f193802d226ca22b18446c23573681292ee8f74f612",
+  "native_build_log_sha256": "7b6753136c52e60eaaa24d5c624c8bc58a0fab2c9d7109730f1001859ff71f77",
+  "native_ctest_log_sha256": "a1d9976da2d9c57e0f242529ca71c87044fe0f10cf1945c0f6d4912ce25697b9",
+  "source_sha256": {
+    "CMakeLists.txt": "a232914f0174d5d487e9d77d86c7cfb6019d6ff22bb6b6464b6a4aa242c43ea8",
+    "include/upc/p2_marin_box_wall_traction3d.hpp": "6182c695881bce95b0d1d4b67b8c77f86d1196f4d22c8764ca6a562c6b91e48c",
+    "tests/p2_marin_box_wall_traction3d_tests.cpp": "8c48ecf086148bc2e6c3cf91da22fd12c68b11bac5aa36f1b893dcfc276c003f",
+    "scripts/p2_marin_wall_traction_native.cmd": "251f86324b8565b18c84482a3202217c01d946c91de6d2ab483b32950568e692",
+    "scripts/p2_marin_wall_traction_audit.py": "4cfcd7a3dbbfc15b343c76e929217c879ac0e7611abcfbc0fff7d271d8fdad80",
+    "docs/P2_MARIN_WALL_TRACTION_PARTIAL.md": "188c88ff2a3b1e4b991a2149957b093ba7a8c7561708f4a76bbd24df53146e8d",
+    "docs/PHASENPLAN.md": "5c3c3f779c6d13d72f10d0bdab5eba782133166fb6889e98724b41a1bc1441da",
+    "scripts/phase_gate.py": "5cdf24fe269706d89507b1daf120e970384854a11628dfa5978baea6c08affcc"
+  },
+  "known_negative_results": [
+    "Production MARIN benchmark still uses binary obstacle and cannot use this cut-face pressure traction as a conservative pressure boundary",
+    "Native one-step force is diagnostic only: no equal-opposite momentum applied to water or moving rigid body",
+    "Five-face floor contact has a nonzero net uniform-pressure load; treating it as a closed immersed box would be wrong",
+    "Full six-second 3-grid H1-H4 and P1-P8 laboratory errors remain nonconverged",
+    "No dynamic bidirectional FSI, full stress-consistent free surface or full UE5.8 Native-E2E acceptance"
+  ],
+  "generated_utc": "2026-11-02T19:14:48.728970+00:00"
+}

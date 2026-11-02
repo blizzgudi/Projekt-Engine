@@ -2496,3 +2496,10 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
 - Bestehende Cut-Cell- und MAC-Face-Apertur-Operatoren gegen exakte 3D-Boxintegrale auf 32x10x10 / 48x15x15 / 64x20x20 getestet; max. Flaechenresiduum <=2,78e-17 m2. Native MSVC Release, **151/151 CTest** und unabhaengige QA mit manipulierten Protokollen.
 - Belege: docs/P2_MARIN_OBSTACLE_CUT_GEOMETRY_PARTIAL.md, scripts/p2_marin_box_geometry_native.cmd, scripts/p2_marin_box_geometry_audit.py, ENGINE TEST STUBE/runs/p2_marin_box_geom_partial.json.
 - **Negativ / P2 PARTIAL:** Die produktive MARIN-MAC/VOF-Drucksimulation benutzt weiterhin die binaere Wand. Die 6-s-Labor-Messkonvergenz bleibt FAIL; keine neue teure Dreigitter-Simulation, keine reale Drucktransducer-Traktion, dynamische FSI oder UE5.8-Native-E2E-Abnahme. ALL_COMPLETE=False.
+
+## P2 Teilfortschritt: MARIN-Boden-Kontakt und fünfseitige Wanddruckkraft (02.11.2026)
+
+- Neuer `P2MarinBoxWallTraction3D` integriert die fünf geometrisch fluidexponierten Test-02-Quaderflächen mit exakten geschnittenen Teilflächen (keine zeitabhängige Wasserbenetzungsfläche); die Boden-Kontaktfläche bei z=0 wird ausdrücklich nicht als Fluidfläche behandelt. Der bisherige vollständig umströmte Quaderoperator konnte diesen bodenstehenden Fall nicht abbilden.
+- Flüssigkeitsseitige Zwei-Zellen-Normalrekonstruktion und tangentiale bilineare Flächenmittelpunkt-Rekonstruktion vermeiden Druckzugriff auf binäre Solid-Zellzentren. Dreigitterige unabhängige analytische Hydrostatik- und affine Kraftreferenzen, negative Eingabekontrollen und ein echter kurzer MAC-PCG-Drucksnapshot.
+- Belege: `docs/P2_MARIN_WALL_TRACTION_PARTIAL.md`, `scripts/p2_marin_wall_traction_audit.py`, `ENGINE TEST STUBE/runs/p2_marin_wall_traction_partial.json` mit Hashes, Native- und CTest-Logs.
+- **P2 weiterhin PARTIAL:** Die Live-MARIN-Druckprojektion benutzt noch die binäre Wand, der Kraftdiagnostiker bewirkt keine bidirektionale FSI. Die historischen sechssekündigen H1-H4/P1-P8-Messabweichungen bleiben FAIL; keine neue Dreigitter-CFD-Abnahme oder UE5.8-Native-E2E. ALL_COMPLETE=False.
