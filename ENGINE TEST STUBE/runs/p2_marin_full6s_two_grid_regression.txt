@@ -1,0 +1,29 @@
+test_actual_601_native_samples_and_dt (__main__.P2MarinTwoGridSixSeconds.test_actual_601_native_samples_and_dt) ... ok
+test_all_twelve_real_experimental_channels (__main__.P2MarinTwoGridSixSeconds.test_all_twelve_real_experimental_channels) ... ok
+test_both_native_runs_conserve_water (__main__.P2MarinTwoGridSixSeconds.test_both_native_runs_conserve_water) ... ok
+test_both_native_runs_project_wet_divergence (__main__.P2MarinTwoGridSixSeconds.test_both_native_runs_project_wet_divergence) ... ok
+test_false_full_phase_marker_rejected (__main__.P2MarinTwoGridSixSeconds.test_false_full_phase_marker_rejected) ... ok
+test_full_physics_scope_stays_open (__main__.P2MarinTwoGridSixSeconds.test_full_physics_scope_stays_open) ... ok
+test_si_units_and_pinned_geometries (__main__.P2MarinTwoGridSixSeconds.test_si_units_and_pinned_geometries) ... ok
+test_truncated_600_step_process_rejected (__main__.P2MarinTwoGridSixSeconds.test_truncated_600_step_process_rejected) ... ok
+test_twelve_forged_native_logs_rejected_each_grid (__main__.P2MarinTwoGridSixSeconds.test_twelve_forged_native_logs_rejected_each_grid) ... ok
+test_wrong_grid_rejected (__main__.P2MarinTwoGridSixSeconds.test_wrong_grid_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.228s
+
+OK
+P2_MARIN_6S_TWO_GRID_NATIVE_NUMERICAL=True PHYSICAL_VALIDATED=False FULL_P2=False
+REFINEMENT_HEIGHTS_ALL_IMPROVED=False
+H1_m RMSE coarse 0.1365255 fine 0.09478825 m
+H2_m RMSE coarse 0.09150016 fine 0.1006739 m
+H3_m RMSE coarse 0.1482453 fine 0.1179635 m
+H4_m RMSE coarse 0.2243988 fine 0.1378176 m
+P1_Pa RMSE coarse 3802.812 fine 5870.291 Pa
+P2_Pa RMSE coarse 4089.061 fine 5905.067 Pa
+P3_Pa RMSE coarse 3906.481 fine 5800.374 Pa
+P4_Pa RMSE coarse 3854.136 fine 5822.758 Pa
+P5_Pa RMSE coarse 3358.143 fine 5890.225 Pa
+P6_Pa RMSE coarse 3327.066 fine 5841.596 Pa
+P7_Pa RMSE coarse 3251.837 fine 5822.624 Pa
+P8_Pa RMSE coarse 3337.408 fine 5914.016 Pa

@@ -41,12 +41,13 @@ int main(int argc,char** argv){
             std::string(argv[argc_without_height-1])=="pcg";
         const int mode_argc=argc_without_height-(pcg_pressure?1:0);
         const bool finer_grid=mode_argc>=4 && std::string(argv[3])=="fine";
+        const bool medium_grid=mode_argc>=4 && std::string(argv[3])=="medium";
         const bool dense=(mode_argc>=4 && std::string(argv[3])=="dense") ||
                          (mode_argc>=5 && std::string(argv[4])=="dense");
         const bool interp_probes=
             (mode_argc==5 && std::string(argv[3])=="dense" &&
              std::string(argv[4])=="interp") ||
-            (mode_argc==6 && std::string(argv[3])=="fine" &&
+            (mode_argc==6 && (finer_grid||medium_grid) &&
              std::string(argv[4])=="dense" &&
              std::string(argv[5])=="interp");
         if((height_interp||normal_extrap)&&!interp_probes)
@@ -54,16 +55,18 @@ int main(int argc,char** argv){
         const bool pressure_probes=interp_probes||
             (mode_argc==5 && std::string(argv[3])=="dense" &&
              std::string(argv[4])=="pressure") ||
-            (mode_argc==6 && std::string(argv[3])=="fine" &&
+            (mode_argc==6 && (finer_grid||medium_grid) &&
              std::string(argv[4])=="dense" &&
              std::string(argv[5])=="pressure");
-        const double dx=finer_grid?0.05:0.1;
-        const std::size_t nx=finer_grid?64:32,ny=finer_grid?20:10,nz=finer_grid?20:10;
+        const double dx=finer_grid?0.05:(medium_grid?3.2/48.:0.1);
+        const std::size_t nx=finer_grid?64:(medium_grid?48:32);
+        const std::size_t ny=finer_grid?20:(medium_grid?15:10);
+        const std::size_t nz=finer_grid?20:(medium_grid?15:10);
         const int steps=argc>=2?std::stoi(argv[1]):40;
         const bool throughflow=argc>=3 && std::string(argv[2])=="throughflow";
         if(mode_argc>6||(mode_argc>=3&&!throughflow)||
-           (mode_argc>=4&&!finer_grid&&!dense)||
-           (mode_argc==5 && !pressure_probes && (!finer_grid||!dense))||
+           (mode_argc>=4&&!finer_grid&&!medium_grid&&!dense)||
+           (mode_argc==5 && !pressure_probes && ((!finer_grid&&!medium_grid)||!dense))||
            (mode_argc==6 && !pressure_probes))
             throw std::invalid_argument("Unknown benchmark transport mode");
         if(steps<1||steps>600)
@@ -72,7 +75,7 @@ int main(int argc,char** argv){
         w.set_conservative_throughflow_transport(throughflow);
         w.set_pcg_pressure_projection(pcg_pressure);
         // SPHERIC tank 3.22 x 1 x 1 m. Equal physical 3.20 x 1 x 1 m
-        // represented domains for coarse and doubled-resolution grid.
+        // represented domains at coarse, intermediate and doubled resolution.
         // Initial right-hand water reservoir starts x=1.992 m, z<0.55 m.
         // Product of exact x and z intersections preserves partial cells.
         for(std::size_t k=0;k<nz;++k)
@@ -97,7 +100,7 @@ int main(int argc,char** argv){
         std::cout<<std::setprecision(17);
         std::cout<<"# MARIN_COARSE_3D dx_m="<<dx<<" nx="<<nx<<" ny="<<ny
                  <<" nz="<<nz<<" transport="<<(throughflow?"throughflow":"legacy")
-                 <<" grid="<<(finer_grid?"fine":"coarse")
+                 <<" grid="<<(finer_grid?"fine":medium_grid?"medium":"coarse")
                  <<" sampling="<<(dense?"dense":"sparse")
                  <<" pressure_solver="<<(pcg_pressure?"pcg":"gauss_seidel")
                  <<" initial_volume_m3="<<initial_volume
@@ -147,7 +150,7 @@ int main(int argc,char** argv){
         };
         emit(0);
         for(int i=1;i<=steps;++i) {
-            if(pcg_pressure) w.step_verified(.01,finer_grid?1600:1000,1e-6);
+            if(pcg_pressure) w.step_verified(.01,finer_grid?1600:medium_grid?1400:1000,1e-6);
             else w.step(.01,finer_grid?350:175);
             if(std::abs(w.volume_m3()-initial_volume)>1e-8)
                 throw std::runtime_error("MARIN water mass drift");

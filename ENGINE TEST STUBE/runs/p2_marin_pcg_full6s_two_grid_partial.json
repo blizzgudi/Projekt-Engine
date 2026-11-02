@@ -1,0 +1,301 @@
+{
+  "phase": "P2",
+  "milestone": "full_6s_native_two_spatial_grid_marin_12_channels",
+  "numerical_partial_accepted": true,
+  "physical_full_p2_validated": false,
+  "phase_complete": false,
+  "true_CFD_MARIN_measured_validation": false,
+  "six_second_window_both_grids_completed": true,
+  "three_spatial_grids_completed": false,
+  "pressure_transducer_footprint_calibrated": false,
+  "dynamic_two_way_FSI_validated": false,
+  "original_experimental_zip_sha256": "a2ad06e367f61c70351f3d66a8dc5041b53972e3a3aecebde0e06efdd62bf6d1",
+  "original_measured_csv_sha256": "199232979781aa02a26ad663515c0d8e7fc02640ef648daf92e4c6a4998c84cb",
+  "native_binary_sha256": "e17ffb21534c7b943a5220168965b46d83fe065f4b9bff7661671d5847e6297d",
+  "source_sha256": {
+    "benchmarks/p2_marin_dambreak_heights.cpp": "76fe3d0f7517f4c90dfef60011a2632d669414fa388c3bf6612aa14a4c865b4f",
+    "include/upc/coupled_water3d.hpp": "72cc669f25f6f4fd6b8a58563db7f0eb0f988a284720c303b60cbe1740ecdd73",
+    "include/upc/mac3d.hpp": "75ced18ea1d156ec1f08f3d0ca2020269fbe12bc573defe83d3a25026b8f21e6",
+    "include/upc/p2_marin_wall_pressure_interp3d.hpp": "2f849a5e1af52ff681ddaf3510aa22e28f094b10c075c613b2beaea662ecafaf",
+    "scripts/p2_marin_full6s_two_grid_audit.py": "f4b2bbcd2861de60c9af8b7389678de1bf137e9215a6678c595ab2689ab5b396",
+    "tests/p2_marin_full6s_two_grid_regression.py": "059f01f08862865ee82a712f06e5f6b41e6b5d91589147865564853101b1bc00",
+    "docs/P2_MARIN_FULL6S_TWO_GRID_PARTIAL.md": "e585c7def9523b79ffe8cb8075164e23bbdae184a4c5d3ce7d3edcf29f1466c2"
+  },
+  "checks": {
+    "coarse_6seconds_601_records_12channels": true,
+    "coarse_native_water_mass_conserved": true,
+    "coarse_wet_pcG_divergence_pass": true,
+    "coarse_negative_provenance_mutations": true,
+    "fine_6seconds_601_records_12channels": true,
+    "fine_native_water_mass_conserved": true,
+    "fine_wet_pcG_divergence_pass": true,
+    "fine_negative_provenance_mutations": true
+  },
+  "grids": {
+    "coarse": {
+      "native_trace_sha256": "7971c22d7f02e0b66d61fccb84579cbc926241a9f27664a79125e32a3cc65d03",
+      "3D_shape": [
+        32,
+        10,
+        10
+      ],
+      "dx_m": 0.1,
+      "dt_s": 0.01,
+      "seconds": 6.0,
+      "state_count": 601,
+      "max_volume_drift_m3": 2.1316282072803006e-14,
+      "max_projected_divergence_s_inv": 5.71426414866516e-09,
+      "wet_probe_count_start": 0.0,
+      "wet_probe_count_final": 8.0,
+      "metrics": {
+        "H1_m": {
+          "rmse": 0.13652547494982525,
+          "mae": 0.12494435904712264,
+          "bias": -0.12494435904712264,
+          "n": 600,
+          "units": "m"
+        },
+        "H2_m": {
+          "rmse": 0.0915001638115832,
+          "mae": 0.0748083695594988,
+          "bias": -0.07266234634904555,
+          "n": 600,
+          "units": "m"
+        },
+        "H3_m": {
+          "rmse": 0.1482453038649915,
+          "mae": 0.12594601672982803,
+          "bias": -0.11332452767179757,
+          "n": 600,
+          "units": "m"
+        },
+        "H4_m": {
+          "rmse": 0.2243987520282911,
+          "mae": 0.20649379255430453,
+          "bias": 0.20649095330917497,
+          "n": 600,
+          "units": "m"
+        },
+        "P1_Pa": {
+          "rmse": 3802.8123087911285,
+          "mae": 3341.5871126490474,
+          "bias": 3264.855993393455,
+          "n": 600,
+          "units": "Pa"
+        },
+        "P2_Pa": {
+          "rmse": 4089.0611020368406,
+          "mae": 3619.052925736806,
+          "bias": 3588.6884511123976,
+          "n": 600,
+          "units": "Pa"
+        },
+        "P3_Pa": {
+          "rmse": 3906.480774471364,
+          "mae": 3476.5225296996896,
+          "bias": 3462.8399796574545,
+          "n": 600,
+          "units": "Pa"
+        },
+        "P4_Pa": {
+          "rmse": 3854.1360995358,
+          "mae": 3448.4907141850513,
+          "bias": 3421.2743691198543,
+          "n": 600,
+          "units": "Pa"
+        },
+        "P5_Pa": {
+          "rmse": 3358.143419030467,
+          "mae": 2926.640808350919,
+          "bias": 2926.2829553580614,
+          "n": 600,
+          "units": "Pa"
+        },
+        "P6_Pa": {
+          "rmse": 3327.066040498316,
+          "mae": 2857.5772371376493,
+          "bias": 2856.7027702197706,
+          "n": 600,
+          "units": "Pa"
+        },
+        "P7_Pa": {
+          "rmse": 3251.8372478146016,
+          "mae": 2772.7329857653103,
+          "bias": 2771.629483544912,
+          "n": 600,
+          "units": "Pa"
+        },
+        "P8_Pa": {
+          "rmse": 3337.407918129364,
+          "mae": 2858.493334523794,
+          "bias": 2857.717521808111,
+          "n": 600,
+          "units": "Pa"
+        }
+      },
+      "negative_mutations_rejected": {
+        "unfinished_native_run": true,
+        "forged_FULL_P2_PASS": true,
+        "wrong_pressure_solver": true,
+        "wrong_obstacle_geometry": true,
+        "wrong_p1_to_p8_probe_kind": true,
+        "missing_time": true,
+        "nonfinite_height": true,
+        "nonfinite_pressure": true,
+        "false_volume_drift": true,
+        "pressure_divergence": true,
+        "wet_count_invalid": true,
+        "changed_grid": true
+      }
+    },
+    "fine": {
+      "native_trace_sha256": "ddf52ba5b5baba2025f7cf8d654182fc15ecba9f4a9a450b846d144de6d7ac0b",
+      "3D_shape": [
+        64,
+        20,
+        20
+      ],
+      "dx_m": 0.05,
+      "dt_s": 0.01,
+      "seconds": 6.0,
+      "state_count": 601,
+      "max_volume_drift_m3": 9.470202400052585e-14,
+      "max_projected_divergence_s_inv": 1.4089314714915702e-08,
+      "wet_probe_count_start": 0.0,
+      "wet_probe_count_final": 8.0,
+      "metrics": {
+        "H1_m": {
+          "rmse": 0.09478824764684127,
+          "mae": 0.08363583109827731,
+          "bias": -0.019920426335466635,
+          "n": 600,
+          "units": "m"
+        },
+        "H2_m": {
+          "rmse": 0.10067389166422015,
+          "mae": 0.09098767543685733,
+          "bias": 0.04031176399652785,
+          "n": 600,
+          "units": "m"
+        },
+        "H3_m": {
+          "rmse": 0.11796346921125846,
+          "mae": 0.09690139437977052,
+          "bias": -0.07785887258314592,
+          "n": 600,
+          "units": "m"
+        },
+        "H4_m": {
+          "rmse": 0.13781758848701164,
+          "mae": 0.11153563061493818,
+          "bias": 0.10427497574828744,
+          "n": 600,
+          "units": "m"
+        },
+        "P1_Pa": {
+          "rmse": 5870.291160948873,
+          "mae": 5047.408591592966,
+          "bias": 4969.199422114233,
+          "n": 600,
+          "units": "Pa"
+        },
+        "P2_Pa": {
+          "rmse": 5905.06740103668,
+          "mae": 5073.186968653912,
+          "bias": 5030.930628349802,
+          "n": 600,
+          "units": "Pa"
+        },
+        "P3_Pa": {
+          "rmse": 5800.374161524103,
+          "mae": 4902.87200148353,
+          "bias": 4871.360378481218,
+          "n": 600,
+          "units": "Pa"
+        },
+        "P4_Pa": {
+          "rmse": 5822.757638843366,
+          "mae": 4887.248580965942,
+          "bias": 4838.781521904185,
+          "n": 600,
+          "units": "Pa"
+        },
+        "P5_Pa": {
+          "rmse": 5890.2248148894005,
+          "mae": 5079.529872839407,
+          "bias": 5079.101935522577,
+          "n": 600,
+          "units": "Pa"
+        },
+        "P6_Pa": {
+          "rmse": 5841.595759137142,
+          "mae": 4956.845940823664,
+          "bias": 4954.757120320826,
+          "n": 600,
+          "units": "Pa"
+        },
+        "P7_Pa": {
+          "rmse": 5822.623567516189,
+          "mae": 4941.497540100618,
+          "bias": 4940.109217571666,
+          "n": 600,
+          "units": "Pa"
+        },
+        "P8_Pa": {
+          "rmse": 5914.016484030016,
+          "mae": 5016.765842098374,
+          "bias": 5015.817577260107,
+          "n": 600,
+          "units": "Pa"
+        }
+      },
+      "negative_mutations_rejected": {
+        "unfinished_native_run": true,
+        "forged_FULL_P2_PASS": true,
+        "wrong_pressure_solver": true,
+        "wrong_obstacle_geometry": true,
+        "wrong_p1_to_p8_probe_kind": true,
+        "missing_time": true,
+        "nonfinite_height": true,
+        "nonfinite_pressure": true,
+        "false_volume_drift": true,
+        "pressure_divergence": true,
+        "wet_count_invalid": true,
+        "changed_grid": true
+      }
+    }
+  },
+  "heights_improve_on_refinement": {
+    "H1_m": true,
+    "H2_m": false,
+    "H3_m": true,
+    "H4_m": true
+  },
+  "pressure_rmse_improve_on_refinement": {
+    "P1_Pa": false,
+    "P2_Pa": false,
+    "P3_Pa": false,
+    "P4_Pa": false,
+    "P5_Pa": false,
+    "P6_Pa": false,
+    "P7_Pa": false,
+    "P8_Pa": false
+  },
+  "fine_heights_within_0_05m": {
+    "H1_m": false,
+    "H2_m": false,
+    "H3_m": false,
+    "H4_m": false
+  },
+  "all_fine_heights_physical_pass": false,
+  "all_heights_improve": false,
+  "unmet": [
+    "H1-H4 <=0.05m measured RMSE across experiment",
+    "P1-P8 physically validated true 3D wall pressure/transducer force",
+    ">=3 independent spatial grids with numerical asymptotic convergence",
+    "stress-consistent moving free-water boundary, energy/impulse",
+    "bidirectional dynamic 3D fluid/rigid-body coupling",
+    "full Unreal native E2E for current coupled physics path"
+  ],
+  "generated_utc": "2026-11-02T15:43:48.013300+00:00"
+}

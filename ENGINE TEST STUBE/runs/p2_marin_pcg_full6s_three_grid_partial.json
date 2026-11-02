@@ -1,0 +1,442 @@
+{
+  "phase": "P2",
+  "milestone": "full_six_second_native_spatial_three_grid_vs_real_marin_12_channels",
+  "numerical_partial_accepted": true,
+  "complete_phase": false,
+  "experimental_three_grid_cfd_validated": false,
+  "stress_consistent_water_air_physics_validated": false,
+  "bidirectional_dynamic_3d_FSI_validated": false,
+  "global_energy_momentum_closed": false,
+  "independent_native_spatial_grid_count": 3,
+  "native_simulation_seconds_each_grid": 6.0,
+  "experimental_original_archive_sha256": "a2ad06e367f61c70351f3d66a8dc5041b53972e3a3aecebde0e06efdd62bf6d1",
+  "experimental_original_csv_sha256": "199232979781aa02a26ad663515c0d8e7fc02640ef648daf92e4c6a4998c84cb",
+  "native_binary_sha256": "e17ffb21534c7b943a5220168965b46d83fe065f4b9bff7661671d5847e6297d",
+  "native_ctest_suites": 150,
+  "full_native_ctest_sha256": "f7cdea82e6281c16f79c88b4459464bd6a0afc1da2efebb8c436117fd72644d8",
+  "native_build_log_sha256": "e58361b03434fbb24ffb52f6a2c137f2ec07e3f1902f74561b67983c92ecacdb",
+  "benchmarked_source_sha256": {
+    "benchmarks/p2_marin_dambreak_heights.cpp": "76fe3d0f7517f4c90dfef60011a2632d669414fa388c3bf6612aa14a4c865b4f",
+    "include/upc/coupled_water3d.hpp": "72cc669f25f6f4fd6b8a58563db7f0eb0f988a284720c303b60cbe1740ecdd73",
+    "include/upc/mac3d.hpp": "75ced18ea1d156ec1f08f3d0ca2020269fbe12bc573defe83d3a25026b8f21e6",
+    "include/upc/p2_marin_wall_pressure_interp3d.hpp": "2f849a5e1af52ff681ddaf3510aa22e28f094b10c075c613b2beaea662ecafaf",
+    "scripts/p2_marin_full6s_three_grid_audit.py": "dceeeec45f2d4ac2cb3fee256897f3affcc6ab92d0aba5377760b8a71623a933",
+    "scripts/p2_marin_full6s_two_grid_audit.py": "f4b2bbcd2861de60c9af8b7389678de1bf137e9215a6678c595ab2689ab5b396",
+    "scripts/p2_spheric_marin_compare.py": "b6464b34227729eb2f68bc23360630b733a90af03608d81ffa05df06a4b6c1b3",
+    "tests/p2_marin_full6s_three_grid_regression.py": "fb9d67e611458b44b557512717254415e83e4f8abc5b8cdf3806e305c8ea7ee7",
+    "docs/P2_MARIN_FULL6S_THREE_GRID_PARTIAL.md": "c2c2c1a92e1cbafc975c932e5022de8321d2c04a17a2827ce6e0467de9e2d91e"
+  },
+  "checks": {
+    "native_150_suite_full_ctest_pass": true,
+    "coarse_full_6s_601_real_native_3d_states": true,
+    "coarse_physical_mass_conservation": true,
+    "coarse_real_3d_pressure_projection": true,
+    "coarse_twelve_pressure_height_channels": true,
+    "coarse_twelve_forged_source_cases_rejected": true,
+    "medium_full_6s_601_real_native_3d_states": true,
+    "medium_physical_mass_conservation": true,
+    "medium_real_3d_pressure_projection": true,
+    "medium_twelve_pressure_height_channels": true,
+    "medium_twelve_forged_source_cases_rejected": true,
+    "fine_full_6s_601_real_native_3d_states": true,
+    "fine_physical_mass_conservation": true,
+    "fine_real_3d_pressure_projection": true,
+    "fine_twelve_pressure_height_channels": true,
+    "fine_twelve_forged_source_cases_rejected": true
+  },
+  "grids": {
+    "coarse": {
+      "shape": [
+        32,
+        10,
+        10
+      ],
+      "cell_size_m": 0.1,
+      "native_trace_sha256": "7971c22d7f02e0b66d61fccb84579cbc926241a9f27664a79125e32a3cc65d03",
+      "water_initial_m3": 0.6643999999999998,
+      "water_volume_max_drift_m3": 2.1316282072803006e-14,
+      "max_wet_pressure_divergence_s_inv": 5.71426414866516e-09,
+      "time_step_s": 0.01,
+      "time_states": 601,
+      "t_stop_s": 6.0,
+      "experimental_metrics": {
+        "H1_m": {
+          "rmse": 0.13652547494982525,
+          "mae": 0.12494435904712264,
+          "bias": -0.12494435904712264,
+          "units": "m",
+          "samples": 600
+        },
+        "H2_m": {
+          "rmse": 0.0915001638115832,
+          "mae": 0.0748083695594988,
+          "bias": -0.07266234634904555,
+          "units": "m",
+          "samples": 600
+        },
+        "H3_m": {
+          "rmse": 0.1482453038649915,
+          "mae": 0.12594601672982803,
+          "bias": -0.11332452767179757,
+          "units": "m",
+          "samples": 600
+        },
+        "H4_m": {
+          "rmse": 0.2243987520282911,
+          "mae": 0.20649379255430453,
+          "bias": 0.20649095330917497,
+          "units": "m",
+          "samples": 600
+        },
+        "P1_Pa": {
+          "rmse": 3802.8123087911285,
+          "mae": 3341.5871126490474,
+          "bias": 3264.855993393455,
+          "units": "Pa",
+          "samples": 600
+        },
+        "P2_Pa": {
+          "rmse": 4089.0611020368406,
+          "mae": 3619.052925736806,
+          "bias": 3588.6884511123976,
+          "units": "Pa",
+          "samples": 600
+        },
+        "P3_Pa": {
+          "rmse": 3906.480774471364,
+          "mae": 3476.5225296996896,
+          "bias": 3462.8399796574545,
+          "units": "Pa",
+          "samples": 600
+        },
+        "P4_Pa": {
+          "rmse": 3854.1360995358,
+          "mae": 3448.4907141850513,
+          "bias": 3421.2743691198543,
+          "units": "Pa",
+          "samples": 600
+        },
+        "P5_Pa": {
+          "rmse": 3358.143419030467,
+          "mae": 2926.640808350919,
+          "bias": 2926.2829553580614,
+          "units": "Pa",
+          "samples": 600
+        },
+        "P6_Pa": {
+          "rmse": 3327.066040498316,
+          "mae": 2857.5772371376493,
+          "bias": 2856.7027702197706,
+          "units": "Pa",
+          "samples": 600
+        },
+        "P7_Pa": {
+          "rmse": 3251.8372478146016,
+          "mae": 2772.7329857653103,
+          "bias": 2771.629483544912,
+          "units": "Pa",
+          "samples": 600
+        },
+        "P8_Pa": {
+          "rmse": 3337.407918129364,
+          "mae": 2858.493334523794,
+          "bias": 2857.717521808111,
+          "units": "Pa",
+          "samples": 600
+        }
+      },
+      "negative_source_mutations_rejected": [
+        "unfinished_native_run",
+        "forged_FULL_P2_PASS",
+        "wrong_pressure_solver",
+        "wrong_obstacle_geometry",
+        "wrong_p1_to_p8_probe_kind",
+        "missing_time",
+        "nonfinite_height",
+        "nonfinite_pressure",
+        "false_volume_drift",
+        "pressure_divergence",
+        "wet_count_invalid",
+        "changed_grid"
+      ]
+    },
+    "medium": {
+      "shape": [
+        48,
+        15,
+        15
+      ],
+      "cell_size_m": 0.06666666666666667,
+      "native_trace_sha256": "09fed1683b8183dc7ae55e69be2d761b63cab2f989433929005767d7a58d75bd",
+      "water_initial_m3": 0.6643999999999989,
+      "water_volume_max_drift_m3": 3.47499806707674e-14,
+      "max_wet_pressure_divergence_s_inv": 7.812644073346142e-09,
+      "time_step_s": 0.01,
+      "time_states": 601,
+      "t_stop_s": 6.0,
+      "experimental_metrics": {
+        "H1_m": {
+          "rmse": 0.09121356459993248,
+          "mae": 0.06991323546039944,
+          "bias": -0.06266621483959907,
+          "units": "m",
+          "samples": 600
+        },
+        "H2_m": {
+          "rmse": 0.07698098919500855,
+          "mae": 0.0659737274857443,
+          "bias": 0.0016321994217248976,
+          "units": "m",
+          "samples": 600
+        },
+        "H3_m": {
+          "rmse": 0.12460157323506421,
+          "mae": 0.10567400484342226,
+          "bias": -0.08564201264863304,
+          "units": "m",
+          "samples": 600
+        },
+        "H4_m": {
+          "rmse": 0.14916861184114996,
+          "mae": 0.11980126934375138,
+          "bias": 0.11461204104689891,
+          "units": "m",
+          "samples": 600
+        },
+        "P1_Pa": {
+          "rmse": 4876.416726156747,
+          "mae": 4269.334351370427,
+          "bias": 4236.848821304925,
+          "units": "Pa",
+          "samples": 600
+        },
+        "P2_Pa": {
+          "rmse": 5014.579706847802,
+          "mae": 4395.720209046554,
+          "bias": 4390.335638118723,
+          "units": "Pa",
+          "samples": 600
+        },
+        "P3_Pa": {
+          "rmse": 4852.305885803778,
+          "mae": 4207.598219668438,
+          "bias": 4202.007542053714,
+          "units": "Pa",
+          "samples": 600
+        },
+        "P4_Pa": {
+          "rmse": 4872.713165133966,
+          "mae": 4196.188089424604,
+          "bias": 4171.179944723557,
+          "units": "Pa",
+          "samples": 600
+        },
+        "P5_Pa": {
+          "rmse": 5062.096935707694,
+          "mae": 4505.922096836224,
+          "bias": 4505.542910510034,
+          "units": "Pa",
+          "samples": 600
+        },
+        "P6_Pa": {
+          "rmse": 4984.288983372686,
+          "mae": 4393.710439403133,
+          "bias": 4392.770134215659,
+          "units": "Pa",
+          "samples": 600
+        },
+        "P7_Pa": {
+          "rmse": 4955.66269741483,
+          "mae": 4355.393527017238,
+          "bias": 4354.238039212902,
+          "units": "Pa",
+          "samples": 600
+        },
+        "P8_Pa": {
+          "rmse": 5082.550057514263,
+          "mae": 4453.732022058501,
+          "bias": 4452.902674874301,
+          "units": "Pa",
+          "samples": 600
+        }
+      },
+      "negative_source_mutations_rejected": [
+        "unfinished_native_run",
+        "forged_FULL_P2_PASS",
+        "wrong_pressure_solver",
+        "wrong_obstacle_geometry",
+        "wrong_p1_to_p8_probe_kind",
+        "missing_time",
+        "nonfinite_height",
+        "nonfinite_pressure",
+        "false_volume_drift",
+        "pressure_divergence",
+        "wet_count_invalid",
+        "changed_grid"
+      ]
+    },
+    "fine": {
+      "shape": [
+        64,
+        20,
+        20
+      ],
+      "cell_size_m": 0.05,
+      "native_trace_sha256": "ddf52ba5b5baba2025f7cf8d654182fc15ecba9f4a9a450b846d144de6d7ac0b",
+      "water_initial_m3": 0.6643999999999979,
+      "water_volume_max_drift_m3": 9.470202400052585e-14,
+      "max_wet_pressure_divergence_s_inv": 1.4089314714915702e-08,
+      "time_step_s": 0.01,
+      "time_states": 601,
+      "t_stop_s": 6.0,
+      "experimental_metrics": {
+        "H1_m": {
+          "rmse": 0.09478824764684127,
+          "mae": 0.08363583109827731,
+          "bias": -0.019920426335466635,
+          "units": "m",
+          "samples": 600
+        },
+        "H2_m": {
+          "rmse": 0.10067389166422015,
+          "mae": 0.09098767543685733,
+          "bias": 0.04031176399652785,
+          "units": "m",
+          "samples": 600
+        },
+        "H3_m": {
+          "rmse": 0.11796346921125846,
+          "mae": 0.09690139437977052,
+          "bias": -0.07785887258314592,
+          "units": "m",
+          "samples": 600
+        },
+        "H4_m": {
+          "rmse": 0.13781758848701164,
+          "mae": 0.11153563061493818,
+          "bias": 0.10427497574828744,
+          "units": "m",
+          "samples": 600
+        },
+        "P1_Pa": {
+          "rmse": 5870.291160948873,
+          "mae": 5047.408591592966,
+          "bias": 4969.199422114233,
+          "units": "Pa",
+          "samples": 600
+        },
+        "P2_Pa": {
+          "rmse": 5905.06740103668,
+          "mae": 5073.186968653912,
+          "bias": 5030.930628349802,
+          "units": "Pa",
+          "samples": 600
+        },
+        "P3_Pa": {
+          "rmse": 5800.374161524103,
+          "mae": 4902.87200148353,
+          "bias": 4871.360378481218,
+          "units": "Pa",
+          "samples": 600
+        },
+        "P4_Pa": {
+          "rmse": 5822.757638843366,
+          "mae": 4887.248580965942,
+          "bias": 4838.781521904185,
+          "units": "Pa",
+          "samples": 600
+        },
+        "P5_Pa": {
+          "rmse": 5890.2248148894005,
+          "mae": 5079.529872839407,
+          "bias": 5079.101935522577,
+          "units": "Pa",
+          "samples": 600
+        },
+        "P6_Pa": {
+          "rmse": 5841.595759137142,
+          "mae": 4956.845940823664,
+          "bias": 4954.757120320826,
+          "units": "Pa",
+          "samples": 600
+        },
+        "P7_Pa": {
+          "rmse": 5822.623567516189,
+          "mae": 4941.497540100618,
+          "bias": 4940.109217571666,
+          "units": "Pa",
+          "samples": 600
+        },
+        "P8_Pa": {
+          "rmse": 5914.016484030016,
+          "mae": 5016.765842098374,
+          "bias": 5015.817577260107,
+          "units": "Pa",
+          "samples": 600
+        }
+      },
+      "negative_source_mutations_rejected": [
+        "unfinished_native_run",
+        "forged_FULL_P2_PASS",
+        "wrong_pressure_solver",
+        "wrong_obstacle_geometry",
+        "wrong_p1_to_p8_probe_kind",
+        "missing_time",
+        "nonfinite_height",
+        "nonfinite_pressure",
+        "false_volume_drift",
+        "pressure_divergence",
+        "wet_count_invalid",
+        "changed_grid"
+      ]
+    }
+  },
+  "rmse_refinement_monotonic": {
+    "H1_m": false,
+    "H2_m": false,
+    "H3_m": true,
+    "H4_m": true,
+    "P1_Pa": false,
+    "P2_Pa": false,
+    "P3_Pa": false,
+    "P4_Pa": false,
+    "P5_Pa": false,
+    "P6_Pa": false,
+    "P7_Pa": false,
+    "P8_Pa": false
+  },
+  "all_12_channels_improve_monotonically": false,
+  "full_six_second_height_rmse_target_m": 0.05,
+  "fine_height_rmse_m": {
+    "H1_m": 0.09478824764684127,
+    "H2_m": 0.10067389166422015,
+    "H3_m": 0.11796346921125846,
+    "H4_m": 0.13781758848701164
+  },
+  "fine_height_acceptance": {
+    "H1_m": false,
+    "H2_m": false,
+    "H3_m": false,
+    "H4_m": false
+  },
+  "fine_pressure_rmse_pa": {
+    "P1_Pa": 5870.291160948873,
+    "P2_Pa": 5905.06740103668,
+    "P3_Pa": 5800.374161524103,
+    "P4_Pa": 5822.757638843366,
+    "P5_Pa": 5890.2248148894005,
+    "P6_Pa": 5841.595759137142,
+    "P7_Pa": 5822.623567516189,
+    "P8_Pa": 5914.016484030016
+  },
+  "native_tests_pass_does_not_mean_physics_pass": true,
+  "unmet": [
+    "all four height probes H1-H4 reach predeclared <=0.05m RMSE over 6s",
+    "P1-P8 calibrated resolved wall transducer physics/force and accurate measurement agreement",
+    "three-grid true asymptotic order validation of physical observables",
+    "stress-consistent moving sharp water/air interface and global energy/momentum",
+    "fully dynamic bidirectional rigid/deformable 3D body-fluid FSI",
+    "new full coupled UE5.8 native E2E"
+  ],
+  "generated_utc": "2026-11-02T15:44:45.034508+00:00"
+}

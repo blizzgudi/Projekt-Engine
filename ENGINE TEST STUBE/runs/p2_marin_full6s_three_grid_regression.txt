@@ -1,0 +1,28 @@
+test_all_36_independent_negative_protocol_mutations (__main__.NativeThreeGridExperimentalSixSeconds.test_all_36_independent_negative_protocol_mutations) ... ok
+test_forged_complete_p2_marker_never_accepted (__main__.NativeThreeGridExperimentalSixSeconds.test_forged_complete_p2_marker_never_accepted) ... ok
+test_full_601_independent_realtime_samples_per_grid (__main__.NativeThreeGridExperimentalSixSeconds.test_full_601_independent_realtime_samples_per_grid) ... ok
+test_grid_switch_forbidden (__main__.NativeThreeGridExperimentalSixSeconds.test_grid_switch_forbidden) ... ok
+test_native_independent_3d_shape_and_spacing (__main__.NativeThreeGridExperimentalSixSeconds.test_native_independent_3d_shape_and_spacing) ... ok
+test_native_real_fluid_incompressibility_every_grid (__main__.NativeThreeGridExperimentalSixSeconds.test_native_real_fluid_incompressibility_every_grid) ... ok
+test_native_real_fluid_volume_conservation_every_grid (__main__.NativeThreeGridExperimentalSixSeconds.test_native_real_fluid_volume_conservation_every_grid) ... ok
+test_physical_cfd_not_approved_by_numerical_integrity (__main__.NativeThreeGridExperimentalSixSeconds.test_physical_cfd_not_approved_by_numerical_integrity) ... ok
+test_real_unmodified_12_channel_measurement_metadata (__main__.NativeThreeGridExperimentalSixSeconds.test_real_unmodified_12_channel_measurement_metadata) ... ok
+test_single_missing_experimental_timestep_rejected (__main__.NativeThreeGridExperimentalSixSeconds.test_single_missing_experimental_timestep_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.267s
+
+OK
+P2_MARIN_NATIVE_THREE_GRID_6S=True INDEPENDENT_12_CHANNEL_LAB_VALIDATION=False PHASE_COMPLETE=False
+H1_m RMSE coarse=0.13652547 medium=0.091213565 fine=0.094788248 units m monotone False
+H2_m RMSE coarse=0.091500164 medium=0.076980989 fine=0.10067389 units m monotone False
+H3_m RMSE coarse=0.1482453 medium=0.12460157 fine=0.11796347 units m monotone True
+H4_m RMSE coarse=0.22439875 medium=0.14916861 fine=0.13781759 units m monotone True
+P1_Pa RMSE coarse=3802.8123 medium=4876.4167 fine=5870.2912 units Pa monotone False
+P2_Pa RMSE coarse=4089.0611 medium=5014.5797 fine=5905.0674 units Pa monotone False
+P3_Pa RMSE coarse=3906.4808 medium=4852.3059 fine=5800.3742 units Pa monotone False
+P4_Pa RMSE coarse=3854.1361 medium=4872.7132 fine=5822.7576 units Pa monotone False
+P5_Pa RMSE coarse=3358.1434 medium=5062.0969 fine=5890.2248 units Pa monotone False
+P6_Pa RMSE coarse=3327.066 medium=4984.289 fine=5841.5958 units Pa monotone False
+P7_Pa RMSE coarse=3251.8372 medium=4955.6627 fine=5822.6236 units Pa monotone False
+P8_Pa RMSE coarse=3337.4079 medium=5082.5501 fine=5914.0165 units Pa monotone False
