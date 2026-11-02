@@ -114,3 +114,42 @@ Praefix `dense_max_error=` durch `dense_max_error=9`; dadurch entstand
 unabhaengige Parser wies diesen zu schwachen Negativtest zu Recht als
 QA-Fehler aus. Die Probe ersetzt jetzt den ganzen Messwert durch `9`.
 Der urspruengliche QA-Fehllauf bleibt dokumentiert und ist kein PASS.
+
+
+## Erweiterung: implizite tangentiale Scherung innerhalb beider Phasen (02.11.2026)
+
+Der globale SPD/PCG-Operator besitzt nun den optionalen Schalter
+include_bulk_tangential_shear=true. Er koppelt neben Wasser/Luft-Faces
+auch benachbarte Zellen derselben Phase durch den lokalen harmonischen
+viskosen Widerstand. Der Default false bleibt exakt der bisherige
+reine Grenzflaechenoperator. Marangoni-Quellterme werden ausschliesslich
+an echten Wasser/Luft-Faces verteilt. Die Energiebilanz trennt die
+innerphasige Dissipation (bulk_viscous_dissipation_j) vom gesamten
+viskosen Verlust; Impuls und Rueckwaerts-Euler-Dissipation bleiben bilanziert.
+
+Echter nativer MSVC-Release-Nachweis: heterogenes 3x3x3-Gitter mit
+9 Wasser/Luft-Faces und 45 innerphasigen Nachbar-Faces; unabhaengige
+27x27-Dichtmatrixloesung fuer alle drei Geschwindigkeitskomponenten,
+mit unabhaengiger Python-Neuberechnung an drei Zellen. Maximaler
+native Dense/PCG-Fehler 1.1359871376903641e-12 m/s;
+innerphasige Dissipation 3.5936867260319951e-05 J;
+Impulsrest 2.2659933825164291e-13 N s;
+Energierest -2.162241703823701e-14 J.
+632 native Assertions und 134/134 CTest-Suites PASS.
+Zusatzfaelle: reines Wasser ohne Grenzflaechen, Opt-in/Default-Vergleich,
+ungueltige lokale Dichte mit transaktionaler Ablehnung.
+Die unabhaengige Python-QA verwirft veraenderte Native-Traces,
+prueft die historischen negativen MARIN-6s-Messwerte und hinterlegt
+Source-/Binary-/Build-/CTest-/Native-/Phase-Gate-SHA256 im Teilreport
+ENGINE TEST STUBE/runs/p2_two_phase_global_shear_partial.json.
+
+Negativ: Der erste Native-Lauf entdeckte einen echten Zaehlfehler:
+interface_faces zaehlte faelschlich alle Kanten einschliesslich
+innerphasiger Kanten. Die CTest-Abnahme wurde nicht gestartet;
+der Fehler wurde korrigiert und anschliessend nativ neu getestet.
+Weiterhin **keine** volle viskose Spannungstensor-Diskretisierung
+(keine Normalspannung / Kreuzableitungen), kein dynamisches MAC/VOF
+Wasser-Luft-Interface, keine gekoppelte Druckprojektion und keine
+vollstaendige FSI-Impuls-/Energiebilanz. Die unabhaengige reale
+MARIN/SPHERIC-6s-Messvalidierung bleibt negativ.
+**P2 FULL = OFFEN.**

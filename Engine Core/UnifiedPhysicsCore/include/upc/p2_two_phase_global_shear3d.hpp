@@ -20,6 +20,7 @@ struct P2GlobalShearCellProperties3D {
 };
 struct P2GlobalShearLedger3D {
     std::size_t interface_faces=0;
+    std::size_t bulk_faces=0; // optional same-phase tangential shear faces
     std::array<std::size_t,3> axis_faces{};
     std::array<int,3> pcg_iterations{};
     std::array<double,3> pcg_residual_kg_m_s{};
@@ -27,11 +28,13 @@ struct P2GlobalShearLedger3D {
     P2ShearVec3 momentum_before_kg_m_s{},momentum_after_kg_m_s{};
     P2ShearVec3 surface_impulse_n_s{},momentum_residual_n_s{};
     double kinetic_before_j=0,kinetic_after_j=0,surface_work_j=0;
-    double viscous_dissipation_j=0,implicit_dissipation_j=0,energy_residual_j=0;
+    double viscous_dissipation_j=0,bulk_viscous_dissipation_j=0;
+    double implicit_dissipation_j=0,energy_residual_j=0;
 };
 inline P2GlobalShearLedger3D p2_two_phase_global_shear_step3d(
     P2TwoPhaseGridShear3D& grid,
-    const P2GlobalShearCellProperties3D& properties={}) {
+    const P2GlobalShearCellProperties3D& properties={},
+    bool include_bulk_tangential_shear=false) {
     if(grid.nx<2||grid.ny<2||grid.nz<2||
        grid.nx>128||grid.ny>128||grid.nz>128)
         throw std::invalid_argument("Invalid global shear grid dimensions");
@@ -52,7 +55,7 @@ inline P2GlobalShearLedger3D p2_two_phase_global_shear_step3d(
         throw std::invalid_argument("Nonuniform global shear property size mismatch");
     if(!(std::isfinite(vol)&&vol>0&&std::isfinite(area)&&area>0))
         throw std::invalid_argument("Unresolved global shear cell volume/area");
-    struct Edge {std::size_t water,air;int axis;double b,water_source,air_source;};
+    struct Edge {std::size_t water,air;int axis;double b,water_source,air_source;bool interface;};
     std::vector<Edge> edges;
     std::vector<double> mass(n),viscosity(n);
     P2GlobalShearLedger3D out;
@@ -86,8 +89,9 @@ inline P2GlobalShearLedger3D p2_two_phase_global_shear_step3d(
             const int xx=x+(axis==0),yy=y+(axis==1),zz=z+(axis==2);
             if(xx>=grid.nx||yy>=grid.ny||zz>=grid.nz)continue;
             const auto j=index(xx,yy,zz);
-            if(grid.phase[i]==grid.phase[j])continue;
-            if(std::abs(grid.marangoni_gradient_pa[axis])>
+            const bool cross=grid.phase[i]!=grid.phase[j];
+            if(!cross&&!include_bulk_tangential_shear)continue;
+            if(cross&&std::abs(grid.marangoni_gradient_pa[axis])>
                1e-10*std::max(1.0,std::sqrt(p2_shear_dot(
                    grid.marangoni_gradient_pa,grid.marangoni_gradient_pa))))
                 throw std::invalid_argument("Marangoni source normal to an interface");
@@ -99,11 +103,12 @@ inline P2GlobalShearLedger3D p2_two_phase_global_shear_step3d(
             if(!(std::isfinite(rw)&&std::isfinite(ra)&&
                  std::isfinite(b)&&b>0&&std::isfinite(resistance)&&resistance>0))
                 throw std::invalid_argument("Unresolved local interface resistance");
-            edges.push_back({wi,ai,axis,b,ra/resistance,rw/resistance});
-            ++out.axis_faces[axis];
+            edges.push_back({wi,ai,axis,b,cross?ra/resistance:0.0,
+                             cross?rw/resistance:0.0,cross});
+            if(cross)++out.axis_faces[axis];else ++out.bulk_faces;
         }
     }
-    out.interface_faces=edges.size();
+    out.interface_faces=out.axis_faces[0]+out.axis_faces[1]+out.axis_faces[2];
     auto next=grid.velocity_m_s; // transactional until ALL 3 PCG solves succeed
     for(int k=0;k<3;++k) {
         std::vector<double> rhs(n),diag=mass,x(n),r(n),z(n),p(n),ap(n);
@@ -114,9 +119,11 @@ inline P2GlobalShearLedger3D p2_two_phase_global_shear_step3d(
         for(const auto& e:edges) {
             if(e.axis==k)continue; // only tangential traction
             diag[e.water]+=e.b;diag[e.air]+=e.b;
-            const double source=grid.dt_s*area*grid.marangoni_gradient_pa[k];
-            rhs[e.water]+=source*e.water_source;
-            rhs[e.air]+=source*e.air_source;
+            if(e.interface) {
+                const double source=grid.dt_s*area*grid.marangoni_gradient_pa[k];
+                rhs[e.water]+=source*e.water_source;
+                rhs[e.air]+=source*e.air_source;
+            }
         }
         auto apply=[&](const std::vector<double>& v,std::vector<double>& av){
             for(std::size_t i=0;i<n;++i)av[i]=mass[i]*v[i];
@@ -179,9 +186,12 @@ inline P2GlobalShearLedger3D p2_two_phase_global_shear_step3d(
         if(e.axis==k)continue;
         const double d=next[e.air][k]-next[e.water][k];
         out.viscous_dissipation_j+=e.b*d*d;
-        out.surface_impulse_n_s[k]+=grid.dt_s*area*grid.marangoni_gradient_pa[k];
-        out.surface_work_j+=grid.dt_s*area*grid.marangoni_gradient_pa[k]*
-            (e.water_source*next[e.water][k]+e.air_source*next[e.air][k]);
+        if(!e.interface)out.bulk_viscous_dissipation_j+=e.b*d*d;
+        if(e.interface) {
+            out.surface_impulse_n_s[k]+=grid.dt_s*area*grid.marangoni_gradient_pa[k];
+            out.surface_work_j+=grid.dt_s*area*grid.marangoni_gradient_pa[k]*
+                (e.water_source*next[e.water][k]+e.air_source*next[e.air][k]);
+        }
     }
     for(int k=0;k<3;++k)
         out.momentum_residual_n_s[k]=out.momentum_after_kg_m_s[k]-
@@ -189,7 +199,8 @@ inline P2GlobalShearLedger3D p2_two_phase_global_shear_step3d(
     out.energy_residual_j=out.kinetic_after_j-out.kinetic_before_j-
         out.surface_work_j+out.viscous_dissipation_j+out.implicit_dissipation_j;
     const double scalars[]={out.kinetic_before_j,out.kinetic_after_j,
-        out.viscous_dissipation_j,out.implicit_dissipation_j,
+        out.viscous_dissipation_j,out.bulk_viscous_dissipation_j,
+        out.implicit_dissipation_j,
         out.surface_work_j,out.energy_residual_j};
     for(double v:scalars)if(!std::isfinite(v))
         throw std::invalid_argument("Nonfinite global shear energy");

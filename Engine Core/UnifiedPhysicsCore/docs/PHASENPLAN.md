@@ -2319,3 +2319,22 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
   dynamischem MAC/VOF, keine volle stresskonsistente Zweiphasen-Physik,
   keine neue >=6s-MARIN-Dreigitter-Messabnahme, keine globale
   bidirektionale FSI-/Energiebilanz oder UE5.8-Native-E2E.
+
+
+## P2 Teilfortschritt: innerphasige globale tangentiale 3D-Scherung (02.11.2026)
+
+- Optionales include_bulk_tangential_shear=true in
+  p2_two_phase_global_shear_step3d: harmonische lokale
+  Scherviskositaet innerhalb von Wasser und Luft, gleichzeitig mit
+  den Wasser/Luft-Grenzflaechen in einem globalen SPD/PCG-System.
+- Opt-in statt Aenderung des Default-Verhaltens; Marangoni-Antrieb
+  nur an echten Grenzflaechen; separate Bulk-Dissipationsbilanz.
+- MSVC Release 134/134 CTest, 632 native Assertions, 27x27
+  unabhaengige Dense-/Python-Referenz mit 9 Grenzflaechen und
+  45 innerphasigen Nachbar-Faces. Siehe
+  docs/P2_TWO_PHASE_GLOBAL_SHEAR_PARTIAL.md und
+  ENGINE TEST STUBE/runs/p2_two_phase_global_shear_partial.json.
+- **P2 PARTIAL**: keine volle symmetrische 3D-Spannung, keine
+  bewegte MAC/VOF-Wasser-Luft-Grenze, keine gekoppelte
+  Druckprojektion, keine vollstaendige dynamische FSI oder
+  H1-H4/P1-P8-MARIN-6s-Dreigitter-Messabnahme.

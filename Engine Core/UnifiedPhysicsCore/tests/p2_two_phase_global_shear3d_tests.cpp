@@ -246,6 +246,119 @@ void heterogeneous_dense_reference() {
              <<" energy_residual="<<l.energy_residual_j<<"\n";
 }
 
+
+void bulk_tangential_dense_reference() {
+    // Three-dimensional stratified water/air field with 9 interfacial
+    // and 45 same-phase neighbor faces. Independent dense FV matrix.
+    P2TwoPhaseGridShear3D g;
+    g.nx=3;g.ny=3;g.nz=3;g.dx_m=.08;g.dt_s=.03;
+    g.water_density_kg_m3=1000;g.air_density_kg_m3=1.2;
+    g.water_viscosity_pa_s=1.3;g.air_viscosity_pa_s=.18;
+    g.marangoni_gradient_pa={0,.4,0};
+    P2GlobalShearCellProperties3D prop;
+    for(int z=0;z<3;++z)for(int y=0;y<3;++y)for(int x=0;x<3;++x) {
+        const bool wet=x<2;
+        g.phase.push_back(wet?1:0);
+        g.velocity_m_s.push_back({.07*x+.03*y,-.11*y+.04*z,.09*z-.02*x});
+        prop.density_kg_m3.push_back(wet?880+7*x+3*y+z:1+.1*y+.02*z);
+        prop.dynamic_viscosity_pa_s.push_back(
+            wet?.4+.03*x+.01*y+.005*z:.05+.005*y+.002*z);
+    }
+    const auto original=g;
+    const auto l=p2_two_phase_global_shear_step3d(g,prop,true);
+    check(l.interface_faces==9&&l.bulk_faces==45&&
+          l.axis_faces[0]==9&&l.axis_faces[1]==0&&l.axis_faces[2]==0,
+          "Bulk and interfacial 3D topology");
+    near(l.surface_impulse_n_s[1],9*.03*.08*.08*.4,1e-14,
+         "Marangoni source counted only at interface");
+    near(l.surface_impulse_n_s[0],0,1e-14,"Normal surface impulse");
+    check(l.bulk_viscous_dissipation_j>0&&
+          l.bulk_viscous_dissipation_j<l.viscous_dissipation_j,
+          "Bulk dissipation not included in total ledger");
+    for(double v:l.momentum_residual_n_s)near(v,0,2e-12,"Bulk momentum");
+    near(l.energy_residual_j,0,2e-12,"Bulk energy");
+    const double vol=std::pow(g.dx_m,3),area=std::pow(g.dx_m,2);
+    double max_error=0;
+    for(int k=0;k<3;++k) {
+        std::vector<std::vector<double>> a(27,std::vector<double>(27,0));
+        std::vector<double> rhs(27);
+        for(int i=0;i<27;++i) {
+            const double mass=prop.density_kg_m3[i]*vol;
+            a[i][i]=mass;rhs[i]=mass*original.velocity_m_s[i][k];
+        }
+        for(int z=0;z<3;++z)for(int y=0;y<3;++y)for(int x=0;x<3;++x) {
+            const int i=(z*3+y)*3+x;
+            for(int axis=0;axis<3;++axis) {
+                if(axis==k)continue;
+                const int xx=x+(axis==0),yy=y+(axis==1),zz=z+(axis==2);
+                if(xx>=3||yy>=3||zz>=3)continue;
+                const int j=(zz*3+yy)*3+xx;
+                const double ri=.5*g.dx_m/prop.dynamic_viscosity_pa_s[i];
+                const double rj=.5*g.dx_m/prop.dynamic_viscosity_pa_s[j];
+                const double b=g.dt_s*area/(ri+rj);
+                a[i][i]+=b;a[j][j]+=b;
+                a[i][j]-=b;a[j][i]-=b;
+                if(original.phase[i]!=original.phase[j]) {
+                    const int wi=original.phase[i]?i:j;
+                    const int ai=original.phase[i]?j:i;
+                    const double rw=.5*g.dx_m/prop.dynamic_viscosity_pa_s[wi];
+                    const double ra=.5*g.dx_m/prop.dynamic_viscosity_pa_s[ai];
+                    const double source=g.dt_s*area*g.marangoni_gradient_pa[k];
+                    rhs[wi]+=source*ra/(rw+ra);
+                    rhs[ai]+=source*rw/(rw+ra);
+                }
+            }
+        }
+        const auto expected=dense_solve(a,rhs);
+        for(int i=0;i<27;++i) {
+            max_error=std::max(max_error,
+                               std::abs(g.velocity_m_s[i][k]-expected[i]));
+            near(g.velocity_m_s[i][k],expected[i],2e-12,
+                 "Bulk 27x27 independent dense reference");
+        }
+        check(l.pcg_residual_kg_m_s[k]<1e-11,
+              "Bulk independent final PCG residual");
+    }
+    // Default path remains interface-only and changes no same-phase face.
+    auto old=original;
+    const auto lo=p2_two_phase_global_shear_step3d(old,prop);
+    check(lo.bulk_faces==0&&lo.interface_faces==9,
+          "Opt-in bulk path changed default topology");
+    check(std::abs(old.velocity_m_s[0][0]-g.velocity_m_s[0][0])>1e-6,
+          "Bulk opt-in did not change tangential intra-phase motion");
+    // With no interface, bulk diffusion still conserves physical momentum.
+    auto one=original;
+    std::fill(one.phase.begin(),one.phase.end(),1);
+    one.marangoni_gradient_pa={0,0,0};
+    const auto before=one.velocity_m_s;
+    const auto lone=p2_two_phase_global_shear_step3d(one,prop,true);
+    check(lone.interface_faces==0&&lone.bulk_faces==54&&
+          one.velocity_m_s!=before,"Single-phase bulk diffusion missing");
+    for(double v:lone.momentum_residual_n_s)
+        near(v,0,2e-12,"Single-phase bulk momentum");
+    near(lone.energy_residual_j,0,2e-12,"Single-phase bulk energy");
+    // Transactional validation.
+    auto bad=original;
+    auto invalid=prop;
+    invalid.density_kg_m3[4]=-1;
+    rejects([&]{p2_two_phase_global_shear_step3d(bad,invalid,true);});
+    check(bad.velocity_m_s==original.velocity_m_s,
+          "Invalid bulk density mutated state");
+    double max_momentum=0;
+    for(double v:l.momentum_residual_n_s)
+        max_momentum=std::max(max_momentum,std::abs(v));
+    std::cout<<std::setprecision(17)
+             <<"BULK_3D interfaces="<<l.interface_faces
+             <<" bulk="<<l.bulk_faces
+             <<" dense_max_error="<<max_error
+             <<" v0="<<g.velocity_m_s[0][0]<<","<<g.velocity_m_s[0][1]<<","<<g.velocity_m_s[0][2]
+             <<" v13="<<g.velocity_m_s[13][0]<<","<<g.velocity_m_s[13][1]<<","<<g.velocity_m_s[13][2]
+             <<" v26="<<g.velocity_m_s[26][0]<<","<<g.velocity_m_s[26][1]<<","<<g.velocity_m_s[26][2]
+             <<" bulk_dissipation="<<l.bulk_viscous_dissipation_j
+             <<" momentum_residual="<<max_momentum
+             <<" energy_residual="<<l.energy_residual_j<<"\n";
+}
+
 void no_interface_and_invalid() {
     auto g=planar();
     std::fill(g.phase.begin(),g.phase.end(),1);
@@ -273,7 +386,7 @@ void no_interface_and_invalid() {
 int main() {
     try {
         planar_reference();three_dimensional_reference();surface_source();
-        heterogeneous_dense_reference();
+        heterogeneous_dense_reference();bulk_tangential_dense_reference();
         no_interface_and_invalid();
         std::cout<<"PASS: GLOBAL_TWO_PHASE_SHEAR assertions="<<assertions<<"\n";
         return 0;

@@ -1,9 +1,51 @@
 {
   "phase": "P2",
-  "milestone": "global_spd_3d_water_air_shear_partial",
+  "milestone": "global_spd_3d_water_air_shear_with_bulk_tangential_diffusion_partial",
   "partial_accepted": true,
   "phase_complete": false,
   "independent_qa": {
+    "bulk_3d_dense_samples": {
+      "0": {
+        "native": [
+          6.457525994995194e-05,
+          8.593805381745906e-05,
+          -4.397718598783914e-05
+        ],
+        "independent_dense": [
+          6.457525996774946e-05,
+          8.593805377928778e-05,
+          -4.397718598060852e-05
+        ]
+      },
+      "13": {
+        "native": [
+          0.10000156491062585,
+          -0.06984436213663794,
+          0.07003751524935536
+        ],
+        "independent_dense": [
+          0.10000156491065358,
+          -0.06984436213667884,
+          0.07003751524936612
+        ]
+      },
+      "26": {
+        "native": [
+          0.19444282860739848,
+          -0.13531320909252384,
+          0.1459797760205359
+        ],
+        "independent_dense": [
+          0.1944428286067244,
+          -0.13531320909246866,
+          0.14597977602046192
+        ]
+      }
+    },
+    "bulk_dense_max_error": 1.135987137690364e-12,
+    "bulk_viscous_dissipation_j": 3.593686726031995e-05,
+    "bulk_momentum_residual_n_s": 2.265993382516429e-13,
+    "bulk_energy_residual_j": -2.162241703823701e-14,
     "heterogeneous_3d_dense_samples": {
       "0": {
         "native": [
@@ -44,7 +86,7 @@
     },
     "heterogeneous_dense_max_error": 6.138839436786725e-14,
     "heterogeneous_energy_residual_j": -5.673320801590897e-18,
-    "native_assertions": 450,
+    "native_assertions": 632,
     "planar_interfaces": 16,
     "three_dimensional_interfaces": 54,
     "axis_faces": [
@@ -97,11 +139,12 @@
     "pcg_max_residual_kg_m_s": 5.59433123243951e-17
   },
   "ctest_passed": 134,
-  "forged_native_traces_rejected": 9,
+  "forged_native_traces_rejected": 12,
   "historical_marin_6s_height_validation": "FAIL",
   "historical_marin_sha256": "192e198e4e72fbca285c8eeb7b513f74ecdb4432b7705d837f71b8b0f91f2f08",
   "limitations": [
     "Fixed sharp cell-centered interface, not dynamic MAC/VOF/PLIC",
+    "Opt-in same-phase tangential shear only, not full symmetric viscous stress tensor",
     "No fully coupled two-phase normal stress, capillarity or pressure projection",
     "No new >=6s H1-H4/P1-P8 three-grid measured convergence",
     "No dynamic two-way fluid-solid momentum/energy acceptance",
@@ -109,20 +152,20 @@
   ],
   "source_sha256": {
     "CMakeLists.txt": "5c215141089889d16f099ace42b03531f3f2240bae3ff6f8b3df47a34c64a4c8",
-    "include/upc/p2_two_phase_global_shear3d.hpp": "75528110fa17363692191ca8c36928dcd319cb7b9f03515e338051d2b9bef6d8",
+    "include/upc/p2_two_phase_global_shear3d.hpp": "c1846944b74ddbc6be1957b1fd0265ba077853fae6978299da8951c809a4cecb",
     "include/upc/p2_two_phase_grid_shear3d.hpp": "609228bc2ec3791e49fab67e678c4566c64bbdc3a99028c1474fe76e28765fac",
     "include/upc/p2_two_phase_shear_exchange3d.hpp": "45cb4cca8af370aa4563b73bde1796da8240fe4fd7e54896eb3a293afa8e650c",
-    "tests/p2_two_phase_global_shear3d_tests.cpp": "8b222dc70300f07958c935695b99e539dc54a890fa924a56995bf23a686457c1",
+    "tests/p2_two_phase_global_shear3d_tests.cpp": "9e8c89aa7bc33216787e9644ace24536acf68b6969e3aed507e2c8e04915d0a1",
     "scripts/p2_two_phase_global_shear_build.cmd": "723deac9ce006ab93e64195c4e4aeeee0e8c046c94706ae14fd54517b3c2b46f",
-    "scripts/p2_two_phase_global_shear_acceptance.py": "06af2d29eb4e0a505c5d66cb5ab424a90b2844e9159534aa91335187abadd604",
+    "scripts/p2_two_phase_global_shear_acceptance.py": "d9fecd1a526d4722bd7bd6116b8eefe1b1e0f699f4fd876e27b823be7be0421d",
     "scripts/phase_gate.py": "01065438e2b72b3fe83e7e3ba3decbf54925c84c5f9424b15ad15a8197f59cd6",
-    "docs/P2_TWO_PHASE_GLOBAL_SHEAR_PARTIAL.md": "db638ebb13f40549316963b624e63dde1b646c260dd67034589532c2b2f197d3",
-    "docs/PHASENPLAN.md": "997263b27a686ff304cf2282a8189fd46dceb88b199be43a622df8e27a5420a9"
+    "docs/P2_TWO_PHASE_GLOBAL_SHEAR_PARTIAL.md": "12a0b9e9d3ae71ae3e085fcdfba981f3fd92b81b31eabf42b9c74da08f8ef4bd",
+    "docs/PHASENPLAN.md": "ba18b6f8eccf09e66d9db636ad7d3b37f31a96433fb0a5de4dd8998adab15476"
   },
-  "binary_sha256": "5903c5f1b43de035bd1c283b540f4cd7917e7b49bc20e682b50f13fb93dcd835",
+  "binary_sha256": "b03e80d7271772fb56852c71e14036abff4cbd6277884b2b56a20dfd4dfa4d6a",
   "build_log_sha256": "f038683911dda41d3aaf49bbb7f7e471624716a7536bba620e103b4d95221301",
-  "native_log_sha256": "92a40a9bc2baf633146648a3a190f47cb27bc1efd8ce0f837d5943b9e7717eb5",
-  "ctest_log_sha256": "78532532b37674fc3e40612d45a851c3a741ce05d1988b808a9d199d762174d6",
+  "native_log_sha256": "41c9e450068b3b1d92a8dff0063bac09bdee4a85566bd13aa0cc1a50a86088fd",
+  "ctest_log_sha256": "1bf4a890c4785450c1c994296a16580150db5f4576b9c16338b05fef761f0b7f",
   "phase_gate_log_sha256": "81c1aeb5f80e7e0c8ab439c351b9eab256694a788538ae1ad32d0f2082f8cccf",
-  "generated_utc": "2026-11-02T03:20:02.991640+00:00"
+  "generated_utc": "2026-11-02T03:41:46.338110+00:00"
 }

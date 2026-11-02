@@ -34,6 +34,7 @@ SOURCES=[
 P=re.compile(r"GLOBAL_PLANAR faces=(\d+) slip=([0-9.eE+-]+) water_y=([0-9.eE+-]+) air_y=([0-9.eE+-]+) energy_residual=([0-9.eE+-]+)")
 G=re.compile(r"GLOBAL_3D faces=(\d+) axes=(\d+),(\d+),(\d+) v0=([0-9.eE+,-]+) v13=([0-9.eE+,-]+) v26=([0-9.eE+,-]+) momentum_residual=([0-9.eE+-]+) energy_residual=([0-9.eE+-]+) pcg_max=([0-9.eE+-]+)")
 H=re.compile(r"HETEROGENEOUS_3D faces=(\d+) dense_max_error=([0-9.eE+-]+) v0=([0-9.eE+,-]+) v13=([0-9.eE+,-]+) v26=([0-9.eE+,-]+) energy_residual=([0-9.eE+-]+)")
+B=re.compile(r"BULK_3D interfaces=(\d+) bulk=(\d+) dense_max_error=([0-9.eE+-]+) v0=([0-9.eE+,-]+) v13=([0-9.eE+,-]+) v26=([0-9.eE+,-]+) bulk_dissipation=([0-9.eE+-]+) momentum_residual=([0-9.eE+-]+) energy_residual=([0-9.eE+-]+)")
 PASS=re.compile(r"PASS: GLOBAL_TWO_PHASE_SHEAR assertions=(\d+)")
 
 def sha(path:Path)->str:
@@ -163,15 +164,78 @@ def dense_heterogeneous()->list[list[float]]:
             result[i][k]=sol[i]
     return result
 
+
+def dense_bulk_stratified()->list[list[float]]:
+    """Independent variable-property 27x27 FV matrix, including same-phase shear."""
+    dx=.08
+    dt=.03
+    vol=dx**3
+    area=dx**2
+    phases=[]
+    density=[]
+    viscosity=[]
+    velocity=[]
+    for z in range(3):
+        for y in range(3):
+            for x in range(3):
+                wet=x<2
+                phases.append(wet)
+                density.append(880+7*x+3*y+z if wet else 1+.1*y+.02*z)
+                viscosity.append(.4+.03*x+.01*y+.005*z if wet
+                                 else .05+.005*y+.002*z)
+                velocity.append((.07*x+.03*y,-.11*y+.04*z,.09*z-.02*x))
+    result=[[0.0]*3 for _ in range(27)]
+    source=(0,.4,0)
+    for k in range(3):
+        matrix=[[0.0]*27 for _ in range(27)]
+        rhs=[0.0]*27
+        for i in range(27):
+            mass=density[i]*vol
+            matrix[i][i]=mass
+            rhs[i]=mass*velocity[i][k]
+        for z in range(3):
+            for y in range(3):
+                for x in range(3):
+                    i=(z*3+y)*3+x
+                    for axis in range(3):
+                        if axis==k:
+                            continue
+                        xx=x+(axis==0)
+                        yy=y+(axis==1)
+                        zz=z+(axis==2)
+                        if xx>=3 or yy>=3 or zz>=3:
+                            continue
+                        j=(zz*3+yy)*3+xx
+                        ri=dx/(2*viscosity[i])
+                        rj=dx/(2*viscosity[j])
+                        coupling=dt*area/(ri+rj)
+                        matrix[i][i]+=coupling
+                        matrix[j][j]+=coupling
+                        matrix[i][j]-=coupling
+                        matrix[j][i]-=coupling
+                        if phases[i]!=phases[j]:
+                            wi=i if phases[i] else j
+                            ai=j if phases[i] else i
+                            rw=dx/(2*viscosity[wi])
+                            ra=dx/(2*viscosity[ai])
+                            impulse=dt*area*source[k]
+                            rhs[wi]+=impulse*ra/(rw+ra)
+                            rhs[ai]+=impulse*rw/(rw+ra)
+        solved=solve_dense(matrix,rhs)
+        for i in range(27):
+            result[i][k]=solved[i]
+    return result
+
 def parse(native:str)->dict:
     lines=native.strip().splitlines()
-    if len(lines)!=4:
-        raise ValueError("Expected planar, 3D, heterogeneous and native PASS")
+    if len(lines)!=5:
+        raise ValueError("Expected planar, 3D, heterogeneous, bulk and native PASS")
     p=P.fullmatch(lines[0])
     g=G.fullmatch(lines[1])
     h=H.fullmatch(lines[2])
-    end=PASS.fullmatch(lines[3])
-    if not p or not g or not h or not end or int(end[1])<450:
+    bulk=B.fullmatch(lines[3])
+    end=PASS.fullmatch(lines[4])
+    if not p or not g or not h or not bulk or not end or int(end[1])<632:
         raise ValueError("Missing native references or negative assertions")
     if int(p[1])!=16 or (int(g[1]),int(g[2]),int(g[3]),int(g[4]))!=(54,18,18,18):
         raise ValueError("Wrong planar or three-axis interface count")
@@ -212,7 +276,30 @@ def parse(native:str)->dict:
                   f"Independent heterogeneous 3D cell {idx} axis {k}")
         heterogeneous_samples[str(idx)]={
             "native":measured,"independent_dense":href[idx]}
+    if int(bulk[1])!=9 or int(bulk[2])!=45:
+        raise ValueError("Bulk/interface 3D topology mismatch")
+    if not 0<=float(bulk[3])<2e-12:
+        raise ValueError("Bulk native dense residual too high")
+    if not 0<float(bulk[7])<1:
+        raise ValueError("Bulk shear dissipation missing")
+    close(float(bulk[8]),0,2e-12,"Bulk momentum")
+    close(float(bulk[9]),0,2e-12,"Bulk energy")
+    bulk_ref=dense_bulk_stratified()
+    bulk_samples={}
+    for idx,group in ((0,bulk[4]),(13,bulk[5]),(26,bulk[6])):
+        measured=[float(v) for v in group.split(",")]
+        if len(measured)!=3:
+            raise ValueError("Bulk velocity vector incomplete")
+        for k in range(3):
+            close(measured[k],bulk_ref[idx][k],2e-12,
+                  f"Independent bulk dense cell {idx} axis {k}")
+        bulk_samples[str(idx)]={"native":measured,"independent_dense":bulk_ref[idx]}
     return {
+        "bulk_3d_dense_samples":bulk_samples,
+        "bulk_dense_max_error":float(bulk[3]),
+        "bulk_viscous_dissipation_j":float(bulk[7]),
+        "bulk_momentum_residual_n_s":float(bulk[8]),
+        "bulk_energy_residual_j":float(bulk[9]),
         "heterogeneous_3d_dense_samples":heterogeneous_samples,
         "heterogeneous_dense_max_error":float(h[2]),
         "heterogeneous_energy_residual_j":float(h[6]),
@@ -249,6 +336,9 @@ def main()->None:
         ("pcg_max=5.5943312324395099e-17","pcg_max=9"),
         ("dense_max_error=6.1388394367867249e-14","dense_max_error=9"),
         ("v13=","v13=9"),
+        ("bulk=45","bulk=44"),
+        ("bulk_dissipation=3.5936867260319951e-05","bulk_dissipation=0"),
+        ("BULK_3D interfaces=9","BULK_3D interfaces=8"),
         (f"assertions={measured['native_assertions']}","assertions=1"),
     ]
     rejected=0
@@ -275,7 +365,7 @@ def main()->None:
         raise ValueError("P2 missing from incomplete official gate")
     report={
         "phase":"P2",
-        "milestone":"global_spd_3d_water_air_shear_partial",
+        "milestone":"global_spd_3d_water_air_shear_with_bulk_tangential_diffusion_partial",
         "partial_accepted":True,
         "phase_complete":False,
         "independent_qa":measured,
@@ -285,6 +375,7 @@ def main()->None:
         "historical_marin_sha256":sha(historical),
         "limitations":[
             "Fixed sharp cell-centered interface, not dynamic MAC/VOF/PLIC",
+            "Opt-in same-phase tangential shear only, not full symmetric viscous stress tensor",
             "No fully coupled two-phase normal stress, capillarity or pressure projection",
             "No new >=6s H1-H4/P1-P8 three-grid measured convergence",
             "No dynamic two-way fluid-solid momentum/energy acceptance",
@@ -300,7 +391,7 @@ def main()->None:
     }
     REPORT.write_text(json.dumps(report,indent=2,ensure_ascii=False),encoding="utf-8")
     print(f"P2 GLOBAL SHEAR PARTIAL PASS: {measured['native_assertions']} assertions, "
-          f"134/134 CTest, constant and heterogeneous dense 27-cell references, {rejected} forgeries rejected; "
+          f"134/134 CTest, constant/heterogeneous/bulk dense 27-cell references, {rejected} forgeries rejected; "
           "P2_FULL=false")
 
 if __name__=="__main__":
