@@ -1,10 +1,10 @@
 {
-  "generated_utc": "2026-11-01T18:15:12.353765+00:00",
+  "generated_utc": "2026-11-02T11:59:59.360507+00:00",
   "project_root": "D:\\Projekt Engine",
-  "git_commit": "0270a7b",
+  "git_commit": "703f332",
   "ctest": {
     "ok": true,
-    "tail": "artial\n115/126 Test  #78: physics_p2_moving_box_dynamic_pressure_partial ...............   Passed    0.04 sec\n        Start  51: physics_p2_lagged_kinematic_pressure_body_partial\n116/126 Test  #77: physics_p2_moving_box_pressure_traction_partial ..............   Passed    0.04 sec\n117/126 Test  #83: physics_p2_hydrostatic_gravity_energy_partial ................   Passed    0.03 sec\n        Start  57: physics_p2_moving_box_cut_cell_geometry_partial\n        Start  20: physics_p5_granular_3d_contacts\n118/126 Test  #54: physics_p2_conservative_3d_mac_vof_face_flux_partial .........   Passed    0.04 sec\n119/126 Test  #51: physics_p2_lagged_kinematic_pressure_body_partial ............   Passed    0.03 sec\n        Start  33: physics_p2_viscous_mac3d_analytic_reference\n        Start  34: physics_p2_viscous_mac3d_masked_boundaries\n120/126 Test  #57: physics_p2_moving_box_cut_cell_geometry_partial ..............   Passed    0.04 sec\n        Start   7: physics_ritter_analytical_reference\n121/126 Test  #33: physics_p2_viscous_mac3d_analytic_reference ..................   Passed    0.03 sec\n        Start  23: physics_p5_deformable_self_and_multibody_contact\n122/126 Test  #20: physics_p5_granular_3d_contacts ..............................   Passed    0.05 sec\n        Start   4: physics_solid_tests\n123/126 Test  #34: physics_p2_viscous_mac3d_masked_boundaries ...................   Passed    0.04 sec\n124/126 Test   #7: physics_ritter_analytical_reference ..........................   Passed    0.03 sec\n125/126 Test   #4: physics_solid_tests ..........................................   Passed    0.02 sec\n126/126 Test  #23: physics_p5_deformable_self_and_multibody_contact .............   Passed    0.04 sec\n\n100% tests passed, 0 tests failed out of 126\n\nTotal Test time (real) =   7.66 sec\n",
+    "tail": "       Start  81: physics_p2_moving_box_projected_vof_partial\n135/146 Test  #31: physics_p7_hardware_d3d11_brick_residency ....................   Passed    0.22 sec\n        Start  20: physics_p5_granular_3d_contacts\n136/146 Test  #74: physics_p2_moving_mac_flux_consistency_partial ...............   Passed    0.17 sec\n        Start  35: physics_p2_live_viscous_3d_mac_vof\n137/146 Test  #20: physics_p5_granular_3d_contacts ..............................   Passed    0.04 sec\n        Start   5: physics_p5_plane_contact_partial\n138/146 Test   #5: physics_p5_plane_contact_partial .............................   Passed    0.01 sec\n        Start 132: physics_p2_two_phase_shear_exchange_partial\n139/146 Test  #81: physics_p2_moving_box_projected_vof_partial ..................   Passed    0.16 sec\n        Start  22: physics_p5_granular_fracture_reference\n140/146 Test #132: physics_p2_two_phase_shear_exchange_partial ..................   Passed    0.02 sec\n        Start   4: physics_solid_tests\n141/146 Test  #39: physics_p2_masked_mixed_bc_3d_eigenmode_partial ..............   Passed    0.19 sec\n        Start  15: physics_p4_thermal_conduction_and_phase\n142/146 Test   #4: physics_solid_tests ..........................................   Passed    0.02 sec\n        Start   2: physics_materials_tests\n143/146 Test  #15: physics_p4_thermal_conduction_and_phase ......................   Passed    0.02 sec\n144/146 Test  #22: physics_p5_granular_fracture_reference .......................   Passed    0.04 sec\n145/146 Test   #2: physics_materials_tests ......................................   Passed    0.01 sec\n146/146 Test  #35: physics_p2_live_viscous_3d_mac_vof ...........................   Passed    0.19 sec\n\n100% tests passed, 0 tests failed out of 146\n\nTotal Test time (real) =   6.88 sec\n",
     "exit": 0
   },
   "phases": {
@@ -16,16 +16,16 @@
       "completion_scope": "full"
     },
     "P1": {
-      "status": "PARTIAL",
-      "evidence": "2D shallow-water CPU baseline, Changed or missing P1 evidence source CMakeLists.txt; 3D/viscosity and subgrid interface physics remain out of P1 scope",
-      "prototype_status": "PARTIAL",
+      "status": "PASS",
+      "evidence": "2D shallow-water CPU baseline, 33 quantitative checks, Ritter + Stoker and source hashes verified; 3D/viscosity and subgrid interface physics remain out of P1 scope",
+      "prototype_status": "PASS",
       "full_acceptance_open": [],
       "completion_scope": "full"
     },
     "P2": {
       "status": "PARTIAL",
-      "evidence": "Selected MAC+VOF coupled 3D CPU prototype; P2 source changed since verified: include/upc/coupled_water3d.hpp; optional isolated viscous MAC milestone: P2 viscosity tested source changed: CMakeLists.txt; live coupled viscous MAC/VOF milestone: Live 3D viscous MAC tested source changed: CMakeLists.txt; fixed-wall tangential shear partial: P2 wall shear source mismatch: CMakeLists.txt; face-momentum proxy ledger partial: P2 momentum ledger source changed: CMakeLists.txt; full 3D CFD/FSI validation not proven",
-      "prototype_status": "PARTIAL",
+      "evidence": "Selected MAC+VOF coupled 3D CPU prototype; 30 quantitative P2 checks and source hashes verified; optional isolated viscous MAC milestone: P2 viscosity tested source changed: CMakeLists.txt; live coupled viscous MAC/VOF milestone: Live 3D viscous MAC tested source changed: CMakeLists.txt; fixed-wall tangential shear partial: P2 wall shear source mismatch: CMakeLists.txt; face-momentum proxy ledger partial: P2 momentum ledger source changed: CMakeLists.txt; full 3D CFD/FSI validation not proven",
+      "prototype_status": "PASS",
       "full_acceptance_open": [
         "validate full stress-consistent 3D viscosity at moving free surface (current Neumann proxy only)",
         "validate dynamic solid no-slip/impulse and 3D obstacle coupling",

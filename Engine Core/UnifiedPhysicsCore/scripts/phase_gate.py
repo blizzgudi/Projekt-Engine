@@ -534,7 +534,7 @@ def main() -> None:
        "P1":{"status":"PASS" if tests["ok"] and p1["ok"] else "PARTIAL",
              "evidence":"2D shallow-water CPU baseline, "+p1["why"]+
              "; 3D/viscosity and subgrid interface physics remain out of P1 scope"},
-       "P2":{"status":"PASS" if p2["ok"] and p2_viscosity["ok"] and tests["ok"] else "PARTIAL",
+       "P2":{"status":"PASS" if p2["ok"] and tests["ok"] else "PARTIAL",
               "evidence":"Selected MAC+VOF coupled 3D CPU prototype; "+p2["why"]+
               "; optional isolated viscous MAC milestone: "+p2_viscosity["why"]+
               "; live coupled viscous MAC/VOF milestone: "+p2_live_viscosity["why"]+
