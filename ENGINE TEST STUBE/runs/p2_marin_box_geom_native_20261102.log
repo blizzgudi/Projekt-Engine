@@ -1,0 +1,4 @@
+MARIN_BOX_GEOM grid=coarse dx=0.10000000000000001 max_face_area_residual_m2=1.3877787807814457e-17 analytic_m3=0.010446163000000001 cut_m3=0.010446163000000003 binary_m3=0.0080000000000000019 binary_error_m3=-0.0024461629999999995 cut_cells=27 unresolved_sensors=6
+MARIN_BOX_GEOM grid=medium dx=0.066666666666666666 max_face_area_residual_m2=2.7755575615628914e-17 analytic_m3=0.010446163000000001 cut_m3=0.010446163000000007 binary_m3=0.0071111111111111106 binary_error_m3=-0.0033350518888888908 cut_cells=64 unresolved_sensors=8
+MARIN_BOX_GEOM grid=fine dx=0.050000000000000003 max_face_area_residual_m2=2.7755575615628914e-17 analytic_m3=0.010446163000000001 cut_m3=0.010446163000000008 binary_m3=0.0090000000000000063 binary_error_m3=-0.0014461629999999951 cut_cells=102 unresolved_sensors=8
+PASS MARIN_BOX_GEOMETRY assertions=165073 binary_obstacle_unresolved=true production_cut_cell_integrated=false phase_complete=false

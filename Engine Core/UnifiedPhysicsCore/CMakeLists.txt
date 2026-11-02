@@ -883,3 +883,11 @@ add_executable(upc_p2_wall90_height_capillary_tests
 target_link_libraries(upc_p2_wall90_height_capillary_tests PRIVATE upc)
 add_test(NAME physics_p2_wall90_height_capillary_partial
     COMMAND upc_p2_wall90_height_capillary_tests)
+
+# P2 PARTIAL: quantify real MARIN box cut-volume and binary wall aliasing.
+# The native benchmark remains binary; no full CFD acceptance is implied.
+add_executable(upc_p2_marin_obstacle_cut_geometry_tests
+    tests/p2_marin_obstacle_cut_geometry3d_tests.cpp)
+target_link_libraries(upc_p2_marin_obstacle_cut_geometry_tests PRIVATE upc)
+add_test(NAME physics_p2_marin_obstacle_cut_geometry_partial
+    COMMAND upc_p2_marin_obstacle_cut_geometry_tests)

@@ -2489,3 +2489,10 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
 - **Negativ:** Maximaler Druckunterschied Disk/Punkt 16.003 / 24.803 / 21.634 Pa auf den drei Gittern; bereits bei t=0,40 s P1-Punktdruck 5.820 / 5.383 / 4.518 Pa gegen Disk 9,34 / 3,65 / 0,46 Pa. Das ist **keine** bestaetigte Messverbesserung, sondern eine grosse Modell-Sensitivitaet. Echter Sensor-Radius und dynamische Wandtraktion unbekannt. Keine neue 6-s-Disk-Messvalidierung, keine unabhaengige P1-P8-Messkonvergenz, keine globale Energie/Impuls-/FSI- oder UE5.8-E2E-Abnahme.
 - Belege: docs/P2_MARIN_LIVE_FOOTPRINT_SENSOR_PARTIAL.md, scripts/p2_marin_footprint_live_audit.py, ENGINE TEST STUBE/runs/p2_marin_footprint_live_partial.json samt Native-/Quell-/Binary-/Build-/CTest-SHA256.
 - **P2 bleibt PARTIAL / ALL_COMPLETE=False**. Ein 0,6-s-Sensor-Teiltest ist keine vollstaendige P2-Physikabnahme.
+
+## P2 Teilfortschritt: MARIN-Test-02-Boxgeometrie und MAC-Face-Aperturen (02.11.2026)
+
+- Analytischer dreigitteriger Native-Nachweis der **tatsaechlichen** Hindernisgeometrie: Boxvolumen 0,010446163 m3, binaere Zellmitten-Approximation nur 0,008000000 / 0,007111111 / 0,009000000 m3. Relative Fehler -23,417 / -31,926 / -13,844 Prozent; 27 / 64 / 102 teilweise geschnittene Zellen; 6 / 8 / 8 physische Sensor-Wirtszellen sind nicht als binaere Wand belegt.
+- Bestehende Cut-Cell- und MAC-Face-Apertur-Operatoren gegen exakte 3D-Boxintegrale auf 32x10x10 / 48x15x15 / 64x20x20 getestet; max. Flaechenresiduum <=2,78e-17 m2. Native MSVC Release, **151/151 CTest** und unabhaengige QA mit manipulierten Protokollen.
+- Belege: docs/P2_MARIN_OBSTACLE_CUT_GEOMETRY_PARTIAL.md, scripts/p2_marin_box_geometry_native.cmd, scripts/p2_marin_box_geometry_audit.py, ENGINE TEST STUBE/runs/p2_marin_box_geom_partial.json.
+- **Negativ / P2 PARTIAL:** Die produktive MARIN-MAC/VOF-Drucksimulation benutzt weiterhin die binaere Wand. Die 6-s-Labor-Messkonvergenz bleibt FAIL; keine neue teure Dreigitter-Simulation, keine reale Drucktransducer-Traktion, dynamische FSI oder UE5.8-Native-E2E-Abnahme. ALL_COMPLETE=False.
