@@ -1,0 +1,14 @@
+2026-11-02 | P2 moving two-phase MAC/VOF first native attempt | FAIL
+Source: Windows Private MCP managed process f305978f-5e6c-4607-b6ff-a052bc157943
+Original process exit_code: 1 (not accepted)
+Native output final line: FAIL: Failure changed two-phase state
+The three 3D manufactured runs printed measurements, but the negative
+transactional test failed because its test comparator used direct vector
+equality on an intentionally injected NaN. NaN != NaN even if the state
+was not modified. This was a false failure in the test assertion, not
+a proven state mutation. The comparator was changed to treat two NaNs
+as identical while still rejecting any actual state changes.
+This is a manually preserved factual excerpt of the MCP job output,
+not the full first-run binary/CTest log; no first-run binary hash is claimed.
+Full successful rerun, independent QA and source hashes are recorded
+separately. This failure is NOT a phase or partial acceptance.

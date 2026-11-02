@@ -760,3 +760,10 @@ add_test(NAME physics_p2_two_phase_global_shear_partial COMMAND upc_p2_two_phase
 add_executable(upc_p2_two_phase_mac_pressure_tests tests/p2_two_phase_mac_pressure3d_tests.cpp)
 target_link_libraries(upc_p2_two_phase_mac_pressure_tests PRIVATE upc)
 add_test(NAME physics_p2_two_phase_mac_pressure_partial COMMAND upc_p2_two_phase_mac_pressure_tests)
+
+# P2 PARTIAL: projected variable-density water/air MAC velocities
+# conservatively transport moving 3D VOF and update mixture density.
+# No momentum advection, interface stress, FSI or MARIN validation.
+add_executable(upc_p2_two_phase_mac_vof_tests tests/p2_two_phase_mac_vof3d_tests.cpp)
+target_link_libraries(upc_p2_two_phase_mac_vof_tests PRIVATE upc)
+add_test(NAME physics_p2_two_phase_moving_mac_vof_partial COMMAND upc_p2_two_phase_mac_vof_tests)

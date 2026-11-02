@@ -1,0 +1,151 @@
+{
+  "phase": "P2",
+  "milestone": "moving_variable_density_water_air_mac_vof_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "generated_utc": "2026-11-02T05:39:35.061500+00:00",
+  "independent_qa": {
+    "4x4x4": {
+      "native": {
+        "water_mass": 17.92,
+        "air_mass": 0.05529600000000001,
+        "mass_residual": 1.4210854715202004e-14,
+        "pmax": 1.8047785488306545e-12,
+        "u_err": 2.1649348980190553e-15,
+        "vof_err": 3.3306690738754696e-16,
+        "vof_delta": 0.07291130768551568,
+        "w111": 0.017220754456429045,
+        "f000": 0.8003646389018886,
+        "fmid": 0.1061566142203146,
+        "flast": 0.11963085525963023,
+        "div_after": 7.278899705198683e-14,
+        "max_courant": 0.02057836669680306,
+        "pcg_iterations": 33
+      },
+      "independent_reference": {
+        "water_mass": 17.92,
+        "air_mass": 0.05529600000000001,
+        "w111": 0.017220754456429028,
+        "f000": 0.8003646389018888,
+        "fmid": 0.10615661422031467,
+        "flast": 0.11963085525963023,
+        "vof_delta": 0.0729113076855159,
+        "max_courant": 0.020578366696802932,
+        "independent_final_water_volume_m3": 0.017920000000000002
+      }
+    },
+    "6x5x4": {
+      "native": {
+        "water_mass": 33.59999999999998,
+        "air_mass": 0.10368000000000005,
+        "mass_residual": 4.263256414560601e-14,
+        "pmax": 1.8165469128916811e-12,
+        "u_err": 2.0521778720805628e-15,
+        "vof_err": 3.3306690738754696e-16,
+        "vof_delta": 0.06092972100445271,
+        "w111": 0.0188450105360252,
+        "f000": 0.8001626510657553,
+        "fmid": 0.09997922452750393,
+        "flast": 0.11983734260599507,
+        "div_after": 3.7594927171369363e-14,
+        "max_courant": 0.014657954846999326,
+        "pcg_iterations": 47
+      },
+      "independent_reference": {
+        "water_mass": 33.60000000000001,
+        "air_mass": 0.10368000000000001,
+        "w111": 0.018845010536025178,
+        "f000": 0.8001626510657553,
+        "fmid": 0.09997922452750396,
+        "flast": 0.11983734260599511,
+        "vof_delta": 0.0609297210044526,
+        "max_courant": 0.014657954846999211,
+        "independent_final_water_volume_m3": 0.03360000000000001
+      }
+    },
+    "8x6x5": {
+      "native": {
+        "water_mass": 58.55999999999986,
+        "air_mass": 0.21772800000000023,
+        "mass_residual": 9.947598300641403e-14,
+        "pmax": 9.209522033870599e-12,
+        "u_err": 5.2111093218343285e-15,
+        "vof_err": 7.771561172376096e-16,
+        "vof_delta": 0.04909840353967465,
+        "w111": 0.01213551747127521,
+        "f000": 0.8000683006877558,
+        "fmid": 0.10391130044987129,
+        "flast": 0.1199316993104696,
+        "div_after": 1.2345159616788948e-13,
+        "max_courant": 0.011634255872277618,
+        "pcg_iterations": 60
+      },
+      "independent_reference": {
+        "water_mass": 58.56000000000001,
+        "air_mass": 0.21772800000000006,
+        "w111": 0.012135517471275219,
+        "f000": 0.800068300687756,
+        "fmid": 0.10391130044987128,
+        "flast": 0.1199316993104696,
+        "vof_delta": 0.049098403539674984,
+        "max_courant": 0.011634255872276898,
+        "independent_final_water_volume_m3": 0.05856000000000001
+      }
+    }
+  },
+  "negative_fixture_rejections": {
+    "water_mass": true,
+    "vof_fraction": true,
+    "vertical_velocity": true,
+    "mass_residual": true,
+    "missing_grid": true,
+    "assertions": true,
+    "nonfinite": true
+  },
+  "negative_fixture_sha256": {
+    "water_mass": "8814e18000f3379da15d5d8bd7a39a6780430a405fadd5579756637826ef4c81",
+    "vof_fraction": "865992202255bb4ce4ca04d1da09472f84bb03aa3641566aca5da8633d67af22",
+    "vertical_velocity": "9da07927cd08b06175e05a4807737927bc67776efd991b6c9be3d31d97ff5363",
+    "mass_residual": "1b9cdbc64c00703463dd16e08c79b8e78caa504f19760d9018b380db3d2cc520",
+    "missing_grid": "ea21821f5501ea187ac85bb0f48e171180b9392aeff735c8f1a55c76e2d8db96",
+    "assertions": "b1479ae9ef7f49cc7c90dd7323fece119c198ee0b6b0eb9b61291b76b16f5fc3",
+    "nonfinite": "ad819a3fe4376a058a6daee2e9da42c7b2f8d244894a7ec7b4fafea5d6328937"
+  },
+  "native_assertions": 19038,
+  "ctest_total": 136,
+  "historical_marin_6s_validation_pass": false,
+  "historical_marin_6s_height_rmse_m": {
+    "H1_m": 0.13652547494982525,
+    "H2_m": 0.0915001638115832,
+    "H3_m": 0.1482453038649915,
+    "H4_m": 0.2243987520282911
+  },
+  "limitations": [
+    "Moving VOF with shared pressure only; no momentum self-advection",
+    "No stress-consistent two-phase tangential/normal interface coupling",
+    "No dynamic bidirectional fluid-solid pressure/viscous impulse",
+    "No full-window 6s H1-H4/P1-P8 MARIN measured three-grid PASS",
+    "No Unreal 5.8 Native E2E for this new operator"
+  ],
+  "source_sha256": {
+    "CMakeLists.txt": "5414d7c51553599d400472ee8182b78ea506926f67dc27db55a0fd27b28c8f19",
+    "include/upc/p2_two_phase_mac_pressure3d.hpp": "972c0070448dd3e9d0391999c4ee4b6f779e6b108970f609e93396248abd7ee2",
+    "include/upc/p2_conservative_vof_flux3d.hpp": "08db884109510cf3d851c05bbedb669edbae94de4766a9674927d44bde4b3b9f",
+    "include/upc/p2_two_phase_mac_vof3d.hpp": "3f6739f34e9beb68ea4222f3bf2606bdc02d5a503b4a4e9d876a09644c00db86",
+    "tests/p2_two_phase_mac_vof3d_tests.cpp": "e83688e6bfcc7820a6819193035ec928fe662fcbe592b72c3e5d84aefdd0888b",
+    "scripts/p2_two_phase_mac_vof_build.cmd": "f1cd383cb1ae6a307544166eda41937f775749fa3ec8571d427b5cb5e4311a44",
+    "scripts/p2_two_phase_mac_vof_acceptance.py": "efebb4bee87c489b547a1c08056151a5c552643397c4e500ecd636f7974c18cd",
+    "scripts/phase_gate.py": "01065438e2b72b3fe83e7e3ba3decbf54925c84c5f9424b15ad15a8197f59cd6",
+    "docs/P2_TWO_PHASE_MOVING_MAC_VOF_PARTIAL.md": "b9aea0faad17ae23a3c55537e584013041445e89192625899db3f62b91e0f116",
+    "docs/PHASENPLAN.md": "cb54a97c7769bd56e7f86a0b1d8495be5b258264be0cf17a6d06f9ca534c44a5"
+  },
+  "artifact_sha256": {
+    "native_binary": "61f74a8e9a5e43372cdc9269ead1cb885c97215cc84be44fdc15b11224296a27",
+    "native_trace": "5570b7ea9997298da2a7dd8b5b40e4c8e8a1e60884f7882644721865f1c9d3ca",
+    "build_log": "6b6dcd381067c27db75e536aa12db77e1ae1305235be608c65cdf9b8e8cda21f",
+    "ctest_log": "137ad68c6af41f78c31f38368521c64a81a360c1d2d43c50ddc7fd1caad8e394",
+    "phase_gate_log": "81c1aeb5f80e7e0c8ab439c351b9eab256694a788538ae1ad32d0f2082f8cccf",
+    "historical_marin_6s_report": "192e198e4e72fbca285c8eeb7b513f74ecdb4432b7705d837f71b8b0f91f2f08",
+    "first_native_negative_excerpt": "5f43c44f34b1ba80a49171d02b0b22d224ec4f7740a8a5f6d0498d72c0d5d292"
+  }
+}
