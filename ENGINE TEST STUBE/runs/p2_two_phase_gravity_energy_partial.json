@@ -1,0 +1,69 @@
+{
+  "phase": "P2",
+  "milestone": "moving_two_phase_gravity_potential_inventory_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "generated_utc": "2026-11-02T07:57:16.497759+00:00",
+  "independent_qa": {
+    "grids": {
+      "4x4x4_oblique0": {
+        "flux_j": 2.5087891014630147e-17,
+        "unclosed_mechanical_energy_j": 0.0,
+        "density_remap_kinetic_delta_j": 0.0,
+        "potential_face_cell_residual_j": 2.5087891014630153e-17
+      },
+      "6x5x4_oblique0": {
+        "flux_j": 1.4067575961618202e-15,
+        "unclosed_mechanical_energy_j": 1.0658141036401503e-13,
+        "density_remap_kinetic_delta_j": 1.793662034335766e-43,
+        "potential_face_cell_residual_j": 4.625282454540078e-16
+      },
+      "6x5x4_oblique1": {
+        "flux_j": 0.03536564375229733,
+        "unclosed_mechanical_energy_j": 0.03611073105815876,
+        "density_remap_kinetic_delta_j": 0.0006429117442651178,
+        "potential_face_cell_residual_j": 8.257283745649602e-16
+      },
+      "8x6x5_oblique1": {
+        "flux_j": 0.06903398926555337,
+        "unclosed_mechanical_energy_j": 0.06675846429752141,
+        "density_remap_kinetic_delta_j": 0.0007860340111212061,
+        "potential_face_cell_residual_j": 1.4849232954361469e-15
+      }
+    },
+    "native_assertions": 221
+  },
+  "negative_trace_forgery_rejections": 7,
+  "historical_marin_6s_validation_pass": false,
+  "measured_unclosed_mechanical_energy_j": {
+    "6x5x4_oblique1": 0.03611073105815876,
+    "8x6x5_oblique1": 0.06675846429752141
+  },
+  "limitations": [
+    "Conservative 3D VOF potential flux identity is NOT a global mechanical-energy closure",
+    "Missing conservative momentum advection and stress-consistent moving water-air boundary",
+    "No dynamic bidirectional FSI or independent full-window MARIN H1-H4/P1-P8 three-grid measurement convergence",
+    "No UE5.8 native rendering E2E for this new path"
+  ],
+  "source_sha256": {
+    "CMakeLists.txt": "907d0a35cda6afbbea0cbd104d144a1b561f56c6973ad54ab8dfddac378f79ba",
+    "include/upc/p2_two_phase_mac_vof3d.hpp": "276f28481f8922b433b25aadd5494033af89680f74f973a6f407f3dfeedf39a7",
+    "include/upc/p2_two_phase_mac_pressure3d.hpp": "972c0070448dd3e9d0391999c4ee4b6f779e6b108970f609e93396248abd7ee2",
+    "include/upc/p2_conservative_vof_flux3d.hpp": "08db884109510cf3d851c05bbedb669edbae94de4766a9674927d44bde4b3b9f",
+    "tests/p2_two_phase_gravity_energy3d_tests.cpp": "486ea8c70f16bf9b0001f4fcc121cb80f53ce7a2570335df752d72d815d05f81",
+    "scripts/p2_two_phase_gravity_energy_build.cmd": "40aa043f240944a47ee9288bd1744d37d8c166f3010d7b540f47ba70a2e59516",
+    "scripts/p2_two_phase_gravity_energy_acceptance.py": "b036c7f11e873de6c841c58ca420e6921d3615fa92e79959f115668ec51de358",
+    "scripts/phase_gate.py": "01065438e2b72b3fe83e7e3ba3decbf54925c84c5f9424b15ad15a8197f59cd6",
+    "docs/P2_TWO_PHASE_GRAVITY_ENERGY_PARTIAL.md": "1814dbbcb98fca4e1da2b56f83c28ae3a1644f303cc51871265aea594fb7985b",
+    "docs/PHASENPLAN.md": "929fabbcdbc24b296f81ba12b9691d075718220bac5b9b6faed7fe24f6b4ec13"
+  },
+  "artifact_sha256": {
+    "native_binary": "4b329d8aad81c2e7b4b70e85ecac99315f4c6741bc09eae9c4e795c37d41c443",
+    "native_trace": "bc878eca930409d327160095bffa049787b3425be84503a21d201f99c1f5b6a3",
+    "build_log": "e4df7135fa64e8ff0d77ce8b6472fb69ea0e545ef384d8d7097e00050a2d7f91",
+    "full_build_log": "befedde8b69672d35629331b8bf08419b18ca021ab932a97087d5831c655e22a",
+    "ctest_log": "f045c0992fe2d07977afccd217580a486d4dce6ea1c0d0ad5495312f69327e94",
+    "phase_gate_log": "81c1aeb5f80e7e0c8ab439c351b9eab256694a788538ae1ad32d0f2082f8cccf",
+    "historical_negative_marin": "192e198e4e72fbca285c8eeb7b513f74ecdb4432b7705d837f71b8b0f91f2f08"
+  }
+}

@@ -773,3 +773,10 @@ add_test(NAME physics_p2_two_phase_moving_mac_vof_partial COMMAND upc_p2_two_pha
 add_executable(upc_p2_two_phase_gravity_tests tests/p2_two_phase_gravity3d_tests.cpp)
 target_link_libraries(upc_p2_two_phase_gravity_tests PRIVATE upc)
 add_test(NAME physics_p2_two_phase_gravity_partial COMMAND upc_p2_two_phase_gravity_tests)
+
+# P2 PARTIAL: SI gravitational potential-energy inventory and independent
+# 3D donor-face flux identity in live variable-density two-phase MAC/VOF.
+# Explicitly report (do not conceal) missing mechanical-energy closure.
+add_executable(upc_p2_two_phase_gravity_energy_tests tests/p2_two_phase_gravity_energy3d_tests.cpp)
+target_link_libraries(upc_p2_two_phase_gravity_energy_tests PRIVATE upc)
+add_test(NAME physics_p2_two_phase_gravity_energy_partial COMMAND upc_p2_two_phase_gravity_energy_tests)

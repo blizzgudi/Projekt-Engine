@@ -1,0 +1,4 @@
+[1/4] Building CXX object CMakeFiles\upc_p2_two_phase_gravity_tests.dir\tests\p2_two_phase_gravity3d_tests.cpp.obj
+[2/4] Building CXX object CMakeFiles\upc_p2_two_phase_mac_vof_tests.dir\tests\p2_two_phase_mac_vof3d_tests.cpp.obj
+[3/4] Linking CXX executable upc_p2_two_phase_gravity_tests.exe
+[4/4] Linking CXX executable upc_p2_two_phase_mac_vof_tests.exe

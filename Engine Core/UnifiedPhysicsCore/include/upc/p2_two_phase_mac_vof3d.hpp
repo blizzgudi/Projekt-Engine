@@ -32,6 +32,17 @@ struct P2TwoPhaseMacVofLedger3D {
     std::array<double,3> gravity_source_projection_momentum_residual_kg_m_s{};
     double gravity_source_work_j=0;
     double gravity_source_projection_energy_residual_j=0;
+    // True SI mass-weighted gravitational potential at cell centers.
+    // A conservative VOF face-flux identity is checked independently of
+    // the old source/projection face-kinetic ledger.
+    double potential_before_j=0,potential_after_j=0;
+    double potential_delta_direct_j=0,potential_delta_face_flux_j=0;
+    double potential_flux_residual_j=0;
+    // Density remap changes the MAC face-mass quadrature while velocity is
+    // frozen. This is NOT momentum advection or a physical energy closure.
+    double kinetic_after_density_remap_j=0;
+    double kinetic_density_remap_delta_j=0;
+    double unresolved_mechanical_energy_j=0;
 };
 inline P2TwoPhaseMacVofLedger3D p2_two_phase_mac_vof_step3d(
     P2TwoPhaseMacVofState3D& state,int max_pcg_iterations=4000,
@@ -146,6 +157,71 @@ inline P2TwoPhaseMacVofLedger3D p2_two_phase_mac_vof_step3d(
             std::abs(rho-m.density_kg_m3[i]));
         next.mac.density_kg_m3[i]=rho;
     }
+    // Global gravitational inventory and independent donor-face flux audit.
+    // Constant air background cancels from the potential-energy difference.
+    // Coordinates are cell centers; changing the origin cannot change delta U
+    // in this impermeable, mass-conserving box.
+    for(std::size_t z=0;z<m.nz;++z)for(std::size_t y=0;y<m.ny;++y)
+    for(std::size_t x=0;x<m.nx;++x) {
+        const auto i=ci(x,y,z);
+        const double gdotr=m.dx_m*(
+            gravity_m_s2[0]*(double(x)+.5)+
+            gravity_m_s2[1]*(double(y)+.5)+
+            gravity_m_s2[2]*(double(z)+.5));
+        const double delta=next.water_fraction[i]-state.water_fraction[i];
+        out.potential_before_j-=m.density_kg_m3[i]*volume*gdotr;
+        out.potential_after_j-=next.mac.density_kg_m3[i]*volume*gdotr;
+        out.potential_delta_direct_j-=drho*volume*delta*gdotr;
+    }
+    const auto flux_potential=[&](std::size_t a,std::size_t b,
+                                  double face_velocity,int axis) {
+        const double donor_alpha=state.water_fraction[face_velocity>=0?a:b];
+        out.potential_delta_face_flux_j-=drho*volume*dt*
+            face_velocity*donor_alpha*gravity_m_s2[axis];
+    };
+    const auto kinetic_remap=[&](std::size_t a,std::size_t b,double face_velocity) {
+        const double face_rho=.5*(next.mac.density_kg_m3[a]+
+                                  next.mac.density_kg_m3[b]);
+        out.kinetic_after_density_remap_j+=
+            .5*face_rho*volume*face_velocity*face_velocity;
+    };
+    for(std::size_t z=0;z<m.nz;++z)for(std::size_t y=0;y<m.ny;++y)
+    for(std::size_t x=1;x<m.nx;++x) {
+        const auto a=ci(x-1,y,z),b=ci(x,y,z);
+        const double v=next.mac.u_m_s[(z*m.ny+y)*(m.nx+1)+x];
+        flux_potential(a,b,v,0);kinetic_remap(a,b,v);
+    }
+    for(std::size_t z=0;z<m.nz;++z)for(std::size_t y=1;y<m.ny;++y)
+    for(std::size_t x=0;x<m.nx;++x) {
+        const auto a=ci(x,y-1,z),b=ci(x,y,z);
+        const double v=next.mac.v_m_s[(z*(m.ny+1)+y)*m.nx+x];
+        flux_potential(a,b,v,1);kinetic_remap(a,b,v);
+    }
+    for(std::size_t z=1;z<m.nz;++z)for(std::size_t y=0;y<m.ny;++y)
+    for(std::size_t x=0;x<m.nx;++x) {
+        const auto a=ci(x,y,z-1),b=ci(x,y,z);
+        const double v=next.mac.w_m_s[(z*m.ny+y)*m.nx+x];
+        flux_potential(a,b,v,2);kinetic_remap(a,b,v);
+    }
+    out.potential_flux_residual_j=out.potential_delta_direct_j-
+        out.potential_delta_face_flux_j;
+    out.kinetic_density_remap_delta_j=
+        out.kinetic_after_density_remap_j-out.pressure.kinetic_after_j;
+    const double kinetic_initial=out.pressure.kinetic_before_j-
+        out.gravity_source_work_j;
+    // Closed-box total mechanical-energy change (including numerical
+    // projection effects). Report, do NOT force to zero: momentum advection
+    // and interfacial work are still missing from the model.
+    out.unresolved_mechanical_energy_j=
+        out.kinetic_after_density_remap_j+out.potential_after_j-
+        kinetic_initial-out.potential_before_j;
+    const double potential_scale=1+std::abs(out.potential_before_j)+
+        std::abs(out.potential_after_j)+std::abs(out.potential_delta_face_flux_j);
+    if(!std::isfinite(out.potential_flux_residual_j)||
+       !std::isfinite(out.unresolved_mechanical_energy_j)||
+       !std::isfinite(out.kinetic_after_density_remap_j)||
+       std::abs(out.potential_flux_residual_j)>1e-9*potential_scale)
+        throw std::runtime_error("Two-phase gravity VOF potential flux audit failed");
     state=std::move(next);
     return out;
 }
