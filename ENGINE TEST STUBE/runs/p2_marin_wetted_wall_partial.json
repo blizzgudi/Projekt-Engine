@@ -1,0 +1,233 @@
+{
+  "phase": "P2",
+  "milestone": "marin_horizontal_wet_wall_traction_partial",
+  "analytic_partial_accepted": true,
+  "phase_complete": false,
+  "production_cut_cell_solver": false,
+  "measured_six_second_validation": false,
+  "native_ctest_suites": 153,
+  "native_assertions": 213,
+  "independent_native_rerun": true,
+  "independent_rational_reference": true,
+  "negative_forged_traces_rejected": 10,
+  "negative_case_names": [
+    "false_phase",
+    "false_measurement",
+    "false_cut_solver",
+    "forged_area",
+    "forged_force",
+    "missing_grid",
+    "wrong_grid",
+    "wrong_height",
+    "nan",
+    "too_few_assertions"
+  ],
+  "grid_height_cases": [
+    {
+      "nx": 32,
+      "height_m": 0.0,
+      "wetted_area_m2": 0.0,
+      "force_n": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "hydrostatic_roof_force_n": 0.0
+    },
+    {
+      "nx": 32,
+      "height_m": 0.03,
+      "wetted_area_m2": 0.033839999999999995,
+      "force_n": [
+        -2.530437000000001,
+        1.362543000000001,
+        0.0
+      ],
+      "hydrostatic_roof_force_n": 0.0
+    },
+    {
+      "nx": 32,
+      "height_m": 0.103,
+      "wetted_area_m2": 0.116184,
+      "force_n": [
+        -8.687833700000033,
+        4.678064299999988,
+        0.0
+      ],
+      "hydrostatic_roof_force_n": 0.0
+    },
+    {
+      "nx": 32,
+      "height_m": 0.161,
+      "wetted_area_m2": 0.2464910000000001,
+      "force_n": [
+        -13.58001189999999,
+        7.312314099999994,
+        -162.05502495
+      ],
+      "hydrostatic_roof_force_n": 1.8134073798137246e-14
+    },
+    {
+      "nx": 32,
+      "height_m": 0.55,
+      "wetted_area_m2": 0.2464910000000001,
+      "force_n": [
+        -13.58001189999999,
+        7.312314099999994,
+        -162.05502495
+      ],
+      "hydrostatic_roof_force_n": -247.59936747
+    },
+    {
+      "nx": 48,
+      "height_m": 0.0,
+      "wetted_area_m2": 0.0,
+      "force_n": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "hydrostatic_roof_force_n": 0.0
+    },
+    {
+      "nx": 48,
+      "height_m": 0.03,
+      "wetted_area_m2": 0.033839999999999995,
+      "force_n": [
+        -2.5304369999999987,
+        1.3625429999999987,
+        0.0
+      ],
+      "hydrostatic_roof_force_n": 0.0
+    },
+    {
+      "nx": 48,
+      "height_m": 0.103,
+      "wetted_area_m2": 0.11618399999999997,
+      "force_n": [
+        -8.68783369999995,
+        4.678064299999995,
+        0.0
+      ],
+      "hydrostatic_roof_force_n": 0.0
+    },
+    {
+      "nx": 48,
+      "height_m": 0.161,
+      "wetted_area_m2": 0.24649099999999985,
+      "force_n": [
+        -13.580011899999912,
+        7.312314099999992,
+        -162.05502495000002
+      ],
+      "hydrostatic_roof_force_n": 4.156298416546632e-15
+    },
+    {
+      "nx": 48,
+      "height_m": 0.55,
+      "wetted_area_m2": 0.24649099999999985,
+      "force_n": [
+        -13.580011899999912,
+        7.312314099999992,
+        -162.05502495000002
+      ],
+      "hydrostatic_roof_force_n": -247.59936747000003
+    },
+    {
+      "nx": 64,
+      "height_m": 0.0,
+      "wetted_area_m2": 0.0,
+      "force_n": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "hydrostatic_roof_force_n": 0.0
+    },
+    {
+      "nx": 64,
+      "height_m": 0.03,
+      "wetted_area_m2": 0.033839999999999995,
+      "force_n": [
+        -2.5304369999999903,
+        1.362543,
+        0.0
+      ],
+      "hydrostatic_roof_force_n": 0.0
+    },
+    {
+      "nx": 64,
+      "height_m": 0.103,
+      "wetted_area_m2": 0.11618400000000008,
+      "force_n": [
+        -8.687833699999976,
+        4.678064299999988,
+        0.0
+      ],
+      "hydrostatic_roof_force_n": 0.0
+    },
+    {
+      "nx": 64,
+      "height_m": 0.161,
+      "wetted_area_m2": 0.246491,
+      "force_n": [
+        -13.580011900000006,
+        7.312314099999998,
+        -162.05502495
+      ],
+      "hydrostatic_roof_force_n": -1.4822319371887716e-14
+    },
+    {
+      "nx": 64,
+      "height_m": 0.55,
+      "wetted_area_m2": 0.246491,
+      "force_n": [
+        -13.580011900000006,
+        7.312314099999998,
+        -162.05502495
+      ],
+      "hydrostatic_roof_force_n": -247.59936747000012
+    }
+  ],
+  "original_six_second_experiment_sha256": "199232979781aa02a26ad663515c0d8e7fc02640ef648daf92e4c6a4998c84cb",
+  "unchanged_fine_height_rmse_m": {
+    "H1_m": 0.09478824764684127,
+    "H2_m": 0.10067389166422015,
+    "H3_m": 0.11796346921125846,
+    "H4_m": 0.13781758848701164
+  },
+  "unchanged_fine_pressure_rmse_pa": {
+    "P1_Pa": 5870.291160948873,
+    "P2_Pa": 5905.06740103668,
+    "P3_Pa": 5800.374161524103,
+    "P4_Pa": 5822.757638843366,
+    "P5_Pa": 5890.2248148894005,
+    "P6_Pa": 5841.595759137142,
+    "P7_Pa": 5822.623567516189,
+    "P8_Pa": 5914.016484030016
+  },
+  "height_rmse_limit_m": 0.05,
+  "native_binary_sha256": "04e735aff67f47a8c58f49ad2af22e93ac2104d84b6d6e8225dc352746eaf1cc",
+  "native_log_sha256": "13c40bd3cff321b228ac9773c3c0af7da6a32a8968615fdc7fb1db3d632f92b3",
+  "native_build_log_sha256": "908a9aff8f14dc111eb465b5789856561dcc7b2eeb0deeec0d2efb09476fa0df",
+  "native_ctest_log_sha256": "d98c375650b126013ecf812b9f563d956d26e67757f15a5129b737c852da6dd1",
+  "source_sha256": {
+    "CMakeLists.txt": "f1c3030c4e1d465e3628e7d59aca1812928f7e7bf1435c4f96caf2f3bad28857",
+    "include/upc/p2_marin_box_wall_traction3d.hpp": "21d99b93e4a11c4846c3bacd8348de9dd41baaade729178490c8c7fd87ed4abb",
+    "tests/p2_marin_wetted_wall_traction3d_tests.cpp": "49ebdd5e9e86afed3fcf026a9ecf7af78df7b6251e6e914ee4c0cd66660e398d",
+    "scripts/p2_marin_wetted_wall_native.cmd": "064e4e0f3bc071692ae7733e9d781913b2598c6e57c26b0350a07c5483a563a2",
+    "scripts/p2_marin_wetted_wall_audit.py": "347a3eafe0cafea2e404e1da476a38b8d9896c1544453a6c05775913d1569a11",
+    "docs/P2_MARIN_WETTED_WALL_PARTIAL.md": "72fc62a9dc60e1993faf0daca50c6ec4f404415c705aeea631eedef5105d393e",
+    "docs/PHASENPLAN.md": "74b8ae6a346057961bfb718942a8922923caece089d1fe85dede48d3a1ed2dd6",
+    "scripts/phase_gate.py": "5cdf24fe269706d89507b1daf120e970384854a11628dfa5978baea6c08affcc"
+  },
+  "known_negative_results": [
+    "Only prescribed horizontal waterline; no reconstructed moving 3D VOF interface",
+    "Pressure is diagnostic only and must already be physically meaningful on fluid side",
+    "Production MARIN cut-cell pressure solver still binary and not corrected",
+    "No bidirectional dynamic FSI or global physical momentum/energy balance",
+    "Historical full 6s H1-H4 and P1-P8 three-grid measured convergence remains FAIL",
+    "No full Native/UE5.8 E2E physical acceptance"
+  ],
+  "generated_utc": "2026-11-02T20:15:40.975315+00:00"
+}

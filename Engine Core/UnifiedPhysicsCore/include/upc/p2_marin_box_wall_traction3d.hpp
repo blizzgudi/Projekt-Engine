@@ -32,16 +32,17 @@ class P2MarinBoxWallTraction3D {
             std::clamp(std::floor(q),0.0,static_cast<double>(n-2)));
         return {i,i+1,q-static_cast<double>(i)};
     }
-public:
+private:
     // Exactly one face (z-min) contacts the tank floor and is NOT wetted.
     // The other five faces integrate pressure from TWO fluid-side normal
     // cell centres. Bilinear tangential reconstruction is exact for affine
     // manufactured pressure. Input may contain pressure inside the box,
     // but those cells are never sampled. It is the caller's responsibility
     // to supply meaningful liquid-side pressure (including wet/dry state).
-    static P2MarinBoxWallTractionResult3D audit(
+    static P2MarinBoxWallTractionResult3D audit_impl(
         std::size_t nx,std::size_t ny,std::size_t nz,double dx,
-        const P2Box3D& box,const std::vector<double>& pressure_pa) {
+        const P2Box3D& box,const std::vector<double>& pressure_pa,
+        double free_surface_height_m) {
         const auto geometry=P2MovingBoxOpenVolumes3D::sample(
             nx,ny,nz,dx,1.0,box,box);
         if(pressure_pa.size()!=geometry.alpha_old.size())
@@ -69,6 +70,8 @@ public:
         for(int axis=0;axis<3;++axis)
         for(int side:{-1,1}) {
             if(axis==2&&side<0)continue; // dry tank-floor contact
+            if(axis==2&&side>0&&free_surface_height_m<box.max_m[2])
+                continue; // roof is dry until submerged
             const double face=side<0?box.min_m[axis]:box.max_m[axis];
             // A cut cell whose centre lies INSIDE the solid must not be
             // mistaken for a liquid-side pressure sample.
@@ -90,9 +93,13 @@ public:
             for(std::size_t j=0;j<dims[b];++j)
             for(std::size_t k=0;k<dims[c];++k) {
                 const double lo_b=std::max(static_cast<double>(j)*dx,box.min_m[b]);
-                const double hi_b=std::min((static_cast<double>(j)+1)*dx,box.max_m[b]);
+                double hi_b=std::min((static_cast<double>(j)+1)*dx,box.max_m[b]);
                 const double lo_c=std::max(static_cast<double>(k)*dx,box.min_m[c]);
-                const double hi_c=std::min((static_cast<double>(k)+1)*dx,box.max_m[c]);
+                double hi_c=std::min((static_cast<double>(k)+1)*dx,box.max_m[c]);
+                // Clip vertical wall tiles to the prescribed horizontal
+                // free surface BEFORE reconstructing pressure at their centre.
+                if(b==2)hi_b=std::min(hi_b,free_surface_height_m);
+                if(c==2)hi_c=std::min(hi_c,free_surface_height_m);
                 if(hi_b<=lo_b||hi_c<=lo_c)continue;
                 const double area=(hi_b-lo_b)*(hi_c-lo_c);
                 const double mid_b=0.5*(lo_b+hi_b),mid_c=0.5*(lo_c+hi_c);
@@ -138,6 +145,29 @@ public:
                !std::isfinite(out.solid_torque_nm[a]))
                 throw std::runtime_error("Nonfinite MARIN wall force/torque");
         return out;
+    }
+public:
+    // Historical five-face pressure diagnostic (all five faces counted).
+    static P2MarinBoxWallTractionResult3D audit(
+        std::size_t nx,std::size_t ny,std::size_t nz,double dx,
+        const P2Box3D& box,const std::vector<double>& pressure_pa) {
+        return audit_impl(nx,ny,nz,dx,box,pressure_pa,
+                          std::numeric_limits<double>::infinity());
+    }
+    // P2 PARTIAL: exact geometric wetting for a HORIZONTAL prescribed
+    // waterline. Pressure must be provided at liquid-side cell centres,
+    // and be physically valid at the clipped face quadrature points.
+    // No wet/dry interface reconstruction from VOF and no FSI reaction.
+    static P2MarinBoxWallTractionResult3D audit_wetted(
+        std::size_t nx,std::size_t ny,std::size_t nz,double dx,
+        const P2Box3D& box,const std::vector<double>& pressure_pa,
+        double free_surface_height_m) {
+        if(!std::isfinite(free_surface_height_m)||
+           free_surface_height_m<0||
+           !std::isfinite(dx)||dx<=0||
+           free_surface_height_m>static_cast<double>(nz)*dx)
+            throw std::invalid_argument("Invalid MARIN waterline");
+        return audit_impl(nx,ny,nz,dx,box,pressure_pa,free_surface_height_m);
     }
 };
 } // namespace upc
