@@ -1,0 +1,59 @@
+{
+  "phase": "P2",
+  "scope": "P1 floor-adjacent finite disk pressure interpolation",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "full_p2_pass": false,
+  "unverified_real_transducer_radius": true,
+  "manufactured_hydrostatic": [
+    {
+      "dx_m": 0.1,
+      "p1_native_pa": 9603.989999999994,
+      "p1_analytic_pa": 9603.99,
+      "nearest_cell_centre_pa_not_disk_integral": 9319.5,
+      "nearest_centre_bias_pa": 284.4899999999998
+    },
+    {
+      "dx_m": 0.05,
+      "p1_native_pa": 9603.989999999994,
+      "p1_analytic_pa": 9603.99,
+      "nearest_cell_centre_pa_not_disk_integral": 9564.75,
+      "nearest_centre_bias_pa": 39.23999999999978
+    }
+  ],
+  "negative_mutations_rejected": [
+    "wrong_native_pressure",
+    "wrong_grid",
+    "missing_fine_reference",
+    "forged_full_phase",
+    "forged_affine_pass",
+    "duplicate_grid",
+    "nonfinite_reference",
+    "missing_native_pass"
+  ],
+  "negative_mutation_count": 8,
+  "native_assertions_at_least": 164,
+  "native_full_ctest_passed": 151,
+  "full_six_second_marin_rmse_target_m": 0.05,
+  "historical_full6s_fine_h1_h4_rmse_m": {
+    "H1_m": 0.09478824764684127,
+    "H2_m": 0.10067389166422015,
+    "H3_m": 0.11796346921125846,
+    "H4_m": 0.13781758848701164
+  },
+  "physical_lab_validation": "FAIL (unchanged historical three-grid data)",
+  "independent_three_grid_recomputed": false,
+  "baseline_git_commit": "2074a00",
+  "baseline_expected_negative_native_exit": 1,
+  "baseline_failure_log_sha256": "b27cb7f2a2773f4f7c421e2458013b2f04f7a4b6312bba3109cafc5c9936e7b0",
+  "native_binary_sha256": "1ff9348b527529edd68b64fb0616a5096a439696bcfa0055cd5dbfbc099e4531",
+  "native_stdout_sha256": "c839028501f54ab8d7511f06e6cfb894e84677ff4835a79149e03869cb15211e",
+  "ctest_log_sha256": "4e66fba2d587771d048eda8f5c9b25bb2a418e63ce24f1a6b3187b72558f4234",
+  "historical_lab_report_sha256": "028cf1665da39cc1c6b5fa9c2d28b71177354ffeefddab1d3d4e3c37591da910",
+  "source_sha256": {
+    "include/upc/p2_marin_footprint_pressure3d.hpp": "6dcada0f881428fb84d48989bee1f648b99163dd0b303371705169e54d92cb20",
+    "tests/p2_marin_footprint_pressure3d_tests.cpp": "20eb40eafe5eafa106bd099e1ea0719348bc3ceb071075d4d3d8f9935b6cf59b",
+    "scripts/p2_marin_floor_footprint_qa.py": "e3e8c351b7e8da593422718b1d2eabffc2addbc983801b6ff561e436820c78e4"
+  },
+  "generated_utc": "2026-11-02T16:51:24.883469+00:00"
+}

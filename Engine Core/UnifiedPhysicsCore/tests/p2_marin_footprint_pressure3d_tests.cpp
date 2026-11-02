@@ -4,6 +4,7 @@
 #include "upc/p2_marin_footprint_pressure3d.hpp"
 #include <algorithm>
 #include <cmath>
+#include <iomanip>
 #include <iostream>
 #include <limits>
 #include <stdexcept>
@@ -44,6 +45,49 @@ void manufactured_affine(double dx) {
         check(v.wet_quadrature_points==256&&v.extrapolated_points==256&&
               v.fallback_points==0,"affine all disk points extrapolated");
     }
+}
+void manufactured_floor_hydrostatic(double dx) {
+    // Independent linear hydrostatic field p(z)=rho*g*(H-z).
+    // P1 is closer to the floor than half a cell on coarse/fine grids:
+    // centre clamping biases its wall pressure by hundreds of Pa.
+    const auto hydrostatic=[dx](std::size_t,std::size_t,std::size_t z) {
+        return 9810.0*(1.0-(double(z)+0.5)*dx);
+    };
+    const auto result=upc::P2MarinFootprintPressure3D::sample_field(
+        dx,std::size_t(std::ceil(3.3/dx)),
+        std::size_t(std::ceil(1.0/dx)),
+        std::size_t(std::ceil(1.0/dx)),
+        .012,8,32,hydrostatic,wet,solid);
+    const auto positions=upc::P2MarinPressureSensors3D::transducers_m();
+    for(std::size_t i=0;i<8;++i) {
+        const double reference=9810.0*(1.0-positions[i][2]);
+        near(result.probes[i].area_mean_gauge_pressure_pa,reference,1e-7,
+             "manufactured hydrostatic wall disk including floor subcell");
+    }
+    std::cout<<std::setprecision(17)
+             <<"FLOOR_HYDROSTATIC dx_m="<<dx
+             <<" p1_native_pa="<<result.probes[0].area_mean_gauge_pressure_pa
+             <<" p1_analytic_pa="<<9810.0*(1.0-positions[0][2])
+             <<" p1_clamped_centre_pa="<<9810.0*(1.0-.5*dx)
+             <<" all_8_affine_pass=true\n";
+}
+void boundary_partial_wet_fallback() {
+    constexpr double dx=.1;
+    const auto hydrostatic=[](std::size_t,std::size_t,std::size_t z) {
+        return 9810.0*(1.0-(double(z)+0.5)*.1);
+    };
+    const auto half=[](std::size_t,std::size_t,std::size_t){return .5;};
+    const auto result=upc::P2MarinFootprintPressure3D::sample_field(
+        dx,32,10,10,.012,8,32,hydrostatic,half,solid);
+    // The boundary extension must be disabled at partial VOF patches:
+    // signed weights must NEVER increase or reduce the wet disk area.
+    near(result.probes[0].wet_area_fraction,.5,1e-12,
+         "partial P1 wet footprint retains bounded geometric area");
+    near(result.probes[0].area_mean_gauge_pressure_pa,
+         .5*9810.0*(1.0-.5*dx),1e-8,
+         "partial P1 falls back to original positive-weight stencil");
+    check(result.probes[0].wet_quadrature_points==256,
+          "all partial P1 disk points accounted for");
 }
 void manufactured_quadratic(){
     constexpr double dx=.005;
@@ -147,6 +191,9 @@ int main() {
     try {
         manufactured_affine(.01);
         manufactured_affine(.005);
+        manufactured_floor_hydrostatic(.1);
+        manufactured_floor_hydrostatic(.05);
+        boundary_partial_wet_fallback();
         manufactured_quadratic();
         masks_and_negative();
         native(.1,32,10,10);

@@ -29,13 +29,24 @@ class P2MarinFootprintPressure3D {
         std::array<std::size_t,2> index{};
         std::array<double,2> weight{};
     };
-    static Axis tangent(double q_m,double dx,std::size_t n) {
+    static Axis tangent(double q_m,double dx,std::size_t n,
+                        bool linear_boundary_extension=false) {
         if(n<2||!std::isfinite(q_m)||q_m<0||q_m>=dx*double(n))
             throw std::out_of_range("MARIN footprint outside domain");
-        const double q=std::clamp(q_m/dx-0.5,0.0,double(n-1));
-        const auto lo=std::size_t(std::floor(q));
+        const double q=q_m/dx-0.5;
+        // Signed one-sided weights recover a manufactured affine pressure
+        // below the first cell centre (notably the P1 floor-adjacent disk).
+        // NEVER use signed weights to calculate wet-area or solid fractions.
+        if(linear_boundary_extension) {
+            const auto lo=std::size_t(std::clamp(
+                std::floor(q),0.0,double(n-2)));
+            const double t=q-double(lo);
+            return {{lo,lo+1},{1.0-t,t}};
+        }
+        const double qc=std::clamp(q,0.0,double(n-1));
+        const auto lo=std::size_t(std::floor(qc));
         const auto hi=std::min(lo+1,n-1);
-        const double t=q-double(lo);
+        const double t=qc-double(lo);
         return {{lo,hi},{1.0-t,t}};
     }
 public:
@@ -79,6 +90,11 @@ public:
                     const double b_m=(front?coords[i][2]:coords[i][1])+v;
                     const Axis a=tangent(a_m,dx,front?ny:nx);
                     const Axis b=tangent(b_m,dx,front?nz:ny);
+                    const Axis ap=tangent(a_m,dx,front?ny:nx,true);
+                    const Axis bp=tangent(b_m,dx,front?nz:ny,true);
+                    const bool boundary_extension=
+                        ap.weight[0]<0||ap.weight[1]<0||
+                        bp.weight[0]<0||bp.weight[1]<0;
                     const auto plane=[&](std::size_t normal_index,double& wet_weight) {
                         double sum=0;
                         for(std::size_t j=0;j<2;++j)
@@ -99,7 +115,35 @@ public:
                             wet_weight+=w*f;
                             sum+=w*f*p;
                         }
-                        return wet_weight>1e-5?sum/wet_weight:0.0;
+                        if(wet_weight<=1e-5)return 0.0;
+                        if(boundary_extension) {
+                            // Extend only an entirely wet, unobstructed
+                            // four-cell pressure stencil. At a cut/free
+                            // surface keep the original positive-weight
+                            // interpolation, so signed pressure weights
+                            // cannot invent wet area or liquid momentum.
+                            double extended=0.0;
+                            bool fully_wet=true;
+                            for(std::size_t j=0;j<2;++j)
+                            for(std::size_t l=0;l<2;++l) {
+                                const double w=ap.weight[j]*bp.weight[l];
+                                if(w==0)continue;
+                                const auto x=front?normal_index:ap.index[j];
+                                const auto y=front?ap.index[j]:bp.index[l];
+                                const auto z=front?bp.index[l]:normal_index;
+                                if(solid(x,y,z)){fully_wet=false;break;}
+                                const double f=fraction(x,y,z);
+                                if(!std::isfinite(f)||f<0||f>1)
+                                    throw std::invalid_argument("Invalid footprint extension fraction");
+                                if(f<1.0-1e-12){fully_wet=false;break;}
+                                const double p=pressure(x,y,z);
+                                if(!std::isfinite(p))
+                                    throw std::runtime_error("Nonfinite footprint extension pressure");
+                                extended+=w*p;
+                            }
+                            if(fully_wet)return extended;
+                        }
+                        return sum/wet_weight;
                     };
                     double first_w=0,second_w=0;
                     const double first=plane(normal,first_w);
