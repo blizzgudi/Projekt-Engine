@@ -1,0 +1,5 @@
+-- Configuring done (0.0s)
+-- Generating done (0.1s)
+-- Build files have been written to: D:/Projekt Engine/Engine Core/UnifiedPhysicsCore/build
+[1/1] Linking CXX executable upc_p2_two_phase_global_shear_tests.exe
+ninja: no work to do.

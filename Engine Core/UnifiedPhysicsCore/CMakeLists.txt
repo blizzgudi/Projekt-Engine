@@ -748,3 +748,8 @@ add_test(NAME physics_p2_two_phase_shear_exchange_partial COMMAND upc_p2_two_pha
 add_executable(upc_p2_two_phase_grid_shear_tests tests/p2_two_phase_grid_shear3d_tests.cpp)
 target_link_libraries(upc_p2_two_phase_grid_shear_tests PRIVATE upc)
 add_test(NAME physics_p2_two_phase_grid_shear_partial COMMAND upc_p2_two_phase_grid_shear_tests)
+# P2 PARTIAL: global mass-weighted SPD water/air tangential traction solve
+# across fixed 3D cell-centered interfaces; not live MAC/VOF or FSI.
+add_executable(upc_p2_two_phase_global_shear_tests tests/p2_two_phase_global_shear3d_tests.cpp)
+target_link_libraries(upc_p2_two_phase_global_shear_tests PRIVATE upc)
+add_test(NAME physics_p2_two_phase_global_shear_partial COMMAND upc_p2_two_phase_global_shear_tests)
