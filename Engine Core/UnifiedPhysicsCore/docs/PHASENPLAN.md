@@ -2416,3 +2416,9 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
 - Echte MSVC-Release-Tests: planare Nullkruemmung, zwei 3D-Kugeltropfen-Gitter (8^3 und 12^3) gegen 2/R, Live-Kopplung 6^3, Rollback-Negativtests; 75 native Assertions und 145/145 CTest PASS. Unabhaengige QA mit erneutem EXE-Lauf, SHA256 und 9 manipulierten Protokollen: scripts/p2_two_phase_capillary_acceptance.py.
 - **Negativ:** Statische Tropfen-Spurious-Velocity steigt von 5.9607e-7 auf 1.0901e-6 m/s bei Gitterverfeinerung; keine balancierte Young-Laplace-Drucksprung-Konvergenz. Diffuse CSF-Kruemmung ist keine scharfe PLIC-Spannung; MARIN/SPHERIC-H1-H4/P1-P8 >=6s-Dreigitter-Mess-PASS, dynamische FSI, globale Oberflaechenenergie/Impulsabnahme und UE5.8-Native-E2E fehlen weiterhin. **P2 bleibt PARTIAL / ALL_COMPLETE=False.**
 - Belege: docs/P2_TWO_PHASE_CAPILLARY_MAC_VOF_PARTIAL.md und ENGINE TEST STUBE/runs/p2_two_phase_capillary_partial.json.
+
+## P2 Teilfortschritt: globale Kapillarenergie-Inventur (02.11.2026)
+
+- Opt-in live 3D Wasser/Luft-Kapillar-/MAC-PCG-/VOF-/Impuls-/Volltensor-Operator mit realem Vorher/Nachher-Inventar von Wasser/Luft-Masse, MAC-Face-Kinetik, Gravitationspotential und diffusem Grenzflaechenenergie-Proxy. Drei unabhaengige lineare 3D-VOF-Gitterpruefungen (4^3, 7^3, 10^3) fuer Integral |grad(alpha)| dV; 39 native Assertions, 146/146 CTest und separate Python-QA mit sechs Negativmanipulationen.
+- **Negativ:** echte offene globale Energieluecke -1.8919369992871722e-7 J im 6^3-Livefall; kein Energieerhaltungs-PASS, kein scharfes PLIC, keine dynamische FSI, keine MARIN/SPHERIC-H1-H4/P1-P8 >=6s-Dreigitter-Messabnahme und kein neuer UE5.8 Native-E2E. Details: docs/P2_CAPILLARY_GLOBAL_ENERGY_PARTIAL.md und ENGINE TEST STUBE/runs/p2_capillary_global_energy_partial.json.
+- **P2 PARTIAL / ALL_COMPLETE=False.**

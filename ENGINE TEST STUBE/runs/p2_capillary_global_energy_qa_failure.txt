@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "D:\Projekt Engine\Engine Core\UnifiedPhysicsCore\scripts\p2_capillary_global_energy_acceptance.py", line 135, in <module>
+    if __name__=="__main__":main()
+                            ~~~~^^
+  File "D:\Projekt Engine\Engine Core\UnifiedPhysicsCore\scripts\p2_capillary_global_energy_acceptance.py", line 98, in main
+    raw=NATIVE.read_text(encoding="utf-8-sig")
+  File "C:\Python314\Lib\pathlib\__init__.py", line 788, in read_text
+    return f.read()
+           ~~~~~~^^
+  File "<frozen codecs>", line 325, in decode
+  File "C:\Python314\Lib\encodings\utf_8_sig.py", line 69, in _buffer_decode
+    return codecs.utf_8_decode(input, errors, final)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0xff in position 0: invalid start byte

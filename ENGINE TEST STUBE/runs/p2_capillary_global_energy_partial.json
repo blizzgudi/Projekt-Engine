@@ -1,0 +1,51 @@
+{
+  "phase": "P2",
+  "milestone": "live_diffuse_capillary_global_energy_inventory_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "full_P2_accepted": false,
+  "generated_utc": "2026-11-02T10:55:03.877831+00:00",
+  "native_metrics": {
+    "planar_area_m2": {
+      "4": 0.16000000000000011,
+      "7": 0.49000000000000216,
+      "10": 1.0000000000000007
+    },
+    "before_j": 7.070314302942335,
+    "after_j": 7.0703141137486245,
+    "surface_delta_j": -3.6330524144645437e-09,
+    "kinetic_delta_j": 1.6822043238346692e-07,
+    "potential_delta_j": -3.537810897569216e-07,
+    "last_viscous_pressure_loss_j": 1.0547159517697856e-14,
+    "unresolved_global_energy_j": -1.8919369992871722e-07,
+    "water_mass_residual_kg": 1.7053025658242404e-13,
+    "air_mass_residual_kg": -6.661338147750939e-16,
+    "native_assertions": 39
+  },
+  "independent_negative_tamper_rejections": 6,
+  "negative_results": {
+    "unresolved_global_energy_nonzero": true,
+    "surface_area_is_diffuse_proxy_not_PLIC": true,
+    "full_physical_energy_conservation_validated": false,
+    "static_droplet_spurious_current_grid_convergence": false,
+    "MARIN_6s_H1_H4_P1_P8_three_grid_validated": false,
+    "bidirectional_dynamic_FSI_validated": false,
+    "UE58_native_E2E_for_new_chain": false
+  },
+  "source_sha256": {
+    "CMakeLists.txt": "1f2e934536fd6797211803474db1b56acd91f749e73e4e8f6ca975498dd6aa0d",
+    "include/upc/p2_two_phase_capillary_global_energy3d.hpp": "920268188545f12ec11ea6e78725d0f8c7ea0eaa6c32422bf22f9749726f69ff",
+    "include/upc/p2_two_phase_capillary_mac_vof3d.hpp": "7add44037120dff30cb1416e4abbd4fb3439eb8d6b592813663e6c049e3379ea",
+    "include/upc/p2_two_phase_momentum_viscous_vof3d.hpp": "96be55f5537434e6635ff32d7b2631c5cc3ba75b79d7a0c34c94eed8d6e73d02",
+    "tests/p2_two_phase_capillary_global_energy3d_tests.cpp": "9e7fcc903d3fd267767ec1f6a1d96d661b9a1b27b44b4be653387c7ae23b4dea",
+    "scripts/p2_capillary_global_energy_acceptance.py": "e2394c24dedba033601ad70e69fb917bf6f0bce8588f764f77a073cad3829725",
+    "docs/P2_CAPILLARY_GLOBAL_ENERGY_PARTIAL.md": "c9464df61b0b242fa5253932ad75a06a4b4a88fa7f84c5b061c683282a3ca566"
+  },
+  "artifact_sha256": {
+    "upc_p2_capillary_global_energy_tests.exe": "89e31c8b83c1639fcbf3d358420fd62614344e7a5ccbbebbd8b4f8e6d4c16402",
+    "p2_capillary_global_energy_native.txt": "6b6050e212d5faec311cc47a96df4bc4afb97ebcb84049d3b0c6d5e2625a17b5",
+    "p2_capillary_global_energy_build.txt": "dc98d1756b56a88b123ab146b3b280f96db8b91816f079a460ac963f09fb19e8",
+    "p2_capillary_global_energy_full_ctest.txt": "4e19e1e8ccb3b553b25fe9794781fee2a71e207cc0683704eef16e8e651680f6",
+    "p2_capillary_global_energy_phase_gate.txt": "355696c2ae65e8d8d9053dcca683e686ee13083f03597d7ec35e8436443a7123"
+  }
+}

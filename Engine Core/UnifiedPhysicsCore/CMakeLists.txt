@@ -841,3 +841,11 @@ add_executable(upc_p2_two_phase_capillary_mac_vof_tests
 target_link_libraries(upc_p2_two_phase_capillary_mac_vof_tests PRIVATE upc)
 add_test(NAME physics_p2_two_phase_capillary_mac_vof_partial
     COMMAND upc_p2_two_phase_capillary_mac_vof_tests)
+
+# P2 PARTIAL: actual moving capillary/VOF full-domain kinetic, gravity and
+# diffuse surface-energy inventory. Unclosed global energy explicitly reported.
+add_executable(upc_p2_capillary_global_energy_tests
+    tests/p2_two_phase_capillary_global_energy3d_tests.cpp)
+target_link_libraries(upc_p2_capillary_global_energy_tests PRIVATE upc)
+add_test(NAME physics_p2_capillary_global_energy_partial
+    COMMAND upc_p2_capillary_global_energy_tests)
