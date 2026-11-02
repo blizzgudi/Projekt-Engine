@@ -1,0 +1,96 @@
+{
+  "phase": "P2",
+  "milestone": "moving_two_phase_gravity_hydrostatic_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "generated_utc": "2026-11-02T07:45:21.761209+00:00",
+  "independent_qa": {
+    "hydrostatic": {
+      "4x4x4": {
+        "pressure_error_pa": 9.094947017729282e-13,
+        "velocity_error_m_s": 3.7890560499138785e-17,
+        "energy_residual_j": 3.469446951953614e-17,
+        "independent_expected_top_minus_bottom_pressure_pa": -1399.7790900000002
+      },
+      "6x5x4": {
+        "pressure_error_pa": 6.014033715473488e-11,
+        "velocity_error_m_s": 1.928496905035235e-14,
+        "energy_residual_j": 1.0408340855860843e-16,
+        "independent_expected_top_minus_bottom_pressure_pa": -1399.7790900000002
+      },
+      "8x6x5": {
+        "pressure_error_pa": 5.638867150992155e-11,
+        "velocity_error_m_s": 3.9111806827623845e-14,
+        "energy_residual_j": 5.551115123125783e-16,
+        "independent_expected_top_minus_bottom_pressure_pa": -1449.9474300000002
+      }
+    },
+    "tilted": {
+      "6x5x4": {
+        "u_m_s": 0.3036019718417039,
+        "w_m_s": 0.1865175344509038,
+        "alpha_delta": 0.04290228911647889,
+        "div_s_inv": 6.351585923880521e-13,
+        "mass_error_kg": 1.2789769243681803e-13,
+        "energy_residual_j": 2.636779683484747e-16
+      },
+      "8x6x5": {
+        "u_m_s": 0.20497131089540732,
+        "w_m_s": 0.17559201564800253,
+        "alpha_delta": 0.04542139950319392,
+        "div_s_inv": 8.287537323070637e-13,
+        "mass_error_kg": 1.7053025658242404e-13,
+        "energy_residual_j": 6.522560269672795e-16
+      }
+    },
+    "native_assertions": 1904
+  },
+  "negative_fixture_rejections": {
+    "pressure": true,
+    "hydro_velocity": true,
+    "moving_mass": true,
+    "moving_vertical": true,
+    "missing_grid": true,
+    "assertions": true,
+    "nonfinite": true
+  },
+  "negative_fixture_sha256": {
+    "pressure": "04e71aee868bb7063dfbb9aed6d69d762b39afbc88e67cac2422c33db89cd47a",
+    "hydro_velocity": "f8b48bd563ae82a77dbb908d21c9ee052af14cfd15bad1e9f1f20c3ee5d126d6",
+    "moving_mass": "fc92a25c25a46c51341cb2da1ed146848d3bf9b2e1af77710f1704fb1cbb9efc",
+    "moving_vertical": "6062994c91831f9432c61281f260d16def4d4416bf497ee68267094484ffbffc",
+    "missing_grid": "5e7421d56e56846c69f5914332ece1d6f668f28271223d632e6409a2251156a8",
+    "assertions": "c8aed690e0468b819edeb881b2bf8f722590a4600b832746106fc8955da2d23c",
+    "nonfinite": "38fd75be9a9e595b28cafad196592875986bc7f4ed40e7f18bbadaa1b9736e2a"
+  },
+  "ctest_total": 137,
+  "historical_marin_6s_validation_pass": false,
+  "limitations": [
+    "Discrete staggered-face gravity source/projection energy, not global potential energy closure",
+    "No momentum self-advection or stress-consistent moving water-air interface",
+    "No dynamic bidirectional solid impulse coupling",
+    "No full-window MARIN H1-H4/P1-P8 independent measured grid convergence",
+    "No Unreal 5.8 Native E2E for new gravity path"
+  ],
+  "source_sha256": {
+    "CMakeLists.txt": "cee295131295cf263fc3f12c698a88ff654cc290a576dd0835816b9366b7b2ad",
+    "include/upc/p2_two_phase_mac_vof3d.hpp": "28dd10388e035fca446f2eeeb9ea71169db8e343dde35228f48d7ca80fa6bf9d",
+    "include/upc/p2_two_phase_mac_pressure3d.hpp": "972c0070448dd3e9d0391999c4ee4b6f779e6b108970f609e93396248abd7ee2",
+    "include/upc/p2_conservative_vof_flux3d.hpp": "08db884109510cf3d851c05bbedb669edbae94de4766a9674927d44bde4b3b9f",
+    "tests/p2_two_phase_gravity3d_tests.cpp": "a0016dd548a34a9bbc13aeb8c094b8b2706c45227f02d7d56ad1948966e91aa2",
+    "scripts/p2_two_phase_gravity_acceptance.py": "8ceeed05a1f6127664c5892bfb408e40638d62924da8e4ffb1f01e64f6d01520",
+    "scripts/phase_gate.py": "01065438e2b72b3fe83e7e3ba3decbf54925c84c5f9424b15ad15a8197f59cd6",
+    "docs/P2_TWO_PHASE_GRAVITY_PARTIAL.md": "f515bccbe90c4bbc077a53369855496963036976cff5e56c4b3bacf937f6ebb3",
+    "docs/PHASENPLAN.md": "b1ec9419ddbeaef8621608a84f53194806c3622a09993b044b82eb757d483b41"
+  },
+  "artifact_sha256": {
+    "native_binary": "273922c17c3003e55d8353072309789a555945bec753e54c40f05bc2271c2d90",
+    "native_trace": "958b3448c904eb8a69d9af6603f4f6f2c22936c282853fd22ab23a449d0e7555",
+    "initial_negative": "4581b04df0eb5a4ec5d68ebd30d25e8cf2fa6d0689581f9f3d548607e36c0b74",
+    "build_log": "47e18b54099a1256f74ea8fd85b0b2f5b7c668d950f70901b12ba8e3ff2425eb",
+    "full_build_log": "e58361b03434fbb24ffb52f6a2c137f2ec07e3f1902f74561b67983c92ecacdb",
+    "ctest_log": "d138c63c734d3e936994334147d1d4bb36bad3aa58b2aaf9f935276e1c1a9353",
+    "phase_gate_log": "81c1aeb5f80e7e0c8ab439c351b9eab256694a788538ae1ad32d0f2082f8cccf",
+    "historical_negative_marin": "192e198e4e72fbca285c8eeb7b513f74ecdb4432b7705d837f71b8b0f91f2f08"
+  }
+}

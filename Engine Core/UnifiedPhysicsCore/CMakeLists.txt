@@ -767,3 +767,9 @@ add_test(NAME physics_p2_two_phase_mac_pressure_partial COMMAND upc_p2_two_phase
 add_executable(upc_p2_two_phase_mac_vof_tests tests/p2_two_phase_mac_vof3d_tests.cpp)
 target_link_libraries(upc_p2_two_phase_mac_vof_tests PRIVATE upc)
 add_test(NAME physics_p2_two_phase_moving_mac_vof_partial COMMAND upc_p2_two_phase_mac_vof_tests)
+
+# P2 PARTIAL: gravity forcing on moving two-phase 3D MAC/VOF,
+# hydrostatic balance and discrete source/projection ledgers only.
+add_executable(upc_p2_two_phase_gravity_tests tests/p2_two_phase_gravity3d_tests.cpp)
+target_link_libraries(upc_p2_two_phase_gravity_tests PRIVATE upc)
+add_test(NAME physics_p2_two_phase_gravity_partial COMMAND upc_p2_two_phase_gravity_tests)

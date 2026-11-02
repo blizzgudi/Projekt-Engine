@@ -2353,3 +2353,11 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
 - Echte Windows-MSVC-Release-Abnahme: 19.038 Native-Assertions und 136/136 CTest PASS; drei 3D-Gitter (4x4x4 / 6x5x4 / 8x6x5) mit acht Schritten, nichtverschwindender Vertikalgeschwindigkeit, Druckgradient und unabhängiger diskreter Curl-/VOF-FV-Referenz. Maximale VOF-Fehler 3.33e-16 / 3.33e-16 / 7.77e-16. Anfangs negativer Testlauf durch NaN-Vergleichsfehler im Test, danach korrigiert und erneut nativ getestet.
 - Belege: `docs/P2_TWO_PHASE_MOVING_MAC_VOF_PARTIAL.md`, `scripts/p2_two_phase_mac_vof_build.cmd`, `scripts/p2_two_phase_mac_vof_acceptance.py`, `ENGINE TEST STUBE/runs/p2_two_phase_mac_vof_partial.json` (nach unabhängiger QA) und SHA256-Logs.
 - **P2 bleibt PARTIAL / ALL_COMPLETE=False.** Noch kein Impuls-Selbsttransport, keine vollständige viskose/stresskonsistente bewegte Wasser-Luft-Grenze, keine dynamische bidirektionale FSI, kein MARIN/SPHERIC-H1-H4/P1-P8-6s-Dreigitter-Mess-PASS, keine globale physikalische Energie-/Impulsabnahme und kein neues UE5.8 Native-E2E.
+
+
+## P2 Teilfortschritt: Schwerkraft im bewegten Zweiphasen-MAC/VOF (02.11.2026)
+
+- Opt-in konstante 3D-Schwerebeschleunigung in `p2_two_phase_mac_vof_step3d`: Innen-Faces erhalten die SI-Kraft, variable-Dichte-MAC-PCG projiziert, danach konservativer 3D-VOF-Transport; alte Null-g-API kompatibel.
+- MSVC Release 137/137 CTest PASS, 1904 native Assertions. Drei geschichtete 3D-Hydrostatik-Gitter mit unabhängiger diskreter Druckreferenz (maximal 5.64e-11 Pa) und zwei geneigte bewegte Grenzflächen mit u/w-Strömung, getrennten Massenkonten und diskretem Quell-/Druck-Impuls-/Energieledger.
+- Negativer initialer Compile-Repro vor API-Implementierung und weitere NaN-/CFL-Rollback-Tests protokolliert. QA/SHA-256: `scripts/p2_two_phase_gravity_acceptance.py`, `ENGINE TEST STUBE/runs/p2_two_phase_gravity_partial.json`, `docs/P2_TWO_PHASE_GRAVITY_PARTIAL.md`.
+- **P2 bleibt PARTIAL / ALL_COMPLETE=False**: keine volle Impulsadvektion, Potentialenergie/VOF-Remap-Gesamtbilanz, stresskonsistente bewegte Grenzfläche, dynamische FSI, MARIN/SPHERIC-6s-H1-H4/P1-P8-Dreigitter-Messabnahme oder UE5.8 Native-E2E für diese Erweiterung.

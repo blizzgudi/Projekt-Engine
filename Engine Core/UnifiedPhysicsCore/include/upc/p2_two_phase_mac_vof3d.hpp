@@ -5,6 +5,7 @@
 #include "upc/p2_two_phase_mac_pressure3d.hpp"
 #include "upc/p2_conservative_vof_flux3d.hpp"
 #include <algorithm>
+#include <array>
 #include <cmath>
 #include <cstdint>
 #include <stdexcept>
@@ -25,10 +26,19 @@ struct P2TwoPhaseMacVofLedger3D {
     double air_mass_before_kg=0,air_mass_after_kg=0;
     double total_mass_residual_kg=0;
     double max_density_change_kg_m3=0;
+    // Source/projection staggered-face quadrature, not a full physical
+    // two-phase kinetic/potential energy budget after VOF remapping.
+    std::array<double,3> gravity_source_impulse_kg_m_s{};
+    std::array<double,3> gravity_source_projection_momentum_residual_kg_m_s{};
+    double gravity_source_work_j=0;
+    double gravity_source_projection_energy_residual_j=0;
 };
 inline P2TwoPhaseMacVofLedger3D p2_two_phase_mac_vof_step3d(
-    P2TwoPhaseMacVofState3D& state,int max_pcg_iterations=4000) {
+    P2TwoPhaseMacVofState3D& state,int max_pcg_iterations=4000,
+    std::array<double,3> gravity_m_s2={0,0,0}) {
     const auto& m=state.mac;
+    for(double g:gravity_m_s2)
+        if(!std::isfinite(g))throw std::invalid_argument("Nonfinite gravity acceleration");
     if(!(std::isfinite(state.water_density_kg_m3)&&
          std::isfinite(state.air_density_kg_m3)&&
          state.water_density_kg_m3>state.air_density_kg_m3&&
@@ -52,8 +62,63 @@ inline P2TwoPhaseMacVofLedger3D p2_two_phase_mac_vof_step3d(
     // An invalid PCG, wall flux, divergence or VOF CFL cannot mutate state.
     auto next=state;
     P2TwoPhaseMacVofLedger3D out;
+    const double dt=m.dt_s,volume=m.dx_m*m.dx_m*m.dx_m;
+    std::array<double,3> momentum_before_source{};
+    double kinetic_before_source=0;
+    const auto ci=[&](std::size_t x,std::size_t y,std::size_t z){
+        return (z*m.ny+y)*m.nx+x;
+    };
+    const auto source_face=[&](double& velocity,std::size_t a,std::size_t b,int axis){
+        const double rho=.5*(m.density_kg_m3[a]+m.density_kg_m3[b]);
+        const double face_mass=rho*volume;
+        const double old=velocity;
+        const double dv=dt*gravity_m_s2[axis];
+        const double updated=old+dv;
+        if(!(std::isfinite(face_mass)&&face_mass>0&&std::isfinite(updated)))
+            throw std::invalid_argument("Nonfinite gravity source or face density");
+        momentum_before_source[axis]+=face_mass*old;
+        kinetic_before_source+=.5*face_mass*old*old;
+        out.gravity_source_impulse_kg_m_s[axis]+=face_mass*dv;
+        out.gravity_source_work_j+=.5*face_mass*(updated*updated-old*old);
+        velocity=updated;
+    };
+    // Apply uniform acceleration only to interior MAC faces. Closed-box
+    // normal wall velocities remain zero. The projection balances the
+    // hydrostatic force for horizontally stratified mixture density.
+    for(std::size_t z=0;z<m.nz;++z)for(std::size_t y=0;y<m.ny;++y)
+    for(std::size_t x=1;x<m.nx;++x)
+        source_face(next.mac.u_m_s[(z*m.ny+y)*(m.nx+1)+x],
+                    ci(x-1,y,z),ci(x,y,z),0);
+    for(std::size_t z=0;z<m.nz;++z)for(std::size_t y=1;y<m.ny;++y)
+    for(std::size_t x=0;x<m.nx;++x)
+        source_face(next.mac.v_m_s[(z*(m.ny+1)+y)*m.nx+x],
+                    ci(x,y-1,z),ci(x,y,z),1);
+    for(std::size_t z=1;z<m.nz;++z)for(std::size_t y=0;y<m.ny;++y)
+    for(std::size_t x=0;x<m.nx;++x)
+        source_face(next.mac.w_m_s[(z*m.ny+y)*m.nx+x],
+                    ci(x,y,z-1),ci(x,y,z),2);
     out.pressure=p2_two_phase_mac_pressure_step3d(
         next.mac,max_pcg_iterations);
+    for(int k=0;k<3;++k)
+        out.gravity_source_projection_momentum_residual_kg_m_s[k]=
+            out.pressure.momentum_after_kg_m_s[k]-momentum_before_source[k]-
+            out.gravity_source_impulse_kg_m_s[k]-
+            out.pressure.wall_pressure_impulse_n_s[k];
+    out.gravity_source_projection_energy_residual_j=
+        out.pressure.kinetic_after_j-kinetic_before_source-
+        out.gravity_source_work_j+out.pressure.projection_dissipation_j;
+    double impulse_scale=1,energy_scale=1+std::abs(kinetic_before_source)+
+        std::abs(out.gravity_source_work_j);
+    for(int k=0;k<3;++k) {
+        impulse_scale+=std::abs(momentum_before_source[k])+
+            std::abs(out.gravity_source_impulse_kg_m_s[k]);
+        if(std::abs(out.gravity_source_projection_momentum_residual_kg_m_s[k])>
+           1e-9*impulse_scale)
+            throw std::runtime_error("Gravity source/projection momentum ledger failed");
+    }
+    if(!std::isfinite(out.gravity_source_projection_energy_residual_j)||
+       std::abs(out.gravity_source_projection_energy_residual_j)>1e-9*energy_scale)
+        throw std::runtime_error("Gravity source/projection energy ledger failed");
     const std::vector<std::uint8_t> no_solids(next.water_fraction.size(),0);
     out.vof=ConservativeVofFlux3D::step(
         m.nx,m.ny,m.nz,m.dx_m,m.dt_s,no_solids,next.water_fraction,
