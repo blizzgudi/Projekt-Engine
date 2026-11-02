@@ -1,0 +1,110 @@
+{
+  "phase": "P2",
+  "milestone": "3D_density_consistent_finite_volume_momentum_with_live_MAC_feedback",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "global_physical_mac_momentum_conserved": false,
+  "full_dynamic_two_way_fsi": false,
+  "measured_marin_6s_validated": false,
+  "native_conservative_assertions": 39191,
+  "native_live_assertions": 5337,
+  "full_native_ctest_suites": 140,
+  "independent_forged_evidence_rejections": [
+    "missing_grid",
+    "fake_closed_cell_impulse",
+    "fake_negative_upwind_loss",
+    "fake_complete",
+    "truncated_steps",
+    "truncated_assertions",
+    "missing_live_grid",
+    "suppressed_physical_gap",
+    "fake_full_live",
+    "fake_nan_density"
+  ],
+  "conservative_3d_cases": {
+    "4x4x4_constant1": {
+      "reference_error": 3.410605131648481e-13,
+      "impulse_error": 8.881784197001252e-16,
+      "upwind_kinetic_loss": 2.220446049250313e-16,
+      "f0": 0.6999502897665103
+    },
+    "6x5x4_constant1": {
+      "reference_error": 2.2737367544323206e-13,
+      "impulse_error": 2.6645352591003757e-15,
+      "upwind_kinetic_loss": 9.992007221626409e-16,
+      "f0": 0.6999803004779276
+    },
+    "8x6x5_constant0": {
+      "reference_error": 4.547473508864641e-13,
+      "impulse_error": 1.2434497875801753e-14,
+      "upwind_kinetic_loss": 1.0722278533936702e-05,
+      "f0": 0.6999999809936122
+    },
+    "12x8x6_constant0": {
+      "reference_error": 4.547473508864641e-13,
+      "impulse_error": 3.907985046680551e-14,
+      "upwind_kinetic_loss": 2.368774643635163e-05,
+      "f0": 0.6999999999971009
+    }
+  },
+  "coupled_3d_live_cases": {
+    "4x4x4": {
+      "feedback_m_s": 0.08710437413297052,
+      "cell_flux_impulse_error": 1.6653345369377348e-16,
+      "unclosed_mac_impulse": 0.054521551826364034,
+      "donor_kinetic_loss": 1.4340529029186616e-05,
+      "density_error": 3.410605131648481e-13
+    },
+    "6x5x4": {
+      "feedback_m_s": 0.08477783442195834,
+      "cell_flux_impulse_error": 3.3306690738754696e-16,
+      "unclosed_mac_impulse": 0.08053077106528561,
+      "donor_kinetic_loss": 2.4666908949397964e-05,
+      "density_error": 3.410605131648481e-13
+    },
+    "8x6x5": {
+      "feedback_m_s": 0.06238457460184829,
+      "cell_flux_impulse_error": 1.1102230246251565e-15,
+      "unclosed_mac_impulse": 0.08565517740854922,
+      "donor_kinetic_loss": 4.478278449998596e-05,
+      "density_error": 3.410605131648481e-13
+    }
+  },
+  "known_unresolved_mac_feedback_impulse_kg_m_s": {
+    "4x4x4": 0.054521551826364034,
+    "6x5x4": 0.08053077106528561,
+    "8x6x5": 0.08565517740854922
+  },
+  "source_sha256": {
+    "CMakeLists.txt": "bc1c06690e509225c6970270e3e5b6099322b8ccef740bcc9c36c7139ecdcfce",
+    "include/upc/p2_two_phase_consistent_momentum3d.hpp": "d43c03e8172f7cd90f336bc7c220b488f019e14a496e43cb63465f506a2ccc52",
+    "include/upc/p2_two_phase_momentum_vof3d.hpp": "09e2d787c26f3289f61ff5541ac8fdfe079da8438b65b6886d67e206529d97cd",
+    "include/upc/p2_two_phase_mac_vof3d.hpp": "276f28481f8922b433b25aadd5494033af89680f74f973a6f407f3dfeedf39a7",
+    "include/upc/p2_two_phase_mac_pressure3d.hpp": "972c0070448dd3e9d0391999c4ee4b6f779e6b108970f609e93396248abd7ee2",
+    "include/upc/p2_conservative_vof_flux3d.hpp": "08db884109510cf3d851c05bbedb669edbae94de4766a9674927d44bde4b3b9f",
+    "tests/p2_two_phase_consistent_momentum3d_tests.cpp": "8eec10ccc1348d882771e7427045c1a2080eb3042c77b4d6b2acd936050b5005",
+    "tests/p2_two_phase_momentum_vof3d_tests.cpp": "015803683eafe856ac9bfe806145b7ea34d53421594330a45946383284198005",
+    "scripts/p2_two_phase_momentum_build.cmd": "ce1a32e289626881ec97484d93ad649e23b32671259812569e386efa2ee124bc",
+    "scripts/p2_two_phase_momentum_acceptance.py": "2f39882fc556fde6836ab43b45eb31a80aa0a9d721bacc60c4530caa9d623a21",
+    "scripts/phase_gate.py": "01065438e2b72b3fe83e7e3ba3decbf54925c84c5f9424b15ad15a8197f59cd6",
+    "docs/P2_TWO_PHASE_CONSISTENT_MOMENTUM_PARTIAL.md": "b941a0544de21bbb474bb0a9294c9e40954e9e6464f219ce1b707e6c570b0c6e",
+    "docs/PHASENPLAN.md": "9afced67d6365f91f590b26b1c85bca9718232f8627426bdd4ff0670e41772b0"
+  },
+  "artifact_sha256": {
+    "conservative_binary": "e79dce97520b7b688370b00f653df7f533b9d08e0b6bb6cd09343119e7438c7d",
+    "live_binary": "35e8447b14d420eb89625e3fefaa66e5b5f4795ad9835c8ffb001059938f984a",
+    "build": "9de7b197157c97113cb8fd2fe6869ec0fcf17b52e7e6356cb93065890a4a400e",
+    "ctest": "5003ea5902a3d761cba672e257f24da039b8c9bfcd9fea729bb3358d44a6ffc1",
+    "conservative_native": "eeb65ad7084371f9e978936270f6cd5e4926cfbf8cd53976357dc4cc05881e03",
+    "live_native": "b4a1d7e3be72a4c0787c8fbb1f81a48e01d978e08191df21c132ae7028795c2e",
+    "phase_gate": "81c1aeb5f80e7e0c8ab439c351b9eab256694a788538ae1ad32d0f2082f8cccf"
+  },
+  "unmet": [
+    "MAC dual-volume conservative momentum/kinetic flux; remap and second projection still produce physical impulse gap",
+    "Moving two-phase stress, surface tension, and full 3D Navier-Stokes",
+    "Dynamic two-way deformable/rigid-body FSI with physical wall impulse",
+    "Independent MARIN/SPHERIC H1-H4 P1-P8 6s three-grid measured PASS",
+    "New UE5.8 native E2E of the momentum-feedback path"
+  ],
+  "generated_utc": "2026-11-02T09:03:20.133815+00:00"
+}

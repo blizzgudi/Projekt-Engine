@@ -780,3 +780,18 @@ add_test(NAME physics_p2_two_phase_gravity_partial COMMAND upc_p2_two_phase_grav
 add_executable(upc_p2_two_phase_gravity_energy_tests tests/p2_two_phase_gravity_energy3d_tests.cpp)
 target_link_libraries(upc_p2_two_phase_gravity_energy_tests PRIVATE upc)
 add_test(NAME physics_p2_two_phase_gravity_energy_partial COMMAND upc_p2_two_phase_gravity_energy_tests)
+
+# P2 PARTIAL: conservative 3D two-phase cell-momentum donor flux coupled
+# to the SAME moving projected MAC/VOF flux, plus LIVE staggered-velocity
+# feedback and a SECOND density-weighted pressure projection.
+# The cell->MAC impulse discrepancy remains an explicit unresolved ledger.
+add_executable(upc_p2_two_phase_consistent_momentum_tests
+    tests/p2_two_phase_consistent_momentum3d_tests.cpp)
+target_link_libraries(upc_p2_two_phase_consistent_momentum_tests PRIVATE upc)
+add_test(NAME physics_p2_two_phase_consistent_momentum_partial
+    COMMAND upc_p2_two_phase_consistent_momentum_tests)
+add_executable(upc_p2_two_phase_live_momentum_tests
+    tests/p2_two_phase_momentum_vof3d_tests.cpp)
+target_link_libraries(upc_p2_two_phase_live_momentum_tests PRIVATE upc)
+add_test(NAME physics_p2_two_phase_live_momentum_partial
+    COMMAND upc_p2_two_phase_live_momentum_tests)

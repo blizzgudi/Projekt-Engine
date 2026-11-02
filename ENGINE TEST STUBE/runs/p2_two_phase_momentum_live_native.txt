@@ -1,0 +1,4 @@
+LIVE_MOMENTUM grid=4x4x4 steps=6 max_face_feedback_m_s=0.087104374132970522 cell_flux_impulse_error=1.6653345369377348e-16 unclosed_mac_impulse_kg_m_s=0.054521551826364034 donor_kinetic_loss_j=1.4340529029186616e-05 density_error_kg_m3=3.4106051316484809e-13 full_phase=false
+LIVE_MOMENTUM grid=6x5x4 steps=6 max_face_feedback_m_s=0.08477783442195834 cell_flux_impulse_error=3.3306690738754696e-16 unclosed_mac_impulse_kg_m_s=0.080530771065285611 donor_kinetic_loss_j=2.4666908949397964e-05 density_error_kg_m3=3.4106051316484809e-13 full_phase=false
+LIVE_MOMENTUM grid=8x6x5 steps=6 max_face_feedback_m_s=0.062384574601848292 cell_flux_impulse_error=1.1102230246251565e-15 unclosed_mac_impulse_kg_m_s=0.085655177408549221 donor_kinetic_loss_j=4.4782784499985961e-05 density_error_kg_m3=3.4106051316484809e-13 full_phase=false
+PASS P2_TWO_PHASE_LIVE_MOMENTUM assertions=5337 phase_complete=false

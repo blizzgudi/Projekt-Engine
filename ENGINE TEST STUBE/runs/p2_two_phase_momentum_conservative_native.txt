@@ -1,0 +1,5 @@
+MOMENTUM grid=4x4x4 constant=1 steps=7 max_reference_error=3.4106051316484809e-13 impulse_error=8.8817841970012523e-16 max_donor_kinetic_loss_j=2.2204460492503131e-16 f0=0.6999502897665103
+MOMENTUM grid=6x5x4 constant=1 steps=7 max_reference_error=2.2737367544323206e-13 impulse_error=2.6645352591003757e-15 max_donor_kinetic_loss_j=9.9920072216264089e-16 f0=0.69998030047792759
+MOMENTUM grid=8x6x5 constant=0 steps=7 max_reference_error=4.5474735088646412e-13 impulse_error=1.2434497875801753e-14 max_donor_kinetic_loss_j=1.0722278533936702e-05 f0=0.69999998099361216
+MOMENTUM grid=12x8x6 constant=0 steps=7 max_reference_error=4.5474735088646412e-13 impulse_error=3.907985046680551e-14 max_donor_kinetic_loss_j=2.3687746436351631e-05 f0=0.69999999999710094
+PASS P2_TWO_PHASE_CONSISTENT_MOMENTUM assertions=39191 phase_complete=false
