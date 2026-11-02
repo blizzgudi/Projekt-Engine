@@ -1,0 +1,105 @@
+{
+  "phase": "P2",
+  "milestone": "strict_3d_height_function_capillary_mac_pcg_moving_vof_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "full_p2_accepted": false,
+  "generated_utc": "2026-11-02T14:42:58.977061+00:00",
+  "native_assertions": 72,
+  "ctest_suites": 149,
+  "tamper_rejected": 12,
+  "metrics": {
+    "manufactured_sphere_cap": {
+      "0:12": {
+        "curvature_inv_m": 2.005012170259744,
+        "error_inv_m": 0.0050121702597438755,
+        "independent_inv_m": 2.0050121702597883
+      },
+      "1:12": {
+        "curvature_inv_m": 2.005012170259744,
+        "error_inv_m": 0.0050121702597438755,
+        "independent_inv_m": 2.0050121702597883
+      },
+      "2:12": {
+        "curvature_inv_m": 2.005012170259744,
+        "error_inv_m": 0.0050121702597438755,
+        "independent_inv_m": 2.0050121702597883
+      },
+      "0:20": {
+        "curvature_inv_m": 2.001801605137808,
+        "error_inv_m": 0.0018016051378078046,
+        "independent_inv_m": 2.0018016051378082
+      },
+      "1:20": {
+        "curvature_inv_m": 2.001801605137808,
+        "error_inv_m": 0.0018016051378078046,
+        "independent_inv_m": 2.0018016051378082
+      },
+      "2:20": {
+        "curvature_inv_m": 2.001801605137808,
+        "error_inv_m": 0.0018016051378078046,
+        "independent_inv_m": 2.0018016051378082
+      },
+      "0:40": {
+        "curvature_inv_m": 2.0004501010210203,
+        "error_inv_m": 0.00045010102102027716,
+        "independent_inv_m": 2.0004501010210203
+      },
+      "1:40": {
+        "curvature_inv_m": 2.0004501010210203,
+        "error_inv_m": 0.00045010102102027716,
+        "independent_inv_m": 2.0004501010210203
+      },
+      "2:40": {
+        "curvature_inv_m": 2.0004501010210203,
+        "error_inv_m": 0.00045010102102027716,
+        "independent_inv_m": 2.0004501010210203
+      }
+    },
+    "static_spurious_m_s": {
+      "8": 2.3730534371958646e-09,
+      "12": 4.876818878388884e-09,
+      "16": 6.695777892847257e-09
+    },
+    "static_spurious_grid_converged": false,
+    "projected": {
+      "mean_curvature_inv_m": 2.0023684759748264,
+      "height_spurious_m_s": 4.876818878388884e-09,
+      "diffuse_spurious_m_s": 2.2925185664447464e-06,
+      "face_effect_m_s": 2.287641747566435e-06
+    },
+    "moving": {
+      "effect_m_s": 5.767300191965613e-07,
+      "divergence_s_inv": 1.3254371558635292e-16
+    },
+    "native_assertions": 72
+  },
+  "negative_results": {
+    "static_spurious_grid_converged": false,
+    "sharp_plic_interface_stress_validated": false,
+    "full_spherical_droplet_supported": false,
+    "global_surface_energy_closed": false,
+    "moving_bidirectional_fsi_validated": false,
+    "MARIN_SPHERIC_six_second_three_grid_measured_pass": false,
+    "UE58_native_e2e_of_this_chain": false
+  },
+  "independent_native_rerun_byte_equal": true,
+  "source_sha256": {
+    "CMakeLists.txt": "20d2a87dba1ed95b6cf5e5930b7ccd95d7795e9947d26b9eba24269c45965bc1",
+    "include/upc/p2_vof_height_curvature3d.hpp": "3f092e0913a846d26213c5d377ba3f699bdccc5f443e5a9cc1d05eb771d7648a",
+    "include/upc/p2_vof_height_curvature_field3d.hpp": "cbc4dfc6d7a8d032d8653bc4a5b575674b49c732a7927a1ea0bfba2dc13ae1ca",
+    "include/upc/p2_two_phase_capillary_mac_vof3d.hpp": "e8b52b030f9903be198a3f7b663a7b92b531600604e065a666067ccb7a942165",
+    "tests/p2_vof_height_capillary_live3d_tests.cpp": "30585255a08a84a4bda3e3acba31737b7f3a5d179b5f7ae29b6b537c29afe5c4",
+    "scripts/p2_vof_height_capillary_live_acceptance.py": "fbdfbbf241491ad80d8e62052677d948e8a072e44503308da465d895a80681f3",
+    "scripts/phase_gate.py": "5cdf24fe269706d89507b1daf120e970384854a11628dfa5978baea6c08affcc",
+    "docs/P2_VOF_HEIGHT_CAPILLARY_LIVE_PARTIAL.md": "681369ff6d3cdab15ced41875febc012e7b6705170b304cc4566691050917343"
+  },
+  "native_exe_sha256": "a081d5e62ded0d435f3cf3381d945d1c467b42b9baa10c7de9fed9d49499192c",
+  "artifact_sha256": {
+    "p2_height_capillary_live_native_20261102.txt": "962741fcd33057e2ed461625de68b5ca09104725809d87797d4288dc51507bac",
+    "p2_height_capillary_live_build_20261102.txt": "ca279a4c4a496b0583ce570b4966801523f1f7cb53bd1080abf108ac1514e0f2",
+    "p2_height_capillary_live_full_build_20261102.txt": "f21e4079895abe08e74fa589c9c0cc26cb33c4681a005517baa501787b924b56",
+    "p2_height_capillary_live_build_initial_20261102.txt": "5b93164ccbc1ee780e609d2270daf4b21f65fe4e96b51bcf2cf3d9c740fba9d6",
+    "unified_physics_gate.json": "451f2193f77e011e46f878c83cd6197ea43a9f3f9591fcceac70fd2e0084a608"
+  }
+}

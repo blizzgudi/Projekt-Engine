@@ -2455,3 +2455,11 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
   globale Fluid-/Oberflächenenergie, dynamische Zweiwege-FSI,
   echte MARIN/SPHERIC-H1–H4/P1–P8-6s-Dreigitter-Messabnahme
   und UE5.8-Native-E2E dieser Kette bleiben offen.
+
+## P2 Teilfortschritt: Höhenfunktion an echten bewegten 3D-Kapillar-MAC/VOF-PCG gekoppelt (02.11.2026)
+
+- Opt-in, O(N)-3D-Höhenfunktionsfeld für streng einwertige Wasser-unter-Luft-Grenzen mit einer Schnittzelle je Spalte und allen drei Achsen; fail-closed bei Überhang/zweiter Schnittzelle/Wandkontakt. Variable-Dichte-MAC-Face-Kapillarkraft, echte PCG-Druckprojektion und Weiterleitung an den bewegten Impuls-/Viskositäts-/VOF-Schritt. Diffuser Bestandspfad bleibt unverändert der Default.
+- MSVC-Native: 72 Assertions, geometrische 12³/20³/40³-Krümmungsreferenz mit sinkendem Fehler (0,00501217 / 0,00180161 / 0,00045010 1/m), schiefe ebene Oberfläche, statische MAC/PCG- und bewegte VOF-Kopplung mit erhaltenen Phasenmassen. Bei identischer 12³-Graphfläche sinkt die parasitäre Geschwindigkeit gegenüber dem diffusen CSF-Pfad von 2,29252e-6 auf 4,87682e-9 m/s.
+- **Negativ:** Auch der neue Graphpfad zeigt bei 8³/12³/16³ **ansteigende** parasitäre Strömungen (2,37305e-9 / 4,87682e-9 / 6,69578e-9 m/s); keine gemessene Refinement-Konvergenz. Geschlossene Tropfen, scharfe PLIC-Spannung, physikalische globale Energie-/Impulsbilanz, dynamische Zweiwege-FSI, MARIN/SPHERIC >=6 s H1–H4/P1–P8 Dreigitter-Messabnahme und UE5.8-Native-E2E weiterhin offen.
+- Belege: `docs/P2_VOF_HEIGHT_CAPILLARY_LIVE_PARTIAL.md`, `scripts/p2_vof_height_capillary_live_acceptance.py`, Native-/Build-/Gate-/SHA256-Artefakte unter `ENGINE TEST STUBE/runs/p2_height_capillary_live_*`.
+- **P2 bleibt PARTIAL / ALL_COMPLETE=False.** Kein Phasen-PASS aus der Teilabnahme.

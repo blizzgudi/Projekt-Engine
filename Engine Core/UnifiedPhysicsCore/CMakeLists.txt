@@ -866,3 +866,12 @@ add_executable(upc_p2_vof_height_curvature_tests
 target_link_libraries(upc_p2_vof_height_curvature_tests PRIVATE upc)
 add_test(NAME physics_p2_vof_height_curvature_partial
     COMMAND upc_p2_vof_height_curvature_tests)
+
+# P2 PARTIAL: strict O(N) 3D VOF height curvature -> actual capillary
+# MAC/variable-density PCG and opt-in moving full-tensor/VOF step.
+# No overhang fallback, sharp PLIC, global energy or measured CFD PASS.
+add_executable(upc_p2_vof_height_capillary_live_tests
+    tests/p2_vof_height_capillary_live3d_tests.cpp)
+target_link_libraries(upc_p2_vof_height_capillary_live_tests PRIVATE upc)
+add_test(NAME physics_p2_vof_height_capillary_live_partial
+    COMMAND upc_p2_vof_height_capillary_live_tests)
