@@ -129,7 +129,7 @@
     "8x6x5": 0.08729454547068949
   },
   "source_sha256": {
-    "CMakeLists.txt": "6917f8bd9dc22c1a55a517e3380594ab65ea48cc0dbdc878b677805f427b7374",
+    "CMakeLists.txt": "ba94b4dde00d5c13a40b4d9c287f27220919ba38a40a74abe84ce13fc48734b2",
     "include/upc/p2_two_phase_consistent_momentum3d.hpp": "d43c03e8172f7cd90f336bc7c220b488f019e14a496e43cb63465f506a2ccc52",
     "include/upc/p2_two_phase_momentum_vof3d.hpp": "1b904f364e8fce8b4bba39fbfef0885c6fac011047076f0cb1ec40caec07804a",
     "include/upc/p2_two_phase_mac_momentum_remap3d.hpp": "1d74de7d3565227cf86b98bcad75fe4fd21cb09e5b6c35d95f3b7ba379864fa9",
@@ -144,7 +144,7 @@
     "scripts/phase_gate.py": "01065438e2b72b3fe83e7e3ba3decbf54925c84c5f9424b15ad15a8197f59cd6",
     "docs/P2_TWO_PHASE_CONSISTENT_MOMENTUM_PARTIAL.md": "8e5649829adb29d1828aff90a7e4b86ac891cee8e36bf79ac12ec978a15d928d",
     "docs/P2_DUAL_MAC_REMAP_PARTIAL.md": "090f9b10ed374eec48417291c5a01682c31c90874612cebe3a4c890ae57516b4",
-    "docs/PHASENPLAN.md": "2c8bc065505a5396f971da9f837c55d38f79004b62cff472b89db780d894b1f4"
+    "docs/PHASENPLAN.md": "087479f14572a53a4ff69419bb2cc97cbb7572ff5baeb6f1ebd4ec87ebe3e212"
   },
   "artifact_sha256": {
     "conservative_binary": "e79dce97520b7b688370b00f653df7f533b9d08e0b6bb6cd09343119e7438c7d",
@@ -164,5 +164,5 @@
     "Independent MARIN/SPHERIC H1-H4 P1-P8 6s three-grid measured PASS",
     "New UE5.8 native E2E of the momentum-feedback path"
   ],
-  "generated_utc": "2026-11-02T09:19:13.573127+00:00"
+  "generated_utc": "2026-11-02T09:30:50.705306+00:00"
 }
