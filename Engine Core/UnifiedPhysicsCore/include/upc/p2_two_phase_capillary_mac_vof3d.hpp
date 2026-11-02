@@ -20,6 +20,7 @@ struct P2TwoPhaseCapillaryLedger3D {
     std::size_t height_interface_columns=0;
     int height_normal_axis=-1;
     bool height_curvature_opt_in=false;
+    bool height_neumann_wall_opt_in=false;
     double max_abs_curvature_m_inv=0;
     double interface_curvature_sum_m_inv=0;
     std::size_t interface_curvature_cells=0;
@@ -39,7 +40,8 @@ struct P2TwoPhaseCapillaryLedger3D {
 
 inline P2TwoPhaseCapillaryLedger3D p2_two_phase_capillary_project3d(
     P2TwoPhaseMacVofState3D& state,double sigma_n_m,
-    int max_pcg_iterations=4000,int height_normal_axis=-1) {
+    int max_pcg_iterations=4000,int height_normal_axis=-1,
+    bool height_neumann_wall=false) {
     const auto& m=state.mac;
     const auto nx=m.nx,ny=m.ny,nz=m.nz;
     if(!(std::isfinite(sigma_n_m)&&sigma_n_m>=0)||
@@ -49,8 +51,9 @@ inline P2TwoPhaseCapillaryLedger3D p2_two_phase_capillary_project3d(
        state.water_fraction.size()!=nx*ny*nz||
        m.density_kg_m3.size()!=nx*ny*nz)
         throw std::invalid_argument("Invalid capillary two-phase geometry");
-    if(height_normal_axis < -1 || height_normal_axis > 2)
-        throw std::invalid_argument("Invalid capillary height normal axis");
+    if(height_normal_axis < -1 || height_normal_axis > 2 ||
+       (height_neumann_wall && height_normal_axis<0))
+        throw std::invalid_argument("Invalid capillary height/wall mode");
     const double dx=m.dx_m,dt=m.dt_s,volume=dx*dx*dx;
     if(!(std::isfinite(volume)&&volume>0))
         throw std::invalid_argument("Invalid capillary cell volume");
@@ -110,9 +113,11 @@ inline P2TwoPhaseCapillaryLedger3D p2_two_phase_capillary_project3d(
         // Strict graph-only opt-in: no fallback to the non-convergent
         // diffuse curvature on unsupported overhangs or wall contacts.
         const auto hf=P2VofHeightCurvatureBulk3D::reconstruct(
-            nx,ny,nz,dx,state.water_fraction,height_normal_axis);
+            nx,ny,nz,dx,state.water_fraction,height_normal_axis,
+            height_neumann_wall);
         curvature=hf.cell_curvature_inv_m;
         out.height_curvature_opt_in=true;
+        out.height_neumann_wall_opt_in=height_neumann_wall;
         out.height_normal_axis=height_normal_axis;
         out.height_interface_columns=hf.interface_columns;
     }
@@ -212,14 +217,16 @@ p2_two_phase_capillary_momentum_viscous_vof_step3d(
     std::array<double,3> gravity_m_s2={0,0,0},
     double water_dynamic_viscosity_pa_s=.001,
     double air_dynamic_viscosity_pa_s=.000018,
-    int height_normal_axis=-1){
+    int height_normal_axis=-1,
+    bool height_neumann_wall=false){
     if(!(std::isfinite(sigma_n_m)&&sigma_n_m>=0))
         throw std::invalid_argument("Invalid live capillary tension");
     auto trial=state;
     P2TwoPhaseCapillaryMomentumViscousLedger3D out;
     if(sigma_n_m>0){
         out.capillary=p2_two_phase_capillary_project3d(
-            trial,sigma_n_m,max_pcg_iterations,height_normal_axis);
+            trial,sigma_n_m,max_pcg_iterations,height_normal_axis,
+            height_neumann_wall);
         out.capillary_applied=true;
     }
     out.live=p2_two_phase_momentum_viscous_vof_step3d(

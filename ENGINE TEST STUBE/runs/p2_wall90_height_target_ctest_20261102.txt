@@ -1,0 +1,7 @@
+Test project D:/Projekt Engine/Engine Core/UnifiedPhysicsCore/build
+    Start 150: physics_p2_wall90_height_capillary_partial
+1/1 Test #150: physics_p2_wall90_height_capillary_partial ...   Passed    0.01 sec
+
+100% tests passed, 0 tests failed out of 1
+
+Total Test time (real) =   0.03 sec

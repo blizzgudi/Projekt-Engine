@@ -1,0 +1,115 @@
+{
+  "phase": "P2",
+  "milestone": "static_90_degree_lateral_wall_height_curvature_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "full_P2_accepted": false,
+  "generated_utc": "2026-11-02T14:55:17.049037+00:00",
+  "native": {
+    "grids": {
+      "0:12": {
+        "curvature_inv_m": 0.904900690391371,
+        "analytic_inv_m": 0.92576545924148,
+        "error_inv_m": 0.020864768850109128,
+        "legacy_error_inv_m": 0.26786309619430904
+      },
+      "0:20": {
+        "curvature_inv_m": 0.9395733111899098,
+        "analytic_inv_m": 0.9473261275198992,
+        "error_inv_m": 0.007752816329989476,
+        "legacy_error_inv_m": 0.10231801070274305
+      },
+      "0:32": {
+        "curvature_inv_m": 0.9517026405038772,
+        "analytic_inv_m": 0.9547640882057303,
+        "error_inv_m": 0.003061447701853348,
+        "legacy_error_inv_m": 0.04081174374653729
+      },
+      "1:12": {
+        "curvature_inv_m": 0.904900690391371,
+        "analytic_inv_m": 0.92576545924148,
+        "error_inv_m": 0.020864768850109128,
+        "legacy_error_inv_m": 0.26786309619430904
+      },
+      "1:20": {
+        "curvature_inv_m": 0.9395733111899098,
+        "analytic_inv_m": 0.9473261275198992,
+        "error_inv_m": 0.007752816329989476,
+        "legacy_error_inv_m": 0.10231801070274305
+      },
+      "1:32": {
+        "curvature_inv_m": 0.9517026405038772,
+        "analytic_inv_m": 0.9547640882057303,
+        "error_inv_m": 0.003061447701853348,
+        "legacy_error_inv_m": 0.04081174374653729
+      },
+      "2:12": {
+        "curvature_inv_m": 0.904900690391371,
+        "analytic_inv_m": 0.92576545924148,
+        "error_inv_m": 0.020864768850109128,
+        "legacy_error_inv_m": 0.26786309619430904
+      },
+      "2:20": {
+        "curvature_inv_m": 0.9395733111899098,
+        "analytic_inv_m": 0.9473261275198992,
+        "error_inv_m": 0.007752816329989476,
+        "legacy_error_inv_m": 0.10231801070274305
+      },
+      "2:32": {
+        "curvature_inv_m": 0.9517026405038772,
+        "analytic_inv_m": 0.9547640882057303,
+        "error_inv_m": 0.003061447701853348,
+        "legacy_error_inv_m": 0.04081174374653729
+      }
+    },
+    "project": {
+      "effect_m_s": 7.286769514898732e-08,
+      "divergence_s_inv": 5.768802590570138e-17
+    },
+    "moving": {
+      "divergence_s_inv": 7.02393601181156e-17,
+      "water_mass_residual_kg": 3.410605131648481e-13
+    },
+    "native_assertions": 66
+  },
+  "checks": {
+    "three_axes_three_grid_analytic_wall_curvature": true,
+    "grid_refinement_manufactured_converged": true,
+    "old_boundary_extrapolation_worse": true,
+    "live_variable_density_mac_pcg": true,
+    "moving_3d_vof_mass_and_projection": true,
+    "independent_native_rerun_byte_equal": true,
+    "full_ctest_150_of_150": true,
+    "official_full_P2_gate_still_open": true,
+    "negative_tamper_rejected_10": true
+  },
+  "tamper_rejected": 10,
+  "negative_results": {
+    "initial_no_vcvars_compile_failure_captured": true,
+    "initial_missing_feature_compile_log_persisted": false,
+    "physical_dynamic_contact_angle_validated": false,
+    "surface_tension_grid_convergence_validated": false,
+    "global_fluid_surface_energy_closed": false,
+    "marin_spheric_6s_3grid_measured_pass": false,
+    "bidirectional_fsi_validated": false,
+    "unreal58_native_e2e_of_this_path": false
+  },
+  "native_exe_sha256": "599d67cb7171a138df18b513c6315789bfc7c5653550e19847268f5b039e6cad",
+  "source_sha256": {
+    "CMakeLists.txt": "979ed05dd69756797ab4d9f32feba49d9d5cb5e7aaebbcf45c1563b73a46f034",
+    "include/upc/p2_vof_height_curvature_field3d.hpp": "643541c7e73c3a4b39b2689a267bd84ddd64c0d078f3af18061a1f1643f92e97",
+    "include/upc/p2_two_phase_capillary_mac_vof3d.hpp": "204ab4f102714b68467b5715c7253b9e0b074da6f7948d214567201c65fd6c7a",
+    "tests/p2_wall90_height_capillary3d_tests.cpp": "9d06202a8804a4ce9f04d597bff2ad4f2847220f9969ca701c939a8c17dbf47e",
+    "scripts/p2_wall90_height_build.cmd": "922dcd1fad29a1a7923acd1d76a278b2365d7c945522ebde223cb8c58da15215",
+    "scripts/p2_wall90_full_regression.cmd": "db01dbe74c9ab7bde33e8186ad455f1c7f476f8435781ad553a6d27e869d8cb9",
+    "scripts/p2_wall90_height_acceptance.py": "925d81c28948cbd8b8e1d0f691a22bde94be59fc94f8011547a285fbce6edf4d",
+    "docs/P2_WALL90_HEIGHT_CAPILLARY_PARTIAL.md": "46acc4651c39c04745c5bf4d24a7f632c4c9e2ccb6b1d0fb7ba54a00876b9bea"
+  },
+  "evidence_sha256": {
+    "p2_wall90_initial_expected_failure_20261102.txt": "acdc03156b3d46d72ad5fe1d4533e29a66eb0fad323e1980b2c03ab379f28087",
+    "p2_wall90_height_build_20261102.txt": "b5c371f242973905dfc686f7bd24eae38a5706a885291742524cd56b97f9c652",
+    "p2_wall90_height_native_20261102.txt": "5073961dcf47c74437373756942b2093b19b006a64c4188ec6696191e373c074",
+    "p2_wall90_full_build_20261102.txt": "71aa391ec7d7e291b419a7f40fba91919e14ac2394ab4e8b66ed126e267d70f6",
+    "p2_wall90_full_ctest_20261102.txt": "83f7806e811368550970dcd5533c1ea397c8cae15a1a66577f35b541c10332dc"
+  }
+}

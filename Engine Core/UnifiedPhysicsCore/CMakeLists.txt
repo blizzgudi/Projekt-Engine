@@ -875,3 +875,11 @@ add_executable(upc_p2_vof_height_capillary_live_tests
 target_link_libraries(upc_p2_vof_height_capillary_live_tests PRIVATE upc)
 add_test(NAME physics_p2_vof_height_capillary_live_partial
     COMMAND upc_p2_vof_height_capillary_live_tests)
+
+# P2 PARTIAL: explicit 90-degree contact at tangential closed walls
+# for strict height graphs; independent manufactured curvature and live PCG.
+add_executable(upc_p2_wall90_height_capillary_tests
+    tests/p2_wall90_height_capillary3d_tests.cpp)
+target_link_libraries(upc_p2_wall90_height_capillary_tests PRIVATE upc)
+add_test(NAME physics_p2_wall90_height_capillary_partial
+    COMMAND upc_p2_wall90_height_capillary_tests)
