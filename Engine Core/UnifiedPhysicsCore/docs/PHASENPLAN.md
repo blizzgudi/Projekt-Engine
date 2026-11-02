@@ -2430,3 +2430,28 @@ Hashnachweisen und echten Native-E2E-Tests geschlossen werden.
 - **Negatives physikalisches Ergebnis:** Die bestehende diffuse VOF-Krümmung erzeugt bei exakt denselben Tropfen Restgeschwindigkeiten 5,9607e-7 / 1,0901e-6 / 3,0086e-6 m/s. Die Spurious Currents **steigen** bei Gitterverfeinerung, also **keine** physikalische Konvergenz und **keine** P2-Vollabnahme. Das trennt eine wesentliche Krümmungsfehlerquelle von der nachgewiesenen Druckprojektionsfähigkeit unter analytisch konstanter Krümmung, ohne zu behaupten, die Produktionskrümmung sei repariert.
 - 52 native Assertions, **147/147 CTest PASS**, unabhängiger erneuter Native-EXE-Lauf, SHA256-Quellen-/Artefaktnachweis und 10/10 abgewiesene gefälschte Protokolle. Belege: docs/P2_CAPILLARY_LAPLACE_REFERENCE_PARTIAL.md, scripts/p2_capillary_laplace_reference_acceptance.py und ENGINE TEST STUBE/runs/p2_capillary_laplace_reference_partial.json.
 - **P2 weiterhin PARTIAL / ALL_COMPLETE=False:** Scharfe bewegte Grenzfläche, physikalische Gesamtenergie, bidirektionale FSI, MARIN/SPHERIC-H1–H4/P1–P8-Messkonvergenz >=6 s auf mindestens drei Gittern und UE5.8-Native-E2E der Kette fehlen. Kein künstlicher Phasen-PASS.
+
+
+## P2 Teilfortschritt: 3D-VOF-Höhenfunktions-Krümmung (02.11.2026)
+
+- Neue echte C++17/MSVC-Höhenfunktions-Rekonstruktion für lokal einwertige
+  Wasser-Luft-Freiflächen aus **3D-VOF-Volumenanteilen**, wahlweise
+  entlang x, y oder z. Sie rekonstruiert Höhe, normierte Außennormale
+  und geometrische Krümmung über einen 3x3-Querschnitt. Überhänge,
+  mehrfach geschnittene Spalten und nicht aufgelöste Grenzflächen
+  werden fail-closed abgelehnt.
+- Unabhängige hergestellte Kugelkappen-Referenz (keine echte
+  3D-Volumenintegrations- oder Laborreferenz): 12³/24³/48³ mit
+  Fehler 0,00501217 / 0,00125078 / 0,00031255 1/m gegenüber 2/R;
+  schräg ebene Fläche mit nahezu Nullkrümmung, alle drei Achsen.
+  71 Native-Assertions, 148/148 CTest, unabhängiger Native-Rerun,
+  10/10 manipulierte Protokolle abgewiesen. Belege in
+  `docs/P2_VOF_HEIGHT_CURVATURE_PARTIAL.md`,
+  `scripts/p2_vof_height_curvature_acceptance.py` und
+  `ENGINE TEST STUBE/runs/p2_vof_height_curvature_partial.json`.
+- **P2 weiterhin PARTIAL / ALL_COMPLETE=False.** Die neue Geometrie
+  ist noch nicht in den bewegten Zweiphasen-MAC/VOF-/Kapillar-PCG
+  integriert. Nicht konvergente Tropfen-Spurious-Currents,
+  globale Fluid-/Oberflächenenergie, dynamische Zweiwege-FSI,
+  echte MARIN/SPHERIC-H1–H4/P1–P8-6s-Dreigitter-Messabnahme
+  und UE5.8-Native-E2E dieser Kette bleiben offen.

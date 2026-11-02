@@ -858,3 +858,11 @@ add_executable(upc_p2_capillary_laplace_reference_tests
 target_link_libraries(upc_p2_capillary_laplace_reference_tests PRIVATE upc)
 add_test(NAME physics_p2_capillary_laplace_reference_partial
     COMMAND upc_p2_capillary_laplace_reference_tests)
+
+# P2 PARTIAL: locally single-valued 3D VOF height-function curvature,
+# independent manufactured sphere-cap/oblique-plane geometry, not live CFD.
+add_executable(upc_p2_vof_height_curvature_tests
+    tests/p2_vof_height_curvature3d_tests.cpp)
+target_link_libraries(upc_p2_vof_height_curvature_tests PRIVATE upc)
+add_test(NAME physics_p2_vof_height_curvature_partial
+    COMMAND upc_p2_vof_height_curvature_tests)

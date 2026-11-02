@@ -1,0 +1,115 @@
+{
+  "phase": "P2",
+  "milestone": "native_3d_vof_height_function_geometry_partial",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "full_P2_accepted": false,
+  "manufactured_geometry_verified": true,
+  "moving_mac_vof_coupled": false,
+  "dynamic_two_way_fsi_validated": false,
+  "global_physical_energy_momentum_closed": false,
+  "marin_spheric_6s_3grid_validated": false,
+  "full_native_ctest_count": 148,
+  "native_rerun_identical": true,
+  "negative_qa_mutations_rejected": {
+    "missing_axis": true,
+    "duplicate_grid": true,
+    "fake_phase_pass": true,
+    "wrong_analytic": true,
+    "false_curvature": true,
+    "nonfinite_error": true,
+    "wrong_dx": true,
+    "wrong_plane": true,
+    "fake_assertions": true,
+    "negative_error": true
+  },
+  "metrics": {
+    "grids": {
+      "axis0_n12": {
+        "dx_m": 0.09999999999999999,
+        "curvature_inv_m": 2.005012170259744,
+        "reference_inv_m": 2.0,
+        "abs_error_inv_m": 0.0050121702597438755
+      },
+      "axis0_n24": {
+        "dx_m": 0.049999999999999996,
+        "curvature_inv_m": 2.00125077630185,
+        "reference_inv_m": 2.0,
+        "abs_error_inv_m": 0.0012507763018501095
+      },
+      "axis0_n48": {
+        "dx_m": 0.024999999999999998,
+        "curvature_inv_m": 2.0003125487517015,
+        "reference_inv_m": 2.0,
+        "abs_error_inv_m": 0.0003125487517015024
+      },
+      "axis1_n12": {
+        "dx_m": 0.09999999999999999,
+        "curvature_inv_m": 2.005012170259744,
+        "reference_inv_m": 2.0,
+        "abs_error_inv_m": 0.0050121702597438755
+      },
+      "axis1_n24": {
+        "dx_m": 0.049999999999999996,
+        "curvature_inv_m": 2.00125077630185,
+        "reference_inv_m": 2.0,
+        "abs_error_inv_m": 0.0012507763018501095
+      },
+      "axis1_n48": {
+        "dx_m": 0.024999999999999998,
+        "curvature_inv_m": 2.0003125487517015,
+        "reference_inv_m": 2.0,
+        "abs_error_inv_m": 0.0003125487517015024
+      },
+      "axis2_n12": {
+        "dx_m": 0.09999999999999999,
+        "curvature_inv_m": 2.005012170259744,
+        "reference_inv_m": 2.0,
+        "abs_error_inv_m": 0.0050121702597438755
+      },
+      "axis2_n24": {
+        "dx_m": 0.049999999999999996,
+        "curvature_inv_m": 2.00125077630185,
+        "reference_inv_m": 2.0,
+        "abs_error_inv_m": 0.0012507763018501095
+      },
+      "axis2_n48": {
+        "dx_m": 0.024999999999999998,
+        "curvature_inv_m": 2.0003125487517015,
+        "reference_inv_m": 2.0,
+        "abs_error_inv_m": 0.0003125487517015024
+      }
+    },
+    "planes": {
+      "axis0": -8.689706389987483e-14,
+      "axis1": -8.689706389987483e-14,
+      "axis2": -8.689706389987483e-14
+    },
+    "native_assertions": 71,
+    "manufactured_curvature_converged": true
+  },
+  "source_sha256": {
+    "CMakeLists.txt": "61234b514e1dbfc0bd67db2f1a43d4730f8ac8f2b05243d025c399d0ea57ab1b",
+    "include/upc/p2_vof_height_curvature3d.hpp": "3f092e0913a846d26213c5d377ba3f699bdccc5f443e5a9cc1d05eb771d7648a",
+    "tests/p2_vof_height_curvature3d_tests.cpp": "0741b3a4882f89f5562b18b8ec33e6d305bb8f1c8c0c4500512e91a108cd1b15",
+    "docs/P2_VOF_HEIGHT_CURVATURE_PARTIAL.md": "c40a4266a7fe118ec1beee307785de61bb21a60ff6564b2ec31f2ee90375f4d3",
+    "scripts/p2_vof_height_curvature_acceptance.py": "aaf35a0e8d637607ea9cd1c730faccc9d8e0a2eb80e6392642626d178844c824",
+    "scripts/phase_gate.py": "5cdf24fe269706d89507b1daf120e970384854a11628dfa5978baea6c08affcc"
+  },
+  "binary_sha256": "d8e6f59e022ae05e4fec24cb4f6fdce8bf6a091ff45e732d184ccd4d1a952e25",
+  "artifact_sha256": {
+    "p2_height_curvature_native_20261102.txt": "2e64126085ef67438cd373cf874c153dd49d2fbd4c619d54f97fc181748d1037",
+    "p2_height_curvature_build_20261102.txt": "e58361b03434fbb24ffb52f6a2c137f2ec07e3f1902f74561b67983c92ecacdb",
+    "p2_height_curvature_initial_build_failures_20261102.txt": "a9053128b0e86ece918b6dfcddce6caee06785cf02f37228b7f6e28588dbc5d2",
+    "p2_height_curvature_full_ctest_20261102.txt": "6cb90b05ea916da019ad02e39dba079e35c2384afa8633d2d6108bb20abfdfe5",
+    "unified_physics_gate.json": "98af924d659409fdb5b026c95c5765ad296a8556f15b88e64b7fc1b6c2666f78"
+  },
+  "known_limitations": [
+    "column-wise manufactured alpha, not true curved-cell VOF volume integration",
+    "single-valued monotone height field only; no overhang or detached droplet",
+    "not integrated into moving two-phase capillary stress or pressure projection",
+    "no measured MARIN H1-H4/P1-P8 six-second three-grid validation",
+    "no moving-solid FSI or closed global physical energy/impulse"
+  ],
+  "generated_utc": "2026-11-02T13:33:52.041845+00:00"
+}
