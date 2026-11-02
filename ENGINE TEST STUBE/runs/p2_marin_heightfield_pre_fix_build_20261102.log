@@ -1,0 +1,30 @@
+-- Configuring done (0.1s)
+-- Generating done (0.2s)
+-- Build files have been written to: D:/Projekt Engine/Engine Core/UnifiedPhysicsCore/build
+[1/2] Building CXX object CMakeFiles\upc_p2_marin_heightfield_wall_traction_tests.dir\tests\p2_marin_heightfield_wall_traction3d_tests.cpp.obj
+FAILED: [code=2] CMakeFiles/upc_p2_marin_heightfield_wall_traction_tests.dir/tests/p2_marin_heightfield_wall_traction3d_tests.cpp.obj 
+C:\PROGRA~2\MICROS~2\18\BUILDT~1\VC\Tools\MSVC\1451~1.362\bin\Hostx64\x64\cl.exe  /nologo /TP  -I"D:\Projekt Engine\Engine Core\UnifiedPhysicsCore\include" /DWIN32 /D_WINDOWS /EHsc /O2 /Ob2 /DNDEBUG -std:c++17 -MD /showIncludes /FoCMakeFiles\upc_p2_marin_heightfield_wall_traction_tests.dir\tests\p2_marin_heightfield_wall_traction3d_tests.cpp.obj /FdCMakeFiles\upc_p2_marin_heightfield_wall_traction_tests.dir\ /FS -c "D:\Projekt Engine\Engine Core\UnifiedPhysicsCore\tests\p2_marin_heightfield_wall_traction3d_tests.cpp"
+D:\Projekt Engine\Engine Core\UnifiedPhysicsCore\tests\p2_marin_heightfield_wall_traction3d_tests.cpp(117): error C2039: "audit_heightfield" ist kein Member von "upc::P2MarinBoxWallTraction3D".
+D:\Projekt Engine\Engine Core\UnifiedPhysicsCore\include\upc/p2_marin_box_wall_traction3d.hpp(22): note: Siehe Deklaration von "upc::P2MarinBoxWallTraction3D"
+D:\Projekt Engine\Engine Core\UnifiedPhysicsCore\tests\p2_marin_heightfield_wall_traction3d_tests.cpp(117): error C3861: "audit_heightfield": Bezeichner wurde nicht gefunden.
+D:\Projekt Engine\Engine Core\UnifiedPhysicsCore\tests\p2_marin_heightfield_wall_traction3d_tests.cpp(125): error C2039: "audit_heightfield" ist kein Member von "upc::P2MarinBoxWallTraction3D".
+D:\Projekt Engine\Engine Core\UnifiedPhysicsCore\include\upc/p2_marin_box_wall_traction3d.hpp(22): note: Siehe Deklaration von "upc::P2MarinBoxWallTraction3D"
+D:\Projekt Engine\Engine Core\UnifiedPhysicsCore\tests\p2_marin_heightfield_wall_traction3d_tests.cpp(125): error C3861: "audit_heightfield": Bezeichner wurde nicht gefunden.
+D:\Projekt Engine\Engine Core\UnifiedPhysicsCore\tests\p2_marin_heightfield_wall_traction3d_tests.cpp(138): error C2039: "audit_heightfield" ist kein Member von "upc::P2MarinBoxWallTraction3D".
+D:\Projekt Engine\Engine Core\UnifiedPhysicsCore\include\upc/p2_marin_box_wall_traction3d.hpp(22): note: Siehe Deklaration von "upc::P2MarinBoxWallTraction3D"
+D:\Projekt Engine\Engine Core\UnifiedPhysicsCore\tests\p2_marin_heightfield_wall_traction3d_tests.cpp(138): error C3861: "audit_heightfield": Bezeichner wurde nicht gefunden.
+D:\Projekt Engine\Engine Core\UnifiedPhysicsCore\tests\p2_marin_heightfield_wall_traction3d_tests.cpp(140): error C2143: Syntaxfehler: Es fehlt ";" vor ":"
+D:\Projekt Engine\Engine Core\UnifiedPhysicsCore\tests\p2_marin_heightfield_wall_traction3d_tests.cpp(140): error C2143: Syntaxfehler: Es fehlt ";" vor ")"
+D:\Projekt Engine\Engine Core\UnifiedPhysicsCore\tests\p2_marin_heightfield_wall_traction3d_tests.cpp(142): error C2039: "audit_heightfield" ist kein Member von "upc::P2MarinBoxWallTraction3D".
+D:\Projekt Engine\Engine Core\UnifiedPhysicsCore\include\upc/p2_marin_box_wall_traction3d.hpp(22): note: Siehe Deklaration von "upc::P2MarinBoxWallTraction3D"
+D:\Projekt Engine\Engine Core\UnifiedPhysicsCore\tests\p2_marin_heightfield_wall_traction3d_tests.cpp(142): error C3861: "audit_heightfield": Bezeichner wurde nicht gefunden.
+D:\Projekt Engine\Engine Core\UnifiedPhysicsCore\tests\p2_marin_heightfield_wall_traction3d_tests.cpp(146): error C2039: "audit_heightfield" ist kein Member von "upc::P2MarinBoxWallTraction3D".
+D:\Projekt Engine\Engine Core\UnifiedPhysicsCore\include\upc/p2_marin_box_wall_traction3d.hpp(22): note: Siehe Deklaration von "upc::P2MarinBoxWallTraction3D"
+D:\Projekt Engine\Engine Core\UnifiedPhysicsCore\tests\p2_marin_heightfield_wall_traction3d_tests.cpp(146): error C3861: "audit_heightfield": Bezeichner wurde nicht gefunden.
+D:\Projekt Engine\Engine Core\UnifiedPhysicsCore\tests\p2_marin_heightfield_wall_traction3d_tests.cpp(149): error C2039: "audit_heightfield" ist kein Member von "upc::P2MarinBoxWallTraction3D".
+D:\Projekt Engine\Engine Core\UnifiedPhysicsCore\include\upc/p2_marin_box_wall_traction3d.hpp(22): note: Siehe Deklaration von "upc::P2MarinBoxWallTraction3D"
+D:\Projekt Engine\Engine Core\UnifiedPhysicsCore\tests\p2_marin_heightfield_wall_traction3d_tests.cpp(149): error C3861: "audit_heightfield": Bezeichner wurde nicht gefunden.
+D:\Projekt Engine\Engine Core\UnifiedPhysicsCore\tests\p2_marin_heightfield_wall_traction3d_tests.cpp(152): error C2039: "audit_heightfield" ist kein Member von "upc::P2MarinBoxWallTraction3D".
+D:\Projekt Engine\Engine Core\UnifiedPhysicsCore\include\upc/p2_marin_box_wall_traction3d.hpp(22): note: Siehe Deklaration von "upc::P2MarinBoxWallTraction3D"
+D:\Projekt Engine\Engine Core\UnifiedPhysicsCore\tests\p2_marin_heightfield_wall_traction3d_tests.cpp(152): error C3861: "audit_heightfield": Bezeichner wurde nicht gefunden.
+ninja: build stopped: subcommand failed.

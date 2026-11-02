@@ -42,11 +42,19 @@ private:
     static P2MarinBoxWallTractionResult3D audit_impl(
         std::size_t nx,std::size_t ny,std::size_t nz,double dx,
         const P2Box3D& box,const std::vector<double>& pressure_pa,
-        double free_surface_height_m) {
+        double free_surface_height_m,
+        const std::vector<double>* height_xy=nullptr) {
         const auto geometry=P2MovingBoxOpenVolumes3D::sample(
             nx,ny,nz,dx,1.0,box,box);
         if(pressure_pa.size()!=geometry.alpha_old.size())
             throw std::invalid_argument("MARIN wall traction pressure shape");
+        if(height_xy) {
+            if(height_xy->size()!=nx*ny)
+                throw std::invalid_argument("MARIN waterline field shape");
+            for(const double h:*height_xy)
+                if(!std::isfinite(h)||h<0.0||h>nz*dx)
+                    throw std::invalid_argument("Invalid MARIN column waterline");
+        }
         for(double p:pressure_pa)
             if(!std::isfinite(p))
                 throw std::invalid_argument("Nonfinite MARIN wall pressure");
@@ -70,8 +78,9 @@ private:
         for(int axis=0;axis<3;++axis)
         for(int side:{-1,1}) {
             if(axis==2&&side<0)continue; // dry tank-floor contact
-            if(axis==2&&side>0&&free_surface_height_m<box.max_m[2])
-                continue; // roof is dry until submerged
+            if(axis==2&&side>0&&!height_xy&&
+               free_surface_height_m<box.max_m[2])
+                continue; // uniform roof is dry until submerged
             const double face=side<0?box.min_m[axis]:box.max_m[axis];
             // A cut cell whose centre lies INSIDE the solid must not be
             // mistaken for a liquid-side pressure sample.
@@ -92,14 +101,22 @@ private:
             const int b=(axis+1)%3,c=(axis+2)%3;
             for(std::size_t j=0;j<dims[b];++j)
             for(std::size_t k=0;k<dims[c];++k) {
+                // Adjacent liquid-side column controls each wall tile.
+                const std::size_t hx=axis==0?
+                    static_cast<std::size_t>(near_index):(axis==1?k:j);
+                const std::size_t hy=axis==0?j:(axis==1?
+                    static_cast<std::size_t>(near_index):k);
+                const double local_h=height_xy?
+                    (*height_xy)[hy*nx+hx]:free_surface_height_m;
+                if(axis==2&&side>0&&local_h<box.max_m[2])continue;
                 const double lo_b=std::max(static_cast<double>(j)*dx,box.min_m[b]);
                 double hi_b=std::min((static_cast<double>(j)+1)*dx,box.max_m[b]);
                 const double lo_c=std::max(static_cast<double>(k)*dx,box.min_m[c]);
                 double hi_c=std::min((static_cast<double>(k)+1)*dx,box.max_m[c]);
                 // Clip vertical wall tiles to the prescribed horizontal
                 // free surface BEFORE reconstructing pressure at their centre.
-                if(b==2)hi_b=std::min(hi_b,free_surface_height_m);
-                if(c==2)hi_c=std::min(hi_c,free_surface_height_m);
+                if(b==2)hi_b=std::min(hi_b,local_h);
+                if(c==2)hi_c=std::min(hi_c,local_h);
                 if(hi_b<=lo_b||hi_c<=lo_c)continue;
                 const double area=(hi_b-lo_b)*(hi_c-lo_c);
                 const double mid_b=0.5*(lo_b+hi_b),mid_c=0.5*(lo_c+hi_c);
@@ -168,6 +185,17 @@ public:
            free_surface_height_m>static_cast<double>(nz)*dx)
             throw std::invalid_argument("Invalid MARIN waterline");
         return audit_impl(nx,ny,nz,dx,box,pressure_pa,free_surface_height_m);
+    }
+    // P2 PARTIAL: per-horizontal-column waterline may vary at each time
+    // step. Piecewise-constant in x/y, with liquid-side wall columns.
+    // NOT live VOF interface reconstruction, cut-cell CFD or FSI.
+    static P2MarinBoxWallTractionResult3D audit_heightfield(
+        std::size_t nx,std::size_t ny,std::size_t nz,double dx,
+        const P2Box3D& box,const std::vector<double>& pressure_pa,
+        const std::vector<double>& waterline_xy_m) {
+        return audit_impl(nx,ny,nz,dx,box,pressure_pa,
+                          std::numeric_limits<double>::infinity(),
+                          &waterline_xy_m);
     }
 };
 } // namespace upc

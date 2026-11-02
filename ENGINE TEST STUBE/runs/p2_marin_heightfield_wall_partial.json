@@ -1,0 +1,115 @@
+{
+  "phase": "P2",
+  "milestone": "marin_column_heightfield_wall_traction_partial",
+  "analytic_partial_accepted": true,
+  "phase_complete": false,
+  "live_vof_interface_integrated": false,
+  "production_cut_cell_solver_integrated": false,
+  "dynamic_bidirectional_fsi_validated": false,
+  "measured_six_second_validation": false,
+  "native_ctest_suites": 154,
+  "native_assertions": 69,
+  "independent_native_rerun": true,
+  "independent_exact_rational_reference": true,
+  "negative_forged_traces_rejected": 12,
+  "negative_case_names": [
+    "fake_full_phase",
+    "fake_live_vof",
+    "fake_measurement",
+    "fake_area",
+    "fake_force",
+    "fake_torque",
+    "nan",
+    "wrong_grid",
+    "missing_grid",
+    "duplicate_grid",
+    "few_assertions",
+    "missing_end"
+  ],
+  "grid_cases": [
+    {
+      "nx": 32,
+      "wetted_area_m2": 0.11743999999999999,
+      "force_n": [
+        5.640000000000047,
+        -9.660000000000004,
+        -48.30000000000005
+      ],
+      "torque_nm": [
+        -1.9165800000000086,
+        -0.03222000000000169,
+        -2.769000000000007
+      ]
+    },
+    {
+      "nx": 48,
+      "wetted_area_m2": 0.1294113888888889,
+      "force_n": [
+        -14.599999999999998,
+        19.810000000000024,
+        -32.564166666666665
+      ],
+      "torque_nm": [
+        -2.270456388888891,
+        0.27828118055555495,
+        -0.19215416666666893
+      ]
+    },
+    {
+      "nx": 64,
+      "wetted_area_m2": 0.1396715000000001,
+      "force_n": [
+        8.040000000000013,
+        7.549516567451064e-15,
+        -38.24250000000004
+      ],
+      "torque_nm": [
+        1.6693199999999975,
+        -0.026326874999997918,
+        4.716239999999987
+      ]
+    }
+  ],
+  "historical_experiment_sha256": "199232979781aa02a26ad663515c0d8e7fc02640ef648daf92e4c6a4998c84cb",
+  "historical_fine_height_rmse_m": {
+    "H1_m": 0.09478824764684127,
+    "H2_m": 0.10067389166422015,
+    "H3_m": 0.11796346921125846,
+    "H4_m": 0.13781758848701164
+  },
+  "historical_fine_pressure_rmse_pa": {
+    "P1_Pa": 5870.291160948873,
+    "P2_Pa": 5905.06740103668,
+    "P3_Pa": 5800.374161524103,
+    "P4_Pa": 5822.757638843366,
+    "P5_Pa": 5890.2248148894005,
+    "P6_Pa": 5841.595759137142,
+    "P7_Pa": 5822.623567516189,
+    "P8_Pa": 5914.016484030016
+  },
+  "height_rmse_limit_m": 0.05,
+  "native_binary_sha256": "675b3acb9b9db72168ed8fea94105885d6d2154647a7a91e8a3dc3a3a78b5b16",
+  "native_log_sha256": "b69ca83ee3093297ac06e61516832b831dd651c67dc6bb2d7296dc8508a8975c",
+  "native_build_log_sha256": "ff26762176cf3f3bc4bdf01c2baad435558bd520d3eed42bab71f419c2beebf9",
+  "pre_fix_failed_build_log_sha256": "65efcce905a17b23e9f5a09a6132bcc7297db9ce5377da6a4fb90a0bf0d8492a",
+  "native_ctest_log_sha256": "12758dc262b8d2413135e7624ebd0ea3a02d1bd6fb07d41bbf3bb73f548b336b",
+  "source_sha256": {
+    "CMakeLists.txt": "3c7b889880318ace80a5bd74c801fccad887895a3db27fcf11a38410a3498028",
+    "include/upc/p2_marin_box_wall_traction3d.hpp": "81f04ed2560cd4ee17b4610ce0ce280e8fc7981447835015e113d4694ab47245",
+    "tests/p2_marin_heightfield_wall_traction3d_tests.cpp": "bef8ad02f6f55fabcd3926c856f91fe6922d51c37b54e9e2767287d6101c2a16",
+    "scripts/p2_marin_heightfield_wall_native.cmd": "bd3dfe41aa7cd58bee075400d64aac560254917e340666bd136ffa6119e8d6f9",
+    "scripts/p2_marin_heightfield_wall_audit.py": "9e281b0f7bd09e3c5adf892b9002b98f1f80da93a94d0c4929af2d5b2b00b559",
+    "docs/P2_MARIN_HEIGHTFIELD_WALL_PARTIAL.md": "046723d0e8661272e848fc5bd4f65172e98b367d279242504150d9cf3d8e94b1",
+    "docs/PHASENPLAN.md": "f7f2c23d1b28ef20989fe9cb5c2311486f98c97beca991d8d6d0b4d390c08613",
+    "scripts/phase_gate.py": "5cdf24fe269706d89507b1daf120e970384854a11628dfa5978baea6c08affcc"
+  },
+  "known_negative_results": [
+    "Column heightfield prescribed, not reconstructed from evolving live 3D VOF",
+    "Discontinuous columns only; overhangs, bubbles and real interface stress unresolved",
+    "Wall force/torque diagnostic only; no conservative production cut-cell pressure solve",
+    "No bidirectional moving-body FSI or global physical momentum/energy closure",
+    "Full 6s three-grid MARIN H1-H4 and P1-P8 measured convergence remains FAIL",
+    "No new UE5.8 Native/measurement E2E acceptance"
+  ],
+  "generated_utc": "2026-11-02T21:34:20.268416+00:00"
+}
