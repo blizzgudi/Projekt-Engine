@@ -1,0 +1,7 @@
+SYMMETRIC_MAC Fourier grid=4x4x4 error_m_s=6.9388939039072284e-18 dissipation_w=0.0051624187175183861 energy_residual_j=3.0919821045691287e-18 phase_complete=false
+SYMMETRIC_MAC Fourier grid=6x5x4 error_m_s=6.9388939039072284e-18 dissipation_w=0.005055597093786824 energy_residual_j=-6.3186908998560715e-17 phase_complete=false
+SYMMETRIC_MAC Fourier grid=8x6x5 error_m_s=0 dissipation_w=0.0063059005832439086 energy_residual_j=-1.7472063758827836e-17 phase_complete=false
+SYMMETRIC_MAC hetero_grid=4x4x4 steps=9 max_velocity_delta=5.860988877559592e-08 max_energy_residual_j=2.0229573734045498e-17 max_wall_impulse_residual=1.7198192695253776e-16 phase_complete=false
+SYMMETRIC_MAC hetero_grid=6x5x4 steps=9 max_velocity_delta=3.5916613828901323e-08 max_energy_residual_j=8.8684859126012726e-17 max_wall_impulse_residual=7.8097726815113094e-16 phase_complete=false
+SYMMETRIC_MAC hetero_grid=8x6x5 steps=9 max_velocity_delta=2.6300829243652846e-08 max_energy_residual_j=3.452711323313782e-16 max_wall_impulse_residual=1.7649493437737644e-15 phase_complete=false
+PASS P2_TWO_PHASE_FULL_TENSOR_VISCOUS_MAC assertions=574 phase_complete=false

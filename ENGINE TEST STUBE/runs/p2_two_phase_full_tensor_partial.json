@@ -1,0 +1,137 @@
+{
+  "phase": "P2",
+  "milestone": "real_moving_3D_two_phase_full_tensor_viscosity_PCg",
+  "partial_accepted": true,
+  "phase_complete": false,
+  "physically_sharp_two_phase_stress_validated": false,
+  "global_3D_two_way_FSI_validated": false,
+  "experimental_MARIN_full_6s_three_grid_pass": false,
+  "unreal58_native_E2E_current_full_chain": false,
+  "native_tensor_assertions": 574,
+  "native_moving_two_phase_assertions": 4844,
+  "full_ctest_suites": 143,
+  "synthetic_native_trace_forgery_rejections": [
+    "Fourier_missing_grid",
+    "Fourier_nan_error",
+    "Fourier_fake_energy",
+    "hetero_missing_steps",
+    "tensor_false_full_pass",
+    "tensor_low_assertions",
+    "live_missing_grid",
+    "live_forged_phase_pass",
+    "live_bad_pressure_divergence",
+    "live_fake_mass_loss",
+    "live_no_viscous_effect",
+    "live_energy_mismatch"
+  ],
+  "manufactured_and_heterogeneous_cases": {
+    "fourier": {
+      "4x4x4": {
+        "fourier_error_m_s": 6.938893903907228e-18,
+        "dissipation_w": 0.005162418717518386,
+        "energy_residual_j": 3.0919821045691287e-18
+      },
+      "6x5x4": {
+        "fourier_error_m_s": 6.938893903907228e-18,
+        "dissipation_w": 0.005055597093786824,
+        "energy_residual_j": -6.318690899856072e-17
+      },
+      "8x6x5": {
+        "fourier_error_m_s": 0.0,
+        "dissipation_w": 0.006305900583243909,
+        "energy_residual_j": -1.7472063758827836e-17
+      }
+    },
+    "hetero": {
+      "4x4x4": {
+        "velocity_change_m_s": 5.860988877559592e-08,
+        "energy_residual_j": 2.0229573734045498e-17,
+        "wall_impulse_residual_kg_m_s": 1.7198192695253776e-16
+      },
+      "6x5x4": {
+        "velocity_change_m_s": 3.591661382890132e-08,
+        "energy_residual_j": 8.868485912601273e-17,
+        "wall_impulse_residual_kg_m_s": 7.809772681511309e-16
+      },
+      "8x6x5": {
+        "velocity_change_m_s": 2.6300829243652846e-08,
+        "energy_residual_j": 3.452711323313782e-16,
+        "wall_impulse_residual_kg_m_s": 1.7649493437737644e-15
+      }
+    },
+    "live": {}
+  },
+  "moving_two_phase_cases": {
+    "4x4x4_oblique0": {
+      "vof_cfl": 0.0006401273832475844,
+      "viscous_delta_m_s": 7.682328574606934e-07,
+      "stress_loss_j": 8.145404264189166e-08,
+      "face_vs_inviscid_delta_m_s": 2.592785773799372e-06,
+      "pressure_divergence": 9.992007221626409e-16,
+      "energy_residual_j": 1.2067581249632843e-18,
+      "wall_impulse_residual_kg_m_s": 3.1175047623694524e-17,
+      "phase_mass_residual_kg": 7.105427357601002e-15
+    },
+    "6x5x4_oblique0": {
+      "vof_cfl": 0.0007010915890054098,
+      "viscous_delta_m_s": 7.994738173526528e-07,
+      "stress_loss_j": 1.3743751552195566e-07,
+      "face_vs_inviscid_delta_m_s": 2.3423999867995537e-06,
+      "pressure_divergence": 8.326672684688674e-16,
+      "energy_residual_j": 5.399241513432593e-18,
+      "wall_impulse_residual_kg_m_s": 3.161110018494104e-16,
+      "phase_mass_residual_kg": 9.237055564881302e-14
+    },
+    "6x5x4_oblique1": {
+      "vof_cfl": 0.010256935339663915,
+      "viscous_delta_m_s": 1.5193211973879572e-05,
+      "stress_loss_j": 6.760491218588127e-06,
+      "face_vs_inviscid_delta_m_s": 6.872874602176227e-05,
+      "pressure_divergence": 8.881784197001252e-16,
+      "energy_residual_j": 4.768417632414253e-17,
+      "wall_impulse_residual_kg_m_s": 9.364254163757302e-16,
+      "phase_mass_residual_kg": 7.105427357601002e-14
+    },
+    "8x6x5_oblique1": {
+      "vof_cfl": 0.010102864275420904,
+      "viscous_delta_m_s": 1.4348638964545302e-05,
+      "stress_loss_j": 9.709722796930054e-06,
+      "face_vs_inviscid_delta_m_s": 6.477649930469731e-05,
+      "pressure_divergence": 8.881784197001252e-16,
+      "energy_residual_j": 3.703851297229909e-16,
+      "wall_impulse_residual_kg_m_s": 3.3552245590163718e-15,
+      "phase_mass_residual_kg": 1.9895196601282805e-13
+    }
+  },
+  "source_sha256": {
+    "CMakeLists.txt": "ba94b4dde00d5c13a40b4d9c287f27220919ba38a40a74abe84ce13fc48734b2",
+    "include/upc/p2_two_phase_full_tensor_viscous_mac3d.hpp": "99bcd2ca069b83adffca79015679b6ec97d8d8e2a1898b6bca35e00b97949c8c",
+    "include/upc/p2_two_phase_full_tensor_mac_vof3d.hpp": "5a6eb981b64257620fbe1b0ec576bd0ba72ece685d4bc82ae92b5212f0c3af02",
+    "include/upc/p2_two_phase_mac_vof3d.hpp": "276f28481f8922b433b25aadd5494033af89680f74f973a6f407f3dfeedf39a7",
+    "include/upc/p2_two_phase_mac_pressure3d.hpp": "972c0070448dd3e9d0391999c4ee4b6f779e6b108970f609e93396248abd7ee2",
+    "tests/p2_two_phase_full_tensor_viscous_mac3d_tests.cpp": "5b49b09d3facbd84689690286a129c2bca17b0ff0c97cab08c1761614ed33902",
+    "tests/p2_two_phase_full_tensor_mac_vof3d_tests.cpp": "d68ccedfa8bb645713ba55e600e557df016edd0370a1400552c5afca1c864138",
+    "scripts/p2_two_phase_full_tensor_build.cmd": "94ebe0b3c328babc9f0baa2a1d4482986d57c1d996dcba08d503bc8ec8ea6e76",
+    "scripts/p2_two_phase_full_tensor_acceptance.py": "7513a95664039909ad3286e3101bb4a818e46478ef6128eaa167e7a55ddc51f0",
+    "scripts/phase_gate.py": "01065438e2b72b3fe83e7e3ba3decbf54925c84c5f9424b15ad15a8197f59cd6",
+    "docs/P2_TWO_PHASE_FULL_TENSOR_MAC_VOF_PARTIAL.md": "a7a919306795a98db862d5aab6971850be1ba13802f8bfa1f39b376f079a5949",
+    "docs/PHASENPLAN.md": "08706b2c3df16141ca7d132b3057907495b97d151c2d0877723c34fca5db1337"
+  },
+  "artifact_sha256": {
+    "tensor_native_binary": "a6fd8fb9410206911387922ff4975ce3052d34a0e84a940ea110960c405e77b1",
+    "live_native_binary": "f2625cfd9036eedc3d8e3a168f0e86f82cc71b35ca857201987d8e58df1a8d3d",
+    "tensor_native_log": "031cbe30d3c33bbaf4b773272065e22f9a91acc465fb2147f14d1ab641045767",
+    "live_native_log": "bb9b7d2ec46031d71cb38075994cc9155c04bc8a6b7b7c1807d87de1cf763990",
+    "build_log": "25246805b3f83abb30fed3902a95a2b1b972705815e0dc5dcdc0725512747f6a",
+    "ctest_log": "02b45e7c5758e442f90ff2d2839a98b7369a23efbb1e1ee067f63e617f19d85d",
+    "phase_gate_log": "81c1aeb5f80e7e0c8ab439c351b9eab256694a788538ae1ad32d0f2082f8cccf"
+  },
+  "open_full_phase_acceptance": [
+    "stress-continuous moving sharp water/air PLIC surface and capillary flux",
+    "conservative combined MAC dual-volume momentum advection/viscosity/body force",
+    "actual rotating/deformable rigid 3D dynamic two-way fluid-solid impulse and energy closure",
+    "full >=6-second SPHERIC/MARIN H1-H4 P1-P8 experimental 3-grid PASS",
+    "repeatable UE5.8 native-E2E for the coupled full 3D path"
+  ],
+  "generated_utc": "2026-11-02T09:28:21.285417+00:00"
+}

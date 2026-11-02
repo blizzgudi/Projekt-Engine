@@ -804,3 +804,30 @@ add_executable(upc_p2_two_phase_mac_momentum_remap_tests
 target_link_libraries(upc_p2_two_phase_mac_momentum_remap_tests PRIVATE upc)
 add_test(NAME physics_p2_two_phase_mac_remap_partial
     COMMAND upc_p2_two_phase_mac_momentum_remap_tests)
+# P2 PARTIAL: explicit symmetric viscous stress div(mu*(grad(v)+grad(v)^T))
+# on a real 3D staggered MAC grid, water/air variable viscosity and
+# independently closed stress-work, free-slip-wall impulse and energy.
+# Still uses mixed-cell viscosity and no sharp interfacial stress jump.
+add_executable(upc_p2_two_phase_full_tensor_mac_tests
+    tests/p2_two_phase_full_tensor_viscous_mac3d_tests.cpp)
+target_link_libraries(upc_p2_two_phase_full_tensor_mac_tests PRIVATE upc)
+add_test(NAME physics_p2_two_phase_full_tensor_mac_partial
+    COMMAND upc_p2_two_phase_full_tensor_mac_tests)
+
+# P2 PARTIAL: couple all six MAC strain/stress components to the actual
+# moving variable-density water/air VOF flow plus final pressure PCG.
+# Full NS, sharp PLIC stress, moving FSI and 6s measured MARIN not PASS.
+add_executable(upc_p2_two_phase_full_tensor_live_tests
+    tests/p2_two_phase_full_tensor_mac_vof3d_tests.cpp)
+target_link_libraries(upc_p2_two_phase_full_tensor_live_tests PRIVATE upc)
+add_test(NAME physics_p2_two_phase_full_tensor_live_partial
+    COMMAND upc_p2_two_phase_full_tensor_live_tests)
+# P2 PARTIAL: combine existing conservative cell momentum -> mass-weighted
+# staggered MAC feedback with the genuine six-component full viscous
+# tensor and final variable-density pressure-PCG, all in a real live
+# moving two-phase VOF update. Global sharp-interface FSI remains open.
+add_executable(upc_p2_two_phase_full_tensor_momentum_live_tests
+    tests/p2_two_phase_momentum_viscous_vof3d_tests.cpp)
+target_link_libraries(upc_p2_two_phase_full_tensor_momentum_live_tests PRIVATE upc)
+add_test(NAME physics_p2_two_phase_full_tensor_momentum_live_partial
+    COMMAND upc_p2_two_phase_full_tensor_momentum_live_tests)
